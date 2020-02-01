@@ -1,0 +1,313 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="apue_ls.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="apue ls实现">
+        <meta name="keywords" content="stat,文件和目录操作,ls实现">
+
+        <title>apue ls命令实现 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#unix环境高级编程" class="hidden">UNIX环境高级编程</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/10/18</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="apue-ls命令实现">apue ls命令实现</h1>
+<blockquote>
+<p>C语言操作目录需要使用opendir()和readdir()。此外文件接口函数还有很多，如stat，umask，chmod，chown，link，rename等。这些函数和shell命令有些是一样的，我们可以通过调用这些系统调用来实现一些命令。这里以ls -l的写法为例介绍一些常用的系统调用文件I/O。</p>
+</blockquote>
+<p><img src="../../../images/blog/apue/apue_ls.png" alt="apue_ls.png"></p>
+<h2 id="stat">stat()</h2>
+<p>get file status 获取文件的状态   <code>man 2 stat</code></p>
+<pre><code class="language-c">int stat(const char *restrict path, struct stat *restrict buf); // 成功return 0，失败return -1</code></pre>
+<p><strong>指针作为函数参数只有两种情况，一种是传参(path)，一种是做为结果参数.</strong> 这里的path就是传的路径，stat函数会获取这个路径文件的状态信息，存入buf这个结构体变量里(struct stat*)</p>
+<pre><code class="language-c">struct stat { /* when _DARWIN_FEATURE_64_BIT_INODE is NOT defined */
+  dev_t    st_dev;    /* device inode resides on */
+  ino_t    st_ino;    /* inode&#39;s number */
+  mode_t   st_mode;   /* inode protection mode */
+  nlink_t  st_nlink;  /* number of hard links to the file */
+  uid_t    st_uid;    /* user-id of owner */
+  gid_t    st_gid;    /* group-id of owner */
+  dev_t    st_rdev;   /* device type, for special file inode */
+  struct timespec st_atimespec;  /* time of last access */
+  struct timespec st_mtimespec;  /* time of last data modification */
+  struct timespec st_ctimespec;  /* time of last file status change */
+  off_t    st_size;   /* file size, in bytes */
+  quad_t   st_blocks; /* blocks allocated for file */
+  u_long   st_blksize;/* optimal file sys I/O ops blocksize */
+  u_long   st_flags;  /* user defined flags for file */
+  u_long   st_gen;    /* file generation number */
+};
+struct timespec {  // st_atimespec.tv_sec ==&gt; st_atime; st_mtimespec.tv_sec ==&gt; st_mtime;...
+  time_t tv_sec; // seconds 
+  long tv_nsec; // and nanoseconds 
+};</code></pre>
+<p><strong>需要用到的属性st_mode, st_ino, st_nlink, st_uid, st_pid, st_mtime, st_size</strong></p>
+<h3 id="st_mode">st_mode</h3>
+<p>st_mode 记录了文件类型，文件的权限信息</p>
+<pre><code class="language-sh">kevindeMacBook-Air:~ kevin$ ls -l 1.c
+-rw-r--r--  1 kevin  staff  247 10 19 22:55 1.c</code></pre>
+<h4 id="文件类型">文件类型</h4>
+<p>第一位:&quot;-&quot; 表示文件类型，UNIX下文件就只有以下7种类型</p>
+<pre><code class="language-c">#define S_IFMT   0170000  /* type of file 用于&amp;st_mode值后与如下值对比 */
+#define S_IFIFO  0010000  /* named pipe (fifo) 管道文件&quot;p&quot; */
+#define S_IFCHR  0020000  /* character special 字符设备文件&quot;c&quot; */
+#define S_IFDIR  0040000  /* directory 目录(文件夹)&quot;d&quot; */
+#define S_IFBLK  0060000  /* block special 块设备&quot;b&quot; */
+#define S_IFREG  0100000  /* regular 普通文件&quot;-&quot; */
+#define S_IFLNK  0120000  /* symbolic link 符号链接(快捷方式)文件&quot;l&quot; */
+#define S_IFSOCK 0140000  /* socket 网络套接字文件 &quot;s&quot; */</code></pre>
+<h4 id="文件对应权限">文件对应权限</h4>
+<p>第2-10位&quot;rw-r--r--&quot; 对应三组权限(当前用户权限、当前用户组权限、其它用户权限)</p>
+<pre><code class="language-c">// 三组权限0644 ==&gt; 110100100 ==&gt; rw-r--r--
+// st_mode 类型是mode_t,16位,一般用6个8进制来表示，高两位表示文件类型，第一位最高为1, 16 = 1+5*3</code></pre>
+<h4 id="特殊属性">特殊属性</h4>
+<p>第3位是文件的特殊属性(设置用户ID，设置组ID，暂时用不到), 后3位为文件的三种权限</p>
+<pre><code class="language-c">struct stat buf;
+stat(&quot;1.c&quot;, &amp;buf); // 获取当前目录(~)下文件1.c的信息存入变量buf
+printf(&quot;%lu\n&quot;, sizeof(mode_t)); // 打印mode_t的长度
+printf(&quot;%o\n&quot;, buf.st_mode); // 打印st_mode值
+// 执行结果: 
+// kevindeMacBook-Air:~ kevin$ ./a.out
+// 2
+// 100644
+// kevindeMacBook-Air:~ kevin$
+// 高两位10表示是普通文件&quot;-&quot;，最后3为表示权限644 &quot;rw-r--r--&quot;</code></pre>
+<h3 id="st_nlink-文件硬链接数">st_nlink 文件硬链接数</h3>
+<pre><code class="language-sh">kevindeMacBook-Air:~ kevin$ ls -l 1.c
+-rw-r--r--  1 kevin  staff  247 10 19 22:55 1.c</code></pre>
+<p>文件的硬链接与软链接：</p>
+<ul>
+<li><p>软链接: 创建一个符号链接(软连接，快捷方式) make symbolic link to a file</p>
+<pre><code class="language-c">int symlink(const char *path1, const char *path2);
+// 当用stat获取软件接软件文件时，会获取它指向的文件
+// lstat()可以解决这个bug, new文件的i节点与源文件不同，大小也不同，不受限于文件系统，可用于目录  </code></pre>
+<p>缺点: 当链接文件换了路径，这个符号链接就找不到了</p>
+</li>
+<li><p>硬链接: 为一个已存在的文件创建一个硬链接 make a hard file link, 类似于为文件创建了一个新的名字，两个文件的i节点是一样的，cp出来的则不同，i节点是不一样的</p>
+<pre><code class="language-c">int link(const char *path1, const char *path2); // 两个文件任意更改一个都会影响另一个
+link(&quot;1.c&quot;,&quot;2.c&quot;); // 修改1.c， 2.c的文件同步更新，rm 1.c或unlink 1.c，2.c都不会变</code></pre>
+<p>这个函数不能都目录进行操作. 但系统里面是存在目录硬链接的。当文件的硬连接数为0，系统会删除该文件</p>
+</li>
+</ul>
+<h3 id="文件名">文件名</h3>
+<p>为什么要单独讲文件名，如果我们是通过argv来获取文件名，文件名很好获取，但系统自带的ls，是不会传文件名的，这里就需要用到opendir()和readdir()以及st_ino(i结点号)了。有一个笨的方法来获取一个文件的文件名，就是读取当前目录里的每一个文件，与当前文件的st_ino对比，用stat获取文件的状态不包含文件名，但有i结点号</p>
+<pre><code class="language-c">DIR * opendir(const char *filename); // 打开目录
+struct dirent * readdir(DIR *dirp); // 遍历读取目录文件，包括. 和..
+int closedir(DIR *dirp); // man 5 dir
+struct dirent { /* when _DARWIN_FEATURE_64_BIT_INODE is NOT defined */
+      ino_t      d_fileno;     /* file number of entry */
+      __uint64_t d_seekoff;    /* seek offset (optional, used by servers) */
+      __uint16_t d_reclen;     /* length of this record */
+      __uint16_t d_namlen;     /* length of string in d_name */
+      __uint8_t  d_type;       /* file type, see below */
+      char    d_name[1024];    /* name must be no longer than this */
+};</code></pre>
+<p>示例</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;dirent.h&gt;
+
+int main()
+{
+    struct stat buf;
+    char fn[100] = {0};
+    struct dirent* p;
+    DIR* dirp = opendir(&quot;.&quot;); // 打开当前目录
+
+    stat(&quot;1.txt&quot;, &amp;buf);
+    while (1) {
+        int n = errno;
+        p = readdir(dirp);
+        if (p == NULL &amp;&amp; n != errno) { // 读取目录失败
+            perror(&quot;readdir()&quot;);
+            return;
+        }
+        if (p == NULL) break; // 读取目录完毕
+        if (p-&gt;d_ino == buf.st_ino) {
+            strncpy(fn, p-&gt;d_name, strlen(p-&gt;d_name));
+            break;
+        }
+    }
+    printf(&quot;%s\n&quot;, fn);
+    return 0;
+}
+
+// 执行结果:
+// kevindeMacBook-Air:~ kevin$ ./a.out
+// 1.txt
+// kevindeMacBook-Air:~ kevin$</code></pre>
+<h3 id="其他">其他</h3>
+<ul>
+<li>st_uid用户id</li>
+<li>st_gid用户组id</li>
+<li>st_size文件大小</li>
+<li>st_time文件最后修改时间</li>
+</ul>
+<p>根据uid，gid获取用户名和用户组名</p>
+<pre><code class="language-c">struct passwd * getpwuid(uid_t uid); // struct passwd* t; t-&gt;pw_name 就是用户名
+struct group * getgrgid(gid_t gid); // struct group* t; t-&gt;gr_name 就是用户组名
+// 最后一次修改时间 st_mtime， 是ld类型，可用localtime转为对应的格式  </code></pre>
+<p>示例:</p>
+<pre><code class="language-c"> int main(int argc, char* argv[])
+ {
+    struct stat buf;
+    struct passwd* t1;
+    struct group* t2;
+    struct tm* t;
+
+    stat(&quot;1.c&quot;, &amp;buf); // 获取当前目录(~)下文件1.c的信息存入变量buf
+    t1 = getpwuid(buf.st_uid);
+    t2 = getgrgid(buf.st_gid);
+    t = localtime(&amp;buf.st_mtime);
+
+    printf(&quot;%d &quot;, buf.st_nlink); // 文件硬链接数
+    printf(&quot;%s %s &quot;, t1-&gt;pw_name, t2-&gt;gr_name); // 文件的拥有者及所在用户组
+    printf(&quot;%lld &quot;, buf.st_size); //文件大小
+    printf(&quot;%d %d %d:%d\n&quot;, t-&gt;tm_mon+1, t-&gt;tm_mday, t-&gt;tm_hour, t-&gt;tm_min);
+
+    return 0;
+}  
+// 执行结果:
+// kevindeMacBook-Air:~ kevin$ ./a.out
+// 1 kevin staff 247 10 19 22:55</code></pre>
+<p>上面的例子其实已经包含了ls -a实现方法了，ls只需过滤文件名为.开头的文件</p>
+<p>ls -l 就是ls功能的增强版，只是遍历文件得到文件名后，在获取文件状态，再按照上面的方法获取相应值。</p>
+<p>ls -R的实现也是可以的，递归的方法好实现，但当数据过大时栈满了会溢出。造成段错误! </p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="apue-ls命令实现" style="padding-left:1em">apue ls命令实现<span></li><ul><li><span class="ul-span" data-id="stat" style="padding-left:2em">stat()<span></li><ul><li><span class="ul-span" data-id="st_mode" style="padding-left:3em">st_mode<span></li><ul><li><span class="ul-span" data-id="文件类型" style="padding-left:4em">文件类型<span></li></ul><ul><li><span class="ul-span" data-id="文件对应权限" style="padding-left:4em">文件对应权限<span></li></ul><ul><li><span class="ul-span" data-id="特殊属性" style="padding-left:4em">特殊属性<span></li></ul></ul><ul><li><span class="ul-span" data-id="st_nlink-文件硬链接数" style="padding-left:3em">st_nlink 文件硬链接数<span></li></ul><ul><li><span class="ul-span" data-id="文件名" style="padding-left:3em">文件名<span></li></ul><ul><li><span class="ul-span" data-id="其他" style="padding-left:3em">其他<span></li></ul></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

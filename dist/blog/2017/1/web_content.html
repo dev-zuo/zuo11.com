@@ -1,0 +1,177 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_content.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="seo内容建设">
+        <meta name="keywords" content="zuo11.com优化记录,内容建设,网站内容质量提升经验">
+
+        <title>seo内容建设 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#web" class="hidden">web</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2017/01/17</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="seo内容建设">seo内容建设</h1>
+<blockquote>
+<p>我身边的很多朋友都曾抱怨过百度搜索的内容太杂，没有google搜索的内容质量高。之前感觉没什么，但有了这个站点后，写的内容也会提交给百度。当在百度搜索时，呈现的内容可能就是自己的笔记。如果我都没有用心去记录好内容，那还有什么理由去抱怨搜索引擎。</p>
+</blockquote>
+<p><img src="../../../images/blog/web/web_content_1.png" alt="web_content_1.png"></p>
+<h2 id="初衷">初衷</h2>
+<p>看了百度站长学院的内容建设，才意识到之前自认为不错的博文在搜索引擎面前就是垃圾。没有排版，没有插图，思路混乱等。之前创建这个站点的初衷是用来记录学到的东西，方便日后查看，所以没有考虑太多，只要自己看的懂就行。现在发现自己学到了知识没什么，可贵的是将学到的知识和经验与需要的人分享......我得把笔记记录的更加清晰，希望能帮助更多的后来者，避过我之前走过的坑。虽然自身的水平有限，写的笔记可能有错误，但我会用心去做到最好。好吧，上面的原因都是其次，最主要的原因是为了做知识积累以及提高百度对站点的评价，如果蜘蛛在抓取的时候都觉得站点垃圾，那对seo来说，百害而无一利。为了收录、权重、流量，必须将内容做好。</p>
+<p><img src="../../../images/blog/web/web_content_2.png" alt="web_content_2.png"></p>
+<h2 id="修改记录">修改记录</h2>
+<ol>
+<li>图片大小与压缩，之前主页轮播图片本来截图非常清晰，但在显示的时候由于大小限制，图片有缩放，很模糊，看起来很low，修图还是很重要的。最近才通过Chrome浏览器F12来查看各个模块的大小布局，发现笔记显示的宽度为788px，之后笔记里的图尽量截为788的宽度，如果不够，就设置图片居中，一般不会超过788，以保证图片的清晰度。偶尔可以借助Keynote来画图。图片处理好之后最好进行无损压缩，以加快网页加载速度，之前的ImageAlpha是用来压缩png图像的，后来找了jpg压缩软件JPEGmini，挺好用的。</li>
+</ol>
+<p><img src="../../../images/blog/web/web_content_3.png" alt="web_content_3.png"></p>
+<ol start="2">
+<li>网站图标 favicon.ico，在easyicon.net上找了个字母Z的图片，用的是64*64的，放在了网站的根目录。具体设置可参考张戈的博客: <a href="https://zhangge.net/4344.html">关于网站图标favicon那些事儿</a></li>
+</ol>
+<p><img src="../../../images/blog/web/web_content.ico" alt="web_content.ico"></p>
+<ol start="3">
+<li>修改了图片轮播div大小，切换方式，以前每次想想到轮播都会去无脑搜插件。现在觉得没什么就自己写了个简单的图片轮播，不过是手动切换的，代替了原先的大图，看起来效果还行。详情见我主页的轮播效果，代码可以直接查看主页源码。</li>
+</ol>
+<p><img src="../../../images/blog/web/web_content_4.png" alt="web_content_4.png"></p>
+<ol start="4">
+<li>h1、h2等标签处理，在网上查了查，发现网页的标题最好是h1，一个页面只用一个h1，可以有多个h2。由于各个浏览器可能对h1渲染的方式不一样，首先都要对这些标签初始化，再同一设置大小，具体设置参见: <a href="http://www.divcss5.com/html/h328.shtml">HTML之h1 h2 h3 h4标签知识经验篇</a></li>
+</ol>
+<h2 id="以后">以后</h2>
+<p>之后在写内容时，会先列个简单的提纲，再填充内容，这样逻辑会稍微严谨点。通过最近对站点的修改优化，无意中发现了macOS的一些新功能，非常好用。于是总结了macbook的几个优点。1. 系统有自带的做笔记的工具都很方便；2. 自带数码测色剂应用，看到什么颜色，取一下就知道RGB数据了；3. Keynote画图很好使，界面优美；4. 截图功能非常好使，本站的截图大部分都是shift+command+4截的; 4.QuickTime 有自带的屏幕录制工具，可全屏或选择区域，生成的mov格式视频，可直接修改后缀为mp4，在web里用h5 的video标签就可以显示到网页上；5. 图片预览，选中图片，按空格键可预览。6. 基于unix系统，关于terminal下的开发模拟，再也不用依赖Ubuntu了；7. app资源丰富好用；8. 一般不关机，用完直接盖住，要用再打开；9. 薄，携带方便。总之macbook办公还是非常不错的，千万别买来装windows了，macOS还是非常出色的。</p>
+<p>参考资料:</p>
+<p><a href="http://zhanzhang.baidu.com/college/courseinfo?id=152">百度站长学院 - 内容建设</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="seo内容建设" style="padding-left:1em">seo内容建设<span></li><ul><li><span class="ul-span" data-id="初衷" style="padding-left:2em">初衷<span></li></ul><ul><li><span class="ul-span" data-id="修改记录" style="padding-left:2em">修改记录<span></li></ul><ul><li><span class="ul-span" data-id="以后" style="padding-left:2em">以后<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

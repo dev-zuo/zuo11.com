@@ -1,0 +1,210 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_plist.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS Info.plist与pch文件">
+        <meta name="keywords" content="info.plist文件,ios pch文件, pch文件,plist文件,iOS plist文件">
+
+        <title>iOS Info.plist与pch文件 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/10/24</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios-infoplist与pch文件">iOS Info.plist与pch文件</h1>
+<blockquote>
+<p>plist的全称为property list，是apple的一种属性列表文件，一般用来存储数组或字典类型数据。是iOS中数据持久化的一种方式。info.plist是app的配置文件，里面包含了app名称、版本、启动入口等基本信息。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_plist_1.png" alt="ios_plist_1.png"></p>
+<h2 id="infoplist配置文件">Info.plist配置文件</h2>
+<p>这个文件就是一个字典Dictionary，这里简单介绍下，更多详情移步: <a href="https://my.oschina.net/hmj/blog/104196">iOS中Info.plist文件简介</a></p>
+<p><img src="../../../images/blog/ios/ios_plist_2.png" alt="ios_plist_2.png"></p>
+<ul>
+<li>Bundle name: app图标下显示名称，默认为项目名: $(PRODUCT_NAME)</li>
+<li>Bundle version string, short: 版本信息</li>
+<li>Launch screen interface file base name: 启动界面，如果不指定，界面不能全屏</li>
+<li>Main stroyboard file base name: 主界面    </li>
+<li>Supported interface orientations: 横屏/竖屏</li>
+</ul>
+<h2 id="解析plist文件">解析plist文件</h2>
+<p>根据Info.plist文件获取当前的版本号信息等，获取Info.plist文件字典的方法有两种</p>
+<ol>
+<li>根据Info.plist文件的路径获取字典, 先得获取plist的路径<pre><code class="language-objectivec">NSString* filePath = [[NSBundle mainBundle] pathForResource:@&quot;Info.plist&quot; ofType:nil];
+NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+NSLog(@&quot;%@&quot;, dict);</code></pre>
+</li>
+<li>NSBundle类自带该字典的属性<pre><code class="language-objectivec">NSDictionary* dict2 = [NSBundle mainBundle].infoDictionary;
+NSLog(@&quot;%@&quot;, dict2);
+// 根据key值获取属性
+NSString* version = dict[@&quot;CFBundleShortVersionString&quot;]; // 获取版本号</code></pre>
+</li>
+</ol>
+<h2 id="pch文件">pch文件</h2>
+<p>pch原理: 项目下的所有文件都共用该文件；命名规范: 与工程名一致</p>
+<p>注意事项: </p>
+<ol>
+<li>pch文件需提前编译(prefix) </li>
+<li>需要做一些判断，有c文件，就不导入OC语法</li>
+</ol>
+<p>使用前操作: 设置该文件为提前编译 Precompile prefix Header =&gt; YES; prefix Header 改为pch文件路径，相对于工程</p>
+<p><img src="../../../images/blog/ios/ios_plist_3.png" alt="ios_plist_3.png"></p>
+<p>由于每个OC文件都定义了宏<strong>objectivec</strong>， 如果是C文件，改宏不会被定义，所有内容写在下面的语句之间</p>
+<pre><code class="language-objectivec">#ifdef __objectivec__    
+
+#endif  // __objectivec</code></pre>
+<p>作用: </p>
+<ol>
+<li>存放一些公用宏    #denfie Wid 100</li>
+<li>存放一些公用的头文件 </li>
+<li>自定义输出日志(NSLog), 调试阶段需要打印来调试，而上架时就没必要了，节省资源</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_plist_4.png" alt="ios_plist_4.png"></p>
+<pre><code class="language-objectivec"> #ifdef DEBUG // 调试 DEBUG系统自带宏, 上架可修改,edit scheme,run debug修改为release
+ #define KEVINLog(...) NSLog(__VA_ARGS__);
+ #else // 发布
+ #define KEVINLog(...)
+ #endif
+// 工程里面的打印都使用KEVINLog()就可以了，__VA_ARGS__宏为可变长参数的标识</code></pre>
+<h2 id="xcode5--xcode6">xcode5 ==&gt; xcode6</h2>
+<ul>
+<li>xcode6没有Frameworks文件夹，会自动导入常见的开发框架(Foundation.framework, UIKit.framework等)</li>
+<li>xcode5自带pch文件，为减少编译时间xcode6去掉了自带的pch文件</li>
+<li>xcode6多了launchSreen.xib界面，启动界面</li>
+<li>Supporting Files目录下少了InfoPlist.strings文件</li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios-infoplist与pch文件" style="padding-left:1em">iOS Info.plist与pch文件<span></li><ul><li><span class="ul-span" data-id="infoplist配置文件" style="padding-left:2em">Info.plist配置文件<span></li></ul><ul><li><span class="ul-span" data-id="解析plist文件" style="padding-left:2em">解析plist文件<span></li></ul><ul><li><span class="ul-span" data-id="pch文件" style="padding-left:2em">pch文件<span></li></ul><ul><li><span class="ul-span" data-id="xcode5--xcode6" style="padding-left:2em">xcode5 ==> xcode6<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

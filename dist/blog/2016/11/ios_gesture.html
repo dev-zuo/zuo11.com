@@ -1,0 +1,247 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_gesture.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS 手势UIGestureRecognizer的基础用法">
+        <meta name="keywords" content="iOS UIGestureRecognizer手势识别,iOS手势,UIGesture,ios 手势,ios 手势事件">
+
+        <title>iOS 手势UIGestureRecognizer - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/11/14</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios-手势uigesturerecognizer">iOS 手势UIGestureRecognizer</h1>
+<blockquote>
+<p>监听一个view的触摸事件可以先自定义view，再实现它的touches方法来处理事件。通过touches方法监听view触摸事件必须得自定义view，外界对象无法监听view的触摸对象，且不易区分用户的具体手势行为。这里将介绍手势识别类UIGestureRecognizer，它可以更好的识别触摸事件。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_gesture_1.png" alt="ios_gesture_1.png"></p>
+<h2 id="点按手势">点按手势</h2>
+<p>在storyboard里拖拽一个imageView，用来测试点击事件</p>
+<p><img src="../../../images/blog/ios/ios_gesture_2.png" alt="ios_gesture_2.png"></p>
+<p>当点击图片时，打印点击了。用代理实现只有左半边能点击。</p>
+<p><img src="../../../images/blog/ios/ios_gesture_3.png" alt="ios_gesture_3.png"></p>
+<h2 id="长按手势">长按手势</h2>
+<p>添加一个长按手势识别</p>
+<p><img src="../../../images/blog/ios/ios_gesture_4.png" alt="ios_gesture_4.png"></p>
+<h2 id="轻扫-有方向-默认往右滑">轻扫 (有方向, 默认往右滑)</h2>
+<p><img src="../../../images/blog/ios/ios_gesture_5.png" alt="ios_gesture_5.png"></p>
+<h2 id="主要代码">主要代码</h2>
+<p>ViewController.m</p>
+<pre><code class="language-objectivec">#import &quot;ViewController.h&quot;
+
+@interface ViewController () &lt;UIGestureRecognizerDelegate&gt;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView; // 图形视图
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    _imageView.userInteractionEnabled = YES; // imageView默认
+    UITapGestureRecognizer* t = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    t.delegate = self; // 用代理&lt;UIGestureRecognizerDelegate&gt;方法，可禁止接收touch事件
+    [_imageView addGestureRecognizer:t]; // 点击后抬起的时候触发
+
+    // 长按手势
+    UILongPressGestureRecognizer* t2 = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [_imageView addGestureRecognizer:t2];
+
+    // 滑动手势，默认往右滑
+    UISwipeGestureRecognizer* t3 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipe)];
+    [_imageView addGestureRecognizer:t3];
+
+    // 滑动手势，设置滑动方向
+    UISwipeGestureRecognizer* t4 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe)];
+    t4.direction = UISwipeGestureRecognizerDirectionLeft; // 设置方向为向左滑
+    // UISwipeGestureRecognizerDirectionUp  向上
+    // UISwipeGestureRecognizerDirectionDown 向下
+    [_imageView addGestureRecognizer:t4];
+}
+
+- (void)leftSwipe
+{
+    NSLog(@&quot;向左滑...&quot;);
+}
+
+- (void)rightSwipe
+{
+    NSLog(@&quot;往右滑...&quot;);
+}
+
+- (void)tap
+{
+    NSLog(@&quot;点击了!&quot;);
+}
+
+- (void)longPress:(UILongPressGestureRecognizer *)t2
+{
+    // 长按会调用多次
+    NSLog(@&quot;长按.....&quot;);
+    // 当长按开始的时候做事情, 又要获取t2对象
+    if (t2.state == UIGestureRecognizerStateBegan) {
+        NSLog(@&quot;长按开始...&quot;); // 只调用一次
+    }
+}
+
+// 是否允许接收touch
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    // return NO; // 不允许点击事件
+    // 实现左边可以点，右边不可以点
+    CGPoint curP = [touch locationInView:_imageView];
+    CGFloat maxX = _imageView.frame.size.width*0.5;
+    if (curP.x &lt; maxX) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+@end</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios-手势uigesturerecognizer" style="padding-left:1em">iOS 手势UIGestureRecognizer<span></li><ul><li><span class="ul-span" data-id="点按手势" style="padding-left:2em">点按手势<span></li></ul><ul><li><span class="ul-span" data-id="长按手势" style="padding-left:2em">长按手势<span></li></ul><ul><li><span class="ul-span" data-id="轻扫-有方向-默认往右滑" style="padding-left:2em">轻扫 (有方向, 默认往右滑)<span></li></ul><ul><li><span class="ul-span" data-id="主要代码" style="padding-left:2em">主要代码<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

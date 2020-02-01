@@ -1,0 +1,295 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_startup.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS程序启动过程">
+        <meta name="keywords" content="iOS程序启动过程,UIApplication,AppDelegate,iOS main函数执行过程">
+
+        <title>iOS程序启动过程，从main函数开始UIApplication与AppDelegate - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/10/25</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios程序启动过程，从main函数开始uiapplication与appdelegate">iOS程序启动过程，从main函数开始UIApplication与AppDelegate</h1>
+<blockquote>
+<p>想弄清楚一段程序，就需要了解程序的执行过程。一般程序都是从main函数开始执行，iOS app也不例外。iOS程序main函数里执行了UIApplicationMain()函数，这个函数会创建UIApplication对象及代理AppDelegate，并开启事件循环，显示UI.</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_startup_1.png" alt="ios_startup_1.png"></p>
+<h2 id="uiapplication">UIApplication</h2>
+<p>UIApplication对象是app的象征，每一个app都有自己的UIApplication对象，而且是唯一的(单例)。</p>
+<p>单例: 整个app只能new一次该对象，再次new会出错, iOS程序启动时，创建的第一个对象就是UIApplication.</p>
+<pre><code class="language-objectivec">UIApplication* app = [[UIApplication alloc] init]; // 系统已自动创建了该对象，再次new会抛出异常
+// Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason:  
+// &#39;There can only be one UIApplication instance.&#39;</code></pre>
+<p>获取该单例对象</p>
+<pre><code class="language-objectivec">UIApplication* app= [UIApplication sharedApplication]; //获取UIApplication对象</code></pre>
+<p>创建一个类模拟系统单例的实现</p>
+<ul>
+<li>不能外界调用alloc，一调用就抛出异常</li>
+<li>提供一个方法给外界获取单例   shareXxx</li>
+<li>内部创建一次单例</li>
+</ul>
+<p>创建一个Person对象</p>
+<p>Person.h</p>
+<pre><code class="language-objectivec">#import &lt;Foundation/Foundation.h&gt;
+
+@interface Person : NSObject
+
+// 获取单例
++ (instancetype)sharePerson;
+
+@end</code></pre>
+<p>Person.m  </p>
+<pre><code class="language-objectivec">#import &quot;Person.h&quot;
+
+@implementation Person
+
+// 程序启动时候创建对象
+
+// 静态变量
+static Person *_instance = nil;
+
+// 作用: 加载类
+// 什么时候调用: 每次程序一启动，就会把所有的类加载进内存
++ (void)load  // 启动时间早于main函数
+{
+    NSLog(@&quot;%s&quot;, __func__);
+    _instance = [[self alloc] init]; // 创建对象
+}
+
++ (instancetype)sharePerson  // 获取单列对象
+{
+    return _instance;
+}
+
++ (instancetype) alloc
+{
+    // super -&gt; NSObject 才知道怎么分配内存，调用系统默认的做法,当重写一个方法的时候，如不想覆盖原来的实现
+    // 就调用super
+    if (_instance) { // 如果有值，说明已分配了内存，非第一次调用
+        // 抛出异常
+        // Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, 
+        // reason: &#39;There can only be one UIApplication instance.&#39;
+        // name 异常名称 、  reson 原因  、  userInfo 异常信息
+        NSException* excp = [NSException exceptionWithName:@&quot;NSInternalInconsistencyException&quot; 
+                            reason:@&quot;There can only be one Person  instance.&quot; userInfo:nil];
+        [excp raise];
+    }
+    return [super alloc];
+}
+
+@end</code></pre>
+<h2 id="uiapplication作用">UIApplication作用</h2>
+<p>先获取该对象</p>
+<pre><code class="language-objectivec">UIApplication* app = [UIApplication sharedApplication];</code></pre>
+<h3 id="设置app图标的提醒数字">设置app图标的提醒数字</h3>
+<pre><code class="language-objectivec">app.applicationIconBadgeNumber = 5; // iOS8之后需注册用户通知
+/* set to 0 to hide. default is 0. In iOS 8.0 and later, your application must register 
+    for user notifications using -[UIApplication registerUserNotificationSettings:] before
+    being able to set the icon badge. */
+UIUserNotificationSettings* setting = [UIUserNotificationSettings
+        settingsForTypes:UIUserNotificationTypeBadge categories:nil]; //创建通知对象
+    [app registerUserNotificationSettings:setting]; // 注册用户通知</code></pre>
+<h3 id="设置状态栏联网提示">设置状态栏联网提示</h3>
+<pre><code class="language-objectivec">[app setNetworkActivityIndicatorVisible:YES];
+// 或者 
+app.networkActivityIndicatorVisible = YES;</code></pre>
+<h3 id="设置状态栏-隐藏">设置状态栏, 隐藏</h3>
+<pre><code class="language-objectivec">//状态栏默认是交给UIViewController控制器管理，但控制器可能多个，可交给UIApplication管理
+//设置Info.plist文件  add key: View controller-based status bar appearance ==&gt; No
+app.statusBarHidden = YES;
+
+// 如果没有设置，只能使用View controller的方法
+- (BOOL)prefersStatusBarHidden  // 隐藏状态栏
+{
+  return YES;
+}</code></pre>
+<p><img src="../../../images/blog/ios/ios_startup_2_2.png" alt="ios_startup_2_2.png"></p>
+<h3 id="打电话，发短信，发邮件，打开网页">打电话，发短信，发邮件，打开网页</h3>
+<pre><code class="language-objectivec">// URL 路径  URL: 协议头://资源路径, 根据协议头判断用什么软件打开  tel电话  mailto右键, sms 短信
+NSURL* url = [NSURL URLWithString:@&quot;http://zuo11.com&quot;];
+NSURL* url2 = [NSURL URLWithString:@&quot;tel://13566612138&quot;];  // 需要真机调试
+NSURL* url3 = [NSURL URLWithString:@&quot;sms://18826012138&quot;]; // 需要真机调试
+NSURL* url4 = [NSURL URLWithString:@&quot;mailto:916707888@qq.com&quot;]; // 需要真机调试
+[app openURL:url4];</code></pre>
+<h2 id="uiapplication与delegate">UIApplication与delegate</h2>
+<p>在app受到干扰时，会产生一些系统事件，这时UIApplication会通知它的delegate，让delegate代理处理这些系统事件。delegate可处理的事件包括：</p>
+<ul>
+<li>应用程序的生命周期事件(如程序的启动和关闭)</li>
+<li>系统事件 (如来电)</li>
+<li>内存警告
+...</li>
+</ul>
+<pre><code class="language-objectivec">// 当程序运行后，依次执行
+didFinishLaunchingWithOptions // app启动完成时
+applicationDidBecomeActive // app完全获取焦点,当app完全获取到焦点，才能与用户交互
+// 按下Home键，执行   // 需保存一些资源
+applicationWillResignActive // 当app即将失去焦点时
+applicationDidEnterBackground // 当app完全进入后台的时候
+// 再次进入app时
+applicationWillEnterForeground // 当app即将进入前台的方法
+applicationDidBecomeActive // app完全获取焦点
+// app即将完全退出时执行
+applicationWillTerminate</code></pre>
+<h2 id="ios程序启动过程">iOS程序启动过程</h2>
+<pre><code class="language-objectivec">int main(int argc, char * argv[]) {
+    @autoreleasepool {
+        // 第3个参数 The name of the UIApplication class or subclass. If you specify nil, 
+            UIApplication is assumed.   // nil == @&quot;UIApplication&quot;
+        //  NSStringFromClass([UIApplication class])
+        // 第4个参数 UIApplication的代理名称 @&quot;AppDelegate&quot;;
+
+        //NSStringFromClass: 把类名转化为字符串, 1.有提示功能 2.避免出错
+        // NSStringFromClass([AppDelegate class]);
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
+// main之前会将所有的类加载到内存，会先执行类的 +(void)load;
+// UIApplicationMain底层实现
+// 1.根据principalClassName 传递的类名创建一个UIApplication对象
+// 2.创建UIApplication代理对象, 给UIApplication对象设置代理
+// 3.开启主运行事件循环，开始处理事件, 保持代码一直执行
+// 4.加载Info.plist，判断是否指定main,如指定了，就去加载</code></pre>
+<p>UIApplicationMain</p>
+<p>This function is called in the  entry point to create the application object and the application delegate and set up the event cycle.</p>
+<p>This function instantiates the application object from the principal class and instantiates the delegate (if any) from the given class and sets the delegate for the application. It also sets up the main event loop, including the application’s run loop, and begins processing events. If the application’s  file specifies a main nib file to be loaded, by including the  key and a valid nib file name for the value, this function loads that nib file.</p>
+<p><img src="../../../images/blog/ios/ios_startup_2.png" alt="ios_startup_2.png"></p>
+<h2 id="the-main-run-loop">The Main Run loop</h2>
+<p><img src="../../../images/blog/ios/ios_startup_3.png" alt="ios_startup_3.png"></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios程序启动过程，从main函数开始uiapplication与appdelegate" style="padding-left:1em">iOS程序启动过程，从main函数开始UIApplication与AppDelegate<span></li><ul><li><span class="ul-span" data-id="uiapplication" style="padding-left:2em">UIApplication<span></li></ul><ul><li><span class="ul-span" data-id="uiapplication作用" style="padding-left:2em">UIApplication作用<span></li><ul><li><span class="ul-span" data-id="设置app图标的提醒数字" style="padding-left:3em">设置app图标的提醒数字<span></li></ul><ul><li><span class="ul-span" data-id="设置状态栏联网提示" style="padding-left:3em">设置状态栏联网提示<span></li></ul><ul><li><span class="ul-span" data-id="设置状态栏-隐藏" style="padding-left:3em">设置状态栏, 隐藏<span></li></ul><ul><li><span class="ul-span" data-id="打电话，发短信，发邮件，打开网页" style="padding-left:3em">打电话，发短信，发邮件，打开网页<span></li></ul></ul><ul><li><span class="ul-span" data-id="uiapplication与delegate" style="padding-left:2em">UIApplication与delegate<span></li></ul><ul><li><span class="ul-span" data-id="ios程序启动过程" style="padding-left:2em">iOS程序启动过程<span></li></ul><ul><li><span class="ul-span" data-id="the-main-run-loop" style="padding-left:2em">The Main Run loop<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

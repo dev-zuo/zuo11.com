@@ -1,0 +1,183 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_tomcat.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="Tomcat将多个域名解析到服务器的不同目录">
+        <meta name="keywords" content="将不同的域名解析到不同的目录,Tomcat设置将多个域名解析到同一个服务器的不同目录,tomcat配置二级域名的访问目录,tomcat如何设置二级域名的访问目录">
+
+        <title>Tomcat将多个域名解析到服务器的不同目录 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#web" class="hidden">web</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2017/02/08</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="tomcat将多个域名解析到服务器的不同目录">Tomcat将多个域名解析到服务器的不同目录</h1>
+<blockquote>
+<p>昨天好基友买了个域名limiaolei.com，并解析到了我的服务器。然后访问他的域名就进入了我的网站，于是就想怎么让同一ip上的两个域名访问不同的内容。由于不知道具体的方法，我用的搜索词都不怎么准确，找了好久才找到解决方法。就是配置Tomcat，当访问limiaolei.com时，指定为其它目录。</p>
+</blockquote>
+<p><img src="../../../images/blog/web/web_tomcat_1.png" alt="web_tomcat_1.png"></p>
+<h2 id="将多个域名解析到不同的工程目录">将多个域名解析到不同的工程目录</h2>
+<p>打开tomcat安装目录下的conf文件夹里的server.xml文件，找到Engine标签下的Host便签，在下面添加相应域名的目录配置，默认情况下，网站访问的是webapps目录下ROOT工程。Host标签的name属性可以配置域名，appBase属性可以配置该域名对应的目录。我这里将limiaolei.com的域名解析到了webapps2的目录，新建一个webapps2目录，将工程目录改为ROOT，放到这个目录，就可以访问对应的index了。</p>
+<p><img src="../../../images/blog/web/web_tomcat_2.png" alt="web_tomcat_2.png"></p>
+<h2 id="具体操作">具体操作</h2>
+<p>在系统默认的<code>Host</code>标签的结束标签<code>Host</code>下面一行添加设置。默认Host的主机将localhost自动解析到webapps，如果没有额外添加对域名的解析处理，默认会访问webapps目录下的ROOT工程。</p>
+<pre><code class="language-xml">// &lt;/Host&gt;下添加的内容，这里需要设置两个
+&lt;Host name=&quot;www.limiaolei.com&quot;  appBase=&quot;webapps2&quot;
+            unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+&lt;/Host&gt;
+&lt;Host name=&quot;limiaolei.com&quot;  appBase=&quot;webapps2&quot;
+            unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+&lt;/Host&gt;
+
+// 扩展，你也可以设置对应的二级域名,或其他域名，解析到不同的工程目录
+&lt;Host name=&quot;m.zuo11.com&quot;  appBase=&quot;webapps3&quot;
+            unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+&lt;/Host&gt;</code></pre>
+<p>访问效果: </p>
+<p><img src="../../../images/blog/web/web_tomcat_3.png" alt="web_tomcat_3.png"></p>
+<h2 id="拓展问题">拓展问题</h2>
+<ol>
+<li><p>将局域网电脑用做服务器，网上的教程一般都是要设置路由器，需要将外网的ip映射到局域网内用作服服务器的电脑。我的外网ip和路由器的wan口ip分配的不一致，可能是宽带运营商设置了什么，基本无解。</p>
+</li>
+<li><p>https的ssl证书也分种类，有可以给多个不同域名使用的，不知道阿里云的行不，现在limiaolei.com访问时会有证书错误的提示，我的域名配置解析多了ssl的一个解析，等他的域名开始用时，可能要想办法解决这个问题。</p>
+</li>
+<li><p>备案问题，域名如果解析到的是阿里云的服务器，且该域名没有备案，阿里云会自动将主页重定向到提示备案页面，如果以https开头来访问可避开重定向。备案需要服务号，一个阿里云ECS最多可以有5个备案服务号，也就是最多支持5个一级域名的备案。</p>
+</li>
+</ol>
+<p><img src="../../../images/blog/web/web_tomcat_4.png" alt="web_tomcat_4.png"></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="tomcat将多个域名解析到服务器的不同目录" style="padding-left:1em">Tomcat将多个域名解析到服务器的不同目录<span></li><ul><li><span class="ul-span" data-id="将多个域名解析到不同的工程目录" style="padding-left:2em">将多个域名解析到不同的工程目录<span></li></ul><ul><li><span class="ul-span" data-id="具体操作" style="padding-left:2em">具体操作<span></li></ul><ul><li><span class="ul-span" data-id="拓展问题" style="padding-left:2em">拓展问题<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

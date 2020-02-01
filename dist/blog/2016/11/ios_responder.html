@@ -1,0 +1,275 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_responder.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS UIResponder响应者对象，iOS中的事件">
+        <meta name="keywords" content="UIResponder响应者对象,UITouch对象,触摸事件,iOS中的事件,hitTest应用">
+
+        <title>iOS UIResponder响应者对象，iOS中的事件 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/11/14</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios-uiresponder响应者对象，ios中的事件">iOS UIResponder响应者对象，iOS中的事件</h1>
+<p>在使用app的过程中，会产生各种各样的事件，iOS中的事件可以分为3大类型:触摸事件、加速计事件、远程控制事件。不是任何对象都能处理事件，只有继承了UIResponder的对象，才能接收并处理事件。这些对象被称为</p>
+<p><img src="../../../images/blog/ios/ios_responder_1.png" alt="ios_responder_1.png"></p>
+<h2 id="响应者对象">响应者对象</h2>
+<p>UIApplication/UIViewController/UIView都继承自UIResponder，他们都能接收并处理事件。先来看看触摸事件，当用户一根手指触摸时，会创建一个与手指关联的UITouch对象，一根手指对应一个UITouch对象。它保持着手指相关信息，如触摸的位置、时间。当手指移动时，系统会更新同一个UITouch对象，使之能够一直保持该手指在的触摸位置。当手指离开屏幕时，系统会销毁相应的UITouch对象。</p>
+<p>这里我们在storyboard里拖拽一个UIView，背景设置为红色。修改类为自定义类RedView，在RedView.m文件里，监听该view的移动，用transform设置该view根据手指的移动而移动    </p>
+<p><img src="../../../images/blog/ios/ios_responder_2.png" alt="ios_responder_2.png"></p>
+<pre><code class="language-objectivec">#import &quot;RedView.h&quot;
+
+@implementation RedView
+
+- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@&quot;开始触摸......&quot;);
+}
+
+- (void)touchesEnded:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@&quot;停止触摸......&quot;);
+}
+
+- (void)touchesMoved:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@&quot;移动中......&quot;);
+    // 实现该视图随着鼠标的移动而移动
+    UITouch* touch = [touches anyObject]; // 获取touches中的任意一对象
+    CGPoint curP = [touch locationInView:self]; // 当前位置
+    CGPoint preP = [touch previousLocationInView:self]; // 之前位置
+    CGFloat offsetX = curP.x - preP.x; // x偏移
+    CGFloat offsetY = curP.y - preP.y; // y偏移
+
+    self.transform = CGAffineTransformTranslate(self.transform, offsetX, offsetY);
+}
+
+- (void)touchesCancelled:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@&quot;%s&quot;, __func__);
+}
+
+@end</code></pre>
+<h2 id="事件的产生和传递">事件的产生和传递</h2>
+<p>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中，UIApplication会从事件队列中找出最前面的事件，将事件分发下去处理，通常先发送给主窗口(keyWindow)主窗口会一层层传递，找到最合适的视图来处理触摸事件</p>
+<p><img src="../../../images/blog/ios/ios_responder_3.png" alt="ios_responder_3.png"></p>
+<h2 id="uiview不接收触摸事件的3种情况">UIView不接收触摸事件的3种情况</h2>
+<ol>
+<li>不接收用户交互，userInteractionEnabled = NO;</li>
+<li>隐藏 hidden = YES;</li>
+<li>透明 alpha = 0.0 ~ 0.01</li>
+</ol>
+<p>UIImageView的userInteractionEnabled默认就是NO，因此UIImageView及其子控件默认不接收触摸事件根据事件的传递规, 父控件如果不接收触摸事件，其子控件的触摸事件也会失效</p>
+<h2 id="hittest方法-寻找最合适的view">hitTest方法: 寻找最合适的view</h2>
+<p>hitTest的底层实现：判断下自己能否接收事件，判断点在不在当前控件上，遍历自己的子控件，如果没有比自己合适的子控件，最合适的view就是自己。</p>
+<pre><code class="language-objectivec">- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent*)event</code></pre>
+<p>只要一个事件传递给一个控件，就会调用这个控件的hitTest，返回谁，谁就是最合适的view。在这个方法里return self，就是指定自己处理该事件。</p>
+<p>判断下点(point)是不是在当前控件上，重写如果返回NO，则该视图不接收处理事件。</p>
+<pre><code class="language-objectivec">- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent*)event {
+    return NO;
+}</code></pre>
+<p>练习1: 橘色的view在覆盖了button，当点击重合的button区域时，穿透橘色view，让button响应。这里第一层级为UIWidow --&gt; button按钮 --&gt; OriView(橙色视图)，当点击橙色视图和button重合的地方时，默认最佳的响应者为橙色视图，这里我们判断如果点击的位置刚好在和按钮重合的位置上时，就放弃响应，给button去响应。在OriView.m文件中建立btn IBOutlet属性，对应button。</p>
+<p><img src="../../../images/blog/ios/ios_responder_4.png" alt="ios_responder_4.png"></p>
+<pre><code class="language-objectivec">#import &quot;OriView.h&quot;
+
+@interface OriView ()
+
+@property (nonatomic,weak) IBOutlet UIButton* btn;
+
+@end
+
+@implementation OriView
+
+- (UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    // 判断点在不在按钮上
+    // 转换坐标系
+    // point的点事相对于橙色视图的，而我们要判断点是否在btn上，要将坐标转换为btn上的坐标
+    CGPoint btnP = [self convertPoint:point toView:self.btn];
+    NSLog(@&quot;转换后: %lf, %lf&quot;, btnP.x, btnP.y); // 打印后就明显的看出差距了
+    NSLog(@&quot;转换前: %lf,%lf&quot;, point.x, point.y);
+    // 获取按钮
+    if ([self.btn pointInside:btnP withEvent:event]) {
+        // 点在按钮上，事件传递 按钮 --&gt; 挡住按钮的橙色视图，返回nil，就给上一级处理
+        return nil;
+    } else {
+        return [super hitTest:point withEvent:event];
+    }
+}
+
+@end</code></pre>
+<p>练习2: 子控件超出父控件范围后的点击事件，点击弹出对话框: 为button添加一个子控件，点击控件图片改变，子控件超出父控件范围，点击该弹窗时，不能触发button的点击事件。</p>
+<p><img src="../../../images/blog/ios/ios_responder_5.png" alt="ios_responder_5.png"></p>
+<pre><code class="language-objectivec">// 点击按钮后执行弹窗
+- (IBAction)alertChatView:(popButton*)sender {
+    UIImage* img1 = [UIImage imageNamed:@&quot;对话框&quot;];
+    UIImage* img2 = [UIImage imageNamed:@&quot;小孩&quot;];
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setBackgroundImage:img1 forState:UIControlStateNormal];
+    [button setBackgroundImage:img2 forState:UIControlStateHighlighted];
+    [button sizeToFit];
+
+    sender.button = button; // popButton类.h文件中的属性，用来判断点是否在对话框视图上
+
+    // 让子视图超出父控件范围
+    NSLog(@&quot;%@&quot;, button); // frame(0,0,200,202)
+    CGSize oriSize = button.bounds.size;
+    button.center = CGPointMake(oriSize.width*0.5, -oriSize.height*0.5);
+    NSLog(@&quot;%@&quot;, button); // frame(0,-202,200,202);
+
+    [sender addSubview:button];
+}</code></pre>
+<p>我们给点我弹窗对话框这个按钮专门制定一个类popButton，用来处理hitTest，代码:</p>
+<pre><code class="language-objectivec">- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    // 坐标系转换
+    CGPoint curP = [self convertPoint:point toView:self.button];
+
+    // 判断点击是否在对话框视图上，在就让他响应
+    if ([self.button pointInside:curP withEvent:event]) {
+        return self.button;
+    } else {
+        return [super hitTest:point withEvent:event];
+    }
+
+}</code></pre>
+<h2 id="事件响应方法">事件响应方法</h2>
+<p>将事件event根据响应者链条向上传递，将事件交给上一个响应者处理</p>
+<p><img src="../../../images/blog/ios/ios_responder_6.png" alt="ios_responder_6.png"></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios-uiresponder响应者对象，ios中的事件" style="padding-left:1em">iOS UIResponder响应者对象，iOS中的事件<span></li><ul><li><span class="ul-span" data-id="响应者对象" style="padding-left:2em">响应者对象<span></li></ul><ul><li><span class="ul-span" data-id="事件的产生和传递" style="padding-left:2em">事件的产生和传递<span></li></ul><ul><li><span class="ul-span" data-id="uiview不接收触摸事件的3种情况" style="padding-left:2em">UIView不接收触摸事件的3种情况<span></li></ul><ul><li><span class="ul-span" data-id="hittest方法-寻找最合适的view" style="padding-left:2em">hitTest方法: 寻找最合适的view<span></li></ul><ul><li><span class="ul-span" data-id="事件响应方法" style="padding-left:2em">事件响应方法<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

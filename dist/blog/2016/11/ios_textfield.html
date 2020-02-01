@@ -1,0 +1,435 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_textfield.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS 自定义UITextField">
+        <meta name="keywords" content="封装UITextField类,iOS封装国旗键盘,iOS UIPickerView,自定义UITextField,修改iOS键盘的输入,自定义UITextField的输入视图">
+
+        <title>iOS 自定义UITextField类(国旗、生日、城市键盘) - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/11/08</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios-自定义uitextfield类国旗、生日、城市键盘">iOS 自定义UITextField类(国旗、生日、城市键盘)</h1>
+<blockquote>
+<p>前面介绍了PickerView的简单用法，这里用PickerView和DatePicker来自定义UITextField类，让输入框的inputView不再是键盘，而是选择器。接下来会介绍三种基于选择器的封装键盘类: 国旗键盘、日期键盘、城市键盘。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_textfield_1.png" alt="ios_textfield_1.png"></p>
+<h2 id="封装国旗键盘">封装国旗键盘</h2>
+<p>为什么要封装? 如果不封装为一个类，从storyboard将UITextField拖拽到对应的ViewController进行相关设置。代码会很混乱，且可移植性差。如果封装为一个UITextField类以后，只要设置UITextField的类为该封装类就可以调用国旗键盘，非常方便。这里我们创建一个UITextfield的子类FlagField，用来封装国旗键盘。默认的UITextField只要获取焦点就弹出一个键盘，可以用self.inputView方法指定弹出的view，只要是UIView都行。这里我们会将它的inputView设置为PickerView，国旗键盘只有一列，每一行都是label+ImageView，用xib来表示。效果如下:</p>
+<p><img src="../../../images/blog/ios/ios_textfield_2.png" alt="ios_textfield_2.png"></p>
+<h3 id="在什么时候修改inputview">在什么时候修改inputView</h3>
+<p>也就是将默认弹出的键盘修改为UIpickView，当UITextField从storyboard或xib加载时，会调用- (void)awakeFromNib方法，重写该方法初始化</p>
+<p><img src="../../../images/blog/ios/ios_textfield_3.png" alt="ios_textfield_3.png"></p>
+<h3 id="实现uipickerviewdatasource-uipickerviewdelegate相关方法">实现&lt;UIPickerViewDataSource, UIPickerViewDelegate&gt;相关方法</h3>
+<ol>
+<li>准备数据(从资源文件导入，里面存放了国家，与对应的国旗)，将资源文件加载到数组，建立相关模型，这里没有用kvc将字典直接转为对象，后面会使用。</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_textfield_4.png" alt="ios_textfield_4.png"></p>
+<ol start="2">
+<li>设置每行的UIView, 自定义UIView类FlagView，创建时勾选创建xib。高度100，宽度375: 225+150，只是在4.7寸上模拟，没有加界面约束。</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_textfield_5.png" alt="ios_textfield_5.png"></p>
+<p><img src="../../../images/blog/ios/ios_textfield_6.png" alt="ios_textfield_6.png"></p>
+<ol start="3">
+<li>设置pickerView的数据源和代理，数据加载</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_textfield_7.png" alt="ios_textfield_7.png"></p>
+<ol start="4">
+<li>扩展：KVC, dict -&gt; model，上面的数据转模型的时候可以只用字典初始化数据。</li>
+</ol>
+<pre><code class="language-objectivec">- (NSArray*)flags
+{
+    if (_flags == nil) {
+        _flags = [[NSMutableArray alloc] init];
+        // 1.拿到filePath
+        NSString* filePath = [[NSBundle mainBundle] pathForResource:@&quot;flags.plist&quot; ofType:nil];
+        // 2.根据filePath创建JSON数据
+        NSArray* dictArr = [NSArray arrayWithContentsOfFile:filePath];
+        // 3.dict -&gt; model
+        for (NSDictionary* dict in dictArr) {
+            id obj = [Flag flagWithDict:dict];
+            [_flags addObject:obj];
+        }
+    }
+    return _flags;
+}</code></pre>
+<p>Flag.h</p>
+<pre><code class="language-objectivec">#import &lt;Foundation/Foundation.h&gt;
+#import &lt;UIKit/UIKit.h&gt;
+
+@interface Flag : NSObject
+
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) UIImage* icon;
+
++ (instancetype)flagWithDict:(NSDictionary *)dict;
+
+@end</code></pre>
+<p>Flag.m</p>
+<pre><code class="language-objectivec">#import &quot;Flag.h&quot;
+
+@implementation Flag
+
++ (instancetype)flagWithDict:(NSDictionary *)dict
+{
+    Flag* flag = [[self alloc] init];
+
+    // kvc
+    //[flag setValuesForKeysWithDictionary:dict]; 
+    [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        // kvc
+        [flag setValue:obj forKey:key];
+    }];
+    return flag;
+}
+
+// [flag setValue:@&quot;agt.gif&quot; forKey:@&quot;icon&quot;];
+- (void)setIcon:(NSString *)icon
+{
+    _icon = [UIImage imageNamed:[NSString stringWithFormat:@&quot;guoqi/%@&quot;, icon]];
+}
+@end</code></pre>
+<h2 id="封装日期键盘">封装日期键盘</h2>
+<p>与上面相比，日期键盘就简单多了，不用考虑什么协议，代理数据源。稍微不同的地方</p>
+<pre><code class="language-objectivec">- (void)setUp
+{
+    _datePicker = [[UIDatePicker alloc] init];
+    _datePicker.datePickerMode = UIDatePickerModeDate; // 模式显示
+    _datePicker.locale = [NSLocale localeWithLocaleIdentifier:@&quot;zh&quot;]; // 设置为中文
+    // 添加控制器，监听选泽
+    [_datePicker addTarget:self action:@selector(dateChange) forControlEvents:UIControlEventValueChanged];
+    self.inputView = _datePicker;
+}
+
+// UIDatePicker选中时调用
+- (void)dateChange
+{
+    //NSLog(@&quot;%s&quot;, __func__);
+    NSLog(@&quot;%@&quot;, _datePicker.date);
+    // 创建一个日期格式字符串对象
+    NSDateFormatter* fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @&quot;yyyy-MM-dd&quot;;
+    self.text = [fmt stringFromDate:_datePicker.date];
+}
+
+// 初始化文本
+- (void)initialWithText
+{
+   [self dateChange];
+}</code></pre>
+<h2 id="封装城市键盘">封装城市键盘</h2>
+<p>这里有一个二级联动需要注意，其它差不多，要养成写注释的习惯，不然思维容易混乱。这里行列设置有点晕。</p>
+<p>CityFeild.m</p>
+<pre><code class="language-objectivec">#import &quot;CityField.h&quot;
+#import &quot;City.h&quot;
+
+@interface CityField () &lt;UIPickerViewDataSource, UIPickerViewDelegate&gt;
+
+@property (nonatomic, strong)UIPickerView* pickView;
+@property (nonatomic, strong)NSMutableArray* citys;
+@property (nonatomic, assign)NSInteger currentRow;
+@property (nonatomic, assign)BOOL isInitial;
+
+@end
+
+@implementation CityField
+
+- (void)awakeFromNib
+{
+    [self setUp];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        [self setUp];
+    }
+    return self;
+}
+
+- (NSMutableArray*)citys
+{
+    if (_citys == nil) {
+        _citys = [[NSMutableArray alloc] init];
+        NSString* filePath = [[NSBundle mainBundle] pathForResource:@&quot;provinces.plist&quot; ofType:nil];
+        NSArray* dictArr = [NSArray arrayWithContentsOfFile:filePath];
+        for (id dict in dictArr) {
+            id obj = [City cityWithDict:dict];
+            [_citys addObject:obj];
+        }
+    }
+    return _citys;
+}
+
+- (void)setUp
+{
+    self.pickView = [[UIPickerView alloc] init];
+    self.pickView.delegate = self;
+    self.pickView.dataSource = self;
+    //NSLog(@&quot;%@&quot;, self.citys);
+
+    self.inputView = _pickView;
+}
+
+#pragma mark - UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 2;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (component == 0) // 省份
+        return self.citys.count;
+    else {
+        City* tempCity = self.citys[_currentRow];
+        return tempCity.cities.count;
+    }
+}
+
+#pragma mark - UIPickerViewDelegate
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if (component == 0) { // 省会名称
+        City* tempCity = self.citys[row];
+        return tempCity.name;
+    } else { // 省会下的城市
+        City* c = self.citys[_currentRow];
+        return c.cities[row];
+    }
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if (component == 0) { // 滚动省份
+        _currentRow = row; // 记录省份
+        // 刷新第一列的城市
+        [pickerView reloadComponent:1]; // 刷新第一列,重新选择第1列第0行默认选中
+        [pickerView selectRow:0 inComponent:1 animated:YES];
+    }
+
+    City* c = self.citys[_currentRow];
+    // 获取第0列选中的省会
+    NSString* province = c.name;
+    // 获取第1列选中的城市
+    NSInteger row1 = [pickerView selectedRowInComponent:1];
+    NSString* city1 = c.cities[row1];
+
+    self.text = [NSString stringWithFormat:@&quot;%@-%@&quot;, province, city1];
+}
+
+// 初始化文本
+- (void)initialWithText
+{
+    if (_isInitial == NO) {
+        [self pickerView:self.pickView didSelectRow:0 inComponent:0];
+        _isInitial = YES;
+    }
+}
+
+@end</code></pre>
+<p>City.h</p>
+<pre><code class="language-objectivec">#import &lt;Foundation/Foundation.h&gt;
+#import &lt;UIKit/UIKit.h&gt;
+
+@interface City : NSObject
+
+@property (nonatomic, strong)NSString* name;
+@property (nonatomic, strong)NSArray* cities;
+
++ (instancetype)cityWithDict:(NSDictionary*)dict;
+
+@end</code></pre>
+<p>City.m</p>
+<pre><code class="language-objectivec">#import &quot;City.h&quot;
+
+@implementation City
+
++ (instancetype)cityWithDict:(NSDictionary *)dict
+{
+    City* city = [[self alloc] init];
+
+    //kvc
+    [city setValuesForKeysWithDictionary:dict];
+
+    return city;
+}
+
+@end</code></pre>
+<h2 id="综合设置初始值，监听过滤输入">综合(设置初始值，监听过滤输入)</h2>
+<p>ViewController.m</p>
+<pre><code class="language-objectivec">#import &quot;ViewController.h&quot;
+#import &quot;FlagFeild.h&quot;
+#import &quot;BirthdayFeild.h&quot;
+#import &quot;CityField.h&quot;
+
+@interface ViewController () &lt;UITextFieldDelegate&gt;
+
+@property (weak, nonatomic) IBOutlet FlagFeild *flagFeild;
+@property (weak, nonatomic) IBOutlet BirthdayFeild *birthdayFeild;
+@property (weak, nonatomic) IBOutlet CityField *cityFeild;
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _flagFeild.delegate = self;
+    _birthdayFeild.delegate = self;
+    _cityFeild.delegate = self;
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+// 是否允许用户输入文字，拦截用户输入, 每次输入都会询问代理，是否允许更改文本框内容
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return NO;
+}
+
+@end</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios-自定义uitextfield类国旗、生日、城市键盘" style="padding-left:1em">iOS 自定义UITextField类(国旗、生日、城市键盘)<span></li><ul><li><span class="ul-span" data-id="封装国旗键盘" style="padding-left:2em">封装国旗键盘<span></li><ul><li><span class="ul-span" data-id="在什么时候修改inputview" style="padding-left:3em">在什么时候修改inputView<span></li></ul><ul><li><span class="ul-span" data-id="实现<uipickerviewdatasource-uipickerviewdelegate相关方法" style="padding-left:3em">实现<UIPickerViewDataSource, UIPickerViewDelegate>相关方法<span></li></ul></ul><ul><li><span class="ul-span" data-id="封装日期键盘" style="padding-left:2em">封装日期键盘<span></li></ul><ul><li><span class="ul-span" data-id="封装城市键盘" style="padding-left:2em">封装城市键盘<span></li></ul><ul><li><span class="ul-span" data-id="综合设置初始值，监听过滤输入" style="padding-left:2em">综合(设置初始值，监听过滤输入)<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

@@ -1,0 +1,225 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_richtext.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="富文本编辑器使用execCommand插入图片不生效的问题">
+        <meta name="keywords" content="富文本编辑器使用execCommand插入图片不生效的问题,execCommand插入图片不生效">
+
+        <title>富文本编辑器使用execCommand插入图片不生效的问题 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#web" class="hidden">web</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2018/10/02</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="富文本编辑器使用execcommand插入图片不生效的问题">富文本编辑器使用execCommand插入图片不生效的问题</h1>
+<blockquote>
+<p>最近打算实现一个评论系统，评论如果只能回复文字就太low了，于是就打算自己做一个简单的富文本编辑器。</p>
+</blockquote>
+<h2 id="思路">思路</h2>
+<ul>
+<li>一般回复内容，我第一个想到的是textarea，做完回复文字的功能后，想着如果插入图片貌似不可行。</li>
+<li>百度了下富文本编辑器的实现，发现一般常规的做法是依靠contentEditable属性，让div成为可编辑元素。然后用execCommand命令来实现一些交互。后来在翻js高程3的时候发现在第14章表单脚本里面也有富文本编辑的介绍，也是用的同样的方法，就仔细看了下。</li>
+<li>确定方法后，就是实现了，于是有了如下图的demo</li>
+</ul>
+<p><img src="../../../images/blog/web/web_richtext_1.png" alt="image"></p>
+<ul>
+<li><p>搜索了一些人的demo后发现触发表情、斜体、粗体等操作一般用的是a或button元素，我用img元素发现document.execCommand执行的是否总是返回false操作不成功，后来就按照网上的方法用了，有时可以，就是又不行。我就很郁闷了，浏览器肯定是支持的，执行的命令也是正确的，难道document.execCommand对触发的标签有要求？网上搜了下没有答案。</p>
+</li>
+<li><p>于是我想着直接向div可编辑元素插入子元素的方式，可以是可以，但发现不能插入到编辑光标所在的位置，这种方式还是不行，还是必须用execCommand</p>
+<pre><code class="language-js">// 在可编辑的富文本里插入图片
+var img = `&lt;img src=&#39;http://img.baidu.com/hi/tsj/t_0002.gif&#39;&gt;`;
+document.getElementsByClassName(&quot;editor&quot;)[0].insertAdjacentHTML(&quot;beforeend&quot;, img)</code></pre>
+</li>
+<li><p>记得之前在使用css的calc功能是总是不成功，后来隔了好久才在某个地方看到使用calc(100% - 10px) 时，运算符中间必须有空格，而我习惯css是不加的calc(100%-10px) 这才恍然大悟。这里肯定也有某些类似的注意事项，于是我就写了个最简单的demo，如下: </p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+  &lt;style&gt;
+      #editor {
+          width:300px;
+          height:300px;
+          border:1px solid #ccc;
+      }
+      img {
+          width:35px;
+          height:35px;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;editor&quot; contenteditable=&quot;true&quot;&gt;&lt;/div&gt;
+  &lt;img id=&quot;img&quot; src=&quot;http://img.baidu.com/hi/tsj/t_0002.gif&quot;&gt;
+  &lt;script&gt;
+      var img = document.getElementById(&quot;img&quot;);
+      // 点击img图片在div里插入一张图片
+      img.onclick = function (e) {
+          var value1 = document.execCommand(&#39;insertImage&#39;, false, &#39;http://img.baidu.com/hi/tsj/t_0002.gif&#39;);
+          console.log(value1)
+      }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</li>
+<li><p>然后我发现了一个问题，当div没有焦点时，点击img是不行的，只有当焦点在可编辑的div上使用这个命令才会生效。回过头来再看我的代码，也就知道为什么其他富文本编辑器菜单都用a或button元素了。这两个元素，不会让编辑中的div失去焦点。如果表情按钮为img，点击后弹出可选的表情，此时可编辑的div失去焦点，调用execCommand就会无效，返回false。而我之前的demo里面，a元素的中间有地方有空白位置，点击后相当于点击了div。找到原因后，就知道要用a元素将表情的点击区域铺满了。</p>
+</li>
+<li><p>可选的标签里面用到了 display:inline-block，发现系统还算生成了一些空白区域，百度下，也找到了去空格的方法，详情参见如下链接: 
+<a href="https://blog.csdn.net/gladys_1111/article/details/77279985">inline-block布局产生间隙的原因及解决办法（水平、垂直）</a></p>
+<pre><code class="language-css">/* display:inline-block 父元素加上如下样式，可去掉系统自带的间隙 */
+#face {
+  font-size: 0;
+  letter-spacing: -3px;
+}</code></pre>
+</li>
+<li><p>自此富文本编辑器插入表情及更改斜等功能算是没什么问题了，:smiley: 下一步就是考虑插入图片，图片上传的问题。</p>
+</li>
+</ul>
+<hr>
+<p>2018/10/03 更新</p>
+<p>今天把插入表情的逻辑完善了下，发现当第一次进入，评论框还没聚焦，如果用户直接点标签按钮，发送表情，结果肯定是不成功的，于是觉得还是有必要在执行execCommand时如果没有聚焦就来个focus</p>
+<pre><code class="language-js">var result = document.execCommand(&#39;insertImage&#39;, false, res.filePath);
+// 如果执行失败，手动focus
+if (!result) {
+    // 获得焦点，防止可编辑div无焦点时，无效的问题，这种情况，光标位置不准确，每次都是开头位置
+   document.getElementsByClassName(&quot;editor&quot;)[0].focus();
+   document.execCommand(&#39;insertImage&#39;, false, res.filePath);
+}</code></pre>
+<p>网上找了篇可以获取光标位置的函数，但发现兼容性貌似不怎么好，暂时保持这样。
+有一遍文章还不错，收藏了以后研究 <a href="https://segmentfault.com/a/1190000005869372">html元素contenteditable属性如何定位光标和设置光标</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="富文本编辑器使用execcommand插入图片不生效的问题" style="padding-left:1em">富文本编辑器使用execCommand插入图片不生效的问题<span></li><ul><li><span class="ul-span" data-id="思路" style="padding-left:2em">思路<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

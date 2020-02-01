@@ -1,0 +1,173 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_https.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="http转https">
+        <meta name="keywords" content="免费SSL,阿里云DV SSL使用实例,http转https,80端口转443端口,tomcat配置https">
+
+        <title>http转https - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#web" class="hidden">web</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2017/01/10</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="http转https">http转https</h1>
+<blockquote>
+<p>在玩微信小程序的时候发现网络请求必须是https开头的，但我的数据都在我的web服务器上，只是简单的http，于是就在网上找ssl证书，发现居然有免费1年的SSL，还是阿里云的，果断申请使用。顺便将web的数据打包为json做了一个接口。</p>
+</blockquote>
+<p><img src="../../../images/blog/web/web_https_1.png" alt="web_https_1.png"></p>
+<h2 id="阿里云ssl">阿里云SSL:</h2>
+<p>阿里云一年免费DV SSL申请    </p>
+<p><img src="../../../images/blog/web/web_https_2.png" alt="web_https_2.png"></p>
+<h2 id="tomcat配置https">Tomcat配置https</h2>
+<p>tomcat默认是8080的端口，由于http访问时默认是80端口，就将tomcat配置为了80端口。需要知道的是https在访问的时候默认访问443端口，需要进行相关设置，阿里云有相关教程，但有些细节不一样,我的配置如下:</p>
+<p>tomcat目录下conf/server.xml   <code>service</code> tag下添加如下配置:</p>
+<p><img src="../../../images/blog/web/web_https_3.png" alt="web_https_3.png"></p>
+<p>这样设置后重启tomcat，不出什么意外，https就可以访问了。这里虽然可以访问https了，但默认访问的还是http，如果想要访问http自动跳转到https需要做如下处理：</p>
+<ol>
+<li>80端口redirctPort设置为443</li>
+</ol>
+<p><img src="../../../images/blog/web/web_https_4.png" alt="web_https_4.png"></p>
+<ol start="2">
+<li>在conf/web.xml下加上如下代码, 这样访问<a href="http://zuo11.com">http://zuo11.com</a> 会自动跳转到<a href="https://zuo11.com">https://zuo11.com</a></li>
+</ol>
+<p><img src="../../../images/blog/web/web_https_5.png" alt="web_https_5.png"></p>
+<p>参考:</p>
+<p><a href="https://yundun.console.aliyun.com/?spm=5176.2020520163.1002.d10cas.UB7mOZ&amp;p=cas#/cas/download/213995662290985">阿里云SSL下载，配置说明文档</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html">SSL/TLS协议运行机制的概述</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="http转https" style="padding-left:1em">http转https<span></li><ul><li><span class="ul-span" data-id="阿里云ssl" style="padding-left:2em">阿里云SSL:<span></li></ul><ul><li><span class="ul-span" data-id="tomcat配置https" style="padding-left:2em">Tomcat配置https<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

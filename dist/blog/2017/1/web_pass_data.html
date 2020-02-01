@@ -1,0 +1,390 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_pass_data.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS页面之间传值 - Segue、通知、代理">
+        <meta name="keywords" content="页面之间传值 iOS,iOS页面之间传值,iOS用通知传值,Segue传值,iOS代理传值">
+
+        <title>iOS页面之间传值 - Segue、通知、代理 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2017/01/26</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios页面之间传值---segue、通知、代理">iOS页面之间传值 - Segue、通知、代理</h1>
+<blockquote>
+<p>之前做通讯录的时候用的是navigation以代码的方式push跳转，tableView的传值只是用了控制器.h文件的一个变量。这里用拖线的方式跳转，通过添加和修改联系人练习segue、通知及代理传值。</p>
+</blockquote>
+<p><img src="../../../images/blog/web/ios_pass_value_1.png" alt="ios_pass_value_1.png"></p>
+<h2 id="界面拖拽">界面拖拽</h2>
+<p>打开storyboard，删除系统给的viewController，拖拽一个Navigation Controller。将导航控制器设置为Initial View Controller。在talbeView里设置里设置导航标题，拖拽一个UIBarButtonItem做添加按钮。拖拽两个viewController用来做修改和新增联系人界面。再分别选中添加按钮，tableView cell按controller键拖拽对应添加联系人控制器view，修改联系人控制器view，选择show。根据代码来看，show也是向导航栈添加了子控制器。新建3个类ContactsViewController、AddViewController、EditViewController分别对应tableView控制器，添加界面，修改界面。这里两个viewController视图里点击修改导航条的内容是不行的，需要在对应控制器view的属性里设置title。</p>
+<h2 id="tableview数据相关">TableView数据相关</h2>
+<ol>
+<li>数据方面，由于只是练习页面之间传值，所以直接用一个模型数组，不做数据持久化。用了一个Contact类</li>
+</ol>
+<p><img src="../../../images/blog/web/ios_pass_value_2.png" alt="ios_pass_value_2.png"></p>
+<p><img src="../../../images/blog/web/ios_pass_value_3.png" alt="ios_pass_value_3.png"></p>
+<ol start="2">
+<li>数据源</li>
+</ol>
+<p><img src="../../../images/blog/web/ios_pass_value_4.png" alt="ios_pass_value_4.png"></p>
+<h2 id="新增联系人传值---逆传">新增联系人传值 - 逆传</h2>
+<h3 id="用通知notification传值">用通知Notification传值</h3>
+<p>如果上面的UI拖拽没有问题，那点击添加会跳转到添加界面，输入姓名和电话点击添加，我们就用这个添加动作函数来处理传值。关于通知传值还可参考：<a href="http://blog.sina.com.cn/s/blog_6317728d0102v779.html">iOS通知传值的使用</a></p>
+<p><img src="../../../images/blog/web/ios_pass_value_5.png" alt="ios_pass_value_5.png"></p>
+<ul>
+<li>通讯录界面监听通知，及处理</li>
+</ul>
+<p><img src="../../../images/blog/web/ios_pass_value_6.png" alt="ios_pass_value_6.png"></p>
+<ul>
+<li>注销通知，为什么要注销，详情可参考: <a href="http://www.cocoachina.com/ios/20151214/14596.html">尽量不要在viewWillDisappear方法中移除通知</a></li>
+</ul>
+<p><img src="../../../images/blog/web/ios_pass_value_7.png" alt="ios_pass_value_7.png"></p>
+<h3 id="用代理传值">用代理传值</h3>
+<p>在AddViewController里添加一个代理属性delegate，遵守协议AddViewControllerDelegate，在sugue跳转或pop跳转到下一个页面时，设置AddViewController的delegate为self，实现对应的方法用来处理数据。关于传值可以参见: <a href="http://www.jianshu.com/p/b5c5a8199b9b">iOS界面传值总结 - 简书</a></p>
+<ol>
+<li>先新建一个协议，弄一个遵守该协议的delegate属性，到时将delegate设置为tableView控制器</li>
+</ol>
+<p><img src="../../../images/blog/web/ios_pass_value_8.png" alt="ios_pass_value_8.png"></p>
+<ol start="2">
+<li>在添加按钮按下处理函数， 通知通讯录tableView控制器接收数据</li>
+</ol>
+<p><img src="../../../images/blog/web/ios_pass_value_9.png" alt="ios_pass_value_9.png"></p>
+<ol start="3">
+<li>tableView遵守协议，segue里设置代理，处理值</li>
+</ol>
+<p><img src="../../../images/blog/web/ios_pass_value_10.png" alt="ios_pass_value_10.png"></p>
+<p><img src="../../../images/blog/web/ios_pass_value_11.png" alt="ios_pass_value_11.png"></p>
+<p><img src="../../../images/blog/web/ios_pass_value_12.png" alt="ios_pass_value_12.png"></p>
+<h2 id="修改联系人传值---顺传">修改联系人传值 - 顺传</h2>
+<p>点击tableView的cell时跳转到修改页面，需要将数据对象传到下一个页面。由于segue跳转之前会执行函数-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id) sender，这里可以用segue获取目的控制器view对象。我们在目的控制器view的.h文件里声明一个模型对象。在此时对这个模型对象赋值就可以了，修改完成后都不用再逆传回去了，用的都是数据源里的那个对象，需要注意的只是修改按钮完成赋值后，需通知tableView刷新数据。这里要发送一个通知，到时监听收到此通知后，[self.tableView reloadData]就可以了。</p>
+<h3 id="准备跳转前的传值">准备跳转前的传值</h3>
+<p><img src="../../../images/blog/web/ios_pass_value_13.png" alt="ios_pass_value_13.png"></p>
+<h3 id="接收到值的处理">接收到值的处理</h3>
+<p><img src="../../../images/blog/web/ios_pass_value_14.png" alt="ios_pass_value_14.png"></p>
+<h2 id="主要代码不含代理传值代码">主要代码(不含代理传值代码)</h2>
+<p>ContactsViewController.m</p>
+<pre><code class="language-objectivec">#import &quot;ContactsViewController.h&quot;
+#import &quot;Contact.h&quot;
+#import &quot;AddViewController.h&quot;
+#import &quot;EditViewController.h&quot;
+
+@interface ContactsViewController ()
+
+@property (strong, nonatomic)NSMutableArray* contactsArr; //通讯录数组
+
+@end
+
+@implementation ContactsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // 接收通知，修改联系人，提示刷新数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTable) name:@&quot;updateTable&quot; object:nil];
+
+    // 接收通知, 添加联系人，用userInfo传回数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addContact:) name:@&quot;addMessage&quot; object:nil];
+
+}
+
+// 接收到通知后的函数处理
+- (void)addContact:(NSNotification*) text
+{
+    Contact* temp = text.userInfo[@&quot;contact&quot;]; // 获取数据
+    if (!_contactsArr) {
+        _contactsArr = [[NSMutableArray alloc] init];
+    }
+    [self.contactsArr addObject:temp];
+    // NSLog(@&quot;%@,%@&quot;,temp.name,temp.cellPhone);
+    [self.tableView reloadData];
+}
+
+- (void)updateTable
+{
+    [self.tableView reloadData];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+// 通讯录数组NSMutableArray* contactsArr; get方法
+- (NSMutableArray*)contantsArr
+{
+    if (!_contactsArr) {
+        _contactsArr = [[NSMutableArray alloc] init];
+    }
+    return _contactsArr;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.contactsArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* identifier = @&quot;cell&quot;;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    }
+
+    Contact* c = self.contactsArr[indexPath.row];
+    cell.textLabel.text = c.name;
+    cell.detailTextLabel.text = c.cellPhone;
+    cell.imageView.image = [UIImage imageNamed:@&quot;火影&quot;];
+
+    return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString* distVc = NSStringFromClass([segue.destinationViewController class]);
+
+    // 由于有两个segue跳转，我们需要判断是跳转到哪一个界面
+    if ([distVc isEqualToString:@&quot;EditViewController&quot;]) { // 跳转到修改界面
+        EditViewController* editVc = segue.destinationViewController;
+        editVc.contact = _contactsArr[[self.tableView indexPathForSelectedRow].row];
+    } else { // 跳转到添加页面
+
+    }
+    // 修改返回按钮的文字
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] init];
+    item.title = @&quot;返回&quot;;
+    self.navigationItem.backBarButtonItem = item;
+
+    NSLog(@&quot;%@&quot;, NSStringFromClass([segue.destinationViewController class]));
+}
+
+- (void)dealloc // 释放资源时，移除监听
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self]; //移除监听
+}
+
+@end</code></pre>
+<p>AddViewController.m</p>
+<pre><code class="language-objectivec">#import &quot;AddViewController.h&quot;
+#import &quot;Contact.h&quot;
+
+@interface AddViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *name; // 姓名
+@property (weak, nonatomic) IBOutlet UITextField *cellPhone; // 电话
+@property (strong, nonatomic)Contact* contact; // 传值用的对象
+
+@end
+
+@implementation AddViewController
+
+- (IBAction)addContact:(id)sender {
+    if([_name.text isEqualToString:@&quot;&quot;] || [_cellPhone.text isEqualToString:@&quot;&quot;]) {
+        UIAlertController* alertC = [UIAlertController alertControllerWithTitle:@&quot;添加失败&quot; message:@&quot;姓名或电话不能为空&quot;  preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertC addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleCancel handler:^(UIAlertAction* action){
+
+        }]];
+        [self presentViewController:alertC animated:YES completion:nil];
+    } else { // 两个框都有值，将添加的数据发送给上一个页面, 并返回上一个页面，刷新数据
+
+        // 准备数据
+        _contact = [Contact contactWithName:_name.text AndCellPhone:_cellPhone.text];
+        // userInfo需要用字典类型
+        NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:_contact,@&quot;contact&quot;, nil];
+        // 创建通知
+        NSNotification* addMessage = [NSNotification notificationWithName:@&quot;addMessage&quot; object:nil userInfo:dict];
+        // 发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:addMessage];
+        // 返回上一级页面
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    NSLog(@&quot;%@&quot;, self.navigationController.childViewControllers);
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+@end</code></pre>
+<p>EditViewController.m</p>
+<pre><code class="language-objectivec">#import &quot;EditViewController.h&quot;
+#import &quot;Contact.h&quot;
+
+@interface EditViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UITextField *cellPhone;
+
+@end
+
+@implementation EditViewController
+
+// 修改按钮点击时，这里就不考虑空值的问题了
+- (IBAction)editContact:(id)sender {
+    _contact.name = _name.text;
+    _contact.cellPhone = _cellPhone.text;
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;updateTable&quot; object:nil];
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // 设置默认数据
+    _name.text = _contact.name;
+    _cellPhone.text = _contact.cellPhone;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios页面之间传值---segue、通知、代理" style="padding-left:1em">iOS页面之间传值 - Segue、通知、代理<span></li><ul><li><span class="ul-span" data-id="界面拖拽" style="padding-left:2em">界面拖拽<span></li></ul><ul><li><span class="ul-span" data-id="tableview数据相关" style="padding-left:2em">TableView数据相关<span></li></ul><ul><li><span class="ul-span" data-id="新增联系人传值---逆传" style="padding-left:2em">新增联系人传值 - 逆传<span></li><ul><li><span class="ul-span" data-id="用通知notification传值" style="padding-left:3em">用通知Notification传值<span></li></ul><ul><li><span class="ul-span" data-id="用代理传值" style="padding-left:3em">用代理传值<span></li></ul></ul><ul><li><span class="ul-span" data-id="修改联系人传值---顺传" style="padding-left:2em">修改联系人传值 - 顺传<span></li><ul><li><span class="ul-span" data-id="准备跳转前的传值" style="padding-left:3em">准备跳转前的传值<span></li></ul><ul><li><span class="ul-span" data-id="接收到值的处理" style="padding-left:3em">接收到值的处理<span></li></ul></ul><ul><li><span class="ul-span" data-id="主要代码不含代理传值代码" style="padding-left:2em">主要代码(不含代理传值代码)<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

@@ -1,0 +1,291 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_weibo.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS微博个人详情页面">
+        <meta name="keywords" content="UITableView滚动,导航条随着滚动从透明到不透明,iOS微博个人详情页面,图解UITableView显示滚动区域">
+
+        <title>iOS微博个人详情页面 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/11/09</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios微博个人详情页面">iOS微博个人详情页面</h1>
+<blockquote>
+<p>用storyboard拖线来做个微博个人详情页面的UI。导航栏刚开始透明，滚动tableView的时候，上面的两个视图会向上，导航条也会从完全透明到不透明。这里会图解UITableView显示滚动区域的相关细节。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_weibo_1.png" alt="ios_weibo_1.png"></p>
+<h2 id="storyboard拖拽ui">storyboard拖拽UI</h2>
+<p>这里是在4.7寸上拖拽。</p>
+<ol>
+<li><p>拖拽一个Navigation Controller，删除自带的rootViewController，把其根控制器设置为系统给出的ViewController。在导航控制器的属性里勾选Is Initial View Controller，设置为启动页面。</p>
+</li>
+<li><p>拖拽一个tableView放在ViewController里，x:0, y:0，约束为top:0, bottom:0, left:0, right:0;</p>
+</li>
+<li><p>拖拽一个UIView命名为TopView，宽375，高200。x:0, y:0，界面约束top:0, left:0, height:200, right:0;</p>
+</li>
+<li><p>拖拽两个ImageView到TopView，先拖背景bg，其位置、长宽、约束和TopView一样，第二个是头像，长宽都是100，水平居中，y:36，界面约束，height:100, width:100, bottom:64, align center x to bg，在属性里设置对应的image，素材见资源打包。</p>
+</li>
+<li><p>再拖拽一个UIView命名为选项卡视图，宽375，高44，x:0, y:200，界面约束height:44, left:0,right:0,top:0px;</p>
+</li>
+<li><p>在拖拽两个button到选项卡视图上，命名为主页，微博，高度统一为44，宽50，左边x:50，右边x：275，界面约束为height:44, top:0, bottom:0，第四个约束条件左边left:50，右边right:50 </p>
+</li>
+<li><p>注意图层分级。图层不对可以拖拽，下图为storyboard参考层级。</p>
+</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_weibo_2.png" alt="ios_weibo_2.png"></p>
+<h2 id="效果设置">效果设置</h2>
+<ol>
+<li>导航条背景透明，我们将View Controller的类设置为ViewController，在viewDidLoad里面修改相关设置</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_weibo_3.png" alt="ios_weibo_3.png"></p>
+<p><img src="../../../images/blog/ios/ios_weibo_4.png" alt="ios_weibo_4.png"></p>
+<ol start="2">
+<li>设置TableView数据源和代理，首先在viewDidLoad方法里将tableView的数据源和代理都设置为self，遵守UITableViewDataSource和UITableViewDelegate协议。实现数据源方法:</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_weibo_5.png" alt="ios_weibo_5.png"></p>
+<ol start="3">
+<li>显示问题，iOS7之后，apple会自动给导航控制器里的所有UIScrollView添加额外的滚动区域top:64，让导航栏不挡住ScrollView的数据显示。UITableView继承自UIScrollView，给UITableView添加额外的滚动区域top，那么tableview的显示区域会往下挤，带导航条的下挤了64。我们这里刚开始不用显示导航条，要显示topView+选项卡视图,一起高度是244,那需要添加额外滚动区域200+44，本来就有64，则还需额外添加244-64，这里的导航条一直都在只是刚开始背景设置为透明了。</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_weibo_6.png" alt="ios_weibo_6.png"></p>
+<pre><code class="language-objectivec">// 设置tableView的滚动区域，TopView高200，主页微博高度44，导航条64，ok后效果如下图右
+self.tableView.contentInset = UIEdgeInsetsMake(200 + 44 -64, 0, 0, 0);</code></pre>
+<p><img src="../../../images/blog/ios/ios_weibo_7.png" alt="ios_weibo_7.png"></p>
+<ol start="4">
+<li>滚动效果设置，向下滚动时，我们根据滚动的y值，来判断当前相对原来(-244)偏移了多少，根据修改topView的高度(界面约束)，来使页面有整体上移的效果。到视图高度减少到64时，就不再减了。这个过程中顶部视图的背景会逐渐从透明到不透明。这里用到了一个分类，根据透明度生成图片。</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_weibo_8.png" alt="ios_weibo_8.png"></p>
+<h2 id="源码">源码</h2>
+<pre><code class="language-objectivec">#import &quot;ViewController.h&quot;
+#import &quot;UIImage+Image.h&quot;
+
+#define TOPVIEW_H 200  // TopView视图高度
+#define TABBAR_H 44 // 选项卡视图高度
+#define NAV_H 64    // 导航条高度
+
+@interface ViewController () &lt;UITableViewDataSource, UITableViewDelegate&gt;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopViewHeIght; //topView高度约束
+@property (weak, nonatomic) IBOutlet UITableView *tableView; // 对应tableView
+@property (weak, nonatomic) UILabel* label; // 导航条label，方便设置tableView滑动时的透明度
+@property (assign, nonatomic) CGFloat offSet; // 最开始的偏移量 -244
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // 如果不设置导航条 图①
+    // 设置导航条背景透明，将一张空的图片设置为navigationBar的背景 图②
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    // 清空导航条阴影线 图③
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+
+    UILabel* label = [[UILabel alloc] init];
+    label.text = @&quot;kevin Zuo&quot;;
+    label.textColor = [UIColor clearColor]; // 设置为透明色
+    _label = label;
+    [label sizeToFit];
+    self.navigationItem.titleView = label; // 设置为标题
+
+
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+
+    // 设置最初偏移量 -244
+    self.offSet = -(TOPVIEW_H+TABBAR_H);
+   // self.automaticallyAdjustsScrollViewInsets = NO;
+    // 设置tableView的滚动区域
+    self.tableView.contentInset = UIEdgeInsetsMake(TOPVIEW_H + TABBAR_H - NAV_H, 0, 0, 0);
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* identifier = @&quot;cell&quot;;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: identifier];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@&quot;%ld&quot;,indexPath.row];
+    return cell;
+}
+
+
+#pragma mark - UITableViewDelegate
+// 监听tableView的滚动 UITableViewDelegate遵守UIScrollViewDelegate协议
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // 最开始的偏移为 _offSet = -244, TopView+选项卡视图高度
+    // 当前偏移量
+    CGFloat curOffSet = scrollView.contentOffset.y; // 关键
+    // 差值，时差值 0 .. (200-64),
+    CGFloat delta = curOffSet - _offSet;
+    CGFloat h = TOPVIEW_H - delta; // 顶部视图为
+    if (h &lt; NAV_H) // 导航栏高度。
+        h = NAV_H;
+    // 修改头部视图高度
+    _TopViewHeIght.constant = h;
+    NSLog(@&quot;%f,%f,%f,%f&quot;, curOffSet,_offSet, delta,h);
+
+    // 修改导航条透明度
+    CGFloat alpha = delta/(TOPVIEW_H - TABBAR_H); // 差值/滚动高度
+    if (alpha &gt;= 1) alpha = 0.99;
+    // 根据透明度生成背景图片
+    UIImage* image = [UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:alpha]];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+
+    _label.textColor = [UIColor colorWithWhite:0 alpha:alpha];
+    NSLog(@&quot;%f&quot;, alpha);
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios微博个人详情页面" style="padding-left:1em">iOS微博个人详情页面<span></li><ul><li><span class="ul-span" data-id="storyboard拖拽ui" style="padding-left:2em">storyboard拖拽UI<span></li></ul><ul><li><span class="ul-span" data-id="效果设置" style="padding-left:2em">效果设置<span></li></ul><ul><li><span class="ul-span" data-id="源码" style="padding-left:2em">源码<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

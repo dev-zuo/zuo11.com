@@ -1,0 +1,190 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_transform.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS transform设置控件平移、旋转、缩放">
+        <meta name="keywords" content="transform,iOS 形变,控件的移动/缩放/旋转">
+
+        <title>iOS transform设置控件平移、旋转、缩放 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/11/10</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios-transform设置控件平移、旋转、缩放">iOS transform设置控件平移、旋转、缩放</h1>
+<blockquote>
+<p>一般情况下，我们可以通过修改UI控件的x，y轴以及长宽来控制控件的形变，iOS提供了transform属性用来专门来处理控件的形变(平移，旋转，缩放等)。所有的UIView控件都有transform这个属性。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_transform_1.png" alt="ios_transform_1.png"></p>
+<h2 id="代码实例">代码实例:</h2>
+<p><img src="../../../images/blog/ios/ios_transform_2.png" alt="ios_transform_2.png"></p>
+<pre><code class="language-objectivec">@property (weak, nonatomic) IBOutlet UIView *redView;
+
+@end
+
+@implementation ViewController
+
+- (IBAction)action:(id)sender {
+
+    // x+100 ,向右平移100
+    [UIView animateWithDuration:1 animations:^{ // 动画效果，持续时间1s
+
+        // 原始方法平移
+        //CGRect frame = _redView.frame;
+        //frame.origin.x += 100;
+        //_redView.frame = frame;
+
+        // MakeTranslation: 基于最开始的位置形变，会把之前的位置情空，一次有效
+        //_redView.transform = CGAffineTransformMakeTranslation(100, 0);
+
+        // 相对于上一次的形变, 这个就和上面的原始方法的效果一致
+        //_redView.transform = CGAffineTransformTranslate(_redView.transform, 100, 0);
+
+        // 旋转 M_PI: 180°、M_PI_2: 90°、M_PI_4:45°
+        //_redView.transform = CGAffineTransformMakeRotation(M_PI_2);
+        //_redView.transform = CGAffineTransformRotate(_redView.transform, M_PI_2);
+
+        // 按比例缩放
+        // sx: 宽度缩放比例，sy: 高度缩放比例
+        _redView.transform = CGAffineTransformScale(_redView.transform, 0.5, 0.5);
+        //_redView.transform = CGAffineTransformScale(_redView.transform, 2, 2);
+
+    }];
+
+}</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios-transform设置控件平移、旋转、缩放" style="padding-left:1em">iOS transform设置控件平移、旋转、缩放<span></li><ul><li><span class="ul-span" data-id="代码实例" style="padding-left:2em">代码实例:<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

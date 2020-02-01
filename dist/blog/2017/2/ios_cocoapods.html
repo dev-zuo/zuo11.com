@@ -1,0 +1,261 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_cocoapods.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="CocoaPods安装及使用">
+        <meta name="keywords" content="CocoaPods 2020,cocoapods 2020, CocoaPods安装2020,CocoaPods,2020 CocoPods安装,最新CocoaPods安装方法">
+
+        <title>CocoaPods安装及使用 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2017/02/06</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="cocoapods安装及使用">CocoaPods安装及使用</h1>
+<blockquote>
+<p>在导入某个框架时，你可能还需要导入这个框架依赖的其他框架，这样就比较麻烦。如果用CocoaPods导入一个框架，它会自动导入这个框架所依赖的所有框架。在导入AFNetworking时用到了它，这里总结了安装方法及一些需要注意的细节。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_cocopods_1.png" alt="ios_cocopods_1.png"></p>
+<h2 id="cocoapods安装">CocoaPods安装</h2>
+<ol>
+<li>安装ruby环境，下面的所有操作都在终端(Terminal)下输入命令执行</li>
+</ol>
+<pre><code class="language-bash">gem source -a https://gems.ruby-china.com</code></pre>
+<ol start="2">
+<li>检查上面命令是否执行成功</li>
+</ol>
+<pre><code class="language-bash">gem sources -l
+# 执行结果:
+# kevindeMacBook-Air:~ kevin$ gem sources -l
+# *** CURRENT SOURCES ***
+
+# https://gems.ruby-china.com/</code></pre>
+<ol start="3">
+<li>安装CocoaPods，这里需要等一会</li>
+</ol>
+<pre><code class="language-bash">sudo gem install cocoapods
+执行结果:
+kevindeMacBook-Air:~ kevin$ sudo gem install cocoapods
+Password:
+Fetching: i18n-0.7.0.gem (100%)
+Successfully installed i18n-0.7.0
+Fetching: thread_safe-0.3.5.gem (100%)
+Successfully installed thread_safe-0.3.5
+Fetching: tzinfo-1.2.2.gem (100%)
+Successfully installed tzinfo-1.2.2
+...
+...
+Parsing documentation for gh_inspector-1.0.2
+Installing ri documentation for gh_inspector-1.0.2
+Parsing documentation for cocoapods-1.1.1
+Installing ri documentation for cocoapods-1.1.1
+26 gems installed
+kevindeMacBook-Air:~ kevin$</code></pre>
+<ol start="4">
+<li>检查CocoPods是否安装成功，终端下直接输入pod命令，会显示帮助内容，如下图:</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_cocopods_2.png" alt="ios_cocopods_2.png"></p>
+<h2 id="用cocoapods导入afnetworking框架到xcode项目">用CocoaPods导入AFNetworking框架到Xcode项目</h2>
+<ol>
+<li>搜索AFNetworking框架，这里好像会更新一些东西。出现Setting up CocoPods master repo，要等很久，如果有朋友或同事下载好的，可以拷贝一份，文件路径 ~/.cocoaPods</li>
+</ol>
+<pre><code class="language-bash">pod search AFNetworking
+执行结果:
+kevindeMacBook-Air:~ kevin$ pod search AFNetworking
+Setting up CocoaPods master repo # 我第一次ctrl+c中断过一次，这次下载失败了
+[!] /usr/bin/git clone https://github.com/CocoaPods/Specs.git master
+
+Cloning into &#39;master&#39;...
+error: RPC failed; curl 18 transfer closed with outstanding read data remaining
+fatal: The remote end hung up unexpectedly
+fatal: early EOF
+fatal: index-pack failed
+
+kevindeMacBook-Air:~ kevin$ pod search AFNetworking # 重新输入该命令
+Setting up CocoaPods master repo   # 我在这里卡了很久等了几个小时
+Setup completed
+Creating search index for spec repo &#39;master&#39;.. Done!
+[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking`
+[!] Skipping `0` because the podspec contains errors.
+[!] Skipping `1` because the podspec contains errors.
+...
+kevindeMacBook-Air:~ kevin$</code></pre>
+<p>刚开始我还以为卡死了，看其他教程，这一步只需要几秒。可能是改版了，等了n久。如果出现了上面执行结果里的错误，就再次执行该命令。可能跟网络环境有关系，第一次下载失败，再次下载。你可以按Command+t组合键再打开一个终端，输入命令查看安装进度</p>
+<pre><code class="language-bash">du -sh ~/.cocoaPods
+# 隔一段时间查一次，下载的非常慢
+kevindeMacBook-Air:~ kevin$ du -sh ~/.cocoaPods
+ 60K    /Users/kevin/.cocoaPods
+kevindeMacBook-Air:~ kevin$ du -sh ~/.cocoaPods
+168M    /Users/kevin/.cocoaPods
+kevindeMacBook-Air:~ kevin$ du -sh ~/.cocoaPods
+373M    /Users/kevin/.cocoaPods
+kevindeMacBook-Air:~ kevin$ du -sh ~/.cocoaPods
+965M    /Users/kevin/.cocoaPods
+kevindeMacBook-Air:~ kevin$</code></pre>
+<p>安装完成后出现了一个错误，搜索时出现问题: </p>
+<pre><code class="language-sh">kevindeMacBook-Air:~ kevin$ pod search AFNetworking
+[!] Unable to find a pod with name, author, summary, or description matching `AFNetworking`</code></pre>
+<p>解决方法: 输入下面两条命令，再次查找，等一会就OK了。如果遇到问题可参见: CocoaPods: pod search 搜索类库失败的解决办法</p>
+<pre><code class="language-bash">pod setup
+rm ~/Library/Caches/CocoaPods/search_index.json</code></pre>
+<pre><code class="language-bash">pod search AFNetworking
+Creating search index for spec repo &#39;master&#39;.. Done! # 需要等一会，搜索结果如下</code></pre>
+<p><img src="../../../images/blog/ios/ios_cocopods_3.png" alt="ios_cocopods_3.png"></p>
+<ol start="2">
+<li>search可以用了之后就开始正式准备导入Xcode项目了</li>
+</ol>
+<pre><code class="language-bash">cd /Users/kevin/Desktop/Projects/BaiSi  # 进入项目目录
+ls  # 查看是否是正确的目录
+BaiSi        BaiSi.xcodeproj    BaiSiTests    BaiSiUITests
+touch podfile # 创建podfile文件
+open podfile #打开文件
+# 输入如下内容:  (BaiSi为项目名，第二行为sreach里搜到的内容)
+target &#39;BaiSi&#39; do     
+pod &#39;AFNetworking&#39;, &#39;~&gt; 3.1.0&#39;
+end
+pod install # 安装，成功后的界面如下图</code></pre>
+<p><img src="../../../images/blog/ios/ios_cocopods_4.png" alt="ios_cocopods_4.png"></p>
+<ol start="3">
+<li>进入工程目录，打开新生成的BaiSi.xcworkspace文件，进入工程，就可以使用AFNetworking框架了</li>
+</ol>
+<p><img src="../../../images/blog/ios/ios_cocopods_5.png" alt="ios_cocopods_5.png"></p>
+<p>参考资料: </p>
+<p><a href="http://blog.csdn.net/zhangjunjian127/article/details/47954981">CocoaPods安装和使用及问题：Setting up CocoaPods master repo</a></p>
+<p><a href="http://code4app.com/article/cocoapods-install-usage">CocoaPods安装和使用教程</a></p>
+<p><a href="http://www.jianshu.com/p/2ef8a38416c4">2016最新CocoaPods安装和错误解决</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="cocoapods安装及使用" style="padding-left:1em">CocoaPods安装及使用<span></li><ul><li><span class="ul-span" data-id="cocoapods安装" style="padding-left:2em">CocoaPods安装<span></li></ul><ul><li><span class="ul-span" data-id="用cocoapods导入afnetworking框架到xcode项目" style="padding-left:2em">用CocoaPods导入AFNetworking框架到Xcode项目<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

@@ -1,0 +1,259 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_picker.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS选择器UIPickerView和UIDatePicker">
+        <meta name="keywords" content="iOS选择器,iOS UIPickerView,iOS UIDatePicker,UIPickerView,UIDatePicker">
+
+        <title>iOS选择器UIPickerView和UIDatePicker - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/11/01</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios选择器uipickerview和uidatepicker">iOS选择器UIPickerView和UIDatePicker</h1>
+<blockquote>
+<p>Apple提供了两个选择器对象：UIPickerView和UIDatePicker，就像网页里的select。UIDatePicker是时间方面的选择器，用法和UIPickerView差不多，这里先介绍UIPickerView，它可以自定义选择的行和列，每行显示的内容可以是自定义的视图。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_picker_1.png" alt="ios_picker_1.png"></p>
+<h2 id="storyboard拖拽picker-view">storyboard拖拽picker view</h2>
+<p>这里就不用手动指定了，旨在了解基本的picker view，直接将pickerView控件拖拽到storyboard</p>
+<p><img src="../../../images/blog/ios/ios_picker_2.png" alt="ios_picker_2.png"></p>
+<p>数据我们用plist文件存储，foods.plist文件:</p>
+<pre><code class="language-xml">&lt;plist version=&quot;1.0&quot;&gt;
+&lt;array&gt;
+    &lt;array&gt;
+        &lt;string&gt;榴莲&lt;/string&gt;
+        &lt;string&gt;西瓜&lt;/string&gt;
+        &lt;string&gt;樱桃&lt;/string&gt;
+        &lt;string&gt;橘子&lt;/string&gt;
+        &lt;string&gt;菠萝&lt;/string&gt;
+        &lt;string&gt;苹果&lt;/string&gt;
+        &lt;string&gt;香蕉&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;array&gt;
+        &lt;string&gt;水煮肉片&lt;/string&gt;
+        &lt;string&gt;东坡肉&lt;/string&gt;
+        &lt;string&gt;红烧肉&lt;/string&gt;
+        &lt;string&gt;番茄鸡蛋&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;array&gt;
+        &lt;string&gt;果蔬汁&lt;/string&gt;
+        &lt;string&gt;矿泉水&lt;/string&gt;
+        &lt;string&gt;果味饮料&lt;/string&gt;
+        &lt;string&gt;功能饮料&lt;/string&gt;
+        &lt;string&gt;茶饮料&lt;/string&gt;
+        &lt;string&gt;酸梅汤&lt;/string&gt;
+        &lt;string&gt;常温牛奶&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/array&gt;
+&lt;/plist&gt;</code></pre>
+<h2 id="数据加载">数据加载</h2>
+<p>如果不进行任何设置，运行后你会发现什么都看不到，我们还需要设置相关数据。将控件拖拽关联到ViewController里相应的属性。这里需要遵守UIPickViewDataSource和UIPickerViewDelegate协议，在viewDidLoad函数将pickerView的代理和数据源设置为该控制器view，然后用相应的方法设置数据。详情代码如下：</p>
+<pre><code class="language-objectivec">#import &quot;ViewController.h&quot;
+
+@interface ViewController () &lt;UIPickerViewDataSource,UIPickerViewDelegate&gt;
+
+@property (strong, nonatomic) NSArray* arr; // 根据plist文件加载数据
+@property (weak, nonatomic) IBOutlet UILabel *label;  // 对应storyboard 的label
+@property (weak, nonatomic) IBOutlet UIPickerView *pickView; // 对应storyboard的pickview
+
+@end
+
+@implementation ViewController
+
+- (NSArray*)arr // 将foods.plist文件数据加载到数组
+{
+    if (_arr == nil) {
+        NSString* filePath = [[NSBundle mainBundle] pathForResource:@&quot;foods.plist&quot; ofType:nil];
+        _arr = [[NSArray alloc] initWithContentsOfFile:filePath];
+    }
+    return _arr;
+}
+
+// UIPickerViewDataSource协议必须实现的方法
+// returns the number of &#39;columns&#39; to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    //return 3;
+    //return _arr.count; // 会加载不出数据，以后最好使用self，少用_开头的方式，.会默认调用get，set方法
+    return self.arr.count; // 数组列数
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    // return 5;
+    NSArray* arr1 = self.arr[component];
+    return arr1.count; // 对应每一列的行数
+}
+
+// 设置行高
+//- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component __TVOS_PROHIBITED {
+//    return 100;
+//}
+// 返回对component列第row行的标题
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component __TVOS_PROHIBITED {
+//    if (row == 1 &amp;&amp; component == 1) // 第一行第一列(从零开始)
+//        return @&quot;abc&quot;;
+//    else
+//        return @&quot;kkk&quot;;
+    NSArray* arr1 = self.arr[component];
+    return arr1[row];
+}
+// 给文本添加一些属性, 富文本, 可设置文本颜色，字体，阴影等
+//- (nullable NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component NS_AVAILABLE_IOS(6_0) __TVOS_PROHIBITED; // attributed title is favored if both methods are implemented
+//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view __TVOS_PROHIBITED;
+//
+//
+// 监听选中
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component __TVOS_PROHIBITED {
+    //NSLog(@&quot;%ld %ld&quot;, component, row);
+    NSString* title = self.arr[component][row];
+    _label.text = title;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    _pickView.dataSource = self;
+    _pickView.delegate = self;
+
+}</code></pre>
+<p>效果:</p>
+<p><img src="../../../images/blog/ios/ios_picker_3.png" alt="ios_picker_3.png"></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios选择器uipickerview和uidatepicker" style="padding-left:1em">iOS选择器UIPickerView和UIDatePicker<span></li><ul><li><span class="ul-span" data-id="storyboard拖拽picker-view" style="padding-left:2em">storyboard拖拽picker view<span></li></ul><ul><li><span class="ul-span" data-id="数据加载" style="padding-left:2em">数据加载<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

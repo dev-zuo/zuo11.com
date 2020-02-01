@@ -1,0 +1,258 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ios_view_controller.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="iOS 自定义ViewController中的view">
+        <meta name="keywords" content="ViewController里的view,iOS 控制器view,ViewController里View的创建">
+
+        <title>iOS 自定义ViewController中的view - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#ios" class="hidden">iOS</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2016/11/01</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ios-自定义viewcontroller中的view">iOS 自定义ViewController中的view</h1>
+<blockquote>
+<p>手动加载storyboard时，我们用storyboard创建了ViewController，它会自动创建一个空的view，这个view就是UIView类型。我们拖拽的按钮、label等就是拖拽在这个视图上面。如果需要自定义该view可以在该ViewController的loadView方法里设置。</p>
+</blockquote>
+<p><img src="../../../images/blog/ios/ios_view_controller_1.png" alt="ios_view_controller_1.png"></p>
+<p>自定义ViewController中的view过程如下：</p>
+<ol>
+<li>去掉Info.plist里的指定Main</li>
+<li>手动指定窗口的根控制器为storyboard的控制器</li>
+</ol>
+<pre><code class="language-objectivec">// 创建窗口对象
+_window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+// 指定storyboard的viewcontroller为该窗口的根控制器
+UIViewController* vc = [[UIStoryboard storyboardWithName:@&quot;Main&quot; bundle:nil] instantiateInitialViewController];
+_window.rootViewController = vc;
+// 使窗口可视化
+[_window makeKeyAndVisible];</code></pre>
+<ol start="3">
+<li>新建类UIView的子类BGView，手动指定为控制器的view</li>
+</ol>
+<pre><code class="language-objectivec">// loadView作用: 加载控制器的view，当控制器的view第一次使用(显示)时就会调用
+// 加载控制器的view，判断有没有指定storyboard或xib，如果有,会创建其默认的view:UIView，没有就创建一个空的view
+// 开发中什么时候使用: 想自定义view时
+- (void)loadView {
+    // 调用系统的默认方法
+    //[super loadView];
+    BGView* view = [[BGView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.view = view;
+    self.view.backgroundColor = [UIColor greenColor];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    NSLog(@&quot;%@&quot;, self.view);
+}</code></pre>
+<ol start="4">
+<li>通过xib创建控制器view</li>
+</ol>
+<p>创建ZUOViewController，设置为窗口的根控制器</p>
+<pre><code class="language-objectivec">_window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+// 如指定了nibName就加载指定的xib,没指定就看有没有与根控制器同名(或后缀不带controller)的xib，有则加载
+
+ZUOViewController* rootVc = [[ZUOViewController alloc] initWithNibName:nil bundle:nil];
+
+// 或者 ZUOViewController* rootVc = [[ZUOViewController alloc] init]; // 同名的好处
+
+_window.rootViewController = rootVc;  
+
+[_window makeKeyAndVisible];</code></pre>
+<p><img src="../../../images/blog/ios/ios_view_controller_2.png" alt="ios_view_controller_2.png"></p>
+<p>创建xib, 关联到ZUOViewController，设置对应的view</p>
+<p><img src="../../../images/blog/ios/ios_view_controller_3.png" alt="ios_view_controller_3.png"></p>
+<ol start="5">
+<li>控制器默认为空的view</li>
+</ol>
+<pre><code class="language-objectivec">_window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+_window.backgroundColor = [UIColor greenColor];
+
+//添加按钮
+UIButton* btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+btn.center = CGPointMake(50, 50);
+[_window addSubview:btn];
+
+// 2.创建窗口的根控制器  空:黑色  空:几乎透明(不能穿透)
+ViewController* vc = [[ViewController alloc] init];
+_window.rootViewController = vc;
+vc.view.backgroundColor = [UIColor clearColor];
+// vc.view.alpha = 0; //完全透明,button可以点击  alpha &lt;= 0.01 完全透明可穿透，&gt;则不可穿透
+// vc.view.backgroundColor = [UIColor redColor];
+
+[_window makeKeyAndVisible];</code></pre>
+<ol start="6">
+<li>控制器view创建时间</li>
+</ol>
+<pre><code class="language-objectivec">_window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+// 创建控制器，不一定会创建控制器的view
+ViewController* vc = [[ViewController alloc] init];
+vc.view.backgroundColor = [UIColor redColor]; //这里使用了view，会再这里创建
+_window.rootViewController = vc;    
+[_window makeKeyAndVisible]; // 如果事先没使用view，在这里才会创建view, 创建view需执行loadview方法
+
+// --------------------------------------------------------------
+
+@implementation ViewController
+
+//- (UIView*)view { // 系统的view方法底层实现 vc.view 时调用
+//    if (_view == nil) {
+//        [self loadView];
+//        [self viewDidLoad];
+//    }
+//    return _view;
+//}
+
+- (void)loadView {
+    UIView* view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor = [UIColor redColor];
+    self.view = view;
+
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor blueColor];
+    NSLog(@&quot;%s&quot;, __func__);
+
+}</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ios-自定义viewcontroller中的view" style="padding-left:1em">iOS 自定义ViewController中的view<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

@@ -1,0 +1,234 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_cookie.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="前端cookie的使用">
+        <meta name="keywords" content="前端cookie的使用,cookie">
+
+        <title>前端cookie的使用 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#web" class="hidden">web</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2018/10/26</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="前端cookie的使用">前端cookie的使用</h1>
+<p>http是基于请求和响应的无状态协议，无法保存状态，如果有数据需要在浏览器关闭后，下次进入还保存，就可以用cookie来解决这个问题。</p>
+<h2 id="前端cookie的读取">前端cookie的读取</h2>
+<p>前端cookie可以用document.cookie来读取，格式为key=value;key=value键值对的形式，如下图</p>
+<p><img src="../../../images/blog/web/web_cookie_1.png" alt="image"></p>
+<p>如果需要读取特定key的值，需要写一个函数来实现，思路为字符串的查找与切分，也可以使用正则来匹配</p>
+<pre><code class="language-js">// 获取cookie里的值
+function getCookie(name) {
+  let cookieStr = document.cookie
+  let tempName = `${name}=`
+  let indexStart = cookieStr.indexOf(tempName)
+
+  // cookie里面没值，或者不包含name cookie
+  if (name === &#39;&#39; || cookieStr.length &lt;= 0 || indexStart &lt; 0) {
+    return `no cookie: ${name}`
+  }
+  indexStart = indexStart + tempName.length
+  let indexEnd = cookieStr.indexOf(&#39;;&#39;, indexStart)
+  if (indexEnd === -1) {
+    indexEnd = cookieStr.length
+  }
+  // 解码
+  return decodeURIComponent(cookieStr.substring(indexStart, indexEnd))
+}</code></pre>
+<h2 id="前端cookie的写入，设置有效时间">前端cookie的写入，设置有效时间</h2>
+<p>前端直接给document.cookie赋值就可以设置token，但默认不会覆盖原来的值，会将key=val添加进去</p>
+<pre><code class="language-js">document.cookie = &quot;key=val&quot;</code></pre>
+<p>除了key=val外，我们对key这个属性可以添加一些其他参数，比如有效期expires，max-age，secure等cookie的主要构成如下</p>
+<pre><code class="language-js">name:一个唯一确定的cookie名称。通常来讲cookie的名称是不区分大小写的。
+value:存储在cookie中的字符串值。最好为cookie的name和value进行url编码
+domain:cookie对于哪个域是有效的。所有向该域发送的请求中都会包含这个cookie信息。这个值可以包含子域(如：yq.aliyun.com)，也可以不包含它(如：.aliyun.com，则对于aliyun.com的所有子域都有效).
+path: 表示这个cookie影响到的路径，浏览器跟会根据这项配置，像指定域中匹配的路径发送cookie。
+expires:失效时间，表示cookie何时应该被删除的时间戳(也就是，何时应该停止向服务器发送这个cookie)。如果不设置这个时间戳，浏览器会在页面关闭时即将删除所有cookie；不过也可以自己设置删除时间。这个值是GMT时间格式，如果客户端和服务器端时间不一致，使用expires就会存在偏差。
+max-age: 与expires作用相同，用来告诉浏览器此cookie多久过期（单位是秒），而不是一个固定的时间点。正常情况下，max-age的优先级高于expires。
+HttpOnly: 告知浏览器不允许通过脚本document.cookie去更改这个值，同样这个值在document.cookie中也不可见。但在http请求张仍然会携带这个cookie。注意这个值虽然在脚本中不可获取，但仍然在浏览器安装目录中以文件形式存在。这项设置通常在服务器端设置。
+secure: 安全标志，指定后，只有在使用SSL链接时候才能发送到服务器，如果是http链接则不会传递该信息。就算设置了secure 属性也并不代表他人不能看到你机器本地保存的 cookie 信息，所以不要把重要信息放cookie就对了</code></pre>
+<p>针对上面的一些属性，我们将前端设置cookie，封装为一个函数</p>
+<pre><code class="language-js">function setCookie(name, value, options) {
+  // 传值校验
+  if (!name) {
+    return &#39;name不能为空&#39;
+  }
+  value = (value !== null &amp;&amp; value !== undefined) ? value.toString() : &#39;&#39;
+  options = options || {}
+
+  let resultArr = []
+  // 设置基础的name=value值
+  resultArr.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`)
+
+  // 处理options，其他属性传值
+  if (options.domain) {   // domain中必须包含两个点号
+    resultArr.push(&quot;domain=&quot; + options.domain)
+  }
+  if (options.path) {
+    resultArr.push(&quot;path=&quot; + options.path)
+  }
+  // 如果不设置expires和max-age浏览器会在页面关闭时清空cookie
+  if (options.expires) {
+    resultArr.push(&quot;expires=&quot; + options.expires.toGMTString())
+  }
+  if (options.maxAge &amp;&amp; typeof options.maxAge === &quot;number&quot;) {
+    resultArr.push(&quot;max-age=&quot; + options.maxAge)
+  }
+  if (options.httpOnly) { 
+     resultArr.push(&quot;HTTPOnly&quot;)
+  }
+  if (options.secure) {
+     resultArr.push(&quot;secure&quot;)
+  }
+  document.cookie = resultArr.join(&quot;;&quot;)
+}</code></pre>
+<h2 id="前端cookie的删除">前端cookie的删除</h2>
+<p>如果给cookie设置一个过去的时间，浏览器会立即删除该cookie</p>
+<pre><code class="language-js">// 从cookie中删除name
+setCookie(name, null, {&#39;expires&#39;:new Date(0)})</code></pre>
+<h2 id="服务端写入cookie">服务端写入cookie</h2>
+<p>待完善</p>
+<h2 id="服务端读cookie">服务端读cookie</h2>
+<p>待完善</p>
+<h2 id="其他存储方式-localstorage">其他存储方式 localStorage</h2>
+<p>待完善</p>
+<p>参考资料:</p>
+<p><a href="https://blog.csdn.net/qiqingjin/article/details/51760343">HTTP-服务器端CooKie与浏览器端Cookie</a></p>
+<p><a href="https://www.jianshu.com/p/2d79d548c635">阅读记录——利用httponly提高cookie安全性</a></p>
+<p><a href="https://msdn.microsoft.com/en-us/library/ms533046.aspx">Mitigating Cross-site Scripting With HTTP-only Cookies</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="前端cookie的使用" style="padding-left:1em">前端cookie的使用<span></li><ul><li><span class="ul-span" data-id="前端cookie的读取" style="padding-left:2em">前端cookie的读取<span></li></ul><ul><li><span class="ul-span" data-id="前端cookie的写入，设置有效时间" style="padding-left:2em">前端cookie的写入，设置有效时间<span></li></ul><ul><li><span class="ul-span" data-id="前端cookie的删除" style="padding-left:2em">前端cookie的删除<span></li></ul><ul><li><span class="ul-span" data-id="服务端写入cookie" style="padding-left:2em">服务端写入cookie<span></li></ul><ul><li><span class="ul-span" data-id="服务端读cookie" style="padding-left:2em">服务端读cookie<span></li></ul><ul><li><span class="ul-span" data-id="其他存储方式-localstorage" style="padding-left:2em">其他存储方式 localStorage<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

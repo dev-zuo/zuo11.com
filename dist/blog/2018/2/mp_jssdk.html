@@ -1,0 +1,302 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="mp_jssdk.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="小程序web-view组件内嵌网页调用微信JSSDK">
+        <meta name="keywords" content="web-view jssdk,小程序内嵌H5调用jssdk,微信JS-SDK使用">
+
+        <title>小程序web-view组件内嵌网页调用微信JS-SDK - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#微信小程序" class="hidden">微信小程序</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2018/02/24</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="小程序web-view组件内嵌网页调用微信js-sdk">小程序web-view组件内嵌网页调用微信JS-SDK</h1>
+<p>小程序web-view内置H5可以像公众号H5一样使用JS-SDK，但会有一定的限制，另外对于没有公众号H5调用JS-SDK经验的同学，可能会以为wx.config使用的参数是小程序的信息，下面以调用扫一扫为例子，介绍具体细节</p>
+<p><img src="../../../images/blog/mp/mp_jssdk_1.jpeg" alt="mp_jssdk_1.jpeg"></p>
+<p>小程序内嵌网页调用JSSDK与公众号网页里面调用基本一致，之前公众号h5可以直接嵌入到小程序里面使用，要注意的地方是：</p>
+<ul>
+<li>内嵌网页调用JS-SDK需要使用公众号的appid及appsecret，与小程序的appid没有关系</li>
+<li>小程序内嵌网页只支持部分JSSDK，详情参见： <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/component/web-view.html">小程序web-view组件</a></li>
+<li>公众号需要将调用接口的域名加入JS接口安全域名，对应的ip加入ip白名单</li>
+</ul>
+<p>这里以调用微信的扫一扫为例子，来体验整个流程，前端html：</p>
+<pre><code class="language-html">&lt;!-- 前端HTML --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;扫一扫功能&lt;/title&gt;
+
+    &lt;!-- weui样式 --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css&quot;&gt;
+
+    &lt;!-- 微信JS-SDK需要引入的js文件 --&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://res.wx.qq.com/open/js/jweixin-1.3.2.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div style=&quot;margin:10%&quot;&gt;
+        &lt;button class=&quot;weui-btn&quot; onclick=&quot;startScanning()&quot; style=&quot;background:#336699&quot;&gt;
+            调用扫一扫
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/public/js/common.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // 是否在小程序内部打开的网页
+        function isOpenInWechat() {
+            return (window.__wxjs_environment === &#39;miniprogram&#39;);
+        }
+
+        // 非小程序内部打开，提示错误
+        if (!isOpenInWechat()) {
+            alert(&#39;请在小程序里打开页面&#39;);
+        }
+
+        // 获取signature及对应的时间戳，随机字符串
+        var obj = getSignature();
+
+        // 权限验证
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: &#39;wx90aaf3035f813f5a&#39;, // 必填，公众号的唯一标识，此处填写企业号corpid
+            timestamp: obj.timestamp, // 必填，生成签名的时间戳
+            nonceStr: obj.noncestr, // 必填，生成签名的随机串
+            signature: obj.signature,// 必填，签名，见附录1
+            jsApiList: [&#39;chooseImage&#39;,&#39;scanQRCode&#39;] // 必填，需要使用的JS接口列表
+        });
+
+        // 请求后台接口，得到signature等
+        function getSignature() {
+            var res = null;
+            // 自己封装的ajax函数，同步执行ajax，发送请求，后台去操作
+            ajax_request(&#39;GET&#39;, &#39;/initialize&#39;, &#39;getSignature&#39;, {}, function(result){
+                res = result;
+            },&#39;sync&#39;);
+            return res;
+        }
+
+        // scan
+        function startScanning() {
+            // 调用微信接口
+            wx.scanQRCode({
+                needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                scanType: [&quot;qrCode&quot;,&quot;barCode&quot;], // 可以指定扫二维码还是一维码，默认二者都有
+                success: function (res) {
+                    var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>后台使用了nodejs+express，获取signature等信息</p>
+<pre><code class="language-js">// 后台node代码
+
+// 发送get请求依赖
+var https = require(&#39;https&#39;);
+// SHA 加密
+var crypto = require(&#39;crypto&#39;);
+
+/**
+ * signature 调用了initialize函数
+ * 调用微信的接口获取access_token及jsapi_ticket，生成signature。这里只是演示，没有缓存数据
+ * 注意调用接口有次数限制。获取access_token | 2000次/每天；获取jsapi_ticket | 1000000次/天
+ * 正式环境下业务量大就需要将access_token和jsapi_ticket存入缓存，一般有效期为7200秒。
+ */
+function initialize(app, data, req, res) {
+    // 获取access_token
+    var url = &#39;https://api.weixin.qq.com/cgi-bin/token&#39;;
+    var appid = &#39;wx90aaf3035f813f5a&#39;;
+    var appsecret = &#39;这里填公众号生成的appsecret&#39;;
+
+    var preRes = res;
+    url += &quot;?grant_type=client_credential&amp;appid=&quot;+appid+&quot;&amp;secret=&quot;+appsecret;
+
+    https.get(url, function(res) {
+        console.log(&quot;Got response: &quot; + res.statusCode);
+
+        res.on(&#39;data&#39;, function (d) {
+            d = JSON.parse(d.toString());
+            console.log(d);
+            var access_token = d.access_token;
+            var ticketUrl = &quot;https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=&quot;;
+            ticketUrl += access_token + &quot;&amp;type=jsapi&quot;;
+
+            // 获取ticket
+            https.get(ticketUrl, function (res) {
+                res.on(&#39;data&#39;, function (d) {
+                    var d = JSON.parse(d.toString());
+                    var jsapi_ticket = d.ticket;
+
+                    var timestamp = new Date().getTime();
+
+                    // 获取随机字符串
+                    // toString()默认是10进账，如果想包含字母，禁止要大于10 toString(32)
+                    // 0.66666666666xx =&gt; &quot;0.66666666666xx&quot; =&gt; &quot;66666666666xx&quot;
+                    var noncestr = Math.random().toString().substr(2);
+
+                    // 这里的url是调用接口时当前的url
+                    var url = &#39;https://zuo11.com/start&#39;;
+                    var targetStr = &quot;jsapi_ticket=&quot; + jsapi_ticket + &quot;&amp;noncestr=&quot;+noncestr+ &quot;&amp;timestamp=&quot;+timestamp + &quot;&amp;url=&quot;+url;
+                    console.log(targetStr);
+
+                    // SHA1加密
+                    var sha1_result = crypto.createHash(&#39;sha1&#39;).update(targetStr).digest(&#39;hex&#39;);
+                    console.log(sha1_result);
+
+                    // 将获取到的signature一级对应的时间错，随机字符串返回给前端
+                    preRes.json({
+                        &#39;signature&#39;: sha1_result,
+                        &#39;noncestr&#39;: noncestr,
+                        &#39;timestamp&#39;: timestamp
+                    })
+                });
+            }).on(&#39;error&#39;, function(e) {
+                console.log(&quot;Got error: &quot; + e.message);
+            });
+        })
+    }).on(&#39;error&#39;, function(e) {
+        console.log(&quot;Got error: &quot; + e.message);
+    });
+
+}</code></pre>
+<p>官方文档：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115">微信JS-SDK说明文档</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="小程序web-view组件内嵌网页调用微信js-sdk" style="padding-left:1em">小程序web-view组件内嵌网页调用微信JS-SDK<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  
