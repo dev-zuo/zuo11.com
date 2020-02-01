@@ -25,6 +25,43 @@ zuo11.com blog部分源码
 └── README.md # 说明文档
 ```
 
+## _config.json 全局配置说明
+里面包含了站点名称、百度统计id、链接名称、底部文案等
+```json
+{
+  "title": "左小白的技术日常",
+  "isAddBaiduTongji": true,
+  "baiduTongjiId": "183281668cc3440449274d1f93c04de6",
+  "indexConfig": {
+    "author": "guoqzuo",
+    "description": "左小白的技术日常",
+    "keywords": "左小白的技术日常,zuo11.com",
+    "linkList": [
+      { "name": "博客", "href": "/blog/category.html" },
+      { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
+      { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+    ]
+  },
+  "topRightLink": [
+    { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
+    { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+  ],
+  "footer": {
+    "left": "Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1",
+    "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
+  },
+  "categorySequence": [
+    "web",
+    "微信小程序", 
+    "数据库",
+    "观点",
+    "iOS",
+    "UNIX环境高级编程",
+    "C语言"
+  ]
+}
+```
+
 ## _info.json配置文件说明
 为了方便做seo，每篇文章有创建时间、生成静态html的文件名、作者、关键字、描述等。每个月份下面都需要有一个_info.json文件用来描述当前目录下文章的信息，如果当前目录没文章，就不用创建这个配置文件，下面是一个例子:
 ```json

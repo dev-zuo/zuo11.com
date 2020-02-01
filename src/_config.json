@@ -1,0 +1,32 @@
+{
+  "title": "左小白的技术日常",
+  "isAddBaiduTongji": true,
+  "baiduTongjiId": "183281668cc3440449274d1f93c04de6",
+  "indexConfig": {
+    "author": "guoqzuo",
+    "description": "左小白的技术日常",
+    "keywords": "左小白的技术日常,zuo11.com",
+    "linkList": [
+      { "name": "博客", "href": "/blog/category.html" },
+      { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
+      { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+    ]
+  },
+  "topRightLink": [
+    { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
+    { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+  ],
+  "footer": {
+    "left": "Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1",
+    "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
+  },
+  "categorySequence": [
+    "web",
+    "微信小程序", 
+    "数据库",
+    "观点",
+    "iOS",
+    "UNIX环境高级编程",
+    "C语言"
+  ]
+}
