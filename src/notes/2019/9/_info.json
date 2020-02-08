@@ -1,0 +1,11 @@
+[
+  {
+    "source": "vscode中npm run dev提示端口被占用的问题.md",
+    "staticFileName": "devtools_vscode_bash.html",
+    "author": "guoqzuo",
+    "createDate": "2019/09/30",
+    "description": "vscode中npm run dev时提示端口被占用的问题, mac查看端口占用情况",
+    "keywords": "vscode中npm run dev时提示端口被占用,mac查看端口占用情况",
+    "category": "开发工具"
+  }
+]
