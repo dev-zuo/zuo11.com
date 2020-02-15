@@ -1,0 +1,178 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="seo_description.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。">
+        <meta name="keywords" content="description seo,网站页面描述(description),description在seo中的重要性,seo中Google和百度的一些区别">
+
+        <title>description在seo中的重要性 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与seo</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/02/16</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="description在seo中的重要性">description在seo中的重要性</h1>
+<p>网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。</p>
+<h2 id="网站页面描述description">网站页面描述(description)</h2>
+<p>2020年02月15号，我像往常一样在百度搜索 <strong>site:zuo11.com</strong> 来看网站的收录情况。发现之前在半个月前提交的页面，百度已经收录了部分。但仔细看发现有点怪，百度搜索出来的页面，内容显示的信息比较少，如下图：</p>
+<p><img src="../../../images/blog/seo/mata_description_baidu.png" alt="mata_description_baidu.png"></p>
+<p>而且这些信息正好是我通过 <strong>meta</strong> 元素指定的 <strong>description</strong> 属性的内容</p>
+<pre><code class="language-html">&lt;meta name=&quot;application name&quot; content=&quot;apue_first.html&quot;&gt;
+&lt;meta name=&quot;author&quot; content=&quot;guoqzuo&quot;&gt;
+&lt;meta name=&quot;description&quot; content=&quot;UNIX环境高级编程简介，概览&quot;&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;APUE,apue 笔记, APUE笔记,UNIX基础知识,UNIX环境高级编程,apue&quot;&gt;</code></pre>
+<p>所以得出结论，在百度的搜索中，description的内容是很重要的，还是不能谁便填写。</p>
+<h2 id="google对description的处理">Google对description的处理</h2>
+<p>后面我看了下google的收录情况，发现同样的页面，google并不像百度那样直接显示description内容，而是直接截取了文章内容的开头部分，如下图:</p>
+<p><img src="../../../images/blog/seo/mata_description_google.png" alt="mata_description_google.png"></p>
+<h2 id="seo中google和百度的一些区别">seo中Google和百度的一些区别</h2>
+<p>上面提到了Google在显示descrption时与百度的差异，其实还有有些地方有区别，比如收录页面规则，处理死链规则。</p>
+<h3 id="收录页面方面">收录页面方面</h3>
+<ul>
+<li>百度: 先进行一段时间判定，页面评定OK后，会进行收录，提交一个页面，可能要半个月才会收录</li>
+<li>Google: 先进行收录，然后再一段时间内对页面进行判定，完成评估内容不好久会撤掉，提交一个页面，1天后就会收录</li>
+</ul>
+<h3 id="死链处理方面">死链处理方面</h3>
+<ul>
+<li>百度: 当页面被收录，网站如果出现了改版，且收录的页面成了死链，提交死链给百度，3天后收录里面居然还有，处理的比较很慢</li>
+<li>Google: 提交死链后，最多一天你就在收录里看不到对应的死链页面了</li>
+</ul>
+<p>注意：提交链接，提交死链需要在百度站长平台或Google Search console里提交</p>
+<h3 id="总结">总结</h3>
+<p>相对于百度来讲google确实更智能一点</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="description在seo中的重要性" style="padding-left:1em">description在seo中的重要性<span></li><ul><li><span class="ul-span" data-id="网站页面描述description" style="padding-left:2em">网站页面描述(description)<span></li></ul><ul><li><span class="ul-span" data-id="google对description的处理" style="padding-left:2em">Google对description的处理<span></li></ul><ul><li><span class="ul-span" data-id="seo中google和百度的一些区别" style="padding-left:2em">seo中Google和百度的一些区别<span></li><ul><li><span class="ul-span" data-id="收录页面方面" style="padding-left:3em">收录页面方面<span></li></ul><ul><li><span class="ul-span" data-id="死链处理方面" style="padding-left:3em">死链处理方面<span></li></ul><ul><li><span class="ul-span" data-id="总结" style="padding-left:3em">总结<span></li></ul></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

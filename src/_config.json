@@ -4,8 +4,8 @@
   "baiduTongjiId": "183281668cc3440449274d1f93c04de6",
   "indexConfig": {
     "author": "guoqzuo",
-    "description": "左小白的技术日常",
-    "keywords": "左小白的技术日常,zuo11.com",
+    "description": "左小白的技术日常，主要记录和分享web前端领域相关的理解、总结、观点。偶尔会进行一些扩展：比如网站建设、服务器运维、后台数据库等",
+    "keywords": "左小白,左小白的技术日常,zuo11.com",
     "linkList": [
       { "name": "博客", "href": "/blog/category.html" },
       { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
@@ -22,7 +22,9 @@
   },
   "categorySequence": [
     "web",
+    "vue",
     "css",
+    "网站建设与seo",
     "开发工具",
     "运维部署",
     "微信小程序", 
