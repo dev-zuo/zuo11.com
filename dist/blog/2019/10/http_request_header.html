@@ -1,0 +1,179 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="http_request_header.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在前端mock接口时，对于需要设置请求头校验的情况，可能会想着在前端发送请求时设置对应的请求头，但发现前端设置了Cookie请求头，会出错。这是什么原因呢？">
+        <meta name="keywords" content="前端设置请求头无效,Refused to set unsafe header Cookie,前端设置cookie请求头无效,axios添加请求头不生效,">
+
+        <title>前端ajax请求时，设置Cookie请求头无效 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/10/10</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="前端ajax请求时，设置cookie请求头无效">前端ajax请求时，设置Cookie请求头无效</h1>
+<p>在前端mock接口时，对于需要设置请求头校验的情况，可能会想着在前端发送请求时设置对应的请求头，但发现前端设置了Cookie请求头，会出错。这是什么原因呢？</p>
+<p>查资料后，了解到在前端发送AJAX请求时，有些请求头是无法设置的，比如：</p>
+<pre><code class="language-js">Accept-Charset
+Accept-Encoding
+Access-Control-Request-Headers
+Access-Control-Request-Method
+Connection
+Content-Length
+Cookie
+Cookie2
+Date
+DNT
+Expect
+Host
+Keep-Alive
+Origin
+Proxy-
+Sec-
+Referer
+TE
+Trailer
+Transfer-Encoding
+Upgrade
+Via</code></pre>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">Forbidden header name - MDN Web Docs Glossary: Definitions of Web-related terms | MDN</a></li>
+<li><a href="https://blog.csdn.net/qq_33679504/article/details/80736865">前端设置Cookie请求头报错 Refused to set unsafe header Cookie_JavaScript_Lan77-CSDN博客</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="前端ajax请求时，设置cookie请求头无效" style="padding-left:1em">前端ajax请求时，设置Cookie请求头无效<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

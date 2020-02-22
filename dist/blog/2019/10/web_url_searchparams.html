@@ -1,0 +1,203 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_url_searchparams.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams">
+        <meta name="keywords" content="URLSearchParams URL查询字符串处理,url查询字符串处理,URLSearchParams,处理查询字符串优雅的方法">
+
+        <title>URLSearchParams URL查询字符串处理 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#web" class="hidden">web</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/10/10</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="urlsearchparams-url查询字符串处理">URLSearchParams URL查询字符串处理</h1>
+<p>一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams</p>
+<h2 id="以面向对象的方法操作查询字符串">以面向对象的方法操作查询字符串</h2>
+<pre><code class="language-js">var searchParams = new URLSearchParams()
+searchParams.append(&#39;a&#39;, 1212)
+searchParams.append(&#39;b&#39;, &#39;xxx&#39;)
+searchParams.toString()   // &quot;a=1212&amp;b=xxxx&quot;
+
+// 传参
+var paramsString = &quot;q=URLUtils.searchParams&amp;topic=api&quot;
+var searchParams = new URLSearchParams(paramsString);
+
+for (let p of searchParams) {
+  console.log(p);
+}
+// 打印值
+// [&quot;q&quot;, &quot;URLUtils.searchParams&quot;]
+// [&quot;topic&quot;, &quot;api&quot;]</code></pre>
+<h2 id="urlsearchparams构造函数注意事项">URLSearchParams构造函数注意事项</h2>
+<p>URLSearchParams构造函数不会解析完整 URL，但是如果字符串起始位置有 ? 会被去除，如果需要处理完整的url，可以先用new URL(url)中转一下</p>
+<pre><code class="language-js">var paramsString1 = &quot;http://example.com/search?query=%40&quot;;
+var searchParams1 = new URLSearchParams(paramsString1);
+
+searchParams1.has(&quot;query&quot;); // false 
+searchParams1.has(&quot;http://example.com/search?query&quot;); // true
+
+searchParams1.get(&quot;query&quot;); // null
+searchParams1.get(&quot;http://example.com/search?query&quot;); // &quot;@&quot; (equivalent to decodeURIComponent(&#39;%40&#39;))
+
+var paramsString2 = &quot;?query=value&quot;;
+var searchParams2 = new URLSearchParams(paramsString2);
+searchParams2.has(&quot;query&quot;); // true 
+
+var url = new URL(&quot;http://example.com/search?query=%40&quot;);
+var searchParams3 = new URLSearchParams(url.search);
+searchParams3.has(&quot;query&quot;) // true</code></pre>
+<h2 id="结合objectfromentries解析查询字符串">结合Object.fromEntries解析查询字符串</h2>
+<p>Object.fromEntries()方法是Object.entries()的逆操作，用于将一个键值对数组转为对象。</p>
+<pre><code class="language-js">Object.fromEntries([
+  [&#39;foo&#39;, &#39;bar&#39;],
+  [&#39;baz&#39;, 42]
+])
+// { foo: &quot;bar&quot;, baz: 42 }
+
+// 用来处理查询字符串
+Object.fromEntries(new URLSearchParams(&#39;foo=bar&amp;baz=qux&#39;))
+// { foo: &quot;bar&quot;, baz: &quot;qux&quot; }</code></pre>
+<p>注意：<strong>Object.fromEntries() 暂时不支持 Edge、IE，详情参见下面的MDN文档链接</strong></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://www.yuque.com/guoqzuo/js_es6/rxu7ms#e6a375d4">Object.fromEntries() - 对象的扩展与新增方法 | 语雀</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries() - MDN</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams">URLSearchParams - Web API 接口参考 | MDN</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="urlsearchparams-url查询字符串处理" style="padding-left:1em">URLSearchParams URL查询字符串处理<span></li><ul><li><span class="ul-span" data-id="以面向对象的方法操作查询字符串" style="padding-left:2em">以面向对象的方法操作查询字符串<span></li></ul><ul><li><span class="ul-span" data-id="urlsearchparams构造函数注意事项" style="padding-left:2em">URLSearchParams构造函数注意事项<span></li></ul><ul><li><span class="ul-span" data-id="结合objectfromentries解析查询字符串" style="padding-left:2em">结合Object.fromEntries解析查询字符串<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  

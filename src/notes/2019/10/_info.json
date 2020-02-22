@@ -34,6 +34,32 @@
     "description": "在Vue2.x中img的src如果是动态参数，图片会无法显示，需要使用require来加载图片",
     "keywords": "vue img src图片加载不了,Vue中img的src是动态参数时不显示的问题,vue 图片src是变量时无法显示",
     "category": "vue"
+  },
+  {
+    "source": "Element使用JS全局触发消息.md",
+    "staticFileName": "vue_element_globalmsg.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/10",
+    "description": "在Vue中，单文件组件xx.vue里如果想触发ElementUI的提示消息（如错误信息、警告信息），怎么通过一行js就能触发呢？下面来看看调用方法",
+    "keywords": "elementUI 全局触发消息,element使用js全局触发消息,element提示错误信息,element message,element 提示信息",
+    "category": "vue"
+  },
+  {
+    "source": "前端ajax请求时，设置Cookie请求头无效.md",
+    "staticFileName": "http_request_header.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/10",
+    "description": "在前端mock接口时，对于需要设置请求头校验的情况，可能会想着在前端发送请求时设置对应的请求头，但发现前端设置了Cookie请求头，会出错。这是什么原因呢？",
+    "keywords": "前端设置请求头无效,Refused to set unsafe header Cookie,前端设置cookie请求头无效,axios添加请求头不生效,",
+    "category": "http与https"
+  },
+  {
+    "source": "URLSearchParams URL查询字符串处理.md",
+    "staticFileName": "web_url_searchparams.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/10",
+    "description": "一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams",
+    "keywords": "URLSearchParams URL查询字符串处理,url查询字符串处理,URLSearchParams,处理查询字符串优雅的方法",
+    "category": "web"
   }
 ]
-
