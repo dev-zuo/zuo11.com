@@ -1,0 +1,165 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="css_global.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="vue项目中，虽然UI基于element设计，但有些情况还是需要修改element组件的默认样式，怎么修改element的默认样式呢">
+        <meta name="keywords" content="全局修改element组件样式而不影响其他页面,修改element默认样式">
+
+        <title>全局修改element组件样式而不影响其他页面 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#css" class="hidden">css</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/10/12</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="全局修改element组件样式而不影响其他页面">全局修改element组件样式而不影响其他页面</h1>
+<p>vue项目中，虽然UI基于element设计，但有些情况还是需要修改element组件的默认样式，怎么修改element的默认样式呢</p>
+<p>.vue单文件组件style元素加上scope后，当前页面修改el-tree的默认样式无效需要去掉scope，将样式暴露到全局，</p>
+<pre><code class="language-html">&lt;template&gt;
+&lt;/template&gt;
+&lt;script&gt;
+&lt;/script&gt;
+&lt;style lang=&#39;less&#39; scoped&gt;
+  /* 这里面如果修改element样式可能会不生效，需要去掉  scoped ,将样式暴露到全局 */
+&lt;/style&gt;</code></pre>
+<p>当样式暴露到全局后，怎么避免影响其他样式呢，需要使用一个class来包裹，防止造成全局污染</p>
+<pre><code class="language-html">&lt;style lang=&quot;less&quot;&gt;
+  .root-menu-left {
+    /* el样式修改 */  
+  }
+&lt;/style&gt;</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="全局修改element组件样式而不影响其他页面" style="padding-left:1em">全局修改element组件样式而不影响其他页面<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1</div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script>
+          let asideDiv = document.getElementsByTagName('aside')[0]
+          asideDiv.onclick = (e) => {
+            let id = e.target.dataset.id
+            if (!id) return
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            e.target.classList.add('active')
+            document.getElementById(id).scrollIntoView(true)
+            document.documentElement.scrollBy(0, -70)
+          }
+
+          let headersArr = []
+
+          // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
+          window.onload = () => {
+            // 如果是category，且有hash值，向上滚动 -70
+            let { pathname, hash } = location
+            pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+
+            // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              // console.log(nodes.dataset)
+              let id = nodes[i].dataset.id
+              headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
+            }
+            // console.log(headersArr)
+
+            window.onscroll = () => {
+              focusAsideSpan()
+              // debounce(focusAsideSpan)
+            }
+          }
+
+          // 效果不好，没有实时滚动的感觉，关闭防抖
+          // function debounce(method, context) {
+          //   clearTimeout(method.tId)
+          //   method.tId = setTimeout(function() {
+          //     method.call(context)
+          //   }, 100)
+          // }
+          
+          function focusAsideSpan() {
+            let scrollTop = document.documentElement.scrollTop
+            let curNode
+            for (let i = 0, len = headersArr.length; i < len; i++) {
+              if (headersArr[i].offsetTop - scrollTop >= 0) {
+                // 移除所有的active
+                let nodes = document.getElementsByClassName('ul-span')
+                for (let j = 0, len = nodes.length; j < len; j++) {
+                  if (headersArr[i].id === nodes[j].dataset.id) {
+                    nodes[j].classList.remove('active')
+                    nodes[j].classList.add('active')
+                  } else {
+                    nodes[j].classList.remove('active')
+                  }
+                }
+                return
+              }
+            }
+            // 如果走到这里，说明滚到底部了
+            // 移除所有的active
+            let nodes = document.getElementsByClassName('ul-span')
+            for (let i = 0, len = nodes.length; i < len; i++) {
+              nodes[i].classList.remove('active')
+            }
+            nodes[nodes.length - 1].classList.add('active')
+          }
+
+
+          function gotoIndex() {
+            window.location.href = "/"
+          }
+
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+
+        </script>
+      </body>
+    </html>
+  
