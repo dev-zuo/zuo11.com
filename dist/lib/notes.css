@@ -149,6 +149,8 @@ article ul,ol {
 aside > div {
   position:fixed;
   width: 250px;
+  max-height: calc(100% - 143px); /* 防止窗体高度过小时，侧边栏显示异常的问题 */
+  overflow-y: scroll;
   box-sizing: border-box;
   
   border-left: 1px solid #ccc;
@@ -236,7 +238,7 @@ footer a {
 }
 
 .category-ul li {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .category-ul li a {
