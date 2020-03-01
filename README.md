@@ -4,6 +4,9 @@ zuo11.com blog部分源码
 ## 目录结构
 ```bash
 ├── src # 写博客文章的目录
+│   ├── _config.json # 全局配置文件
+│   ├── global.js # 全局js
+│   ├── global.css # 全局css 
 │   ├── images # 图片目录
 │   │   ├── blog # 专门放博客图片的目录
 │   │   └── favicon.ico # 站点icon
