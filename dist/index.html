@@ -15,9 +15,12 @@
         <link rel="shortcut icon" href="/images/favicon.ico">
         
         <style>
+          body {
+            margin: 0;
+          }
           article {
             position: absolute;
-            top: 30%;
+            top: 33%;
             left: 50%;
             transform: translate(-50%, -50%);
           }
@@ -26,19 +29,32 @@
             font-weight:lighter;
             text-align:center;
             width: 300px;
+            color: #333;
           }
           .link {
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
           }
-          .link a {
+          .link a, .footer_content a{
             text-decoration: none;
             color: #25b864;
             font-weight: normal;
           }
           .img-div {
             text-align:center;margin-bottom:10px;
+          }
+          .footer_content {
+            position: fixed;
+            bottom: 15px;
+            display: flex;
+            flex-wrap:wrap;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 9%;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #666;
           }
         </style>
       </head>
@@ -58,6 +74,12 @@
     
           </div>
         </article>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
         <script src="/lib/global.js"></script>
         <script>
           
