@@ -23,10 +23,12 @@
   "categorySequence": [
     "web",
     "vue",
+    "js",
     "css",
     "http与https",
     "网站建设与seo",
     "开发工具",
+    "版本控制",
     "运维部署",
     "微信小程序", 
     "数据库",

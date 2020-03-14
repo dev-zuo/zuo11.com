@@ -1,0 +1,94 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="mac_svn.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="一般在mac下，如果安装了xcode貌似有自动安装svn，如果卸载了xcode，那怎么安装svn呢？还有svn怎么使用命令来拉取更新，一般的git命令对应svn的命令是什么呢？下面我们来看看。">
+        <meta name="keywords" content="mac没安装xcode怎么安装svn,怎么用命令操作svn,svn拉取代码命令">
+
+        <title>mac没安装xcode怎么安装svn以及怎么用命令操作svn - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#版本控制" class="hidden">版本控制</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/10/30</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="mac没安装xcode怎么安装svn以及怎么用命令操作svn">mac没安装xcode怎么安装svn以及怎么用命令操作svn</h1>
+<p>一般在mac下，如果安装了xcode貌似有自动安装svn，如果卸载了xcode，那怎么安装svn呢？还有svn怎么使用命令来拉取更新，一般的git命令对应svn的命令是什么呢？下面我们来看看。</p>
+<h2 id="如果mac没有装xcode，怎么安装svn">如果mac没有装xcode，怎么安装svn</h2>
+<p>最简单的方法：安装idea或webstorm等工具，在里面chenckout svn项目，会提示安装，按照提示来即可。</p>
+<p>建议还是装会xcode，没xode对其他也会有影响，为了少踩点坑，建议还是装上为好。</p>
+<h2 id="使用命令操作svn">使用命令操作svn</h2>
+<pre><code class="language-bash"># checkout svn，注意如果密码错误，会不提示重新输入，如果403forbidden，就是没权限
+svn checkout http://仓库地址 --username=用户名
+
+# git与svn常用命令对比
+# 整理自 https://blog.csdn.net/scythe666/article/details/51941622
+svnadmin create  ------------------------------&gt; git init
+svn co                 ------------------------------&gt; git clone
+svn update          ------------------------------&gt; git pull
+svn add              ------------------------------&gt; git add
+svn commit        ------------------------------&gt;  git add, git commit
+svn status          ------------------------------&gt;  git status
+svn switch &lt;branch&gt;  ------------------------&gt;  git checkout &lt;branch&gt;
+svn merge &lt;branch&gt;  ------------------------&gt;  git merge &lt;branch&gt;
+svn revert &lt;file&gt;  ------------------------------&gt; git checkout &lt;file&gt;</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="mac没安装xcode怎么安装svn以及怎么用命令操作svn" style="padding-left:1em">mac没安装xcode怎么安装svn以及怎么用命令操作svn<span></li><ul><li><span class="ul-span" data-id="如果mac没有装xcode，怎么安装svn" style="padding-left:2em">如果mac没有装xcode，怎么安装svn<span></li></ul><ul><li><span class="ul-span" data-id="使用命令操作svn" style="padding-left:2em">使用命令操作svn<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

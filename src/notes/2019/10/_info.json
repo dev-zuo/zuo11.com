@@ -151,6 +151,52 @@
     "description": "目前骨架屏在app端用的比较多，主要是从国外转过来的。国内大厂JD、知乎、淘宝等都有用，相比原来用loading 菊花图来表示加载中，骨架屏用户体验更好一点，这里我们来自己实现一个简单的骨架屏样式效果",
     "keywords": "骨架屏",
     "category": "css"
+  },
+  {
+    "source": "custom validator check failed for prop 'percentage'.md",
+    "staticFileName": "css_element_progress.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/24",
+    "description": "在使用element的 el-progress 组件时，出现 custom validator check failed for prop 'percentage' 的错误，后来发现是 percentage 属性设置的值超过了100，我们可以在js逻辑理加一个判断，set percentage 的值时，不能超过100，如果大于100，就直接设置为100",
+    "keywords": "custom validator check failed for prop 'percentage'",
+    "category": "css"
+  },
+  {
+    "source": "原生JS实现美元图片四周散开的动画效果.md",
+    "staticFileName": "css_mask_animation.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/26",
+    "description": "之前一朋友在微信群里问，是否能做一个动画，在每次进入页面的时候，实现美元钞票向四周扩散的效果，也就是一个遮罩动画。当时刚看完js高程3不久，就用原生js写了个动画，如果页面需要这个动画，只需要引入一个js就可以。",
+    "keywords": "原生JS实现遮罩动画,js实现美元图片四周散开动画效果,js实现美元各方向散开的动画效果",
+    "category": "css"
+  },
+  {
+    "source": "nginx默认配置对前端开发的一些影响.md",
+    "staticFileName": "nginx_effect_web.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/28",
+    "description": "一般前端代码开发好后，会部署到nginx，但nginx的某些默认配置，会使前端页面受到影响，比如默认请求超时限制，默认文件上传大小限制，默认字符编码问题等。下面来看具体的问题，以及怎么解决这些问题。",
+    "keywords": "nginx默认配置对前端开发的一些影响,ngnix请求超时时间默认60s,nginx默认文件上传大小限制为1M,nginx中文图片路径404的问题",
+    "category": "运维部署"
+  },
+  {
+    "source": "JS到底是解释型语言还是编译型语言.md",
+    "staticFileName": "js_language.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/28",
+    "description": "JS到底是解释型语言还是编译型语言呢？一般的书里都写的是js是一种解释型语言，但令人令人困惑的地方是：—般解释型语言是逐行解释执行的，为什么JS会有変曩提升(hoisting)的能力？执行JS时会用到JIT, JIT(just in time compilers 及时编译）会做代码优化(同时也会创建代码的编译版本),解释型语言无法做到这些变量提升问题",
+    "keywords": "JS到底是解释型语言还是编译型语言",
+    "category": "js"
+  },
+  {
+    "source": "mac没安装xcode怎么安装svn以及怎么用命令操作svn.md",
+    "staticFileName": "mac_svn.html",
+    "author": "guoqzuo",
+    "createDate": "2019/10/30",
+    "description": "一般在mac下，如果安装了xcode貌似有自动安装svn，如果卸载了xcode，那怎么安装svn呢？还有svn怎么使用命令来拉取更新，一般的git命令对应svn的命令是什么呢？下面我们来看看。",
+    "keywords": "mac没安装xcode怎么安装svn,怎么用命令操作svn,svn拉取代码命令",
+    "category": "版本控制"
   }
 ]
+
 
