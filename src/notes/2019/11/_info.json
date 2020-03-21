@@ -1,0 +1,56 @@
+[
+  {
+    "source": "用mac做前端开发遇到的问题总结.md",
+    "staticFileName": "mac_dev.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/04",
+    "description": "在用mac开发的过程中，会遇到过一些问题，比如怎么显示文件的扩展名；mac隐藏文件 .DS_Store 对node遍历文件产生的影响；mac怎么修改环境变量；mac安装yarn的方法；mac加密zip文件；mac使用触控板来进行复制和拖动窗口等，下面来逐一介绍下。",
+    "keywords": "mac 隐藏文件 .DS_Store 对node遍历文件产生的影响,mac export PATH 后关闭termial就失效了,mac修改环境变量,macos安装Yarn方法,mac安装yarn方法,mac zip文件加密,mac显示文件扩展名,mac使用触控板拖动复制、移动窗口,mac三指拖动",
+    "category": "开发工具"
+  },
+  {
+    "source": "vue仅开发环境下能看到的路由.md",
+    "staticFileName": "vue_dev_router.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/04",
+    "description": "通过vue-cli创建的项目，npm run build 的代码是可以根据开发环境的不同而调整的，使用 process.env.NODE_ENV 可以做一些只有开发环境有的逻辑，比如下面的例子中，仅开发环境，才能看到相应的路由",
+    "keywords": "vue仅开发环境下能看到的路由",
+    "category": "vue"
+  },
+  {
+    "source": "根据vue-router路由传参配置keep-alive以及登录校验.md",
+    "staticFileName": "vue_router_params.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/04",
+    "description": "在vue开发中，路由配置的时候，给每个路由添加一个自定义的meta对象，在meta对象中可以设置一些状态，来进行一些操作。可以用来设置是否使用keep-alive，以及登录校验，先来看看配置",
+    "keywords": "vue 中路由meta,根据路由配置做登录验证,根据vue-router路由传参配置keep-alive",
+    "category": "vue"
+  },
+  {
+    "source": "版本号中的rc是什么意思.md",
+    "staticFileName": "version_rc.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/05",
+    "description": "在看html2canvas的历史版本信息时，发现有rc版本，不知道是什么意思，于是查了下，rc版本代表比较成熟的版本，是release之前版本，除此之外还有aplpha、beta等版本，下面来看看",
+    "keywords": "版本号中的rc是什么意思",
+    "category": "版本控制"
+  },
+  {
+    "source": "jpg、png、bmp、gif图片格式区别，什么是webp？.md",
+    "staticFileName": "image_type.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/05",
+    "description": "在网页开发中一般用的都是png，现在比较流行或者说以后的趋势应该是webp，现有的一些图片格式都些有什么区别的？一般图片主要从两个方面来看：是否能无损压缩，图片大小、是否放大后不失真，下面来具体看看",
+    "keywords": "jpg、png、bmp、gif图片格式区别,什么是webp",
+    "category": "web"
+  },
+  {
+    "source": "html2canvas将网页转换为图片.md",
+    "staticFileName": "html2vanvas.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/05",
+    "description": "在web开发中，我们需要生成图片时，可以使用html2canvas，他可以将html转为png，pc端还好，移动端css的坑比较多，这里只是简单的介绍下怎么使用。先引入 html2canvas.js，根据其api调用，来看看具体示例",
+    "keywords": "html2canvas将网页转换为图片,html2canvas使用示例",
+    "category": "web"
+  }
+]
