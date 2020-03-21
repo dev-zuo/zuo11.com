@@ -4,7 +4,7 @@
     "staticFileName": "css_text_overflow.html",
     "author": "guoqzuo",
     "createDate": "2019/10/08",
-    "description": "文本溢出处理，多行文本截断",
+    "description": "文本溢出处理，在HTML5权威指南这本书里是没有讲到这个知识点。一般使用 text-overflow: ellipsis，对于单行文本，一般使用text-overflow: ellipsis即可。注意：使用这个样式的前提是需要先给定容器宽度、overflow:hidden等属性，来看一个实例",
     "keywords": "文本溢出处理,多行文本截断,text-overflow: ellipsis,line-clamp",
     "category": "css"
   },
@@ -13,7 +13,7 @@
     "staticFileName": "mac_nginx_install.html",
     "author": "guoqzuo",
     "createDate": "2019/10/08",
-    "description": "macOS安装nginx",
+    "description": "mac下直接使brew install用命令安装，注意：mac自带的xcode不要随意卸载，不然会出各种奇怪的问题: 包括svn安装问题、nginx安装问题等",
     "keywords": "mac nginx,mac 安装nginx,macos安装nginx,macos nginx,nginx安装",
     "category": "运维部署"
   },

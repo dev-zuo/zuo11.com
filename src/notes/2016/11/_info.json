@@ -4,7 +4,7 @@
     "staticFileName": "ios_startup_viewload.html",
     "author": "guoqzuo",
     "createDate": "2016/11/01",
-    "description": "iOS程序启动过程，视图加载UIWindow与ViewController",
+    "description": "初步了解了iOS程序的启动过程、UIApplication和AppDelegate后，就要开始步入正题了，界面的显示问题。开启主运行循环后，会看Info.plist文件是否指定了main storyboard，有则加载。加载storyboard会创建UIWindow对象，再将默认的ViewController设置为该window的根控制器，然后将ViewController的view可视化",
     "keywords": "UIWindow,ViewController,代码手动加载storyboard,代码加载xib,iOS启动过程",
     "category": "iOS"
   },
@@ -13,7 +13,7 @@
     "staticFileName": "ios_view_controller.html",
     "author": "guoqzuo",
     "createDate": "2016/11/01",
-    "description": "iOS 自定义ViewController中的view",
+    "description": "手动加载storyboard时，我们用storyboard创建了ViewController，它会自动创建一个空的view，这个view就是UIView类型。我们拖拽的按钮、label等就是拖拽在这个视图上面。如果需要自定义该view可以在该ViewController的loadView方法里设置。",
     "keywords": "ViewController里的view,iOS 控制器view,ViewController里View的创建",
     "category": "iOS"
   },
@@ -22,7 +22,7 @@
     "staticFileName": "ios_picker.html",
     "author": "guoqzuo",
     "createDate": "2016/11/01",
-    "description": "iOS选择器UIPickerView和UIDatePicker",
+    "description": "Apple提供了两个选择器对象：UIPickerView和UIDatePicker，就像网页里的select。UIDatePicker是时间方面的选择器，用法和UIPickerView差不多，这里先介绍UIPickerView，它可以自定义选择的行和列，每行显示的内容可以是自定义的视图。",
     "keywords": "iOS选择器,iOS UIPickerView,iOS UIDatePicker,UIPickerView,UIDatePicker",
     "category": "iOS"
   },
@@ -31,7 +31,7 @@
     "staticFileName": "ios_textfield.html",
     "author": "guoqzuo",
     "createDate": "2016/11/08",
-    "description": "iOS 自定义UITextField",
+    "description": "前面介绍了PickerView的简单用法，这里用PickerView和DatePicker来自定义UITextField类，让输入框的inputView不再是键盘，而是选择器。接下来会介绍三种基于选择器的封装键盘类: 国旗键盘、日期键盘、城市键盘。",
     "keywords": "封装UITextField类,iOS封装国旗键盘,iOS UIPickerView,自定义UITextField,修改iOS键盘的输入,自定义UITextField的输入视图",
     "category": "iOS"
   },
@@ -40,7 +40,7 @@
     "staticFileName": "ios_navigation.html",
     "author": "guoqzuo",
     "createDate": "2016/11/08",
-    "description": "iOS 页面的切换跳转UINavigationController",
+    "description": "app一般有很多个页面，一个页面会对应一个UIViewController。那怎么控制页面的切换呢？拖线就不讲了！这里介绍一种可以控制页面切换的控制器：导航控制器UINavigationController，就像一个view下面有很多个子view一样，导航控制器会通过添加(push)或删除(pop)其子控制器view，来实现页面的切换，类似于栈。",
     "keywords": "iOS导航控制器,UINavigationController,iOS页面的跳转,控制器View的生命周期,导航控制器",
     "category": "iOS"
   },
@@ -49,7 +49,7 @@
     "staticFileName": "ios_weibo.html",
     "author": "guoqzuo",
     "createDate": "2016/11/09",
-    "description": "iOS微博个人详情页面",
+    "description": "用storyboard拖线来做个微博个人详情页面的UI。导航栏刚开始透明，滚动tableView的时候，上面的两个视图会向上，导航条也会从完全透明到不透明。这里会图解UITableView显示滚动区域的相关细节。",
     "keywords": "UITableView滚动,导航条随着滚动从透明到不透明,iOS微博个人详情页面,图解UITableView显示滚动区域",
     "category": "iOS"
   },
@@ -58,7 +58,7 @@
     "staticFileName": "ios_data_save.html",
     "author": "guoqzuo",
     "createDate": "2016/11/10",
-    "description": "iOS数据持久化，数据存储",
+    "description": "iOS里有一个专有名词叫数据持久化，可以理解为数据存储。iOS数据持久化有5种方式：1. XML属性列表 (plist文件) 2. Preference (偏好设置) 3. NSKeyedArchiver归档 (NSCoding) 4. SQLite3 5. Core Data 这里先讲前三种。",
     "keywords": "iOS数据存储,iOS数据持久化,iOS应用沙盒,ios 数据持久化,ios 数据存储,ios 应用沙盒",
     "category": "iOS"
   },
@@ -67,7 +67,7 @@
     "staticFileName": "ios_transform.html",
     "author": "guoqzuo",
     "createDate": "2016/11/10",
-    "description": "iOS transform设置控件平移、旋转、缩放",
+    "description": "一般情况下，我们可以通过修改UI控件的x，y轴以及长宽来控制控件的形变，iOS提供了transform属性用来专门来处理控件的形变(平移，旋转，缩放等)。所有的UIView控件都有transform这个属性。",
     "keywords": "transform,iOS 形变,控件的移动/缩放/旋转",
     "category": "iOS"
   },
@@ -76,7 +76,7 @@
     "staticFileName": "ios_tabbar.html",
     "author": "guoqzuo",
     "createDate": "2016/11/10",
-    "description": "iOS UITabBarController设置底部菜单",
+    "description": "现在手机里常用的app绝大部分都用到了UITabBarController，也就是最下面的一排按钮，通过点击按钮可以切换页面。它可以轻松管理多个控制器，类似于UINavigationController，一个是在屏幕顶部，一个是在屏幕底部。这里通过一个小例子，来了解UITabBarController。",
     "keywords": "ios tabbar,iOS主流app框架,UITabBarController,UITabBarController与UINavigationController,UITabBarController与导航控制器结合使用",
     "category": "iOS"
   },
@@ -85,7 +85,7 @@
     "staticFileName": "ios_modal.html",
     "author": "guoqzuo",
     "createDate": "2016/11/14",
-    "description": "iOS Modal，另一种切换控制器的方法",
+    "description": "之前页面的切换用的一般是push，这里介绍另一种控制器切换的方法: Modal。任何控制器都能通过Modal的形式展示出来。Modal的默认效果:新控制器从屏幕最底部往上钻，直到盖住之前的控制器为止(push的效果为从右至左)",
     "keywords": "iOS Modal,Modal跳转,UIAlertController与Modal,presentViewController跳转,ios modal",
     "category": "iOS"
   },
@@ -94,7 +94,7 @@
     "staticFileName": "ios_responder.html",
     "author": "guoqzuo",
     "createDate": "2016/11/14",
-    "description": "iOS UIResponder响应者对象，iOS中的事件",
+    "description": "在使用app的过程中，会产生各种各样的事件，iOS中的事件可以分为3大类型:触摸事件、加速计事件、远程控制事件。不是任何对象都能处理事件，只有继承了UIResponder的对象，才能接收并处理事件。这些对象被称为响应者对象",
     "keywords": "UIResponder响应者对象,UITouch对象,触摸事件,iOS中的事件,hitTest应用",
     "category": "iOS"
   },
@@ -103,7 +103,7 @@
     "staticFileName": "ios_gesture.html",
     "author": "guoqzuo",
     "createDate": "2016/11/14",
-    "description": "iOS 手势UIGestureRecognizer的基础用法",
+    "description": "监听一个view的触摸事件可以先自定义view，再实现它的touches方法来处理事件。通过touches方法监听view触摸事件必须得自定义view，外界对象无法监听view的触摸对象，且不易区分用户的具体手势行为。这里将介绍手势识别类UIGestureRecognizer，它可以更好的识别触摸事件。",
     "keywords": "iOS UIGestureRecognizer手势识别,iOS手势,UIGesture,ios 手势,ios 手势事件",
     "category": "iOS"
   }

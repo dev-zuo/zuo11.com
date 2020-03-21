@@ -13,7 +13,7 @@
     "staticFileName": "viewpoint_zero.html",
     "author": "guoqzuo",
     "createDate": "2016/10/14",
-    "description": "从web零基础，到有这个博客系统中间的故事",
+    "description": "最开始接触Web是在15年的11月份，到现在快1年了。现在一般需求的小网站应该可以独立完成，其间遇到了很多问题，也学了很多东西。但我这个人很健忘，东西学的快也忘的快，于是就想用博客来记录所学。以方便查找，也为后来的人提供一些经验。",
     "keywords": "web零基础,个人博客",
     "category": "观点"
   },
@@ -22,7 +22,7 @@
     "staticFileName": "c_saolei.html",
     "author": "guoqzuo",
     "createDate": "2016/10/15",
-    "description": "c语言扫雷实现代码及思路",
+    "description": "扫雷游戏的逻辑其实很简单，只要学了C的循环语句、数组、递归就可以基本实现了。思路有了，就可以应用到UI上，这里例子是纯C代码，控制台下模拟，提供相关思路及示例。",
     "keywords": "c语言扫雷实现,c 扫雷,扫雷源码,c语言扫雷源码,控制台扫雷源码,c语言扫雷,扫雷,扫雷一扫一大片",
     "category": "C语言"
   },
@@ -31,7 +31,7 @@
     "staticFileName": "c_console_time.html",
     "author": "guoqzuo",
     "createDate": "2016/10/16",
-    "description": "c语言实现控制台下走动的时间",
+    "description": "UI下时间插件很容易展现一个走动的时间，但C语言下控制台程序想要实现一个走动的时间，就需要用while(1)每隔1秒来打印了。其间我们可以开个fork用子程序来跑这个死循环。顺便延升到输出缓冲区与printf函数的问题。",
     "keywords": "c 控制台走动的时间,c语言时间程序,c 走动时间, c 控制台时间",
     "category": "C语言"
   },
@@ -40,7 +40,7 @@
     "staticFileName": "c_file_encrypt.html",
     "author": "guoqzuo",
     "createDate": "2016/10/16",
-    "description": "c语言文件加密",
+    "description": "文件加密对小白来说是一个很高大上的技术，但也不是那么遥不可及。只要学了C语言的文件操作，就可以用简单的文件操作方法，对文件进行简单的加密。",
     "keywords": "c语言文件加密,文件加密,文件取反加密,c 文件加密",
     "category": "C语言"
   },
@@ -49,7 +49,7 @@
     "staticFileName": "c_sort.html",
     "author": "guoqzuo",
     "createDate": "2016/10/16",
-    "description": "c 排序算法",
+    "description": "排序的方法有不少，不过到现在还没怎么具体应用过，可能还比较low吧。这里介绍4中常见的排序算法：冒泡排序、选择排序、插入排序、快速排序，用C语言实现。",
     "keywords": "c语言排序算法,c 冒泡排序,c 选择排序,c 插入排序,c 快排,c 排序",
     "category": "C语言"
   },
@@ -58,7 +58,7 @@
     "staticFileName": "c_linked_list.html",
     "author": "guoqzuo",
     "createDate": "2016/10/16",
-    "description": "c 单向链表",
+    "description": "c语言指针和结构体一学完就是链表了。也是一个分水岭，很多小白都卡在了这里，当初我自学时就是在这个位置时放弃了。我发现很多地方讲链表都讲得比较复杂，其实链表很简单，就是将多个数据(结构体类型)连在一起。只要有该链表头结点的地址，就可以操作这一连串数据。",
     "keywords": "c语言单向链表,单向链表,单向链表理解,c 链表,c 单向链表",
     "category": "C语言"
   },
@@ -67,7 +67,7 @@
     "staticFileName": "apue_first.html",
     "author": "guoqzuo",
     "createDate": "2016/10/17",
-    "description": "UNIX环境高级编程简介，概览",
+    "description": "APUE是一本非常经典的书，被认为是在UINX环境下进行程序设计有关人员必读，且需要经常查阅的首选参考书，对于深入了解UNIX及内核源码非常有利。这本书没有花哨的界面，各种高大上的程序都是用C语言编写且在终端下运行，在这个浮躁的社会，能潜心去钻研这本书真的非常不容易。但只要用心去研究，一定会有意想不到的收获。",
     "keywords": "APUE,apue 笔记, APUE笔记,UNIX基础知识,UNIX环境高级编程,apue",
     "category": "UNIX环境高级编程"
   },
@@ -76,7 +76,7 @@
     "staticFileName": "apue_file_io.html",
     "author": "guoqzuo",
     "createDate": "2016/10/18",
-    "description": "apue 文件io",
+    "description": " UNIX系统中，文件I/O常用的5个函数: open,read,write,lseek,close。与标准I/O相比文件I/O通常称为不带缓冲的I/O(unbuffered)。一般所有I/O都要经过内核的块缓冲。read，write的数据也要被内核缓冲，这里不带缓冲的I/O指的是在用户进程用不会自动缓冲，每次都是系统调用。",
     "keywords": "文件IO,标准IO,C语言文件处理,APUE文件IO,apue 文件io",
     "category": "UNIX环境高级编程"
   },
@@ -85,7 +85,7 @@
     "staticFileName": "apue_ls.html",
     "author": "guoqzuo",
     "createDate": "2016/10/18",
-    "description": "apue ls实现",
+    "description": "C语言操作目录需要使用opendir()和readdir()。此外文件接口函数还有很多，如stat，umask，chmod，chown，link，rename等。这些函数和shell命令有些是一样的，我们可以通过调用这些系统调用来实现一些命令。这里以ls -l的写法为例介绍一些常用的系统调用文件I/O。",
     "keywords": "stat,文件和目录操作,ls实现",
     "category": "UNIX环境高级编程"
   },
@@ -94,7 +94,7 @@
     "staticFileName": "apue_pwd.html",
     "author": "guoqzuo",
     "createDate": "2016/10/20",
-    "description": "apue pwd命令实现，ls -l实现，mkdir -p实现",
+    "description": "了解了文件目录相关的系统调用后，就可以尝试模拟实现各种shell命令了。这里给出了ls -l的完成代码，加上pwd及mkdir -p的实现。里面用到了递归，也涉及到一些细节问题，如根目录的上一级目录还是根目录，chdir需要用户有目录的执行权限。",
     "keywords": "apue笔记,pwd实现,ls -l实现,mkdir -p实现",
     "category": "UNIX环境高级编程"
   },
@@ -103,7 +103,7 @@
     "staticFileName": "apue_signal.html",
     "author": "guoqzuo",
     "createDate": "2016/10/21",
-    "description": "apue 信号signal相关",
+    "description": "这里所说的信号也叫软中断信号，当进程接收到一个来自内核的信号，如ctrl+c时，进程就会中断。系统定义了一些宏来表示这些中断。一般以SIG开头，对于这些信号，系统会有默认的处理方式，也可以通过signal函数，自定义处理方式(系统默认处理/ignore/执行某个函数)。",
     "keywords": "信号signal,signal函数,alarm函数,sleep函数功能实现,unix signal",
     "category": "UNIX环境高级编程"
   },
@@ -112,7 +112,7 @@
     "staticFileName": "apue_process.html",
     "author": "guoqzuo",
     "createDate": "2016/10/22",
-    "description": "apue 进程 process",
+    "description": "进程就是正在运行的程序。不管是进程还是线程，主要作用就是可以在同一时间内同时处理多个事情，提升用户体验。像shell终端，如果是单个进程，那每次执行完命令，都需要重新打开终端，非常不利于操作。拿扫雷来说，如果一边开个while(1)来处理输入输出，那如果你需要实时显示时间呢? 学了进程相关的操作后就可以fork一个子程序专门用来显示实时时钟。",
     "keywords": "unix进程,fork,进程,process,apue fork",
     "category": "UNIX环境高级编程"
   },
@@ -121,7 +121,7 @@
     "staticFileName": "apue_ipc.html",
     "author": "guoqzuo",
     "createDate": "2016/10/23",
-    "description": "apue 进程间通信 IPC",
+    "description": "由于进程所处的空间都是独立的，如果多个子进程需要交互数据，那就需要了解进程间通信(InterProcess Communication, IPC)了。这里先介绍前三种通信方式：1. 管道(无名) 只能用于父子进程通信，半双工，单向；2. 命名管道，同一台主机的任意两个进程；3. 共享内存。",
     "keywords": "IPC,ipc,进程间通信,apue,C语言实现聊天小程序,管道,共享内存,pipe,fifo",
     "category": "UNIX环境高级编程"
   },
@@ -130,7 +130,7 @@
     "staticFileName": "db_mysql_basecmd.html",
     "author": "guoqzuo",
     "createDate": "2016/10/23",
-    "description": "mysql 基础命令, jsp连接操作mysql",
+    "description": "最开始接触数据库是在学校，有一门课就是讲数据库的，但只是拿着ppt讲了将书上的东西，没有实际操作。回想起来觉得很失败，一点动手操作的意识都没。现在学东西，我更喜欢从实际的问题出发，多查资料，多实践。这里总结了mac下mysql的安装与一些基本的应用。",
     "keywords": "mysql连接操作命令,mysql基础命令,mac下mysql安装,mysql mac,jsp连接mysql,jsp操作mysql",
     "category": "数据库"
   },
@@ -139,7 +139,7 @@
     "staticFileName": "ios_plist.html",
     "author": "guoqzuo",
     "createDate": "2016/10/24",
-    "description": "iOS Info.plist与pch文件",
+    "description": "plist的全称为property list，是apple的一种属性列表文件，一般用来存储数组或字典类型数据。是iOS中数据持久化的一种方式。info.plist是app的配置文件，里面包含了app名称、版本、启动入口等基本信息。",
     "keywords": "info.plist文件,ios pch文件, pch文件,plist文件,iOS plist文件",
     "category": "iOS"
   },
@@ -148,7 +148,7 @@
     "staticFileName": "ios_startup.html",
     "author": "guoqzuo",
     "createDate": "2016/10/25",
-    "description": "iOS程序启动过程",
+    "description": "想弄清楚一段程序，就需要了解程序的执行过程。一般程序都是从main函数开始执行，iOS app也不例外。iOS程序main函数里执行了UIApplicationMain()函数，这个函数会创建UIApplication对象及代理AppDelegate，并开启事件循环，显示UI.",
     "keywords": "iOS程序启动过程,UIApplication,AppDelegate,iOS main函数执行过程",
     "category": "iOS"
   }

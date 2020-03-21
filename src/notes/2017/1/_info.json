@@ -13,7 +13,7 @@
     "staticFileName": "web_https.html",
     "author": "guoqzuo",
     "createDate": "2017/01/10",
-    "description": "http转https",
+    "description": "在玩微信小程序的时候发现网络请求必须是https开头的，但我的数据都在我的web服务器上，只是简单的http，于是就在网上找ssl证书，发现居然有免费1年的SSL，还是阿里云的，果断申请使用。顺便将web的数据打包为json做了一个接口。",
     "keywords": "免费SSL,阿里云DV SSL使用实例,http转https,80端口转443端口,tomcat配置https",
     "category": "web"
   },
@@ -22,7 +22,7 @@
     "staticFileName": "web_content.html",
     "author": "guoqzuo",
     "createDate": "2017/01/17",
-    "description": "seo内容建设",
+    "description": "我身边的很多朋友都曾抱怨过百度搜索的内容太杂，没有google搜索的内容质量高。之前感觉没什么，但有了这个站点后，写的内容也会提交给百度。当在百度搜索时，呈现的内容可能就是自己的笔记。如果我都没有用心去记录好内容，那还有什么理由去抱怨搜索引擎。",
     "keywords": "zuo11.com优化记录,内容建设,网站内容质量提升经验",
     "category": "web"
   },
@@ -31,7 +31,7 @@
     "staticFileName": "web_404.html",
     "author": "guoqzuo",
     "createDate": "2017/01/24",
-    "description": "404，500跳转处理",
+    "description": "这几天百度的收录慢慢开始上升，但收录的有些页面是改版之前的旧内容，要么删了要么URL变了，造成访问出现404或者500的情况。404的问题可以提交死链，但500的问题就头疼了，当时在写后台的时候没有处理笔记id找不到的情况，如果随便输入id就会出现空指针异常，返回500。网上查了下，发现一般seo都需要专门对这些进行处理，于是就小改了一下。",
     "keywords": "404跳转,网站404跳转处,web 404跳转处理,web 500跳转处理,web.xml配置404和500的跳转",
     "category": "web"
   },
@@ -40,7 +40,7 @@
     "staticFileName": "web_pass_data.html",
     "author": "guoqzuo",
     "createDate": "2017/01/26",
-    "description": "iOS页面之间传值 - Segue、通知、代理",
+    "description": "之前做通讯录的时候用的是navigation以代码的方式push跳转，tableView的传值只是用了控制器.h文件的一个变量。这里用拖线的方式跳转，通过添加和修改联系人练习segue、通知及代理传值。",
     "keywords": "页面之间传值 iOS,iOS页面之间传值,iOS用通知传值,Segue传值,iOS代理传值",
     "category": "iOS"
   },
@@ -49,7 +49,7 @@
     "staticFileName": "web_address_list.html",
     "author": "guoqzuo",
     "createDate": "2017/01/22",
-    "description": "iOS通讯录小例子",
+    "description": "小马哥视频里讲的通讯录小例子登录界面用了动画，用的是storyboard拖线跳转，顺便讲了segue，页面传值及发送通知。这里简单的实现通讯录的基本功能，动画就不做了，主要练习页面的跳转以及tableView相关使用，只是了解基本的使用，可以根据实际情况进行优化。",
     "keywords": "UITableView的使用,通讯录小例子,UITableView左滑删除功能",
     "category": "iOS"
   }

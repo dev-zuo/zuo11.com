@@ -4,7 +4,7 @@
     "staticFileName": "mp_jssdk.html",
     "author": "guoqzuo",
     "createDate": "2018/02/24",
-    "description": "小程序web-view组件内嵌网页调用微信JSSDK",
+    "description": "小程序web-view内置H5可以像公众号H5一样使用JS-SDK，但会有一定的限制，另外对于没有公众号H5调用JS-SDK经验的同学，可能会以为wx.config使用的参数是小程序的信息，下面以调用扫一扫为例子，介绍具体细节",
     "keywords": "web-view jssdk,小程序内嵌H5调用jssdk,微信JS-SDK使用",
     "category": "微信小程序"
   },
@@ -13,7 +13,7 @@
     "staticFileName": "web_github_pages.html",
     "author": "guoqzuo",
     "createDate": "2018/02/25",
-    "description": "使用Github的Pages功能创建静态个人网站",
+    "description": "使用Github的Pages功能创建静态个人网站，通过Github Pages这个功能，我们可以创建一个开源的静态个人网站，通过xxx.github.io 可以访问. 示例页面 https://zuoxiaobai.github.io",
     "keywords": "github pages个人博客,使用github创建个人博客",
     "category": "web"
   },
@@ -22,7 +22,7 @@
     "staticFileName": "web_hexo.html",
     "author": "guoqzuo",
     "createDate": "2018/02/26",
-    "description": "使用Hexo搭建个人博客",
+    "description": "用Github Pages弄了一个简单的页面后，琢磨着用Hexo来搭一个博客。把大致的过程梳理了一下。首先百度了Hexo，找到了[Hexo的中文文档](https://hexo.io/zh-cn/docs/)，由于之前没接触过，就按着流程一步步来了。",
     "keywords": "使用hexo搭建个人博客,hexo 个人博客",
     "category": "web"
   }
