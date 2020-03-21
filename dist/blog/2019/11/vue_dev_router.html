@@ -1,0 +1,89 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="vue_dev_router.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="通过vue-cli创建的项目，npm run build 的代码是可以根据开发环境的不同而调整的，使用 process.env.NODE_ENV 可以做一些只有开发环境有的逻辑，比如下面的例子中，仅开发环境，才能看到相应的路由">
+        <meta name="keywords" content="vue仅开发环境下能看到的路由">
+
+        <title>vue仅开发环境下能看到的路由 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/11/04</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="vue仅开发环境下能看到的路由">vue仅开发环境下能看到的路由</h1>
+<p>通过vue-cli创建的项目，npm run build 的代码是可以根据开发环境的不同而调整的，使用 process.env.NODE_ENV 可以做一些只有开发环境有的逻辑，比如下面的例子中，仅开发环境，才能看到相应的路由</p>
+<pre><code class="language-js">let routes = []
+
+// 路由信息仅开发环境可见
+if (process.env.NODE_ENV === &#39;development&#39;) { 
+  routes = [
+    {
+      path: ‘/xxxx’,
+      component: () =&gt; import(‘xxx’)
+    }
+  ]
+}
+
+export default routes</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="vue仅开发环境下能看到的路由" style="padding-left:1em">vue仅开发环境下能看到的路由<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
