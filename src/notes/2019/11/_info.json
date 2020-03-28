@@ -52,5 +52,59 @@
     "description": "在web开发中，我们需要生成图片时，可以使用html2canvas，他可以将html转为png，pc端还好，移动端css的坑比较多，这里只是简单的介绍下怎么使用。先引入 html2canvas.js，根据其api调用，来看看具体示例",
     "keywords": "html2canvas将网页转换为图片,html2canvas使用示例",
     "category": "js"
+  },
+  {
+    "source": "怎么使用Chrome断点调试功能，断点调试使用场景.md",
+    "staticFileName": "breakpoint.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/07",
+    "description": "在前端开发中，我们调试时一般都会使用console.log在控制台打log看程序执行情况，断点调试的功能好像用的比较少，那什么情况下就需要使用断点调试功能了呢？下面来讨论下",
+    "keywords": "怎么使用Chrome断点调试功能,断点调试使用场景",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "position:absolute元素高度自适应，换成relative设置top试试.md",
+    "staticFileName": "absolute_auto_height.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/08",
+    "description": "一般元素设置position:absolute后，就已经脱离了文档流，用css是无法计算其高度的，只能用js获取dom来计算。另外不要把自己限制死了，对于自适应高度的，为什么一定要使用position:absolute呢？**换position:relative也可以设置top、left等css属性**，如果自己真的想不到好的方法，问问其他同事或社群里的人试试？下面来看看我之前由于知识盲点踩的一个坑",
+    "keywords": "position:absolute元素高度自适应,怎么用js计算元素高度",
+    "category": "css"
+  },
+  {
+    "source": "background-repeat与background-position冲突.md",
+    "staticFileName": "repeat_position.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/08",
+    "description": "background-repeat和background-position最好不要一起使用，background-repeat可能会导致background-position设置失效，当设置是background-repeat在y轴重复背景时，background-position设置的顶部开始具体位置会无效",
+    "keywords": "background-repeat与background-position冲突,background-repeat导致background-position失效",
+    "category": "css"
+  },
+  {
+    "source": "函数命名validate和verify的区别.md",
+    "staticFileName": "validate_verify.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/09",
+    "description": "一般我们在命名校验的函数时，发现validate和verify都有校验的意思，具体用那个呢？其实区别只是在于证实的强度：confirm < verify < validate，我们来看看",
+    "keywords": "函数命名validate和verify的区别",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "css样式优先级，防止外部样式污染组件.md",
+    "staticFileName": "css_style_priority.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/09",
+    "description": "一般在写全局的样式时，总担心污染其他位置的样式，但我们怎么防止别人的样式来污染我们的样式了。一句话总结：对于很重要，不要被污染的用!import，如果不想用!important，那最前面加id，或者多加一个或多个优先级高的选择器，来提高整体优先级",
+    "keywords": "css样式优先级,css样式优先级计算,css选择器样式优先级,css防止外部样式污染组件",
+    "category": "css"
+  },
+  {
+    "source": "非箭头函数作为参数时this问题.md",
+    "staticFileName": "js_this.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/09",
+    "description": "复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数",
+    "keywords": "非箭头函数作为参数时this问题",
+    "category": "js"
   }
 ]

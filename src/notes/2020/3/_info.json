@@ -1,0 +1,11 @@
+[
+  {
+    "source": "网页深色模式样式适配(web dark mode support).md",
+    "staticFileName": "drak_mode.html",
+    "author": "guoqzuo",
+    "createDate": "2020/03/28",
+    "description": "web dark mode，网页js怎么监听深色模式改变事件，window.matchMedia, (prefers-color-scheme: dark)，目前iOS，macos都有了深色模式，而最近微信最新版也做了深色模式(dark mode)适配，我试了下，手机切换时页面效果样式是实时刷新的。于是就想着web怎么能够监听深色模式，并设置样式。查了资料后，在Stack Overflow上找到了答案，下面来看看",
+    "keywords": "window.matchMedia, web drak mode event,web dark mode,web深色模式,网页深色模式,网页怎么监听深色模式,(prefers-color-scheme: dark)",
+    "category": "css"
+  }
+]
