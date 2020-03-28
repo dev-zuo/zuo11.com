@@ -6,7 +6,7 @@
     "createDate": "2017/02/01",
     "description": "认真去做内容建设后，百度收录和索引量有了明显的提升。把之前笔记修改完后，发现mip限制的_blank属性用户体验非常差，加上之前没有做访客记录功能。就打算再改改移动端，顺便新增访客记录功能。花了4天时间勉强改完了，把页面效果提升了一个level，mip页面也新增了4个。",
     "keywords": "站点优化,mip改造,Servlet获取访问信息,web新增访客记录功解决方法能,prism代码高亮使用,UEditor过滤code便签的解决方法",
-    "category": "web"
+    "category": "网站建设与seo"
   },
   {
     "source": "java web获取访客信息(ip,归属地等).md",
@@ -15,7 +15,7 @@
     "createDate": "2017/02/01",
     "description": "之前写过一篇servlet判断是否为移动端访问的文章，是为了代码适配移动端或PC。这次需要记录访客信息。写了个类方法来获取访问者的ip、归属地、UA、访问URL以及是否为PC端访问。",
     "keywords": "servlet 获取ip,servlet获取访问信息,java获取访客信息,servlet获取访客ip,web获取用户访问信息,百度谷歌蜘蛛UA,java web获取访客信息",
-    "category": "web"
+    "category": "后端数据库等"
   },
   {
     "source": "Xcode8安装KSImageNamed插件后崩溃的解决方法.md",
@@ -42,6 +42,6 @@
     "createDate": "2017/02/08",
     "description": "昨天好基友买了个域名limiaolei.com，并解析到了我的服务器。然后访问他的域名就进入了我的网站，于是就想怎么让同一ip上的两个域名访问不同的内容。由于不知道具体的方法，我用的搜索词都不怎么准确，找了好久才找到解决方法。就是配置Tomcat，当访问limiaolei.com时，指定为其它目录。",
     "keywords": "将不同的域名解析到不同的目录,Tomcat设置将多个域名解析到同一个服务器的不同目录,tomcat配置二级域名的访问目录,tomcat如何设置二级域名的访问目录",
-    "category": "web"
+    "category": "运维部署与版本控制"
   }
 ]

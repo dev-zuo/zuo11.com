@@ -59,7 +59,8 @@ function downloadFile(data, fileType, fileName) {
   })
   console.log(blobData) // 检查数据是否正常
 
-  //如果是IE，特殊处理，防止IE下提提示 "拒绝访问"
+  // 如果是IE，特殊处理，防止IE下提提示 "拒绝访问"
+  // blob拒绝访问文件 fix
   if (window.navigator.msSaveBlob) {
     try {
       // 根据实际情况加后缀名

@@ -1,11 +1,11 @@
 [
   {
-    "source": "文本溢出处理与多行文本截断.md",
+    "source": "单行文本截断与多行文本截断.md",
     "staticFileName": "css_text_overflow.html",
     "author": "guoqzuo",
     "createDate": "2019/10/08",
-    "description": "文本溢出处理，在HTML5权威指南这本书里是没有讲到这个知识点。一般使用 text-overflow: ellipsis，对于单行文本，一般使用text-overflow: ellipsis即可。注意：使用这个样式的前提是需要先给定容器宽度、overflow:hidden等属性，来看一个实例",
-    "keywords": "文本溢出处理,多行文本截断,text-overflow: ellipsis,line-clamp",
+    "description": "单行文本截断与多行文本截断，文本溢出处理，在HTML5权威指南这本书里是没有讲到这个知识点。一般使用 text-overflow: ellipsis，对于单行文本，一般使用text-overflow: ellipsis即可。注意：使用这个样式的前提是需要先给定容器宽度、overflow:hidden等属性，来看一个实例",
+    "keywords": "单行文本截断,文本溢出处理,多行文本截断,text-overflow: ellipsis,line-clamp",
     "category": "css"
   },
   {
@@ -15,7 +15,7 @@
     "createDate": "2019/10/08",
     "description": "mac下直接使brew install用命令安装，注意：mac自带的xcode不要随意卸载，不然会出各种奇怪的问题: 包括svn安装问题、nginx安装问题等",
     "keywords": "mac nginx,mac 安装nginx,macos安装nginx,macos nginx,nginx安装",
-    "category": "运维部署"
+    "category": "运维部署与版本控制"
   },
   {
     "source": "js页面滚动相关操作.md",
@@ -24,7 +24,7 @@
     "createDate": "2019/10/09",
     "description": "通过一个URL进入一个页面，需要滚动到对应的锚点位置，可以用什么方法呢，下面我们来总结下页面滚动相关的一些方法，例如：Element.scrollIntoView、window.scroll、window.scrollTo、window.scrollBy、Element.scrollTop等",
     "keywords": "js页面滚动,页面滚动,scroll,scrollTo,scrollBy,scrollTop,scrollLeft,scrollIntoView,使用hash滚动,vue中vue-router滚动",
-    "category": "web"
+    "category": "js"
   },
   {
     "source": "Vue中img的src是动态参数时不显示的问题.md",
@@ -60,7 +60,7 @@
     "createDate": "2019/10/10",
     "description": "一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams",
     "keywords": "URLSearchParams URL查询字符串处理,url查询字符串处理,URLSearchParams,处理查询字符串优雅的方法",
-    "category": "web"
+    "category": "js"
   },
   {
     "source": "vue v-cloak指定防止页面内容显示抖动的问题.md",
@@ -94,9 +94,9 @@
     "staticFileName": "devtools_autofix.html",
     "author": "guoqzuo",
     "createDate": "2019/10/12",
-    "description": "vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？",
-    "keywords": "vscode 配置eslint保存后自动fix.md,vscode ctrl+s后自动fix,eslint 自动fix,vscode 自动fix",
-    "category": "开发工具"
+    "description": "vscode 保存执行fix, eslint 保存自动fix, vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？",
+    "keywords": "vscode 保存执行fix,eslint 保存自动fix,vscode 配置eslint保存后自动fix.md,vscode ctrl+s后自动fix,eslint 自动fix,vscode 自动fix",
+    "category": "计算机基础与开发工具"
   },
   {
     "source": "#ffffff与#fff的区别.md",
@@ -121,8 +121,8 @@
     "staticFileName": "vue_css_deep.html",
     "author": "guoqzuo",
     "createDate": "2019/10/16",
-    "description": "/deep/ 样式为深度选择器，Vue单文件组件中如果style标签有scope属性，当前页面定义的样式对子组件会不生效。如果想让某些样式在子组件里面生效，可以使用/deep/",
-    "keywords": "/deep/,/deep/深度选择器,vue /deep/",
+    "description": "vue /deep/什么意思呢？/deep/ 样式为深度选择器，Vue单文件组件中如果style标签有scope属性，当前页面定义的样式对子组件会不生效。如果想让某些样式在子组件里面生效，可以使用/deep/",
+    "keywords": "vue /deep/什么意思,/deep/,/deep/深度选择器,vue /deep/",
     "category": "vue"
   },
   {
@@ -132,15 +132,15 @@
     "createDate": "2019/10/17",
     "description": "在项目中，有一次为了少写一行，将设置值和return语句写成了一行，发现eslint报错，为什么会有这个错误呢？下面我们来看看。",
     "keywords": "eslint禁止在return中使用赋值,no-return-assign, eslint no-return-assign",
-    "category": "开发工具"
+    "category": "计算机基础与开发工具"
   },
   {
     "source": "下载文件进度显示以及koa下载接口mock.md",
     "staticFileName": "http_download_progress.html",
     "author": "guoqzuo",
     "createDate": "2019/10/18",
-    "description": "在前端做导出功能的时候，需要请求一个接口去导出数据，一般是execl，然后接口会返回execl的文件数据。对于比较大的文件，我们怎么获取文件的下载进度呢？前端怎么用koa来mock导出的接口呢？下面来看看",
-    "keywords": "下载文件进度,axios下载文件进度,下载接口mock,koa导出文件接口,前端下载进度,进度信息total为0，只有loaded的情况",
+    "description": "下载进度，通用下载函数，IE下blob拒绝访问文件兼容处理了，在前端做导出功能的时候，需要请求一个接口去导出数据，一般是execl，然后接口会返回execl的文件数据。对于比较大的文件，我们怎么获取文件的下载进度呢？前端怎么用koa来mock导出的接口呢？下面来看看",
+    "keywords": "blob拒绝访问文件,下载文件进度,axios下载文件进度,下载接口mock,koa导出文件接口,前端下载进度,进度信息total为0，只有loaded的情况",
     "category": "http与https"
   },
   {
@@ -177,7 +177,7 @@
     "createDate": "2019/10/28",
     "description": "一般前端代码开发好后，会部署到nginx，但nginx的某些默认配置，会使前端页面受到影响，比如默认请求超时限制，默认文件上传大小限制，默认字符编码问题等。下面来看具体的问题，以及怎么解决这些问题。",
     "keywords": "nginx默认配置对前端开发的一些影响,ngnix请求超时时间默认60s,nginx默认文件上传大小限制为1M,nginx中文图片路径404的问题",
-    "category": "运维部署"
+    "category": "运维部署与版本控制"
   },
   {
     "source": "JS到底是解释型语言还是编译型语言.md",
@@ -195,7 +195,7 @@
     "createDate": "2019/10/30",
     "description": "一般在mac下，如果安装了xcode貌似有自动安装svn，如果卸载了xcode，那怎么安装svn呢？还有svn怎么使用命令来拉取更新，一般的git命令对应svn的命令是什么呢？下面我们来看看。",
     "keywords": "mac没安装xcode怎么安装svn,怎么用命令操作svn,svn拉取代码命令",
-    "category": "版本控制"
+    "category": "运维部署与版本控制"
   }
 ]
 

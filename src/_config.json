@@ -9,11 +9,13 @@
     "linkList": [
       { "name": "博客", "href": "/blog/category.html" },
       { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
+      { "name": "B站", "href": "https://space.bilibili.com/486840111", "target": "_black"},
       { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
     ]
   },
   "topRightLink": [
     { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
+    { "name": "B站", "href": "https://space.bilibili.com/486840111", "target": "_black"},
     { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
   ],
   "footer": {
@@ -21,20 +23,16 @@
     "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
   },
   "categorySequence": [
-    "web",
     "vue",
     "js",
     "css",
     "http与https",
+    "运维部署与版本控制",
+    "计算机基础与开发工具",
     "网站建设与seo",
-    "开发工具",
-    "版本控制",
-    "运维部署",
-    "微信小程序", 
-    "数据库",
-    "观点",
+    "微信开发", 
+    "后端数据库等",
     "iOS",
-    "UNIX环境高级编程",
-    "C语言"
+    "C与APUE"
   ]
 }
