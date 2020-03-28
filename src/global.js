@@ -54,6 +54,10 @@ function message(type, msg, sec) {
   }
 }
 
+window.matchMedia && console.log('Is dark mode: ', window.matchMedia('(prefers-color-scheme: dark)').matches)
+window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+  console.log('dark mode change，已' + (event.matches ? '进入': '退出') + 'dark mode')
+})
 
 // 页面滚动比例监听
 // posTop 顶部类似阮一峰ES6网页的滚动进度条
