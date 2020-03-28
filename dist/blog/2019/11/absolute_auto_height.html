@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="absolute_auto_height.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="一般元素设置position:absolute后，就已经脱离了文档流，用css是无法计算其高度的，只能用js获取dom来计算。另外不要把自己限制死了，对于自适应高度的，为什么一定要使用position:absolute呢？**换position:relative也可以设置top、left等css属性**，如果自己真的想不到好的方法，问问其他同事或社群里的人试试？下面来看看我之前由于知识盲点踩的一个坑">
+        <meta name="keywords" content="position:absolute元素高度自适应,怎么用js计算元素高度">
+
+        <title>position:absolute元素高度自适应，换成relative设置top试试 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#css" class="hidden">css</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/11/08</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="positionabsolute元素高度自适应，换成relative设置top试试">position:absolute元素高度自适应，换成relative设置top试试</h1>
+<p>一般元素设置position:absolute后，就已经脱离了文档流，用css是无法计算其高度的，只能用js获取dom来计算。另外不要把自己限制死了，对于自适应高度的，为什么一定要使用position:absolute呢？<strong>换position:relative也可以设置top、left等css属性</strong>，如果自己真的想不到好的方法，问问其他同事或社群里的人试试？下面来看看我之前由于知识盲点踩的一个坑</p>
+<h2 id="一个例子">一个例子</h2>
+<pre><code class="language-html">&lt;!--
+页面布局：
+顶部背景图 // 非透明   
+中间主内容 // 中间内容也有背景，内容里的title需要有一部分放到top背景区域
+底部背景图
+--&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;!-- 顶部背景区域 --&gt;
+  &lt;section class=&quot;top&quot;&gt;&lt;/section&gt;
+  &lt;!-- 中间主要内容--&gt;
+  &lt;section class=&quot;main&quot;&gt;
+    &lt;div class=&quot;main-title&quot; id=&quot;autoHeightTitle&quot;&gt;我是标题&lt;/div&gt;
+    &lt;div id=&quot;autoMarginTop&quot;&gt;产品信息&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;!-- 顶部背景区域--&gt;
+  &lt;section class=&quot;bottom&quot;&gt;&lt;/section&gt;
+&lt;/div&gt;</code></pre>
+<p>最开始的思路：</p>
+<ol>
+<li>直接将main-title 设置margin-top: -20px，但这样会导致中间主内容整体上移，覆盖顶部部分内容，不可行</li>
+<li>然后想到使用background-position属性将中间部分内容背景顶部开始位置设置20px左右，这样margin上去后，部分内容使用的就会是顶部的背景。但中间部分内容又设置了backgroud-repeat属性，导致background-position设置失效。不可行</li>
+<li>换个思路，将main-title再用一层div包裹，外层div position设置为relative, main-title设置为position:absolute，这样 top:-20px 即可实现需求。</li>
+</ol>
+<p>但问题来了。标题如果过长，会分行显示(可能是2行，3行，4行)，这样会覆盖下面的产品信息。所以需要知道标题的高度。但标题是position：absolute的，已经脱离的文档流，无法对现有文档布局造成影响。</p>
+<p>貌似没有css的解决方法，只能通过dom，计算title高度，然后将产品信息设置对应的margin-top，js计算div高度</p>
+<pre><code class="language-js">let heigt = document.getElementById(&#39;autoHeightTitle&#39;).clientHeight - relatvie包裹元素高度 + &#39;px&#39;
+document.getElementById(&#39;autoMarginTop&#39;).style.marginTop = height</code></pre>
+<p><img src="../../../images/blog/css/css_absolute_auto_height.png" alt="css_absolute_auto_height.png"></p>
+<h2 id="更好的方法positionrelative">更好的方法position:relative</h2>
+<p>标题使用 position:relative; top:-10px 就可以了，之前一直不知道position:relative也可以设置top等属性，看来基础还是欠缺</p>
+<p>完整demo源码: <a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/css%E5%B0%86%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%8C%BA%E5%9F%9F/index.html">css将部分内容放到其他区域 - github</a></p>
+<p>demo地址：<a href="https://zuoxiaobai.github.io/fedemo//src/DebugDemo/css%E5%B0%86%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%8C%BA%E5%9F%9F/index.html">css将部分内容放到其他区域 - 在线演示</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="positionabsolute元素高度自适应，换成relative设置top试试" style="padding-left:1em">position:absolute元素高度自适应，换成relative设置top试试<span></li><ul><li><span class="ul-span" data-id="一个例子" style="padding-left:2em">一个例子<span></li></ul><ul><li><span class="ul-span" data-id="更好的方法positionrelative" style="padding-left:2em">更好的方法position:relative<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
