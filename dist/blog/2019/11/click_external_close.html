@@ -1,0 +1,126 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="click_external_close.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="点击外部关闭div，一般在做弹窗div时，需要做点击div外部关闭div的功能，怎么做到的呢？一句话总结：用一个父元素(铺满屏幕，绝对布局)包裹该div(绝对布局，水平垂直居中，固定宽高)，**父元素监听点击事件后移除div，子元素div监听点击后阻止事件冒泡**。这样就实现了，点击外部关闭div，点击内部区域不关不div。">
+        <meta name="keywords" content="点击div外部关闭div,js点击外部关闭div,点击外部关闭div,js阻止事件冒泡实例">
+
+        <title>点击外部关闭div - js阻止事件冒泡实例 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/11/09</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="点击外部关闭div---js阻止事件冒泡实例">点击外部关闭div - js阻止事件冒泡实例</h1>
+<p>一般在做弹窗div时，需要做点击div外部关闭div的功能，怎么做到的呢？一句话总结：用一个父元素(铺满屏幕，绝对布局)包裹该div(绝对布局，水平垂直居中，固定宽高)，<strong>父元素监听点击事件后移除div，子元素div监听点击后阻止事件冒泡</strong>。这样就实现了，点击外部关闭div，点击内部区域不关不div。</p>
+<p>来看测试demo</p>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;button id=&quot;clickme&quot;&gt;点击我弹窗对话框&lt;/button&gt;
+  &lt;script&gt;
+    function showPopup(event) {
+      let tempHtml = `
+        &lt;!-- 遮罩 --&gt;
+        &lt;div class=&quot;mask&quot; style=&quot;position:absolute;z-index:25555;top:0;bottom:0;width:100%;background:#888;opacity:0.5&quot;&gt;&lt;/div&gt;
+        &lt;!-- 内容区域--&gt;
+        &lt;div id=&quot;popup-content-container&quot; class=&quot;content-container&quot; style=&quot;position:absolute;z-index:25556;top:0;bottom:0;width:100%&quot;&gt;
+          &lt;div id=&quot;popup-content-main&quot; class=&quot;content-main&quot; style=&quot;position:absolute;top:50%;left:50%; transform: translate(-50%, -50%); width:300px;height:200px;background:#fff;border:1px solid #ddd;&quot;&gt;
+            我是弹窗盒子  
+            &lt;button id=&quot;closebtn&quot;&gt;关闭&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      `
+
+      // 创建div
+      let div = document.createElement(&#39;div&#39;)
+      div.setAttribute(&#39;id&#39;, &#39;popup-div&#39;)
+      div.innerHTML = tempHtml
+
+      // 挂载到dom
+      document.body.appendChild(div)
+
+      // 事件监听
+      // 关闭弹窗
+      document.getElementById(&#39;closebtn&#39;).onclick = function(e) {
+        document.body.removeChild(div)  // 移除元素
+      }
+
+      // 点击外部关闭div 关键代码  
+      document.getElementById(&#39;popup-content-container&#39;).onclick = function(e) {
+        document.body.removeChild(div)  // 移除元素
+      }
+      document.getElementById(&#39;popup-content-main&#39;).onclick = function(e) {
+        e.stopPropagation() 
+      }
+    }
+
+    // 简单的弹窗框封装，只为测试点击外部关闭div
+    document.getElementById(&#39;clickme&#39;).onclick = (event) =&gt; {
+      showPopup(event)
+    }
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<p>完整demo地址：<a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/%E7%82%B9%E5%87%BB%E5%A4%96%E9%83%A8%E5%85%B3%E9%97%ADdiv/index.html">点击外部关闭div - github</a></p>
+<p>在线演示地址: <a href="https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E7%82%B9%E5%87%BB%E5%A4%96%E9%83%A8%E5%85%B3%E9%97%ADdiv/index.html">点击外部关闭div - 在线演示</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="点击外部关闭div---js阻止事件冒泡实例" style="padding-left:1em">点击外部关闭div - js阻止事件冒泡实例<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

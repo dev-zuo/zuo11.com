@@ -1,0 +1,243 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="custom_prompt.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="自定义prompt组件，原生JS封装prompt，就项目中要用到prompt功能，但需要优化下UI，整体导入elementUI不合适，就自己用原生JS写了个。样式、div结构，直接从elementUI message-box审查元素里面抽离，相关点击事件，校验，自己封装。">
+        <meta name="keywords" content="自定义prompt,原生js自定义prompt组件">
+
+        <title>原生JS封装prompt组件 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/11/09</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="原生js封装prompt组件">原生JS封装prompt组件</h1>
+<p>旧项目中要用到prompt功能，但需要优化下UI，整体导入elementUI不合适，就自己用原生JS写了个。样式、div结构，直接从elementUI message-box审查元素里面抽离，相关点击事件，校验，自己封装。</p>
+<p>先来看看效果：<a href="https://zuoxiaobai.github.io/fedemo/src/DebugDemo/prompt/">自定义prompt组件 - 在线演示</a></p>
+<p><img src="../../../images/blog/js/el_prompt.png" alt="el_prompt.png"></p>
+<h2 id="系统默认windowprompt样式">系统默认window.prompt()样式</h2>
+<p>先来看原生的prompt</p>
+<pre><code class="language-js">// prompt打开一个对话框，里面包含一个文本输入框，第一个参数为提示内容，第二个参数为输入框的默认值
+// 当点击取消返回null，更改内容后返回对应输入框的内容，如果填写为空，返回&quot;&quot;
+alert(prompt(&#39;请输入你的姓名?&#39;, &#39;张三&#39;));</code></pre>
+<p><img src="../../../images/blog/js/default_prompt.png" alt="default_prompt.png"></p>
+<h2 id="自己封装一个prompt组件">自己封装一个prompt组件</h2>
+<p>为什么我们要自己封装呢？原生prompt的不足:</p>
+<ol>
+<li>标题会附带网站url信息</li>
+<li>无法提示校验错误信息</li>
+<li>各个浏览器的弹窗样式不统一，与UI稿设计给的不一致</li>
+</ol>
+<h3 id="封装函数">封装函数</h3>
+<pre><code class="language-js">/**
+ * 向window挂载 elcustomPrompt 函数，代替系统的prompt
+ * window.elCustomPrompt  IE9+
+ * 从 element UI中抽出messagebox样式结构
+ */
+(function() {
+  /**
+   * @description elementUI风格自定义propmt封装
+   * @param { String } title  标题propmt第一个参数
+   * @param { String } placeholder input的placeholder
+   * @param { Function } validateFunc 动态校验值函数
+   *   - 点击确认后，执行的函数，参数为当前值， 
+   *   - return格式:
+   *     { result: true, msg: &#39;成功&#39;}
+   *     { result: false, msg: &#39;自定义错误信息&#39; }
+   * 考虑到阻塞程序向下执行，兼容性问题，不使用promise，使用回调函数。
+   * @param { Function } callback 获取到值后的回调
+   */
+  function elCustomPrompt(title, placeholder, validateFunc, callback) {
+    console.log(&#39;show elCustomPrompt&#39;)
+    var deleteImgUrl = &#39;delete.png&#39; // 16 * 16
+    var errMsg = &#39;&#39; // 错误信息
+
+    // 创建dom并挂载
+    var domStr = &#39;&lt;!--遮罩--&gt;&lt;div class=&quot;v-modal&quot; tabindex=&quot;0&quot; style=&quot;z-index:2054;&quot;&gt;&lt;/div&gt;&lt;!--弹窗_start--&gt;&lt;div id=&quot;elCustomPromptMain&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; class=&quot;el-message-box__wrapper&quot; style=&quot;z-index:2055;&quot;&gt;&lt;!--消息盒子_Start--&gt;&lt;div class=&quot;el-message-box&quot; id=&quot;elCustomPromptMessageBox&quot;&gt;&lt;!--顶部title以及关闭按钮--&gt;&lt;div class=&quot;el-message-box__header&quot;&gt;&lt;div class=&quot;el-message-box__title&quot;&gt;&lt;span&gt;&#39;+title+&#39;&lt;/span&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; aria-label=&quot;Close&quot; class=&quot;el-message-box__headerbtn&quot; id=&quot;elCustomPromptCloseBtn&quot;&gt;&lt;img src=&quot;&#39;+deleteImgUrl+&#39;&quot; style=&quot;width:16px;height:16px&quot;&gt;&lt;/button&gt;&lt;/div&gt;&lt;!--内容--&gt;&lt;div class=&quot;el-message-box__content&quot;&gt;&lt;div class=&quot;el-message-box__input&quot;&gt;&lt;div class=&quot;el-input&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;elCustomPromptInput&quot; autocomplete=&quot;off&quot; placeholder=&quot;&#39;+placeholder+&#39;&quot; class=&quot;el-input__inner&quot;&gt;&lt;/div&gt;&lt;div class=&quot;el-message-box__errormsg&quot; id=&quot;elCustomPromptErrMsgDiv&quot; style=&quot;visibility:hidden;&quot;&gt;&#39;+errMsg+&#39;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;!--底部按钮--&gt;&lt;div class=&quot;el-message-box__btns&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;el-button el-button--default el-button--small&quot; id=&quot;elCustomPromptCancelBtn&quot;&gt;&lt;span&gt;取消&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;el-button el-button--default el-button--small el-button--primary&quot; id=&quot;elCustomPromptOkBtn&quot; disabled=&quot;disabled&quot;&gt;&lt;span&gt;确定&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;!--消息盒子_end--&gt;&lt;/div&gt;&lt;!--弹窗_end--&gt;&#39;
+
+    var div = document.createElement(&#39;div&#39;)
+    div.setAttribute(&#39;id&#39;, &#39;elCustomPromptDiv&#39;)
+    div.innerHTML = domStr
+    document.body.appendChild(div)
+
+    // 移除弹窗框
+    function removeDiv() {
+      document.body.removeChild(div)
+    }
+
+    // 绑定事件
+    var elCustomPromptErrMsgDiv = document.getElementById(&#39;elCustomPromptErrMsgDiv&#39;), 
+        elCustomPromptCloseBtn = document.getElementById(&#39;elCustomPromptCloseBtn&#39;),
+        elCustomPromptCancelBtn = document.getElementById(&#39;elCustomPromptCancelBtn&#39;),
+        elCustomPromptOkBtn = document.getElementById(&#39;elCustomPromptOkBtn&#39;),
+        elCustomPromptInput = document.getElementById(&#39;elCustomPromptInput&#39;),
+        elCustomPromptMain = document.getElementById(&#39;elCustomPromptMain&#39;)
+        elCustomPromptMessageBox = document.getElementById(&#39;elCustomPromptMessageBox&#39;)
+
+    // 关闭弹窗、取消事件
+    elCustomPromptCloseBtn.onclick = function() {
+      removeDiv()
+    }
+    elCustomPromptCancelBtn.onclick = function() {
+      removeDiv()
+    }
+
+    // 点击确定后的操作
+    elCustomPromptOkBtn.onclick = function() {
+      console.log(&#39;点击了确定&#39;)
+
+      // 再次校验
+      let tempResult = validateFunc(elCustomPromptInput.value)
+      if (!tempResult.result) {
+        elCustomPromptErrMsgDiv.style.visibility = &#39;visible&#39;
+        elCustomPromptErrMsgDiv.innerHTML = tempResult.msg
+        elCustomPromptOkBtn.setAttribute(&#39;disabled&#39;, &#39;disabled&#39;)
+        return
+      }
+
+      // 关闭 弹窗，调用callback
+      removeDiv()
+      callback(elCustomPromptInput.value)
+    }
+
+    // 输入事件
+    elCustomPromptInput.oninput = function(e) {
+      console.log(elCustomPromptInput.value)
+
+      // 校验并显示信息
+      var tempResult = validateFunc(elCustomPromptInput.value)
+      console.log(tempResult)
+      if (tempResult.result) {
+        console.log(&#39;成功&#39;)
+        // 校验成功
+        elCustomPromptErrMsgDiv.style.visibility = &#39;hidden&#39;
+        elCustomPromptErrMsgDiv.innerHTML = &#39;&#39;
+        elCustomPromptOkBtn.removeAttribute(&#39;disabled&#39;)
+      } else {
+        // 校验失败
+        console.log(&#39;失败&#39;)
+        elCustomPromptErrMsgDiv.style.visibility = &#39;visible&#39;
+        elCustomPromptErrMsgDiv.innerHTML = tempResult.msg
+        elCustomPromptOkBtn.setAttribute(&#39;disabled&#39;, &#39;disabled&#39;)
+      }
+    }
+
+    // 空白位置点击关闭弹窗
+    elCustomPromptMain.onclick = function() {
+      removeDiv()
+    }
+    elCustomPromptMessageBox.onclick = function(e) {
+      event.stopPropagation()
+    }
+  }
+
+  window.elCustomPrompt = elCustomPrompt
+})()
+</code></pre>
+<h3 id="调用示例">调用示例</h3>
+<pre><code class="language-html">&lt;button onclick=&quot;showMsg()&quot;&gt;弹窗&lt;/button&gt;
+&lt;script&gt;
+var title = &#39;自定义客户属性标签&#39;,
+    placeholder = &#39;请输入标签，最多5个汉字或英文&#39;
+
+// 校验函数    
+var validateFunc = function() {
+  var that = this
+  return function(text) {
+    var MSG_FORMAT_ERROR = &#39;格式错误，只能是1-5个汉字或字符串&#39;
+    var MSG_TAG_EXIST = &#39;该客户属性已存在，无法添加&#39;
+    var MSG_NOT_EMPTY = &#39;内容不能为空&#39;
+
+    // 格式校验
+    if (text === &#39;&#39;) {
+      return { result: false, msg: MSG_NOT_EMPTY }  
+    }
+    if (!/^[\u4E00-\u9FA5a-zA-Z]{1,5}$/.test(text)) {
+      return { result: false, msg: MSG_FORMAT_ERROR } 
+    }
+
+    // 是否有重复
+    return { result: true, msg: &#39;成功&#39; }
+  }
+}
+
+// 回调
+var callback = function() {
+  var that = this
+  return function(text) {
+    // 执行后续操作
+    console.log(&#39;执行成功&#39;, text)
+  }
+}
+
+// elCustomPrompt(title, placeholder, validateFunc, callback)
+function showMsg() {
+  elCustomPrompt(title, placeholder, validateFunc(), callback())
+}
+&lt;/script&gt;
+</code></pre>
+<h3 id="github完整代码">github完整代码</h3>
+<p>上面是没有element样式的，完整demo参见 <a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/prompt/index.html">自定义prompt | github</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="原生js封装prompt组件" style="padding-left:1em">原生JS封装prompt组件<span></li><ul><li><span class="ul-span" data-id="系统默认windowprompt样式" style="padding-left:2em">系统默认window.prompt()样式<span></li></ul><ul><li><span class="ul-span" data-id="自己封装一个prompt组件" style="padding-left:2em">自己封装一个prompt组件<span></li><ul><li><span class="ul-span" data-id="封装函数" style="padding-left:3em">封装函数<span></li></ul><ul><li><span class="ul-span" data-id="调用示例" style="padding-left:3em">调用示例<span></li></ul><ul><li><span class="ul-span" data-id="github完整代码" style="padding-left:3em">github完整代码<span></li></ul></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
