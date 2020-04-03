@@ -8,10 +8,10 @@
 
         <meta name="application name" content="ci_cd_co.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="什么是serverless，最近在前端开发领域是一个比较火的概念，字面意思是无服务器，小程序云开发就是一种，主要是弱化服务器概念，把原来需要后端开发的内容搬到前端，让前端可以不用管数据库建表、部署方面的事情，写好代码一提交就可以自动生成对应的接口服务。">
-        <meta name="keywords" content="什么是serverless,serverless,severless是什么,serverless优点,serverless发展过程">
+        <meta name="description" content="CI CD CO 是什么意思呢？在开发中他们分别代表 CI持续集成 => CD持续交付/持续部署 => CO持续运营，下面来看看">
+        <meta name="keywords" content="CI CD CO,CI、CD、CO是什么意思,CI,CD,CO,CI持续集成,CD持续交付,CO持续运营">
 
-        <title>什么是serverless - 左小白的技术日常</title>
+        <title>CI、CD、CO是什么意思 - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+            <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
           </div>
           <div>
             
@@ -43,27 +43,27 @@
       <div class="article-top-right">Author: guoqzuo</div>
     </div>
   
-            <h1 id="什么是serverless">什么是serverless</h1>
-<p>什么是serverless，最近在前端开发领域是一个比较火的概念，字面意思是无服务器，小程序云开发就是一种</p>
-<p>主要是弱化服务器概念，把原来需要后端开发的内容搬到前端，让前端可以不用管数据库建表、部署方面的事情，写好代码一提交就可以自动生成对应的接口服务。</p>
-<h2 id="发展过程">发展过程</h2>
-<p>物理设备 =&gt; 虚拟机 =&gt; 容器 =&gt; serverless（只需关注业务逻辑，不需要关心服务器资源等）</p>
-<h2 id="severless优势">severless优势</h2>
-<ol>
-<li>减少人力成本7-8人开发  =&gt; 2-3人</li>
-<li>弹性伸缩，所需耗时: 虚拟机(小时级) =&gt; 容器(分钟级) =&gt; serverless(毫秒级)</li>
-<li>故障恢复方面优势</li>
-</ol>
-<h2 id="serverless-支持语言">serverless 支持语言</h2>
-<p>现在一般支持nodejs，java，go，php，python</p>
-<h2 id="注意">注意</h2>
-<p>注意serverless强依赖某个平台及其开放的服务</p>
-<p>参考：<a href="https://cloud.tencent.com/product/scf">云函数 Serverless Cloud Function</a></p>
+            <h1 id="ci、cd、co是什么意思">CI、CD、CO是什么意思</h1>
+<p>CI CD CO 是什么意思呢？在开发中他们分别代表 CI持续集成 =&gt; CD持续交付/持续部署 =&gt; CO持续运营，下面来看看</p>
+<h2 id="ci持续集成continuous-integration">CI持续集成(continuous integration)</h2>
+<p>CI 指的是持续集成，从研发团队提交代码作为起点，经过构建扫描测试等环节，以版本仓库为终点</p>
+<p>这中间，需要对每个新功能或者问题修复创建自动化测试用例。对新提交的代码执行自动化测试。</p>
+<p>通过自动化测试可以提早拿到测试结果，测试成本也大幅降低，CI服务器可以在几秒钟运行上白条测试。</p>
+<h2 id="cd持续部署continuous-delivery">CD持续部署(continuous delivery)</h2>
+<p>CD 指的是持续部署，以版本仓库为起点，经过各模块自动化部署，到业务上线提供服务为终点</p>
+<p>可以一键部署，自动触发发布流程</p>
+<h2 id="co持续运营continuous-operation">CO持续运营(continuous operation)</h2>
+<p>CO 指的是持续运营，从业务上线服务为起点，到业务下线终止服务，期间包含各种运营事件。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.sohu.com/a/275215574_355140">腾讯这种级别的大厂是怎么做运维转型的？</a></li>
+<li><a href="http://www.360doc.com/content/18/0903/11/19960613_783492490.shtml">详解CI、CD &amp; CD – 运维生存时间</a></li>
+</ul>
 
           </article>
           <aside>
             <div>
-              <ul><li><span class="ul-span" data-id="什么是serverless" style="padding-left:1em">什么是serverless<span></li><ul><li><span class="ul-span" data-id="发展过程" style="padding-left:2em">发展过程<span></li></ul><ul><li><span class="ul-span" data-id="severless优势" style="padding-left:2em">severless优势<span></li></ul><ul><li><span class="ul-span" data-id="serverless-支持语言" style="padding-left:2em">serverless 支持语言<span></li></ul><ul><li><span class="ul-span" data-id="注意" style="padding-left:2em">注意<span></li></ul></ul>
+              <ul><li><span class="ul-span" data-id="ci、cd、co是什么意思" style="padding-left:1em">CI、CD、CO是什么意思<span></li><ul><li><span class="ul-span" data-id="ci持续集成continuous-integration" style="padding-left:2em">CI持续集成(continuous integration)<span></li></ul><ul><li><span class="ul-span" data-id="cd持续部署continuous-delivery" style="padding-left:2em">CD持续部署(continuous delivery)<span></li></ul><ul><li><span class="ul-span" data-id="co持续运营continuous-operation" style="padding-left:2em">CO持续运营(continuous operation)<span></li></ul></ul>
             <div>
           </aside>
         </section>
