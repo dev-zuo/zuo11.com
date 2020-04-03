@@ -106,5 +106,88 @@
     "description": "复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数",
     "keywords": "非箭头函数作为参数时this问题",
     "category": "js"
+  },
+  {
+    "source": "点击外部关闭div - js阻止事件冒泡实例.md",
+    "staticFileName": "click_external_close.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/09",
+    "description": "点击外部关闭div，一般在做弹窗div时，需要做点击div外部关闭div的功能，怎么做到的呢？一句话总结：用一个父元素(铺满屏幕，绝对布局)包裹该div(绝对布局，水平垂直居中，固定宽高)，**父元素监听点击事件后移除div，子元素div监听点击后阻止事件冒泡**。这样就实现了，点击外部关闭div，点击内部区域不关不div。",
+    "keywords": "点击div外部关闭div,js点击外部关闭div,点击外部关闭div,js阻止事件冒泡实例",
+    "category": "js"
+  },
+  {
+    "source": "原生JS封装prompt组件.md",
+    "staticFileName": "custom_prompt.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/09",
+    "description": "自定义prompt组件，原生JS封装prompt，就项目中要用到prompt功能，但需要优化下UI，整体导入elementUI不合适，就自己用原生JS写了个。样式、div结构，直接从elementUI message-box审查元素里面抽离，相关点击事件，校验，自己封装。",
+    "keywords": "自定义prompt,原生js自定义prompt组件",
+    "category": "js"
+  },
+  {
+    "source": "Docker与K8S集群.md",
+    "staticFileName": "docker_k8s.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/11",
+    "description": "现在前端项目很多部署在docker容器上，相比之前的实体服务器、虚拟机来讲，docker不需要自己安装软件，可以直接配置使用，比较方便。下面来简单了解下",
+    "keywords": "Docker与K8S集群",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "CI、CD、CO是什么意思.md",
+    "staticFileName": "ci_cd_co.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/11",
+    "description": "CI CD CO 是什么意思呢？在开发中他们分别代表 CI持续集成 => CD持续交付/持续部署 => CO持续运营，下面来看看",
+    "keywords": "CI CD CO,CI、CD、CO是什么意思,CI,CD,CO,CI持续集成,CD持续交付,CO持续运营",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "什么是serverless.md",
+    "staticFileName": "ci_cd_co.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/11",
+    "description": "什么是serverless，最近在前端开发领域是一个比较火的概念，字面意思是无服务器，小程序云开发就是一种，主要是弱化服务器概念，把原来需要后端开发的内容搬到前端，让前端可以不用管数据库建表、部署方面的事情，写好代码一提交就可以自动生成对应的接口服务。",
+    "keywords": "什么是serverless,serverless,severless是什么,serverless优点,serverless发展过程",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "什么是DevOps.md",
+    "staticFileName": "devops.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/11",
+    "description": "DevOps 是 Development（开发）和 Operations（运维） 的组合词，DevOps可以做什么？为什么会出现DevOps？企业为什么需要DevOps？DevOps有什么依赖？目前学术界和从业人员还没有为 'DevOps' 建立唯一的定义",
+    "keywords": "DevOps",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "移动端屏幕尺寸大小.md",
+    "staticFileName": "devops.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/11",
+    "description": "在开发中，我们一般需要知道常用手机型号的屏幕尺寸，这样才能更好的适配移动端，下面来看看小程序开发工具中提供的各个手机型号尺寸，对于全面屏来讲，宽度和 ihpone 7/8 一致，但页面长度却长很多，一般 高度 / 宽度 >=2 的就是全面屏，页面布局需要特殊处理下",
+    "keywords": "移动端屏幕尺寸大小,常用手机屏幕大小,怎么判断是全面屏",
+    "category": "css"
+  },
+  {
+    "source": "为什么说toFixed是不准确的.md",
+    "staticFileName": "toFixed.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/12",
+    "description": "Number.prototype.toFixed() 对number取整或保留指定小数位，但它是不准确的，就类似 0.1 + 0.2 ≠ 0.3 一样，下面来看看怎么处理",
+    "keywords": "toFixed不精确的问题,toFixed保留小数点不准确的问题",
+    "category": "js"
+  },
+  {
+    "source": "vscode好用的插件.md",
+    "staticFileName": "vscode_plugin.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/12",
+    "description": "在前端开发中，一般使用vscode开发工具，我一般比较推荐两款vscode插件，下面来看看liver server 和 GitLens -- Git supercharged",
+    "keywords": "vscode好用的插件,vscode实用插件",
+    "category": "计算机基础与开发工具"
   }
 ]
+
+
