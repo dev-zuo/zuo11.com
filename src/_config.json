@@ -7,16 +7,43 @@
     "description": "左小白的技术日常，主要记录和分享web前端领域相关的理解、总结、观点。偶尔会进行一些扩展：比如网站建设、服务器运维、后台数据库等",
     "keywords": "左小白,左小白的技术日常,zuo11.com",
     "linkList": [
-      { "name": "博客", "href": "/blog/category.html" },
-      { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
-      { "name": "B站", "href": "https://space.bilibili.com/486840111", "target": "_black"},
-      { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+      {
+        "name": "博客",
+        "href": "/blog/category.html"
+      },
+      {
+        "name": "语雀",
+        "href": "https://www.yuque.com/guoqzuo",
+        "target": "_black"
+      },
+      {
+        "name": "B站",
+        "href": "https://space.bilibili.com/486840111",
+        "target": "_black"
+      },
+      {
+        "name": "Github",
+        "href": "https://github.com/zuoxiaobai",
+        "target": "_black"
+      }
     ]
   },
   "topRightLink": [
-    { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
-    { "name": "B站", "href": "https://space.bilibili.com/486840111", "target": "_black"},
-    { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+    {
+      "name": "语雀",
+      "href": "https://www.yuque.com/guoqzuo",
+      "target": "_black"
+    },
+    {
+      "name": "B站",
+      "href": "https://space.bilibili.com/486840111",
+      "target": "_black"
+    },
+    {
+      "name": "Github",
+      "href": "https://github.com/zuoxiaobai",
+      "target": "_black"
+    }
   ],
   "footer": {
     "left": "Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a>",
@@ -27,10 +54,11 @@
     "js",
     "css",
     "http与https",
+    "前端工程化",
     "运维部署与版本控制",
     "计算机基础与开发工具",
     "网站建设与seo",
-    "微信开发", 
+    "微信开发",
     "后端数据库等",
     "iOS",
     "C与APUE"

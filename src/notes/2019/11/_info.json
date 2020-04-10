@@ -187,7 +187,68 @@
     "description": "在前端开发中，一般使用vscode开发工具，我一般比较推荐两款vscode插件，下面来看看liver server 和 GitLens -- Git supercharged",
     "keywords": "vscode好用的插件,vscode实用插件",
     "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "传数据全局变量就可以了，为什么需要状态管理.md",
+    "staticFileName": "why_vuex.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/14",
+    "description": "开发过程中遇到的相关真实场景，为什么需要使用Vuex状态管理？全局对象也可以管理状态，为什么需要vuex? 在vue开发中，我之前很少使用状态管理vuex，总觉得没有太大的实际用途。后面项目实践后，才能真正体会状态管理的强大。为什么需要状态管理，这个需要在开发实践中慢慢体会。",
+    "keywords": "vuex使用场景,vue相对全局变量有什么优势,为什么需要使用Vuex状态管理,全局对象也可以管理状态，为什么需要vuex",
+    "category": "vue"
+  },
+  {
+    "source": "toLocaleString将数字转为逗号分隔的字符串.md",
+    "staticFileName": "num_str.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/14",
+    "description": "Number.prototype.toLocaleString()可以将数字转换为千分位逗号分隔的字符串，而且该方法还内置了数字转人民币、美元等字符串的方法，这样我们在处理金钱相关的数据时就可以很方便使用了，来看一个列子",
+    "keywords": "toLocaleString将数字转为逗号分隔的字符串,toLocaleString,Number.prototype.toLocaleString",
+    "category": "js"
+  },
+  {
+    "source": "什么是yarn.md",
+    "staticFileName": "yarn.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/15",
+    "description": "Yarn 是一个快速、可靠、安全的依赖管理工具。是 NPM 的替代品。今天看看了ts实战指南这本书，里面是这样介绍Yarn的：Yarn [jɑːn] 是facebook，google等公司共同开发的一款新的js包管理工具，并没有试图完全取代npm，Yarn同样是从npm获取包。存在的目的是：解决团队使用npm面临的少数问题，如版本锁定，并行安装、文案输出等",
+    "keywords": "什么是yarn,yarn基本用法,macos安装yarn",
+    "category": "前端工程化"
+  },
+  {
+    "source": "space-between与space-around的区别.md",
+    "staticFileName": "flex_justify.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/15",
+    "description": "flex布局justify-content属性值区别，space-between 最左、最右item贴合左侧或右侧边框，item与item之间间距相等。space-around 每个item 左右方向的margin相等。两个item中间的间距会比较大",
+    "keywords": "space-between与space-around的区别",
+    "category": "css"
+  },
+  {
+    "source": "flex布局align-self使用场景.md",
+    "staticFileName": "align_self.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/21",
+    "description": "一般flex布局，使用algin-items: center垂直居中后，item子项某一个高度比较高，其他子项的高度也会是高度最高的子项高度。设置border时会特别明显。如果需要让item高度适应内容，就可以使用 align-self: flex-start。",
+    "keywords": "align-self,flex align-self使用场景",
+    "category": "css"
+  },
+  {
+    "source": "部分安卓机型scale后border显示不全的问题.md",
+    "staticFileName": "scale_line.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/21",
+    "description": "由于border需要画比1px还细的线，也就是0.5px，在移动端你设置px是没用的，一般会使用scale(0.5)缩放来实现,但在某些安卓机型上，发现这样实现的border边框会有显示不全的情况，重点来了，解决方法是将对应scale等样式用style写在内联样式里，刚开始不相信写成内联样式就可以解决这个问题，但实践后发现确实可以解决这个问题。",
+    "keywords": "部分安卓机型scale后border显示不全的问题,border在手机上显示不全的问题s",
+    "category": "css"
+  },
+  {
+    "source": "画比1px还细的线或border.md",
+    "staticFileName": "border_thin.html",
+    "author": "guoqzuo",
+    "createDate": "2019/11/21",
+    "description": "画比1px还细的线或border",
+    "keywords": "一般使用transform缩小0.5倍来实现，如果是border先将元素放大2倍，再缩小0.5倍，放大缩小后还是以放大的空间来占位，使用positon:absolute脱离标准文档流，就不会有两倍的占位了。",
+    "category": "css"
   }
 ]
-
-
