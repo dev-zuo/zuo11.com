@@ -1,0 +1,101 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="yarn.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="Yarn 是一个快速、可靠、安全的依赖管理工具。是 NPM 的替代品。今天看看了ts实战指南这本书，里面是这样介绍Yarn的：Yarn [jɑːn] 是facebook，google等公司共同开发的一款新的js包管理工具，并没有试图完全取代npm，Yarn同样是从npm获取包。存在的目的是：解决团队使用npm面临的少数问题，如版本锁定，并行安装、文案输出等">
+        <meta name="keywords" content="什么是yarn,yarn基本用法,macos安装yarn">
+
+        <title>什么是yarn - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/11/15</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="什么是yarn">什么是yarn</h1>
+<p>Yarn 是一个快速、可靠、安全的依赖管理工具。是 NPM 的替代品。今天看看了ts实战指南这本书，里面是这样介绍Yarn的：</p>
+<p>Yarn [jɑːn] 是facebook，google等公司共同开发的一款新的js包管理工具，并没有试图完全取代npm，Yarn同样是从npm获取包。存在的目的是：解决团队使用npm面临的少数问题，如版本锁定，并行安装、文案输出等</p>
+<h2 id="macos安装yarn方法">macos安装Yarn方法</h2>
+<pre><code class="language-js">brew install yarn</code></pre>
+<h2 id="yarn基本用法">Yarn基本用法</h2>
+<pre><code class="language-bash"># 初始化一个新项目
+yarn init
+# 添加依赖包
+yarn add [package]
+yarn add [package]@[version]
+yarn add [package]@[tag]
+# 添加到不同依赖类别
+yarn add [package] --dev
+yarn add [package] --peer
+yarn add [package] --optional
+# 更新依赖包
+yarn upgrade [package]
+yarn upgrade [package]@[version]
+yarn upgrade [package]@[tag]
+# 移除依赖包
+yarn remove [package]
+# 安装项目的全部依赖
+yarn 或者 yarn install</code></pre>
+<p>参考: <a href="https://yarn.bootcss.com/">yarn 官方文档</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="什么是yarn" style="padding-left:1em">什么是yarn<span></li><ul><li><span class="ul-span" data-id="macos安装yarn方法" style="padding-left:2em">macos安装Yarn方法<span></li></ul><ul><li><span class="ul-span" data-id="yarn基本用法" style="padding-left:2em">Yarn基本用法<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

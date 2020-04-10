@@ -1,4 +1,13 @@
 
+/* html {
+  filter: grayscale(100%);
+} */
+
+/* fix 火狐首页异常的问题 */
+body { 
+  min-height: 100vh;
+}
+
 /* dark mode support */
 @media (prefers-color-scheme: dark) {
   body {

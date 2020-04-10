@@ -1,0 +1,116 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="why_vuex.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="开发过程中遇到的相关真实场景，为什么需要使用Vuex状态管理？全局对象也可以管理状态，为什么需要vuex? 在vue开发中，我之前很少使用状态管理vuex，总觉得没有太大的实际用途。后面项目实践后，才能真正体会状态管理的强大。为什么需要状态管理，这个需要在开发实践中慢慢体会。">
+        <meta name="keywords" content="vuex使用场景,vue相对全局变量有什么优势,为什么需要使用Vuex状态管理,全局对象也可以管理状态，为什么需要vuex">
+
+        <title>传数据全局变量就可以了，为什么需要状态管理 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/11/14</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="传数据全局变量就可以了，为什么需要状态管理">传数据全局变量就可以了，为什么需要状态管理</h1>
+<p>在vue开发中，我之前很少使用状态管理vuex，总觉得没有太大的实际用途。后面项目实践后，才能真正体会状态管理的强大。为什么需要状态管理，这个需要在开发实践中慢慢体会。</p>
+<h2 id="开发过程中遇到的相关真实场景">开发过程中遇到的相关真实场景</h2>
+<h3 id="全局变量较多场景">全局变量较多场景</h3>
+<p>场景A：在19年11月份左右我当时负责为一个jsp项目做一些更新，在维护别人写的代码时，发现之前的人虽然把select等组件封装为了一个个固定的对象。但不同的模块js里，相互引用，你会发现各种莫名其妙的全局变量，不知道是哪里注入的（由于只要主页面引入了两个js文件，这两个js的变量是互通的）。</p>
+<p>比如有两个组件：组件A对象为objA，组件B对象为objB，我在组件C里想获取组件A、B的结果，我需要调用objA或objB的全局变量。你可以想象当表单字段很多时，你要通过访问很多个对象的变量才行</p>
+<p>虽然他们都是全局变量，但是太零散了，如果我们建立一个全局变量专门用来管理各个组件对象的数据这块，每个组件对象通过操作这个专门管理数据的全局变量那样逻辑就会很明确。功能是功能，数据是数据。这就离vuex很近了，其实vuex本质上也相当于一个全局变量。</p>
+<h3 id="组件多且组件间数据耦合性强的场景">组件多且组件间数据耦合性强的场景</h3>
+<p>场景B：app内嵌H5需要做创建喜报的功能，分成了7个页面</p>
+<ol>
+<li>step1 单页面组件 填写基本信息</li>
+<li>step2 单页面组件 选择对应的关联项目（依赖step1里的一个参数）</li>
+<li>step3 单页面组件 选择项目规模（依赖step2的参数）</li>
+<li>step4 单页面组件 选择喜报模板 </li>
+<li>step5 单页面组件 填写喜报标题等信息</li>
+<li>step6 单页面组件 step1-step5填写信息确认、有返回各个页面修改的入口</li>
+<li>step7 单页面组件 将 step1-step5填写的信息生成喜报预览，可发布或返回编辑</li>
+</ol>
+<p>这里页面较多，数据之间可能相互影响，如果通过组件之间相互传值，显然很乱。如果使用vuex就会好很多，数据统一在vuex中处理，每个页面共享对应的数据，很好取。</p>
+<h3 id="同页面中不同组件数据依赖的问题">同页面中不同组件数据依赖的问题</h3>
+<p>在一个页面中，拆分为了多个不同的组件，A组件需要显示B组件通过接口请求返回的数据的总数，如果利用组件间相互传值。可以用bus，但如果这个数据其他组件也要用呢？最好的方法还是通过vuex来管理数据，A组件在computed导入对应的state少字段。B组件获取到数据后，利用mutation更新该state数据，这样A组件页面会实时渲染对应state的值</p>
+<h2 id="为什么需要使用vuex状态管理？">为什么需要使用Vuex状态管理？</h2>
+<p>当多个组件共享状态时，单向数据流的简洁性很容易被破坏：</p>
+<ul>
+<li>多个视图依赖同一状态，多层嵌套组件里传递参数会非常繁琐，且无法进行兄弟组件间的状态传递</li>
+<li>来自不同视图的行为需要变更同一状态，用下面的两种方法变更和同步状态的多份拷贝，会非常脆弱，通常会导致代码难以维护<ul>
+<li>通过父子组件直接引用 this.$refs，this.$root, this.$parent, this.$children</li>
+<li>通过事件，props 和 this.$emit</li>
+</ul>
+</li>
+</ul>
+<p>为了解决上面的问题，就需要用到Vuex了，Vuex把组件的共享状态抽取出来，以一个全局单例模式管理，不管在树的哪个位置，任何组件都能获取状态或者触发行为，这样就易于维护了。</p>
+<h2 id="全局对象也可以管理状态，为什么需要vuex">全局对象也可以管理状态，为什么需要vuex?</h2>
+<p>Vuex和单纯的全局对象，有以下两点不同:</p>
+<ul>
+<li>vuex不能直接改变store中的状态，改变store中的状态唯一的途径是显示的提交(commit) mutation。(为什么这样做？这样做 可以方便跟踪每一个状态的变化，可以实现一些工具来更好地了解应用的执行，方便debug)</li>
+<li>vuex的状态存储是响应式的，当Vue组件从store中读取状态的时候，如果store中的状态发生变化，name相应的组件也会进行高效更新。</li>
+</ul>
+<p>综上所述，什么情况下需要使用状态管理？<strong>多个组件之间数据相互依赖，多组件存在数据联动时</strong> 这样可以更加优雅的管理数据，可扩展性强</p>
+<p>参考之前的笔记: <a href="https://www.yuque.com/guoqzuo/yyxr05/xbhuii#35e092ea">vuex状态管理 - vue官网学习笔记</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="传数据全局变量就可以了，为什么需要状态管理" style="padding-left:1em">传数据全局变量就可以了，为什么需要状态管理<span></li><ul><li><span class="ul-span" data-id="开发过程中遇到的相关真实场景" style="padding-left:2em">开发过程中遇到的相关真实场景<span></li><ul><li><span class="ul-span" data-id="全局变量较多场景" style="padding-left:3em">全局变量较多场景<span></li></ul><ul><li><span class="ul-span" data-id="组件多且组件间数据耦合性强的场景" style="padding-left:3em">组件多且组件间数据耦合性强的场景<span></li></ul><ul><li><span class="ul-span" data-id="同页面中不同组件数据依赖的问题" style="padding-left:3em">同页面中不同组件数据依赖的问题<span></li></ul></ul><ul><li><span class="ul-span" data-id="为什么需要使用vuex状态管理？" style="padding-left:2em">为什么需要使用Vuex状态管理？<span></li></ul><ul><li><span class="ul-span" data-id="全局对象也可以管理状态，为什么需要vuex?" style="padding-left:2em">全局对象也可以管理状态，为什么需要vuex?<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
