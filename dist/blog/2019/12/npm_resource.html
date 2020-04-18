@@ -1,0 +1,99 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="npm_resource.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="npm设置下载源，在设置npm下载源之前，我们先来看看怎么查看当前npm的下载源，npm config list 可以查看当前npm配置项，包括源(registry)信息，npm config set命令可以设置对应npm源">
+        <meta name="keywords" content="npm设置下载源,npm查看当前配置">
+
+        <title>npm设置下载源 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/12/04</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="npm设置下载源">npm设置下载源</h1>
+<p>在设置npm下载源之前，我们先来看看怎么查看当前npm的下载源</p>
+<pre><code class="language-bash">npm config list # 查看当前npm配置项，包括源(registry)信息</code></pre>
+<p><img src="../../../images/blog/devtools/npm_config.png" alt="npm_config.png"></p>
+<p><strong>修改源</strong></p>
+<pre><code class="language-bash"># 设置源
+npm config set registry http://registry.npm.taobao.org
+
+# 查看帮助文档
+kevindeMacBook-Air:svnclone kevin$ npm config -h
+npm config set &lt;key&gt; &lt;value&gt;
+npm config get [&lt;key&gt;]
+npm config delete &lt;key&gt;
+npm config list [--json]
+npm config edit
+npm set &lt;key&gt; &lt;value&gt;
+npm get [&lt;key&gt;]
+
+alias: c
+
+# 根据上面的命令，查看源
+guoqzuo-mac:test kevin$ npm config get registry 
+https://registry.npm.taobao.org/</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="npm设置下载源" style="padding-left:1em">npm设置下载源<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

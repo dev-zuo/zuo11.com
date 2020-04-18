@@ -1,0 +1,88 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="git_clone_timeout.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="当远程仓库比较大，或者弱网的情况，可能会出现git clone超时的问题，一直clone不下来，一般可以用两种方法来解决：一是git clone时使用 depth参数；二是使用ssh拉取方式">
+        <meta name="keywords" content="git clone大文件仓库超时问题,git clone超时,git无法拉取文件,git克隆文件超时">
+
+        <title>git clone大文件仓库超时问题 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/12/04</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="git-clone大文件仓库超时问题">git clone大文件仓库超时问题</h1>
+<p>当远程仓库比较大，或者弱网的情况，可能会出现git clone超时的问题，一直clone不下来，一般可以用两种方法来解决：一是git clone时使用 depth参数；二是使用ssh拉取方式</p>
+<h2 id="使用depth参数">使用depth参数</h2>
+<pre><code class="language-bash">git clone --depth=1 git://someserver/somerepo
+
+# depth用于指定克隆深度，为1即表示只克隆最近一次commit.
+
+# 参考:
+# https://segmentfault.com/q/1010000007700727</code></pre>
+<h2 id="使用ssh方式clone">使用ssh方式clone</h2>
+<p><img src="../../../images/blog/git/use_ssh_clone.png" alt="npm_config.png"></p>
+<p>参考：<a href="https://help.github.com/en/github/using-git/which-remote-url-should-i-use#cloning-with-ssh-urls">Cloning with SSH URLs</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="git-clone大文件仓库超时问题" style="padding-left:1em">git clone大文件仓库超时问题<span></li><ul><li><span class="ul-span" data-id="使用depth参数" style="padding-left:2em">使用depth参数<span></li></ul><ul><li><span class="ul-span" data-id="使用ssh方式clone" style="padding-left:2em">使用ssh方式clone<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
