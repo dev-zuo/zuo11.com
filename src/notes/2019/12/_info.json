@@ -1,0 +1,47 @@
+[
+  {
+    "source": "failed at the phantomjs-prebuilt@2.1.16  intsall script.md",
+    "staticFileName": "phantomjs-prebuilt.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/04",
+    "description": "从远程仓库拉取代码，npm install，发现提示failed at the phantomjs-prebuilt@2.1.16 intsall script，怎么解决呢？ 使用 npm install —ignore-scripts** 忽略package.json中设置的脚本，意思就是避免package.json中的脚本影响包的正常安装。The --ignore-scripts argument will cause npm to not execute any scripts defined in the package.json. See npm-scripts.",
+    "keywords": "failed at the phantomjs-prebuilt@2.1.16  intsall script",
+    "category": "前端工程化"
+  },
+  {
+    "source": "can't find module node_sleep.node.md",
+    "staticFileName": "node_sleep_module.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/04",
+    "description": "can't find module './build/Release/node_sleep.node'，看了具体报错是sleep包引起的，到node_modules里面对应的目录查看，发现根本就没有build目录，解决方法：之前的版本是5.2.4，修改package.json将版本改为5.1.1，让后删除package-lock.json 再npm install就ok 了",
+    "keywords": "can't find module './build/Release/node_sleep.node'",
+    "category": "前端工程化"
+  },
+  {
+    "source": "npm设置下载源.md",
+    "staticFileName": "npm_resource.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/04",
+    "description": "npm设置下载源，在设置npm下载源之前，我们先来看看怎么查看当前npm的下载源，npm config list 可以查看当前npm配置项，包括源(registry)信息，npm config set命令可以设置对应npm源",
+    "keywords": "npm设置下载源,npm查看当前配置",
+    "category": "前端工程化"
+  },
+  {
+    "source": "git clone大文件仓库超时问题.md",
+    "staticFileName": "git_clone_timeout.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/04",
+    "description": "当远程仓库比较大，或者弱网的情况，可能会出现git clone超时的问题，一直clone不下来，一般可以用两种方法来解决：一是git clone时使用 depth参数；二是使用ssh拉取方式",
+    "keywords": "git clone大文件仓库超时问题,git clone超时,git无法拉取文件,git克隆文件超时",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "sessionStorage和localstorage的区别.md",
+    "staticFileName": "web_storage.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/04",
+    "description": "sessionStorage和localstorage都属于Web Storage，在JS高程3中有讲，这里来回顾下，一般sessionStorage关闭浏览器后会消失，localstorage不会。",
+    "keywords": "sessionStorage和localstorage的区别",
+    "category": "js"
+  }
+]
