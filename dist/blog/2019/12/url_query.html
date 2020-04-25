@@ -1,0 +1,193 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="url_query.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在做get请求时，我们需要传一些参数，单纯的字符串拼接的方法不够优雅，下面来看怎么用URLSearchParams将对象直接转为查询字符串，另外查看axios源码，看看axios内部是怎么将params对象拼接到url上的">
+        <meta name="keywords" content="对象转url查询字符串,axios是怎么将params对象转查询字符串的">
+
+        <title>使用URLSearchParams将对象转为url查询字符串 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/12/05</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="使用urlsearchparams将对象转为url查询字符串">使用URLSearchParams将对象转为url查询字符串</h1>
+<p>在做get请求时，我们需要传一些参数，单纯的字符串拼接的方法不够优雅，下面来看怎么用URLSearchParams将对象直接转为查询字符串，另外查看axios源码，看看axios内部是怎么将params对象拼接到url上的</p>
+<h2 id="对象转查询参数">对象转查询参数</h2>
+<pre><code class="language-js">let obj = {a: 1, b: 2}
+let queryParams = new URLSearchParams()
+Object.entries(obj).forEach(([key, value]) =&gt; {
+  queryParams.append(key, value)
+})
+console.log(queryParams.toString()) // a=1&amp;b=2s</code></pre>
+<p>更多URLSearchParams的细节操作参见之前的一篇文章 <a href="http://www.zuo11.com/blog/2019/10/web_url_searchparams.html">URLSearchParams URL查询字符串处理</a></p>
+<h2 id="axios是怎么将config里的params对象转url查询参数的">axios是怎么将config里的params对象转url查询参数的</h2>
+<p>在axios中，如果我们想在url后面添加查询字符串，只需要在config参数里加一个params属性，传入对象即可</p>
+<pre><code class="language-js">{
+  // ...
+  // `params` are the URL parameters to be sent with the request
+  // Must be a plain object or a URLSearchParams object
+  params: {
+    ID: 12345
+  },
+
+  // `paramsSerializer` is an optional function in charge of serializing `params`
+  // (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
+  paramsSerializer: function (params) {
+    return Qs.stringify(params, {arrayFormat: &#39;brackets&#39;})
+  },
+  // ....
+}</code></pre>
+<p>那axios内部是怎么将对象转为字符串的呢？来看下axios的源码</p>
+<pre><code class="language-js">// 生成path用的是buildURL方法
+// lib/adapters/http.js
+path: buildURL(parsed.path, config.params, config.paramsSerializer).replace(/^\?/, &#39;&#39;),
+
+// lib/helpers/buildURL.js
+&#39;use strict&#39;;
+
+var utils = require(&#39;./../utils&#39;);
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%40/gi, &#39;@&#39;).
+    replace(/%3A/gi, &#39;:&#39;).
+    replace(/%24/g, &#39;$&#39;).
+    replace(/%2C/gi, &#39;,&#39;).
+    replace(/%20/g, &#39;+&#39;).
+    replace(/%5B/gi, &#39;[&#39;).
+    replace(/%5D/gi, &#39;]&#39;);
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === &#39;undefined&#39;) {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + &#39;[]&#39;;
+      } else {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + &#39;=&#39; + encode(v));
+      });
+    });
+
+    serializedParams = parts.join(&#39;&amp;&#39;);
+  }
+
+  if (serializedParams) {
+    var hashmarkIndex = url.indexOf(&#39;#&#39;);
+    if (hashmarkIndex !== -1) {
+      url = url.slice(0, hashmarkIndex);
+    }
+
+    url += (url.indexOf(&#39;?&#39;) === -1 ? &#39;?&#39; : &#39;&amp;&#39;) + serializedParams;
+  }
+
+  return url;
+};
+</code></pre>
+<p>可以看到axios拼接url的过程</p>
+<ul>
+<li><p>序列化</p>
+<ul>
+<li>如果config里有传入paramsSerializer参数，就使用这个函数来转换，一般是使用的是一个qs的npm包，<a href="https://www.npmjs.com/package/qs">https://www.npmjs.com/package/qs</a></li>
+<li>如果是is URLSearchParams，直接toString()</li>
+<li>如果非上面两种情况，在不支持URLSearchParams的情况下也能用，使用utils.forEach去转成</li>
+</ul>
+</li>
+<li><p>拼接 &#39;?&#39; 或 &#39;&amp;&#39;</p>
+</li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="使用urlsearchparams将对象转为url查询字符串" style="padding-left:1em">使用URLSearchParams将对象转为url查询字符串<span></li><ul><li><span class="ul-span" data-id="对象转查询参数" style="padding-left:2em">对象转查询参数<span></li></ul><ul><li><span class="ul-span" data-id="axios是怎么将config里的params对象转url查询参数的" style="padding-left:2em">axios是怎么将config里的params对象转url查询参数的<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

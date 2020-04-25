@@ -1,0 +1,140 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="file_struct.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在我们写README.md时，如果需要描述一个文件的目录结构，就需要使用可以自动生成文件目录树的工具了，这里总结下一些实践经验">
+        <meta name="keywords" content="文件结构生成,文件目录树生成">
+
+        <title>文件结构目录树自动生成 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/12/05</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="文件结构目录树自动生成">文件结构目录树自动生成</h1>
+<p>在我们写README.md时，如果需要描述一个文件的目录结构，就需要使用可以自动生成文件目录树的工具了，这里总结下一些实践经验</p>
+<h2 id="使用treer-npm命令行工具">使用treer npm命令行工具</h2>
+<pre><code class="language-bash">npm install treer -g # 全局安装treer</code></pre>
+<p>安装成功后，系统里就会多出一个treer命令，使用方法</p>
+<pre><code class="language-js">$ treer --help
+
+  Usage: treer [options]
+
+  Options:
+
+    -h, --help             output usage information
+    -V, --version          output the version number
+    -d, --directory [dir]  Please specify a directory to generate structure tree
+    -i, --ignore [ig]      You can ignore specific directory name
+    -e, --export [epath]   export into file</code></pre>
+<p>示例: 查看指定目录的目录树</p>
+<pre><code class="language-bash">$ treer -d ./src/notes/2019/12 # 查看目录结构
+12
+├─:not和:nth 混用的问题.md
+├─ES2020 &#39;?.&#39; 与 &#39;??&#39; 操作符.md
+├─_info.json
+├─can&#39;t find module node_sleep.node.md
+├─failed at the phantomjs-prebuilt@2.1.16  intsall script.md
+├─git clone大文件仓库超时问题.md
+├─iconfont icon是如何加载成功的.md
+├─npm设置下载源.md
+├─sessionStorage和localstorage的区别.md
+├─vue路由懒加载时import里面不能是变量的问题.md
+├─使用URLSearchParams将对象转为url查询字符串.md
+└文件结构目录树自动生成.md</code></pre>
+<h2 id="更好看的一种风格">更好看的一种风格</h2>
+<p>上面的样式不怎么好看，且不支持js引用操作，有时间可以优化下，好的样式</p>
+<p><img src="../../../images/blog/devtools/fs_strut_treer.png" alt="fs_strut_treer.png"></p>
+<h2 id="实例">实例</h2>
+<p>在 zuo11.com的README.md里就是结合上面两种方法来生成的目录树结构，效果查看: <a href="https://github.com/zuoxiaobai/zuo11.com">zuo11.com - github</a></p>
+<pre><code class="language-bash">├── src # 写博客文章的目录
+│   ├── _config.json # 全局配置文件
+│   ├── global.js # 全局js
+│   ├── global.css # 全局css 
+│   ├── images # 图片目录
+│   │   ├── blog # 专门放博客图片的目录
+│   │   └── favicon.ico # 站点icon
+│   └── notes # 博客文章，按年月分目录
+│       ├── 2016
+│       │   ├── 10 # 每个月份目录下放当月写的文章及当前月的配置文件
+│       │   │   ├── _info.json # 配置文件记录了当前目录下每篇文章的配置、seo参数等
+│       │   │   ├── xxx1.md # 博客文章
+│       │   │   └── xxx2.md
+│       │   ├── 11
+│       │   └── 12
+│       ├── ...
+│       └── 2020 # 2020年目录
+│           ├── 1 # 2020年1月目录
+│           │   ├──  _info.json
+│           │   └──  xx45.md
+│           └── 2 
+├── LICENSE # 开源协议 Apache 2.0
+└── README.md # 说明文档</code></pre>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/derycktse/treer">treer | github</a></li>
+<li><a href="https://vuex.vuejs.org/guide/structure.html">vux官网 - 好的目录结构样式</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="文件结构目录树自动生成" style="padding-left:1em">文件结构目录树自动生成<span></li><ul><li><span class="ul-span" data-id="使用treer-npm命令行工具" style="padding-left:2em">使用treer npm命令行工具<span></li></ul><ul><li><span class="ul-span" data-id="更好看的一种风格" style="padding-left:2em">更好看的一种风格<span></li></ul><ul><li><span class="ul-span" data-id="实例" style="padding-left:2em">实例<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
