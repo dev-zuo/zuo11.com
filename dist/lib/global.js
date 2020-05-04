@@ -88,7 +88,13 @@ window.addEventListener('scroll', function(e) {
 // JS高程3 表单脚本 操作粘贴板
 // https://www.yuque.com/guoqzuo/js_es6/ubpn7k#8482e7c5
 document.body.oncopy = function(event) {
-  console.log('copy', event);
+  let articleDom = document.querySelector('article')
+  let articleTopDom = document.querySelector('.article-top')
+  let { target } = event 
+  // 事件不在article容器内，或者在article内但它是标题内容或时间区域的内容，不操作粘贴板
+  if (!articleDom.contains(target) || articleTopDom.contains(target) || target.tagName === 'H1') {
+    return 
+  }
   // 获取copy的内容
   // console.log(document.getSelection().toString());
   // 在copy内容里加入信息
@@ -101,3 +107,27 @@ document.body.oncopy = function(event) {
   event.clipboardData.setData('text/plain', `${document.getSelection().toString()} ${msg}`);
   event.preventDefault();
 };
+
+
+// 公众号二维码显示在文章最底部
+function showQrcode() {
+  // 如果是文章分类、主页，不显示二维码
+  let filterList = ['左小白的技术日常', '文章分类 - 左小白的技术日常']
+  if (filterList.includes(document.title)) {
+    return
+  }
+  let articleDom = document.querySelector('article')
+  let div = document.createElement('div')
+  let img = document.createElement('img')
+
+  img.src = '/images/blog/web/qrcode.jpg'
+  img.style.height = "180px"
+  img.style.width = "180px"
+  // div.style.textAlign = 'center'
+  div.style.margin = "30px 0"
+
+  div.appendChild(img)
+  articleDom.appendChild(div)
+}
+
+showQrcode() // 执行
