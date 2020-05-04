@@ -13,7 +13,7 @@ git checkout -b pc-v2-zuo
 git push origin pc-v2-zuo:pc-v2-zuo # 将分支推送到远程分支
 
 # 再将当前分支关联到远程分支
-git branch —set-upstream-to=origin/pc-v2-zuo pc-v2-zuo
+git branch --set-upstream-to=origin/pc-v2-zuo pc-v2-zuo
 ```
 
 记得每次git commit、git push前都要git pull更新

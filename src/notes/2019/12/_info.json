@@ -97,10 +97,71 @@
     "description": "当在vue里面需要将路由组件按需加载时，import里面开头不能是变量，webpack编译会无法加载对应的组件，解决方法是前面加一部分写死的字符串路径，后面的使用变量即可",
     "keywords": "路由懒加载import变量无效,路由懒加载import里面使用变量不生效",
     "category": "vue"
+  },
+  {
+    "source": "以B站app为例实战Charles抓包以及将本地的H5代理到app内嵌H5运行.md",
+    "staticFileName": "b_charles.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/18",
+    "description": "当我们在开发app内嵌的H5页面时，怎么调试是一个问题。看内嵌H5运行时，接口的返回情况，可以使用Charles进行抓包查看，另外charles也可以将我们本地的H5页面直接代理到app内嵌H5里运行。这里以B站app为例，来进行相应的测试",
+    "keywords": "Charles抓包,将本地的H5代理到app内嵌H5运行,charles,抓包,app内嵌H5调试技巧",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "安卓input键盘弹起导致底部按钮也被抬起的问题.md",
+    "staticFileName": "android_h5.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/18",
+    "description": "在写app内嵌H5页面时，之前遇到过这个问题，当输入时，键盘弹起导致底部按钮也被抬起了，这里用监听视窗高度变换的方法来fix这个问题,监听window.onresize，如果与之前的视窗高度不一致：变小了，就隐藏底部button，完成输入后，监听到视窗高度变大再次显示底部按钮",
+    "keywords": "安卓input键盘弹起导致底部按钮也被抬起的问题,app内嵌H5安卓键盘抬起相关问题",
+    "category": "js"
+  },
+  {
+    "source": "npm查询包信息以及安装指定版本.md",
+    "staticFileName": "npm_package_info.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/17",
+    "description": "当我们需要安装某个npm包的指定版本时，我们可以使用 npm view 先查看某个包的一些版本信息，npm install时，可以通过在包名后面加@版本号来指定安装对应的版本",
+    "keywords": "npm查询包信息,npm安装指定版本,npm install以及加参数后的一些区别",
+    "category": "前端工程化"
+  },
+  {
+    "source": "vue组件里click事件监听可能会产生的性能问题.md",
+    "staticFileName": "vue_click.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/13",
+    "description": "之前在看JS高程3里面有一个知识点，就是当多个子元素需要绑定click事件时，大量添加处理程序，会影响性能，尽量少添加处理事件。但写vue习惯后，突然忘了这一点，其实vue监听事件我们也可以遵循这个原则：把事件放到其父元素上监听，然后通过 data-key属性来指定每个子元素对应的值。e.target.getAttribute('data-key')有值就表示子元素点击了",
+    "keywords": "vue组件里click事件监听可能导致的性能问题,vue监听click事件注意事项",
+    "category": "vue"
+  },
+  {
+    "source": "function和method区别.md",
+    "staticFileName": "function_method.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/13",
+    "description": "在写程序时，你会发现function和method都代表函数，但他们又什么区别呢？function为函数，一般指外部定义的函数; method为方法，一般指类(class)内部的方法，类方法一般分为staic method，private method, instance method",
+    "keywords": "function和method区别",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "vuex状态更新后一直没生效的问题.md",
+    "staticFileName": "vuex_issue.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/12",
+    "description": "今天写一个功能时，push数据更新state变量可以刷新到页面，但用slice改变state变量时，页面报错，提示 'TypeError: Cannot rad property 'wrapper' of undefined'，百度了下可能是@click方法没定义报的错，但我这里只是改了vuex状态，而且push新增数据都可以，就是slice删除数据会报错，最后发现是有一个@click方法确实没有定义，但这种情况很奇怪。为什么push又不报错，可能涉及到了diff的一些检测、算法。所以，页面有consloe.error的错误，一定要先解决，不要以为对功能没影响就不管，不然可能会遇到一些奇怪的问题。",
+    "keywords": "vuex状态更新后一直没生效的问题,vuex TypeError: Cannot rad property 'wrapper' of undefined'",
+    "category": "vue"
+  },
+  {
+    "source": "vue组件updated钩子使用场景.md",
+    "staticFileName": "vue_updated.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/12",
+    "description": "子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等",
+    "keywords": "vue组件updated钩子使用场景",
+    "category": "vue"
   }
 ]
-
-
 
 
 
