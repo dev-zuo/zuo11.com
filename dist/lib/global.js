@@ -54,10 +54,14 @@ function message(type, msg, sec) {
   }
 }
 
-window.matchMedia && console.log('Is dark mode: ', window.matchMedia('(prefers-color-scheme: dark)').matches)
-window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-  console.log('dark mode change，已' + (event.matches ? '进入': '退出') + 'dark mode')
-})
+// chrome 正常，safari不支持 TypeError: window.matchMedia('(prefers-color-scheme: dark)').addEventListener is not a function.
+// 'window.matchMedia('(prefers-color-scheme: dark)').addEventListener' is undefined)
+// window.matchMedia('(prefers-color-scheme: dark)').addListener 
+// 暂时去掉
+// window.matchMedia && console.log('Is dark mode: ', window.matchMedia('(prefers-color-scheme: dark)').matches)
+// window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+//   console.log('dark mode change，已' + (event.matches ? '进入': '退出') + 'dark mode')
+// })
 
 // 页面滚动比例监听
 // posTop 顶部类似阮一峰ES6网页的滚动进度条
