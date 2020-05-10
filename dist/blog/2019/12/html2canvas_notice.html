@@ -1,0 +1,86 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="html2canvas_notice.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="html2canvas 生成图片时，background-image模糊的问题,html2canvas 移动端生成图片文字重叠的问题，在需要生成海报、图片的需求里，一般 html2canvas 是一种比较好的解决方案，pc端的问题还是比较少的，移动端兼容性问题就比较坑了，要特别注意多测试一些机型，下面总结下我之前遇到的两个移动端的问题">
+        <meta name="keywords" content="html2canvas在移动端使用时的问题,html2canvas 生成图片时，background-image模糊的问题,html2canvas 移动端生成图片文字重叠的问题">
+
+        <title>html2canvas在移动端使用时的问题 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#css" class="hidden">css</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/12/23</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="html2canvas在移动端使用时的问题">html2canvas在移动端使用时的问题</h1>
+<p>在需要生成海报、图片的需求里，一般 html2canvas 是一种比较好的解决方案，pc端的问题还是比较少的，移动端兼容性问题就比较坑了，要特别注意多测试一些机型，下面总结下我之前遇到的两个移动端的问题</p>
+<h2 id="html2canvas-生成图片时，background-image模糊的问题">html2canvas 生成图片时，background-image模糊的问题</h2>
+<p>PC端一般不会出现这个问题，主要是移动端，有两种解决方法：</p>
+<ol>
+<li>使用固定宽度，不要使用百分比单位(比如 1500px)</li>
+<li>用 img 标签使用 absolute 定位做背景，不使用background-image</li>
+</ol>
+<h2 id="html2canvas-移动端生成图片文字重叠的问题">html2canvas 移动端生成图片文字重叠的问题</h2>
+<p>text-align:center 可能会导移动端，生成图片的文字重叠的问题，改为text-align:left或其他即可。但需要特别注意兼容性的问题，移动端安卓、iPhone、安卓平板 啥的都要看看。</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="html2canvas在移动端使用时的问题" style="padding-left:1em">html2canvas在移动端使用时的问题<span></li><ul><li><span class="ul-span" data-id="html2canvas-生成图片时，background-image模糊的问题" style="padding-left:2em">html2canvas 生成图片时，background-image模糊的问题<span></li></ul><ul><li><span class="ul-span" data-id="html2canvas-移动端生成图片文字重叠的问题" style="padding-left:2em">html2canvas 移动端生成图片文字重叠的问题<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
