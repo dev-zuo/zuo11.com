@@ -160,9 +160,89 @@
     "description": "子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等",
     "keywords": "vue组件updated钩子使用场景",
     "category": "vue"
+  },
+  {
+    "source": "怎么遍历localStorage.md",
+    "staticFileName": "localstorage_iterator.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/19",
+    "description": "localStorage本身没有提供对应的遍历方法，我们可以使用 localStorage.key(index) 结合for循环来遍历",
+    "keywords": "怎么遍历localStorage,怎么遍历sessionStorage",
+    "category": "js"
+  },
+  {
+    "source": "iOS环境下点击输入框页面被顶起不能自动回弹底部的问题.md",
+    "staticFileName": "ios_kb_rebound.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/19",
+    "description": "在开发app内嵌H5时，iOS系统里，输入框输入时，页面会被抬起，但输入完成后，页面不会自动回弹，这里需要特殊处理下，解决方法：在对应的input元素加 @blur 事件，input失去焦点时，手动滚动页面 window.scroll(0,0)",
+    "keywords": "iOS环境下点击输入框页面被顶起不能自动回弹底部的问题",
+    "category": "js"
+  },
+  {
+    "source": "长英文单词不换行的问题.md",
+    "staticFileName": "css_wrap.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/20",
+    "description": "关于换行问题，属于文本类的css样式，在css中有三个和换行有关的属性他们分别是：white-space、word-break、word-wrap，由于他们有点类似且特性比较怪，不容易理解，这里来总结下",
+    "keywords": "长英文单词不换行的问题,css换行,white-space、word-break、word-wrap,word-break和word-wrap的区别",
+    "category": "css"
+  },
+  {
+    "source": "postcss-pxtorem px自动转rem怎么保持使用px.md",
+    "staticFileName": "pxtorem_px.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/23",
+    "description": "如果vue-cli3中配置了postcass-pxtorem，css中写的px单位都会自动转为rem，如果需要固定px，而不是转为rem，有两种方法",
+    "keywords": "postcss-pxtorem px自动转rem怎么保持使用px",
+    "category": "css"
+  },
+  {
+    "source": "html2canvas在移动端使用时的问题.md",
+    "staticFileName": "html2canvas_notice.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/23",
+    "description": "html2canvas 生成图片时，background-image模糊的问题,html2canvas 移动端生成图片文字重叠的问题，在需要生成海报、图片的需求里，一般 html2canvas 是一种比较好的解决方案，pc端的问题还是比较少的，移动端兼容性问题就比较坑了，要特别注意多测试一些机型，下面总结下我之前遇到的两个移动端的问题",
+    "keywords": "html2canvas在移动端使用时的问题,html2canvas 生成图片时，background-image模糊的问题,html2canvas 移动端生成图片文字重叠的问题",
+    "category": "css"
+  },
+  {
+    "source": "移动端兼容性问题：vuex设置后立即调用this.$router.back()按钮无法点击的问题.md",
+    "staticFileName": "vuex_nexttick.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/24",
+    "description": "今天测试机iPhone 7 plus，系统大概是iOS 11.3，vuex mutation操作后，立即调用 this.$router.back() 会导致页面里的下一步无法点击。而我自己的机型iPhone8是没问题的，解决方法是：在 vue mutaion操作后，不立即调用 back，而是使用 nextTick包裹，在下次 DOM 更新循环结束之后再执行",
+    "keywords": "vuex设置后立即调用this.$router.back()按钮无法点击的问题",
+    "category": "vue"
+  },
+  {
+    "source": "vue性能优化 - webpack包体积优化.md",
+    "staticFileName": "vue_webpack_optimization.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/25",
+    "description": "安装 webpack-bundle-analyzer npm包， 在package.json的scripts加入对应的命令，运行npm run report 即可build，并在dist目录生成report.html，打开就可以各个模块包对应的大小，这样就可以开始优化了",
+    "keywords": "webpack-bundle-analyzer,webpack包体积优化",
+    "category": "vue"
+  },
+  {
+    "source": "transform 两个动作怎么写？scale缩小后，依旧占用空间的问题.md",
+    "staticFileName": "transform.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/25",
+    "description": "transform对某个元素使用两个及以上变换时，用空格分隔，scale缩小0.5倍后，dom占用依旧，可以用translate移动下，矫正位置。",
+    "keywords": "transform 两个动作怎么写？scale缩小后，依旧占用空间的问题",
+    "category": "css"
+  },
+  {
+    "source": "v-model为什么不能监听中文输入法实时输入，内部是怎么实现的？.md",
+    "staticFileName": "v_model_text.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/20",
+    "description": "在看vue文档时，有备注说 v-model 不会在输入法组合文字的过程中得到更新，这是为什么呢？内部是怎么实现的，我们来看看",
+    "keywords": "v-model为什么不能监听中文输入法实时输入,输入法组合文字过程监听",
+    "category": "vue"
   }
 ]
-
 
 
 
