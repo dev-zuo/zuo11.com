@@ -1,0 +1,88 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="clear_app_h5.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="当你在app内容H5中使用了localStorage又担心可能会超出5M的限制时，就要注意localStorage的清除了。那怎么才能清除app内嵌H5的localStorage呢？我做了一些测试">
+        <meta name="keywords" content="怎么清除app内嵌H5的localStorage">
+
+        <title>怎么清除app内嵌H5的localStorage - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2019/12/27</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="怎么清除app内嵌h5的localstorage">怎么清除app内嵌H5的localStorage</h1>
+<p>当你在app内容H5中使用了localStorage又担心可能会超出5M的限制时，就要注意localStorage的清除了。那怎么才能清除app内嵌H5的localStorage呢？我做了一些测试</p>
+<p>测试手机: iPhone8, 红米6，内嵌H5使用localStorage存储了一些数据，尝试清除</p>
+<ul>
+<li>完全退出app 安卓、iOS都无法清除</li>
+<li>退出登录 安卓、iOS都无法清除</li>
+<li>使用app内置缓存清理功能 安卓、iOS都无法清除</li>
+<li>使用系统的清除app数据方法：安卓清除app所有数据可以，iOS不可以(长按关机键，出现滑动关机，长按home键，直至滑动关机关闭)</li>
+<li>使用H5内置的 localStorage.clear() 都可以清除，注意域名</li>
+<li>删除app肯定可以清除</li>
+</ul>
+<p>总结，<strong>在不删除app以及使用H5内置的清除函数的情况下，安卓可以使用系统的清除app所有数据来清除，但iOS暂未发现清除的方法。</strong></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="怎么清除app内嵌h5的localstorage" style="padding-left:1em">怎么清除app内嵌H5的localStorage<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
