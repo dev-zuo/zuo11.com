@@ -1,0 +1,54 @@
+[
+  {
+    "source": "Element表格IE下由于滚动条原因导致错位问题.md",
+    "staticFileName": "element_dolayout.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/07",
+    "description": "Element 表头固定，表内容可滑动，在IE下滚动条会显示，有一定的宽度占位，导致表头与表内容由点错位，解决方法是：由于表单内容是从接口加载的，从接口加载完数据后，对el-talbe进行从新布局dolayout",
+    "keywords": "Element表格IE下由于滚动条原因导致错位问题",
+    "category": "vue"
+  },
+  {
+    "source": "IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条.md",
+    "staticFileName": "ie_dialog_scroll.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/07",
+    "description": "Element dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条同样都是有遮罩层，chrome都是OK的，但IE下会有问题。经过定位后发现，对于dialog使用了append-to-body属性的，都没问题。发现dialog显示时body上添加了一个 el-popup-parent--hidden的class, 设置了overflow为hidden，关了滚动条。对于没有append-to-body属性的dialog如果想修复有两种办法",
+    "keywords": "IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条",
+    "category": "vue"
+  },
+  {
+    "source": "怎么判断当前鼠标是否在某个div内部.md",
+    "staticFileName": "contains.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/07",
+    "description": "当监听到事件，事件的 eveent.target 怎么判断是否在某个div内部呢？可以使用DOM专有扩展的contains方法",
+    "keywords": "怎么判断当前鼠标是否在某个div内部,怎么判断当前event.target在某个div内部",
+    "category": "js"
+  },
+  {
+    "source": "当if else逻辑较多时可以使用策略模式.md",
+    "staticFileName": "if_else_handle.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/08",
+    "description": "当项目中，if else较多时，我们可以考虑使用策略模式，来更优雅的处理，来看看demo",
+    "keywords": "js策略模式的使用场景",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "IE下dialog弹窗全屏后列表横向滚动卡顿的问题.md",
+    "staticFileName": "ie_scorll_slow.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/08",
+    "description": "全屏后添加了一个名为 is-fullscreen 的class，发现把对应的overflow:auto去掉后，就不会卡顿。去掉其实就是将overflow设置为默认值visible，如果子组件高度超出范围，将is-fullscreen设置的height 100% 改为 auto。另一种方法是将table的z-index改为3000(相对dialog比较高的一个层级)，这样IE下就不会卡顿了。",
+    "keywords": "Element表格IE下由于滚动条原因导致错位问题",
+    "category": "vue"
+  }
+
+]
+
+
+
+
+
+

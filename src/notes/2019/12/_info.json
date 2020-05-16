@@ -241,8 +241,53 @@
     "description": "在看vue文档时，有备注说 v-model 不会在输入法组合文字的过程中得到更新，这是为什么呢？内部是怎么实现的，我们来看看",
     "keywords": "v-model为什么不能监听中文输入法实时输入,输入法组合文字过程监听",
     "category": "vue"
+  },
+  {
+    "source": "ES2020 bigint数据类型，为什么要新增这个数据类型?.md",
+    "staticFileName": "bigint.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/26",
+    "description": "ES5之前，基本数据类型有五个 boolean, string, number, null, undefined, ES6(ES2015)新增了一个symbol，ES2019 新增了 bigint，它用于表示大于 2的53次方 - 1的数据，即 > 9007199254740991",
+    "keywords": "a + 1 === a + 2为true的场景,es2019 bigint数据类型",
+    "category": "js"
+  },
+  {
+    "source": "为什么我们使用.html代替.htm?",
+    "staticFileName": "htm.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/27",
+    "description": "why do we use .html instead of .htm？DOS操作系统上文件后缀限制为3个字符，所以才会使用.htm的后缀，排除系统限制，所有的HTML文件应该使用.html的后缀名",
+    "keywords": "为什么我们使用.html代替.htm,why do we use .html instead of .htm,.htm是什么文件类型",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "Symbol、BigInt不能new，而String、Number可以new，为什么？.md",
+    "staticFileName": "new_check.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/27",
+    "description": "在基本数据类型中，我们发现像String, Number是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用new创建，这是为什么呢？ BigInt内部是怎么检测用户使用了new来调用的？下面来看看",
+    "keywords": "Symbol、BigInt不能new，而Stirng、Number可以new，为什么,BigInt内部是怎么检测用户使用了new来调用的",
+    "category": "js"
+  },
+  {
+    "source": "怎么清除app内嵌H5的localStorage.md",
+    "staticFileName": "clear_app_h5.html",
+    "author": "guoqzuo",
+    "createDate": "2019/12/27",
+    "description": "当你在app内容H5中使用了localStorage又担心可能会超出5M的限制时，就要注意localStorage的清除了。那怎么才能清除app内嵌H5的localStorage呢？我做了一些测试",
+    "keywords": "怎么清除app内嵌H5的localStorage",
+    "category": "js"
   }
 ]
+
+
+
+
+
+
+
+
+
 
 
 
