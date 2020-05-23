@@ -1,0 +1,152 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="axios_package.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="现在项目中，每个模块都会单独弄一个对应service.js，把所有接口请求放到里面，其实就是将axios请求封装为一个个函数。每个函数的函数名、url、请求方法会有所差别。重复代码比较多。最近在看mongodb教程时，了解到零编码编程的思想，于是想把这里优化下，最好以后写新模块时，只要写简单的配置文件就可以自动生成函数，不用再单独手写函数">
+        <meta name="keywords" content="axios二次封装,axios服务封装">
+
+        <title>零编码或少编码根据配置生成通用封装的axios函数 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/01/19</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="零编码或少编码生成通用封装的axios函数">零编码或少编码生成通用封装的axios函数</h1>
+<p>现在项目中，每个模块都会单独弄一个对应service.js，把所有接口请求放到里面，其实就是将axios请求封装为一个个函数。每个函数的函数名、url、请求方法会有所差别。重复代码比较多。最近在看mongodb教程时，了解到零编码编程的思想，于是想把这里优化下，最好以后写新模块时，只要写简单的配置文件就可以自动生成函数，不用再单独手写函数。先来看看原来的方式：</p>
+<pre><code class="language-js">// someService.js
+// 这里的service是对axios的封装，增加了一些请求拦截，用响应拦截等
+import { service, downloadService } from &#39;../service.js&#39;
+let someService = {
+  urls: {
+    funcA: &#39;/api/url1&#39;,
+    funcB: &#39;/api/url2&#39;,
+    funcC: &#39;/api/url3&#39;,
+  },
+  funcA() {
+    return service.post(someService.urls.funcA, payload)
+  },
+  funcB() {
+    return service.get(someService.urls.funcB, {params: payload})
+  },
+  funcC() {
+    return downloadService.post(someService.urls.funcC, payload)
+  }
+}
+export default someService
+
+// 在vue组件里，使用方法
+import someService from &#39;someService.js&#39;
+someService.funcA(payload).then(() =&gt; {
+  // 接收结果
+})</code></pre>
+<p>当接口比较多时，比如20+，那就需要写20个类似的函数，冗余性太高，这里使用零编码编程的思想来优化一下，先来看看优化后的代码</p>
+<pre><code class="language-js">// 优化后的 someService.js 和旧的写法实现的功能一样，且更加强大
+import generateCommonApi from &#39;./utils/generateCommonApi&#39;
+import { downloadService } from &#39;../service.js&#39;
+
+// 之前使用对象结构，发现还是有大量重复的属性字段，不是很方便，用数组的方式，写法更精简，更高效
+// 但同时牺牲了扩展性，类似于大的框架总会遇到的问题：各种实现都各有优缺点，关键是要去找一种平衡，做一些取舍。
+const someApiList = [
+  [&#39;funcA&#39;, &#39;/api/url1&#39;, &#39;post&#39;],
+  [&#39;funcB&#39;, &#39;/api/url2&#39;],
+  [&#39;funcC&#39;, &#39;/api/url3&#39;, &#39;post&#39;, downloadService]
+]
+export default generateCommonApi(someApiList)</code></pre>
+<p>这里通过写一个generateCommonApi.js来实现自动生成通用api对象，以后就不用再写大量重复的代码了。来看看具体实现:</p>
+<pre><code class="language-js">// generateCommonApi.js
+// 参考文档：https://github.com/axios/axios
+import { services } from &#39;./service.js&#39;
+
+function generateCommonApi(apiList, isAddTimestamp2Url) {
+  let obj = {}
+  let methodsList = [&#39;request&#39;, &#39;get&#39;, &#39;delete&#39;, &#39;head&#39;, &#39;options&#39;, &#39;post&#39;, &#39;put&#39; &#39;patch&#39;]
+
+  // 遍历JSON配置，生成对应的请求函数并挂载到obj对象
+  apiList.forEach(item =&gt; {
+    let [apiName, url, method = &#39;get&#39;, servicesFunc = services] = item
+    let isMethodOk = typeof method === &#39;string&#39; &amp;&amp; methodsList.includes(method.toLowerCase())
+    method = isMethodOk ? method : &#39;get&#39;
+
+    // 如果需要加时间戳
+    url += isAddTimestamp2Url ? &#39;&#39; : `${url.includes(&#39;?&#39;) ? &#39;&amp;&#39; : &#39;?&#39;}t=${+new Date()}`
+
+    obj[apiName] = async (payload = {}, config = {}) =&gt; {
+      let paramsMap = {
+        &#39;1&#39;: [payload],
+        &#39;2&#39;: [url, {params: payload, ...config}],
+        &#39;3&#39;: [url, payload, config]
+      }
+      let is3Args = [&#39;post&#39;, &#39;put&#39;, &#39;patch&#39;].includes(method)
+      let methodType = method === &#39;request&#39; ? &#39;1&#39; : is3Args ? &#39;3&#39; : &#39;2&#39;
+
+      return servicesFunc[method](...paramsMap[methodType])
+    }
+  })
+  return obj
+}
+
+export default generateCommonApi </code></pre>
+<p>后面我又对其进行了扩展与修改，这里只提供一个思路，并不是完美的实现，</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="零编码或少编码生成通用封装的axios函数" style="padding-left:1em">零编码或少编码生成通用封装的axios函数<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
