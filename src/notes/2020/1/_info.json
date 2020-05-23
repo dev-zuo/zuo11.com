@@ -43,12 +43,86 @@
     "description": "全屏后添加了一个名为 is-fullscreen 的class，发现把对应的overflow:auto去掉后，就不会卡顿。去掉其实就是将overflow设置为默认值visible，如果子组件高度超出范围，将is-fullscreen设置的height 100% 改为 auto。另一种方法是将table的z-index改为3000(相对dialog比较高的一个层级)，这样IE下就不会卡顿了。",
     "keywords": "Element表格IE下由于滚动条原因导致错位问题",
     "category": "vue"
+  },
+  {
+    "source": "JS遍历数组方法总结，forEach的缺点以及与for..of和for...in的区别.md",
+    "staticFileName": "js_array.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/09",
+    "description": "在ES5中新增了很多方便操作数组的方法，包括新5种数组的迭代方法：forEach, map, filter, some, every；缩小方法：reduce()；检测数组方法Array.isArray()等，这些方法让操作数组更加优雅，趋近于函数式编程. 在ES6中又增加了for..of以及values,entres,keys等，下面来详细看看",
+    "keywords": "js遍历数组方法总结,es5 es6遍历数组方法,forEach的缺点以及与for..of和for...in的区别",
+    "category": "js"
+  },
+  {
+    "source": "async await执行顺序问题.md",
+    "staticFileName": "js_await_seq.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/09",
+    "description": "注意：await 后面的内容如果值为promise，则等待promise执行完再向下执行，如果非promise，await不会等待(await下面的代码和await等待的函数会同步执行)",
+    "keywords": "async await执行顺序的额问题，如果await的非promise不会等待",
+    "category": "js"
+  },
+  {
+    "source": "node path.resolve().md",
+    "staticFileName": "node_path.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/10",
+    "description": "koa静态文件服务中间件的实现里，需要将当前路径 __dirname 与用户传入的路径合并为一个绝对路径，就可以使用path.resolve函数",
+    "keywords": "node path.resolve,node路径处理",
+    "category": "前端工程化"
+  },
+  {
+    "source": "-- css变量的使用，var() 与变量 --.md",
+    "staticFileName": "css_var.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/10",
+    "description": "在less或sass中，有直接的变量定义方法，而css原生其实也是可以定义变量的，使用--和var即可",
+    "keywords": "css变量,-- css变量的使用，var() 与变量 --",
+    "category": "css"
+  },
+  {
+    "source": "markdown里怎么为文字添加颜色，怎么画复杂表格.md",
+    "staticFileName": "markdown_html.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/11",
+    "description": "之前看markdown语法时，并没有添加颜色和复杂表格的方法，但最近了解到markdown里面可以直接使用html，那就方便了。复杂表格直接使用table标签画，如果想给文字加颜色，使用如下方法",
+    "keywords": "markdown里怎么为文字添加颜色,markdown里怎么画复杂表格,markdown使用html时注意事项",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "npm install简写为npm i安装包时项目文件名与包名冲突不报异常的问题.md",
+    "staticFileName": "npm_i.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/14",
+    "description": "最近在安装 npm install 时喜欢简写 npm i mysql2 -s 但发现执行后，并没有安装成功，在package.json里也没有任何记录。还没有报任何错误。",
+    "keywords": "npm install简写为npm i注意事项,npm init -y注意事项",
+    "category": "前端工程化"
+  },
+  {
+    "source": "node遍历文件夹下的文件再require对应的文件出错，要注意.DS_Store隐藏文件.md",
+    "staticFileName": "node_for_DS_Store.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/16",
+    "description": "在使用koa mock接口时，一个模块有很多接口，就写了十几个js，每个js对应一个接口数据。如果每增加一个接口，再添加一个require就很麻烦，于是写了个index.js来遍历文件夹，进行动态引入。以后写好js，就不用再手动require了。之前都运行正常的，最近再运行时发现一直报错，require异常。后来打印遍历的fileName，发现居然有 .DS_Store 文件，require这个文件时错误。这个文件属于mac系统自动生成的文件，之前都没有的。在程序中过滤调这个文件即可。",
+    "keywords": "node遍历文件夹下的文件时需要过滤.DS_Store隐藏文件",
+    "category": "前端工程化"
+  },
+  {
+    "source": "JS sleep测试loading时写的等待函数最简代码.md",
+    "staticFileName": "js_sleep.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/19",
+    "description": "一般想模拟延时，测试loading效果时，会写一个等待函数，怎么最简单方便呢？下面来研究下",
+    "keywords": "js sleep测试loading时写的等待函数最简代码",
+    "category": "js"
+  },
+  {
+    "source": "零编码或少编码根据配置生成通用封装的axios函数.md",
+    "staticFileName": "axios_package.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/19",
+    "description": "现在项目中，每个模块都会单独弄一个对应service.js，把所有接口请求放到里面，其实就是将axios请求封装为一个个函数。每个函数的函数名、url、请求方法会有所差别。重复代码比较多。最近在看mongodb教程时，了解到零编码编程的思想，于是想把这里优化下，最好以后写新模块时，只要写简单的配置文件就可以自动生成函数，不用再单独手写函数",
+    "keywords": "axios二次封装,axios服务封装",
+    "category": "http与https"
   }
-
 ]
-
-
-
-
-
-
