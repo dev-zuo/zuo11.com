@@ -1,7 +1,7 @@
 
-# asycn/await 执行顺序问题
+# 包含await操作的函数被二次封装成函数，await该函数时执行顺序的问题
 
-注意：await 后面的内容如果值为promise，则等待promise执行完再向下执行，如果非promise，await不会等待(await下面的代码和await等待的函数会同步执行)
+包含await操作的函数被二次封装成函数，await该函数时执行顺序需要注意，当一个包含await的函数A，被另一个函数B包裹，当await函数B执行时，如果包裹函数B里并没有return函数A或await函数A，await函数B执行时并不会等到函数A全部执行完毕才继续执行，来看个例子
 
 ```js
 (async () => {

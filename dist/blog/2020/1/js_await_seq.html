@@ -8,10 +8,10 @@
 
         <meta name="application name" content="js_await_seq.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="注意：await 后面的内容如果值为promise，则等待promise执行完再向下执行，如果非promise，await不会等待(await下面的代码和await等待的函数会同步执行)">
+        <meta name="description" content="包含await操作的函数被二次封装成函数，await该函数时执行顺序需要注意，当一个包含await的函数A，被另一个函数B包裹，当await函数B执行时，如果包裹函数B里并没有return函数A或await函数A，await函数B执行时并不会等到函数A全部执行完毕才继续执行，来看个例子">
         <meta name="keywords" content="async await执行顺序的额问题，如果await的非promise不会等待">
 
-        <title>async await执行顺序问题 - 左小白的技术日常</title>
+        <title>包含await操作的函数被二次封装成函数，await该函数时执行顺序的问题 - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
@@ -43,8 +43,8 @@
       <div class="article-top-right">Author: guoqzuo</div>
     </div>
   
-            <h1 id="asycnawait-执行顺序问题">asycn/await 执行顺序问题</h1>
-<p>注意：await 后面的内容如果值为promise，则等待promise执行完再向下执行，如果非promise，await不会等待(await下面的代码和await等待的函数会同步执行)</p>
+            <h1 id="包含await操作的函数被二次封装成函数，await该函数时执行顺序的问题">包含await操作的函数被二次封装成函数，await该函数时执行顺序的问题</h1>
+<p>包含await操作的函数被二次封装成函数，await该函数时执行顺序需要注意，当一个包含await的函数A，被另一个函数B包裹，当await函数B执行时，如果包裹函数B里并没有return函数A或await函数A，await函数B执行时并不会等到函数A全部执行完毕才继续执行，来看个例子</p>
 <pre><code class="language-js">(async () =&gt; {
   await test() // await fn()
   console.log(&#39;异步执行完成&#39;)
@@ -82,7 +82,7 @@ function delay() {
           </article>
           <aside>
             <div>
-              <ul><li><span class="ul-span" data-id="asycnawait-执行顺序问题" style="padding-left:1em">asycn/await 执行顺序问题<span></li></ul>
+              <ul><li><span class="ul-span" data-id="包含await操作的函数被二次封装成函数，await该函数时执行顺序的问题" style="padding-left:1em">包含await操作的函数被二次封装成函数，await该函数时执行顺序的问题<span></li></ul>
             <div>
           </aside>
         </section>
