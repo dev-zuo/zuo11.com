@@ -7,5 +7,34 @@
     "description": "网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。",
     "keywords": "description seo,网站页面描述(description),description在seo中的重要性,seo中Google和百度的一些区别",
     "category": "网站建设与seo"
+  },
+  {
+    "source": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理.md",
+    "staticFileName": "zuoblog_2_outline.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/02",
+    "description": "在考虑把个人博客站点静态化时，其中一个原因是markdown的大纲显示比较好，文章结构层次分明，可以更好的阅读。那怎么提取markdown文件的大纲数据，并呈现在网页上呢？下面来看看zuo-blog是怎么处理的。",
+    "keywords": "提取markdown文件的大纲结构数据,markdown大纲提取,mardown目录提取,根据大纲数据生成html,页面滚动时，自动切换大纲focus,怎么监听页面滚动到了某个标题区域",
+    "category": "前端工程化"
+  },
+  {
+    "source": "静态博客生成系统(三)：node复制或删除文件夹以及npm包命令执行时所在路径获取.md",
+    "staticFileName": "zuoblog_3_file.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/02",
+    "description": "静态博客生成系统，需要把src目录下的源文件生成dist目录下的可部署的文件，对于资源文件需要从src下直接拷贝过去。这就涉及怎么用node复制或删除文件夹了，另外我们在使用zuoblog init执行构建生成时，需要知道命令执行时所在的路径，下面来看看",
+    "keywords": "node复制或删除文件夹,npm包命令执行时所在路径获取",
+    "category": "前端工程化"
+  },
+  {
+    "source": "深入JS遍历对象方法 - 从4个维度比较遍历对象的8种方法.md",
+    "staticFileName": "js_obj_iterator.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/02",
+    "description": "一般遍历对象时，大部分人可能想到的方法是for..in或Object.keys.forEach()，但你知道吗？截止ES2020，在JS中总共有8种方法来遍历对象，而且不同的遍历方法在一些细节方面会有区别，下面我们将从以下几个方面来深入理解JS遍历对象 1. 看似可以遍历对象但又不能遍历对象的for与for...of 2. 可能会对遍历对象产生影响的4种因素：属性是否可枚举、Symbol、是否有继承属性、遍历次序 3. 从ES5到ES2020发展过程中所有的可以遍历对象的方法 4. 通过实例demo来从4个维度比较8种遍历对象的方法 5. 属性遍历次序总结",
+    "keywords": "js遍历对象,js遍历对象方法总结,js遍历对象的8种方法",
+    "category": "js"
   }
 ]
+
+

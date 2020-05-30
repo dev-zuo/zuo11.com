@@ -153,7 +153,7 @@
     "category": "运维部署与版本控制"
   },
   {
-    "source": "从0到1写一个静态博客生成系统zuo-blog(一)：JS怎么将markdown文件转html.md",
+    "source": "静态博客生成系统(一)：JS怎么将markdown文件转html.md",
     "staticFileName": "zuoblog_1_md.html",
     "author": "guoqzuo",
     "createDate": "2020/01/29",
