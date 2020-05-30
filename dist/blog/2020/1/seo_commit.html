@@ -1,0 +1,113 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="seo_commit.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="最近对zuo11.com进行了改版，完成了博客的静态化并完成了上线，nginx + 静态文件代替了原来的 tomcat + jsp + mysql的模式。针对百度收录与索引，google收录，做了一些处理。">
+        <meta name="keywords" content="提交站点链接到百度,提交链接到google">
+
+        <title>网页seo之将链接提交到搜索引擎进行评定收录 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与seo</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/01/30</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="网页seo之将链接提交到搜索引擎进行评定收录">网页seo之将链接提交到搜索引擎进行评定收录</h1>
+<p>最近对zuo11.com进行了改版，完成了博客的静态化并完成了上线，nginx + 静态文件代替了原来的 tomcat + jsp + mysql的模式。针对百度收录与索引，google收录，做了一些处理。</p>
+<h2 id="登录到百度站长平台">登录到百度站长平台</h2>
+<p>由于url除了zuo11.com其他原来文章的url全部失效，需要让百度重新收录，添加索引。入口：<a href="https://ziyuan.baidu.com/">百度站长平台，现在叫资源搜索平台</a></p>
+<h3 id="提交改版规则">提交改版规则</h3>
+<p>提交网站改版的规则URL对，百度搜索 site:zuo11.com，将收录的网页链接，以及改版后的url以规定的格式提交</p>
+<pre><code class="language-bash"># 旧URL，对应的改版后的url，以空格隔开，一行是一条数据
+http://zuo11.com/Notes.woe?action=detail&amp;note_id=24 http://www.zuo11.com/blog/2016/10/c_vim.html
+http://zuo11.com/Notes.woe?action=APUE http://www.zuo11.com/blog/category.html</code></pre>
+<h3 id="提交死链">提交死链</h3>
+<p>对于改版后404的页面，可以提交死链，防止搜索引擎认为网站不稳定或服务异常，导致权重评分降级，最好将死链放到一个txt里，定期进行一些更新</p>
+<pre><code class="language-bash"># 死链规则
+http://zuo11.com/Notes.woe?</code></pre>
+<h3 id="sitemap">sitemap</h3>
+<p>这里推荐使用sitemap的方式提交链接，怎么生成sitemap呢？使用 <a href="https://www.xml-sitemaps.com/">https://www.xml-sitemaps.com/</a> 输入你的站点，就可以自动生成sitemap.xml信息了，默认只有sitemap.xml，可以找更多文件的下载入口，可以下到一个sitemaps.zip的一个文件，里面还包含了txt、html等非xml格式的数据。<strong>将生成后的sitemap.xml文件放到域名根目录下，提交对应的链接到百度站长平台</strong></p>
+<h3 id="向百度站长主动推送站点url">向百度站长主动推送站点url</h3>
+<p>之前提交链接都是手动将url粘贴到输入框提交。这次试了下curl方式提交还是很方便的</p>
+<pre><code class="language-bash"># 先将要提交的url存放到 urls.txt 里
+vi urls.txt
+
+# 查看
+cat urls.txt 
+http://www.zuo11.com/blog/2019/11/v-if_filters.html
+http://www.zuo11.com/blog/2019/12/web_storage.html
+http://www.zuo11.com/blog/2019/12/phantomjs-prebuilt.html
+http://www.zuo11.com/blog/2019/12/node_sleep_module.html
+http://www.zuo11.com/blog/2019/12/git_clone_timeout.html
+http://www.zuo11.com/blog/2019/11/git_push_branch.html
+http://www.zuo11.com/blog/2019/12/npm_resource.html
+
+# 确定内容没问题后提交，对应的链接在百度站长提交链接哪里会自动生成
+curl -H &#39;Content-Type:text/plain&#39; --data-binary @urls.txt &quot;http://data.zz.baidu.com/urls?site=www.zuo11.com&amp;token=xxxxxxx&quot;
+
+# 执行后返回推送接口，实时推送成功
+{&quot;remain&quot;:99993,&quot;success&quot;:7}</code></pre>
+<h2 id="登录到google-search-console">登录到Google search console</h2>
+<p>入口：<a href="https://search.google.com/search-console">Google search console</a>，登录后左侧菜单index - Sitemaps提交sitemap链接</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="网页seo之将链接提交到搜索引擎进行评定收录" style="padding-left:1em">网页seo之将链接提交到搜索引擎进行评定收录<span></li><ul><li><span class="ul-span" data-id="登录到百度站长平台" style="padding-left:2em">登录到百度站长平台<span></li><ul><li><span class="ul-span" data-id="提交改版规则" style="padding-left:3em">提交改版规则<span></li></ul><ul><li><span class="ul-span" data-id="提交死链" style="padding-left:3em">提交死链<span></li></ul><ul><li><span class="ul-span" data-id="sitemap" style="padding-left:3em">sitemap<span></li></ul><ul><li><span class="ul-span" data-id="向百度站长主动推送站点url" style="padding-left:3em">向百度站长主动推送站点url<span></li></ul></ul><ul><li><span class="ul-span" data-id="登录到google-search-console" style="padding-left:2em">登录到Google search console<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

@@ -1,0 +1,103 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="js_set.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="我们知道Set是JS的一个种新的数据结构，和数组类似，和数组不同的是它可以去重，比如存入两个1或两个'123'，只有1条数据会存入成功，但有个特殊情况，如果添加到set的值是引用类型，比如数组、对象，他将无法自动去重。因为值相同的两个引用类型地址是不一样的。下面来看一个例子：">
+        <meta name="keywords" content="js set去重对数组，对象无效,为什么使用set对数组或对象去重时会无效">
+
+        <title>JS 为什么使用set对数组或对象去重时会无效？ - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/01/21</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="js-为什么使用set对数组或对象去重时会无效？">JS 为什么使用set对数组或对象去重时会无效？</h1>
+<p>我们知道Set是JS的一个种新的数据结构，和数组类似，和数组不同的是它可以去重，比如存入两个1或两个&quot;123&quot;，只有1条数据会存入成功，但有个特殊情况，如果添加到set的值是引用类型，比如数组、对象，他将无法自动去重。因为值相同的两个引用类型地址是不一样的。下面来看一个例子：</p>
+<pre><code class="language-js">var mySet = new Set()
+mySet.add([-1,0,1])
+mySet.add([-1,0,1])
+mySet.add({a: 1})
+mySet.add({a: 1})
+mySet.size // 4
+console.log(Array.from(mySet)) // [[-1, 0, 1], [-1, 0, 1], {a: 1}, {a: 1}]</code></pre>
+<p>我们来看看mdn上的文档描述</p>
+<p>Description</p>
+<blockquote>
+<p>Set objects are collections of values. You can iterate through the elements of a set in insertion order. A value in the Set may only occur once; it is unique in the Set&#39;s collection.</p>
+</blockquote>
+<p>Value equality</p>
+<blockquote>
+<p>Because each value in the Set has to be unique, the value equality will be checked. In an earlier version of ECMAScript specification, this was not based on the same algorithm as the one used in the === operator. Specifically, for Sets, +0 (which is strictly equal to -0) and -0 were different values. However, this was changed in the ECMAScript 2015 specification. See &quot;Key equality for -0 and 0&quot; in the browser compatibility table for details. NaN and undefined can also be stored in a Set. All NaN values are equated (i.e. NaN is considered the same as NaN, even though NaN !== NaN).</p>
+</blockquote>
+<p>我们可以简单理解为，像Set实例add数据时，每次都会进行等值判断，类似于将add的元素与每个元素进行 === 比较。因此对引用类型的去重是无效的</p>
+<pre><code class="language-js">var stra = &quot;test&quot;
+var strb = &quot;test&quot;
+var a = { a : 1}
+var b = { a : 1}
+stra === strb // true
+a === b // false 尽管他们都是对象 { a: 1 }，但他们存储的地址是不一样的 </code></pre>
+<p>那这种情况怎么去重呢。我们可以自己写方法来处理，以数组为例子，可以将值[-1, 0, 1].join(&#39;|&#39;) 处理下，添加进去，到时统一再split出来</p>
+<p>参考：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">The Set | MDN</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="js-为什么使用set对数组或对象去重时会无效？" style="padding-left:1em">JS 为什么使用set对数组或对象去重时会无效？<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
