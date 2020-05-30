@@ -124,5 +124,61 @@
     "description": "现在项目中，每个模块都会单独弄一个对应service.js，把所有接口请求放到里面，其实就是将axios请求封装为一个个函数。每个函数的函数名、url、请求方法会有所差别。重复代码比较多。最近在看mongodb教程时，了解到零编码编程的思想，于是想把这里优化下，最好以后写新模块时，只要写简单的配置文件就可以自动生成函数，不用再单独手写函数",
     "keywords": "axios二次封装,axios服务封装",
     "category": "http与https"
+  },
+  {
+    "source": "JS sort对数组进行默认排序时如果有数字为什么会不准确？.md",
+    "staticFileName": "js_sort_num.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/21",
+    "description": "正常情况使用 sort 是好用的，但如果有数字时，会有问题，因为如果sort不传参，默认情况下会将所有元素转换为字符串后，再根据unicode值来进行排序，下面我们来看看对应的实例",
+    "keywords": "js sort数组不准确,js sort负数不准确, js sort对数组排序时的坑",
+    "category": "js"
+  },
+  {
+    "source": "JS 为什么使用set对数组或对象去重时会无效？.md",
+    "staticFileName": "js_set.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/21",
+    "description": "我们知道Set是JS的一个种新的数据结构，和数组类似，和数组不同的是它可以去重，比如存入两个1或两个'123'，只有1条数据会存入成功，但有个特殊情况，如果添加到set的值是引用类型，比如数组、对象，他将无法自动去重。因为值相同的两个引用类型地址是不一样的。下面来看一个例子：",
+    "keywords": "js set去重对数组，对象无效,为什么使用set对数组或对象去重时会无效",
+    "category": "js"
+  },
+  {
+    "source": "nginx怎么开启gzip以及怎么判断nginx是否成功开启了gzip？.md",
+    "staticFileName": "nginx_gzip.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/29",
+    "description": "nginx是比较好的一个运行静态http服务的容器。当我们把静态网站部署到nginx上后，我们怎么设置开启zip，让网页资源体积更小，传输更快呢？下面来看看",
+    "keywords": "nginx怎么开启gzip,怎么判断nginx是否成功开启了gzip,怎么判断nginx开启gzip生效",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "从0到1写一个静态博客生成系统zuo-blog(一)：JS怎么将markdown文件转html.md",
+    "staticFileName": "zuoblog_1_md.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/29",
+    "description": "其实早在18年12月，我就已经写好了最简的demo，使用的是marked这个工具。本来准备将博客静态化的，但后来就没继续了，这里来说下方法",
+    "keywords": "怎么用js将markdown转html,markdown转html文件",
+    "category": "前端工程化"
+  },
+  {
+    "source": "开源许可MIT等具体含义.md",
+    "staticFileName": "os_licence.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/30",
+    "description": "一般新建一个开源仓库时，需要确定开源协议。之前习惯是MIT，就是别人拿去干什么都可以。对于一些需要控制他人使用的就需要其他协议了。阮一峰博客里有一张图来解释很清晰明了",
+    "keywords": "开源许可MIT等具体含义,开源许可licence含义",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "网页seo之将链接提交到搜索引擎进行评定收录.md",
+    "staticFileName": "seo_commit.html",
+    "author": "guoqzuo",
+    "createDate": "2020/01/30",
+    "description": "最近对zuo11.com进行了改版，完成了博客的静态化并完成了上线，nginx + 静态文件代替了原来的 tomcat + jsp + mysql的模式。针对百度收录与索引，google收录，做了一些处理。",
+    "keywords": "提交站点链接到百度,提交链接到google",
+    "category": "网站建设与seo"
   }
 ]
+
+
