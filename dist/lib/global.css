@@ -51,3 +51,17 @@ body {
     background: none;
   }
 }
+
+/* 不足补充 */
+aside ul li span {
+  word-break: break-all;
+}
+
+table {
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}

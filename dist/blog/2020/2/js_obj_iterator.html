@@ -1,0 +1,446 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="js_obj_iterator.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="一般遍历对象时，大部分人可能想到的方法是for..in或Object.keys.forEach()，但你知道吗？截止ES2020，在JS中总共有8种方法来遍历对象，而且不同的遍历方法在一些细节方面会有区别，下面我们将从以下几个方面来深入理解JS遍历对象 1. 看似可以遍历对象但又不能遍历对象的for与for...of 2. 可能会对遍历对象产生影响的4种因素：属性是否可枚举、Symbol、是否有继承属性、遍历次序 3. 从ES5到ES2020发展过程中所有的可以遍历对象的方法 4. 通过实例demo来从4个维度比较8种遍历对象的方法 5. 属性遍历次序总结">
+        <meta name="keywords" content="js遍历对象,js遍历对象方法总结,js遍历对象的8种方法">
+
+        <title>深入JS遍历对象方法 - 从4个维度比较遍历对象的8种方法 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/02/02</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="深入js遍历对象方法---从4个维度比较遍历对象的8种方法">深入JS遍历对象方法 - 从4个维度比较遍历对象的8种方法</h1>
+<p>一般遍历对象时，大部分人可能想到的方法是for..in或Object.keys.forEach()，但你知道吗？截止ES2020，在JS中总共有8种方法来遍历对象，而且不同的遍历方法在一些细节方面会有区别，下面我们将从以下几个方面来深入理解JS遍历对象</p>
+<ol>
+<li>看似可以遍历对象但又不能遍历对象的for与for...of</li>
+<li>可能会对遍历对象产生影响的4种因素：属性是否可枚举、Symbol、是否有继承属性、遍历次序</li>
+<li>从ES5到ES2020发展过程中所有的可以遍历对象的方法</li>
+<li>通过实例demo来从4个维度比较8种遍历对象的方法</li>
+<li>属性遍历次序总结</li>
+</ol>
+<p><strong>注意, 本文所指的对象是普通的键值对Object对象，而不是Array、Set等对象</strong></p>
+<h2 id="for和forof不能直接遍历object对象">for和for...of不能直接遍历Object对象</h2>
+<p>首先我们要知道for和for...of不能直接遍历Object对象，除非先将对象转换为数组或Set、Map等</p>
+<p>下面对for...of的知识点做一些回顾，for...of可迭代的对象包括 Array，Map，Set，String，TypedArray，arguments 对象等等</p>
+<p>JS 4种表示集合的数据结构</p>
+<ul>
+<li>ES5及之前: Array, Object</li>
+<li>ES6: Map, Set</li>
+</ul>
+<p>Iterator 接口的目的，就是为所有数据结构，提供了一种统一的访问机制，即for...of循环。当使用for...of循环遍历某种数据结构时，该循环会自动去寻找 Iterator 接口。一种数据结构只要部署了 Iterator 接口，我们就称这种数据结构是“可遍历的”（iterable）。</p>
+<p>ES6 规定，默认的 Iterator 接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的”（iterable）。</p>
+<h3 id="forof遍历数组">for...of遍历数组</h3>
+<pre><code class="language-js">// 遍历数组 for...of
+const arr = [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;];
+for(let v of arr) {
+  console.log(v); // red green blue
+}</code></pre>
+<h3 id="forof遍历set和map结构">for...of遍历Set和Map结构</h3>
+<pre><code class="language-js">var engines = new Set([&quot;Gecko&quot;, &quot;Trident&quot;, &quot;Webkit&quot;, &quot;Webkit&quot;]);
+for (var e of engines) {
+  console.log(e);
+}
+// Gecko
+// Trident
+// Webkit
+
+var es6 = new Map();
+es6.set(&quot;edition&quot;, 6);
+es6.set(&quot;committee&quot;, &quot;TC39&quot;);
+es6.set(&quot;standard&quot;, &quot;ECMA-262&quot;);
+for (var [name, value] of es6) {
+  console.log(name + &quot;: &quot; + value);
+}
+// edition: 6
+// committee: TC39
+// standard: ECMA-262
+
+// example2
+let map = new Map().set(&#39;a&#39;, 1).set(&#39;b&#39;, 2);
+for (let pair of map) {
+  console.log(pair);
+}
+// [&#39;a&#39;, 1]
+// [&#39;b&#39;, 2]
+for (let [key, value] of map) {
+  console.log(key + &#39; : &#39; + value);
+}
+// a : 1
+// b : 2</code></pre>
+<h2 id="对象属性的可枚举属性">对象属性的可枚举属性</h2>
+<p>对象的每个属性都有一个描述对象（Descriptor），用来控制该属性的行为。Object.getOwnPropertyDescriptor方法可以获取该属性的描述对象。</p>
+<pre><code class="language-js">let obj = { foo: 123 };
+Object.getOwnPropertyDescriptor(obj, &#39;foo&#39;)
+//  {
+//    value: 123,
+//    writable: true,
+//    enumerable: true,
+//    configurable: true
+//  }</code></pre>
+<p>目前，有六个操作会忽略enumerable为false的属性。</p>
+<ul>
+<li>for...in循环：只遍历对象自身的和继承的可枚举的属性。</li>
+<li>Object.keys()：返回对象自身的所有可枚举的属性的键名。</li>
+<li>Object.values()：返回对象自身的所有可枚举的属性的值。</li>
+<li>Object.entires()：返回对象自身的所有可枚举的属性的键值对。</li>
+<li>JSON.stringify()：只串行化对象自身的可枚举的属性。</li>
+<li>Object.assign()： 忽略enumerable为false的属性，只拷贝对象自身的可枚举的属性。</li>
+</ul>
+<p>另外，ES6 规定，所有 Class 的原型的方法都是不可枚举的。总的来说，操作中引入继承的属性会让问题复杂化，大多数时候，我们只关心对象自身的属性。所以，尽量不要用for...in循环，而用Object.keys()代替。</p>
+<h2 id="对象symbol属性名的遍历问题">对象Symbol属性名的遍历问题</h2>
+<p>Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有 Symbol 属性名。</p>
+<pre><code class="language-js">let sym = Symbol(&#39;foo&#39;)
+let obj = {a: 1, b:2, [sym]: 3}
+
+Object.getOwnPropertyNames() // [&quot;a&quot;, &quot;b&quot;]
+Object.getOwnPropertySymbols(obj) // [Symbol(foo)]
+
+// Reflect.ownKeys() 返回一个数组，包含对象自身的所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。
+Reflect.ownKeys(obj) // [&#39;a&#39;, &#39;b&#39;, Symbol(aaa)]</code></pre>
+<h2 id="es6遍历对象的5种方法">ES6遍历对象的5种方法</h2>
+<p>ES6 一共有 5 种方法可以遍历对象的属性。</p>
+<h3 id="forin">for...in</h3>
+<p>for...in循环遍历对象自身的和继承的可枚举属性（不含 Symbol 属性）。</p>
+<h3 id="objectkeysobj">Object.keys(obj)</h3>
+<p>Object.keys返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。</p>
+<h3 id="objectgetownpropertynamesobj">Object.getOwnPropertyNames(obj)</h3>
+<p>Object.getOwnPropertyNames返回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名。</p>
+<h3 id="objectgetownpropertysymbolsobj">Object.getOwnPropertySymbols(obj)</h3>
+<p>Object.getOwnPropertySymbols返回一个数组，包含对象自身的所有 Symbol 属性的键名。包括不可枚举属性</p>
+<h3 id="reflectownkeysobj">Reflect.ownKeys(obj)</h3>
+<p>Reflect.ownKeys返回一个数组，包含对象自身的所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。基本等同于Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。</p>
+<pre><code class="language-js">var myObject = {
+  foo: 1,
+  bar: 2,
+  [Symbol.for(&#39;baz&#39;)]: 3,
+  [Symbol.for(&#39;bing&#39;)]: 4
+}
+// 旧写法
+Object.getOwnPropertyNames(myObject)
+// [&#39;foo&#39;, &#39;bar&#39;]
+Object.getOwnPropertySymbols(myObject)
+//[Symbol(baz), Symbol(bing)]
+// 新写法
+Reflect.ownKeys(myObject)
+// [&#39;foo&#39;, &#39;bar&#39;, Symbol(baz), Symbol(bing)]</code></pre>
+<h2 id="es2017-新增3种遍历对象的方法">ES2017 新增3种遍历对象的方法</h2>
+<p>由于for...in可以遍历出继承自父元素的原型属性，导致一般可能不会用这个方法来遍历。所以在遍历对象时，一般比较优雅的方式是下面的方法</p>
+<pre><code class="language-js">Object.keys(myObj).forEach(function (key) {
+  let obj = myObj[key];
+  // do something with obj
+});</code></pre>
+<p>但这种方法的缺陷是，我如果想操作对象里面的所有值，我需要先转数组再forEach再取值很麻烦，然后就有人提议是否可以借鉴数组的Array.prototype.values()和entries()引入到Object来，这样操作对象就灵活了，于是就有了Object.values与Object.entries</p>
+<blockquote>
+<p>It is a very common use case to need the own values of an object - for example, when using an object as a hash filter. Many libraries have a “values” function: lodash/underscore, jQuery, Backbone, etc.</p>
+</blockquote>
+<blockquote>
+<p>It is also useful to obtain an array of key/value pairs (what the spec calls “entries”) from an object, for the purposes of iteration or serialization. With the advent of the Map constructor accepting an iterable of entries, and its associated entries iterator (WeakMap also accepts iterable entries in its constructor), it becomes very compelling to want to quickly convert a plain object to a Map, via passing an array of entries into new Map.</p>
+</blockquote>
+<blockquote>
+<p>We already have the precedent of Object.keys returning an array of own keys, and matched triplets of keys/values/entries iterators on Map/Set/Array. As such, per discussions on es-discuss and in at least one previous TC39 meeting, this proposal seeks to add Object.values and Object.entries to ECMAScript. Like Object.keys, they would return arrays. Their ordering would match Object.keys ordering precisely, such that the indices of all three resulting arrays would reflect the same key, value, or entry on the object.</p>
+</blockquote>
+<h3 id="objectvalues与objectentries">Object.values与Object.entries</h3>
+<p>他们和Object.keys返回的都一样是<strong>数组</strong>，除了下面的for...of遍历外，我们也可以使用forEach</p>
+<pre><code class="language-js">// import { keys, values, entries } from &#39;@dict&#39;;
+let { keys, values, entries } = Object;
+
+let obj = { a: 1, b: 2, c: 3 };
+
+for (let key of keys(obj)) {
+// [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+}
+
+for (let value of values(obj)) {
+// [1, 2, 3]
+}
+
+for (let [key, value] of entries(obj)) {
+// [[&#39;a&#39;, 1], [&#39;b&#39;, 2], [&#39;c&#39;, 3]]
+}</code></pre>
+<h3 id="地表最强objectgetownpropertydescriptors">地表最强Object.getOwnPropertyDescriptors()</h3>
+<p>ES5 的Object.getOwnPropertyDescriptor()方法会返回某个对象属性的描述对象（descriptor）。ES2017 引入了Object.getOwnPropertyDescriptors()方法，返回指定对象所有自身属性（非继承属性）的描述对象。</p>
+<pre><code class="language-js">// 1.获取属性的描述对象 Object.getOwnPropertyDescriptor()
+Object.getOwnPropertyDescriptor(book, &quot;_year&quot;); 
+// {&quot;value&quot;:2004,&quot;writable&quot;:false,&quot;enumerable&quot;:false,&quot;configurable&quot;:false}
+
+// 2.获取对象的所有自身属性表述对象
+const obj = {
+  foo: 123,
+  get bar() { return &#39;abc&#39; }
+};
+
+Object.getOwnPropertyDescriptors(obj)
+// { foo:
+//    { value: 123,
+//      writable: true,
+//      enumerable: true,
+//      configurable: true },
+//   bar:
+//    { get: [Function: get bar],
+//      set: undefined,
+//      enumerable: true,
+//      configurable: true } }</code></pre>
+<p><strong>该方法的引入目的，主要是为了解决Object.assign()无法正确拷贝get属性和set属性的问题。这是因为Object.assign方法总是拷贝一个属性的值，而不会拷贝它背后的赋值方法或取值方法。这时，Object.getOwnPropertyDescriptors()方法配合Object.defineProperties()方法，就可以实现正确拷贝。</strong></p>
+<pre><code class="language-js">// 1.Object.assign()无法拷贝set,get方法
+const source = {
+  set foo(value) {
+    console.log(value);
+  }
+};
+
+const target1 = {};
+Object.assign(target1, source);
+
+Object.getOwnPropertyDescriptor(target1, &#39;foo&#39;)
+// { value: undefined,
+//   writable: true,
+//   enumerable: true,
+//   configurable: true }
+
+// 2.Object.getOwnPropertyDescriptors()方法配合Object.defineProperties()方法
+const source = {
+  set foo(value) {
+    console.log(value);
+  }
+};
+
+const target2 = {};
+Object.defineProperties(target2, Object.getOwnPropertyDescriptors(source));
+Object.getOwnPropertyDescriptor(target2, &#39;foo&#39;)
+// { get: undefined,
+//   set: [Function: set foo],
+//   enumerable: true,
+//   configurable: true }</code></pre>
+<p>Object.getOwnPropertyDescriptors()方法可以实现一个对象继承另一个对象。以前，继承另一个对象，常常写成下面这样。</p>
+<pre><code class="language-js">// 写法1
+const obj = {
+  __proto__: prot,
+  foo: 123,
+};
+
+// 写法2
+const obj = Object.create(prot);
+obj.foo = 123;
+
+// 写法3
+const obj = Object.assign(
+  Object.create(prot),
+  {
+    foo: 123,
+  }
+);
+
+// 写法4
+const obj = Object.create(
+  prot,
+  Object.getOwnPropertyDescriptors({
+    foo: 123,
+  })
+);
+// Object.create(proto[, propertiesObject])  NDN
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create</code></pre>
+<h2 id="从4个维度比较遍历对象8种方法">从4个维度比较遍历对象8种方法</h2>
+<p>我们需要从3个维度来对比这8中遍历方法的一同点:</p>
+<ol>
+<li>是否可以遍历不可枚举属性</li>
+<li>是否可以遍历Symbol属性</li>
+<li>是否可以遍历继承的原型属性</li>
+<li>遍历次序</li>
+</ol>
+<pre><code class="language-js">console.log(&#39;object 遍历测试&#39;)
+
+// 1. 安排 继承属性
+function A() {
+  this[&#39;99&#39;] =  2,
+  this.parentA = &#39;1&#39;
+}
+let a = new A()
+// 原型继承，只是将a的原型属性挂载到了myObject上
+let myObject = Object.create(a)
+// 测试继承来的原型属性 
+console.log(&#39;myObject.parentA&#39;, myObject.parentA)
+
+// 2. 安排各种常规属性、symbol属性，数值属性
+Object.assign(myObject, {
+  foo: 1,
+  baz: 2,
+  &quot;2&quot;: &quot;798&quot;,
+  &quot;1&quot;: &quot;123&quot;,
+  [Symbol.for(&#39;baz&#39;)]: 3,
+  [Symbol.for(&#39;bing&#39;)]: 4
+})
+
+// 3. 安排两个不可枚举属性
+Object.defineProperties(myObject, {
+  notEnumProp1: { 
+    configurable: false,
+    enumerable: false,
+    writable: false,
+    value: 27
+  },
+  &#39;9999&#39;: {
+    enumerable: false,
+    value: &quot;test9999&quot;
+  }
+})
+
+// 4. 测试
+let forInArr = []
+for (let item in myObject) {
+  forInArr.push(item)
+}
+console.log(&#39;for...in&#39;, forInArr)
+console.log(&#39;Object.keys&#39;, Object.keys(myObject))
+console.log(&#39;Object.getOwnPropertyNames&#39;, Object.getOwnPropertyNames(myObject))
+console.log(&#39;Object.getOwnPropertySymbols&#39;, Object.getOwnPropertySymbols(myObject))
+console.log(&#39;Reflect.ownKeys&#39;, Reflect.ownKeys(myObject))
+console.log(&#39;Object.values&#39;, Object.values(myObject))
+console.log(&#39;Object.entries&#39;, Object.entries(myObject))
+console.log(&#39;Object.getOwnPropertyDescriptors&#39;, Object.getOwnPropertyDescriptors(myObject))
+// 未实现的
+// console.log(&#39;Reflect.ownValues&#39;, Reflect.ownValues(myObject)) // 仅在tc39文档里讨论过
+// console.log(&#39;Reflect.ownEntries&#39;, Reflect.ownEntries(myObject)) // 仅在tc39文档里讨论过</code></pre>
+<p><img src="../../../images/blog/js/object_iterator.png" alt="object_iterator.png"></p>
+<p>综上，他们遍历次序基本一致，我们只需要比较三个维度即可，如下表</p>
+<table>
+<thead>
+<tr>
+<th>遍历方法</th>
+<th>可以遍历不可枚举属性</th>
+<th>可以遍历Symbol属性</th>
+<th>可以遍历继承的原型属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>for...in</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>Object.keys()</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Object.values()</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Object.entries()</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Object.getOwnPropertyNames()</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Object.getOwnPropertySymbols()</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Reflect.ownKeys()</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Object.getOwnPropertyDescriptors()</td>
+<td>是</td>
+<td>是</td>
+<td>否</td>
+</tr>
+</tbody></table>
+<h2 id="8种遍历方法遵循同一次序规则">8种遍历方法遵循同一次序规则</h2>
+<p>以上的 5 种方法遍历对象的键名，都遵守同样的属性遍历的次序规则。</p>
+<ul>
+<li><strong>首先遍历所有数值键，按照数值升序排列。</strong></li>
+<li>其次遍历所有字符串键，<strong>按照加入时间升序排列</strong>。</li>
+<li>最后遍历所有 Symbol 键，<strong>按照加入时间升序排列</strong>。</li>
+<li>如果是for...in，最后遍历继承自父元素的原型属性，按照先数值、再字符串的顺序</li>
+</ul>
+<p>总结：当如果同时存在数值属性、字符串属性等时，for...in遍历属性是无序的。确定顺序，还是用数组来</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/tc39/proposals/blob/master/finished-proposals.md">tc39/proposals finished-proposals</a></li>
+<li><a href="https://github.com/tc39/proposal-object-values-entries">tc39/proposal-object-values-entries</a></li>
+<li><a href="https://www.yuque.com/guoqzuo/js_es6/wnn0h0#8c8efbbe">Iterator和for...of循环 | es6入门笔记</a></li>
+<li><a href="https://www.yuque.com/guoqzuo/js_es6/csk2et#85b97dce">Reflect.ownKeys() | es6入门笔记</a></li>
+<li><a href="https://www.yuque.com/guoqzuo/js_es6/rxu7ms#358d8be2">对象的扩展 | es6入门笔记</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in">for...in - JavaScript | MDN</a></li>
+<li><a href="https://blog.csdn.net/SailingLee/article/details/84598921">for...in遍历的顺序</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="深入js遍历对象方法---从4个维度比较遍历对象的8种方法" style="padding-left:1em">深入JS遍历对象方法 - 从4个维度比较遍历对象的8种方法<span></li><ul><li><span class="ul-span" data-id="for和forof不能直接遍历object对象" style="padding-left:2em">for和for...of不能直接遍历Object对象<span></li><ul><li><span class="ul-span" data-id="forof遍历数组" style="padding-left:3em">for...of遍历数组<span></li></ul><ul><li><span class="ul-span" data-id="forof遍历set和map结构" style="padding-left:3em">for...of遍历Set和Map结构<span></li></ul></ul><ul><li><span class="ul-span" data-id="对象属性的可枚举属性" style="padding-left:2em">对象属性的可枚举属性<span></li></ul><ul><li><span class="ul-span" data-id="对象symbol属性名的遍历问题" style="padding-left:2em">对象Symbol属性名的遍历问题<span></li></ul><ul><li><span class="ul-span" data-id="es6遍历对象的5种方法" style="padding-left:2em">ES6遍历对象的5种方法<span></li><ul><li><span class="ul-span" data-id="forin" style="padding-left:3em">for...in<span></li></ul><ul><li><span class="ul-span" data-id="objectkeysobj" style="padding-left:3em">Object.keys(obj)<span></li></ul><ul><li><span class="ul-span" data-id="objectgetownpropertynamesobj" style="padding-left:3em">Object.getOwnPropertyNames(obj)<span></li></ul><ul><li><span class="ul-span" data-id="objectgetownpropertysymbolsobj" style="padding-left:3em">Object.getOwnPropertySymbols(obj)<span></li></ul><ul><li><span class="ul-span" data-id="reflectownkeysobj" style="padding-left:3em">Reflect.ownKeys(obj)<span></li></ul></ul><ul><li><span class="ul-span" data-id="es2017-新增3种遍历对象的方法" style="padding-left:2em">ES2017 新增3种遍历对象的方法<span></li><ul><li><span class="ul-span" data-id="objectvalues与objectentries" style="padding-left:3em">Object.values与Object.entries<span></li></ul><ul><li><span class="ul-span" data-id="地表最强objectgetownpropertydescriptors" style="padding-left:3em">地表最强Object.getOwnPropertyDescriptors()<span></li></ul></ul><ul><li><span class="ul-span" data-id="从4个维度比较遍历对象8种方法" style="padding-left:2em">从4个维度比较遍历对象8种方法<span></li></ul><ul><li><span class="ul-span" data-id="8种遍历方法遵循同一次序规则" style="padding-left:2em">8种遍历方法遵循同一次序规则<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
