@@ -53,7 +53,7 @@ body {
 }
 
 /* 不足补充 */
-aside ul li span {
+body, aside ul li span {
   word-break: break-all;
 }
 
