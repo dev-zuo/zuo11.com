@@ -34,6 +34,87 @@
     "description": "一般遍历对象时，大部分人可能想到的方法是for..in或Object.keys.forEach()，但你知道吗？截止ES2020，在JS中总共有8种方法来遍历对象，而且不同的遍历方法在一些细节方面会有区别，下面我们将从以下几个方面来深入理解JS遍历对象 1. 看似可以遍历对象但又不能遍历对象的for与for...of 2. 可能会对遍历对象产生影响的4种因素：属性是否可枚举、Symbol、是否有继承属性、遍历次序 3. 从ES5到ES2020发展过程中所有的可以遍历对象的方法 4. 通过实例demo来从4个维度比较8种遍历对象的方法 5. 属性遍历次序总结",
     "keywords": "js遍历对象,js遍历对象方法总结,js遍历对象的8种方法",
     "category": "js"
+  },
+  {
+    "source": "node中的4种模块类型.md",
+    "staticFileName": "node_module_type.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/04",
+    "description": "Node.js的模块化使用CommonJS规范：module.exports导出，require引入。在node中你会发现使用某个模块时，有时候需要require，有时候不需要；有时候需要npm install，有时候不需要，这是为什么呢？下面来看看",
+    "keywords": "node中的4种模块类型,node中使用某个模块时为什么有的模块需要require，有的模块又不需要，有的需要npm install，有的又不需要",
+    "category": "前端工程化"
+  },
+  {
+    "source": "Node.js、js、v8三者之间的关系.md",
+    "staticFileName": "node_js_v8.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/04",
+    "description": "Node.js 提供了JS运行时（运行js的环境，类似的概念有JRE提供了运行java的环境）。Node.js通过内部集成Chrome V8引擎来解析执行js，Node.js除了解析执行js外，还包含其他功能，比如浏览器里js无法操作文件、无法开启http服务器、而Node.js里可以，主要是因为Node.js里面扩展加入了很多功能。比如使用libuv，提供了文件系统、网络、子进程、管道、信号处理、轮询、流等功能；使用llhttp提供了HTTP解析功能；使用OpenSSL提供tls、crypto加密相关功能等等",
+    "keywords": "node.js和js的区别,node.js v8 js之间的关系",
+    "category": "前端工程化"
+  },
+  {
+    "source": "nginx访问不带www的域名，自动切到www.md",
+    "staticFileName": "www_redirect.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/08",
+    "description": "在seo时，搜索引擎可能会将xx.com和www.xx.com一起收录。这里需要进行处理，当使用一级域名直接访问时(xx.com)，自动切到www.xx.com，下面来看看怎么配置nginx",
+    "keywords": "不带www跳转到www二域名,xx.com重定向到www.xx.com",
+    "category": "网站建设与seo"
+  },
+  {
+    "source": "mysql中char与varchar的区别.md",
+    "staticFileName": "char_varchar.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/12",
+    "description": "在创建表，指定字段数据类型时，如果是字符串数据类型可以是varchar(50)，也可以是char(50)。这两种有什么区别呢？",
+    "keywords": "char和varchar的区别,char varchar区别",
+    "category": "后端数据库等"
+  },
+  {
+    "source": "为什么书上SQL语句一般都是大写.md",
+    "staticFileName": "sql_uppercase.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/12",
+    "description": "为什么小写更直观，而不使用小写呢？今天在看语法时，有了一个答案，你会发现可变动的内容一般是小写（比如：列名，表名，一些条件），而SQL语法相关的单词都是大写，这样更好理解。全小写描述语法时，对于初学者来看分不清哪些是SQL语句中必须的，哪些是可变动的。以后还是要习惯大写，更规范。",
+    "keywords": "为什么书上SQL语句一般都是大写",
+    "category": "后端数据库等"
+  },
+  {
+    "source": "ERROR 1396 (HY000): Operation DROP USER failed for 'zhangsan'@'localhost'.md",
+    "staticFileName": "sql_localhost.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/18",
+    "description": "在看mysql账号相关内容时，发现在root用户下，更新、删除用户均报错。后面发现居然是localhost的字母拼错了，但新建user时居然没报错。下面来复盘整个记录:",
+    "keywords": "Operation DROP USER failed for,ERROR 1396 (HY000): Operation DROP USER failed for",
+    "category": "后端数据库等"
+  },
+  {
+    "source": "使用js调用vue单文件组件.md",
+    "staticFileName": "js_vue_comp.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/20",
+    "description": "在封装组件时，如果是dialog组件，一般封装好后，通过component引入，然后把标签放到html里，通过true或false来隐藏和显示，每次都要写一些重复代码。怎么能够像ElementUI的message函数一样直接调用呢，首先需要搞懂怎么用js来调用vue单文件组件，下面来看方法",
+    "keywords": "使用js调用vue单文件组件",
+    "category": "vue"
+  },
+  {
+    "source": "element表单校验函数没生效的问题.md",
+    "staticFileName": "el_form_validate.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/24",
+    "description": "根据element官网的dmeo，加入表单校验，发现校验的rules根本没执行。注意：el-form-item 标签也需要设置 prop 属性，并且名称需要和对应model的名称一致，我这次漏写了，所以一直没生效",
+    "keywords": "element表单校验没生效",
+    "category": "vue"
+  },
+  {
+    "source": "element cascader显示异常问题.md",
+    "staticFileName": "el_cascader.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/24",
+    "description": "当cascader里选项比较多时，组件高度会异常，主要是 .el-cascader-menu__wrap 这个样式高度为100%，将cascader里其任意一父元素手动指定高度即可，但el-cascader-menu__wrap设置的效果最好",
+    "keywords": "element cascader显示异常问题,element cascader高度问题",
+    "category": "vue"
   }
 ]
 
