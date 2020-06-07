@@ -1,0 +1,85 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="char_varchar.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在创建表，指定字段数据类型时，如果是字符串数据类型可以是varchar(50)，也可以是char(50)。这两种有什么区别呢？">
+        <meta name="keywords" content="char和varchar的区别,char varchar区别">
+
+        <title>mysql中char与varchar的区别 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#后端数据库等" class="hidden">后端数据库等</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/02/12</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="mysql中char与varchar的区别">mysql中char与varchar的区别</h1>
+<p>在创建表，指定字段数据类型时，如果是字符串数据类型可以是varchar(50)，也可以是char(50)。这两种有什么区别呢？</p>
+<ol>
+<li>它们都是用来储存字符数值小于255的字符, mysql5.0之前是varchar支持最大255。</li>
+<li>varchar(40)存入&quot;Bill Gates&quot;，取出数据时字符串长度为10；char(40)存入&quot;Bill Gates&quot;，取出数据时字符串长度为40, 后面会被加多余的空格。</li>
+<li>varchar使用可能会更方便、所占用内存空间更小，特别是当数据库比较大时，内存和磁盘空间的节省会非常重要。</li>
+<li>从系统性能讲，char处理速度更快，有时可以超出varchar处理速度的50%。</li>
+<li>在设计数据库时应综合考虑各方面因素，来达到一个平衡。</li>
+</ol>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="mysql中char与varchar的区别" style="padding-left:1em">mysql中char与varchar的区别<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
