@@ -115,7 +115,59 @@
     "description": "当cascader里选项比较多时，组件高度会异常，主要是 .el-cascader-menu__wrap 这个样式高度为100%，将cascader里其任意一父元素手动指定高度即可，但el-cascader-menu__wrap设置的效果最好",
     "keywords": "element cascader显示异常问题,element cascader高度问题",
     "category": "vue"
+  },
+  {
+    "source": "koa ctx.body写在异步里接口会返回404的问题.md",
+    "staticFileName": "koa_async_404.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/26",
+    "description": "在前端mock上传的接口时，发现总是404，刚开始以为是代理的问题，后来单独写了个demo，发现如果ctx.body放在异步的回调，后端接收到请求了，但还是会返回404，下面来具体研究下",
+    "keywords": "koa接口404,ctx.body写在异步操作里404",
+    "category": "前端工程化"
+  },
+  {
+    "source": "前端怎么获取文件上传进度以及使用node mock上传文件接口demo.md",
+    "staticFileName": "upload_progress_monitor.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/26",
+    "description": "现在接口请求一般用的是axios，对于上传文件的进度监听，我们需要了解在axios的config参数里，可以传入onUploadProgress参数来接收upload进度事件，里面会有上传进度信息。我们前端怎么mock上传文件的接口呢？在koa处理时使用 `post-bodyparser` 可以很好的解析 `multipart/form-data` 数据，下面来具体看看",
+    "keywords": "前端获取文件上传进度,文件上传进度demo,怎么获取文件上传进度,axios文件上传进度监听,前端怎么mock上传文件接口",
+    "category": "http与https"
+  },
+  {
+    "source": "怎么使用一条命令安装多个npm包.md",
+    "staticFileName": "npm_install_multiple.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/26",
+    "description": "在安装npm包时，我们一般使用 npm install xx --save，但对于一次需要安装多个包的情况，怎么用一条命令来安装呢？下面来看看",
+    "keywords": "怎么使用一条命令安装多个npm包,一条命令安装多个npm包",
+    "category": "前端工程化"
+  },
+  {
+    "source": "element怎么动态改变校验rules且实时生效.md",
+    "staticFileName": "element_form_rules.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/27",
+    "description": "在需要动态设置rules，并需要其实时生效的场景，一般需要将rules完成改变才行，这是为什么呢，下面来看看",
+    "keywords": "element怎么动态改变校验rules且实时生,element el-form rules动态改变",
+    "category": "vue"
+  },
+  {
+    "source": "el-form-item里非elment输入组件时，校验回调函数不触发的问题.md",
+    "staticFileName": "not_element_input_validate.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/27",
+    "description": "今天写表单校验规则，有个 el-form-item 里使用了富文本编辑器，发现校验规则校验这个值会有异常: 1. 当 change 或 blur 时，根本没有触发校验(提示错误) 2. 提交表单时，当该字段校验失败会提示错误，但该字段符合要求时，validate的回调一直没触发，导致无法进行校验成功之后的下一步操作，将富文本编辑器换成 el-input 正常，换成普通的 input 也会异常，感觉一头雾水。",
+    "keywords": "element表单校验时如果非element组件会触发布料校验,富文本编辑器在element form中校验回调函数不触发的问题",
+    "category": "vue"
+  },
+  {
+    "source": "怎么给三角形加border，添加到我的小程序UI实现以及需要注意的问题.md",
+    "staticFileName": "border_border.html",
+    "author": "guoqzuo",
+    "createDate": "2020/02/29",
+    "description": "在给小程序添加 '添加到我的小程序' 引导时，里面有个带边框的三角形，一般用css画三角形使用的是border，但三角形边的边框怎么画呢？一般用两个三角形叠加来实现",
+    "keywords": "css 三角形加border,css 用border画的三角形怎么加border,小程序添加到我的小程序引导UI实现",
+    "category": "css"
   }
 ]
-
-
