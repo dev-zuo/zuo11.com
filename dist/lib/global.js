@@ -4,15 +4,15 @@ console.log('您好，欢迎光临zuo11.com!')
 // 实现tab间切换时，隐藏页面title改变功能
 // JS高程3 Page Visibility API(页面可见性API)
 // 参考：https://www.yuque.com/guoqzuo/js_es6/nocthb#0cf7a8b7
-// var title = document.title;
-// document.addEventListener('visibilitychange', function (event) {
-//   document.title =  document.hidden ? '-> ' + title : title
-//   if (document.hidden) {
-//     // 做一些暂停操作
-//   } else {
-//     // 开始操作
-//   }
-// }, false)
+var title = document.title;
+document.addEventListener('visibilitychange', function (event) {
+  document.title =  document.hidden ? '快回来~ ' + title : title
+  if (document.hidden) {
+    // 做一些暂停操作
+  } else {
+    // 开始操作
+  }
+}, false)
 
 
 // 当网络状态发生改变时（有网 => 无网，无网 => 有网）,提示信息

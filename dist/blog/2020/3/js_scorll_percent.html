@@ -1,0 +1,104 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="js_scorll_percent.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在阮一峰的es6入门教程里，顶部有一个计算页面百分比的UI，于是就想尝试实现这个功能，恰好在js高程3里有对应的描述，来看看">
+        <meta name="keywords" content="页面滚动比例监听">
+
+        <title>JS怎么监听当前页面滚动比例，完整UI实现demo - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/03/02</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="js怎么监听当前页面滚动比例，完整ui实现demo">JS怎么监听当前页面滚动比例，完整UI实现demo</h1>
+<p>在阮一峰的es6入门教程里，顶部有一个计算页面百分比的UI，于是就想尝试实现这个功能，恰好在js高程3里有对应的描述，来看看</p>
+<p><img src="../../../images/blog/js/page_scroll_percent.png" alt="page_scroll_percent.png"></p>
+<p>监听页面的scroll事件，整个滚动距离为 document.documentElement.scrollHeight - window.innerHeight，当前scrollTop除以整个滚动距离，就是页面的百分比，向body挂载两个div来显示进度信息</p>
+<p>完整demo</p>
+<pre><code class="language-js">// 页面滚动比例监听
+// posTop 顶部类似阮一峰ES6网页的滚动进度条
+// pos 右下角滚动百分比
+// JS高程3 - UI事件 scroll事件
+// https://www.yuque.com/guoqzuo/js_es6/elgng1#e38771e5
+let htmlStr = `
+  &lt;div id=&quot;posTop&quot; style=&quot;position: fixed;top:0;height:2px;background: #25b864;z-index:999999;&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;pos&quot; style=&quot;display:none;position:fixed;bottom: 100px;right:20px;padding:10px;background: #25b864;color:white;width:40px;text-align: center;border-radius:5px;&quot;&gt;&lt;/div&gt;
+`
+let eleNode = document.createElement(&#39;div&#39;)
+eleNode.innerHTML = htmlStr
+document.body.appendChild(eleNode)
+
+window.addEventListener(&#39;scroll&#39;, function(e) {
+  let scrollTop = document.documentElement.scrollTop;
+  let total = document.documentElement.scrollHeight - window.innerHeight;
+  let persentage = parseInt(scrollTop/total*100);
+  // console.log(scrollTop);  
+
+  document.getElementById(&#39;pos&#39;).style.display = scrollTop === 0 ? &#39;none&#39; : &#39;block&#39;;
+  document.getElementById(&#39;pos&#39;).innerHTML = `${persentage}%`;
+  document.getElementById(&#39;posTop&#39;).style.width = `${persentage}%`;
+}, false)</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="js怎么监听当前页面滚动比例，完整ui实现demo" style="padding-left:1em">JS怎么监听当前页面滚动比例，完整UI实现demo<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

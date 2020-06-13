@@ -1,0 +1,161 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="upload_progress_monitor.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="现在接口请求一般用的是axios，对于上传文件的进度监听，我们需要了解在axios的config参数里，可以传入onUploadProgress参数来接收upload进度事件，里面会有上传进度信息。我们前端怎么mock上传文件的接口呢？在koa处理时使用 `post-bodyparser` 可以很好的解析 `multipart/form-data` 数据，下面来具体看看">
+        <meta name="keywords" content="前端获取文件上传进度,文件上传进度demo,怎么获取文件上传进度,axios文件上传进度监听,前端怎么mock上传文件接口">
+
+        <title>前端怎么获取文件上传进度以及使用node mock上传文件接口demo - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/02/26</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="前端怎么获取文件上传进度以及使用node-mock上传文件接口demo">前端怎么获取文件上传进度以及使用node mock上传文件接口demo</h1>
+<p>现在接口请求一般用的是axios，对于上传文件的进度监听，我们需要了解在axios的config参数里，可以传入onUploadProgress参数来接收upload进度事件，里面会有上传进度信息。我们前端怎么mock上传文件的接口呢？在koa处理时使用 <code>post-bodyparser</code> 可以很好的解析 <code>multipart/form-data</code> 数据，下面来具体看看</p>
+<p><img src="../../../images/blog/node/node_upload.png" alt="node文件上传进度.png"></p>
+<h2 id="前端demo">前端demo</h2>
+<p>来看代码:</p>
+<pre><code class="language-html">&lt;!-- 前端HTML --&gt;
+&lt;body&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;file&quot; name=&quot;file&quot; id=&quot;test&quot;&gt;
+    &lt;div id=&quot;progressDiv&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    let fileInput = document.getElementById(&#39;test&#39;)
+    let progressDiv = document.getElementById(&#39;progressDiv&#39;)
+
+    // 当input文件输入框值改变时
+    fileInput.onchange = () =&gt; {
+      let file = fileInput.files[0]
+      this.uploadFile(file)
+    } 
+
+    // 上传文件到后台
+    async function uploadFile(file) {
+      let fd = new FormData()
+      fd.append(&#39;file&#39;, file)
+      fd.append(&#39;type&#39;, &#39;mask&#39;)
+      try {
+        let payload = fd
+        let res = await axios.post(&#39;/upload&#39;, payload, {
+          // axios 接收进度事件文档
+          // https://github.com/axios/axios#request-config
+          onUploadProgress: function (progressEvent) {
+            // {loaded: 1687552, total: 35353356, ...}
+            console.log(&#39;接收到进度事件&#39;, progressEvent)
+            progressDiv.innerHTML = `
+              &lt;div&gt;上传中，当前进度：${((progressEvent.loaded / progressEvent.total) * 100).toFixed(2) }% &lt;/div&gt; 
+              &lt;div&gt;文件大小: ${progressEvent.loaded}/${progressEvent.total}
+            `
+          },
+        })
+        console.log(res)
+      } catch(e) {
+        cosnoel.error(e)
+      }
+    }
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<h2 id="koa-mock上传接口">koa mock上传接口</h2>
+<p>koa后端接收处理 upload.js</p>
+<pre><code class="language-js">const Koa = require(&#39;koa&#39;)
+const Router = require(&#39;koa-router&#39;)
+const static = require(&#39;koa-static&#39;)
+const BodyParser = require(&#39;post-bodyparser&#39;)
+
+const router = new Router()
+const app = new Koa()
+
+app.use(static(__dirname + &#39;/&#39;))
+
+router.post(&#39;/upload&#39;, async (ctx, next) =&gt; {
+  console.log(&#39;upload&#39;, ctx.url)
+  let { req } = ctx.request
+  const parser =  new BodyParser(req);
+  let body = await parser.formData()
+  console.log(body)
+  ctx.body = body
+})
+
+app.use(router.routes())
+
+app.listen(3000)
+
+// 打印内容
+// upload
+// /upload
+// { file:
+//    { value:
+//       &#39;/var/folders/mw/hbp6ytc9753gcm3zhqbmfkp40000gn/T/RAzvcR/9cd892b3-3243-4469-8cfa-ecbe2190a6ee.mongodb-macos-x86_64-4.2.2.tar&#39;,
+//      name: &#39;file&#39;,
+//      filename: &#39;mongodb-macos-x86_64-4.2.2.tar&#39;,
+//      contentType: &#39;application/x-tar&#39; },
+//   type: &#39;mask&#39; }</code></pre>
+<h2 id="完整demo-github地址">完整demo github地址</h2>
+<p>完整demo，参见: <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/upload%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6">upload文件上传demo - github</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="前端怎么获取文件上传进度以及使用node-mock上传文件接口demo" style="padding-left:1em">前端怎么获取文件上传进度以及使用node mock上传文件接口demo<span></li><ul><li><span class="ul-span" data-id="前端demo" style="padding-left:2em">前端demo<span></li></ul><ul><li><span class="ul-span" data-id="koa-mock上传接口" style="padding-left:2em">koa mock上传接口<span></li></ul><ul><li><span class="ul-span" data-id="完整demo-github地址" style="padding-left:2em">完整demo github地址<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
