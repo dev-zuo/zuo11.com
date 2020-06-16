@@ -8,8 +8,8 @@
 
         <meta name="application name" content="vue_updated.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等">
-        <meta name="keywords" content="vue组件updated钩子使用场景">
+        <meta name="description" content="updated钩子，在vue中，只要data变更就会触发，子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等">
+        <meta name="keywords" content="updated钩子,vue组件updated钩子使用场景">
 
         <title>vue组件updated钩子使用场景 - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
@@ -44,7 +44,8 @@
     </div>
   
             <h1 id="vue组件updated钩子使用场景">vue组件updated钩子使用场景</h1>
-<p>子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等</p>
+<p>updated钩子，在vue中，只要data变更就会触发，子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等</p>
+<p>一般data每改动一次，就会触发一次updated钩子函数，对于data属性比较多的情况，可能会触发上百次的updated钩子函数，这种情况就不要使用updated了，它适用于data属性比较少的情况。</p>
 
           </article>
           <aside>

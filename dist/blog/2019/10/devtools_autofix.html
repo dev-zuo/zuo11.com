@@ -8,10 +8,10 @@
 
         <meta name="application name" content="devtools_autofix.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="vscode 保存执行fix, eslint 保存自动fix, vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？">
-        <meta name="keywords" content="vscode 保存执行fix,eslint 保存自动fix,vscode 配置eslint保存后自动fix.md,vscode ctrl+s后自动fix,eslint 自动fix,vscode 自动fix">
+        <meta name="description" content="2020/06/17更新，vscode最新eslint插件保存自动fix配置，vscode 保存执行fix, eslint 保存自动fix, vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？">
+        <meta name="keywords" content="vscode 保存自动fix,vscode 保存执行fix,eslint 保存自动fix,vscode 配置eslint保存后自动fix.md,vscode ctrl+s后自动fix,eslint 自动fix,vscode 自动fix,react vscode 自动保存,vscode *.ts 自动fix,eslint 保存的时候自动执行 --fix">
 
-        <title>vscode 配置eslint保存后自动fix - 左小白的技术日常</title>
+        <title>2020 vscode配置eslint保存后自动fix - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
       <div class="article-top-right">Author: guoqzuo</div>
     </div>
   
-            <h1 id="vscode-配置eslint保存后自动fix">vscode 配置eslint保存后自动fix</h1>
+            <h1 id="2020-vscode配置eslint保存后自动fix">2020 vscode配置eslint保存后自动fix</h1>
 <p>vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？</p>
 <p>需要修改eslint的配置文件</p>
 <h2 id="在扩展里搜索eslint找到设置入口">在扩展里搜索eslint找到设置入口</h2>
@@ -53,7 +53,19 @@
 <p><img src="../../../images/blog/devtools/vscode_autofix_2.png" alt="vscode_autofix_2.png"></p>
 <p>点击在settings.json里编辑</p>
 <p><img src="../../../images/blog/devtools/vscode_autofix_3.png" alt="vscode_autofix_3.png"></p>
-<h2 id="在配置文件里加入下面的配置代码">在配置文件里加入下面的配置代码</h2>
+<h2 id="eslint插件新版本保存自动fix配置变更">ESLint插件新版本保存自动fix配置变更</h2>
+<p>最近换了个办公电脑，重装了vscode，发现eslint的配置和以前不一样了，新版本废弃了原先的一些配置，配置更简洁了，最新配置vscode自动fix</p>
+<pre><code class="language-js">{
+  &quot;editor.codeActionsOnSave&quot;: {
+    &quot;source.fixAll&quot;: true
+  }
+}</code></pre>
+<p>The old <code>eslint.autoFixOnSave</code> setting is now deprecated and can safely be removed</p>
+<p><strong>ESLint插件检测、自动修复机制，依赖当前目录下的package.json对应的eslint配置</strong>，vue项目、node项目、react项目、ts支持都对应不同的npm依赖包，比较难以理解</p>
+<p><strong>另外如果项目目录层级太深，可能会导致插件不生效，尽量保持在vscode中打开的目录下就有package.json，而不是套多个层级</strong></p>
+<p><strong>当我们从远程仓库拉取vue项目代码后，在没有npm install的情况下，vscode的eslint插件不会起任何作用，需要npm install 安装必要的插件后，重启vscode，才会生效</strong></p>
+<h2 id="旧eslint插件版本配置">旧eslint插件版本配置</h2>
+<p><code>eslint.autoFixOnSave</code>未被废弃时，保存后自动fix配置</p>
 <pre><code class="language-json">{
   &quot;edit.formatOnSave&quot;: false,   // 取消自带fix，使用eslint自动保存fix
   &quot;eslint.autoFixOnSave&quot;: true, // 每次保存的时候将代码按eslint格式进行修复
@@ -73,7 +85,7 @@
           </article>
           <aside>
             <div>
-              <ul><li><span class="ul-span" data-id="vscode-配置eslint保存后自动fix" style="padding-left:1em">vscode 配置eslint保存后自动fix<span></li><ul><li><span class="ul-span" data-id="在扩展里搜索eslint找到设置入口" style="padding-left:2em">在扩展里搜索eslint找到设置入口<span></li></ul><ul><li><span class="ul-span" data-id="在配置文件里加入下面的配置代码" style="padding-left:2em">在配置文件里加入下面的配置代码<span></li></ul><ul><li><span class="ul-span" data-id="自动fix偶尔失效的问题" style="padding-left:2em">自动fix偶尔失效的问题<span></li></ul></ul>
+              <ul><li><span class="ul-span" data-id="2020-vscode配置eslint保存后自动fix" style="padding-left:1em">2020 vscode配置eslint保存后自动fix<span></li><ul><li><span class="ul-span" data-id="在扩展里搜索eslint找到设置入口" style="padding-left:2em">在扩展里搜索eslint找到设置入口<span></li></ul><ul><li><span class="ul-span" data-id="eslint插件新版本保存自动fix配置变更" style="padding-left:2em">ESLint插件新版本保存自动fix配置变更<span></li></ul><ul><li><span class="ul-span" data-id="旧eslint插件版本配置" style="padding-left:2em">旧eslint插件版本配置<span></li></ul><ul><li><span class="ul-span" data-id="自动fix偶尔失效的问题" style="padding-left:2em">自动fix偶尔失效的问题<span></li></ul></ul>
             <div>
           </aside>
         </section>

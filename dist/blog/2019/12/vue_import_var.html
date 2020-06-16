@@ -8,8 +8,8 @@
 
         <meta name="application name" content="vue_import_var.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="当在vue里面需要将路由组件按需加载时，import里面开头不能是变量，webpack编译会无法加载对应的组件，解决方法是前面加一部分写死的字符串路径，后面的使用变量即可">
-        <meta name="keywords" content="路由懒加载import变量无效,路由懒加载import里面使用变量不生效">
+        <meta name="description" content="路由懒加载地址不能有变量，当在vue里面需要将路由组件按需加载时，import里面开头不能是变量，webpack编译会无法加载对应的组件，解决方法是前面加一部分写死的字符串路径，后面的使用变量即可">
+        <meta name="keywords" content="路由懒加载地址不能有变量，路由懒加载import变量无效,路由懒加载import里面使用变量不生效">
 
         <title>vue路由懒加载时import里面不能是变量的问题 - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
@@ -44,7 +44,7 @@
     </div>
   
             <h1 id="vue路由懒加载时import里面不能是变量的问题">vue路由懒加载时import里面不能是变量的问题</h1>
-<p>当在vue里面需要将路由组件按需加载时，import里面开头不能是变量，webpack编译会无法加载对应的组件，解决方法是前面加一部分写死的字符串路径，后面的使用变量即可</p>
+<p>路由懒加载地址不能有变量，当在vue里面需要将路由组件按需加载时，import里面开头不能是变量，webpack编译会无法加载对应的组件，解决方法是前面加一部分写死的字符串路径，后面的使用变量即可</p>
 <pre><code class="language-js">// `前面加写死的字符串+${变量字符串}` 是可行的，会加载path目录下的所有
 { 
   path: &#39;/path&#39;,
