@@ -85,8 +85,8 @@
     "staticFileName": "validate_verify.html",
     "author": "guoqzuo",
     "createDate": "2019/11/09",
-    "description": "一般我们在命名校验的函数时，发现validate和verify都有校验的意思，具体用那个呢？其实区别只是在于证实的强度：confirm < verify < validate，我们来看看",
-    "keywords": "函数命名validate和verify的区别",
+    "description": "verify validate区别，一般我们在命名校验的函数时，发现validate和verify都有校验的意思，具体用那个呢？其实区别只是在于证实的强度：confirm < verify < validate，我们来看看",
+    "keywords": "函数命名validate和verify的区别,verify validate区别,verify和validate,",
     "category": "计算机基础与开发工具"
   },
   {
@@ -221,7 +221,7 @@
     "author": "guoqzuo",
     "createDate": "2019/11/15",
     "description": "flex布局justify-content属性值区别，space-between 最左、最右item贴合左侧或右侧边框，item与item之间间距相等。space-around 每个item 左右方向的margin相等。两个item中间的间距会比较大",
-    "keywords": "space-between与space-around的区别",
+    "keywords": "space-between 间距,space-around怎么使用,space-between与space-around的区别,space-around什么意思,space-around,space-around 三个 不居中,space-around调距离,",
     "category": "css"
   },
   {
@@ -239,7 +239,7 @@
     "author": "guoqzuo",
     "createDate": "2019/11/21",
     "description": "由于border需要画比1px还细的线，也就是0.5px，在移动端你设置px是没用的，一般会使用scale(0.5)缩放来实现,但在某些安卓机型上，发现这样实现的border边框会有显示不全的情况，重点来了，解决方法是将对应scale等样式用style写在内联样式里，刚开始不相信写成内联样式就可以解决这个问题，但实践后发现确实可以解决这个问题。",
-    "keywords": "部分安卓机型scale后border显示不全的问题,border在手机上显示不全的问题s",
+    "keywords": "scale border消失,部分安卓机型scale后border显示不全的问题,border在手机上显示不全的问题s",
     "category": "css"
   },
   {
@@ -256,8 +256,8 @@
     "staticFileName": "git_push_branch.html",
     "author": "guoqzuo",
     "createDate": "2019/11/26",
-    "description": "这里主要介绍下自己平常在工作中创建分支，将分支推送到远程的方法以及将分支合并到版本分支的方法。当我们加入到一个项目组开发项目，一般最开始的一件事情就是从远程仓库clone代码，然后新创建一个分支进行开发。显然你需要把每天写的代码上传到服务器，那怎么将本地创建的分支推送到远程并与之关联呢，下面来看一下对应的流程",
-    "keywords": "git创建新分支并提交到远程仓库origin",
+    "description": "git如何建立新的origin，这里主要介绍下自己平常在工作中创建分支，将分支推送到远程的方法以及将分支合并到版本分支的方法。当我们加入到一个项目组开发项目，一般最开始的一件事情就是从远程仓库clone代码，然后新创建一个分支进行开发。显然你需要把每天写的代码上传到服务器，那怎么将本地创建的分支推送到远程并与之关联呢，下面来看一下对应的流程",
+    "keywords": "git如何建立新的origin,git创建新分支并提交到远程仓库origin",
     "category": "运维部署与版本控制"
   },
   {
@@ -265,7 +265,7 @@
     "staticFileName": "v-if_filters.html",
     "author": "guoqzuo",
     "createDate": "2019/11/22",
-    "description": "在项目中，想在v-if里使用filters发现不生效，于是查了下vue的文档，发现v-if里是不支持使用filters的。一般filters只能在两种情况下使用：双花括号插值和 v-bind 表达式 (后者从 2.1.0+ 开始支持)。过滤器应该被添加在 JavaScript 表达式的尾部，由'管道'符号指示。",
+    "description": "v-if 不能用filters,在项目中，想在v-if里使用filters发现不生效，于是查了下vue的文档，发现v-if里是不支持使用filters的。一般filters只能在两种情况下使用：双花括号插值和 v-bind 表达式 (后者从 2.1.0+ 开始支持)。过滤器应该被添加在 JavaScript 表达式的尾部，由'管道'符号指示。",
     "keywords": "v-if里使用filters无效的问题,v-if里使用filters无效,v-if中使用filter无效,v-if中使用过滤器无效",
     "category": "vue"
   }

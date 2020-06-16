@@ -1,6 +1,6 @@
 # vscode中npm run dev提示端口被占用的问题
 
-vscode编辑器中npm run dev退出后依旧占用端口，vscode的console，有时候可能没关闭就开了新的terminal。
+vscode 提示端口被占用，vscode编辑器中npm run dev退出后依旧占用端口，vscode的console，有时候可能没关闭就开了新的terminal。
 
 ## 排查问题
 

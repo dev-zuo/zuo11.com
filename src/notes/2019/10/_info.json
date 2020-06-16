@@ -49,8 +49,8 @@
     "staticFileName": "http_request_header.html",
     "author": "guoqzuo",
     "createDate": "2019/10/10",
-    "description": "在前端mock接口时，对于需要设置请求头校验的情况，可能会想着在前端发送请求时设置对应的请求头，但发现前端设置了Cookie请求头，会出错。这是什么原因呢？",
-    "keywords": "前端设置请求头无效,Refused to set unsafe header Cookie,前端设置cookie请求头无效,axios添加请求头不生效,",
+    "description": "前端设置请求头无效，header 设置cookie 无效，ajax 强制设置cookie无效，在前端mock接口时，对于需要设置请求头校验的情况，可能会想着在前端发送请求时设置对应的请求头，但发现前端设置了Cookie请求头，会出错。这是什么原因呢？",
+    "keywords": "ajax中请求头的cookie,是否可以手动更改,前端设置请求头无效,Refused to set unsafe header Cookie,前端设置cookie请求头无效,axios添加请求头不生效,",
     "category": "http与https"
   },
   {
@@ -85,17 +85,17 @@
     "staticFileName": "css_global.html",
     "author": "guoqzuo",
     "createDate": "2019/10/12",
-    "description": "vue项目中，虽然UI基于element设计，但有些情况还是需要修改element组件的默认样式，怎么修改element的默认样式呢",
-    "keywords": "全局修改element组件样式而不影响其他页面,修改element默认样式",
+    "description": "改element样式不影响其他，element全局样式，修改element样式如何不影响同类其他组件？vue项目中，虽然UI基于element设计，但有些情况还是需要修改element组件的默认样式，怎么修改element的默认样式呢",
+    "keywords": "element全局样式,全局修改element组件样式而不影响其他页面,修改element默认样式",
     "category": "css"
   },
   {
-    "source": "vscode 配置eslint保存后自动fix.md",
+    "source": "2020 vscode配置eslint保存后自动fix.md",
     "staticFileName": "devtools_autofix.html",
     "author": "guoqzuo",
     "createDate": "2019/10/12",
-    "description": "vscode 保存执行fix, eslint 保存自动fix, vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？",
-    "keywords": "vscode 保存执行fix,eslint 保存自动fix,vscode 配置eslint保存后自动fix.md,vscode ctrl+s后自动fix,eslint 自动fix,vscode 自动fix",
+    "description": "2020/06/17更新，vscode最新eslint插件保存自动fix配置，vscode 保存执行fix, eslint 保存自动fix, vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？",
+    "keywords": "vscode 保存自动fix,vscode 保存执行fix,eslint 保存自动fix,vscode 配置eslint保存后自动fix.md,vscode ctrl+s后自动fix,eslint 自动fix,vscode 自动fix,react vscode 自动保存,vscode *.ts 自动fix,eslint 保存的时候自动执行 --fix",
     "category": "计算机基础与开发工具"
   },
   {
@@ -131,7 +131,7 @@
     "author": "guoqzuo",
     "createDate": "2019/10/17",
     "description": "在项目中，有一次为了少写一行，将设置值和return语句写成了一行，发现eslint报错，为什么会有这个错误呢？下面我们来看看。",
-    "keywords": "eslint禁止在return中使用赋值,no-return-assign, eslint no-return-assign",
+    "keywords": "eslintno-return-assign,eslint禁止在return中使用赋值,no-return-assign, eslint no-return-assign",
     "category": "计算机基础与开发工具"
   },
   {
@@ -176,7 +176,7 @@
     "author": "guoqzuo",
     "createDate": "2019/10/28",
     "description": "一般前端代码开发好后，会部署到nginx，但nginx的某些默认配置，会使前端页面受到影响，比如默认请求超时限制，默认文件上传大小限制，默认字符编码问题等。下面来看具体的问题，以及怎么解决这些问题。",
-    "keywords": "nginx默认配置对前端开发的一些影响,ngnix请求超时时间默认60s,nginx默认文件上传大小限制为1M,nginx中文图片路径404的问题",
+    "keywords": "nginx默认配置对前端开发的一些影响,ngnix请求超时时间默认60s,nginx默认文件上传大小限制为1M,nginx中文图片路径404的问题,nginx会影响前端页面超时吗",
     "category": "运维部署与版本控制"
   },
   {

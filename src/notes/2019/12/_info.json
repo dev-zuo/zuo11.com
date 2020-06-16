@@ -94,8 +94,8 @@
     "staticFileName": "vue_import_var.html",
     "author": "guoqzuo",
     "createDate": "2019/12/11",
-    "description": "当在vue里面需要将路由组件按需加载时，import里面开头不能是变量，webpack编译会无法加载对应的组件，解决方法是前面加一部分写死的字符串路径，后面的使用变量即可",
-    "keywords": "路由懒加载import变量无效,路由懒加载import里面使用变量不生效",
+    "description": "路由懒加载地址不能有变量，当在vue里面需要将路由组件按需加载时，import里面开头不能是变量，webpack编译会无法加载对应的组件，解决方法是前面加一部分写死的字符串路径，后面的使用变量即可",
+    "keywords": "路由懒加载地址不能有变量，路由懒加载import变量无效,路由懒加载import里面使用变量不生效",
     "category": "vue"
   },
   {
@@ -130,8 +130,8 @@
     "staticFileName": "vue_click.html",
     "author": "guoqzuo",
     "createDate": "2019/12/13",
-    "description": "之前在看JS高程3里面有一个知识点，就是当多个子元素需要绑定click事件时，大量添加处理程序，会影响性能，尽量少添加处理事件。但写vue习惯后，突然忘了这一点，其实vue监听事件我们也可以遵循这个原则：把事件放到其父元素上监听，然后通过 data-key属性来指定每个子元素对应的值。e.target.getAttribute('data-key')有值就表示子元素点击了",
-    "keywords": "vue组件里click事件监听可能导致的性能问题,vue监听click事件注意事项",
+    "description": "vue click会不会影响性能？之前在看JS高程3里面有一个知识点，就是当多个子元素需要绑定click事件时，大量添加处理程序，会影响性能，尽量少添加处理事件。但写vue习惯后，突然忘了这一点，其实vue监听事件我们也可以遵循这个原则：把事件放到其父元素上监听，然后通过 data-key属性来指定每个子元素对应的值。e.target.getAttribute('data-key')有值就表示子元素点击了",
+    "keywords": "vue click会不会影响性能？vue组件里click事件监听可能导致的性能问题,vue监听click事件注意事项",
     "category": "vue"
   },
   {
@@ -157,8 +157,8 @@
     "staticFileName": "vue_updated.html",
     "author": "guoqzuo",
     "createDate": "2019/12/12",
-    "description": "子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等",
-    "keywords": "vue组件updated钩子使用场景",
+    "description": "updated钩子，在vue中，只要data变更就会触发，子组件的列表数据会根据接口请求的数据来刷新，当列表数据更新后，会调用子组件updated钩子函数，我们可以在这里里处理列表数据刷新后的一些操作。比如清除所有focus状态，滚动页面等",
+    "keywords": "updated钩子,vue组件updated钩子使用场景",
     "category": "vue"
   },
   {

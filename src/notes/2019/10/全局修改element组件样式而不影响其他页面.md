@@ -1,7 +1,7 @@
 
 # 全局修改element组件样式而不影响其他页面
 
-vue项目中，虽然UI基于element设计，但有些情况还是需要修改element组件的默认样式，怎么修改element的默认样式呢
+改element样式不影响其他，element全局样改element样式不影响其他式，修改element样式如何不影响同类其他组件？vue项目中，虽然UI基于element设计，但有些情况还是需要修改element组件的默认样式，怎么修改element的默认样式呢
 
 
 .vue单文件组件style元素加上scope后，当前页面修改el-tree的默认样式无效需要去掉scope，将样式暴露到全局，
