@@ -1,0 +1,110 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="nginx_https.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="这里复盘下将koa写的接口服务部署到`https://api.zuo11.com`上，相关nginx配置的全流程">
+        <meta name="keywords" content="nginx部署https服务,nginx https">
+
+        <title>windows下nginx部署https服务实战 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/06/21</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="windows下nginx部署https服务实战">windows下nginx部署https服务实战</h1>
+<p>这里复盘下将koa写的接口服务部署到<code>https://api.zuo11.com</code>上，配置nginx的全流程</p>
+<ol>
+<li>在阿里云将域名免费的ssl证书分配给api.zuo11.com</li>
+<li>在域名解析里，增加 api.zuo11.com 的解析，解析到服务器</li>
+<li>初始化一个koa项目，监听某个端口，比如 9000端口，写一些测试的接口</li>
+<li>部署到服务器</li>
+<li>nginx 添加对https的支持：①. 在ssl证书位置下载证书，会有两个文件 xxx.pem, xxx.key，在服务器nignx目录下的conf目录新建cert目录，将两个文件拷贝进去，修改conf下nginx.conf的配置</li>
+</ol>
+<pre><code class="language-bash"># HTTPS server
+server {
+    listen       443 ssl;
+    server_name  api.zuo11.com;
+
+    ssl_certificate     cert\3391782_api.zuo11.com.pem;
+    ssl_certificate_key cert\3391782_api.zuo11.com.key;
+
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
+
+    # 注释掉默认的加密方式
+    # ssl_ciphers  HIGH:!aNULL:!MD5;
+    # ssl_prefer_server_ciphers  on;
+
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;  #使用此加密套件。
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;   #使用该协议进行配置。
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        # root   html;
+        # index  index.html index.htm;
+        proxy_pass http://127.0.0.1:9000;
+    }
+}</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="windows下nginx部署https服务实战" style="padding-left:1em">windows下nginx部署https服务实战<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

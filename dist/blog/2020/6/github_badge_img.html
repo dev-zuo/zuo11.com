@@ -1,0 +1,95 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="github_badge_img.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在github写readme时，最开始一般会贴一些tab标签(徽章图片)，比如 build passing，license MIT 等，注意这些都是引入的图片，npm badge也是类似的情况下面来看看">
+        <meta name="keywords" content="github tag标签图片,readme badge,npm badge">
+
+        <title>github tag标签图片以及npm badge图片生成 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/06/21</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="github-tag标签图片以及npm-badge图片生成">github tag标签图片以及npm badge图片生成</h1>
+<p>在github写readme时，最开始一般会贴一些tab标签(徽章图片)，比如 build passing，license MIT 等，注意这些都是引入的图片，npm badge也是类似的情况下面来看看</p>
+<p><img src="../../../images/blog/web/github_tab_img.png" alt="github_tab_img.png"></p>
+<h2 id="github-tab标签图片">github tab标签图片</h2>
+<pre><code class="language-js">// 上图对应的三个徽章图片
+![version-v0.2.0](https://img.shields.io/badge/version-v0.2.0-yellow.svg) 
+![build-passing](https://img.shields.io/badge/build-passing-green.svg) 
+![license-MIT](https://img.shields.io/badge/license-MIT-green.svg) 
+// 发现规律没，更改后面的参数，就可以生成不同的图片
+
+// 比如
+https://img.shields.io/badge/JAVA-1.8+-green.svg</code></pre>
+<h2 id="npm-徽章图片">npm 徽章图片</h2>
+<p>主要适用于npm包，显示npm包的一些信息，只要把你npm包名替换掉对应的包名就可以了</p>
+<pre><code class="language-js">// 文档 https://www.npmjs.com/package/npm-badge
+// zuo-blog npm包使用示例，只需要把对应的npm 包名称修改即可
+
+// ![NPM](https://nodei.co/npm/zuo-blog.png)  
+[![NPM](https://nodei.co/npm/zuo-blog.png)](https://npmjs.org/package/zuo-blog)</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="github-tag标签图片以及npm-badge图片生成" style="padding-left:1em">github tag标签图片以及npm badge图片生成<span></li><ul><li><span class="ul-span" data-id="github-tab标签图片" style="padding-left:2em">github tab标签图片<span></li></ul><ul><li><span class="ul-span" data-id="npm-徽章图片" style="padding-left:2em">npm 徽章图片<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

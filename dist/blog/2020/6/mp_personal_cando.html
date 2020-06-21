@@ -1,0 +1,100 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="mp_personal_cando.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="微信小程序很早就已经开放个人主体了，也就是个人也可以上传发布小程序。但现在个人主体小程序可以做的内容越来越少了，相信很多微信小程序的开发者都遇到过这种情况：好不容易做好了小程序，结果准备提交审核上线时，由于类目问题，审核被拒，无法上线的情况。">
+        <meta name="keywords" content="开发个人微信小程序前必看,小程序个人主体可以做什么内容,个人小程序审核被拒">
+
+        <title>开发个人微信小程序前必看，个人主体可以做什么内容 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#微信开发" class="hidden">微信开发</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/06/21</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="开发个人微信小程序前必看，个人主体可以做什么内容">开发个人微信小程序前必看，个人主体可以做什么内容</h1>
+<p>微信小程序很早就已经开放个人主体了，也就是说个人开发者也可以上传、发布自己的小程序。但现在个人主体的小程序可以做的内容越来越少了，相信很多开发者都遇到过这种情况：好不容易做好的小程序，在准备上线时，由于类目问题，提交审核被拒，导致小程序无法上线的情况。</p>
+<h2 id="微信小程序现状">微信小程序现状</h2>
+<p>在19年我做小程序的时候，日记类的小程序个人还是可以做的，审核不会被拒，而且小程序名称也没有太多限制，现在这些都变了。</p>
+<h3 id="小程序名称的设置变的更加严格">小程序名称的设置变的更加严格</h3>
+<p>现在稍微通用一点的关键字，比如包含 &quot;管理&quot; 两个字，可能会要求你提供上传手持身份证的照片，而且还要有对应的商标证书。如下图：</p>
+<p><img src="../../../images/blog/mp/mp_personal_cando.png" alt="mp_personal_cando.png"></p>
+<p>我搜索了下商标的问题，商标申请需要1000，且审批时间需要1年多... 对个人开发者来说，太难了</p>
+<h3 id="个人小程序容易被拒">个人小程序容易被拒</h3>
+<p>只要名称中带有日记、记事方面的都会被拒绝，如下图</p>
+<p><img src="../../../images/blog/mp/mp_personal_cando_2.png" alt="mp_personal_cando_2.png"></p>
+<h2 id="为什么会有这种情况呢？">为什么会有这种情况呢？</h2>
+<p>之所以会变严格，我的理解是</p>
+<ol>
+<li>小程序名称问题：由于每个小程序名称是唯一的，早期存在乱取名，抢注小程序名称的情况。可以想象，之前应该发生了很多次涉及小程序名称侵权被用户投诉的案列，所以，微信官方才会加强小程序名称的审核</li>
+</ol>
+<p><img src="../../../images/blog/mp/mp_personal_cando_3.png" alt="mp_personal_cando_3.png"></p>
+<ol start="2">
+<li>个人小程序不能提供备忘录、日记、记事服务：这一块应该是涉及隐私问题，如果不限制，那么个人开发者可以轻易的获取的他人的隐私，对微信平台来讲会有风险。</li>
+</ol>
+<h2 id="那个人小程序可以做什么内容呢？">那个人小程序可以做什么内容呢？</h2>
+<p>我们可以在小程序官方文档，运营 =&gt; 开放的服务类目 =&gt; <a href="https://developers.weixin.qq.com/miniprogram/product/material/#%E4%B8%AA%E4%BA%BA%E4%B8%BB%E4%BD%93%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%94%BE%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%B1%BB%E7%9B%AE">个人主体小程序</a> 查看个人主体的小程序可以做什么内容</p>
+<p><img src="../../../images/blog/mp/mp_personal_cando_4.png" alt="mp_personal_cando_4.png"></p>
+<p>如上图所示，官方已经列出了个人小程序可以开发的内容，<strong>有些小程序个人主体是有资质要求的，需要提供一些许可证才行。因此，我们在开发个人主体的小程序时，一定要先看这个文档，查询下自己想要做的内容能不能做，是否有这个资质，不然做了也白做，审核会被拒绝，无法上线</strong></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="开发个人微信小程序前必看，个人主体可以做什么内容" style="padding-left:1em">开发个人微信小程序前必看，个人主体可以做什么内容<span></li><ul><li><span class="ul-span" data-id="微信小程序现状" style="padding-left:2em">微信小程序现状<span></li><ul><li><span class="ul-span" data-id="小程序名称的设置变的更加严格" style="padding-left:3em">小程序名称的设置变的更加严格<span></li></ul><ul><li><span class="ul-span" data-id="个人小程序容易被拒" style="padding-left:3em">个人小程序容易被拒<span></li></ul></ul><ul><li><span class="ul-span" data-id="为什么会有这种情况呢？" style="padding-left:2em">为什么会有这种情况呢？<span></li></ul><ul><li><span class="ul-span" data-id="那个人小程序可以做什么内容呢？" style="padding-left:2em">那个人小程序可以做什么内容呢？<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
