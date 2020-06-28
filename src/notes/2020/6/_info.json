@@ -52,8 +52,84 @@
       "description": "这里复盘下将koa写的接口服务部署到`https://api.zuo11.com`上，相关nginx配置的全流程",
       "keywords": "nginx部署https服务,nginx https",
       "category": "运维部署与版本控制"
+    },
+    {
+      "source": "css hover后改变其他元素样式.md",
+      "staticFileName": "css_hover.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "css中某个元素hover后，可以对其他元素设置样式，但注意：只限定于改变他的子元素, 以及其后面的元素，下面我们写demo来看看",
+      "keywords": "css hover后改变其他元素样式,css 元素hover后设置其他元素样式",
+      "category": "css"
+    },
+    {
+      "source": "vue封装组件时预留install函数便于Vue.use全局引入.md",
+      "staticFileName": "vue_use_install.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "在element组件中，我们使用el-input等element元素时，不需要在components里引入。为什么呢？在引入element时，我们有在mian.js里我们使用了Vue.use(elemnt组件)，这样进行了全局注入组件，相当于组件做成了一个vue插件，如果我们自己封装组件如何能够在Vue.use后直接可以全局调用呢？",
+      "keywords": "vue封装组件时预留install函数,element组件为什么use后可以直接使用",
+      "category": "vue"
+    },
+    {
+      "source": "vue自定义组件使用v-model指令实现dialog组件的二次封装.md",
+      "staticFileName": "v_model_dialog.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "当某个组件是对element的dialog组件进行二次封装时，我们需要对dialog进行隐藏显示，当子组件里的dialog关闭时，需要修改父组件传入的值，尽管不是表单组件也可以使用v-model来解决，先来看看怎么调用",
+      "keywords": "v-model属性实现dialog组件的二次封装,element dialog组件的二次封装",
+      "category": "vue"
+    },
+    {
+      "source": "vue封装组件方式的思考.md",
+      "staticFileName": "vue_component_think.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "在封装组件时，一般我们使用的方法是：把组件单独放到一个xx.vue，然后需要引入时在components使用懒加载引入再使用，我就在想，每次引入组件都需要三步：1. 把组件通过 components 引入 2. 在template中写对应的代码 3. 在data中写对应的数据，methods里写绑定的事件。会不会太麻烦了，我希望像element的组件那样，通过 this.$message.error(e.message) 这样直接调用一个组件",
+      "keywords": "vue封装组件思考,vue封装组件总结",
+      "category": "vue"
+    },
+    {
+      "source": "他人提交了package-lock.json的更新导致拉取时和本地冲突的问题.md",
+      "staticFileName": "git_package_lock.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "一般在npm install 时会修改package-lock.json文件，我一般不会提交这个更新，但今天发现有人提交。我拉取时，提示这个文件冲突，导致拉取不下来，我又不想提交更新，所以尝试用下面的命令，将工作区该文件的修改丢弃，再拉取",
+      "keywords": "是否要提交package-lock.json",
+      "category": "运维部署与版本控制"
+    },
+    {
+      "source": "git commit提交信息有误怎么修改.md",
+      "staticFileName": "git_comit_amend.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "如果不小心提交了，但没有push，可以使用--amend参数来修改上一次的commit信息，命令如下：git commit --amend -m 'xxx', 注意，一般是修改没有push前的提交信息",
+      "keywords": "git commit提交信息修改,commit备注信息有误怎么修改",
+      "category": "运维部署与版本控制"
+    },
+    {
+      "source": "webpack与parcel区别.md",
+      "staticFileName": "webpack_parcel_difference.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "webpack与parcel都是打包工具, webpack功能强大，但比较重，配置项比较多, 有点繁琐。而parcel就是为了解决配置项太多这个问题的，它默认集成了通用的常规功能，零配置，如果自定义较多，还是推荐webpack",
+      "keywords": "webpack与parcel区别,parcel与webpack区别,webpack parcel difference",
+      "category": "前端工程化"
+    },
+    {
+      "source": "Node.js的核心用处及应用场景.md",
+      "staticFileName": "nodejs_uses.html",
+      "author": "guoqzuo",
+      "createDate": "2020/06/29",
+      "description": "Node.js是一个基于chrome v8引擎的js运行时，那他一般有什么用处呢，下面来看看。node三个核心应用场景：1.打包构建、工程化 2.写后台接口 3.综合应用：获取数据+渲染页面(高并发、高性能)",
+      "keywords": "Node.js的核心用处及应用场景,node使用场景,node应用场景,node应用",
+      "category": "前端工程化"
     }
 ]
+
+
+
+
 
 
 
