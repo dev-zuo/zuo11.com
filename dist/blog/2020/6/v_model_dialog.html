@@ -1,0 +1,136 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="v_model_dialog.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="当某个组件是对element的dialog组件进行二次封装时，我们需要对dialog进行隐藏显示，当子组件里的dialog关闭时，需要修改父组件传入的值，尽管不是表单组件也可以使用v-model来解决，先来看看怎么调用">
+        <meta name="keywords" content="v-model属性实现dialog组件的二次封装,element dialog组件的二次封装">
+
+        <title>vue自定义组件使用v-model指令实现dialog组件的二次封装 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/06/29</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="vue自定义组件使用v-model指令实现dialog组件的二次封装">vue自定义组件使用v-model指令实现dialog组件的二次封装</h1>
+<p>当某个组件是对element的dialog组件进行二次封装时，我们需要对dialog进行隐藏显示，当子组件里的dialog关闭时，需要修改父组件传入的值，尽管不是表单组件也可以使用v-model来解决，先来看看怎么调用</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;user-selection v-model=&quot;showUserSelection&quot; @confirm=&quot;confirm&quot;/&gt;
+    &lt;el-button type=&quot;primary&quot; @click=&quot;showUserSelection = true&quot;&gt;打开弹窗&lt;/el-button&gt;
+  &lt;div&gt;
+&lt;template&gt;
+&lt;script&gt;
+export default {
+  components: {
+    UserSelection: () =&gt; import(&quot;../src/components/user-selection/src/main&quot;)
+  },
+  data() {
+    return {
+      showUserSelection: false
+    }
+  },
+  methods: {
+    confirm(value) {
+      console.log(value)
+    }
+  }
+}
+&lt;/script&gt;</code></pre>
+<p>再来看组件实现</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;el-dialog title=&quot;提示&quot; :visible.sync=&quot;dialogVisible&quot;&gt;
+      内容
+      &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;
+        &lt;el-button @click=&quot;dialogVisible = false&quot;&gt;取 消&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; @click=&quot;dialogVisible = false&quot;&gt;确 定&lt;/el-button&gt;
+      &lt;/span&gt;
+    &lt;/el-dialog&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  model: {
+    prop: &#39;show&#39;, // 设置对应v-model的属性字段
+    event: &#39;close&#39; // 如果不指定默认为input，当$emit该事件，可以自动执行 修改父组件v-model参数的值
+  },
+  props: [&#39;show&#39;], // 接收v-model的传值
+  computed: {
+    dialogVisible: {
+      get() {
+        return this.show
+      },
+      set(newVal) {
+        console.log(newVal)
+        this.$emit(&#39;close&#39;, newVal)
+      }
+    }
+  },
+  data() {
+    return {}
+  }
+}
+&lt;/script&gt;</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="vue自定义组件使用v-model指令实现dialog组件的二次封装" style="padding-left:1em">vue自定义组件使用v-model指令实现dialog组件的二次封装<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
