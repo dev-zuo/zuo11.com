@@ -1,0 +1,103 @@
+[
+    {
+        "source": "npm包前面加@是什么意思(vue-cli与@vue-cli的区别).md",
+        "staticFileName": "npm_scope.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "今天看vue-cli文档，发现了下面的这段话 vue-cli 改为了 @vue/cli，这两个npm有什么区别呢？npm包前面加@是什么意思呢？查了下官网，npm包前面加@，代表scopes相关的包，可以理解为作用域(范围)包，作用域使我们可以创建与其他用户或组织创建的包同名，而不会发生冲突。A scope allows you to create a package with the same name as a package created by another user or Org without conflict.",
+        "keywords": "npm包前面加@是什么意思,vue-cli与@vue/cli的区别",
+        "category": "前端工程化"
+    },
+    {
+        "source": "koa-multer与@koa-multer逻辑差异.md",
+        "staticFileName": "koa-multer.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "之前有了解过以@开头的作用域包，这次在使用koa-multer这个模块时，发现@koa/multer与koa-multer的逻辑居然不一样。源码有些差异，下面来具体看看。koa-multer这个包是从express的multer包上面加了一层封装，而koa-multer并没有把fileds字段挂载到ctx.request.body上，只维持原来express那样挂载到node的request对象上，也就是ctx.req.body，来看看koa-multer的源码部分",
+        "keywords": "koa-multer与@koa/multer逻辑差异",
+        "category": "前端工程化" 
+    },
+    {
+        "source": "markdown里怎么加引用注释或脚注.md",
+        "staticFileName": "md_ref.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "一般我们只是在markdown添加链接，但怎么在markdown里加脚注呢？下面来看看",
+        "keywords": "md添加脚注,markdown里怎么加引用注释或脚注,markdown脚注,md脚注",
+        "category": "计算机基础与开发工具"
+    },
+    {
+        "source": "md5加密是可逆的吗.md",
+        "staticFileName": "md5_reverse.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "理论上md5加密后，在不知道原始消息的前提下，是无法凭借16个字节的消息摘要（Message Digest），还原出原始的消息的.但为什么有些网站可以破解md5加密后的密码呢？主要是使用的碰撞检测。它会提前算出一些常用弱密码的md5值，一个个比较。才会让人产生md5可逆的错觉。一般除了md5加密外，我们可以再多进行一些处理(加盐)，来进行干扰，提高破解难度",
+        "keywords": "md5是否可逆,md5逆向,md5解密",
+        "category": "计算机基础与开发工具"
+    },
+    {
+        "source": "两个不同文件md5可能一样吗.md",
+        "staticFileName": "file_md5.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "我们先来看看什么是md5？md5 是 messge digest [daɪˈdʒest] 5 的缩写，意思是信息摘要算法，两个不同文件md5是有可能相同的，因为md5最多只能表示2的128次方种情况，而不同的文件绝对大于这个数。虽然两个文件的md5可能一致，但给定一个文件的md5值，想伪造另一个文件的md5值与该值一样，相对还是比较困难的，因此可用于判断文件完整性",
+        "keywords": "两个不同文件md5可能一样吗,md5一样的文件存在吗,md5一样的文件",
+        "category": "计算机基础与开发工具" 
+    },
+    {
+        "source": "根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢.md",
+        "staticFileName": "file_same.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "一般根据文件名后缀判断文件类型不准确，比如我有个1.png文件，我修改下后缀名 1.txt，那前端如果仅凭文件名的后缀来显然是不行的，我们需要根据文件类型的二进制数据标记来判断对应的文件类型，这样才会更加准确，安全性更高",
+        "keywords": "怎么判断两个文件一样,文件一致性检验,根据文件名后缀判断文件类型是不准确的",
+        "category": "计算机基础与开发工具"
+    },
+    {
+        "source": "JSON数据转Blob后，怎么还原？怎么将Blob数据转JSON.md",
+        "staticFileName": "blob_json.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "在axios请求下载文件接口时，一般设置responseType: 'blob'，文件返回正常就没问题，但后台如果处理文件或鉴权有问题，接口返回了包含错误信息的json格式数据，那样json数据也会被转为Blob对象，而前端有必要将错误信息展示，那怎么将Blob数据转JSON呢？下面来看看",
+        "keywords": "blob转json,json转blob后怎么还原",
+        "category": "js"
+    },
+    {
+        "source": "canvas多次fill会覆盖前面的fill的问题.md",
+        "staticFileName": "canvas_file_more.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "在使用canvas进行绘图时，封装了一个绘制函数，每次都会填充颜色 ctx.fill()，如果多次执行，只会在最后一次时，整体fill一次？刚开始以为是后面的fill覆盖了前面的fill，后来网上查了下，第一次fill后，再次fill需要再次调用ctx.beginPath()，不然只会在最后一次fill。",
+        "keywords": "canvas多次fill会覆盖前面的fill的问题,ctx.fill覆盖了前一次的fill",
+        "category": "js" 
+    },
+    {
+        "source": "canvas不支持文本换行怎么处理.md",
+        "staticFileName": "canvas_text_wrap.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "今天在stackoveflow里面搜索ctx.fill的问题时，查到了很多关于canvas ctx.fillText()绘制文本时不支持换行的问题，找到了一个比较好的答案。I'm afraid it is a limitation of Canvas' fillText. There is no multi-line support. Whats worse, there's no built-in way to measure line height, only width, making doing it yourself even harder! 一般解决思路是，根据 ctx.measureText('Hello').width 来看需要显示的文字是否需要换行，写一个for循环来处理",
+        "keywords": "canvas不支持文本换行怎么处理,canvas文本换行,canvas文本怎么换行",
+        "category": "js"
+    },
+    {
+        "source": "canvas绘制模糊的问题.md",
+        "staticFileName": "canvas_dim.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "今天发现同样的代码在两台电脑上绘制的一个清晰，一个模糊，后来查资料发现确实有这个问题: 因为canvas不是矢量图，高dpi屏幕每平方英寸有更多的像素，也就是两倍屏，浏览器会以两个像素点的宽度来渲染一个像素，所以在Retina屏上会导致图片、文字都会模糊，怎么解决呢？",
+        "keywords": "canvas绘制模糊的问题,retina屏canvas绘制模糊的问题",
+        "category": "js" 
+    },
+    {
+        "source": "实战canvas绘制不规则形状填充渐变色.md",
+        "staticFileName": "cavas_unnormal_shape.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/06",
+        "description": "在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色",
+        "keywords": "实战canvas绘制不规则形状填充渐变色,canvas画不规则形状,canvas渐变",
+        "category": "js" 
+    }
+]
+
+
