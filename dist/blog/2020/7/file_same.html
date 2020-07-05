@@ -1,0 +1,86 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="file_same.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="一般根据文件名后缀判断文件类型不准确，比如我有个1.png文件，我修改下后缀名 1.txt，那前端如果仅凭文件名的后缀来显然是不行的，我们需要根据文件类型的二进制数据标记来判断对应的文件类型，这样才会更加准确，安全性更高">
+        <meta name="keywords" content="怎么判断两个文件一样,文件一致性检验,根据文件名后缀判断文件类型是不准确的">
+
+        <title>根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/06</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢">根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢</h1>
+<p>一般根据文件名后缀判断文件类型不准确，比如我有个1.png文件，我修改下后缀名 1.txt，那前端如果仅凭文件名的后缀来显然是不行的，我们需要根据文件类型的二进制数据标记来判断对应的文件类型，这样才会更加准确，安全性更高</p>
+<p><img src="../../../images/blog/web/file_type.png" alt="判断文件类型.png"></p>
+<h2 id="怎么判断两个文件一模一样呢">怎么判断两个文件一模一样呢</h2>
+<p>一般文件的md5可能会有重复的，怎么减少这种概率呢？校验分三个部分</p>
+<ol>
+<li>比较整个文件的md5</li>
+<li>选择文件固定位置的几个片段分别计算md5进行比对</li>
+<li>比较文件名是否一样</li>
+</ol>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢" style="padding-left:1em">根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢<span></li><ul><li><span class="ul-span" data-id="怎么判断两个文件一模一样呢" style="padding-left:2em">怎么判断两个文件一模一样呢<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

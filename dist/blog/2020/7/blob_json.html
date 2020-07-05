@@ -1,0 +1,88 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="blob_json.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在axios请求下载文件接口时，一般设置responseType: 'blob'，文件返回正常就没问题，但后台如果处理文件或鉴权有问题，接口返回了包含错误信息的json格式数据，那样json数据也会被转为Blob对象，而前端有必要将错误信息展示，那怎么将Blob数据转JSON呢？下面来看看">
+        <meta name="keywords" content="blob转json,json转blob后怎么还原">
+
+        <title>JSON数据转Blob后，怎么还原？怎么将Blob数据转JSON - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/06</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="json数据转blob后，怎么还原？怎么将blob数据转json">JSON数据转Blob后，怎么还原？怎么将Blob数据转JSON</h1>
+<p>在axios请求下载文件接口时，一般设置responseType: &#39;blob&#39;，文件返回正常就没问题，但后台如果处理文件或鉴权有问题，接口返回了包含错误信息的json格式数据，那样json数据也会被转为Blob对象，而前端有必要将错误信息展示，那怎么将Blob数据转JSON呢？下面来看看</p>
+<pre><code class="language-js">let fileType = blobData.type
+if (fileType.startsWith(&#39;application/json&#39;)) {
+  let reader = new FileReader();
+  reader.addEventListener(&quot;loadend&quot;, function() {
+    let data = JSON.parse(reader.result)
+    console.log(data);
+  });
+  reader.readAsText(res.data, &quot;UTF-8&quot;) // 加UTF-8防止中文乱码
+  return
+}</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="json数据转blob后，怎么还原？怎么将blob数据转json" style="padding-left:1em">JSON数据转Blob后，怎么还原？怎么将Blob数据转JSON<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

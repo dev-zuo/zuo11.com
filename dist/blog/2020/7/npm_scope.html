@@ -1,0 +1,100 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="npm_scope.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="今天看vue-cli文档，发现了下面的这段话 vue-cli 改为了 @vue/cli，这两个npm有什么区别呢？npm包前面加@是什么意思呢？查了下官网，npm包前面加@，代表scopes相关的包，可以理解为作用域(范围)包，作用域使我们可以创建与其他用户或组织创建的包同名，而不会发生冲突。A scope allows you to create a package with the same name as a package created by another user or Org without conflict.">
+        <meta name="keywords" content="npm包前面加@是什么意思,vue-cli与@vue/cli的区别">
+
+        <title>npm包前面加@是什么意思(vue-cli与@vue-cli的区别) - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/06</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="npm包前面加是什么意思vue-cli与vuecli的区别">npm包前面加@是什么意思(vue-cli与@vue/cli的区别)</h1>
+<p>今天看vue-cli文档，发现了下面的这段话 vue-cli 改为了 @vue/cli，这两个npm有什么区别呢？npm包前面加@是什么意思呢？</p>
+<blockquote>
+<p>Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，你需要先通过 npm uninstall vue-cli -g 或 yarn global remove vue-cli 卸载它。</p>
+</blockquote>
+<p>查了下官网，npm包前面加@，代表scopes相关的包，可以理解为作用域(范围)包，作用域使我们可以创建与其他用户或组织创建的包同名，而不会发生冲突。</p>
+<p>A scope allows you to create a package with the same name as a package created by another user or Org without conflict.</p>
+<p>作用域名称是介于@和斜线之间的所有内容：</p>
+<p>The scope name is everything between the @ and the slash:</p>
+<pre><code class="language-js">// “npm” scope:
+@npm/package-name
+// “npmcorp” scope:
+@npmcorp/package-name</code></pre>
+<h2 id="为什么需要有作用域包">为什么需要有作用域包</h2>
+<p><strong>npm包一个诟病就是包名很容易被占用的问题，占用后用其他人就不能用了。而作用域包类似于创建了一个命名空间，不同的命名空间，可以使用相同的包名</strong></p>
+<p>作用域的命名不是谁便就能用的，只有两种可以使用：自己的用户名、自己创建的组织名</p>
+<p>注意：必须先注册一个npm用户帐户，然后才能发布用户作用域的npm软件包。此外，要发布组织作用域的软件包，您必须创建一个npm用户帐户，然后创建一个npm Org(组织)。</p>
+<p><strong>在 vue-cli 中可以用@vue/cli说明使用了vue这个npm账号或者组织发布了该包。</strong></p>
+<p>参考:</p>
+<ul>
+<li><a href="https://www.cnblogs.com/kunmomo/p/11222063.html">npm学习（十）之如何使用创建、发布、使用作用域包</a></li>
+<li><a href="https://docs.npmjs.com/about-scopes">About scopes - Packages and modules | npm</a></li>
+<li><a href="https://docs.npmjs.com/creating-and-publishing-scoped-public-packages">Creating and publishing scoped public packages | npm</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="npm包前面加@是什么意思vue-cli与@vuecli的区别" style="padding-left:1em">npm包前面加@是什么意思(vue-cli与@vue/cli的区别)<span></li><ul><li><span class="ul-span" data-id="为什么需要有作用域包" style="padding-left:2em">为什么需要有作用域包<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
