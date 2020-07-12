@@ -97,7 +97,98 @@
         "description": "在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色",
         "keywords": "实战canvas绘制不规则形状填充渐变色,canvas画不规则形状,canvas渐变",
         "category": "js" 
+    },
+    {     
+        "source": "canvas怎么绘制环形进度条.md",
+        "staticFileName": "canvas_progress.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "使用canvas绘制渐变的环形进度条，主要是使用arc函数，下面来看看。4个重点：1. 怎么画圆弧, ctx.arc函数里开始角度、结束角度以PI为基准，取值范围时：0 ~ 2PI，PI就是π值约等于3.14，圆心正上方位置为1.5PI，圆心右侧为 0 或 2*PI，圆心正下方为0.5PI，选定义额开始位置和结束位置就可以绘制任意一个弧形",
+        "keywords": "canvas绘制环形进度条,js画环形渐变进度条,canvas画进度条",
+        "category": "js"
+    },
+    {     
+        "source": "如果需要兼容IE还是用flex比较好，慎用grid.md",
+        "staticFileName": "ie_grid.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "grid适用于网格化布局，对于各个模块按百分比来的情况比较好，如果多个模块有的固定宽高有的非固定宽高就不怎么好分了, IE下支持需要加前缀，详情参见之前的笔记: grid网格布局。于是我在某个页面中使用了grid，但发现IE不兼容，grid的某些属性不兼容IE，加了-ms-都没用，最后为了不必要的麻烦和风险，还是换成flex布局了，改成flex后的代码居然比grid还简单...",
+        "keywords": "grid的兼容性,grid使用场景,grid,ie grid不兼容",
+        "category": "css"
+    },
+    {     
+        "source": "mac pro retina屏两倍图，建议使用iconfont.md",
+        "staticFileName": "retina_iconfont.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "之前在处理canvas绘制模糊的问题时了解到，retina是两倍像素屏，50 x 50像素的图会绘制在 100 x 100 像素区域，会导致绘制模糊。同理，如果需要在retina屏上显示50 x 50的图，需要提供两倍图 100 * 100，然后设置样式宽高为50，这样才会清晰。最好的方式还是使用iconfont、svg矢量图等可以任意设置宽高(size)而不会失真的图或字体。这样就不会模糊。",
+        "keywords": "retina屏两倍图,建议使用iconfont",
+        "category": "css"
+    },
+    {     
+        "source": "vue-cli项目使用@开头的路径是什么意思.md",
+        "staticFileName": "vue_src_alias.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "我们在vue-cli创建的vue项目里，可以使用@开头的路径，表示从src目录开始，这样如果后面代码的目录层级有调整，或者复用代码时，都不会影响功能，代码更健壮",
+        "keywords": "vue-cli项目使用@开头的路径是什么意思,@开头的路径,路径中有@",
+        "category": "vue"
+    },
+    {     
+        "source": "常用的.gitignore配置.md",
+        "staticFileName": "git_ignore.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "一般用git做代码管理时，需要将某些系统文件或配置文件不加入版本控制，就需要在.gitignore文件里加入对应的文件名或路径，下面是一个常用的.gitignore配置",
+        "keywords": "gitignore配置,常用的.gitignore配置",
+        "category": "运维部署与版本控制"
+    },
+    {     
+        "source": "uni-app开发需要了解的事情，uni-app开发体验怎么样.md",
+        "staticFileName": "uni_app_use.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "uni-app 读法为 u ni ai po，uni-app开发需要了解的事情：1. uni-app开发需要下载HBuilderX开发工具 2. 需要注册ucloud账号，打包安卓、iOS时需要有证书。安卓的证书免费，iOS证书需要花钱 3. uni开发和通常vue-cli搭的脚手架开发方式还是有一定区别的，更像是vue + 小程序开发的结合",
+        "keywords": "uni-app,uni-app体验怎么样",
+        "category": "移动端混合开发"
+    },
+    {     
+        "source": "uni设置tabbar后没显示的问题.md",
+        "staticFileName": "uni_tabbar_issue.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "在pages.json里设置了tabbar配置，但设置成功后，在chrome运行却没效果，需要注意两点：1. pages.json配置中tabBar参数设置的页面同时也需要在pages参数里设置 2. pages数组中的第一项，必须是tabBar配置里的页面",
+        "keywords": "uni设置tabbar不生效,uni tabbar不生效",
+        "category": "移动端混合开发"
+    },
+    {     
+        "source": "全国哀悼日，怎么用一行css代码将整个站点变灰.md",
+        "staticFileName": "css_filter_gray.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "前天4月4号全国哀悼日，各大网公司网站的风格都变灰了，是怎么实现的呢？其实很简单，一行代码就搞定。filter: grayscale(100%); css filter是什么属性？用css filter mdn关键字查了下，这里filter翻译为 滤镜，他可以将模糊或色相等图形效果应用于元素，来看一些例子",
+        "keywords": "css滤镜,css filter,怎么用一行css代码将整个站点变灰,怎么将站点置灰",
+        "category": "css"
+    },
+    {     
+        "source": "web前端BFC，什么是BFC.md",
+        "staticFileName": "web_bfc.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "虽然做前端好几年了，但只是听说个这个名词，一直不清楚具体是什么意思，今天来研究下。BFC是 Block Formatting Context 的缩写，字面意思是 块格式化上下文。 字面意思很难理解，我们先来看几个例子",
+        "keywords": "web BFC,前端BFC,css BFC,什么是BFC",
+        "category": "css"
+    },
+    {     
+        "source": "nginx以及koa实现301跳转：xx.com重定向到www.xx.com.md",
+        "staticFileName": "nginx_koa_301.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/12",
+        "description": "今天帮一个同学测试网络，使用curl来请求百度，发现baidu.com到 www.baidu.com 的重定向使用的是 html 的meta元素。我们可以做一个测试，当接收到一个请求后，修改状态码为301，然后设置Location响应头为 http://www.zuo11.com 看是否可以重定向页面，来写个koa例子",
+        "keywords": "nginx重定向使用301,koa实现301,xx.com重定向到www.xx.com",
+        "category": "http与https"
     }
 ]
+
 
 
