@@ -1,0 +1,129 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="canvas_progress.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="使用canvas绘制渐变的环形进度条，主要是使用arc函数，下面来看看。4个重点：1. 怎么画圆弧, ctx.arc函数里开始角度、结束角度以PI为基准，取值范围时：0 ~ 2PI，PI就是π值约等于3.14，圆心正上方位置为1.5PI，圆心右侧为 0 或 2*PI，圆心正下方为0.5PI，选定义额开始位置和结束位置就可以绘制任意一个弧形">
+        <meta name="keywords" content="canvas绘制环形进度条,js画环形渐变进度条,canvas画进度条">
+
+        <title>canvas怎么绘制环形进度条 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/12</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="canvas怎么绘制环形进度条">canvas怎么绘制环形进度条</h1>
+<p>使用canvas绘制渐变的环形进度条，主要是使用arc函数，下面来看看</p>
+<h2 id="4个重点">4个重点</h2>
+<ol>
+<li><p>怎么画圆弧, ctx.arc函数里开始角度、结束角度以PI为基准，取值范围时：0 ~ 2PI，PI就是π值约等于3.14，圆心正上方位置为1.5PI，圆心右侧为 0 或 2*PI，圆心正下方为0.5PI，选定义额开始位置和结束位置就可以绘制任意一个弧形，详情参见: <a href="https://www.yuque.com/guoqzuo/js_es6/sbx6vi#eda54f70">之前的canvas笔记 - 绘制路径</a></p>
+</li>
+<li><p>画圆环使用的是ctx.stroke，一般默认画圆大概是1px的宽度，线的宽度可以使用 <strong>ctx.lineWidth</strong> 调整，这样就成圆环了</p>
+</li>
+<li><p>用ctx.arc画一个完整的圆，再画一个进度圆弧，重叠在一起，颜色设置不一样，就是一个标准的圆环进度条了。</p>
+</li>
+<li><p>进度圆环怎么设置圆角，可以使用 ctx.lineCap = &quot;round&quot;;</p>
+</li>
+<li><p>关于retina两倍屏，需要注意乘以设备像素比，参见：<a href="http://www.zuo11.com/blog/2020/7/canvas_dim.html">canvas绘制模糊的问题</a></p>
+</li>
+</ol>
+<p><img src="../../../images/blog/js/canvas_progress.png" alt="canvas_progress.png"></p>
+<h2 id="简单代码实现">简单代码实现</h2>
+<p>完整demo可以参见github：<a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/%E6%B8%90%E5%8F%98%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/index.html">渐变环形进度条 | github</a></p>
+<pre><code class="language-html">&lt;canvas id=&quot;drawing&quot; width=&quot;180&quot; height=&quot;180&quot; &gt;A draw of something.&lt;/canvas&gt;
+&lt;script&gt;
+  let drawing = document.getElementById(&#39;drawing&#39;);
+  let ctx = drawing.getContext(&#39;2d&#39;);
+  let percent = 80 // 进度百分比
+  let circleRadios = 80 // 圆环半径
+  let lineWidth = 10
+  let PI = 3.1415926
+  let long  = (percent / 100) * PI * 2 // 百分比进度条长度
+  let start = 1.5 * PI // 圆心正上方位置是 1.5PI
+  ctx.lineWidth = lineWidth
+
+  // 背景圆环
+  let x = circleRadios + lineWidth
+  let y = x
+  ctx.beginPath()
+  ctx.strokeStyle = &#39;rgb(241,247,255)&#39;
+  ctx.arc(x, y, circleRadios, start + long, start)
+  ctx.stroke()
+
+  // 进度圆环
+  ctx.beginPath()
+  let gradient = ctx.createLinearGradient(circleRadios * 2 + lineWidth * 2, lineWidth + circleRadios, 0 , circleRadios + lineWidth); // 从(130,130)到(160,160)渐变
+  gradient.addColorStop(0, &#39;#64E1FA&#39;); // 渐变的起点色
+  gradient.addColorStop(1, &#39;#215BF7&#39;); // 渐变的结束色
+  ctx.strokeStyle = gradient
+  ctx.arc(x, y, circleRadios, start, start + long)
+  ctx.lineCap = &quot;round&quot;;
+  ctx.stroke()
+&lt;/script&gt;</code></pre>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://juejin.im/post/5dc626125188253aec025a60#heading-10">用初中数学知识撸一个canvas环形进度条</a></li>
+<li><a href="https://www.jianshu.com/p/e0fe05210134">用canvas画一个进度条为圆角的环形图（圆环图）</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="canvas怎么绘制环形进度条" style="padding-left:1em">canvas怎么绘制环形进度条<span></li><ul><li><span class="ul-span" data-id="4个重点" style="padding-left:2em">4个重点<span></li></ul><ul><li><span class="ul-span" data-id="简单代码实现" style="padding-left:2em">简单代码实现<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

@@ -1,0 +1,134 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="nginx_koa_301.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="今天帮一个同学测试网络，使用curl来请求百度，发现baidu.com到 www.baidu.com 的重定向使用的是 html 的meta元素。我们可以做一个测试，当接收到一个请求后，修改状态码为301，然后设置Location响应头为 http://www.zuo11.com 看是否可以重定向页面，来写个koa例子">
+        <meta name="keywords" content="nginx重定向使用301,koa实现301,xx.com重定向到www.xx.com">
+
+        <title>nginx以及koa实现301跳转：xx.com重定向到www.xx.com - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/12</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="nginx以及koa实现301跳转：xxcom重定向到wwwxxcom">nginx以及koa实现301跳转：xx.com重定向到<code>www.xx.com</code></h1>
+<p>今天帮一个同学测试网络，使用curl来请求百度，发现 baidu.com 到 <code>www.baidu.com</code> 的重定向使用的是 html 的meta元素</p>
+<pre><code class="language-bash">curl -v baidu.com
+# &lt;html&gt;
+# &lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com/&quot;&gt;
+# &lt;/html&gt;</code></pre>
+<p>当访问 baidu.com时，0秒后刷新页面到 <code>http://www.baidu.com</code> ，以后如果在不依赖nginx配置的情况下，可以使用这种方式。meta元素使用方法可以参考之前的笔记：<a href="https://www.yuque.com/guoqzuo/js_es6/qk5v84#edbe1211">http-equiv改写http标头字段</a></p>
+<h2 id="nginx重定向使用的是301跳转">nginx重定向使用的是301跳转</h2>
+<p>之前我有处理过 zuo11.com 跳转到 <code>www.zuo11.com</code> 的情况，配置了nginx，具体方法参见 <a href="https://www.yuque.com/guoqzuo/csm14e/hd0tdl#c1a009e0">nginx 访问不带www的域名，自动切到www</a></p>
+<p>curl -v zuo11.com nginx响应内容如下：</p>
+<pre><code class="language-bash">curl -v zuo11.com
+* Rebuilt URL to: zuo11.com/
+*   Trying 47.107.190.93...
+* TCP_NODELAY set
+* Connected to zuo11.com (47.107.190.93) port 80 (#0)
+&gt; GET / HTTP/1.1
+&gt; Host: zuo11.com
+&gt; User-Agent: curl/7.54.0
+&gt; Accept: */*
+&gt; 
+&lt; HTTP/1.1 301 Moved Permanently
+&lt; Server: nginx/1.16.1
+&lt; Date: Mon, 06 Apr 2020 12:56:22 GMT
+&lt; Content-Type: text/html
+&lt; Content-Length: 169
+&lt; Connection: keep-alive
+&lt; Location: http://www.zuo11.com/
+&lt; 
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;center&gt;nginx/1.16.1&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>也就是当访问zuo11.com时，nginx会用301重定向到 <code>www.zuo11.com</code>。</p>
+<h2 id="koa实现301跳转">koa实现301跳转</h2>
+<p>我们可以做一个测试，当接收到一个请求后，修改状态码为301，然后设置Location响应头为 <code>http://www.zuo11.com</code> 看是否可以重定向页面，来写个koa例子</p>
+<pre><code class="language-js">const Koa = require(&#39;koa&#39;)
+const app = new Koa()
+
+app.use((ctx) =&gt; {
+  console.log(ctx.url)
+  if (ctx.url === &#39;/test&#39;) {
+    // 当访问 /test 时 301重定向到 http://www.zuo11.com
+    ctx.status = 301
+    ctx.set({
+      &#39;Location&#39;: &#39;http://www.zuo11.com&#39;
+    })
+    return
+  }
+  // 非 /test 时，页面显示 welcome
+  ctx.body = &#39;welcome&#39;
+})
+
+app.listen(&#39;9000&#39;, () =&gt; { console.log(&#39;服务已开启，9000端口&#39;) })</code></pre>
+<p>通过测试上面的例子，发现只要响应的状态码设置为301，且响应头Location设置为要重定向的网页，就可以301跳转到对应的页面，新技能get</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="nginx以及koa实现301跳转：xxcom重定向到`wwwxxcom`" style="padding-left:1em">nginx以及koa实现301跳转：xx.com重定向到`www.xx.com`<span></li><ul><li><span class="ul-span" data-id="nginx重定向使用的是301跳转" style="padding-left:2em">nginx重定向使用的是301跳转<span></li></ul><ul><li><span class="ul-span" data-id="koa实现301跳转" style="padding-left:2em">koa实现301跳转<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
