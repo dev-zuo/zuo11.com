@@ -1,0 +1,201 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="vue-v-model.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在前面讨论过，使用v-model的场景，来看一个实例，假如我们需要封装一个弹窗组件需要引入el-dialog组件。首先，我们来看看我们写好这个组件后应该怎么调用，通过show这个参数来控制dialog显示或隐藏">
+        <meta name="keywords" content="v-model的理解,v-model与,.sync">
+
+        <title>vue v-model的理解 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/26</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="vue-v-model的理解">vue v-model的理解</h1>
+<p>在前面讨论过，使用v-model的场景，来看一个实例，假如我们需要封装一个弹窗组件需要引入el-dialog组件</p>
+<p>首先，我们来看看我们写好这个组件后应该怎么调用，通过show这个参数来控制dialog显示或隐藏</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;my-dialog v-if=&quot;showDialog&quot; :show=&quot;showDialog&quot;&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  components: {
+    MyDialog: () =&gt; import(&#39;@/components/my-dialog&#39;)
+  },
+  data() {
+    return {
+      showDialog: flase
+    }
+  }
+}
+&lt;/script&gt;</code></pre>
+<p>来看看实现，这里看element官方demo里在visible属性上用了.sync修饰符，有什么用呢？</p>
+<pre><code class="language-html">&lt;!-- https://element.eleme.cn/#/zh-CN/component/dialog --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;el-dialog title=&quot;提示&quot; :visible.sync=&quot;dialogVisible&quot;&gt;
+      内容
+      &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;
+        &lt;el-button @click=&quot;dialogVisible = false&quot;&gt;取 消&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; @click=&quot;dialogVisible = false&quot;&gt;确 定&lt;/el-button&gt;
+      &lt;/span&gt;
+    &lt;/el-dialog&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+<p>看来看源码</p>
+<pre><code class="language-html">&lt;!-- https://github.com/ElemeFE/element/blob/dev/packages/dialog/src/component.vue --&gt;
+
+&lt;template&gt;
+  &lt;transition name=&quot;dialog-fade&quot; @after-enter=&quot;afterEnter&quot; @after-leave=&quot;afterLeave&quot;&gt;
+    &lt;div
+      v-show=&quot;visible&quot;
+      class=&quot;el-dialog__wrapper&quot;
+      @click.self=&quot;handleWrapperClick&quot;&gt;
+      &lt;!-- .... --&gt;
+    &lt;/div&gt;
+  &lt;/transition&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+// ...
+hide(cancel) {
+  if (cancel !== false) {
+    this.$emit(&#39;update:visible&#39;, false);
+    this.$emit(&#39;close&#39;);
+    this.closed = true;
+  }
+}
+//... 
+&lt;/script&gt;</code></pre>
+<p>可以看到关闭弹窗时，使用了 </p>
+<pre><code class="language-js">this.$emit(&#39;update:visible&#39;, false);</code></pre>
+<p>修改了父组件传入的visible的值，没有使用v-model, 所以在el-dialog传入visible属性的时候加了.sync修饰符</p>
+<pre><code class="language-html">&lt;el-dialog title=&quot;提示&quot; :visible.sync=&quot;dialogVisible&quot;&gt;</code></pre>
+<p>vue里面有介绍这种方法可以使子组件可以修改父组件的值，而不用多加一个事件参数，参见文档 <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">.sync修饰符</a></p>
+<p>但感觉这个接口设计的有点鸡肋，v-model不香吗？</p>
+<p>子组件封装dialog的特殊之处在于，通过showDialog显示子组件的dialog后，子组件点击关闭后会自己关闭弹窗，这时 父组件的showDialog还是true，因此并不能通过show参数来控制显示，我们需要在子组件点击dialog关闭时，触发一个事件给父组件，从而修改对应的值</p>
+<pre><code class="language-html">&lt;my-dialog v-if=&quot;showDialog&quot; :show=&quot;showDialog&quot; @close=&quot;showDialog = false&quot;&gt;</code></pre>
+<p>这里当子组件关闭dialog时$emit一个close事件来手动将showDialog设置为false，以到达父组件可以通过showDialog来打开或关闭dialog的目的，我们可以来看看子组件的实现</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;el-dialog title=&quot;提示&quot; :visible.sync=&quot;dialogVisible&quot;&gt;
+      内容
+      &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;
+        &lt;el-button @click=&quot;dialogVisible = false&quot;&gt;取 消&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; @click=&quot;dialogVisible = false&quot;&gt;确 定&lt;/el-button&gt;
+      &lt;/span&gt;
+    &lt;/el-dialog&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+// 注意如果我们把show直接设置给el-dialog的visible属性，
+// el-dialog内部在关闭dialog时会触发一次 this.show = false操作
+// 而show是父组件通过props单向传递的值，改动会提示错误，我们需要使用computed属性来中转
+export default {
+  props: {
+    show: { 
+      type: Boolean,
+      required: true
+    }
+  }
+  computed: {
+    dialogVisible: {
+      get() {
+        return this.show // 父组件向下传递show的值时通过计算属性赋值到dialogVisible
+      }
+      set() {
+        // 当dialog关闭时，会触发this.dialogVisible = false，从而来到这个方法，我们在这里将关闭事件同步给父组件
+        this.$emit(&#39;close&#39;, false)
+      }
+    }
+  },
+  data() {
+
+  }
+}
+&lt;/script&gt;</code></pre>
+<p>上面的例子已经实现了功能，但缺点是，要使用两个参数，一个show属性，一个close事件。v-model就是一种简化参数的语法糖</p>
+<pre><code class="language-html">&lt;my-dialog v-if=&quot;showDialog&quot; :show=&quot;showDialog&quot; @close=&quot;showDialog = false&quot;&gt;
+&lt;!-- 等价于 --&gt;
+&lt;my-dialog v-if=&quot;showDialog&quot; v-model=&quot;showDialog&quot;&gt;
+&lt;script&gt;
+export default {
+  model: { // 新增了model属性，用来指定v-model赋值的属性名，以及改动父组件对应值需要$emit的事件名称
+    prop: &#39;show&#39;,
+    event: &#39;close&#39;
+  },
+  // 其他后面的逻辑不变
+  props
+    show: { 
+      type: Boolean,
+      required: true
+    }
+  }
+  // ....
+}
+&lt;/script&gt;</code></pre>
+<p>关于v-model的文档，参考 <a href="https://cn.vuejs.org/v2/api/#model">v-model | Vue API</a></p>
+<p>综上，v-model比.async更优雅，而在vue的refs里，也有建议使用v-model代替.async修饰符，且已经merge到了vue 3.0版本，相关文档 <a href="https://github.com/vuejs/rfcs/pull/8">Replace v-bind&#39;s .sync with a v-model argument</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="vue-v-model的理解" style="padding-left:1em">vue v-model的理解<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

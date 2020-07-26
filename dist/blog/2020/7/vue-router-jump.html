@@ -1,0 +1,113 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="vue-router-jump.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="vue-router有以下几种编程方式跳转路由的方法。一般push和repalce用的比较多，下面来看看">
+        <meta name="keywords" content="vue-router,vue-router编程式跳转方法,vue-router跳转路由方法">
+
+        <title>vue-router编程方式跳转路由以及其传参问题 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/26</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="vue-router编程方式跳转路由以及其传参问题">vue-router编程方式跳转路由以及其传参问题</h1>
+<p>vue-router有以下几种编程方式跳转路由的方法。一般push和repalce用的比较多，下面来看看</p>
+<pre><code class="language-js">router.push(location, onComplete?, onAbort?)
+router.push(location).then(onComplete).catch(onAbort)
+router.replace(location, onComplete?, onAbort?)
+router.replace(location).then(onComplete).catch(onAbort)
+router.go(n)
+router.back()
+router.forward()</code></pre>
+<h2 id="push跳转页面">push跳转页面</h2>
+<pre><code class="language-js">// 知道路由名称，跳转
+this.$router.push({
+  name: &#39;路由name&#39;,
+  params: { userId: &#39;123&#39; } // 参数，url上面不可见
+  query: { plan: &#39;private&#39; } // 查询参数 url上可见
+})
+
+// 知道路由path，跳转 /register?plan=private
+this.$router.push({ path: &#39;register&#39;, query: { plan: &#39;private&#39; }})
+// 注意：如果提供了 path，params 会被忽略，只能使用query参数</code></pre>
+<h2 id="replce跳转页面">replce跳转页面</h2>
+<p>push会在history添加一条记录，而replce不会，他只会改变当前页面</p>
+<pre><code class="language-js">// router.replace(location, onComplete?, onAbort?)
+this.$router.replace({
+  name: &#39;路由name&#39;,
+  params: { userId: &#39;123&#39; } // 参数，url上面不可见
+  query: { plan: &#39;private&#39; } // 查询参数 url上可见
+})</code></pre>
+<h2 id="thisrouterresolve">this.$router.resolve()</h2>
+<p>在新的tab页打开，可以用 this.$router.resolve() 来处理路由信息，也可以直接使用相对路径，注意hash、history跳转方式的区别</p>
+<pre><code class="language-js">const resolved: {
+  location: Location;
+  route: Route;
+  href: string;
+} = router.resolve(location, current?, append?)
+window.open(&#39;#/user/info&#39;) 
+// ‘_blank’为默认，在新的窗口打开，&#39;_self&#39; 为在当前页打开</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="vue-router编程方式跳转路由以及其传参问题" style="padding-left:1em">vue-router编程方式跳转路由以及其传参问题<span></li><ul><li><span class="ul-span" data-id="push跳转页面" style="padding-left:2em">push跳转页面<span></li></ul><ul><li><span class="ul-span" data-id="replce跳转页面" style="padding-left:2em">replce跳转页面<span></li></ul><ul><li><span class="ul-span" data-id="this$routerresolve" style="padding-left:2em">this.$router.resolve()<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

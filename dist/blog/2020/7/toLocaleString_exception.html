@@ -1,0 +1,92 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="toLocaleString_exception.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="toLocaleString时间异常的情况，toLocaleString在0点或12点时时间转换问题，在使用toLocaleString把Date转为字符串时，需要额外注意时间为 '00:00:00' 和 '12:00:00' 的情况，它们分别会被转为 上午12:00:00，下午12点，下面来看看">
+        <meta name="keywords" content="toLocaleString时间异常的情况,toLocaleString在0点或12点时时间转换问题">
+
+        <title>Date.prototype.toLocaleString()在0点或12点时转换异常的问题 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/07/26</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="dateprototypetolocalestring在0点或12点时转换异常的问题">Date.prototype.toLocaleString()在0点或12点时转换异常的问题</h1>
+<p>在使用toLocaleString把Date转为字符串时，需要额外注意时间为 &#39;00:00:00&#39; 和 &#39;12:00:00&#39; 的情况，它们分别会被转为 上午12:00:00，下午12点，下面来看看</p>
+<pre><code class="language-js">a = new Date(&#39;2020/04/10 00:00:00&#39;) 
+// Fri Apr 10 2020 00:00:00 GMT+0800 (中国标准时间)
+
+a.toLocaleString() // &quot;2020/4/10 上午12:00:00&quot;
+a.getHours() // 0
+a.getMinutes() // 0
+a.getSeconds() // 0</code></pre>
+<p>那我们来试试 &#39;12:00:00&#39; 的情况</p>
+<pre><code class="language-js">a = new Date(&#39;2020/04/10 12:00:00&#39;) 
+// Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)
+a.toLocaleString() // &quot;2020/4/10 下午12:00:00&quot;
+a.getHours() // 12</code></pre>
+<p>综上:<strong>虽然Date对象的toLocaleString()比较好用，但还是仅用日期方面的toLocaleDateString()，时间方面的还是尽量不要使用</strong></p>
+<p>参考：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString">Date.prototype.toLocaleString() - MDN</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="dateprototypetolocalestring在0点或12点时转换异常的问题" style="padding-left:1em">Date.prototype.toLocaleString()在0点或12点时转换异常的问题<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
