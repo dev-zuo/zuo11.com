@@ -187,8 +187,185 @@
         "description": "今天帮一个同学测试网络，使用curl来请求百度，发现baidu.com到 www.baidu.com 的重定向使用的是 html 的meta元素。我们可以做一个测试，当接收到一个请求后，修改状态码为301，然后设置Location响应头为 http://www.zuo11.com 看是否可以重定向页面，来写个koa例子",
         "keywords": "nginx重定向使用301,koa实现301,xx.com重定向到www.xx.com",
         "category": "http与https"
+    },
+    {
+        "source": "Date.prototype.toLocaleString()在0点或12点时转换异常的问题.md",
+        "staticFileName": "toLocaleString_exception.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "toLocaleString时间异常的情况，toLocaleString在0点或12点时时间转换问题，在使用toLocaleString把Date转为字符串时，需要额外注意时间为 '00:00:00' 和 '12:00:00' 的情况，它们分别会被转为 上午12:00:00，下午12点，下面来看看",
+        "keywords": "toLocaleString时间异常的情况,toLocaleString在0点或12点时时间转换问题",
+        "category": "js"
+    },
+    {
+        "source": "怎么将Date数据转为TZ格式的字符串.md",
+        "staticFileName": "date_tojson.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "TZ时间字符串，toJSON后时间转换为TZ格式，后台要求的数据格式 '2020-04-10T04:01:00.000Z' 为TZ格式的字符串。Date对象toString为 'Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)' 这种格式，那怎么转TZ字符串格式呢？用 Date.prototype.toJSON() 方法即可 ",
+        "keywords": "TZ时间字符串,toJSON后时间转换为TZ格式,怎么将Date数据转为TZ格式的字符串",
+        "category": "js"
+    },
+    {
+        "source": "Failed to resolve directive: infinite-scroll.md",
+        "staticFileName": "infinite-scroll.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "在element InfiniteScroll无限滚动功能里，使用了v-infinite-scroll指令，但直接使用会发现提示 Failed to resolve directive: infinite-scroll，后面查了下，发现要使用该指令需要安装一个vue-infinite-scroll npm包，并且在main.js里引入才行",
+        "keywords": "Failed to resolve directive: infinite-scroll,element v-infinite-scroll指令",
+        "category": "vue"
+    },
+    {
+        "source": "v-infinite-scroll放到slot里或者用v-if控制时首次无法触发loadMore的问题.md",
+        "staticFileName": "v-infinite-scroll.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "v-infinite-scroll不触发loadMore，element v-infinite-scroll指令, 最新项目结构调整，发现一个问题，把 v-infinite-scroll 对应的元素放到 slot 里，首次无法触发loadMore, 不放到slot里面又是正常的，来看代码",
+        "keywords": "v-infinite-scroll不触发loadMore,element v-infinite-scroll指令",
+        "category": "vue"
+    },
+    {
+        "source": "Array.prototype.fill()填充引用类型值的问题.md",
+        "staticFileName": "araay_fill.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "js 数组fill填充的对象都指向同一个地址，array fill填充引用类型问题，在mock表格list数据时，我一般为了简洁会先创建一个对象info，然后new Array(10).fill(info) 来生成10条数据的数。但这次发现一个问题，由于表格有一个字段是状态值0 - 5，我想随机设置下值，发现修改后的值都一样，来看看例子",
+        "keywords": "js 数组fill填充的对象都指向同一个地址,array fill填充引用类型问题",
+        "category": "js"
+    },
+    {
+        "source": "JSON.stringify的非常规用法以及内部执行顺序.md",
+        "staticFileName": "stringify_use.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "JSON.stringify，JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法，我们一般用于将JSON对象转为字符串，但他不仅仅只有一个参数，而是三个，除最常用的用法外，还可以用来做三种实用功能: 1.利用第三参数在console里更好的展示对象; 2.有选择性的过滤字段; 3.详细处理没有字段序列化的值",
+        "keywords": "JSON.stringify,JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法",
+        "category": "js"
+    },
+    {
+        "source": "iconfont通过设置class来显示图标内部做了那些操作.md",
+        "staticFileName": "iconfont_class.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "iconfont是怎么通过class来加载图标的，内部做了哪些操作，注意我们在用class使用iconfont图标时，为什么可以使用，主要是iconfont.css里面做了三步操作: 1. 定义iconfont的 font-familay 2. 为.iconfont设置默认样式，指定为font-family字体 3. 为每个图标的class设置before的content",
+        "keywords": "iconfont是怎么通过class来加载图标的,内部做了哪些操作,iconfont class字体图标",
+        "category": "css"
+    },
+    {
+        "source": "vue全局引入组件Vue.use()与Vue.component()的用法与区别.md",
+        "staticFileName": "vue_global_comps.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "vue全局组件，Vue.use与Vue.component区别，之前的笔记里有将Vue.use()全局引入组件的方法，其实用 Vue.compoennt()也可以全局引入组件。下面来看具体用法，以及他们的区别",
+        "keywords": "vue全局组件,Vue.use()与Vue.component()的区别,Vue.use与Vue.component区别",
+        "category": "vue"
+    },
+    {
+        "source": "vue页面中监听路由改变的2种方法.md",
+        "staticFileName": "vue_watch_router.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "vue监听路由变化,vue监听路由,在vue中，怎么监听vue-router路由的变更呢？一般有两种方法 1. 单页面组件中，使用 beforeRouteEnter 2. 使用watch监听$route",
+        "keywords": "ue监听路由变化,vue监听路由,监听vue-router变化",
+        "category": "vue"
+    },
+    {
+        "source": "git无法检测到文件名大小写的更改，为什么？怎么解决？.md",
+        "staticFileName": "git_file_name.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "git无法检测文件大小写改变,mac系统文件大小写不敏感，今天把开发分支合并到月底分支后，发现之前修改过文件名没有提交上去，手动改文件名后，git status 提示没有任何改动。于是百度了下，发现git默认配置为忽略大小写，因此无法正确检测大小写的更改。",
+        "keywords": "mac文件大小写不敏感,macOS文件大小写不敏感,git无法检测文件大小写改变",
+        "category": "运维部署与版本控制"
+    },
+    {
+        "source": "css利用perspective画梯形.md",
+        "staticFileName": "css_perspective.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "今天看小伙伴的代码，发现有一个梯形的实现居然是css写的，我以为需要UI提供icon。这里用到了 perspective 远景这个参数",
+        "keywords": "css画梯形,css perspective",
+        "category": "css"
+    },
+    {
+        "source": "element时间选择器限制选中：不能选择今天之后的日期，时间间隔不能超过一个月.md",
+        "staticFileName": "el-date-picker-limit.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "elmement el-date-picker限制选中,elmement el-date-picker disabled某些选中,element时间限制选中,一般使用 picker-options 这个属性来disable某些时间段，注意 如果设置了default-time 00:00:00 - 23:59:59 会影响对应的日期判断，必要时可以去掉，逻辑可以由后端处理",
+        "keywords": "elmement el-date-picker限制选中,elmement el-date-picker disabled某些选中",
+        "category": "vue"
+    },
+    {
+        "source": "vue-router编程方式跳转路由以及其传参问题.md",
+        "staticFileName": "vue-router-jump.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "vue-router有以下几种编程方式跳转路由的方法。一般push和repalce用的比较多，下面来看看",
+        "keywords": "vue-router,vue-router编程式跳转方法,vue-router跳转路由方法",
+        "category": "vue"
+    },
+    {
+        "source": "text-align: justify两端对齐不生效的问题.md",
+        "staticFileName": "text-align.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "一般直接设置text-align: justify是不会生效的。但你改为text又会立即居中对齐。我们需要注意的是我们需要将子元素设置一个after的属性或者后面放置一个空的占位标签，设置 display: inline-block; width: 100%，当出现高度占位间隙时，设置占位元素的height没用，需要设置元素的height。css 确实有点毫无逻辑的感觉....",
+        "keywords": "text-align:justify,text-align:justify不生效的问题",
+        "category": "css"
+    },
+    {
+        "source": "uni.request封装为类似axios的请求对象.md",
+        "staticFileName": "uni_request.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "uni.request封装,uni axios分装,在uni-app中为了抹平各平台的差异，官方提供了uni.request方法，和微信小程序的请求方法类似，一般这类请求是比较通用的，如果直接使用会有大量的重复代码，于是做了简单的封装，来看看代码",
+        "keywords": "uni.request封装,uni axios分装",
+        "category": "移动端混合开发"
+    },
+    {
+        "source": "uni-app跨域问题接口代理配置.md",
+        "staticFileName": "uni-app-cros.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "uni配置跨域,uin接口跨域,uni配置接口代理,在uni-app中有一个manifest.json配置文件，里面的h5配置下有默认的devServer选项，和vue.config.js里的代理配置一致，都是使用的webpack的代理功能，默认配置为...",
+        "keywords": "uni配置跨域,uin接口跨域,uni配置接口代理",
+        "category": "移动端混合开发"
+    },
+    {
+        "source": "使用curl向百度站长主动推送站点url.md",
+        "staticFileName": "push_url_baidu.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "之前提交链接都是手动将url粘贴到输入框提交。这次试了下curl方式提交还是很方便的，来看看步骤",
+        "keywords": "向百度站长主动推送站点url,推送url到百度",
+        "category": ""
+    },
+    {
+        "source": "nginx配置二级域名解析目录.md",
+        "staticFileName": "nginx_sencod_domain.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "nginx二级域名解析,nginx二级域名解析到不同的目录,最近看百度统计，有100多个河南的新ip访问，有些异常，而且都是访问的api.zuo11.com，最近两周明细里看到的ip段很有规律。其实就是多写一个server，把二级域名指向其他目录。中间有个坑的地方就是windows使用nginx时，关闭nginx运行的terminal后，进程不一定关闭，需要打开任务管理器，找nginx相关进程删掉，这样才彻底。",
+        "keywords": "nginx二级域名解析,nginx二级域名解析,nginx二级域名解析到不同的目录",
+        "category": "运维部署与版本控制"
+    },
+    {
+        "source": "腾讯云慧眼架构相关设计学习.md",
+        "staticFileName": "txy_frame_study.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "昨晚看了一个关于腾讯云慧眼架构相关的分享，由于之前参与过该项目的一些开发，对业务比较了解。结合业务场景再来看构架设计，会有一种豁然开朗的感觉，下面对一些构架方面比较好的点做一个总结",
+        "keywords": "腾讯云慧眼架构相关设计学习,构架",
+        "category": "计算机基础与开发工具"
+    },
+    {
+        "source": "vue v-model的理解.md",
+        "staticFileName": "vue-v-model.html",
+        "author": "guoqzuo",
+        "createDate": "2020/07/26",
+        "description": "在前面讨论过，使用v-model的场景，来看一个实例，假如我们需要封装一个弹窗组件需要引入el-dialog组件。首先，我们来看看我们写好这个组件后应该怎么调用，通过show这个参数来控制dialog显示或隐藏",
+        "keywords": "v-model的理解,v-model与,.sync",
+        "category": "vue"
     }
 ]
-
-
-
