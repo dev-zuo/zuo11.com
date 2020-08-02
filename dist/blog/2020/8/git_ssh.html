@@ -1,0 +1,92 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="git_ssh.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在使用git拉取远程分支代码时，有两种方式，一种是git clone，另一种是 ssh。在文件太大git clone超时时，我们可以试试ssh这种方法，下面来看看具体步骤">
+        <meta name="keywords" content="git ssh">
+
+        <title>使用ssh方式拉取代码的步骤 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/02</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="使用ssh方式拉取代码的步骤">使用ssh方式拉取代码的步骤</h1>
+<p>在使用git拉取远程分支代码时，有两种方式，一种是git clone，另一种是 ssh。在文件太大git clone超时时，我们可以试试ssh这种方法，下面来看看具体步骤</p>
+<pre><code class="language-bash"># 使用git平台邮箱账号生成公钥和私钥，全部默认、回车
+ssh-keygen -t rsa -C &quot;xxx@qq.com&quot;
+
+# 执行成功过后会在 ~/.ssh 目录下生成 id_rsa.pub 和 id_rsa 两个文件，一个公钥、一个私钥
+
+# 查看公钥，并配置到对应的git平台里
+cat ~/.ssh/id_rsa.pub
+
+# 测试配置是否成功
+ssh -T git@xxx.com 
+
+# 拉取 
+git clone git@xxx.com/xxxproject</code></pre>
+<p>参考：<a href="https://blog.csdn.net/u013778905/article/details/83501204">GitHub如何配置SSH Key</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="使用ssh方式拉取代码的步骤" style="padding-left:1em">使用ssh方式拉取代码的步骤<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

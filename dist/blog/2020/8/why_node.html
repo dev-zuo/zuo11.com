@@ -1,0 +1,697 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="why_node.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="为什么会有Node.js，在前端开发中，经常会用到node.js，那大家有没有想过 为什么会出现node.js这个技术？它解决了前端开发中的哪些问题？假设在前端面试中问你这个问题？你会怎么回答，下面是我自己的一个理解">
+        <meta name="keywords" content="为什么会有Node.js,node.js的不足">
+
+        <title>为什么会有Node.js，其衍生框架Express、Koa、Egg.js的演进过程 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/02</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="为什么会有nodejs，其衍生框架express、koa、eggjs的演进过程">为什么会有Node.js，其衍生框架Express、Koa、Egg.js的演进过程</h1>
+<p><img src="../../../images/blog/node/why_node_index.png" alt="大纲"></p>
+<h2 id="为什么会出现nodejs">为什么会出现Node.js</h2>
+<p>首先，我们需要知道前端一般都是用Node.js来写测试接口，主要是因为他基于js，对于前端来讲，我们不需要另外去学习一门编程语言，很容易上手。这里我们先来了解下node的一些基础知识。</p>
+<h3 id="什么是nodejs？">什么是Node.js？</h3>
+<p>官方解释：Node.js® is a JavaScript runtime built on Chrome&#39;s V8 JavaScript engine.</p>
+<p>Node.js 是一个基于Chrome V8引擎的JavaScript运行时，我们一般把Node.js简称为node</p>
+<h3 id="什么是js运行时？">什么是JS运行时？</h3>
+<p>我们可以简单的理解为运行js的环境。一般网页是在浏览器里面打开运行的，浏览器就是一个运行js的环境。而node也提供了一个运行js的环境。</p>
+<h3 id="在node中为什么可以运行js代码？">在node中为什么可以运行js代码？</h3>
+<p>主要是因为node集成了Chrome V8引擎，也就是Chrome浏览器的JS引擎。</p>
+<h3 id="node为什么要创建一个基于js的执行环境，作者的初衷是什么？">node为什么要创建一个基于js的执行环境，作者的初衷是什么？</h3>
+<p>node的作者是Ryan Dahl /&#39;raiən da:l/，他的工作是用C/C++写高性能web服务，对于高性能，异步IO、事件驱动是基本原则，但用C/C++写就太痛苦了。于是他设想使用另一种高级语言开发Web服务，评估了很多语言，发现很多语言虽然同是提供了异步IO和同步IO，但开发人员一旦使用了同步IO，他们就再也懒得写异步IO了，所以最终Ryan选择了JS。</p>
+<p>综上，<strong>node是为了写高性能web服务而生的</strong>，它让js这门前端语言，也可以做后端服务器开发，Node目前的发展完全超出了作者的预料，它基本改变了前端的整个开发生态。下面我们来看看Node的一些应用场景</p>
+<h3 id="node的应用场景">node的应用场景</h3>
+<p>node除了集成Chrome V8引擎来提供js运行时外，还集成了libuv、llhttp、c-ares、OpenSSL、zlib等第三方库的功能，用来支持<strong>创建http服务，解析请求、响应，操作(读写)文件，加密、压缩等</strong>。</p>
+<h4 id="打包构建、cli命令行工具脚手架">打包构建、cli命令行工具脚手架</h4>
+<p>在浏览器端一般处于安全考虑，不会允许js在本地读写文件，而node作为服务端，操作文件的权限就完全放开了，于是出现了基于node的webpack、parcel、vue-cli等打包、构建、脚手架工具，使之前零碎的前端开发趋向于工程化，开发更加高效、规范。</p>
+<p>我们以vue-cli这个命令行工具来看，node是怎么执行的</p>
+<pre><code class="language-bash">npm install -g @vue/cli # 安装vue-cli命令行工具</code></pre>
+<p>安装完成后，在terminal(终端)就有vue命令了，我之前对vue这个命令很迷惑，以为vue这个命令就是vue框架。之后才理解vue这个命令是vue-cli这个包提供的。我们来看看vue create xx 执行时的源码</p>
+<pre><code class="language-js">// https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli/bin/vue.js
+program
+  .command(&#39;create &lt;app-name&gt;&#39;)
+  .description(&#39;create a new project powered by vue-cli-service&#39;)
+  .option(&#39;-p, --preset &lt;presetName&gt;&#39;, &#39;Skip prompts and use saved or remote preset&#39;)
+  .option(&#39;-d, --default&#39;, &#39;Skip prompts and use default preset&#39;)
+  .option(&#39;-i, --inlinePreset &lt;json&gt;&#39;, &#39;Skip prompts and use inline JSON string as preset&#39;)
+  .option(&#39;-m, --packageManager &lt;command&gt;&#39;, &#39;Use specified npm client when installing dependencies&#39;)
+  .option(&#39;-r, --registry &lt;url&gt;&#39;, &#39;Use specified npm registry when installing dependencies (only for npm)&#39;)
+  .option(&#39;-g, --git [message]&#39;, &#39;Force git initialization with initial commit message&#39;)
+  .option(&#39;-n, --no-git&#39;, &#39;Skip git initialization&#39;)
+  .option(&#39;-f, --force&#39;, &#39;Overwrite target directory if it exists&#39;)
+  .option(&#39;--merge&#39;, &#39;Merge target directory if it exists&#39;)
+  .option(&#39;-c, --clone&#39;, &#39;Use git clone when fetching remote preset&#39;)
+  .option(&#39;-x, --proxy&#39;, &#39;Use specified proxy when creating project&#39;)
+  .option(&#39;-b, --bare&#39;, &#39;Scaffold project without beginner instructions&#39;)
+  .option(&#39;--skipGetStarted&#39;, &#39;Skip displaying &quot;Get started&quot; instructions&#39;)
+  .action((name, cmd) =&gt; {
+    const options = cleanArgs(cmd)
+
+    if (minimist(process.argv.slice(3))._.length &gt; 1) {
+      console.log(chalk.yellow(&#39;\n Info: You provided more than one argument. The first one will be used as the app\&#39;s name, the rest are ignored.&#39;))
+    }
+    // --git makes commander to default git to true
+    if (process.argv.includes(&#39;-g&#39;) || process.argv.includes(&#39;--git&#39;)) {
+      options.forceGit = true
+    }
+    require(&#39;../lib/create&#39;)(name, options)
+  })</code></pre>
+<p>../lib/create.js源码</p>
+<pre><code class="language-js">// https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli/lib/create.js
+const fs = require(&#39;fs-extra&#39;)
+const path = require(&#39;path&#39;)
+const inquirer = require(&#39;inquirer&#39;)
+const Creator = require(&#39;./Creator&#39;)
+const { clearConsole } = require(&#39;./util/clearConsole&#39;)
+const { getPromptModules } = require(&#39;./util/createTools&#39;)
+const { chalk, error, stopSpinner, exit } = require(&#39;@vue/cli-shared-utils&#39;)
+const validateProjectName = require(&#39;validate-npm-package-name&#39;)
+
+async function create (projectName, options) {
+  if (options.proxy) {
+    process.env.HTTP_PROXY = options.proxy
+  }
+
+  const cwd = options.cwd || process.cwd()
+  const inCurrent = projectName === &#39;.&#39;
+  const name = inCurrent ? path.relative(&#39;../&#39;, cwd) : projectName
+  const targetDir = path.resolve(cwd, projectName || &#39;.&#39;)
+
+  const result = validateProjectName(name)
+  if (!result.validForNewPackages) {
+    console.error(chalk.red(`Invalid project name: &quot;${name}&quot;`))
+    result.errors &amp;&amp; result.errors.forEach(err =&gt; {
+      console.error(chalk.red.dim(&#39;Error: &#39; + err))
+    })
+    result.warnings &amp;&amp; result.warnings.forEach(warn =&gt; {
+      console.error(chalk.red.dim(&#39;Warning: &#39; + warn))
+    })
+    exit(1)
+  }
+
+  if (fs.existsSync(targetDir) &amp;&amp; !options.merge) {
+    if (options.force) {
+      await fs.remove(targetDir)
+    } else {
+      await clearConsole()
+      if (inCurrent) {
+        const { ok } = await inquirer.prompt([
+          {
+            name: &#39;ok&#39;,
+            type: &#39;confirm&#39;,
+            message: `Generate project in current directory?`
+          }
+        ])
+        if (!ok) {
+          return
+        }
+      } else {
+        const { action } = await inquirer.prompt([
+          {
+            name: &#39;action&#39;,
+            type: &#39;list&#39;,
+            message: `Target directory ${chalk.cyan(targetDir)} already exists. Pick an action:`,
+            choices: [
+              { name: &#39;Overwrite&#39;, value: &#39;overwrite&#39; },
+              { name: &#39;Merge&#39;, value: &#39;merge&#39; },
+              { name: &#39;Cancel&#39;, value: false }
+            ]
+          }
+        ])
+        if (!action) {
+          return
+        } else if (action === &#39;overwrite&#39;) {
+          console.log(`\nRemoving ${chalk.cyan(targetDir)}...`)
+          await fs.remove(targetDir)
+        }
+      }
+    }
+  }
+
+  const creator = new Creator(name, targetDir, getPromptModules())
+  // // https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli/lib/Creator.js
+  await creator.create(options)
+}
+
+module.exports = (...args) =&gt; {
+  return create(...args).catch(err =&gt; {
+    stopSpinner(false) // do not persist
+    error(err)
+    if (!process.env.VUE_CLI_TEST) {
+      process.exit(1)
+    }
+  })
+}</code></pre>
+<h4 id="写后台接口、高并发web服务、服务端渲染">写后台接口、高并发web服务、服务端渲染</h4>
+<p>node可以创建一个http服务，做接口的请求与响应。在这方面衍生出来的框架有express.js、koa.js、egg.js等，我们可以用这些框架写一些测试接口、静态文件服务、web服务等。</p>
+<p>在支持高并发、高性能web服务这块，目前阿里的使用场景是一个很好的例子，Java一般用来写变动少的基础设施或有事务要求的商业服务逻辑。而在需要快速迭代、需求变化非常快的用户侧，node用于替代过去php、jsp的使用场景。node已经经受了阿里双11的考验，技术上是可行的。</p>
+<blockquote>
+<p>题外话，在node服务端开发方面，mock数据、自己写测试接口玩玩可以，但小团队或node不是非常强的技术团队尽量不要用node来写服务端接口，因为阿里能做好这块是因为国内顶尖的node方面人才基本都在阿里，经过多年实践踩坑，拥有相对完善的node基建和生态。虽然阿里开源了用于写商业化应用的egg.js，但目前很多公司并没有用node来写服务端，拥有实际node服务端开发经验的技术人员不多，贸然使用会有一定的试错成本。</p>
+</blockquote>
+<h2 id="nodejs衍生框架发展">Node.js衍生框架发展</h2>
+<p>对node.js做了一个基本介绍后，我们单独拿其中的一个知识点来讨论 --- 怎么用node来写接口。</p>
+<p>一般我们用的基于node的koa框架来写接口，为什么不直接用node呢，koa框架为什么这么流行？</p>
+<p>我们要知道，在技术方面能够流行的一些框架，一定是解决了某些痛点问题，让开发更加简单、高效，所以才会有这么多人用它。</p>
+<p>下面我们来追本溯源一下，看看为什么会有koa</p>
+<h3 id="nodejs的不足">Node.js的不足</h3>
+<p><strong>如果用node本身的语法来写应用，会比较麻烦，需要自己做一些基础模块的封装</strong>，来看几个例子</p>
+<h4 id="路由相关操作">路由相关操作</h4>
+<p>第一个例子: 用node写一个http服务：</p>
+<ul>
+<li>get 请求 &#39;/&#39; 时，返回index.html文本</li>
+<li>get 请求 &#39;/users&#39; 时返回 {a: 1}</li>
+<li>post请求 &#39;/info&#39; 时返回 {b: 1}</li>
+</ul>
+<pre><code class="language-js">const http = require(&#39;http&#39;)
+const fs = require(&#39;fs&#39;)
+
+const server = http.createServer((req, res)=&gt; {
+  const { url, method } = req
+  console.log(&#39;url, method: &#39;, url, method)
+
+  if (url === &#39;/&#39; &amp;&amp; method === &#39;GET&#39;) {
+    fs.readFile(&#39;index.html&#39;, (err, data) =&gt; {
+      if (err) throw err
+      res.statusCode = 200
+      res.setHeader(&#39;Content-Type&#39;, &#39;text/html&#39;)
+      res.end(data)
+    })
+  } else if (url === &#39;/users&#39; &amp;&amp; method === &#39;GET&#39;) {
+    res.writeHead(200, {
+      &#39;Content-Type&#39;: &#39;application/json&#39;
+    })
+    res.end(JSON.stringify({a: 1}))
+  } else if (url === &#39;/info&#39; &amp;&amp; method === &#39;post&#39;) {
+    res.writeHead(200, {
+      &#39;Content-Type&#39;: &#39;application/json&#39;
+    })
+    res.end(JSON.stringify({b: 1}))
+  } else {
+    res.end(&#39;404&#39;)
+  }
+})
+
+server.listen(9000, () =&gt; { console.log(&#39;端口开启于9000&#39;) })</code></pre>
+<p>用node提供的api写，还要自己封装路由模块，这是一个不方便的地方。</p>
+<h4 id="静态文件服务">静态文件服务</h4>
+<p>第二个例子: 将 public 目录作为静态文件目录，让该目录里的文件可以通过http方式访问</p>
+<pre><code class="language-js">const http = require(&#39;http&#39;)
+const fs = require(&#39;fs&#39;)
+
+const server = http.createServer((req, res)=&gt; {
+  const { url, method } = req
+  console.log(&#39;url, method: &#39;, url, method)
+
+  let staticPath = &#39;./public&#39;
+  if (url === &#39;/&#39; &amp;&amp; method === &#39;GET&#39;) {
+    fs.readFile(staticPath + &#39;/index.html&#39;, (err, data) =&gt; {
+      if (err) throw err
+      res.statusCode = 200
+      res.setHeader(&#39;Content-Type&#39;, &#39;text/html&#39;)
+      res.end(data)
+    })
+  } else if (url === &#39;/test.png&#39; &amp;&amp; method === &#39;GET&#39;) {
+    fs.readFile(staticPath + url, (err, data) =&gt; {
+      if (err) throw err
+      res.statusCode = 200
+      res.setHeader(&#39;Content-Type&#39;, &#39;image/png&#39;)
+      res.end(data)
+    })
+  } else {
+    res.end(&#39;404&#39;)
+  }
+})
+server.listen(9000, () =&gt; { console.log(&#39;端口开启于9000&#39;) })</code></pre>
+<p>上面我只用两个简单的文件来示范，实际上静态文件目录下会有多个层级，多种不同的文件类型。需要处理很多逻辑，用node提供的api，你还需要写静态文件服务的逻辑，比较麻烦。</p>
+<h4 id="post参数解析">post参数解析</h4>
+<p>第三个例子，接收get请求和post请求的参数</p>
+<p>get /user?a=1&amp;b=2</p>
+<p>post /user  {x:1, y: 2}</p>
+<pre><code class="language-js">const http = require(&#39;http&#39;)
+const URL = require(&#39;url&#39;)
+const querystring = require(&#39;querystring&#39;)
+
+const server = http.createServer((req, res)=&gt; {
+  const { url, method } = req
+  console.log(&#39;url, method: &#39;, url, method) // url, method:  /user?a=1&amp;b=2 GET
+
+  let urlObj = URL.parse(url) // 返回一个Url对象
+  console.log(urlObj)
+  let path = urlObj.pathname
+  if (path === &#39;/user&#39; &amp;&amp; method === &#39;GET&#39;) {
+    // 加 true 的二参后，会将 Url对象的 query 属性
+    // 由字符串 &#39;a=1&amp;b=2&#39; 转换为对象 { a: &#39;1&#39;, b: &#39;2&#39; }
+    let query =  URL.parse(url, true).query
+    res.end(JSON.stringify(query))
+  } else if (path === &#39;/user&#39; &amp;&amp; method === &#39;POST&#39;) {
+    var postData = &#39;&#39;; // 接收POST请求数据
+    // POST请求数据需要监听request的data事件来获取
+    console.log(req.headers)
+    req.on(&#39;data&#39;, function (chunk) {
+      postData += chunk;
+      console.log(&#39;接收到了数据&#39;, chunk)
+    });
+    // 在end事件触发后,将post_data解析为真正的POST请求格式，可以用.语法来获取值
+    req.on(&#39;end&#39;, function(){
+      // postData = querystring.parse(post_data);
+      console.log(postData)
+      let contentType = req.headers[&#39;content-type&#39;]
+      switch(contentType) {
+        case &#39;application/x-www-form-urlencoded&#39;:
+          postData = querystring.parse(postData)
+          // Object.fromEntries(new URLSearchParams(postData))
+          break
+        case &#39;application/json&#39;:
+          postData = JSON.parse(postData)
+          break
+        default:
+          if (contentType.startsWith(&#39;multipart/form-data&#39;)) {
+            postData = postData.split(&#39;\r\n&#39;)
+          }
+      }
+      console.log(typeof postData, postData)
+      res.end(&#39;end&#39;)
+    });
+  }
+})
+server.listen(9000, () =&gt; { console.log(&#39;端口开启于9000&#39;) })</code></pre>
+<h4 id="post请求数据类型">post请求数据类型</h4>
+<p>content-type 请求数据类型</p>
+<p><strong>1. postman Body = form-data</strong></p>
+<p><strong>&#39;content-type&#39;:&#39;multipart/form-data; boundary=----WebKitFormBoundary8YBfQtM6JDVUJFFZ&#39;,</strong></p>
+<pre><code class="language-js">// 后台接收到的字符串数据
+------WebKitFormBoundary8YBfQtM6JDVUJFFZ
+Content-Disposition: form-data; name=&quot;a&quot;
+
+1
+------WebKitFormBoundary8YBfQtM6JDVUJFFZ--</code></pre>
+<p><strong>2. postman Body = x-www-form-urlencoded</strong></p>
+<p><strong>&#39;content-type&#39;: &#39;application/x-www-form-urlencoded&#39;,</strong></p>
+<pre><code class="language-js">// 后台接收到的字符串数据
+a=1</code></pre>
+<p><strong>3. postman Body = raw =&gt; JSON</strong></p>
+<p><strong>&#39;content-type&#39;: &#39;application/json&#39;</strong></p>
+<pre><code class="language-js">// 后台接收到的字符串数据
+{
+        &quot;a&quot;: 1
+}</code></pre>
+<h3 id="express-对模块的整合">express 对模块的整合</h3>
+<p>通过上面的三个例子，我们了解到想要用node的api来做开发，需要封装一些模块，并进行一定的整合。node有一个专门的包管理工具 ---- npm(Node Package Management)，任何人都可以注册npm账号、发布npm包，在项目中使用某个模块只需要npm install对应的模块，再require就可以了。</p>
+<p>express就是其中的一个npm包，它把node中复杂的操作做了一定的封装、整合。 <strong>内置了路由、静态文件服务、请求数据解析、中间件等功能</strong>，相比自己用node api来写web应用，要方便很多，我们把上面的三个例子，用express来实现下</p>
+<pre><code class="language-js">const express = require(&#39;express&#39;)
+const multer = require(&#39;multer&#39;); // multipart/form-data
+const app = express()
+app.use(express.static(&#39;public&#39;)) // 静态服务
+
+// 路由
+app.get(&#39;/users&#39;, (req, res) =&gt; res.json({a: 1}))
+app.post(&#39;/info&#39;, (req, res) =&gt; res.json({b: 1}))
+
+// post、get参数
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.get(&#39;/user&#39;, (req, res) =&gt; res.json(req.query))
+app.post(&#39;/user&#39;, (req, res) =&gt; res.json(req.body))
+// 注意post请求头选择form-data会被请求头设置覆盖
+app.post(&#39;/test&#39;, multer().none(), (req, res) =&gt; res.json(req.body)) 
+
+app.use(&#39;/&#39;, (req, res) =&gt; res.send(&#39;404&#39;))
+app.listen(9000, () =&gt; console.log(`Example app listening on port 9000!`))</code></pre>
+<h3 id="koa-对express的改进">koa 对express的改进</h3>
+<p>express已经够优秀了，为什么又演进出了koa呢？我们用koa重写上面的例子，来做一下对比</p>
+<pre><code class="language-js">const Koa = require(&#39;koa&#39;)
+const Router = require(&#39;koa-router&#39;)
+const multer = require(&#39;@koa/multer&#39;)
+const app = new Koa()
+const router = new Router()
+
+app.use(require(&#39;koa-static&#39;)(__dirname + &#39;/public&#39;)) // 静态服务
+app.use(require(&#39;koa-bodyparser&#39;)()) // 解析
+
+// 路由
+router.get(&#39;/users&#39;, ctx =&gt; ctx.body = &#39;users&#39;)
+router.post(&#39;/info&#39;, ctx =&gt; ctx.body = { b: 1 })
+
+// 请求参数
+router.get(&#39;/user&#39;, ctx =&gt; ctx.body = ctx.query)
+router.post(&#39;/user&#39;, ctx =&gt; ctx.body = ctx.request.body)
+router.post(&#39;/test&#39;, multer().none(), ctx =&gt; ctx.body = ctx.request.body) 
+
+app.use(router.routes()).use(router.allowedMethods())
+
+app.listen(9000, () =&gt; console.log(&#39;服务已开启，端口 9000&#39;))</code></pre>
+<h4 id="轻量无捆绑">轻量无捆绑</h4>
+<p>对比两个例子来看，看起来改动很小，细心一点你会发现koa把路由、static、post参数解析等功能都从框架内部移除了，以中间件的方式引入。以前express相对来讲是比较重的，捆绑了很多功能，koa设计的就比较轻量、灵活，按需引入，渐进式增强。像vue也是这种设计，渐进式增强，按需引入，一般框架设计都有共通之处。</p>
+<h4 id="api设计更加易用优雅">api设计更加易用优雅</h4>
+<p>仅从上面的例子，你可能看不出来什么，因为上面的信息比较少，实际express的api还有很多，我们来看看api文档</p>
+<p><strong>响应数据方面</strong>，express响应数据有多个api：res.end()，res.json()，res.send()，res.download()，res.sendFile()</p>
+<p><img src="../../../images/blog/node/why_node_response_express.png" alt="response_express"></p>
+<p>koa，砍掉无用的api，只保留 ctx.body = 根据不同的数据类型，自动处理</p>
+<p><img src="../../../images/blog/node/why_node_response_koa.png" alt="response_koa.png"></p>
+<p><strong>回调函数参数合并：res, req 合并为 ctx（context）</strong></p>
+<ul>
+<li>ctx.req、ctx.res 保留node原来的req与res</li>
+<li>再对原来的res和req进行优化、增强，演变为 ctx.request，ctx.response, 也就是koa自己的request和response</li>
+<li>aliases别名，由于ctx.request.xx 和 ctx.response.xx 比较长，所以通过定义ctx的访问器属性(get/set方法)设置了一些别名<pre><code class="language-js">// 举两个例子
+// ctx.request.query 可以简写为 ctx.query
+// ctx.response.body 可以简写为 ctx.body</code></pre>
+</li>
+</ul>
+<h4 id="中间件构架增强---洋葱圈模型">中间件构架增强 - 洋葱圈模型</h4>
+<p>我们先来看看express的中间件，非异步函数，只能顺序向下传递</p>
+<pre><code class="language-js">var express = require(&#39;express&#39;)
+var app = express()
+
+var requestTime = function (req, res, next) {
+  req.requestTime = Date.now()
+  next()
+}
+
+app.use(requestTime)
+
+app.get(&#39;/&#39;, function (req, res) {
+  var responseText = &#39;Hello World!&lt;br&gt;&#39;
+  responseText += &#39;&lt;small&gt;Requested at: &#39; + req.requestTime + &#39;&lt;/small&gt;&#39;
+  res.send(responseText)
+})
+
+app.listen(3000)</code></pre>
+<p>再来看koa的中间件，异步函数，从上到下传递后，可以再自下而上传递，实现&quot;真正&quot; 的中间件</p>
+<pre><code class="language-js">const Koa = require(&#39;koa&#39;);
+const app = new Koa();
+
+// x-response-time
+app.use(async (ctx, next) =&gt; {
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+  ctx.set(&#39;X-Response-Time&#39;, `${ms}ms`);
+});
+
+// logger
+app.use(async (ctx, next) =&gt; {
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+  console.log(`${ctx.method} ${ctx.url} - ${ms}`);
+});
+
+// response
+app.use(async ctx =&gt; {
+  ctx.body = &#39;Hello World&#39;;
+});
+
+app.listen(3000);</code></pre>
+<p><img src="../../../images/blog/node/why_node_koa_middleware_mode.png" alt="koa_middleware_mode.png"></p>
+<h3 id="eggjs-为企业级框架和应用而生">Egg.js 为企业级框架和应用而生</h3>
+<p>koa轻量简洁、但没有约束任何目录结构层级，Egg.js提供了更好的组织代码的方式，可以开发出更健壮的代码。可以帮助开发团队和开发人员降低开发和维护成本。</p>
+<p>参考：<a href="https://eggjs.org/zh-cn/basics/structure.html">Egg.js 自动生成框架文件结构及说明</a></p>
+<h3 id="自己写一个koa">自己写一个koa</h3>
+<p>koa中间件机制是：利用compose函数组合，将一组需要顺序执行的函数复合为一个函数，外层函数的参数是内层函数的返回值。</p>
+<p>执行顺序:</p>
+<ol>
+<li>先引入模块，创建koa对象</li>
+<li>执行app.use()引入各种中间件，返回this，支持链式调用 app.use(m1).user(m2)</li>
+<li>app.listen() 开始创建http服务，接收请求响应</li>
+</ol>
+<pre><code class="language-js">const http = require(&#39;http&#39;)
+const context = require(&#39;./context&#39;)
+const request = require(&#39;./request&#39;)
+const response = require(&#39;./response&#39;)
+
+class MyKoa {
+  // app.use 调用 app.use(callback)
+  constructor() {
+    this.middlewares = []
+  }
+  use(middleware) {
+    this.middlewares.push(middleware)
+    return this // 支持链式调用 app.use().use()
+  }
+
+  listen(...args) {
+    console.log(args)
+    const server = http.createServer(async (req, res) =&gt; {
+      // 需要先创建上下文
+      let ctx = this.createContext(req, res)
+
+      // 组合函数、koa中间件核心
+      let fn = this.compose(this.middlewares) // 合并为一个执行函数
+      await fn(ctx)
+
+      // ctx.body设置值后，并没有响应给前端，来简单写下响应的逻辑
+      // 这里简单的处理了下ctx.body 但实际要有很多处理
+      let bodyType = typeof ctx.body
+      let result = bodyType === &#39;object&#39; ? JSON.stringify(ctx.body) : ctx.body
+      // 解决中文乱码的问题
+      res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/html; charset=utf-8&#39;});
+      res.end(result)
+    })
+    server.listen(...args)
+  }
+
+  createContext(req, res) {
+    // 先继承一些我们写的对象
+    const ctx = Object.create(context)
+    ctx.request = Object.create(request)
+    ctx.response = Object.create(response)
+
+    ctx.req = ctx.request.req = req
+    ctx.res = ctx.response.res = res
+
+    return ctx
+  }
+
+  compose(middlewares) {
+    return function(ctx) {
+      return dispatch(0) // 先执行第一个中间件
+      // 定义一个函数
+      function dispatch(i) { // 递归执行函数
+        let middleware = middlewares[i]
+        if (!middleware) { // 递归退出条件
+          return Promise.resolve()
+        }
+        return Promise.resolve(
+          middleware(ctx, () =&gt; {  // 对应 app.use(ctx, next =&gt; { await next() })
+            // dispatch(i + 1)
+            return dispatch(i + 1) // 如果不执行next，无法执行下一个中间件
+          })
+        )
+      }
+    }
+  }
+}
+
+module.exports = MyKoa</code></pre>
+<p>在上面的例子中，我们发现将next的函数里面 return dispatch(i + 1) 改为 dispatch(i + 1)，会导致await没有按预期等待。<strong>await 后面的内容如果函数返回值为promise，则等待promise执行完再向下执行，如果返回值非promise，await不会等待(await下面的代码和await等待的函数会同步执行)</strong></p>
+<p>koa compose源码</p>
+<pre><code class="language-js">// koa compose  https://github.com/koajs/compose/blob/master/index.js
+
+&#39;use strict&#39;
+
+/**
+ * Expose compositor.
+ */
+
+module.exports = compose
+
+/**
+ * Compose `middleware` returning
+ * a fully valid middleware comprised
+ * of all those which are passed.
+ *
+ * @param {Array} middleware
+ * @return {Function}
+ * @api public
+ */
+
+function compose (middleware) {
+  if (!Array.isArray(middleware)) throw new TypeError(&#39;Middleware stack must be an array!&#39;)
+  for (const fn of middleware) {
+    if (typeof fn !== &#39;function&#39;) throw new TypeError(&#39;Middleware must be composed of functions!&#39;)
+  }
+
+  /**
+   * @param {Object} context
+   * @return {Promise}
+   * @api public
+   */
+
+  return function (context, next) {
+    // last called middleware #
+    let index = -1
+    return dispatch(0)
+    function dispatch (i) {
+      if (i &lt;= index) return Promise.reject(new Error(&#39;next() called multiple times&#39;))
+      index = i
+      let fn = middleware[i]
+      if (i === middleware.length) fn = next
+      if (!fn) return Promise.resolve()
+      try {
+        return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));
+      } catch (err) {
+        return Promise.reject(err)
+      }
+    }
+  }
+}</code></pre>
+<h3 id="自己写一个请求拦截中间件">自己写一个请求拦截中间件</h3>
+<p>koa中间件规范:</p>
+<ol>
+<li>一个async函数</li>
+<li>接收ctx和next两个参数</li>
+<li>任务结束需要执行next</li>
+</ol>
+<pre><code class="language-js">const mid = async (ctx, next) =&gt; {
+  // 来到中间件，洋葱圈左边
+  next() // 进入其他中间件
+  // 再次来到中间件，洋葱圈右边
+}</code></pre>
+<p>实现一个请求拦截中间件，对于黑名单内的ip，禁止访问</p>
+<pre><code class="language-js">const Koa = require(&#39;koa&#39;)
+const app = new Koa()
+const intercept = require(&#39;./intercept&#39;)
+
+// 请求拦截中间件
+app.use(intercept)
+
+app.use((ctx, next) =&gt; {
+  ctx.body = &#39;hello&#39;
+})
+app.listen(3000)</code></pre>
+<p>intercept.js实现</p>
+<pre><code class="language-js">async function intercept(ctx, next) {
+  let { res, req } = ctx
+  const blacklist = [
+    &#39;127.0.0.1&#39;,
+    &#39;192.168.1.2&#39;
+  ]
+  const ip = getClientIp(req)
+
+  if (blacklist.includes(ip)) {
+    ctx.body = &#39;您无权限访问&#39;
+    // 如果不执行next，就无法进入到下一个中间件
+  } else {
+    await next()
+  }
+}
+
+// 获取当前IP
+function getClientIp(req) {
+  let curIp = (
+    req.headers[&#39;x-forwarded-for&#39;] ||  // 是否有反向代理 IP
+    req.connection.remoteAddress || // 判断 connection 的远程 IP
+    req.socket.remoteAddress || // 判断后端的 socket 的 IP
+    req.connection.socket.remoteAddress 
+  )
+  curIp.startsWith(&#39;::ffff:&#39;) &amp;&amp; (curIp = curIp.split(&#39;::ffff:&#39;)[1])
+  console.log(&#39;当前ip是&#39;, curIp)
+  return curIp
+}
+
+module.exports = intercept</code></pre>
+<p>可用性扩展</p>
+<pre><code class="language-js">// let blacklist = [
+//   &#39;127.0.0.1&#39;,
+//   &#39;192.168.1.2&#39;
+// ]
+// // 请求拦截中间件
+// app.use(intercept(blacklist))
+
+function intercept(blacklist) {
+  return async (ctx, next) =&gt; {
+    // 获取当前IP
+    function getClientIp(req) {
+      let curIp = (
+        req.headers[&#39;x-forwarded-for&#39;] ||  // 是否有反向代理 IP
+        req.connection.remoteAddress || // 判断 connection 的远程 IP
+        req.socket.remoteAddress || // 判断后端的 socket 的 IP
+        req.connection.socket.remoteAddress 
+      )
+      curIp.startsWith(&#39;::ffff:&#39;) &amp;&amp; (curIp = curIp.split(&#39;::ffff:&#39;)[1])
+      console.log(&#39;当前ip是&#39;, curIp)
+      return curIp
+    }
+
+    let { res, req } = ctx
+    const ip = getClientIp(req)
+
+    if (blacklist.includes(ip)) {
+      ctx.body = &#39;您无权限访问&#39;
+      // 如果不执行next，就无法进入到下一个中间件
+    } else {
+      await next()
+    }
+  }
+}
+
+module.exports = intercept</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="为什么会有nodejs，其衍生框架express、koa、eggjs的演进过程" style="padding-left:1em">为什么会有Node.js，其衍生框架Express、Koa、Egg.js的演进过程<span></li><ul><li><span class="ul-span" data-id="为什么会出现nodejs" style="padding-left:2em">为什么会出现Node.js<span></li><ul><li><span class="ul-span" data-id="什么是nodejs？" style="padding-left:3em">什么是Node.js？<span></li></ul><ul><li><span class="ul-span" data-id="什么是js运行时？" style="padding-left:3em">什么是JS运行时？<span></li></ul><ul><li><span class="ul-span" data-id="在node中为什么可以运行js代码？" style="padding-left:3em">在node中为什么可以运行js代码？<span></li></ul><ul><li><span class="ul-span" data-id="node为什么要创建一个基于js的执行环境，作者的初衷是什么？" style="padding-left:3em">node为什么要创建一个基于js的执行环境，作者的初衷是什么？<span></li></ul><ul><li><span class="ul-span" data-id="node的应用场景" style="padding-left:3em">node的应用场景<span></li><ul><li><span class="ul-span" data-id="打包构建、cli命令行工具脚手架" style="padding-left:4em">打包构建、cli命令行工具脚手架<span></li></ul><ul><li><span class="ul-span" data-id="写后台接口、高并发web服务、服务端渲染" style="padding-left:4em">写后台接口、高并发web服务、服务端渲染<span></li></ul></ul></ul><ul><li><span class="ul-span" data-id="nodejs衍生框架发展" style="padding-left:2em">Node.js衍生框架发展<span></li><ul><li><span class="ul-span" data-id="nodejs的不足" style="padding-left:3em">Node.js的不足<span></li><ul><li><span class="ul-span" data-id="路由相关操作" style="padding-left:4em">路由相关操作<span></li></ul><ul><li><span class="ul-span" data-id="静态文件服务" style="padding-left:4em">静态文件服务<span></li></ul><ul><li><span class="ul-span" data-id="post参数解析" style="padding-left:4em">post参数解析<span></li></ul><ul><li><span class="ul-span" data-id="post请求数据类型" style="padding-left:4em">post请求数据类型<span></li></ul></ul><ul><li><span class="ul-span" data-id="express-对模块的整合" style="padding-left:3em">express 对模块的整合<span></li></ul><ul><li><span class="ul-span" data-id="koa-对express的改进" style="padding-left:3em">koa 对express的改进<span></li><ul><li><span class="ul-span" data-id="轻量无捆绑" style="padding-left:4em">轻量无捆绑<span></li></ul><ul><li><span class="ul-span" data-id="api设计更加易用优雅" style="padding-left:4em">api设计更加易用优雅<span></li></ul><ul><li><span class="ul-span" data-id="中间件构架增强---洋葱圈模型" style="padding-left:4em">中间件构架增强 - 洋葱圈模型<span></li></ul></ul><ul><li><span class="ul-span" data-id="eggjs-为企业级框架和应用而生" style="padding-left:3em">Egg.js 为企业级框架和应用而生<span></li></ul><ul><li><span class="ul-span" data-id="自己写一个koa" style="padding-left:3em">自己写一个koa<span></li></ul><ul><li><span class="ul-span" data-id="自己写一个请求拦截中间件" style="padding-left:3em">自己写一个请求拦截中间件<span></li></ul></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

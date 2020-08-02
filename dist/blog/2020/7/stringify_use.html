@@ -67,7 +67,7 @@ this.$router.replace({
   path: this.$route.path, 
   query: JSON.parse(JSON.stringify(query, Object.keys(query).filter(item =&gt; item !== &#39;id&#39;))) 
 })</code></pre>
-<h2 id="详细处理没有字段序列化的值">详细处理没有字段序列化的值</h2>
+<h2 id="详细处理每个字段序列化的值">详细处理每个字段序列化的值</h2>
 <pre><code class="language-js">let obj = { list: [ {a: 1}, {a: 2} ], total: 100 }
 let new = JSON.stringify(obj, (key, value) =&gt; {
   return key === &#39;list&#39; ? &#39;改写list序列化的值&#39; : value
@@ -86,7 +86,7 @@ let new = JSON.stringify(obj, (key, value) =&gt; {
           </article>
           <aside>
             <div>
-              <ul><li><span class="ul-span" data-id="jsonstringify的非常规用法以及内部执行顺序" style="padding-left:1em">JSON.stringify的非常规用法以及内部执行顺序<span></li><ul><li><span class="ul-span" data-id="利用第三参数在console里更好的展示对象" style="padding-left:2em">利用第三参数在console里更好的展示对象<span></li></ul><ul><li><span class="ul-span" data-id="有选择性的过滤字段" style="padding-left:2em">有选择性的过滤字段<span></li></ul><ul><li><span class="ul-span" data-id="详细处理没有字段序列化的值" style="padding-left:2em">详细处理没有字段序列化的值<span></li></ul><ul><li><span class="ul-span" data-id="jsonstringify执行顺序" style="padding-left:2em">JSON.stringify()执行顺序<span></li></ul></ul>
+              <ul><li><span class="ul-span" data-id="jsonstringify的非常规用法以及内部执行顺序" style="padding-left:1em">JSON.stringify的非常规用法以及内部执行顺序<span></li><ul><li><span class="ul-span" data-id="利用第三参数在console里更好的展示对象" style="padding-left:2em">利用第三参数在console里更好的展示对象<span></li></ul><ul><li><span class="ul-span" data-id="有选择性的过滤字段" style="padding-left:2em">有选择性的过滤字段<span></li></ul><ul><li><span class="ul-span" data-id="详细处理每个字段序列化的值" style="padding-left:2em">详细处理每个字段序列化的值<span></li></ul><ul><li><span class="ul-span" data-id="jsonstringify执行顺序" style="padding-left:2em">JSON.stringify()执行顺序<span></li></ul></ul>
             <div>
           </aside>
         </section>

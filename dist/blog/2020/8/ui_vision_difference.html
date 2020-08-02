@@ -1,0 +1,96 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="ui_vision_difference.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="当实现设计稿后，总感觉上下没对齐，怎么办呢？建议放大n倍，截图画框，看是否在一条水平线上。这里涉及到视觉差的问题，下面来看看相关知识，测量面积和视觉面积 - 视觉体量是人眼如何察觉物体的大小和感觉，不需要等同于物体的实际像素值 - 圆、菱形、三角形和其他非方形形状为了与方形形状保持一样的视觉大小，应适当放大">
+        <meta name="keywords" content="视觉差,视觉差怎么解决,UI视觉差,iconfont上为什么有的图标周围有留白，而有的图标没有留白的原因">
+
+        <title>UI设计视觉差问题，总感觉没有居中对齐时怎么办 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#css" class="hidden">css</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/02</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="ui设计视觉差问题，总感觉没有居中对齐时怎么办">UI设计视觉差问题，总感觉没有居中对齐时怎么办</h1>
+<p>当实现设计稿后，总感觉上下没对齐，怎么办呢？<strong>建议放大n倍，截图画框，看是否在一条水平线上</strong>。这里涉及到视觉差的问题，下面来看看相关知识</p>
+<h2 id="测量面积和视觉面积">测量面积和视觉面积</h2>
+<ul>
+<li>视觉体量是人眼如何察觉物体的大小和感觉，不需要等同于物体的实际像素值</li>
+<li>圆、菱形、三角形和其他非方形形状为了与方形形状保持一样的视觉大小，应适当放大</li>
+<li>图标区域应为视觉平衡保留一定的空间，这一点对保持同系列图标视觉平衡很重要。(<strong>这也是iconfont上为什么有的图标周围有留白，而有的图标没有留白的原因</strong>)</li>
+</ul>
+<h2 id="不同形状之间的对齐">不同形状之间的对齐</h2>
+<ul>
+<li>具有锐利边缘的形状应该更大，以便于其相邻的矩形对象保持视觉平衡</li>
+<li>大写字母对齐是一种有效且被广泛运用的方法，用于文本和按钮背景对齐</li>
+<li>将三角型图标正确放置按钮中的一种有效办法是，将其圈住并使此圈与背景对齐。</li>
+</ul>
+<h2 id="视觉圆角">视觉圆角</h2>
+<ul>
+<li>几何圆角看起来假是因为人眼可以清楚地看到直线突然变成曲线的点</li>
+<li>视觉正确的圆角需要一些特殊的算法或手动调整形状</li>
+</ul>
+<p>参考：<a href="https://www.sohu.com/a/328932717_612419">设计师必须知道，什么是视觉差对比？</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="ui设计视觉差问题，总感觉没有居中对齐时怎么办" style="padding-left:1em">UI设计视觉差问题，总感觉没有居中对齐时怎么办<span></li><ul><li><span class="ul-span" data-id="测量面积和视觉面积" style="padding-left:2em">测量面积和视觉面积<span></li></ul><ul><li><span class="ul-span" data-id="不同形状之间的对齐" style="padding-left:2em">不同形状之间的对齐<span></li></ul><ul><li><span class="ul-span" data-id="视觉圆角" style="padding-left:2em">视觉圆角<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
