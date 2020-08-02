@@ -32,7 +32,7 @@ this.$router.replace({
 })
 ```
 
-## 详细处理没有字段序列化的值
+## 详细处理每个字段序列化的值
 
 ```js
 let obj = { list: [ {a: 1}, {a: 2} ], total: 100 }
