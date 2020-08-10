@@ -61,7 +61,71 @@
         "description": "Object.observe()是js实现观察者设计模式的一个API，现在已废弃，由Proxy取代，但Proxy不支持IE。它用于异步地监视一个对象的修改。当对象属性被修改时，方法的回调函数会提供一个有序的修改流。在vue2.0的双向绑定的实现里，会遍历data对象，通过建立对应的getter/setter访问器属性来追踪属性变化。Vue 3.0里已使用Proxy来追踪属性变化",
         "keywords": "observe与proxy",
         "category": "js"
+    },
+    {
+        "source": "WebSocket的使用场景.md",
+        "staticFileName": "websocket_scene.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/10",
+        "description": "WebSocket是HTML5开始提供的一种在单个TCP连接上进行全双工通讯的协议。之前在工作中基本没用到过，今天偶然看到一个网站，他里面列出了WebSocket的几种使用场景，如下：在线多人点菜、远程画版同步、在线选座、游戏 (只要涉及到多人对战、协同的就需要用到)、扫码登录/支付、IM 聊天",
+        "keywords": "WebSocket的使用场景,websocket可以做什么",
+        "category": "计算机基础与开发工具"
+    },
+    {
+        "source": "为什么要写单元测试.md",
+        "staticFileName": "why_unit_test.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/10",
+        "description": "20/04/30日发版，持续到到今天凌晨2点左右，测试发现有个bug：时间区间组件DatePicker前面一个时间没有显示，而这里应该显示最近一周的时间区间，现在只显示了后面一个时间。但测试环境测试、UAT测试都是过了的，怎么突然就有问题了呢？于是看同事的代码定位问题，发现根据当前时间计算最近一周的日期逻辑有问题，只是简单粗暴的把 day 减了 6 天，之前一直是4月中下旬，大于6，所以没有出问题，这次正好是5月1号， 1 - 6 就是 -5 了, 时间拼接为 2020-05-0-5，这就导致有bug了。还好今天是5月1号，不然测不出这个bug就会导致后面生成环境的bug了。",
+        "keywords": "为什么要写单元测试,单元测试有什么好处",
+        "category": "计算机基础与开发工具"
+    },
+    {
+        "source": "怎么看chrome浏览器更新记录及内容.md",
+        "staticFileName": "chrome_update_log.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/10",
+        "description": "最近发现办公电脑的chrome浏览器console里不支持 ?? 运算符，而我自己的电脑就可以，对比了下版本，我的是最新的81版本，而办公电脑还是71的版本，于是我就想看看chrome每次版本的更新记录，这个貌似要翻墙，我用了一个开源的chrome访问助手，找到了对应的位置",
+        "keywords": "怎么看chrome浏览器更新记录及内容,怎么看chrome浏览器每个版本更新了什么",
+        "category": "计算机基础与开发工具"
+    },
+    {
+        "source": "uni复制功能只支持app、小程序，怎么兼容H5.md",
+        "staticFileName": "uni_copy_h5.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/10",
+        "description": "uni复制功能只支持app、小程序，怎么兼容H5呢？当H5时，我们可以引导用户自己选择后copy，如果是app调用uni的api，代码如下",
+        "keywords": "uni复制兼容H5,uni复制 h5",
+        "category": "移动端混合开发"
+    },
+    {
+        "source": "uni动态修改导航栏按钮文案.md",
+        "staticFileName": "uni_eidt_nav.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/10",
+        "description": "一般uni导航栏按钮是在配置文件里面写的，那怎么动态的修改配置呢？先来看导航栏按钮配置文件，导航栏右侧有一个按钮 编辑",
+        "keywords": "uni动态修改导航栏按钮、文案",
+        "category": "移动端混合开发"
+    },
+    {
+        "source": "vue多层级组件，父组件怎么将事件传递给孙组件?.md",
+        "staticFileName": "vue_listeners.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/10",
+        "description": "来看一个例子，假设A组件包含组件B，B组件又包含组件C，我们知道，在B组件里 this.$emit('open-tab') 会执行其父组件A里面对应的方法，但如果B的子组件C，也想触发A组件的事件，那要怎么做呢？",
+        "keywords": "vue多层级组件，父组件怎么将事件传递给孙组件",
+        "category": "vue"
+    },
+    {
+        "source": "vue动态组件怎么动态绑定一个或多个v-bind属性.md",
+        "staticFileName": "component_vbind.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/10",
+        "description": "最近有封装一个tabs标签页组件，引入组件，可以将页面进行tab化。原先的页面作为子组件放到tabs组件里，由于标签页跳转页面时有需要打开新的标签页。所以tabs组件里会包含多个页面组件，为了避免像el-tabs那样，每次引入tabs组件都需要自己写v-if的逻辑来切换tab显示。我把这一步封装到了自定义tabs组件内部，内部使用动态组件component、is来切换组件显示。",
+        "keywords": "动态组件怎么动态绑定一个或多个v-bind属性",
+        "category": "vue"
     }
+    
 ]
 
 
