@@ -1,0 +1,82 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="why_unit_test.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="20/04/30日发版，持续到到今天凌晨2点左右，测试发现有个bug：时间区间组件DatePicker前面一个时间没有显示，而这里应该显示最近一周的时间区间，现在只显示了后面一个时间。但测试环境测试、UAT测试都是过了的，怎么突然就有问题了呢？于是看同事的代码定位问题，发现根据当前时间计算最近一周的日期逻辑有问题，只是简单粗暴的把 day 减了 6 天，之前一直是4月中下旬，大于6，所以没有出问题，这次正好是5月1号， 1 - 6 就是 -5 了, 时间拼接为 2020-05-0-5，这就导致有bug了。还好今天是5月1号，不然测不出这个bug就会导致后面生成环境的bug了。">
+        <meta name="keywords" content="为什么要写单元测试,单元测试有什么好处">
+
+        <title>为什么要写单元测试 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/10</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="为什么要写单元测试">为什么要写单元测试</h1>
+<p>20/04/30日发版，持续到到今天凌晨2点左右，测试发现有个bug：时间区间组件DatePicker前面一个时间没有显示，而这里应该显示最近一周的时间区间，现在只显示了后面一个时间。</p>
+<p>但测试环境测试、UAT测试都是过了的，怎么突然就有问题了呢？于是看同事的代码定位问题，发现根据当前时间计算最近一周的日期逻辑有问题，只是简单粗暴的把 day 减了 6 天，之前一直是4月中下旬，大于6，所以没有出问题，这次正好是5月1号， 1 - 6 就是 -5 了, 时间拼接为 2020-05-0-5，这就导致有bug了。还好今天是5月1号，不然测不出这个bug就会导致后面生成环境的bug了。</p>
+<p>从发现问题到定位问提、解决问题，大概用了5-10分钟左右。最后用当前时间戳 - 6 * 24 * 3600 * 1000 来解决。 </p>
+<p>我们一般在写程序时，很难发现自己逻辑上的bug，假设我们这里有写单元测试，考虑了很多种情况，那就可以避免这个问题。但现实是，我们目前大部分人都没有这个习惯，只要测试过了，就基本以为没问题了。但对于那种测试都测试不出来的在特定时间才会触发的bug，真的很可能造成线上bug，完全依赖于个人写代码时的逻辑严谨性。</p>
+<p>怎么让自己写的代码更严谨，出问题的几率更小呢？那就是写单元测试。这样我们会考虑更多的特殊场景、而不是靠人肉测试。</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="为什么要写单元测试" style="padding-left:1em">为什么要写单元测试<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
