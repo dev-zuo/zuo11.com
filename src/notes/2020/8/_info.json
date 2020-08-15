@@ -124,8 +124,81 @@
         "description": "最近有封装一个tabs标签页组件，引入组件，可以将页面进行tab化。原先的页面作为子组件放到tabs组件里，由于标签页跳转页面时有需要打开新的标签页。所以tabs组件里会包含多个页面组件，为了避免像el-tabs那样，每次引入tabs组件都需要自己写v-if的逻辑来切换tab显示。我把这一步封装到了自定义tabs组件内部，内部使用动态组件component、is来切换组件显示。",
         "keywords": "动态组件怎么动态绑定一个或多个v-bind属性",
         "category": "vue"
+    },
+    {
+        "source": "vue在自定义组件上使用v-model指令.md",
+        "staticFileName": "custom_comp_v_model.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "vue自定义组件使用使用v-model,vue v-model,vue v-model原理,vue v-model内部实现,在自定义组件上，使用v-model指令，默认会向子组件传递一个字段名为 value 的 prop 属性，以及绑定一个名为 input 的事件。在子组件里，可以用props来接收value字段，可以用 this.$emit('input') 来对父组件里value的值进行修改。它主要的应用在子组件需要修改父组件属性值的情况，你不需要额外再调用子组件时，传递一个修改值的事件，节省了一个事件监听。来看看示例",
+        "keywords": "vue自定义组件使用使用v-model,vue v-model,vue v-model原理,vue v-model内部实现",
+        "category": "vue"
+    },
+    {
+        "source": "vue中v-model与.sync的区别.md",
+        "staticFileName": "v-model_vs_sync.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "v-model与.sync的区别,v-model vs .sync, vue v-model与 .sync的区别,一般父组件给子组件传值是单向的，对于非引用类型，子组件怎么修改父组件传给子组件prop对应的值呢？除了通过 $parent、$root、Bus(发布，订阅)、状态管理(vuex)、额外定义一个方法外，还有两种方法：使用 v-model，或者为加.sync，来看下对比",
+        "keywords": "v-model与.sync的区别,v-model vs .sync, vue v-model与 .sync的区别",
+        "category": "vue"
+    },
+    {
+        "source": "vue中$attrs 和 $listeners 的使用场景.md",
+        "staticFileName": "vue_attrs_listeners.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "$attrs与$listeners,vue $attrs,vue $listeners,vue $attrs使用场景,vue $listeners使用场景,在vue中，$attrs，$listeners 分别记录了当前组件上绑定的属性以及事件，一般可能用的比较少，下面来看看。`v-bind=$attrs` 他类似属性展开运算符，将父组件调用子组件时传入的属性展开(不包含props已接收的)、v-bind到当前的元素上。listeners除了跨层级向下传递事件外，还可以用于将原生事件绑定到组件",
+        "keywords": "$attrs与$listeners,vue $attrs,vue $listeners,vue $attrs使用场景,vue $listeners使用场景",
+        "category": "vue"
+    },
+    {
+        "source": "vue为什么要将插槽slot='aaa'的写法变更为v-slot:aaa.md",
+        "staticFileName": "slot_vs_v-slot.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "vue slot v-slot区别,v-slot是slot的语法糖，在 2.6.0 中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令)。它取代了 slot 和 slot-scope 这两个目前已被废弃但未被移除。具名插槽 主要用于当有多个插槽时，通过名字对不同的插槽进行区分，先来看看聚名插槽使用时的一个特殊场景，由于在父组件里调用用子组件，会写上对应的插槽，这时插槽的作用域为当前的父组件，插槽内部使用的变量名默认都是从父组件取的。下面的例子中 slotA插槽内部调用的 user，它默认是当前组件的变量（父组件）",
+        "keywords": "vue slot v-slot区别,v-slot是slot的语法糖",
+        "category": "vue"
+    },
+    {
+        "source": "vue组件之间传值(通信)方式总结.md",
+        "staticFileName": "vue_comp_transmit.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "vue组件之间传值,vue传值方式,vue传值方式总结,vue通信方式总结,在vue中一般组件之间传值是必须要理解的，下面来总结下组件间传值的方法，分为以下几种情况 1. 父组件 => 子组件 2. 子组件 => 父组件 3. 兄弟组件 4. 父组件 => 子组件 5. 祖先和后代之间 6. 任意两个组件之间",
+        "keywords": "vue组件之间传值,vue传值方式,vue传值方式总结,vue通信方式总结",
+        "category": "vue"
+    },
+    {
+        "source": "vue里简单的总线(bus)发布订阅模式实现.md",
+        "staticFileName": "vue_on_emit.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "vue publish/subscription,vue发布订阅模式实现,vue bus发布订阅实现, 在vue组件内部有实现发布订阅模式，类似于bus，在兄弟组件或任意两组件之间传值可以使用这种方法，那内部是怎么实现的呢？我们先写一个调用demo",
+        "keywords": "vue publish/subscription,vue发布订阅模式实现,vue bus发布订阅实现",
+        "category": "vue"
+    },
+    {
+        "source": "vue项目文件以及文件夹命名规范问题，前端代码规范风格指南.md",
+        "staticFileName": "vue_code_style.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "vue代码规范,vue命名规范,vue组件命名,前端代码规范,前端代码风格指南,vue代码风格指南,vue文件命名,在以vue为主的开发中，vue项目文件以及文件夹命名规范文件，在开发团队里面是需要统一的。我们尽量按照一种规范来开发，形成一种风格，这样更有利于项目迭代维护，下面来逐一介绍：1.个人总结的vue功能组件、目录结构风格 2.业界较权威的风格指南 3.其他风格",
+        "keywords": "vue代码规范,vue命名规范,vue组件命名,前端代码规范,前端代码风格指南,vue代码风格指南,vue文件命名",
+        "category": "vue"
+    },
+    {
+        "source": "vue为什么建议永远不要把 v-if 和 v-for 同时用在同一个元素上.md",
+        "staticFileName": "v-if_v-for.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/15",
+        "description": "vue v-if为什么不能和v-for一起用,vue v-if v-for一起用,vue v-if和v-for一起时优先级,在vue风格指南中，将'避免 v-if 和 v-for 用在一起'列为必要优先级，建议永远不要把 v-if 和 v-for 同时用在同一个元素上。官网文档如下: 一般我们在两种常见的情况下会倾向于这样做： 1. 为了过滤一个列表中的项目 (比如 v-for='user in users' v-if='user.isActive')。在这种情形下，请将 users 替换为一个计算属性 (比如 activeUsers)，让其返回过滤后的列表。2. 为了避免渲染本应该被隐藏的列表 (比如 v-for='user in users' v-if='shouldShowUsers')。这种情形下，请将 v-if 移动至容器元素上 (比如 ul、ol)。",
+        "keywords": "vue v-if为什么不能和v-for一起用,vue v-if v-for一起用,vue v-if和v-for一起时优先级",
+        "category": "vue"
     }
-    
 ]
+
+
 
 
