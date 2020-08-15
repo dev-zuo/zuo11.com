@@ -1,0 +1,113 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="vue_attrs_listeners.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="$attrs与$listeners,vue $attrs,vue $listeners,vue $attrs使用场景,vue $listeners使用场景,在vue中，$attrs，$listeners 分别记录了当前组件上绑定的属性以及事件，一般可能用的比较少，下面来看看。`v-bind=$attrs` 他类似属性展开运算符，将父组件调用子组件时传入的属性展开(不包含props已接收的)、v-bind到当前的元素上。listeners除了跨层级向下传递事件外，还可以用于将原生事件绑定到组件">
+        <meta name="keywords" content="$attrs与$listeners,vue $attrs,vue $listeners,vue $attrs使用场景,vue $listeners使用场景">
+
+        <title>vue中$attrs 和 $listeners 的使用场景 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/15</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="vue中attrs-和-listeners-的使用场景">vue中<code>$attrs</code> 和 <code>$listeners</code> 的使用场景</h1>
+<p>在vue中，$attrs，$listeners 分别记录了当前组件上绑定的属性以及事件，一般可能用的比较少，下面来看看</p>
+<h2 id="thisattrs">this.$attrs</h2>
+<blockquote>
+<p><code>$attrs</code>包含了父作用域中不作为 prop 被识别 (且获取) 的 attribute 绑定 (class 和 style 除外)。当一个组件没有声明任何 prop 时，这里会包含所有父作用域的绑定 (class 和 style 除外)，并且可以通过 v-bind=&quot;$attrs&quot; 传入内部组件——在创建高级别的组件时非常有用。</p>
+</blockquote>
+<p><code>v-bind=&quot;$attrs&quot;</code> 他类似属性展开运算符，将父组件调用子组件时传入的属性展开(不包含props已接收的)、v-bind到当前的元素上。这里以封装input表单组件为例，来看看效果</p>
+<pre><code class="language-html">&lt;!-- 调用 zuo-input组件时传参 --&gt;
+&lt;zuo-input v-model=&quot;value&quot; placeholder=&quot;请输入&quot; maxlength=&quot;50&quot;/&gt;
+
+&lt;!-- zuo-input 组件内部实现 --&gt;
+&lt;input :value=&quot;value&quot; @input=&quot;oninput&quot; v-bind=&quot;$attrs&quot;&gt; 
+&lt;!-- 上面的代码渲染出来效果如下 --&gt;
+&lt;input :value=&quot;value&quot; @input=&quot;oninput&quot; placeholder=&quot;请输入&quot; maxlength=&quot;50&quot;/&gt;</code></pre>
+<h2 id="thislisteners">this.$listeners</h2>
+<blockquote>
+<p>包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。它可以通过 v-on=&quot;$listeners&quot; 传入内部组件——在创建更高层次的组件时非常有用。</p>
+</blockquote>
+<p>之前的笔记有提过，如果A组件包含B组件，B组件包含C组件。C组件想要触发A组件的方法，可以在B组件上加 <code>v-on=&quot;$listeners&quot;</code> , 这样 C组件可以直接通过emit触发A组件的事件</p>
+<pre><code class="language-js">// this.$listeners
+{
+  focus: function (event) { /* ... */ }
+  input: function (value) { /* ... */ },
+}</code></pre>
+<p>除了跨层级向下传递事件外，还可以用于将原生事件绑定到组件</p>
+<pre><code class="language-html">&lt;zuo-input @focus=&quot;focus&quot; @input=&quot;xxx&quot; @change=&quot;xx&quot;/&gt;
+&lt;!-- zuo-input 组件内部实现 --&gt;
+&lt;input v-on=&quot;$listeners&quot;&gt; 
+&lt;!-- 上面的代码渲染出来效果如下 --&gt;
+&lt;input onfocus=&quot;focus&quot; oninput=&quot;xxx&quot; onchange=&quot;xx&quot;&gt; </code></pre>
+<h2 id="实战应用">实战应用</h2>
+<p>为了实践上面的<code>$attrs</code>和<code>$listeners</code>我们可以自己尝试封装一个element form表单组件，参考示例 <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/elementForm">elementForm表单组件模仿实现 | github</a></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#%E5%B0%86%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%88%B0%E7%BB%84%E4%BB%B6">深入了解组件 - 自定义事件 - 将原生事件绑定到组件 | Vue.js</a></li>
+<li><a href="https://cn.vuejs.org/v2/api/#vm-attrs"><code>$attrs</code>和<code>$listeners</code> | Vue.js</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="vue中`$attrs`-和-`$listeners`-的使用场景" style="padding-left:1em">vue中`$attrs` 和 `$listeners` 的使用场景<span></li><ul><li><span class="ul-span" data-id="this$attrs" style="padding-left:2em">this.$attrs<span></li></ul><ul><li><span class="ul-span" data-id="this$listeners" style="padding-left:2em">this.$listeners<span></li></ul><ul><li><span class="ul-span" data-id="实战应用" style="padding-left:2em">实战应用<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
