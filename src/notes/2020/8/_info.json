@@ -196,9 +196,77 @@
         "description": "vue v-if为什么不能和v-for一起用,vue v-if v-for一起用,vue v-if和v-for一起时优先级,在vue风格指南中，将'避免 v-if 和 v-for 用在一起'列为必要优先级，建议永远不要把 v-if 和 v-for 同时用在同一个元素上。官网文档如下: 一般我们在两种常见的情况下会倾向于这样做： 1. 为了过滤一个列表中的项目 (比如 v-for='user in users' v-if='user.isActive')。在这种情形下，请将 users 替换为一个计算属性 (比如 activeUsers)，让其返回过滤后的列表。2. 为了避免渲染本应该被隐藏的列表 (比如 v-for='user in users' v-if='shouldShowUsers')。这种情形下，请将 v-if 移动至容器元素上 (比如 ul、ol)。",
         "keywords": "vue v-if为什么不能和v-for一起用,vue v-if v-for一起用,vue v-if和v-for一起时优先级",
         "category": "vue"
+    },
+    {
+        "source": "less使用mixin抽取css公共代码，减少重复代码.md",
+        "staticFileName": "less_mixin.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "less函数,less mixin实例,less mixin,less封装css,less怎么抽取公共样式,less抽取公共样式，由于没有系统的学习less，之前只用到less的嵌套写法，很少用变量，基本没用mixin模块化封装，这次尝试了下，发现还是不错的，下面来用封装一个基础的布局组件，主要涉及三个知识点 1. 把css单独提成文件使用 @import (reference) url('') 引入 2. 封装mixin函数，在需要引入的地方执行函数 3. 使用 @headerHeight: 100px 这种方法定义变量",
+        "keywords": "less函数,less mixin实例,less mixin,less封装css,less怎么抽取公共样式,less抽取公共样式",
+        "category": "css"
+    },
+    {
+        "source": "什么情况下 a == 1 && a == 2，什么情况 a + 1 === a + 2.md",
+        "staticFileName": "js_a1_a2.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2,在js面试时，有时候会考察 ==（比较运算符）隐式转换的问题，问  a == 1 && a == 2 怎么使他成立，这个有好几种方法。还有一种情况下 a + 1 全等于 a + 2，这就涉及到最大安全整数的问题了，下面来具体看看",
+        "keywords": "a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2",
+        "category": "js"
+    },
+    {
+        "source": "H5原生拖放(Drag and Drop)demo以及浏览器兼容性处理.md",
+        "staticFileName": "js_drag_drop.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop,一般在网页中，如果需要实现拖放，首先要有两个元素：1. 可拖动的元素，元素draggable='true' 属性就是可拖放，如果设置为false就是不可拖放 2. 可以放置的区域，注意chrome如果不将放置区域的onenter和onover事件阻止默认行为，无法触发drop函数。拖放的过程中的钩子 1. 拖动元素时，会触发元素的 dragstart 钩子函数，在函数里可以设置数据、以及拖动到放置区域的鼠标样式 2. 当拖动元素进入放置区域时，放置区域元素会触发一次dragenter钩子(拖动进入)，触发多次dragover(拖动元素在放置区域移动中)，放下时再触发放置元素的drop钩子，这里可以用来接收拖拽元素dragstart设置的data，处理拖动的行为",
+        "keywords": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop",
+        "category": "js"
+    },
+    {
+        "source": "怎么解决sessionStorage新打开一个tab页就失效的问题.md",
+        "staticFileName": "sessionStorage_loss.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失,首页我们要知道3点：1. sessionStorage在浏览器的两个tab页之前是无法共享的，一个tab页中sessionStorage修改后，不能触发其他tab页的storage事件 2. 当前tab页的localStorage修改是无法触发当前页的storage事件的，他会触发其他tab页的storage事件 3. localStorage的共享，只发生在同源的地址里。非同源无法共享localStorage 怎么将就页面的sessionStorage传递到新开的tab页呢？",
+        "keywords": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失",
+        "category": "js"
+    }, 
+    {
+        "source": "pinyin中文转拼音npm包在前端使用时的坑,IE下js错误调试方法.md",
+        "staticFileName": "pinyin_ie.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "pinyin npm,前端中文转拼音,web中文转拼音,在很早之前node项目中就使用过这个npm包。这次由于Element table组件排序时，无法按照首字母排序，就引入了这个包。由于是单页面应用，import进来是没问题的，chrome里面正常。后面在IE11里出现了一个bug，就是页面路由不能正常加载，调了好久。最开始以为是路由层级的问题，调到怀疑人生，最后发现是 pinyin 这个包的问题，他在IE下无法正常加载，偶尔报错 '函数错误'，导致整个页面执行失败，路由无法加载。**所以在遇到难调试的问题时，先把error的报错全部解决再调**, 已经遇到好几次这种情况了",
+        "keywords": "pinyin npm,前端中文转拼音,web中文转拼音",
+        "category": "前端工程化"
+    },
+    {
+        "source": "vue tabs标签页组件的坑，能不使用就不要使用.md",
+        "staticFileName": "vue_tabs_pit.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "vue tabs标签页,vue 标签页,vue便签页的坑，最近项目中需要在一个页面中打开多个tab标签页，刚才是觉得element有现成的组件，觉得没啥问题，后面发现迭代维护新功能时真的是大坑。个人建议**能不使用tab标签页的情况，就不要使用**，下面来看看需要注意的地方",
+        "keywords": "vue tabs标签页,vue 标签页,vue便签页的坑",
+        "category": "vue"
+    },
+    {
+        "source": "vue element表单组件简单实现.md",
+        "staticFileName": "mock_element_form.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "element form实现,element 表单模拟实现,element form模拟实现，在写表单时，一般我们会用到el-form相关组件，那它内部是怎么实现的呢？下面我们来写个demo，尝试实现下。先来写一个调用示例，把el-前缀换成z-，然后我们需要实现z-form, z-form-item, z-input组件",
+        "keywords": "element form实现,element 表单模拟实现,element form模拟实现",
+        "category": "vue"
+    },
+    {
+        "source": "node package.json中版本前的 ~ 与 ^ 分别代表什么.md",
+        "staticFileName": "node_package_symbol.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/22",
+        "description": "node版本~与^,npm 包~与^是什么意思,npm包版本前的~是什么意思npm包版本前^是什么意思, 在element ui的package.json，其中async-validator是 ~ 开头，而其他都是 ^ 开头，有什么区别呢？版本格式 1.8.1 对应 major.minor.patch。- major：表示版本有了一个大更改。 - minor：表示增加了新的功能，并且可以向后兼容。- patch：表示修复了bug，并且可以向后兼容。",
+        "keywords": "node版本~与^,npm 包~与^是什么意思,npm包版本前的~是什么意思npm包版本前^是什么意思",
+        "category": "前端工程化"
     }
 ]
-
-
-
-
