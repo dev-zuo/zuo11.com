@@ -1,0 +1,123 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="js_a1_a2.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2,在js面试时，有时候会考察 ==（比较运算符）隐式转换的问题，问  a == 1 && a == 2 怎么使他成立，这个有好几种方法。还有一种情况下 a + 1 全等于 a + 2，这就涉及到最大安全整数的问题了，下面来具体看看">
+        <meta name="keywords" content="a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2">
+
+        <title>什么情况下 a == 1 && a == 2，什么情况 a + 1 === a + 2 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/22</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="什么情况下-a--1--a--2，什么情况-a--1--a--2">什么情况下 a == 1 &amp;&amp; a == 2，什么情况 a + 1 === a + 2</h1>
+<p>在js面试时，有时候会考察 ==（比较运算符）隐式转换的问题，问  a == 1 &amp;&amp; a == 2 怎么使他成立，这个有好几种方法。还有一种情况下 a + 1 全等于 a + 2，这就涉及到最大安全整数的问题了，下面来具体看看</p>
+<h2 id="什么情况下a--1--a--2为true">什么情况下a == 1 &amp;&amp; a == 2为true</h2>
+<p>有两种方法可以实现，一是使用对象隐式转换的方法，二是使用对象的defineProperty定义get访问器属性</p>
+<h3 id="对象的tostring或valueof方法">对象的toString或valueOf方法</h3>
+<p>对象与数字比较，转字符串比较，会调用对象的toString/valueOf方法，把toString或valueOf函数处理下即可，在chrome浏览器的console里，两种函数都可以</p>
+<pre><code class="language-js">var a = { 
+  count: 1, 
+  toString() { 
+    return this.count++ 
+  }
+}
+a == 1 &amp;&amp; a == 2 // true</code></pre>
+<pre><code class="language-js">var a = { 
+  count: 1, 
+  valueOf() { 
+    return this.count++ 
+  }
+}</code></pre>
+<h3 id="使用objectdefineproperty设置get访问器属性">使用Object.defineProperty设置get访问器属性</h3>
+<p>可以为对象定义访问器属性(get)，访问该对象的属性时，就会直接调用get函数，在get函数做一些处理也可以实现</p>
+<pre><code class="language-js">var a = {
+  count: 1
+}
+Object.defineProperty(a, &#39;prop&#39;, {
+  get() {
+    return this.count++
+  }
+})
+a.prop == 1 &amp;&amp; a.prop == 2</code></pre>
+<p>参考：<a href="https://blog.csdn.net/qq_41569151/article/details/100147805">js面试题：a==1&amp;&amp;a==2&amp;&amp;a=3的两个思路</a></p>
+<h2 id="a--1--a--2-为true的情况，注意是全等">a + 1 === a + 2 为true的情况，注意是全等</h2>
+<p>注意这里是全等。我现在了解的有两种情况：Infinity、或最大安全整数Number.MAX_SAFE_INTEGER</p>
+<pre><code class="language-js">// 1. Infinity
+var a = Infinity // Infinity是这个神奇的数，我试了下除了 * 0等于NAN外，其他情况基本都等于他自己
+a + 1 === a + 2 // true
+
+// 2. Math.pow(2, 53) - 1 最大的安全整数
+Number.MAX_SAFE_INTEGER === Math.pow(2, 53) -1 // true
+a = Number.MAX_SAFE_INTEGER
+a + 1 === a + 2 // true</code></pre>
+<p>以上，当大于2的53次方-1时，就不安全了，结果会超出常规，ES2020引入了bigint来处理大于2的53次方-1的数据</p>
+<pre><code class="language-js">// bigint类型的数与n结尾
+a = BigInt(Number.MAX_SAFE_INTEGER) // 9007199254740991n
+a + 1n // 9007199254740992n
+a + 2n // 9007199254740993n</code></pre>
+<p>参考：<a href="http://www.zuo11.com/blog/2019/12/bigint.html">ES2020 bigint数据类型，为什么要新增这个数据类型?</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="什么情况下-a--1-&&-a--2，什么情况-a--1--a--2" style="padding-left:1em">什么情况下 a == 1 && a == 2，什么情况 a + 1 === a + 2<span></li><ul><li><span class="ul-span" data-id="什么情况下a--1-&&-a--2为true" style="padding-left:2em">什么情况下a == 1 && a == 2为true<span></li><ul><li><span class="ul-span" data-id="对象的tostring或valueof方法" style="padding-left:3em">对象的toString或valueOf方法<span></li></ul><ul><li><span class="ul-span" data-id="使用objectdefineproperty设置get访问器属性" style="padding-left:3em">使用Object.defineProperty设置get访问器属性<span></li></ul></ul><ul><li><span class="ul-span" data-id="a--1--a--2-为true的情况，注意是全等" style="padding-left:2em">a + 1 === a + 2 为true的情况，注意是全等<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

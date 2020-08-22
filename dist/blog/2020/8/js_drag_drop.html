@@ -1,0 +1,169 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="js_drag_drop.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop,一般在网页中，如果需要实现拖放，首先要有两个元素：1. 可拖动的元素，元素draggable='true' 属性就是可拖放，如果设置为false就是不可拖放 2. 可以放置的区域，注意chrome如果不将放置区域的onenter和onover事件阻止默认行为，无法触发drop函数。拖放的过程中的钩子 1. 拖动元素时，会触发元素的 dragstart 钩子函数，在函数里可以设置数据、以及拖动到放置区域的鼠标样式 2. 当拖动元素进入放置区域时，放置区域元素会触发一次dragenter钩子(拖动进入)，触发多次dragover(拖动元素在放置区域移动中)，放下时再触发放置元素的drop钩子，这里可以用来接收拖拽元素dragstart设置的data，处理拖动的行为">
+        <meta name="keywords" content="js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop">
+
+        <title>H5原生拖放(Drag and Drop)demo以及浏览器兼容性处理 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/22</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="h5原生拖放drag-and-dropdemo以及浏览器兼容性处理">H5原生拖放(Drag and Drop)demo以及浏览器兼容性处理</h1>
+<p>一般在网页中，如果需要实现拖放，首先要有两个元素</p>
+<ol>
+<li>可拖动的元素，元素draggable=&quot;true&quot;属性就是可拖放，如果设置为false就是不可拖放</li>
+<li>可以放置的区域，注意chrome如果不将放置区域的onenter和onover事件阻止默认行为，无法触发drop函数</li>
+</ol>
+<p><img src="../../../images/blog/js/js_drag_1.png" alt="js_drag_1.png"></p>
+<h2 id="拖放的过程中的钩子">拖放的过程中的钩子</h2>
+<ol>
+<li>拖动元素时，会触发元素的 dragstart 钩子函数，在函数里可以设置数据、以及拖动到放置区域的鼠标样式</li>
+<li>当拖动元素进入放置区域时，放置区域元素会触发一次dragenter钩子(拖动进入)，触发多次dragover(拖动元素在放置区域移动中)，放下时再触发放置元素的drop钩子，这里可以用来接收拖拽元素dragstart设置的data，处理拖动的行为</li>
+</ol>
+<h2 id="注意事项：浏览器兼容性处理">注意事项：浏览器兼容性处理</h2>
+<ol>
+<li><p>在Chrome中，放置区域的ondrop事件不触发，需要在onenter和onover事件里阻止默认行为（火狐不需要这样处理）</p>
+</li>
+<li><p>event.dataTransfer.effectAllowed只能设置鼠标样式，不能设置拖动元素行为，drag后之前的元素会消失，想要保留需要使用cloneNode来操作</p>
+</li>
+</ol>
+<pre><code class="language-js">// 放置后，删除原来的图片
+// ev.target.appendChild(document.querySelector(`#${reciveData}`))
+// 放置后，保留原图片
+ev.target.appendChild(document.querySelector(`#${reciveData}`).cloneNode(true))</code></pre>
+<ol start="3">
+<li>在Firefox（火狐）浏览器里drop图片后，会新在新的tab也打开图片，不仅要在drop里阻止默认行为，还要阻止事件冒泡</li>
+</ol>
+<h2 id="demo实例">demo实例</h2>
+<p>demo如下，demo <a href="https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E6%8B%96%E5%8A%A8%E5%9B%BE%E7%89%87demo/">在线体验地址</a>，demo <a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/%E6%8B%96%E5%8A%A8%E5%9B%BE%E7%89%87demo/index.html">github源码</a></p>
+<p><img src="../../../images/blog/js/js_drag_2.png" alt="js_drag_2.png"></p>
+<pre><code class="language-html">&lt;!-- 图片默认的 draggable=&quot;true&quot; 而想 h1这种默认为false不可拖动 --&gt;
+&lt;img id=&quot;img&quot; src=&quot;test.png&quot; &gt;
+&lt;!-- 放置区域a --&gt;
+&lt;div class=&quot;wrap&quot; id=&quot;targetA&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+// 被拖动元素的事件监听
+let img = document.getElementById(&#39;img&#39;)
+// 当元素开始拖动时触发，仅触发一次
+img.addEventListener(&#39;dragstart&#39;, (ev) =&gt; {
+  // 设置值，在放置区域触发drop事件时，可以通过ev.dataTransfer.getData获取这里的值
+  ev.dataTransfer.setData(&quot;text&quot;, ev.target.id)
+  // link 会影响拖动到放置区域的鼠标样式，只是样式，并不决定行为 
+  ev.dataTransfer.effectAllowed = &#39;copy&#39;; 
+})
+
+// 放置区域A的事件监听
+let targetA = document.getElementById(&#39;targetA&#39;)
+// 当有拖动元素(放到)落到放置区域时触发，一次
+targetA.addEventListener(&#39;drop&#39;, (ev) =&gt; {
+  ev.stopPropagation(); // 必要，阻止冒泡，防止火狐浏览器放置图片后打开新的窗口
+  ev.preventDefault(); // 必要，阻止默认行为 防止火狐浏览器放置后直接打开图片
+
+  // 放置落下时，接收被拖拽的元素在 dragstart时用ev.dataTransfer.setData设置的值
+  // 这里传的id备用
+  let reciveData = ev.dataTransfer.getData(&quot;text&quot;)
+  console.log(&#39;drop, recive data&#39;, reciveData, ev.dataTransfer.dropEffect)
+
+  // 必要，设置拖动后放置的效果，移动还是copy
+  // 放置后，删除原来的图片
+  // ev.target.appendChild(document.querySelector(`#${reciveData}`))
+  // 放置后，保留原图片
+  ev.target.appendChild(document.querySelector(`#${reciveData}`).cloneNode(true))
+
+  ev.target.classList.remove(&#39;active&#39;) // 必要，放置在区域里后，还原样式
+})
+
+// 当拖动元素移动到放置区域时触发，触发多次
+targetA.addEventListener(&#39;dragover&#39;, (ev) =&gt; {
+  ev.preventDefault() // 必要，chrome drop兼容必须
+})
+// 当拖动元素进入放置区域时触发，一次
+targetA.addEventListener(&#39;dragenter&#39;, (ev) =&gt; {
+  ev.preventDefault() // 必要，chrome drop兼容必须
+  ev.target.classList.add(&#39;active&#39;) // 必要，设置进入时的样式
+})
+  // 当拖动元素离开放置区域时触发，一次
+targetA.addEventListener(&#39;dragleave&#39;, (ev) =&gt; {
+  ev.target.classList.remove(&#39;active&#39;) // 必要，设置离开后的样式
+})
+&lt;/script&gt;</code></pre>
+<h2 id="参考资料文档">参考资料文档</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API">HTML 拖放 API - Web API 接口参考 | MDN</a></li>
+<li><a href="https://segmentfault.com/q/1010000011761601/">dataTransfer.setData无效，drop不触发的问题</a></li>
+<li><a href="https://www.cnblogs.com/liulei-cherry/p/8440609.html">火狐drop后会打开新tab的问题</a></li>
+<li><a href="https://zhidao.baidu.com/question/1449513599728916460.html">js 拖动后,怎么保持原来的元素不消失，drop后拖动元素消失的问题</a></li>
+<li><a href="https://www.yuque.com/guoqzuo/js_es6/hoglme">cloneNode | JS高程3笔记</a></li>
+</ul>
+<p>扩展：</p>
+<ul>
+<li><a href="https://www.yuque.com/guoqzuo/js_es6/nocthb#bdcc30d7">从电脑拖放文件到浏览器，读取拖拽文件并上传 | JS高程3笔记</a></li>
+<li><a href="https://www.yuque.com/guoqzuo/js_es6/aquxsq#eeddf2fd">非H5原生拖放实现拖放 | JS高程3笔记</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="h5原生拖放drag-and-dropdemo以及浏览器兼容性处理" style="padding-left:1em">H5原生拖放(Drag and Drop)demo以及浏览器兼容性处理<span></li><ul><li><span class="ul-span" data-id="拖放的过程中的钩子" style="padding-left:2em">拖放的过程中的钩子<span></li></ul><ul><li><span class="ul-span" data-id="注意事项：浏览器兼容性处理" style="padding-left:2em">注意事项：浏览器兼容性处理<span></li></ul><ul><li><span class="ul-span" data-id="demo实例" style="padding-left:2em">demo实例<span></li></ul><ul><li><span class="ul-span" data-id="参考资料文档" style="padding-left:2em">参考资料文档<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

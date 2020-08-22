@@ -63,7 +63,7 @@ a.toFixed(2) // &quot;1.23&quot;</code></pre>
 var b = 0.25
 a.toFixed(1) // &quot;0.1&quot;  注意这里四舍五入异常
 b.toFixed(1) // &quot;0.3&quot;  这里四舍五入又是成功的</code></pre>
-<p>怎么改善呢？假如想对0.15保留2位小数，先乘以100，转为 15，再除以100，再用toFixed()，0.15就是正常的了。以此类推</p>
+<p>怎么改善呢？假如想对0.15保留1位小数，先乘以10, 再使用Math.round四舍五入，再除以10，再用toFixed()，0.15保留1位小数就是正常的0.2了。以此类推</p>
 <p>我们可以来写一个通用的myToFixed方法处理</p>
 <pre><code class="language-js">// 如果希望精准的保留1位小数可以   Math.round(a*10) / 10, 如果是两位 100，n位  Math.pow(10, n)
 Number.prototype.myToFixed = function (num) {
@@ -91,6 +91,12 @@ Number.prototype.myToFixed = function (num) {
     throw new Error(&#39;参数必须是number类型，且必须是整数&#39;)
   }
 }</code></pre>
+<h2 id="num100100与num10000的区别">num*100*100与num*10000的区别</h2>
+<p>注意js浮点运算精度</p>
+<pre><code class="language-js">0.61115 * 100 * 100
+// 6111.499999999999
+0.61115 * 10000
+// 6111.5</code></pre>
 <h2 id="负数的运算符优先级问题">负数的运算符优先级问题</h2>
 <pre><code class="language-js">-2.12.toFixed(1) // -2.1  注意返回的字符串，被 - 操作后就是number了
 (-2.12).toFixed(1) // &quot;-2.1&quot;</code></pre>
@@ -102,7 +108,7 @@ Number.prototype.myToFixed = function (num) {
           </article>
           <aside>
             <div>
-              <ul><li><span class="ul-span" data-id="为什么说tofixed是不准确的" style="padding-left:1em">为什么说toFixed是不准确的<span></li><ul><li><span class="ul-span" data-id="numberprototypetofixed" style="padding-left:2em">Number.prototype.toFixed()<span></li></ul><ul><li><span class="ul-span" data-id="tofixed四舍五入不准确的问题" style="padding-left:2em">toFixed四舍五入不准确的问题<span></li></ul><ul><li><span class="ul-span" data-id="负数的运算符优先级问题" style="padding-left:2em">负数的运算符优先级问题<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+              <ul><li><span class="ul-span" data-id="为什么说tofixed是不准确的" style="padding-left:1em">为什么说toFixed是不准确的<span></li><ul><li><span class="ul-span" data-id="numberprototypetofixed" style="padding-left:2em">Number.prototype.toFixed()<span></li></ul><ul><li><span class="ul-span" data-id="tofixed四舍五入不准确的问题" style="padding-left:2em">toFixed四舍五入不准确的问题<span></li></ul><ul><li><span class="ul-span" data-id="num\*100\*100与num*10000的区别" style="padding-left:2em">num\*100\*100与num*10000的区别<span></li></ul><ul><li><span class="ul-span" data-id="负数的运算符优先级问题" style="padding-left:2em">负数的运算符优先级问题<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
             <div>
           </aside>
         </section>
