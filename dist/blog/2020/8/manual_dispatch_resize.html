@@ -1,0 +1,91 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="manual_dispatch_resize.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="js手动触发resize事件,手动触发resize事件,自定义resize事件,这里手动触发window.resize事件的目的，主要用于fix改变窗口大小后其他tab页echarts图表显示异常的问题，在echarts图表组件里，有时候需要图表大小自适应浏览器窗口大小。这种情况echart宽高都会设定为100%，依赖父元素的宽高。然后再监听window的resize事件，当窗口大小改变后，重绘图表。那么问题来了">
+        <meta name="keywords" content="js手动触发resize事件,手动触发resize事件,自定义resize事件,改变窗口大小后其他tab页echarts图表显示异常的问题">
+
+        <title>怎么用js手动触发window resize事件 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/08/30</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="怎么用js手动触发window-resize事件">怎么用js手动触发window resize事件</h1>
+<p>这里手动触发window.resize事件的目的，主要用于fix改变窗口大小后其他tab页echarts图表显示异常的问题</p>
+<p>在echarts图表组件里，有时候需要图表大小自适应浏览器窗口大小。这种情况echart宽高都会设定为100%，依赖父元素的宽高。然后再监听window的resize事件，当窗口大小改变后，重绘图表。那么问题来了</p>
+<p>在单个页面里没有问题，但在tab组件切换时，各个tab页是懒加载(keep-alive)的状态，tab切换时，会有页面组件被隐藏，但由于是keep-alive的，所以不会触发beforeDesotry事件，也就是没有销毁组件只是隐藏了。dom被隐藏后，window的resize事件没有被移除。导致调整窗口大小后，被隐藏的页面也会执行重绘操作，宽高都是百分比的，被隐藏后，宽高会异常，导致图表显示异常</p>
+<p>除非每次切tab都重绘图表或者不使用keep-alive每次都刷新页面，才不会有问题。最后想了个方法，每次点击tab手动触发window的resize事件进行重绘，下面是手动触发window resize事件的方法</p>
+<pre><code class="language-js">tabClick(e) {
+  console.log(&#39;tab click&#39;, e)
+  // 触发window的resize事件
+  this.$nextTick(e =&gt; {
+    let resizeEvent = document.createEvent(&#39;Event&#39;)
+    resizeEvent.initEvent(&#39;resize&#39;, true, true)
+    window.dispatchEvent(resizeEvent)
+  })
+}</code></pre>
+<p>为什么不在tab切换后的activated里重绘图表呢？由于有十几个图表，这就需要写十几个手动重绘的函数，在tabclick的事件里写是改动最小的</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="怎么用js手动触发window-resize事件" style="padding-left:1em">怎么用js手动触发window resize事件<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
