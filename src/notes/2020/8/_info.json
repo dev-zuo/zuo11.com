@@ -268,5 +268,80 @@
         "description": "node版本~与^,npm 包~与^是什么意思,npm包版本前的~是什么意思npm包版本前^是什么意思, 在element ui的package.json，其中async-validator是 ~ 开头，而其他都是 ^ 开头，有什么区别呢？版本格式 1.8.1 对应 major.minor.patch。- major：表示版本有了一个大更改。 - minor：表示增加了新的功能，并且可以向后兼容。- patch：表示修复了bug，并且可以向后兼容。",
         "keywords": "node版本~与^,npm 包~与^是什么意思,npm包版本前的~是什么意思npm包版本前^是什么意思",
         "category": "前端工程化"
+    },
+    {
+        "source": "怎么用js手动触发window resize事件.md",
+        "staticFileName": "manual_dispatch_resize.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "js手动触发resize事件,手动触发resize事件,自定义resize事件,这里手动触发window.resize事件的目的，主要用于fix改变窗口大小后其他tab页echarts图表显示异常的问题，在echarts图表组件里，有时候需要图表大小自适应浏览器窗口大小。这种情况echart宽高都会设定为100%，依赖父元素的宽高。然后再监听window的resize事件，当窗口大小改变后，重绘图表。那么问题来了",
+        "keywords": "js手动触发resize事件,手动触发resize事件,自定义resize事件,改变窗口大小后其他tab页echarts图表显示异常的问题",
+        "category": "js"
+    },
+    {
+        "source": "vue + element实现在用户列表页同时打开多个用户详情页tab功能.md",
+        "staticFileName": "sameCompSwtich.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "在使用el-tabs时，如果涉及到同组件会打开多个tab的情况，同组件切换需要使用watch来监听数据改变，再进行数据的初始化。下面结合一个实例来看看，使用 vue + elementUI 实现在用户列表页同时打开多个用户详情页tab功能",
+        "keywords": "vue element el-tabs标签页功能demo",
+        "category": "vue"
+    },
+    {
+        "source": "ElementUI el-tabs组件切换tab时会触发组件的哪些钩子函数.md",
+        "staticFileName": "el_tabs_hooks.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "element el-tabs钩子,el-tabs钩子函数,这里主要是要弄清楚el-tabs是怎么实现组件切换的，使用el-tab-pane slot和不用这个插槽触发的钩子函数会相同吗？如果不使用el-tab-pane的slot，只使用tab的导航，下面的内容自己控制，就看是使用component还是v-if来控制了，这种情况el-tabs组件不会干扰切换的逻辑。问题来了，如果内容放到了el-tab-pane的slot呢？他有一个lazy属性，用来设置某个tab标签页是否延迟渲染，这个会对钩子函数有什么影响呢？我们改写上面的例子，通过demo来看看",
+        "keywords": "element el-tabs钩子,el-tabs钩子函数",
+        "category": "vue"
+    },
+    {
+        "source": "component动态组件与使用v-if控制组件显示有什么区别？.md",
+        "staticFileName": "component_v-if.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "component动态组件与v-if控制组件有什么区别,component动态组件可以理解为它就是v-if控制组件显示的语法糖。我们用一个例子来测试，之前我们写过compoennt用is切换时的钩子函数demo，我们把demo改写下，使用 v-if来替换component，对比页面渲染以及钩子函数的执行情况。改写如下：",
+        "keywords": "component动态组件与v-if控制组件有什么区别",
+        "category": "vue"
+    },
+    {
+        "source": "component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？.md",
+        "staticFileName": "component_is_hooks.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "component is hooks,component is 钩子函数,假设动态组件component使用is控制组件显示，默认显示为A组件，可以切换到B组件。问：首次进入页面以及用is切换组件时，会触发A/B组件的哪些钩子函数，加了keep-alive后呢？先给出结论 1. 如果不加keep-alive，和正常的进入页面和离开页面触发的钩子函数一致。2. 如果加了keep-alive，组件首次加载才会触发 created,mounted等钩子函数，切换时就不会触发created,mounted,beforedestroyed等，所以额外加一个activated和deactivated钩子来提示页面已切换，离开当前页面，才会销毁A/B两个组件触发beforeDestroyed和destroyed两个钩子",
+        "keywords": "component is hooks,component is 钩子函数",
+        "category": "vue"
+    },
+    {
+        "source": "深入koa-router源码理解allowedMethods中间件作用.md",
+        "staticFileName": "allowedMethods_use.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "koa-router router.allowedMethods()中间件作用,router.allowedMethods 405,在使用koa koa-router mock接口时，我们会看到 `app.use(router.routes()).use(router.allowedMethods())`，使用 router中间件后，又链式调用了router.allowedMethods()这个中间件，那为什么要加router.allowedMethods()中间件呢？他有什么作用？我们写个demo来测试下。先下结论：1. router.allowedMethods()中间件，主要用于 405 Method Not Allowed 这个状态码先关 2. 如果不加这个中间件，如果接口是get请求，而前端使用post请求，会返回 404 状态码，接口未定义。如果加了这个中间件，这种情况时，会返回405 Method Not Allowed ，提示 request method 不匹配，并再响应头返回接口支持的请求方法，更有利于调试",
+        "keywords": "koa-router router.allowedMethods()中间件作用,router.allowedMethods 405",
+        "category": "前端工程化"
+    },
+    {
+        "source": "Symbol和Array.prototype.includes不兼容IE，有babel就可以，他的原理是什么.md",
+        "staticFileName": "includes_babel.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "vue项目里使用includes，IE11支持吗？在mdn上可以查相关API的兼容性,可以看到Symbol和Array.prototype.includes是不支持IE的，但我们在vue-cli的项目中，发现使用了这些api，在IE下也可以运行，这是为什么呢？主要是安装了babel，babel有进行转换，当IE不支持某个方法时，会使用替代的pollyfill，那它是怎么打包进项目的？",
+        "keywords": "vue项目里使用includes，IE11支持吗？",
+        "category": "js"
+    },
+    {
+        "source": "判断一个字符串出现次数最多的字符，并输出其次数.md",
+        "staticFileName": "char_most_count.html",
+        "author": "guoqzuo",
+        "createDate": "2020/08/30",
+        "description": "reduce使用场景,js 判断一个字符串出现次数最多的字符,在js处理数组时，有一个reduce方法是比较实用的，特别是计算字符串出现次数的时候。下面来逐步介绍，怎么用js写一个函数，显示判断一个字符串出现次数最多的字符，并输出其次数",
+        "keywords": "reduce使用场景,js 判断一个字符串出现次数最多的字符",
+        "category": "js"
     }
+
 ]
+
+
