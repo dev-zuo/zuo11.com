@@ -1,0 +1,257 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="web_cache.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth,在前端性能优化中，有一个方法是使用缓存。前端缓存可以减少网络请求次数，减少流量消耗，提升用户体验，降低服务器负载。前端缓存分为两种：http缓存、浏览器缓存。相关文档可以搜索对应请求头的MDN文档、另外可以参考《http权威指南》第7章 缓存">
+        <meta name="keywords" content="http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth">
+
+        <title>通过koa写demo彻底理解前端http缓存 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/09/07</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="通过koa写demo彻底理解前端http缓存">通过koa写demo彻底理解前端http缓存</h1>
+<p>在前端性能优化中，有一个方法是使用缓存。前端缓存可以减少网络请求次数，减少流量消耗，提升用户体验，降低服务器负载。</p>
+<p>前端缓存分为两种：http缓存、浏览器缓存，这里主要介绍http缓存</p>
+<blockquote>
+<p>相关文档可以搜索对应请求头的MDN文档、另外可以参考《http权威指南》第7章 缓存</p>
+</blockquote>
+<p>http缓存策略的核心在于<strong>新鲜度检测</strong>，一般有两种策略来保持已缓存数据与服务器数据之间的充分一致</p>
+<ol>
+<li>强缓存 - 设置文档过期时间(document expiration)：给当前请求设置一个过期时间，这段时间内可以直接使用缓存数据，不必再去请求服务器拿数据</li>
+<li>弱缓存/协商缓存 - 服务器再验证(server revalidation)：服务器响应某个请求时，在响应头加一个版本信息或最后一次修改时间的标记，当下次该请求发生时，请求头会携带这个标记信息，服务器会通过标记值来判断是否使用缓存内容</li>
+</ol>
+<h2 id="强缓存-document-expiration">强缓存 document expiration</h2>
+<p>当第一次发送某个http请求后，会把内容缓存一段时间。在这段时间里，都认为内容是 &quot;新鲜的&quot;，可以在不联系服务器的情况下，直接响应该文档。</p>
+<h3 id="expires相对时间">Expires(相对时间)</h3>
+<p>Expires [ɪk&#39;spaɪəz] 响应头包含日期/时间， 即在此时候之后，响应过期。无效的日期，比如 0, 代表着过去的日期，即该资源已经过期。如果在Cache-Control响应头设置了 &quot;max-age&quot; 或者 &quot;s-max-age&quot; 指令，那么 Expires 头会被忽略。</p>
+<p>我们来写个demo试试，我们用koa来写个listData接口，将接口的Expires时间设置为当前时间+1小时，也就是一个小时后失效，koa代码如下</p>
+<pre><code class="language-js">const Koa = require(&#39;koa&#39;)
+const Router = require(&#39;koa-router&#39;)
+const app = new Koa()
+const router = new Router()
+
+app.use(require(&#39;koa-static&#39;)(__dirname + &#39;/public&#39;))
+
+router.get(&#39;/listData&#39;, ctx =&gt; {
+  // 打印log，用来看服务端是否收到了请求
+  console.log(&#39;recive req&#39;, ctx.url)
+  // 实际效果：Expires: Sat Jul 04 2020 19:28:42 GMT+0800 (GMT+08:00)
+  ctx.set(&#39;Expires&#39;, new Date(+new Date() + 3600 * 1000)) // UTC时间
+  ctx.body = {
+    info: &#39;hello world&#39;
+  }
+})
+
+app.use(router.routes()).use(router.allowedMethods())
+app.listen(9000, () =&gt; {
+  console.log(&#39;server start on 9000 port&#39;)
+})</code></pre>
+<p>前端测试demo：public/index.html如下</p>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;div&gt; 
+    &lt;button id=&quot;btn&quot;&gt;发送请求&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    let btn = document.getElementById(&#39;btn&#39;)
+    btn.onclick = () =&gt; {
+      sendRequest()
+    }
+
+    async function sendRequest() {
+      try {
+        let res = await  axios.get(&#39;/listData&#39;);
+        console.log(res)
+      } catch(e) {
+        console.log(e)
+      }
+    }
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<p>当我们点击两次发送请求，测试结果如下：第一次请求时正常接收请求，由于我们设置了Expires响应头，前端再次请求时，服务端没有接收到请求，浏览器直接从硬盘读的缓存(from disk cache)，响应头对比图如下</p>
+<p><img src="../../../images/blog/web/expires_header.png" alt="expires_header.png"></p>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires">Expires - HTTP | MDN</a></p>
+<h3 id="cache-control">Cache-Control</h3>
+<p>Expries是http1.0的标准，在HTTP/1.1版本里，Expire已经被Cache-Control替代，除了可以设置时间外，还加了更多控制，Cache-Control可以设置很多值</p>
+<p>可缓存性相关值</p>
+<ul>
+<li>public：所有内容都将被缓存（客户端和代理服务器都可缓存）</li>
+<li>private：所有内容只有客户端可以缓存，（即代理服务器不能缓存它）Cache-Control的默认取值</li>
+<li>no-cache：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定（除非资源进行了再验证(协商缓存验证)，否则客户端不会使用已换成的资源）</li>
+<li>no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存（缓存应当尽快从服务器中删除文档的所有痕迹，因为其中可能包含敏感信息）</li>
+</ul>
+<p>到期相关值</p>
+<ul>
+<li>max-age=seconds 设置缓存存储的最大周期，超过这个时间缓存被认为过期(单位秒)。与Expires相反，时间是相对于请求的时间。</li>
+<li>s-maxage=seconds 覆盖max-age或者Expires头，但是仅适用于共享缓存(比如各个代理)，私有缓存会忽略它。</li>
+</ul>
+<p>我们将上个例子中设置Expires替换为Cache-Control的写法</p>
+<pre><code class="language-js">ctx.set(&quot;Cache-control&quot;, &quot;max-age=3600&quot;)  // 设置缓存有效时间为3600s，1个小时</code></pre>
+<p>执行结果和之前的基本一致，只是响应头有点变化，如下图</p>
+<p><img src="../../../images/blog/web/cachecontrol_max-age.png" alt="cachecontrol_max-age.png"></p>
+<p>这里要特别注意，Catch-Control不止响应头可以设置，前端在请求头也是可以设置的</p>
+<pre><code class="language-bash">Cache-Control: max-age=&lt;seconds&gt; # 如果后端不设置改值，前端无效
+Cache-Control: max-stale[=&lt;seconds&gt;]
+Cache-Control: min-fresh=&lt;seconds&gt;
+Cache-control: no-cache  # 可以使用，等价于 Pragma: no-cache
+Cache-control: no-store
+Cache-control: no-transform
+Cache-control: only-if-cached</code></pre>
+<p>我们可以在axios请求时加请求头参数</p>
+<pre><code class="language-js">let res = await  axios.get(&#39;/listData&#39;, {
+  headers: {&#39;Cache-Control&#39;: &#39;no-cache&#39;}, // 如果前端使用这个请求头，那么后端设置的max-age或Expires就会被忽略
+});</code></pre>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control">Cache-Control - HTTP | MDN</a></p>
+<h2 id="弱缓存协商缓存-server-revalidation">弱缓存/协商缓存 server revalidation</h2>
+<p>直接给某个请求设置缓存有效期是简单粗暴的方法，因为一般我们无法准确的知道需要缓存的资源具体可能会变动的时间。于是就有了服务器再验证的这种策略，注意下面讨论的是get请求，涉及到304状态码，对于412相关的post参见具体的mdn文档</p>
+<p><img src="../../../images/blog/web/week_cache.png" alt="week_cache.png"></p>
+<h3 id="last-modifiedif-modified-since">Last-Modified/If-Modified-Since</h3>
+<p>在响应某个请求时，响应头加一个Last-Modified，值设置为某个资源的最后一次修改时间。注意：这里会有一个问题，加了Last-Modified后，下次请求浏览器直接使用了强缓存，直接读disk cache，没有请求服务器，那我们服务器再验证就验证不了，所以需要设置一个no-cache的请求头，不使用强缓存，代码如下：</p>
+<pre><code class="language-js">let fileInfo = fs.statSync(&#39;./public/index.html&#39;)
+let mtime = fileInfo.mtime
+ctx.set(&quot;Cache-control&quot;,&quot;no-cache&quot;);
+ctx.set(&quot;Last-Modified&quot;, mtime)</code></pre>
+<p>这样设置后，下次请求时，请求头会自动携带If-Modified-Since，值为之前响应头设置的Last-Modified的值，然后我们根据If-Modified-Since请求头的时间，与某个文件修改的时间进行比对，如果相等，直接返回304状态码，浏览器会使用该接口上一次接口的缓存的数据</p>
+<pre><code class="language-js">// 完整接口如下
+router.get(&#39;/listData&#39;, ctx =&gt; {
+  console.log(&#39;recive req&#39;, ctx.url)
+  let fileInfo = fs.statSync(&#39;./public/index.html&#39;)
+  let mtime = fileInfo.mtime
+  // console.log(fileInfo, fileInfo.mtime)
+  // 响应头设置后，下次这个请求会在请求头自动加上 If-Modified-Since: Sat Jul 04 2020 21:19:30 GMT+0800 (GMT+08:00) 字段
+  console.log(ctx.headers)
+  ctx.set(&quot;Cache-control&quot;,&quot;no-cache&quot;);
+  ctx.set(&quot;Last-Modified&quot;, mtime)
+  if (ctx.headers[&#39;if-modified-since&#39;] &amp;&amp; ctx.headers[&#39;if-modified-since&#39;] == mtime) {
+    console.log(&quot;304&quot;);
+    ctx.status = 304
+  } else {
+    ctx.body = {
+      info: &#39;hello world&#39;
+    }
+  }
+})</code></pre>
+<p>注意：<strong>当与 If-None-Match 一同出现时，它（If-Modified-Since）会被忽略掉，除非服务器不支持 If-None-Match。</strong></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Last-Modified">Last-Modified - HTTP | MDN</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Modified-Since">If-Modified-Since - HTTP | MDN</a></li>
+</ul>
+<h3 id="etagif-none-macth">ETag/if-None-Macth</h3>
+<p>有些请求验证最后修改时间是不够的，比如：</p>
+<ul>
+<li>某些文件会被周期性的重写，但文件内容是一样的，可最后一次修改时间变了</li>
+<li>有些文档被改了，但改动并不重要，比如拼写或注释的修改，不需要让所有缓存都更新</li>
+<li>有些文档会在亚秒间发生变化，对设置服务器来说，1s的粒度会不够用</li>
+</ul>
+<p>因此，Last-Modified由于精确度比ETag(实体标签)要低，所以Last-Modified只是一个备用机制。一般Last-Modified设置的是修改时间，而ETag设置的一般是某个资源的标识符(版本号或者md5，表示一个文件的指纹fingerprints)，来看代码</p>
+<pre><code class="language-js">const calcMd5 = require(&#39;./md5&#39;)
+router.get(&#39;/listData&#39;, (ctx, next) =&gt; {
+  console.log(&#39;recive req&#39;, ctx.url)
+  let md5 =  calcMd5(&#39;./public/index.html&#39;)
+  ctx.set(&quot;Cache-control&quot;,&quot;no-cache&quot;);
+  ctx.set(&#39;ETag&#39;, md5)
+  if (ctx.headers[&#39;if-none-match&#39;] &amp;&amp; ctx.headers[&#39;if-none-match&#39;] === md5) {
+    console.log(&quot;304&quot;);
+    ctx.status = 304
+  } else {
+    ctx.body = {
+      info: &#39;hello world&#39;
+    }
+  }
+})</code></pre>
+<p>md5.js 计算文件md5</p>
+<pre><code class="language-js">const crypto = require(&#39;crypto&#39;);
+const fs = require(&#39;fs&#39;);
+
+module.exports = (filePath) =&gt; {
+    //读取一个Buffer
+    let buffer = fs.readFileSync(filePath);
+    let fsHash = crypto.createHash(&#39;md5&#39;);
+
+    fsHash.update(buffer);
+    return fsHash.digest(&#39;hex&#39;);
+}</code></pre>
+<p>参考:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag - HTTP | MDN</a> </li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match">If-None-Match - HTTP| MDN</a></li>
+</ul>
+<h2 id="chrome下注意事项">Chrome下注意事项</h2>
+<p>在进行缓存测试时，你会发现浏览器的真实情况和书上或文档里的会有一点不一样的地方，我们需要注意：</p>
+<ol>
+<li><strong>如果ETag和If-None-Match的值一致，且koa返回了304，但前端一直是200时，可能是浏览器的问题，关掉浏览器当前页面，再打开可能就好了</strong>。这一块调的我差点怀疑人生</li>
+<li><strong>书上或文档里说，no-cache只是不使用强缓存，需要服务器二次验证、而no-store是既不使用强缓存也不使用协商缓存，但是在chrome浏览器里，如果你的请求头里有Cache-Control&#39;: &#39;no-cache&#39;，不管是强缓存还是协商缓存都不会生效；</strong></li>
+<li><strong>在F12 chrome调试面板，勾选disable cache，请求头会自动携带Pragma: no-cache，等价于请求头里设置cache-control： no-cache</strong></li>
+<li><strong>在chrome浏览器下，请求头里使用Cache-Control&#39;: &#39;no-store&#39;，没有任何用处</strong></li>
+</ol>
+<p>关于以上完整的HTTP缓存测试demo，参见 <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98">http缓存测试 | github</a></p>
+<p>参考:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Pragma">Pragma - HTTP | MDN</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="通过koa写demo彻底理解前端http缓存" style="padding-left:1em">通过koa写demo彻底理解前端http缓存<span></li><ul><li><span class="ul-span" data-id="强缓存-document-expiration" style="padding-left:2em">强缓存 document expiration<span></li><ul><li><span class="ul-span" data-id="expires相对时间" style="padding-left:3em">Expires(相对时间)<span></li></ul><ul><li><span class="ul-span" data-id="cache-control" style="padding-left:3em">Cache-Control<span></li></ul></ul><ul><li><span class="ul-span" data-id="弱缓存协商缓存-server-revalidation" style="padding-left:2em">弱缓存/协商缓存 server revalidation<span></li><ul><li><span class="ul-span" data-id="last-modifiedif-modified-since" style="padding-left:3em">Last-Modified/If-Modified-Since<span></li></ul><ul><li><span class="ul-span" data-id="etagif-none-macth" style="padding-left:3em">ETag/if-None-Macth<span></li></ul></ul><ul><li><span class="ul-span" data-id="chrome下注意事项" style="padding-left:2em">Chrome下注意事项<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
