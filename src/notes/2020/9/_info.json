@@ -1,0 +1,74 @@
+[
+  {
+    "source": "macOS下怎么将mp4和m4a文件合并.md",
+    "staticFileName": "m4a_m4a_merge.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/07",
+    "description": "mp4 m4a合并,mp4 m4a,音视频合并, 可以使用ffmpeg命令行工具，输入如下命令进行合并，注意这个合并时间非常长，要等很久，下载ffmpeg解压后会有一个ffmpeg-4.2.3-macos64-static文件夹，然后进入这个目录的bin目录下，执行 ./ffmpeg -i /Users/kevin/Desktop/17下.mp4 -i /Users/kevin/Desktop/17下.m4a out2.mp4，其实合并视频和音频可以使用mac下的imovie或者一些其他的视频剪辑软件，比这个要快很多",
+    "keywords": "mp4 m4a合并,mp4 m4a,音视频合并",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "element v-loading在IE下可能会关不掉的问题.md",
+    "staticFileName": "v_loading_cannotclose.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/07",
+    "description": "v-loading在IE下无法关闭的问题,IE 无法关闭v-loading，对于请求非常快的情况，loading一加载很快就关闭。在IE下，可能出现 v-loading设置的值已经是 false，但loading还是一直显示，关闭不了的情况，解决方法是：在关闭loading前，加一个500ms的延时，就没问题了。",
+    "keywords": "v-loading在IE下无法关闭的问题,IE 无法关闭v-loading",
+    "category": "vue"
+  },
+  {
+    "source": "element v-loading在IE下可能会溢出到全屏的问题.md",
+    "staticFileName": "v_loading_fullscreen.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/07",
+    "description": "v-loading在IE下溢出到全屏,IE v-loading全屏，在IE下，有可能出现v-loading指令在loading时不是作用在添加 v-loading 指令的元素区域里，而是溢出到全屏了。这种情况我查了下dom，了解到v-loading是position: absolute布局，而v-loading position不是relatvie 导致溢出到全屏了。这种情况给使用v-loading指令的元素手动加一个 position: relative就可以了。",
+    "keywords": "v-loading在IE下溢出到全屏,IE v-loading全屏",
+    "category": "vue"
+  },
+  {
+    "source": "v-loading指令的实现，怎么通过一个指令自动加骨架屏.md",
+    "staticFileName": "z_loading.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/07",
+    "description": "v-loading的实现,怎么通过一个指令自动加载骨架屏,element v-loading在IE下可能会溢出到全屏的问题,element v-loading在IE下可能会关不掉的问题，这里需要用到vue自定义指令，我们先写个v-zloading来实现loading，在loading过程中加骨架屏，由于是全局自定义指令，所以在main.js里写",
+    "keywords": "v-loading的实现,怎么通过一个指令自动加载骨架屏,element v-loading在IE下可能会溢出到全屏的问题,element v-loading在IE下可能会关不掉的问题",
+    "category": "vue"
+  },
+  {
+    "source": "输入过程中，怎么实时高亮部分文字(@xxx高亮实现).md",
+    "staticFileName": "highlight_when_input.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/07",
+    "description": "输入过程中高亮部分文字,输入过程中高亮关键字,前端@高亮实现,输入过程中，怎么实时高亮部分文字(@xxx高亮实现)，实现思路是，使用富文本编辑器，当监听到输入的文件包含关键字时，使用replace对当前的输入内容进行替换，给关键字加上span给个highlight的class，代码如下",
+    "keywords": "输入过程中高亮部分文字,输入过程中高亮关键字,前端@高亮实现",
+    "category": "vue"
+  },
+  {
+    "source": "echarts画高自定义仪表盘，echart本质是图的堆叠.md",
+    "staticFileName": "echart_dashboard.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/07",
+    "description": "echart自定义仪表盘,echarts复杂图,echart堆叠图,最近有个UI需求，画一个自定义的仪表盘，看起来很不好实现，后面在看了echarts社区的一些例子，经过写demo测试后，找到了规律，核心是化繁为简，对于复杂的UI，可以拆分为多个小的模块，一个个实现",
+    "keywords": "echart自定义仪表盘,echarts复杂图,echart堆叠图",
+    "category": "js"
+ },
+ {
+  "source": "macos大小写不敏感，修改文件名大小写后git会异常.md",
+  "staticFileName": "mac_git_case.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/07",
+  "description": "怎么解决git修改文件大小后报错,git修改文件大小写,mac上git修改文件大小写,macos是文件大小写不敏感的系统，而widonws/linux是大小写敏感的，假设把git上之前提交过的文件，修改大小写，再次提交后，git上会出现两个大小写不一样的文件？为什么呢。macos是大小写不敏感的文件系统，也就是在macos上你无法在同一个目录下同时创建test.vue和Test.vue，如果出现这种情况，本地感知不到文件的改动，但git服务器却有记录这两个文件。最好的解决方法是将整个文件名都变更。而不是仅改变大小写",
+  "keywords": "怎么解决git修改文件大小后报错,git修改文件大小写,mac上git修改文件大小写",
+  "category": "运维部署与版本控制"
+  },
+  {
+    "source": "通过koa写demo彻底理解前端http缓存.md",
+    "staticFileName": "web_cache.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/07",
+    "description": "http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth,在前端性能优化中，有一个方法是使用缓存。前端缓存可以减少网络请求次数，减少流量消耗，提升用户体验，降低服务器负载。前端缓存分为两种：http缓存、浏览器缓存。相关文档可以搜索对应请求头的MDN文档、另外可以参考《http权威指南》第7章 缓存",
+    "keywords": "http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth",
+    "category": "http与https"
+  }
+]
