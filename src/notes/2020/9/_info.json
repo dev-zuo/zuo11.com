@@ -70,5 +70,77 @@
     "description": "http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth,在前端性能优化中，有一个方法是使用缓存。前端缓存可以减少网络请求次数，减少流量消耗，提升用户体验，降低服务器负载。前端缓存分为两种：http缓存、浏览器缓存。相关文档可以搜索对应请求头的MDN文档、另外可以参考《http权威指南》第7章 缓存",
     "keywords": "http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth",
     "category": "http与https"
+  },
+  {
+    "source": "vue中为什么要使用js调用单文件组件？怎么实现js调用组件？.md",
+    "staticFileName": "vue_why_js_comp.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "vue js直接调用组件,js调用vue组件,js加载vue组件,js vue组件，如果自己写一个组件。一般情况下，vue项目中在某个组件里调用另一个组件，至少需要修改三个位置 1. 在 template 里写引入组件，加上传参等 2. 在 components 里声明组件（如果全局引入了，可以省去这一步） 3. data 里面写对应的传参数 代码对应如下，这种组件对于使用地方比较多时候，我们就需要想办法直接使用js来调用组件，而不是每次都要在 template 里面声明对应的组件，这样会有很多重复代码，可维护性较差。",
+    "keywords": "vue js直接调用组件,js调用vue组件,js加载vue组件,js vue组件",
+    "category": "vue"
+  },
+  {
+    "source": "axios取消请求具体使用场景及实现原理.md",
+    "staticFileName": "axios_cancel.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "axios取消请求用法,axios取消请求是怎么实现的,axios取消请求原理，取消请求在前端有时候会用到，以下是两个工作中可能会用到的场景 1. tab切换时刷新某个列表数据，如果他们共用一个变量存储数据列表，当请求有延时，可能会导致两个tab数据错乱 2. 导出文件或下载文件时，中途取消 下面来看看axios是怎么取消请求的，以及对应的原理",
+    "keywords": "axios取消请求用法,axios取消请求是怎么实现的,axios取消请求原理",
+    "category": "http与https"
+  },
+  { 
+    "source": "iMovie剪辑的视频没有全屏显示，上下被截断的解决方法.md",
+    "staticFileName": "iMovie_not_fullscreen.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "iMovie视频没有全屏,iMovie视频上下被截断，使用iMovie剪辑视频时，直接点击视频预览时ok的，但把视频拖动到iMovie时间轴后, 就不是全屏的了。屏幕上方和下方被截断了，注意这种情况，需要在时间轴，选中视频，然后在预览器，点击 '全部还原'，就可以了。",
+    "keywords": "iMovie视频没有全屏,iMovie视频上下被截断",
+    "category": "计算机基础与开发工具"
+  },
+  { 
+    "source": "引用数据类型数组去重，去掉id重复的元素.md",
+    "staticFileName": "array_del_repeat.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "数组去重优雅写法,引用类型数组去重,有一个需求，客户信息列表，需要去除重复的客户。于是想着怎么优雅的写去重的逻辑，下面是最后使用的方法，使用 filter 遍历数组，将遍历的id存入 Set 数组，判断该数组里是否存在该id，如果已经存在就过滤，这样返回的就是去重后的数组了，具体实现如下",
+    "keywords": "数组去重优雅写法,引用类型数组去重",
+    "category": "js"
+  },
+  { 
+    "source": "obs录制视不是全屏、录制视频模糊的问题.md",
+    "staticFileName": "obj_issue.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "obs录制视频不是全屏的问题,obs录制视频模糊的问题，1. obs录制视不是全屏的问题, 解决方法：打开OBS => 点击顶部 '编辑' 按钮 => 选择 '变换' => 点击比例适配屏幕，2. obs录制视频模糊的问题 解决方法，右键显示捕获，选择调整输出大小到源大小，正常情况下是可以点击的。这里因为我已经设置了，且正在推流、录制，就是灰色的了。",
+    "keywords": "obs录制视频不是全屏的问题,obs录制视频模糊的问题",
+    "category": "计算机基础与开发工具"
+  },
+  { 
+    "source": "为什么vconsole直接new一下就能引入，实现原理是什么？.md",
+    "staticFileName": "vconsole.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "在移动端真机调试时，一般会用到vconsole，那你会发现在vue中vconsole的引入非常简单，只需要在main.js里面引入，并new一下。相比其他组件需要Vue.use引入来说，会很迷惑，这个是怎么引入到项目的？页面底部时怎么显示vconsole的按钮的？先来看结论，vconsole大致实现思路 1. 通过window监听页面加载，加载ok后向页面append vconsle相关的dom（右下角按钮） 2. 像log、network等相关的渲染显示，都是通过重写window下对应的系统方法来加入一些自定义操作",
+    "keywords": "vconsole实现原理,vconsole实现,vconsole为什么只需要new就能引入,为什么vconsole在vue中不用Vue.use就能使用",
+    "category": "vue"
+  },
+  { 
+    "source": "输入法组合文字事件compositionstart等不能用on监听.md",
+    "staticFileName": "oncompositionstart_issue.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "今天用原生的js来写demo时发现使用oncompositoinstart无法监听到输入法组合文件的过程，后面替换为addEventListener就可以了。因此对于输入法组合文字过程事件必须要使用DOM2级事件监听",
+    "keywords": "compositionstart等输入法组合文字过程的事件不能使用on监听",
+    "category": "js"
+  },
+  { 
+    "source": "为什么有效的URI不能包含空格等其他字符，URI编码方法详解.md",
+    "staticFileName": "uri.html",
+    "author": "guoqzuo",
+    "createDate": "2020/09/12",
+    "description": "在JS高程3里介绍URI编码方法时，有这样一个描述：**有效的URI中不能包含某些字符，比如空格。使用URI编码方法可以把所有无效的字符替换为特殊的utf-8编码，从而让浏览器能够接受和理解** 为什么有效的URI不能包含空格等其他字符？ 在《HTTP权威指南》第2章URL与资源 - 各种令人头疼的字符(p38)里有介绍原因：",
+    "keywords": "URI编码方法详解",
+    "category": "http与https"
   }
 ]
