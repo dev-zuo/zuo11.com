@@ -1,0 +1,101 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="array_del_repeat.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="数组去重优雅写法,引用类型数组去重,有一个需求，客户信息列表，需要去除重复的客户。于是想着怎么优雅的写去重的逻辑，下面是最后使用的方法，使用 filter 遍历数组，将遍历的id存入 Set 数组，判断该数组里是否存在该id，如果已经存在就过滤，这样返回的就是去重后的数组了，具体实现如下">
+        <meta name="keywords" content="数组去重优雅写法,引用类型数组去重">
+
+        <title>引用数据类型数组去重，去掉id重复的元素 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/09/12</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="引用数据类型数组去重，去掉id重复的元素">引用数据类型数组去重，去掉id重复的元素</h1>
+<p>有一个需求，客户信息列表，需要去除重复的客户。于是想着怎么优雅的写去重的逻辑，下面是最后使用的方法，使用 filter 遍历数组，将遍历的id存入 Set 数组，判断该数组里是否存在该id，如果已经存在就过滤，这样返回的就是去重后的数组了，具体实现如下</p>
+<pre><code class="language-js">let customerList = [ 
+  { id: &#39;1&#39;, info: &#39;xxx&#39; },
+  { id: &#39;3&#39;, info: &#39;xxx&#39; },
+  { id: &#39;1&#39;, info: &#39;xxx&#39; },
+  { id: &#39;2&#39;, info: &#39;xxx&#39; },
+  { id: &#39;3&#39;, info: &#39;xxx&#39; },
+]
+
+// 去重
+let tempSet = new Set()
+let newList = customerList.filter(item =&gt; {
+  if (tempSet.has(item.id)) {
+    return false
+  }
+  tempSet.add(item.id)
+  return true
+})
+console.log(newList)
+// [
+//   { id: &#39;1&#39;, info: &#39;xxx&#39; },
+//   { id: &#39;3&#39;, info: &#39;xxx&#39; },
+//   { id: &#39;2&#39;, info: &#39;xxx&#39; },
+// ]</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="引用数据类型数组去重，去掉id重复的元素" style="padding-left:1em">引用数据类型数组去重，去掉id重复的元素<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

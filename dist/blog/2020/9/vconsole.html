@@ -1,0 +1,227 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="vconsole.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在移动端真机调试时，一般会用到vconsole，那你会发现在vue中vconsole的引入非常简单，只需要在main.js里面引入，并new一下。相比其他组件需要Vue.use引入来说，会很迷惑，这个是怎么引入到项目的？页面底部时怎么显示vconsole的按钮的？先来看结论，vconsole大致实现思路 1. 通过window监听页面加载，加载ok后向页面append vconsle相关的dom（右下角按钮） 2. 像log、network等相关的渲染显示，都是通过重写window下对应的系统方法来加入一些自定义操作">
+        <meta name="keywords" content="vconsole实现原理,vconsole实现,vconsole为什么只需要new就能引入,为什么vconsole在vue中不用Vue.use就能使用">
+
+        <title>为什么vconsole直接new一下就能引入，实现原理是什么？ - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/09/12</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="为什么vconsole直接new一下就能引入，实现原理是什么？">为什么vconsole直接new一下就能引入，实现原理是什么？</h1>
+<p>在移动端真机调试时，一般会用到vconsole，那你会发现在vue中vconsole的引入非常简单，只需要在main.js里面引入，并new一下。相比其他组件需要Vue.use引入来说，会很迷惑，这个是怎么引入到项目的？页面底部时怎么显示vconsole的按钮的？</p>
+<pre><code class="language-js">// main.js
+import VConsole from &quot;vconsole&quot;;
+new VConsole();</code></pre>
+<p>先来看结论，vconsole大致实现思路</p>
+<ol>
+<li>通过window监听页面加载，加载ok后向页面append vconsle相关的dom（右下角按钮）</li>
+<li>像log、network等相关的渲染显示，都是通过重写window下对应的系统方法来加入一些自定义操作</li>
+</ol>
+<p>下面我们看看vconsole的源码，看看到底是怎么实现的：</p>
+<h2 id="vconsole构造函数">VConsole构造函数</h2>
+<p>入口在 src/core/core.js，有一个VConsole的class，可以看到这里用了单例模式，只允许有一个vconsole</p>
+<pre><code class="language-js">// src/core/core.js
+// ...
+class VConsole {
+
+  constructor(opt) {
+    if (!!$.one(VCONSOLE_ID)) {
+      console.debug(&#39;vConsole is already exists.&#39;);
+      return;
+    }
+    // ....
+// ...</code></pre>
+<p>Log、System、Network、Element、Storage都是单独的模块</p>
+<pre><code class="language-js">// src/core/core.js
+// ...
+// built-in plugins
+import VConsolePlugin from &#39;../lib/plugin.js&#39;;
+import VConsoleLogPlugin from &#39;../log/log.js&#39;;
+import VConsoleDefaultPlugin from &#39;../log/default.js&#39;;
+import VConsoleSystemPlugin from &#39;../log/system.js&#39;;
+import VConsoleNetworkPlugin from &#39;../network/network.js&#39;;
+import VConsoleElementPlugin from &#39;../element/element.js&#39;;
+import VConsoleStoragePlugin from &#39;../storage/storage.js&#39;;
+// ...</code></pre>
+<h3 id="加载右下角按钮逻辑">加载右下角按钮逻辑</h3>
+<p>constructor 里面挂载dom的方法如下，直接监听window的事件，当确定页面加载ok后，再将vconsole相关dom挂载上去</p>
+<pre><code class="language-js">// src/core/core.js
+// ...
+// try to init
+let _onload = function() {
+  if (that.isInited) {
+    return;
+  }
+  that._render();
+  that._mockTap();
+  that._bindEvent();
+  that._autoRun();
+};
+if (document !== undefined) {
+  if (document.readyState === &#39;loading&#39;) {
+    $.bind(window, &#39;DOMContentLoaded&#39;, _onload);
+  } else {
+    _onload();
+  }
+} else {
+  // if document does not exist, wait for it
+  let _timer;
+  let _pollingDocument = function() {
+    if (!!document &amp;&amp; document.readyState == &#39;complete&#39;) {
+      _timer &amp;&amp; clearTimeout(_timer);
+      _onload();
+    } else {
+      _timer = setTimeout(_pollingDocument, 1);
+    }
+  };
+  _timer = setTimeout(_pollingDocument, 1);
+}</code></pre>
+<h2 id="log模块：系统console方法重写加拦截">log模块：系统console方法重写加拦截</h2>
+<p>下面看看console是怎么拦截的，通过下面的代码我们可以看到重写了window.console.log/info/warn等方法，改为执行自己的printLog方法，用于记录log，并渲染到vconsole面板里</p>
+<pre><code class="language-js">// src/log/log.js
+// ...
+/**
+ * replace window.console with vConsole method
+ * @private
+ */
+mockConsole() {
+  const that = this;
+  const methodList = [&#39;log&#39;, &#39;info&#39;, &#39;warn&#39;, &#39;debug&#39;, &#39;error&#39;];
+
+  if (!window.console) {
+    window.console = {};
+  } else {
+    methodList.map(function (method) {
+      that.console[method] = window.console[method];
+    });
+    that.console.time = window.console.time;
+    that.console.timeEnd = window.console.timeEnd;
+    that.console.clear = window.console.clear;
+  }
+
+  methodList.map(method =&gt; {
+    window.console[method] = (...args) =&gt; {
+      this.printLog({
+        logType: method,
+        logs: args,
+      });
+    };
+  });</code></pre>
+<p>当vconsole remove后，还原现场</p>
+<pre><code class="language-js">// src/log/log.js
+// ...
+/**
+ * before remove
+ * @public
+ */
+onRemove() {
+  window.console.log = this.console.log;
+  window.console.info = this.console.info;
+  window.console.warn = this.console.warn;
+  window.console.debug = this.console.debug;
+  window.console.error = this.console.error;
+  window.console.time = this.console.time;
+  window.console.timeEnd = this.console.timeEnd;
+  window.console.clear = this.console.clear;
+  this.console = {};
+
+  const idx = ADDED_LOG_TAB_ID.indexOf(this.id);
+  if (idx &gt; -1) {
+    ADDED_LOG_TAB_ID.splice(idx, 1);
+  }
+}</code></pre>
+<h2 id="network模块：重写xmlhttprequest方法加请求拦截">network模块：重写XMLHttpRequest方法加请求拦截</h2>
+<p>我们再来看看Network相关，也是重写了原生的window.XMLHttpRequest.prototype.open/send等方法，在里面加入了拦截逻辑</p>
+<pre><code class="language-js">// src/network/network.js
+/**
+ * mock ajax request
+ * @private
+ */
+mockAjax() {
+  let _XMLHttpRequest = window.XMLHttpRequest;
+  if (!_XMLHttpRequest) { return; }
+
+  let that = this;
+  let _open = window.XMLHttpRequest.prototype.open,
+      _send = window.XMLHttpRequest.prototype.send;
+  that._open = _open;
+  that._send = _send;
+
+  // mock open()
+  window.XMLHttpRequest.prototype.open = function() {
+    let XMLReq = this;
+    let args = [].slice.call(arguments),
+  // ...
+  // mock send()
+  window.XMLHttpRequest.prototype.send = function() {
+    let XMLReq = this;
+    let args = [].slice.call(arguments),
+        data = args[0];</code></pre>
+<p>完整源码可以先npm install vconsole后再在node_modules里面查看，或者在github上看 <a href="https://github.com/Tencent/vConsole">vconsole - github</a></p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="为什么vconsole直接new一下就能引入，实现原理是什么？" style="padding-left:1em">为什么vconsole直接new一下就能引入，实现原理是什么？<span></li><ul><li><span class="ul-span" data-id="vconsole构造函数" style="padding-left:2em">VConsole构造函数<span></li><ul><li><span class="ul-span" data-id="加载右下角按钮逻辑" style="padding-left:3em">加载右下角按钮逻辑<span></li></ul></ul><ul><li><span class="ul-span" data-id="log模块：系统console方法重写加拦截" style="padding-left:2em">log模块：系统console方法重写加拦截<span></li></ul><ul><li><span class="ul-span" data-id="network模块：重写xmlhttprequest方法加请求拦截" style="padding-left:2em">network模块：重写XMLHttpRequest方法加请求拦截<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  

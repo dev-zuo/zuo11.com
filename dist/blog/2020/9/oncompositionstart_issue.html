@@ -1,0 +1,107 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="oncompositionstart_issue.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="今天用原生的js来写demo时发现使用oncompositoinstart无法监听到输入法组合文件的过程，后面替换为addEventListener就可以了。因此对于输入法组合文字过程事件必须要使用DOM2级事件监听">
+        <meta name="keywords" content="compositionstart等输入法组合文字过程的事件不能使用on监听">
+
+        <title>输入法组合文字事件compositionstart等不能用on监听 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#js" class="hidden">js</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/09/12</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="输入法组合文字事件compositionstart等不能用on监听">输入法组合文字事件compositionstart等不能用on监听</h1>
+<p>今天用原生的js来写demo时发现使用oncompositoinstart无法监听到输入法组合文件的过程，后面替换为addEventListener就可以了。因此对于输入法组合文字过程事件必须要使用DOM2级事件监听</p>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;input id=&quot;input&quot;&gt;&lt;/input&gt;
+  &lt;script&gt;
+    let input = document.querySelector(&#39;#input&#39;)
+    console.log(&#39;input&#39;, input)
+    let composition = false
+
+    // input.addEventListener(&#39;compositionstart&#39;, (e) =&gt; {
+    //   console.log(&#39;oncompositionstart&#39;)
+    //   composition = true
+    // });
+    // input.addEventListener(&#39;compositionend&#39;, (e) =&gt; {
+    //   console.log(&#39;oncompositionend&#39;)
+    //   composition = false
+    // });
+
+    input.oncompositionstart = (e) =&gt; {
+      // 换了大小写也不行
+      // console.log(&#39;onCompositionstart&#39;, composition)
+      console.log(&#39;oncompositionstart&#39;, composition)
+      composition = true
+    }
+
+    input.oncompositionend = (e) =&gt; {
+      console.log(&#39;oncompositionend&#39;, composition)
+      composition = false
+    }
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="输入法组合文字事件compositionstart等不能用on监听" style="padding-left:1em">输入法组合文字事件compositionstart等不能用on监听<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+      </body>
+    </html>
+  
