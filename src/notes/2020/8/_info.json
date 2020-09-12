@@ -319,7 +319,7 @@
         "staticFileName": "allowedMethods_use.html",
         "author": "guoqzuo",
         "createDate": "2020/08/30",
-        "description": "koa-router router.allowedMethods()中间件作用,router.allowedMethods 405,在使用koa koa-router mock接口时，我们会看到 `app.use(router.routes()).use(router.allowedMethods())`，使用 router中间件后，又链式调用了router.allowedMethods()这个中间件，那为什么要加router.allowedMethods()中间件呢？他有什么作用？我们写个demo来测试下。先下结论：1. router.allowedMethods()中间件，主要用于 405 Method Not Allowed 这个状态码先关 2. 如果不加这个中间件，如果接口是get请求，而前端使用post请求，会返回 404 状态码，接口未定义。如果加了这个中间件，这种情况时，会返回405 Method Not Allowed ，提示 request method 不匹配，并再响应头返回接口支持的请求方法，更有利于调试",
+        "description": "koa-router router.allowedMethods()中间件作用,router.allowedMethods 405,在使用koa koa-router mock接口时，我们会看到 `app.use(router.routes()).use(router.allowedMethods())`，使用 router中间件后，又链式调用了router.allowedMethods()这个中间件，那为什么要加router.allowedMethods()中间件呢？他有什么作用？我们写个demo来测试下。先下结论：1. router.allowedMethods()中间件，主要用于 405 Method Not Allowed 这个状态码相关 2. 如果不加这个中间件，如果接口是get请求，而前端使用post请求，会返回 404 状态码，接口未定义。如果加了这个中间件，这种情况时，会返回405 Method Not Allowed ，提示 request method 不匹配，并在响应头返回接口支持的请求方法，更有利于调试",
         "keywords": "koa-router router.allowedMethods()中间件作用,router.allowedMethods 405",
         "category": "前端工程化"
     },
