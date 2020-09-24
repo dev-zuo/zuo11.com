@@ -1,0 +1,267 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="rem.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在还原设计稿稿时，对于展示型的页面，设计稿间距都是固定的px，那我们实现时，如果全部都用pixel(px)写死就会存在某些分辨率下显示比较差的问题。用百分比也可以，但你需要自己手动计算，现在一般比较好的方法是在合适的地方使用rem，他可以自动转换。先来复习下css rem的概念。在css中有以下几种相对长度单位，em表示相对当前父元素字体大小的倍数, rem表示相对根元素(html)字体的倍数。">
+        <meta name="keywords" content="pc rem,h5 rem,em与rem的区别">
+
+        <title>移动端rem自适应与pc端rem自适应 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#css" class="hidden">css</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/09/24</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="移动端rem自适应与pc端rem自适应">移动端rem自适应与pc端rem自适应</h1>
+<p>在还原设计稿稿时，对于展示型的页面，设计稿间距都是固定的px，那我们实现时，如果全部都用pixel(px)写死就会存在某些分辨率下显示比较差的问题。用百分比也可以，但你需要自己手动计算，现在一般比较好的方法是在合适的地方使用rem，他可以自动转换。</p>
+<p>先来复习下css rem的概念。在css中有以下几种相对长度单位</p>
+<ul>
+<li>em表示相对当前父元素字体大小的倍数</li>
+<li>rem表示相对根元素(html)字体的倍数。</li>
+<li>%百分比如果是font-size挂钩的是父元素的font-size的百分比，如果是width，挂钩的是元素包含块的宽度</li>
+<li>vh viewport视口高度，一般height可以设置为 html {min-height:100vh}</li>
+<li>vw 视口宽度(1vw = 1%)。不过一般默认宽度就是100%，宽度用百分比多。高度是由于默认高度不是100%，如果需要表示全屏，使用100vh会比较方便。</li>
+</ul>
+<p>参考 <a href="https://www.yuque.com/guoqzuo/js_es6/dg9u82#92bb76d4">css相对长度 | HTML5权威指南笔记</a></p>
+<p>举个例子：</p>
+<p>设计稿尺寸是 750 * 1334，假设某个图片距离顶部是100px，且需要根据屏幕尺寸自动调整间距，那么我们将 margin-top 设置为 1rem 即可。如果是 45px，设置为 0.45rem。</p>
+<p>为了好还原UI图，1rem通常设计为100px。rem是相对于html元素font-size来计算的，我们可以通过动态的改变html元素的fontSize，来实现响应式布局</p>
+<p><img src="../../../images/blog/css/rem_h5.gif" alt="rem_h5.gif"></p>
+<h2 id="移动端rem自适应">移动端rem自适应</h2>
+<p>获取当前浏览器窗口宽高 document.documentElement.clientHeight * document.documentElement.clientWidth</p>
+<table>
+<thead>
+<tr>
+<th>机型</th>
+<th>屏幕尺寸</th>
+<th>window.devicePixelRatio</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iPhone 5/SE</td>
+<td>320 * 568</td>
+<td>2</td>
+</tr>
+<tr>
+<td>iPhone 6/7/8</td>
+<td>375 * 667</td>
+<td>2</td>
+</tr>
+<tr>
+<td>iPhone 6/7/8 Plus</td>
+<td>414 * 736</td>
+<td>3</td>
+</tr>
+<tr>
+<td>iPhone X</td>
+<td>375 * 812</td>
+<td>3</td>
+</tr>
+<tr>
+<td>iPhone XR</td>
+<td>414 * 896</td>
+<td>2</td>
+</tr>
+<tr>
+<td>iPhone XS Max</td>
+<td>414 * 896</td>
+<td>3</td>
+</tr>
+<tr>
+<td>iPad</td>
+<td>768 * 1024</td>
+<td>2</td>
+</tr>
+<tr>
+<td>iPad pro 10.5-inch</td>
+<td>834 * 1112</td>
+<td>2</td>
+</tr>
+<tr>
+<td>iPad pro 12.9-inch</td>
+<td>1024 * 1366</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<p>假设标准设计图尺寸为750 * xx(iphone 6/7/8 或 iphone X全面屏)，以100为基准。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-size: 14px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div style=&quot;margin-left: 1rem;&quot;&gt;margin-left: 1rem;&lt;/div&gt;
+  &lt;div style=&quot;margin-left: 100px;&quot;&gt;margin-left: 100px;&lt;/div&gt;
+  &lt;script src=&quot;./vconsole.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var vConsole = new VConsole();
+    initRem()
+    function initRem() {
+      let html = document.documentElement
+      let resizeEventName = &#39;orientationchange&#39; in window ? &#39;orientationchange&#39; : &#39;resize&#39;
+      let recalc = () =&gt; {
+        console.log(&#39;recalc&#39;, html);
+        let w = html.clientWidth &lt; 320 ? 320 : html.clientWidth
+        let fontSize = w &gt; 750 ? 200 : ((w / 375) * 100) // iPhone8 w为375
+        html.style.fontSize = fontSize + &#39;px&#39;
+      }
+      recalc()
+      document.addEventListener(&#39;DOMContentLoaded&#39;, recalc, false)
+      window.addEventListener(resizeEventName, recalc, false)
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/DOMContentLoaded">DOMContentLoaded | MDN</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25876048">你不知道的 DOMContentLoaded | 知乎</a></li>
+</ul>
+<h2 id="pc样式自适应rem">pc样式自适应rem</h2>
+<p>pc端如果做官网、展示类的UI，就需要使用rem了。相对移动端，pc端只需要改下设计稿宽度与最小宽度值</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-size: 14px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div style=&quot;margin-left: 1rem;&quot;&gt;margin-left: 1rem;&lt;/div&gt;
+  &lt;div style=&quot;margin-left: 100px;&quot;&gt;margin-left: 100px;&lt;/div&gt;
+  &lt;script&gt;
+    initRem()
+    function initRem() {
+      const recalc = () =&gt; {
+        console.log(&#39;resize&#39;)
+        let designSize = 1920
+        let minWidth = 520
+        let html = document.documentElement
+        let w = html.clientWidth &lt; minWidth ? minWidth : html.clientWidth
+        let rem = (w / designSize) * 100
+        html.style.fontSize = `${rem}px`  // 会影响所有页面
+
+      }
+      recalc()
+      // 窗口变更后，变更rem
+      window.addEventListener(&#39;resize&#39;, recalc)
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>效果如下</p>
+<p><img src="../../../images/blog/css/rem_pc.gif" alt="rem_pc.gif"></p>
+<p>如果是在vue的单个文件中使用，示例如下</p>
+<pre><code class="language-js">export default {
+  created() {
+    const recalc = () =&gt; {
+      let designSize = 1920
+      let minWidth = 1280 // 截gif图时为了好看效果，这里设置成了520，最小宽度
+      let html = document.documentElement
+      let w = html.clientWidth &lt; minWidth ? minWidth : html.clientWidth
+      let rem = ( w / designSize) * 100
+      this.rem = rem // 当前页面 使用时宽高使用 this.rem * (设计稿标记尺寸/100)
+      // html.style.fontSize = `${rem}px`  // 会影响所有页面
+    }
+    this.recalc = recalc
+    recalc()
+    // 窗口变更后，变更rem
+    window.addEventListener(&#39;resize&#39;, recalc)
+  },
+  // 组件销毁时移除resize事件的recalc
+  beforeDestroy() {
+    window.removeEventListener(&#39;resize&#39;, this.recalc, false)
+  }
+}</code></pre>
+<p>这里就凸显出 window.addEventListener(&#39;resize&#39;) 相对于 window.onresize 的优势，假设项目很大，其他代码已经监听了window.onresize如果你再用window.onresize可能会覆盖原来的方法，要特别小心，而window.addEventListener就不用担心这个问题，你只需要注意remove的时候，只移除你自己的监听函数即可。</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="移动端rem自适应与pc端rem自适应" style="padding-left:1em">移动端rem自适应与pc端rem自适应<span></li><ul><li><span class="ul-span" data-id="移动端rem自适应" style="padding-left:2em">移动端rem自适应<span></li></ul><ul><li><span class="ul-span" data-id="pc样式自适应rem" style="padding-left:2em">pc样式自适应rem<span></li></ul></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-178732583-1');
+</script>
+
+      </body>
+    </html>
+  

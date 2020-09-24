@@ -1,0 +1,105 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="github_clone_slow.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="以clone vue源码为例，默认git clone下载非常慢，我们可以把github.com链接改为镜像github.com.cnpmjs.org，这样下载速度就很快了，修改后效果对比图如下">
+        <meta name="keywords" content="github clone慢,github clone超时,github clone不下来">
+
+        <title>github clone下载太慢怎么解决 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/09/24</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="github-clone下载太慢怎么解决">github clone下载太慢怎么解决</h1>
+<p>以clone vue源码为例，默认git clone下载非常慢，我们可以把github.com链接改为镜像github.com.cnpmjs.org，这样下载速度就很快了，修改后效果对比图如下</p>
+<p><img src="../../../images/blog/web/github_clone_slow.png" alt="github_clone_slow.png"></p>
+<p>具体过程</p>
+<pre><code class="language-bash"># git clone 下载vue源码，默认情况下速度只有10k/s
+guoqzuo-mac:source kevin$ git clone https://github.com/vuejs/vue.git
+Cloning into &#39;vue&#39;...
+remote: Enumerating objects: 56366, done.
+^Cceiving objects:   5% (2823/56366), 556.01 KiB | 10.00 KiB/s   
+guoqzuo-mac:source kevin$ 
+# 在github.com后面加上cnpmjs.org后，使用淘宝源，下载速度为 1.2M/s
+guoqzuo-mac:source kevin$ git clone https://github.com.cnpmjs.org/vuejs/vue.git
+Cloning into &#39;vue&#39;...
+remote: Enumerating objects: 56366, done.
+remote: Total 56366 (delta 0), reused 0 (delta 0), pack-reused 56366
+Receiving objects: 100% (56366/56366), 26.75 MiB | 1.22 MiB/s, done.
+Resolving deltas: 100% (39568/39568), done.
+guoqzuo-mac:source kevin$ </code></pre>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="github-clone下载太慢怎么解决" style="padding-left:1em">github clone下载太慢怎么解决<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-178732583-1');
+</script>
+
+      </body>
+    </html>
+  

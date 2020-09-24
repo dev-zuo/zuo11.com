@@ -1,0 +1,201 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="table_slash.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在最近的需求中，有个表格表头里有斜线，我特意翻了 HTML5权威指南 的笔记，发现并没有介绍怎么画表头的斜线。找了下网上的实现，一般都是通过 css 来实现，使用 after 或者特定 span 画一条直线，然后通过 rotate 来旋转成斜线效果。这里涉及到怎么计算斜线角度，会用到一点点数学的知识">
+        <meta name="keywords" content="css表格画斜线,css计算斜线角度,直角三角形给定直角边计算斜边角度">
+
+        <title>css表格怎么画斜线，怎么精准计算斜线rotate角度 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#css" class="hidden">css</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/09/24</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="css表格怎么画斜线，怎么精准计算斜线rotate角度">css表格怎么画斜线，怎么精准计算斜线rotate角度</h1>
+<p>在最近的需求中，有个表格表头里有斜线，我特意翻了 HTML5权威指南 的笔记，发现并没有介绍怎么画表头的斜线。找了下网上的实现，一般都是通过 css 来实现，使用 after 或者特定 span 画一条直线，然后通过 rotate 来旋转成斜线效果。这里涉及到怎么计算斜线角度，会用到一点点数学的知识</p>
+<p><img src="../../../images/blog/css/table_slash.png" alt="table_slash.png"></p>
+<p>在线预览地址: <a href="https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E8%A1%A8%E6%A0%BC%E6%80%8E%E4%B9%88%E7%94%BB%E6%96%9C%E7%BA%BF/index.html">表格画斜线 | github</a></p>
+<p>先来看两个数学公式</p>
+<ol>
+<li>计算斜线的长度。勾股定理 a² + b² = c²</li>
+</ol>
+<pre><code class="language-css">/* 斜边边长 */
+/* Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2)) */
+/* Math.sqrt(Math.pow(150, 2) + Math.pow(80, 2)) = 170 */</code></pre>
+<ol start="2">
+<li>根据th单元格的宽高计算斜线的rotate角度。给定直角三角形的边长，怎么计算角度? 这里我们知道宽高，不知道斜边边长,假设角度A，正切tanA = 对边(高) / 邻边(宽)，我们知道这个角度A的正切值，怎么反向计算A的角度呢。就需要用到反正切函数 Math.atan了，他会返回一个弧度值。在JS中 180度对应的值为 Math.PI，计算出来的值乘以 (180 / Math.PI) 就是可以在css中使用的度数了，单位为 deg</li>
+</ol>
+<pre><code class="language-css">/* 角度计算公式 */ 
+/*  Math.atan(height / width) * 180 / Math.PI  */
+/*  Math.atan(80 / 150) * 180 / Math.PI  = 28.072486935852954 */</code></pre>
+<p>完整代码如下</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;style&gt;
+    /* 基本表格元素 */
+    table {
+      border-collapse: collapse;
+    }
+    th,td {
+      border: 1px solid #666;
+      padding: 5px;
+    }
+
+    /* th单元格 */
+    .slash-wrap {
+      position: relative;
+      box-sizing: border-box;
+      width: 150px;
+      height: 80px;
+    }
+
+    /* 斜线 */
+    .slash {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      /* 斜边边长 */
+      /* Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2)) */
+      /* Math.sqrt(Math.pow(150, 2) + Math.pow(80, 2)) = 170 */
+      width: 170px;
+      height: 1px;
+      background-color:#000;
+      /* 旋转角度计算公式 */ 
+      /*  Math.atan(height / width) * 180 / Math.PI  */
+      /*  Math.atan(80 / 150) * 180 / Math.PI  = 28.072486935852954 */
+      transform: rotate(28.072486935852954deg); 
+      transform-origin: top left;
+    }
+
+    /* 左下角文字 */
+    .left {
+      position: absolute;
+      /* 左下角 left:0; bottom: 0; */
+      left: 15px;
+      bottom: 15px;
+    }
+
+    /* 右上角文字 */
+    .right {
+      position: absolute;
+      /* 右上角 right:0; top: 0; */
+      right: 15px;
+      top: 15px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;th class=&quot;slash-wrap&quot;&gt;
+          &lt;span class=&quot;left&quot;&gt;姓名&lt;/span&gt;
+          &lt;span class=&quot;slash&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;right&quot;&gt;科目&lt;/span&gt;
+        &lt;/th&gt;
+        &lt;th&gt;语文&lt;/th&gt;
+        &lt;th&gt;数学&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;张三&lt;/td&gt;
+        &lt;td&gt;89&lt;/td&gt;
+        &lt;td&gt;80&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;李四&lt;/td&gt;
+        &lt;td&gt;89&lt;/td&gt;
+        &lt;td&gt;80&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/atan">Math.atan | MDN</a></li>
+<li><a href="https://zhidao.baidu.com/question/1734209350028464467.html">【数学】sin cos tan分别是什么意思</a></li>
+<li><a href="https://zhidao.baidu.com/question/1049676482244639019.html">有边长怎么计算三角形的角度</a></li>
+<li><a href="https://tool.520101.com/calculator/sanjiaoxingjiaodu/">在线三角形的角度计算器</a></li>
+<li><a href="https://www.cnblogs.com/zhaozhenzhen/p/12187482.html">vue element 表头添加斜线</a></li>
+</ul>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="css表格怎么画斜线，怎么精准计算斜线rotate角度" style="padding-left:1em">css表格怎么画斜线，怎么精准计算斜线rotate角度<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-178732583-1');
+</script>
+
+      </body>
+    </html>
+  
