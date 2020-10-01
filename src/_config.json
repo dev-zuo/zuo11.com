@@ -17,11 +17,6 @@
         "target": "_black"
       },
       {
-        "name": "B站",
-        "href": "https://space.bilibili.com/486840111",
-        "target": "_black"
-      },
-      {
         "name": "Github",
         "href": "https://github.com/zuoxiaobai",
         "target": "_black"
@@ -32,11 +27,6 @@
     {
       "name": "语雀",
       "href": "https://www.yuque.com/guoqzuo",
-      "target": "_black"
-    },
-    {
-      "name": "B站",
-      "href": "https://space.bilibili.com/486840111",
       "target": "_black"
     },
     {
@@ -57,6 +47,7 @@
     "前端工程化",
     "运维部署与版本控制",
     "计算机基础与开发工具",
+    "图表可视化",
     "网站建设与seo",
     "微信开发",
     "移动端混合开发",

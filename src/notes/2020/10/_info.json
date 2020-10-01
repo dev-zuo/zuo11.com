@@ -1,0 +1,76 @@
+[
+  {
+    "source": "element合并单元格，自定义表格border.md",
+    "staticFileName": "element_merge_cells.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "有个较为特殊的表格，需要合并单元格，且改变表格border，下面来看看element el-table怎么实现这种表格。先来分析下怎么做，1. 第一列中第二行以后的行是需要合并的，el-table 提供了一个 span-method 属性，用于传入合并单元格方法，在里面可以根据 rowspan、colspan 合并行或列 2. 第 2、3、4 列需要改变表格 border，需要使用 `/deep/` 修改 element 默认的颜色，使用 nth-child、first-child 等找到对应的行或列，修改border",
+    "keywords": "element合并单元格,element表格合并单元格",
+    "category": "vue"
+  },
+  {
+    "source": "前端通过document.cookie设置cookie，相关改动会传到后台吗？.md",
+    "staticFileName": "document_cookie_edit.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "首先我们来捋一捋，什么是cookie？与cookie相关的知识点有两个：1. 前端获取/设置cookie，使用 document.cookie 2. HTTP请求与响应相关cookie，我们先下个结论：他们之间是相互关联的，接口响应头设置cookie，会对document.cookie的值产生影响；前端设置docuemnt.cookie也会对请求头cookie值产生影响，但如果后端写到前端的cookie如果使用了HttpOnly属性，前端是无法通过document.cookie做修改的",
+    "keywords": "document.cookie设置cookie对接口影响",
+    "category": "http与https"
+  },
+  {
+    "source": "git将远程仓库A分支合并到B分支.md",
+    "staticFileName": "git_merge_branch.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "假设要将远程分支的 A 分支合并到 B 分支，一般我会先在A分支将B分支merge，再切到B分支，merge A分支。以将远程仓库的 dev1.3.4 分支合并到远程的 test1.3.4 分支为例，下面是我一般的合并过程",
+    "keywords": "git远程分支合并,git合并分支",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "Object.assgin时是否会忽略null,undefined,空字符串.md",
+    "staticFileName": "object_assgin.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "一般我们在需要设置某个对象的多个值时Object.assgin是一种很好的方法，但又怕当某个属性的值为空字符串、null或undefined时，会自动跳过的情况。这里来做一个简单的测试",
+    "keywords": "Object.assgin是否会跳过null,undefined,''",
+    "category": "js"
+  },
+  {
+    "source": "http请求有哪几种传参方式.md",
+    "staticFileName": "http_param_type.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "在swagger文档里，有一个传参类型的描述 Parameter Type，一般有四种: - header 通过请求头传参，也就是参数加到首部 headers 里 - path  参数放到url路径里，比如 /user/123 这里 123是用户id - query 查询参数，也就是url后面 ? 符号之后的传参，一般用于get请求传参，比如 /user/123?a=xx&b=xx - body 参数放到请求体，一般用于post请求，相对get请求来说，安全性好，可以传的数据更多",
+    "keywords": "http请求传参方式,http传参,swagger参数类型",
+    "category": "http与https"
+  },
+  {
+    "source": "echarts动态改变option里dataZoom的值没有实时生效的问题.md",
+    "staticFileName": "echarts_resize.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "这里我们虽然修改了options的值，但不会实时生效，需要手动调用下echarts实例的resize()方法，另外在做echarts时，对于自适应缩放的图表，一定要注意在窗口缩放时，重新调用resize()",
+    "keywords": "echart修改options后没有实时生效的问题",
+    "category": "图表可视化"
+  },
+  {
+    "source": "git修改上上次的commit信息.md",
+    "staticFileName": "git_edit_commit_info.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "由于提交代码时有钩子函数，信息里面没有包含前置的 code 会无法提交。所以如果 commit 信息写的有问题需要修改后才能提交。对于修改上一次 commit 备注信息，我们可以使用 `git commit --amend -m 'xxx'` 来修改。但它无法修改上上次提交信息，这种情况我们可以使用 rebase 来做处理，下面来做一个测试，本地做两次提交，第一次提交信息为'测试第一次提交'， 第二次提交信息为 '第二次提交'，先不push，我们需要修改上上次的提交信息，也就是修改'测试第一次提交'的内容",
+    "keywords": "git修改commit信息",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "el-input类型为textarea时不能使用v-model.trim.md",
+    "staticFileName": "textarea_not_trim.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/01",
+    "description": "el-input如果type为textarea，不能使用.trim修饰符，否则输入内容时会无法换行，如果需要去掉收尾空格，可以在提交数据时，手动执行.trim()去空格",
+    "keywords": "textarea不用使用v-model.trim",
+    "category": "vue"
+  }
+]
+
+

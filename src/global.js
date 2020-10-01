@@ -114,24 +114,24 @@ document.body.oncopy = function(event) {
 
 
 // 公众号二维码显示在文章最底部
-function showQrcode() {
-  // 如果是文章分类、主页，不显示二维码
-  let filterList = ['左小白的技术日常', '文章分类 - 左小白的技术日常']
-  if (filterList.includes(document.title)) {
-    return
-  }
-  let articleDom = document.querySelector('article')
-  let div = document.createElement('div')
-  let img = document.createElement('img')
+// function showQrcode() {
+//   // 如果是文章分类、主页，不显示二维码
+//   let filterList = ['左小白的技术日常', '文章分类 - 左小白的技术日常']
+//   if (filterList.includes(document.title)) {
+//     return
+//   }
+//   let articleDom = document.querySelector('article')
+//   let div = document.createElement('div')
+//   let img = document.createElement('img')
 
-  img.src = '/images/blog/web/qrcode.jpg'
-  img.style.height = "180px"
-  img.style.width = "180px"
-  // div.style.textAlign = 'center'
-  div.style.margin = "30px 0"
+//   img.src = '/images/blog/web/qrcode.jpg'
+//   img.style.height = "180px"
+//   img.style.width = "180px"
+//   // div.style.textAlign = 'center'
+//   div.style.margin = "30px 0"
 
-  div.appendChild(img)
-  articleDom.appendChild(div)
-}
+//   div.appendChild(img)
+//   articleDom.appendChild(div)
+// }
 
-showQrcode() // 执行
+// showQrcode() // 执行
