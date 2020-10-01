@@ -30,8 +30,6 @@
             
           <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
         
-          <a href="https://space.bilibili.com/486840111" target="_black" class="hidden">B站</a>
-        
           <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
         
           </div>
@@ -56,7 +54,7 @@
 <h3 id="在node中为什么可以运行js代码？">在node中为什么可以运行js代码？</h3>
 <p>主要是因为node集成了Chrome V8引擎，也就是Chrome浏览器的JS引擎。</p>
 <h3 id="node为什么要创建一个基于js的执行环境，作者的初衷是什么？">node为什么要创建一个基于js的执行环境，作者的初衷是什么？</h3>
-<p>node的作者是Ryan Dahl /&#39;raiən da:l/，他的工作是用C/C++写高性能web服务，对于高性能，异步IO、事件驱动是基本原则，但用C/C++写就太痛苦了。于是他设想使用另一种高级语言开发Web服务，评估了很多语言，发现很多语言虽然同是提供了异步IO和同步IO，但开发人员一旦使用了同步IO，他们就再也懒得写异步IO了，所以最终Ryan选择了JS。</p>
+<p>node的作者是Ryan Dahl /&#39;raiən da:l/，他的工作是用C/C++写高性能web服务，对于高性能，异步IO、事件驱动是基本原则，但用C/C++写就太痛苦了。于是他设想使用另一种高级语言开发Web服务，评估了很多语言，发现很多语言虽然同时提供了异步IO和同步IO，但开发人员一旦使用了同步IO，他们就再也懒得写异步IO了，所以最终Ryan选择了JS。</p>
 <p>综上，<strong>node是为了写高性能web服务而生的</strong>，它让js这门前端语言，也可以做后端服务器开发，Node目前的发展完全超出了作者的预料，它基本改变了前端的整个开发生态。下面我们来看看Node的一些应用场景</p>
 <h3 id="node的应用场景">node的应用场景</h3>
 <p>node除了集成Chrome V8引擎来提供js运行时外，还集成了libuv、llhttp、c-ares、OpenSSL、zlib等第三方库的功能，用来支持<strong>创建http服务，解析请求、响应，操作(读写)文件，加密、压缩等</strong>。</p>
