@@ -1,11 +1,13 @@
 
 # docker ps 查到 mysql 镜像对应的id为2611，向镜像内部写入数据
-# docker exec -i 2611 sh -c 'exec mysql -h127.0.0.1 -uroot -p1234567Abc,.' < ./init.sql
+# docker-compose up --force-recreate --build -d
+# docker ps 查看mysql镜像id
+# docker exec -i mysql镜像id sh -c 'exec mysql -h127.0.0.1 -uroot -p1234567Abc,.' < ./backend/dao/init.sql
 
 # 允许远程连接
-use mysql
-select Host,User from user;
-update user set host='%' where user='root' and host='localhost';
+-- use mysql
+-- select Host,User from user;
+-- update user set host='%' where user='root' and host='localhost';
 
 # 创建数据库
 CREATE DATABASE ibd;
