@@ -35,7 +35,7 @@ mac 修改环境变量，以便能在任何地方使用 mongod 命令
 # 运行该命令后，当前terminal生效了，但关闭后，打开其他terminal就无效
 export PATH=/usr/local/mongodb/bin:$PATH
 ```
-这种情况需要在 .bash_profile 文件里，加入 export PATH=/usr/local/mongodb/bin:$PATH 才行
+这种情况需要在 .bash_profile 文件里，加入 export PATH=/usr/local/mongodb/bin:$PATH 才行，**上面是旧的方法，新mac系统，bash是zsh，文件不再是.bash_profile，而是.zshrc**
 ```bash
 # 打开主目录下的 .bash_profile 文件
 vi ~/.bash_profile

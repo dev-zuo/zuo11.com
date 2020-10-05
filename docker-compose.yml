@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  nginx:
+    restart: always
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./dist:/var/www/html/
+  mysql-db:
+    container_name: mysql
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: '1234567Abc,.'
+    restart: always
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+  # nodeapp: 
+  #   container_name: nodeapp
+  #   build: ./backend
+  #   restart: always
+  #   ports:
+  #     - 8700:8700
+  #   depends_on:
+  #     - mysql-db
+  app-pm2:
+    container_name: app-pm2
+    # 构建容器
+    build: ./backend
+    ports:
+      - 8700:8700
+    depends_on:
+      - mysql-db
