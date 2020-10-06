@@ -4,7 +4,7 @@ services:
     restart: always
     image: nginx
     ports:
-      - 80:80
+      - 3000:3000
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d
       - ./dist:/var/www/html/
