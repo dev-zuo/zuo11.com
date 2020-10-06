@@ -1,5 +1,5 @@
 
-console.log('您好，欢迎光临zuo11.com!')
+console.log('您好，欢迎光临zuo11.com! ___')
 
 // 实现tab间切换时，隐藏页面title改变功能
 // JS高程3 Page Visibility API(页面可见性API)
