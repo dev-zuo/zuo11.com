@@ -47,14 +47,18 @@
 <h2 id="ci持续集成continuous-integration">CI持续集成(continuous integration)</h2>
 <p>CI 指的是持续集成，从研发团队提交代码作为起点，经过构建扫描测试等环节，以版本仓库为终点</p>
 <p>这中间，需要对每个新功能或者问题修复创建自动化测试用例。对新提交的代码执行自动化测试。</p>
-<p>通过自动化测试可以提早拿到测试结果，测试成本也大幅降低，CI服务器可以在几秒钟运行上白条测试。</p>
-<h2 id="cd持续部署continuous-delivery">CD持续部署(continuous delivery)</h2>
-<p>CD 指的是持续部署，以版本仓库为起点，经过各模块自动化部署，到业务上线提供服务为终点</p>
-<p>可以一键部署，自动触发发布流程</p>
+<p>通过自动化测试可以提早拿到测试结果，测试成本也大幅降低，CI服务器可以在几秒钟运行上百条测试。</p>
+<p>一般从程序员开发的角度来讲，持续集成 CI，包含了持续部署CD。比如代码 merge 到 master 分支时，会触发一个 action，自动将代码部署到服务器。</p>
+<p>但在某些比较细分的情况，CI就不包含部署了。比如多个功能、版本可能会同时开发。但测试环境只有两个。不可能直接提交代码，就自动部署到测试环境了。测试环境可能在验证其他功能。这就需要在devops平台手动点击部署，并选择对应的测试环境。这种情况，代码提交到仓库就算是 CI 持续集成了。</p>
+<h2 id="cd持续交付部署continuous-deliverycontinuous-deployment">CD持续交付/部署(continuous delivery/continuous deployment)</h2>
+<p>CD 有两种解释：持续交付/持续部署，以版本仓库为起点，经过各模块自动化部署，到业务上线提供服务为终点，可以一键部署，自动触发发布流程</p>
+<p>CD 更偏向于把功能进行上线。一键部署或自动部署（合并到master）。</p>
 <h2 id="co持续运营continuous-operation">CO持续运营(continuous operation)</h2>
 <p>CO 指的是持续运营，从业务上线服务为起点，到业务下线终止服务，期间包含各种运营事件。</p>
+<p>总之这些都是概念性的，它们用于描述软件开发中的一些过程，大家心里有自己的一个理解就好，没有标准的答案。</p>
 <p>参考：</p>
 <ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31097868">一文帮你秒懂CI, CD AND CD</a></li>
 <li><a href="https://www.sohu.com/a/275215574_355140">腾讯这种级别的大厂是怎么做运维转型的？</a></li>
 <li><a href="http://www.360doc.com/content/18/0903/11/19960613_783492490.shtml">详解CI、CD &amp; CD – 运维生存时间</a></li>
 </ul>
@@ -62,7 +66,7 @@
           </article>
           <aside>
             <div>
-              <ul><li><span class="ul-span" data-id="ci、cd、co是什么意思" style="padding-left:1em">CI、CD、CO是什么意思<span></li><ul><li><span class="ul-span" data-id="ci持续集成continuous-integration" style="padding-left:2em">CI持续集成(continuous integration)<span></li></ul><ul><li><span class="ul-span" data-id="cd持续部署continuous-delivery" style="padding-left:2em">CD持续部署(continuous delivery)<span></li></ul><ul><li><span class="ul-span" data-id="co持续运营continuous-operation" style="padding-left:2em">CO持续运营(continuous operation)<span></li></ul></ul>
+              <ul><li><span class="ul-span" data-id="ci、cd、co是什么意思" style="padding-left:1em">CI、CD、CO是什么意思<span></li><ul><li><span class="ul-span" data-id="ci持续集成continuous-integration" style="padding-left:2em">CI持续集成(continuous integration)<span></li></ul><ul><li><span class="ul-span" data-id="cd持续交付部署continuous-deliverycontinuous-deployment" style="padding-left:2em">CD持续交付/部署(continuous delivery/continuous deployment)<span></li></ul><ul><li><span class="ul-span" data-id="co持续运营continuous-operation" style="padding-left:2em">CO持续运营(continuous operation)<span></li></ul></ul>
             <div>
           </aside>
         </section>
