@@ -14,7 +14,7 @@ class Dao {
       // 建立连接
       // 参数分别为: database, username, password, config
       this.sequelize = new Sequelize('ibd', 'root', '1234567Abc,.', {
-        host: '172.18.0.1', // docker从一个镜像访问里另一个镜像(mysql)
+        host: 'db', // docker从一个镜像访问里另一个镜像(mysql)
         // host: 'localhost',
         dialect: 'mysql', // 'mysql' | 'mariadb' | 'postgres' | 'mssql' 之一 
       })
