@@ -12,12 +12,11 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: '1234567Abc,.'
-    # command: --default-authentication-plugin=mysql_native_password
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
       - 3306:3306
-    expose:
+    expose: 
       - 3306
     # volumes:
     #   - ./mysql/data:/var/lib/mysql
@@ -25,6 +24,8 @@ services:
       # - ./deployment/mysql/data:/var/lib/mysql # 挂载数据库数据
       # - ./deployment/mysql/conf/my.cnf:/etc/mysql/my.cnf # 挂载配置文件
       - ./backend/dao:/docker-entrypoint-initdb.d/ # 挂载数据初始化sql脚本
+    # networks:
+    #   - test_network
   # nodeapp: 
   #   container_name: nodeapp
   #   build: ./backend
@@ -41,3 +42,10 @@ services:
     restart: always
     depends_on:
       - mysql-db
+#     links:
+#       - mysql-db:mysql-db
+#     networks:
+#       - test_network
+
+# networks:
+#   test_network:

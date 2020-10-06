@@ -18,6 +18,12 @@ class Dao {
         // host: 'localhost',
         // host: '192.168.112.1',
         dialect: 'mysql', // 'mysql' | 'mariadb' | 'postgres' | 'mssql' 之一 
+        // pool configuration used to pool database connections
+        pool: {
+          max: 5,
+          idle: 30000,
+          acquire: 60000,
+        }
       })
 
       // 测试连接，使用 .authenticate() 函数来测试连接
@@ -26,6 +32,12 @@ class Dao {
       this.createConfigModel()
     } catch (e) {
       console.log(e)
+      // 失败重连，fix dcoker-compose 连不上mysql容器
+      // original: Error: connect ECONNREFUSED 172.26.0.3:3306
+      // depends_on 并不代表 mysql 数据库完全初始化好再启动当前服务
+      setTimeout(()=> {
+        this.init()
+      },2000)
     }
   }
 
