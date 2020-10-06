@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.5'
 services:
   nginx:
     restart: always
@@ -9,10 +9,11 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d
       - ./dist:/var/www/html/
   mysql-db:
-    container_name: mysql
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: '1234567Abc,.'
+    # command: --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
       - 3306:3306
@@ -20,6 +21,10 @@ services:
       - 3306
     # volumes:
     #   - ./mysql/data:/var/lib/mysql
+    volumes:
+      # - ./deployment/mysql/data:/var/lib/mysql # 挂载数据库数据
+      # - ./deployment/mysql/conf/my.cnf:/etc/mysql/my.cnf # 挂载配置文件
+      - ./backend/dao:/docker-entrypoint-initdb.d/ # 挂载数据初始化sql脚本
   # nodeapp: 
   #   container_name: nodeapp
   #   build: ./backend
@@ -29,12 +34,10 @@ services:
   #   depends_on:
   #     - mysql-db
   app-pm2:
-    container_name: app-pm2
     # 构建容器
     build: ./backend
     ports:
       - 8700:8700
+    restart: always
     depends_on:
       - mysql-db
-    links:
-      - mysql-db:db
