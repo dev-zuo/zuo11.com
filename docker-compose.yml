@@ -7,7 +7,7 @@ services:
       - 3000:3000
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d
-      - ./dist:/var/www/html/
+      - ./zuoguoqing.com/:/var/www/html/
   mysql-db:
     image: mysql
     environment:
