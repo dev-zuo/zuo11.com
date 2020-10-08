@@ -1,0 +1,120 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="people_num.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在人数这一栏，输入时，前端需要确保输入的只能是正整数，且不能是负数，且自动校正，来看看怎么实现">
+        <meta name="keywords" content="element只能输入正整数">
+
+        <title>element表单中，人数输入框怎么限制只能输入正整数 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">vue</a>
+          </div>
+          <div>
+            
+          <a href="https://www.yuque.com/guoqzuo" target="_black" class="hidden">语雀</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            
+    <div class="article-top">
+      <div>2020/10/08</div> 
+      <div class="article-top-right">Author: guoqzuo</div>
+    </div>
+  
+            <h1 id="element表单中，人数输入框怎么限制只能输入正整数">element表单中，人数输入框怎么限制只能输入正整数</h1>
+<p>在人数这一栏，输入时，前端需要确保输入的只能是正整数，且不能是负数，且自动校正，来看看怎么实现</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    只能输入正整数: {{ peopleCount }}
+    &lt;el-input
+      v-model=&quot;peopleCount&quot;
+      @keyup.native=&quot;keyUp&quot;
+      style=&quot;width:200px;margin:50px;&quot;
+    &gt;&lt;/el-input&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      peopleCount: &quot;&quot;
+    };
+  },
+  methods: {
+    keyUp(e) {
+      // 非数字全部转换为&#39;&#39;
+      e.target.value = e.target.value.replace(/[^\d]/g, &quot;&quot;);
+      // 开始的0处理
+      if ([0, &quot;0&quot;].includes(e.target.value)) {
+        e.target.value = &quot;&quot;;
+      }
+      this.peopleCount = e.target.value;
+      return e.target.value;
+    }
+  }
+};
+&lt;/script&gt;</code></pre>
+<p>有了上面的思路后，对于万元输入框怎么限制只能输入最多保留两位小数点的number类型数据，可以思考下</p>
+
+          </article>
+          <aside>
+            <div>
+              <ul><li><span class="ul-span" data-id="element表单中，人数输入框怎么限制只能输入正整数" style="padding-left:1em">element表单中，人数输入框怎么限制只能输入正整数<span></li></ul>
+            <div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://www.beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-178732583-1');
+</script>
+
+      </body>
+    </html>
+  

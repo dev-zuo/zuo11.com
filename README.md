@@ -1,6 +1,8 @@
 # zuo11.com
 zuo11.com blog部分源码
 
+> docker run -p 80:80 -v $PWD/dist:/usr/share/nginx/html -d nginx 
+
 ## 目录结构
 ```bash
 ├── src # 写博客文章的目录

@@ -70,7 +70,78 @@
     "description": "el-input如果type为textarea，不能使用.trim修饰符，否则输入内容时会无法换行，如果需要去掉收尾空格，可以在提交数据时，手动执行.trim()去空格",
     "keywords": "textarea不用使用v-model.trim",
     "category": "vue"
+  },
+  {
+    "source": "log对数在前端的应用场景：把文件大小或金额自动添加合适的单位.md",
+    "staticFileName": "log_web.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "在写下载/导出文件接口时，由于接口文件数据是流的形式而非buffer，导致total为0，无法获取进度。只能通过loaded知道当前下载了多少字节。前端显示时，怎么给出合适的单位，是KB、MB，还是G？",
+    "keywords": "文件大小转换合适单位,单位元数据加合适的单位",
+    "category": "js"
+  },
+  {
+    "source": "节流与防抖理解以及element源码中节流与防抖的应用.md",
+    "staticFileName": "throttle_debounce.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "理论上 throttle 节流一般用于监听类似 resize 方法，想要减少执行频率的场景。对于点击按钮提交，防止短时间内多次点击可以用 debounce 防抖，但实际使用时可根据具体情况来看，本质上都是利用 setTimeout 来处理执行频率或执行间隔。下面是一个简单的 loadash 防抖示例，300ms 内放置重复点击",
+    "keywords": "节流与防抖,element中节流防抖的应用",
+    "category": "vue"
+  },
+  {
+    "source": "怎么开发vscode插件?.md",
+    "staticFileName": "vscode_plugin.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "在vue-cli项目中，每次修改vue.config.js都需要手动停止在运行，怎么一键就搞定呢？能不能开发个vscode插件，带着这个问题，来看看vscode插件的开发。直接找vscode官方教程。按照文档先来跑一个hello word",
+    "keywords": "vscode插件",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "element表单中，人数输入框怎么限制只能输入正整数.md",
+    "staticFileName": "people_num.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "在人数这一栏，输入时，前端需要确保输入的只能是正整数，且不能是负数，且自动校正，来看看怎么实现",
+    "keywords": "element只能输入正整数",
+    "category": "vue"
+  },
+  {
+    "source": "echarts饼图label两端对齐label距离引导线距离.md",
+    "staticFileName": "echarts_label.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "在对 echarts 饼图label做自定义时，可以通过label选项的 distanceToLabelLine 设置 label 距离引导线距离、alignTo 设置两端对齐。注意echarts版本要是 v4.6 + ，下面来看示例",
+    "keywords": "echarts label两端对齐,引导线距离",
+    "category": "图表可视化"
+  },
+  {
+    "source": "什么是好的代码？.md",
+    "staticFileName": "good_code.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "在web前端方面，什么是好的代码？好的代码应该包含以下两个特性：高性能，低时延（性能优化），熟悉数据结构与算法，减少时间复杂度或空间复杂度，悉浏览器渲染基本原理、熟悉HTTP请求与响应细节、熟悉前端框架源码、减少不必要的渲染开销，提高加载速度。可读性、可维护性、可扩展性",
+    "keywords": "前端什么是好代码,什么是好的代码",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "用node实现发送包含echarts图表的邮件.md",
+    "staticFileName": "node_email.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "在之前我用node研究过怎么收发邮件，但没有研究过邮件里面是否能包含图表，这次来研究下。首先，我们来看看怎么发邮件，准备工作：配置发件人邮箱 我们发送邮件，首先需要有一个邮箱作为发件人，以QQ邮箱为例，我们发邮件使用 `916707888@qq.com` 作为发件人，我们需要使用程序自动发邮件，所以需要配置发邮件的服务，开启发邮件的POP3/SMTP服务，得到授权码在操作，下面来看看具体过程",
+    "keywords": "node发邮件,node发送图表邮件,node发送echart图表邮件",
+    "category": "前端工程化"
+  },
+  {
+    "source": "前端代码规范风格指南.md",
+    "staticFileName": "fe_style.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/08",
+    "description": "新建文件夹，命名以小写字母开头，驼峰命名，单文件组件命名规则，参考vue风格指南。如果组件内容较多，创建一个文件夹，命名以npm包命名规则一致，全小写、-分隔，建议不超过3个单词。其他资源目录，参考Element组件源码",
+    "keywords": "前端代码规范,前端命名规范",
+    "category": "vue"
   }
 ]
-
 
