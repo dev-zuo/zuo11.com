@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c1555"],{4630:function(n,t,e){"use strict";e.r(t);var u=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",[n._v(" title 额外的 "),n._t("default")],2)},o=[],l={data:function(){return{}},mounted:function(){console.log("sub middle mounted")},methods:{}},c=l,d=e("2877"),i=Object(d["a"])(c,u,o,!1,null,null,null);t["default"]=i.exports}}]);
+//# sourceMappingURL=chunk-2d0c1555.7f41768f.js.map
