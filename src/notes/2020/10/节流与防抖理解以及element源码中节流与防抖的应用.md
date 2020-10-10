@@ -1,9 +1,9 @@
 # 节流与防抖理解以及element源码中节流与防抖的应用
 理论上 throttle 节流一般用于监听类似 resize 方法，想要减少执行频率的场景。对于点击按钮提交，防止短时间内多次点击可以用 debounce 防抖
 
-但实际使用时可根据具体情况来看，本质上都是利用 setTimeout 来处理执行频率或执行间隔。下面是一个简单的 loadash 防抖示例，300ms 内放置重复点击
+但实际使用时可根据具体情况来看，本质上都是利用 setTimeout 来处理执行频率或执行间隔。下面是一个简单的 lodash 防抖示例，300ms 内放置重复点击
 ```js
-import { debounce } from 'loadsh'
+import { debounce } from 'lodash'
 export default {
   methods: {
     submitFormDebounce: debounce(function() {

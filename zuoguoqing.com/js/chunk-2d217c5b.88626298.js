@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d217c5b"],{c7c4:function(n,e,c){"use strict";c.r(e);var u=function(){var n=this,e=n.$createElement,c=n._self._c||e;return c("div",[n._v(" 组件A内容：numA: "+n._s(n.numA)+" objB: "+n._s(n.objB)+" arrayC: "+n._s(n.arrayC)+" "),c("comp-b")],1)},r=[],t=(c("d3b7"),{components:{CompB:function(){return c.e("chunk-2d0e2373").then(c.bind(null,"7e6e"))}},inject:["numA","objB","arrayC"]}),o=t,a=c("2877"),s=Object(a["a"])(o,u,r,!1,null,null,null);e["default"]=s.exports}}]);
+//# sourceMappingURL=chunk-2d217c5b.88626298.js.map
