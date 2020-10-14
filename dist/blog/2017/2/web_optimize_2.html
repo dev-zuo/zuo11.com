@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与seo</a>
+            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="站点优化-新增访客记录、新ui及mip等">站点优化 新增访客记录、新UI及mip等</h1>
             
     <div class="article-top">
-      <div>2017/02/01</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2017/02/01，归类于 <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>站点优化</span>，<span>mip改造</span>，<span>Servlet获取访问信息</span>，<span>web新增访客记录功解决方法能</span>，<span>prism代码高亮使用</span>，<span>UEditor过滤code便签的解决方法</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="站点优化-新增访客记录、新ui及mip等">站点优化 新增访客记录、新UI及mip等</h1>
+            
 <blockquote>
 <p>认真去做内容建设后，百度收录和索引量有了明显的提升。把之前笔记修改完后，发现mip限制的_blank属性用户体验非常差，加上之前没有做访客记录功能。就打算再改改移动端，顺便新增访客记录功能。花了4天时间勉强改完了，把页面效果提升了一个level，mip页面也新增了4个。</p>
 </blockquote>
@@ -83,11 +92,19 @@ ${fn:replace(string2,&#39;&lt;/pre&gt;&#39;,&#39;&lt;/code&gt;&lt;/pre&gt;&#39;)
 <p>现在访问记录功能还比较满意，还需要弄得是多说评论数同步到本地数据库的操作，访问量过滤掉蜘蛛访问。不算很重要，以后有时间弄都行，这次本来可以将笔记详情的URL变短，但考虑到对百度收录的影响，还是算了。这4天下来，收获不错，经验确实需要点滴积累，前期规划还是很重要的!</p>
 <p><img src="../../../images/blog/web/web_optimize_2_9.png" alt="web_optimize_2_9.png"></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="站点优化-新增访客记录、新ui及mip等" style="padding-left:1em">站点优化 新增访客记录、新UI及mip等<span></li><ul><li><span class="ul-span" data-id="前端页面修改" style="padding-left:2em">前端页面修改<span></li></ul><ul><li><span class="ul-span" data-id="新增访问记录表" style="padding-left:2em">新增访问记录表<span></li></ul><ul><li><span class="ul-span" data-id="servlet获取访问信息" style="padding-left:2em">servlet获取访问信息<span></li></ul><ul><li><span class="ul-span" data-id="prism代码高亮" style="padding-left:2em">prism代码高亮<span></li></ul><ul><li><span class="ul-span" data-id="第二次mip改造" style="padding-left:2em">第二次mip改造<span></li></ul><ul><li><span class="ul-span" data-id="总结" style="padding-left:2em">总结<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="站点优化-新增访客记录、新ui及mip等" style="padding-left:1em">站点优化 新增访客记录、新UI及mip等<span></li><ul><li><span class="ul-span" data-id="前端页面修改" style="padding-left:2em">前端页面修改<span></li></ul><ul><li><span class="ul-span" data-id="新增访问记录表" style="padding-left:2em">新增访问记录表<span></li></ul><ul><li><span class="ul-span" data-id="servlet获取访问信息" style="padding-left:2em">servlet获取访问信息<span></li></ul><ul><li><span class="ul-span" data-id="prism代码高亮" style="padding-left:2em">prism代码高亮<span></li></ul><ul><li><span class="ul-span" data-id="第二次mip改造" style="padding-left:2em">第二次mip改造<span></li></ul><ul><li><span class="ul-span" data-id="总结" style="padding-left:2em">总结<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -113,10 +130,14 @@ ${fn:replace(string2,&#39;&lt;/pre&gt;&#39;,&#39;&lt;/code&gt;&lt;/pre&gt;&#39;)
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

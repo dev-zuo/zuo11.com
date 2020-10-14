@@ -6,7 +6,7 @@
     "createDate": "2020/01/07",
     "description": "Element 表头固定，表内容可滑动，在IE下滚动条会显示，有一定的宽度占位，导致表头与表内容由点错位，解决方法是：由于表单内容是从接口加载的，从接口加载完数据后，对el-talbe进行从新布局dolayout",
     "keywords": "Element表格IE下由于滚动条原因导致错位问题",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条.md",
@@ -15,7 +15,7 @@
     "createDate": "2020/01/07",
     "description": "Element dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条同样都是有遮罩层，chrome都是OK的，但IE下会有问题。经过定位后发现，对于dialog使用了append-to-body属性的，都没问题。发现dialog显示时body上添加了一个 el-popup-parent--hidden的class, 设置了overflow为hidden，关了滚动条。对于没有append-to-body属性的dialog如果想修复有两种办法",
     "keywords": "IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "怎么判断当前鼠标是否在某个div内部.md",
@@ -24,7 +24,7 @@
     "createDate": "2020/01/07",
     "description": "当监听到事件，事件的 eveent.target 怎么判断是否在某个div内部呢？可以使用DOM专有扩展的contains方法",
     "keywords": "怎么判断当前鼠标是否在某个div内部,怎么判断当前event.target在某个div内部",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "当if else逻辑较多时可以使用策略模式.md",
@@ -42,7 +42,7 @@
     "createDate": "2020/01/08",
     "description": "全屏后添加了一个名为 is-fullscreen 的class，发现把对应的overflow:auto去掉后，就不会卡顿。去掉其实就是将overflow设置为默认值visible，如果子组件高度超出范围，将is-fullscreen设置的height 100% 改为 auto。另一种方法是将table的z-index改为3000(相对dialog比较高的一个层级)，这样IE下就不会卡顿了。",
     "keywords": "Element表格IE下由于滚动条原因导致错位问题",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "JS遍历数组方法总结，forEach的缺点以及与for..of和for...in的区别.md",
@@ -51,7 +51,7 @@
     "createDate": "2020/01/09",
     "description": "在ES5中新增了很多方便操作数组的方法，包括新5种数组的迭代方法：forEach, map, filter, some, every；缩小方法：reduce()；检测数组方法Array.isArray()等，这些方法让操作数组更加优雅，趋近于函数式编程. 在ES6中又增加了for..of以及values,entres,keys等，下面来详细看看",
     "keywords": "js遍历数组方法总结,es5 es6遍历数组方法,forEach的缺点以及与for..of和for...in的区别",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "包含await操作的函数被二次封装成函数，await该函数时执行顺序的问题.md",
@@ -60,7 +60,7 @@
     "createDate": "2020/01/09",
     "description": "包含await操作的函数被二次封装成函数，await该函数时执行顺序需要注意，当一个包含await的函数A，被另一个函数B包裹，当await函数B执行时，如果包裹函数B里并没有return函数A或await函数A，await函数B执行时并不会等到函数A全部执行完毕才继续执行，来看个例子",
     "keywords": "async await执行顺序的额问题，如果await的非promise不会等待",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "node path.resolve().md",
@@ -78,7 +78,7 @@
     "createDate": "2020/01/10",
     "description": "在less或sass中，有直接的变量定义方法，而css原生其实也是可以定义变量的，使用--和var即可",
     "keywords": "css变量,-- css变量的使用，var() 与变量 --",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "markdown里怎么为文字添加颜色，怎么画复杂表格.md",
@@ -114,7 +114,7 @@
     "createDate": "2020/01/19",
     "description": "一般想模拟延时，测试loading效果时，会写一个等待函数，怎么最简单方便呢？下面来研究下",
     "keywords": "js sleep测试loading时写的等待函数最简代码",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "零编码或少编码根据配置生成通用封装的axios函数.md",
@@ -132,7 +132,7 @@
     "createDate": "2020/01/21",
     "description": "正常情况使用 sort 是好用的，但如果有数字时，会有问题，因为如果sort不传参，默认情况下会将所有元素转换为字符串后，再根据unicode值来进行排序，下面我们来看看对应的实例",
     "keywords": "js sort数组不准确,js sort负数不准确, js sort对数组排序时的坑",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "JS 为什么使用set对数组或对象去重时会无效？.md",
@@ -141,7 +141,7 @@
     "createDate": "2020/01/21",
     "description": "我们知道Set是JS的一个种新的数据结构，和数组类似，和数组不同的是它可以去重，比如存入两个1或两个'123'，只有1条数据会存入成功，但有个特殊情况，如果添加到set的值是引用类型，比如数组、对象，他将无法自动去重。因为值相同的两个引用类型地址是不一样的。下面来看一个例子：",
     "keywords": "js set去重对数组，对象无效,为什么使用set对数组或对象去重时会无效",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "nginx怎么开启gzip以及怎么判断nginx是否成功开启了gzip？.md",
@@ -177,7 +177,7 @@
     "createDate": "2020/01/30",
     "description": "最近对zuo11.com进行了改版，完成了博客的静态化并完成了上线，nginx + 静态文件代替了原来的 tomcat + jsp + mysql的模式。针对百度收录与索引，google收录，做了一些处理。",
     "keywords": "提交站点链接到百度,提交链接到google",
-    "category": "网站建设与seo"
+    "category": "网站建设与SEO"
   }
 ]
 

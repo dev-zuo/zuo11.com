@@ -15,7 +15,7 @@
     "createDate": "2020/09/07",
     "description": "v-loading在IE下无法关闭的问题,IE 无法关闭v-loading，对于请求非常快的情况，loading一加载很快就关闭。在IE下，可能出现 v-loading设置的值已经是 false，但loading还是一直显示，关闭不了的情况，解决方法是：在关闭loading前，加一个500ms的延时，就没问题了。",
     "keywords": "v-loading在IE下无法关闭的问题,IE 无法关闭v-loading",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "element v-loading在IE下可能会溢出到全屏的问题.md",
@@ -24,7 +24,7 @@
     "createDate": "2020/09/07",
     "description": "v-loading在IE下溢出到全屏,IE v-loading全屏，在IE下，有可能出现v-loading指令在loading时不是作用在添加 v-loading 指令的元素区域里，而是溢出到全屏了。这种情况我查了下dom，了解到v-loading是position: absolute布局，而v-loading position不是relatvie 导致溢出到全屏了。这种情况给使用v-loading指令的元素手动加一个 position: relative就可以了。",
     "keywords": "v-loading在IE下溢出到全屏,IE v-loading全屏",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "v-loading指令的实现，怎么通过一个指令自动加骨架屏.md",
@@ -33,7 +33,7 @@
     "createDate": "2020/09/07",
     "description": "v-loading的实现,怎么通过一个指令自动加载骨架屏,element v-loading在IE下可能会溢出到全屏的问题,element v-loading在IE下可能会关不掉的问题，这里需要用到vue自定义指令，我们先写个v-zloading来实现loading，在loading过程中加骨架屏，由于是全局自定义指令，所以在main.js里写",
     "keywords": "v-loading的实现,怎么通过一个指令自动加载骨架屏,element v-loading在IE下可能会溢出到全屏的问题,element v-loading在IE下可能会关不掉的问题",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "输入过程中，怎么实时高亮部分文字(@xxx高亮实现).md",
@@ -42,7 +42,7 @@
     "createDate": "2020/09/07",
     "description": "输入过程中高亮部分文字,输入过程中高亮关键字,前端@高亮实现,输入过程中，怎么实时高亮部分文字(@xxx高亮实现)，实现思路是，使用富文本编辑器，当监听到输入的文件包含关键字时，使用replace对当前的输入内容进行替换，给关键字加上span给个highlight的class，代码如下",
     "keywords": "输入过程中高亮部分文字,输入过程中高亮关键字,前端@高亮实现",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "echarts画高自定义仪表盘，echart本质是图的堆叠.md",
@@ -78,7 +78,7 @@
     "createDate": "2020/09/12",
     "description": "vue js直接调用组件,js调用vue组件,js加载vue组件,js vue组件，如果自己写一个组件。一般情况下，vue项目中在某个组件里调用另一个组件，至少需要修改三个位置 1. 在 template 里写引入组件，加上传参等 2. 在 components 里声明组件（如果全局引入了，可以省去这一步） 3. data 里面写对应的传参数 代码对应如下，这种组件对于使用地方比较多时候，我们就需要想办法直接使用js来调用组件，而不是每次都要在 template 里面声明对应的组件，这样会有很多重复代码，可维护性较差。",
     "keywords": "vue js直接调用组件,js调用vue组件,js加载vue组件,js vue组件",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "axios取消请求具体使用场景及实现原理.md",
@@ -105,7 +105,7 @@
     "createDate": "2020/09/12",
     "description": "数组去重优雅写法,引用类型数组去重,有一个需求，客户信息列表，需要去除重复的客户。于是想着怎么优雅的写去重的逻辑，下面是最后使用的方法，使用 filter 遍历数组，将遍历的id存入 Set 数组，判断该数组里是否存在该id，如果已经存在就过滤，这样返回的就是去重后的数组了，具体实现如下",
     "keywords": "数组去重优雅写法,引用类型数组去重",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "obs录制视不是全屏、录制视频模糊的问题.md",
@@ -123,7 +123,7 @@
     "createDate": "2020/09/12",
     "description": "在移动端真机调试时，一般会用到vconsole，那你会发现在vue中vconsole的引入非常简单，只需要在main.js里面引入，并new一下。相比其他组件需要Vue.use引入来说，会很迷惑，这个是怎么引入到项目的？页面底部时怎么显示vconsole的按钮的？先来看结论，vconsole大致实现思路 1. 通过window监听页面加载，加载ok后向页面append vconsle相关的dom（右下角按钮） 2. 像log、network等相关的渲染显示，都是通过重写window下对应的系统方法来加入一些自定义操作",
     "keywords": "vconsole实现原理,vconsole实现,vconsole为什么只需要new就能引入,为什么vconsole在vue中不用Vue.use就能使用",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "输入法组合文字事件compositionstart等不能用on监听.md",
@@ -132,7 +132,7 @@
     "createDate": "2020/09/12",
     "description": "今天用原生的js来写demo时发现使用oncompositoinstart无法监听到输入法组合文件的过程，后面替换为addEventListener就可以了。因此对于输入法组合文字过程事件必须要使用DOM2级事件监听",
     "keywords": "compositionstart等输入法组合文字过程的事件不能使用on监听",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "为什么有效的URI不能包含空格等其他字符，URI编码方法详解.md",
@@ -150,7 +150,7 @@
     "createDate": "2020/09/20",
     "description": "vue递归组件,vue树形组件,vue tree组件,vue怎么使用递归组件,vue支持递归组件，也就是组件自己调用自己，一般用于树形组件，来写个简单tree组件实例，先写好调用demo，假设我们实现了一个 z-tree 组件，我们只需要传入data就可以渲染树形组件",
     "keywords": "vue递归组件,vue树形组件,vue tree组件,vue怎么使用递归组件",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "响应式设计和自适应设计的区别.md",
@@ -159,7 +159,7 @@
     "createDate": "2020/09/24",
     "description": "响应式(Responsive)布局和自适(Adaptive)应布局，也叫响应式设计与自适应设计。他们都用于在不同屏幕尺寸的设备上显示合适的内容。当你在思考这个问题的时候，表示你已经开始死扣概念了，这个问题在网上争议较大，包括国外的CSS-Tricks上的文章也有产生争议的。阮一峰博客里面将Responsive Web Design直接翻译为自适应web设计。",
     "keywords": "响应式布局和自适应设计的区别,响应式设计,自适应设计",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "移动端rem自适应与pc端rem自适应.md",
@@ -168,7 +168,7 @@
     "createDate": "2020/09/24",
     "description": "在还原设计稿稿时，对于展示型的页面，设计稿间距都是固定的px，那我们实现时，如果全部都用pixel(px)写死就会存在某些分辨率下显示比较差的问题。用百分比也可以，但你需要自己手动计算，现在一般比较好的方法是在合适的地方使用rem，他可以自动转换。先来复习下css rem的概念。在css中有以下几种相对长度单位，em表示相对当前父元素字体大小的倍数, rem表示相对根元素(html)字体的倍数。",
     "keywords": "pc rem,h5 rem,em与rem的区别",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "css background设置图片背景.md",
@@ -177,7 +177,7 @@
     "createDate": "2020/09/24",
     "description": "HTML5权威指南这本书对background的简写貌似有点不正确，使用起来会有问题，这次让图片在某个区域完全显示，是分开写的，如下：div { background: #fff url('/images/xxx.png') no-repeat; background-size: cover;}",
     "keywords": "background背景图片,background-size",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "角色权限vuex状态管理设计思路.md",
@@ -186,7 +186,7 @@
     "createDate": "2020/09/24",
     "description": "在vue项目中做角色权限控制时，如果角色较多、权限较复杂，或者很多地方需要使用，就需要使用vuex状态管理了，我们可以在vuex里提供一个getter方法，用于获取对应的角色权限，假设getter名为roleMuster，在需要用到的vue组件里，通过mapGetters导入，就可以使用了",
     "keywords": "vue角色权限,vuex权限",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "css表格怎么画斜线，怎么精准计算斜线rotate角度.md",
@@ -195,7 +195,7 @@
     "createDate": "2020/09/24",
     "description": "在最近的需求中，有个表格表头里有斜线，我特意翻了 HTML5权威指南 的笔记，发现并没有介绍怎么画表头的斜线。找了下网上的实现，一般都是通过 css 来实现，使用 after 或者特定 span 画一条直线，然后通过 rotate 来旋转成斜线效果。这里涉及到怎么计算斜线角度，会用到一点点数学的知识",
     "keywords": "css表格画斜线,css计算斜线角度,直角三角形给定直角边计算斜边角度",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "客户端修改host后js获取location.href不真实的问题.md",
@@ -204,7 +204,7 @@
     "createDate": "2020/09/24",
     "description": "macOS 修改host文件 /etc/hosts 后，本地访问某个域名会按照host指定的ip去解析，就会造成前端location.href不准确的问题，下面来看看",
     "keywords": "location.href不准确的问题,修改host后location.href也会变",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "github clone下载太慢怎么解决.md",

@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="---css变量的使用，var-与变量---">-- css变量的使用，var() 与变量 --</h1>
             
     <div class="article-top">
-      <div>2020/01/10</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/10，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>css变量</span>，<span>-- css变量的使用，var() 与变量 --</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="---css变量的使用，var-与变量---">-- css变量的使用，var() 与变量 --</h1>
+            
 <p>在less或sass中，有直接的变量定义方法，而css原生其实也是可以定义变量的，使用--和var即可</p>
 <pre><code class="language-html">&lt;style&gt;
   /* 最大高度为三行，将line-height定义为变量lh */
@@ -62,11 +71,19 @@
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS变量 | MDN</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="---css变量的使用，var-与变量---" style="padding-left:1em">-- css变量的使用，var() 与变量 --<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="---css变量的使用，var-与变量---" style="padding-left:1em">-- css变量的使用，var() 与变量 --<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -92,10 +109,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

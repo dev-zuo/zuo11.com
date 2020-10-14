@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="vue封装组件时预留install函数便于vueuse全局引入">vue封装组件时预留install函数便于Vue.use全局引入</h1>
             
     <div class="article-top">
-      <div>2020/06/29</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/06/29，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>vue封装组件时预留install函数</span>，<span>element组件为什么use后可以直接使用</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="vue封装组件时预留install函数便于vueuse全局引入">vue封装组件时预留install函数便于Vue.use全局引入</h1>
+            
 <p>在element组件中，我们使用el-input等element元素时，不需要在components里引入。为什么呢？在引入element时，我们有在mian.js里我们使用了Vue.use(elemnt组件)，这样进行了全局注入组件，相当于组件做成了一个vue插件，如果我们自己封装组件如何能够在Vue.use后直接可以全局调用呢？</p>
 <p>于是我特意去看了下element组件源码，这里我们暂时不要求封装为npm包，只需要在平常自定义组件的基础上做一个增强，可以使用Vue.use全局引入。
 element-ui源码中，以alert组件为例，来看目录结构</p>
@@ -60,11 +69,19 @@ Alert.install = function(Vue) {
 export default Alert;</code></pre>
 <p>综上：我们在开发组件时，可以增加全局引入的接口，层级也可以仿照element的来，多研究源码这样代码才会写的更健壮。</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="vue封装组件时预留install函数便于vueuse全局引入" style="padding-left:1em">vue封装组件时预留install函数便于Vue.use全局引入<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="vue封装组件时预留install函数便于vueuse全局引入" style="padding-left:1em">vue封装组件时预留install函数便于Vue.use全局引入<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -90,10 +107,14 @@ export default Alert;</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

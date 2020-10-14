@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="github向他人的项目提交代码及添加域名解析">github向他人的项目提交代码及添加域名解析</h1>
             
     <div class="article-top">
-      <div>2018/03/04</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2018/03/04，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>github向他人项目提交代码</span>，<span>github使用自定义域名</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="github向他人的项目提交代码及添加域名解析">github向他人的项目提交代码及添加域名解析</h1>
+            
 <h2 id="向他人的项目提交代码">向他人的项目提交代码</h2>
 <p>在Github新建的仓库，如果是项目拥有者，进入项目，就会看到setting的入口，这个位置配置当前项目的一些信息，删除该仓库。如果想要其他的github用户可以把代码直接提交到该仓库，可以在这里把对应的用户名添加到合作者，collaborators下。添加后，对方需要同意，可以把链接发给对方。这样，其他账号就可以直接提交到项目了。使用hexo g 可直接提交生效。</p>
 <h2 id="将自己的域名解析到github-pages">将自己的域名解析到Github Pages</h2>
@@ -54,11 +63,19 @@
 <h3 id="关于hexo-d-后需要重新设置custom-domain的问题">关于hexo d 后需要重新设置custom domain的问题</h3>
 <p>设置自定义解析后，可以通过自己的域名访问对应的项目了，但写一篇文章后，hexo g 提交到仓库后，设置里面默认域名又变成xxx.github.io了，自定义域名的设置失效了。我们可以在hexo工程目录下的source目录下，新建一个名为CNAME的文件，里面写入自定义的域名。之后修改的每次提交就不会出现这种问题了。</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="github向他人的项目提交代码及添加域名解析" style="padding-left:1em">github向他人的项目提交代码及添加域名解析<span></li><ul><li><span class="ul-span" data-id="向他人的项目提交代码" style="padding-left:2em">向他人的项目提交代码<span></li></ul><ul><li><span class="ul-span" data-id="将自己的域名解析到github-pages" style="padding-left:2em">将自己的域名解析到Github Pages<span></li><ul><li><span class="ul-span" data-id="将域名解析到github的ip" style="padding-left:3em">将域名解析到github的ip<span></li></ul><ul><li><span class="ul-span" data-id="设置项目的github-pages" style="padding-left:3em">设置项目的Github Pages<span></li></ul><ul><li><span class="ul-span" data-id="关于hexo-d-后需要重新设置custom-domain的问题" style="padding-left:3em">关于hexo d 后需要重新设置custom domain的问题<span></li></ul></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="github向他人的项目提交代码及添加域名解析" style="padding-left:1em">github向他人的项目提交代码及添加域名解析<span></li><ul><li><span class="ul-span" data-id="向他人的项目提交代码" style="padding-left:2em">向他人的项目提交代码<span></li></ul><ul><li><span class="ul-span" data-id="将自己的域名解析到github-pages" style="padding-left:2em">将自己的域名解析到Github Pages<span></li><ul><li><span class="ul-span" data-id="将域名解析到github的ip" style="padding-left:3em">将域名解析到github的ip<span></li></ul><ul><li><span class="ul-span" data-id="设置项目的github-pages" style="padding-left:3em">设置项目的Github Pages<span></li></ul><ul><li><span class="ul-span" data-id="关于hexo-d-后需要重新设置custom-domain的问题" style="padding-left:3em">关于hexo d 后需要重新设置custom domain的问题<span></li></ul></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -84,10 +101,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

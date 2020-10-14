@@ -6,7 +6,7 @@
     "createDate": "2020/10/01",
     "description": "有个较为特殊的表格，需要合并单元格，且改变表格border，下面来看看element el-table怎么实现这种表格。先来分析下怎么做，1. 第一列中第二行以后的行是需要合并的，el-table 提供了一个 span-method 属性，用于传入合并单元格方法，在里面可以根据 rowspan、colspan 合并行或列 2. 第 2、3、4 列需要改变表格 border，需要使用 `/deep/` 修改 element 默认的颜色，使用 nth-child、first-child 等找到对应的行或列，修改border",
     "keywords": "element合并单元格,element表格合并单元格",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "前端通过document.cookie设置cookie，相关改动会传到后台吗？.md",
@@ -33,7 +33,7 @@
     "createDate": "2020/10/01",
     "description": "一般我们在需要设置某个对象的多个值时Object.assgin是一种很好的方法，但又怕当某个属性的值为空字符串、null或undefined时，会自动跳过的情况。这里来做一个简单的测试",
     "keywords": "Object.assgin是否会跳过null,undefined,''",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "http请求有哪几种传参方式.md",
@@ -69,7 +69,7 @@
     "createDate": "2020/10/01",
     "description": "el-input如果type为textarea，不能使用.trim修饰符，否则输入内容时会无法换行，如果需要去掉收尾空格，可以在提交数据时，手动执行.trim()去空格",
     "keywords": "textarea不用使用v-model.trim",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "log对数在前端的应用场景：把文件大小或金额自动添加合适的单位.md",
@@ -78,7 +78,7 @@
     "createDate": "2020/10/08",
     "description": "在写下载/导出文件接口时，由于接口文件数据是流的形式而非buffer，导致total为0，无法获取进度。只能通过loaded知道当前下载了多少字节。前端显示时，怎么给出合适的单位，是KB、MB，还是G？",
     "keywords": "文件大小转换合适单位,单位元数据加合适的单位",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "节流与防抖理解以及element源码中节流与防抖的应用.md",
@@ -87,7 +87,7 @@
     "createDate": "2020/10/08",
     "description": "理论上 throttle 节流一般用于监听类似 resize 方法，想要减少执行频率的场景。对于点击按钮提交，防止短时间内多次点击可以用 debounce 防抖，但实际使用时可根据具体情况来看，本质上都是利用 setTimeout 来处理执行频率或执行间隔。下面是一个简单的 loadash 防抖示例，300ms 内放置重复点击",
     "keywords": "节流与防抖,element中节流防抖的应用",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "怎么开发vscode插件?.md",
@@ -105,7 +105,7 @@
     "createDate": "2020/10/08",
     "description": "在人数这一栏，输入时，前端需要确保输入的只能是正整数，且不能是负数，且自动校正，来看看怎么实现",
     "keywords": "element只能输入正整数",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "echarts饼图label两端对齐label距离引导线距离.md",
@@ -141,7 +141,7 @@
     "createDate": "2020/10/08",
     "description": "新建文件夹，命名以小写字母开头，驼峰命名，单文件组件命名规则，参考vue风格指南。如果组件内容较多，创建一个文件夹，命名以npm包命名规则一致，全小写、-分隔，建议不超过3个单词。其他资源目录，参考Element组件源码",
     "keywords": "前端代码规范,前端命名规范",
-    "category": "vue"
+    "category": "Vue"
   }
 ]
 

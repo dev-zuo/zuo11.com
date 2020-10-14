@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与seo</a>
+            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="nginx访问不带www的域名，自动切到www">nginx访问不带www的域名，自动切到www</h1>
             
     <div class="article-top">
-      <div>2020/02/08</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/02/08，归类于 <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>不带www跳转到www二域名</span>，<span>xx.com重定向到www.xx.com</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="nginx访问不带www的域名，自动切到www">nginx访问不带www的域名，自动切到www</h1>
+            
 <p>在seo时，搜索引擎可能会将 <code>xx.com</code> 和 <code>www.xx.com</code> 一起收录。这里需要进行处理，当使用一级域名直接访问时(<code>xx.com</code>)，自动切到 <code>www.xx.com</code> ，下面来看看怎么配置nginx</p>
 <pre><code class="language-bash"># 修改nginx配置，加入如下转换
 if ($host = &#39;zuo11.com&#39;) {
@@ -61,11 +70,19 @@ location.host # zuo11.com 或 www.zuo11.com</code></pre>
 </li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="nginx访问不带www的域名，自动切到www" style="padding-left:1em">nginx访问不带www的域名，自动切到www<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="nginx访问不带www的域名，自动切到www" style="padding-left:1em">nginx访问不带www的域名，自动切到www<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -91,10 +108,14 @@ location.host # zuo11.com 或 www.zuo11.com</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

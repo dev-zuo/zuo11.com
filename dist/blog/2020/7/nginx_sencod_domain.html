@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="nginx配置二级域名解析目录">nginx配置二级域名解析目录</h1>
             
     <div class="article-top">
-      <div>2020/07/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/26，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>nginx二级域名解析</span>，<span>nginx二级域名解析</span>，<span>nginx二级域名解析到不同的目录</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="nginx配置二级域名解析目录">nginx配置二级域名解析目录</h1>
+            
 <p>最近看百度统计，有100多个河南的新ip访问，有些异常，而且都是访问的api.zuo11.com，最近两周明细里看到的ip段很有规律</p>
 <pre><code class="language-js">111.7.100.16 - 111.7.100.27
 36.99.136.131 - 36.99.136.143</code></pre>
@@ -88,11 +97,19 @@ server {
 }</code></pre>
 <p>其实就是多写一个server，把二级域名指向其他目录。中间有个坑的地方就是windows使用nginx时，关闭nginx运行的terminal后，进程不一定关闭，需要打开任务管理器，找nginx相关进程删掉，这样才彻底。</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="nginx配置二级域名解析目录" style="padding-left:1em">nginx配置二级域名解析目录<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="nginx配置二级域名解析目录" style="padding-left:1em">nginx配置二级域名解析目录<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -118,10 +135,14 @@ server {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

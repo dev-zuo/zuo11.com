@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="通过koa写demo彻底理解前端http缓存">通过koa写demo彻底理解前端http缓存</h1>
             
     <div class="article-top">
-      <div>2020/09/07</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/09/07，归类于 <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>http缓存</span>，<span>web缓存</span>，<span>前端缓存</span>，<span>强缓存</span>，<span>Expires</span>，<span>Cache-Control</span>，<span>弱缓存</span>，<span>协商缓存</span>，<span>sever revalidataion</span>，<span>Last-Modified/If-Modified-Since</span>，<span>ETag/if-None-Macth</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="通过koa写demo彻底理解前端http缓存">通过koa写demo彻底理解前端http缓存</h1>
+            
 <p>在前端性能优化中，有一个方法是使用缓存。前端缓存可以减少网络请求次数，减少流量消耗，提升用户体验，降低服务器负载。</p>
 <p>前端缓存分为两种：http缓存、浏览器缓存，这里主要介绍http缓存</p>
 <blockquote>
@@ -224,11 +233,19 @@ module.exports = (filePath) =&gt; {
 <li><a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Pragma">Pragma - HTTP | MDN</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="通过koa写demo彻底理解前端http缓存" style="padding-left:1em">通过koa写demo彻底理解前端http缓存<span></li><ul><li><span class="ul-span" data-id="强缓存-document-expiration" style="padding-left:2em">强缓存 document expiration<span></li><ul><li><span class="ul-span" data-id="expires相对时间" style="padding-left:3em">Expires(相对时间)<span></li></ul><ul><li><span class="ul-span" data-id="cache-control" style="padding-left:3em">Cache-Control<span></li></ul></ul><ul><li><span class="ul-span" data-id="弱缓存协商缓存-server-revalidation" style="padding-left:2em">弱缓存/协商缓存 server revalidation<span></li><ul><li><span class="ul-span" data-id="last-modifiedif-modified-since" style="padding-left:3em">Last-Modified/If-Modified-Since<span></li></ul><ul><li><span class="ul-span" data-id="etagif-none-macth" style="padding-left:3em">ETag/if-None-Macth<span></li></ul></ul><ul><li><span class="ul-span" data-id="chrome下注意事项" style="padding-left:2em">Chrome下注意事项<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="通过koa写demo彻底理解前端http缓存" style="padding-left:1em">通过koa写demo彻底理解前端http缓存<span></li><ul><li><span class="ul-span" data-id="强缓存-document-expiration" style="padding-left:2em">强缓存 document expiration<span></li><ul><li><span class="ul-span" data-id="expires相对时间" style="padding-left:3em">Expires(相对时间)<span></li></ul><ul><li><span class="ul-span" data-id="cache-control" style="padding-left:3em">Cache-Control<span></li></ul></ul><ul><li><span class="ul-span" data-id="弱缓存协商缓存-server-revalidation" style="padding-left:2em">弱缓存/协商缓存 server revalidation<span></li><ul><li><span class="ul-span" data-id="last-modifiedif-modified-since" style="padding-left:3em">Last-Modified/If-Modified-Since<span></li></ul><ul><li><span class="ul-span" data-id="etagif-none-macth" style="padding-left:3em">ETag/if-None-Macth<span></li></ul></ul><ul><li><span class="ul-span" data-id="chrome下注意事项" style="padding-left:2em">Chrome下注意事项<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -254,10 +271,14 @@ module.exports = (filePath) =&gt; {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

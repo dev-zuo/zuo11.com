@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="长英文单词不换行的问题">长英文单词不换行的问题</h1>
             
     <div class="article-top">
-      <div>2019/12/20</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/12/20，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>长英文单词不换行的问题</span>，<span>css换行</span>，<span>white-space、word-break、word-wrap</span>，<span>word-break和word-wrap的区别</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="长英文单词不换行的问题">长英文单词不换行的问题</h1>
+            
 <p>关于换行问题，属于文本类的css样式，在css中有三个和换行有关的属性他们分别是：white-space、word-break、word-wrap，由于他们有点类似且特性比较怪，不容易理解，这里来总结下</p>
 <h2 id="white-space">white-space</h2>
 <p>主要用于处理空白符，但它也可以用于换行</p>
@@ -109,11 +118,19 @@
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/word-wrap">CSS word-wrap | MDN</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="长英文单词不换行的问题" style="padding-left:1em">长英文单词不换行的问题<span></li><ul><li><span class="ul-span" data-id="white-space" style="padding-left:2em">white-space<span></li></ul><ul><li><span class="ul-span" data-id="word-wrap-溢出文本断行" style="padding-left:2em">word-wrap 溢出文本断行<span></li></ul><ul><li><span class="ul-span" data-id="word-break" style="padding-left:2em">word-break<span></li></ul><ul><li><span class="ul-span" data-id="通过一个demo来看他们之间的区别" style="padding-left:2em">通过一个demo来看他们之间的区别<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="长英文单词不换行的问题" style="padding-left:1em">长英文单词不换行的问题<span></li><ul><li><span class="ul-span" data-id="white-space" style="padding-left:2em">white-space<span></li></ul><ul><li><span class="ul-span" data-id="word-wrap-溢出文本断行" style="padding-left:2em">word-wrap 溢出文本断行<span></li></ul><ul><li><span class="ul-span" data-id="word-break" style="padding-left:2em">word-break<span></li></ul><ul><li><span class="ul-span" data-id="通过一个demo来看他们之间的区别" style="padding-left:2em">通过一个demo来看他们之间的区别<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -139,10 +156,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

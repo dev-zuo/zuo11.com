@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,22 +36,39 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="mac-pro-retina屏两倍图，建议使用iconfont">mac pro retina屏两倍图，建议使用iconfont</h1>
             
     <div class="article-top">
-      <div>2020/07/12</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/12，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>retina屏两倍图</span>，<span>建议使用iconfont</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="mac-pro-retina屏两倍图，建议使用iconfont">mac pro retina屏两倍图，建议使用iconfont</h1>
+            
 <p>之前在处理canvas绘制模糊的问题时了解到，retina是两倍像素屏，50 x 50像素的图会绘制在 100 x 100 像素区域，会导致绘制模糊。</p>
 <p>同理，如果需要在retina屏上显示50 x 50的图，需要提供两倍图 100 * 100，然后设置样式宽高为50，这样才会清晰。</p>
 <p>最好的方式还是使用iconfont、svg矢量图等可以任意设置宽高(size)而不会失真的图或字体。这样就不会模糊。</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="mac-pro-retina屏两倍图，建议使用iconfont" style="padding-left:1em">mac pro retina屏两倍图，建议使用iconfont<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="mac-pro-retina屏两倍图，建议使用iconfont" style="padding-left:1em">mac pro retina屏两倍图，建议使用iconfont<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -77,10 +94,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

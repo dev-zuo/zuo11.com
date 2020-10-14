@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="http转https">http转https</h1>
             
     <div class="article-top">
-      <div>2017/01/10</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2017/01/10，归类于 <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>免费SSL</span>，<span>阿里云DV SSL使用实例</span>，<span>http转https</span>，<span>80端口转443端口</span>，<span>tomcat配置https</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="http转https">http转https</h1>
+            
 <blockquote>
 <p>在玩微信小程序的时候发现网络请求必须是https开头的，但我的数据都在我的web服务器上，只是简单的http，于是就在网上找ssl证书，发现居然有免费1年的SSL，还是阿里云的，果断申请使用。顺便将web的数据打包为json做了一个接口。</p>
 </blockquote>
@@ -67,11 +76,19 @@
 <p><a href="https://yundun.console.aliyun.com/?spm=5176.2020520163.1002.d10cas.UB7mOZ&amp;p=cas#/cas/download/213995662290985">阿里云SSL下载，配置说明文档</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html">SSL/TLS协议运行机制的概述</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="http转https" style="padding-left:1em">http转https<span></li><ul><li><span class="ul-span" data-id="阿里云ssl" style="padding-left:2em">阿里云SSL:<span></li></ul><ul><li><span class="ul-span" data-id="tomcat配置https" style="padding-left:2em">Tomcat配置https<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="http转https" style="padding-left:1em">http转https<span></li><ul><li><span class="ul-span" data-id="阿里云ssl" style="padding-left:2em">阿里云SSL:<span></li></ul><ul><li><span class="ul-span" data-id="tomcat配置https" style="padding-left:2em">Tomcat配置https<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -97,10 +114,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

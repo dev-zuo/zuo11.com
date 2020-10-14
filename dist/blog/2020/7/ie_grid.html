@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,22 +36,39 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="如果需要兼容ie还是用flex比较好，慎用grid">如果需要兼容IE还是用flex比较好，慎用grid</h1>
             
     <div class="article-top">
-      <div>2020/07/12</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/12，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>grid的兼容性</span>，<span>grid使用场景</span>，<span>grid</span>，<span>ie grid不兼容</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="如果需要兼容ie还是用flex比较好，慎用grid">如果需要兼容IE还是用flex比较好，慎用grid</h1>
+            
 <p>grid适用于网格化布局，对于各个模块按百分比来的情况比较好，如果多个模块有的固定宽高有的非固定宽高就不怎么好分了, IE下支持需要加前缀，详情参见之前的笔记: <a href="https://www.yuque.com/guoqzuo/js_es6/kg7660#973d6cc6">grid网格布局</a></p>
 <p>于是我在某个页面中使用了grid，但发现<strong>IE不兼容，grid的某些属性不兼容IE，加了-ms-都没用</strong>，最后为了不必要的麻烦和风险，还是换成flex布局了，改成flex后的代码居然比grid还简单...</p>
 <p>参考: <a href="http://www.imooc.com/wenda/detail/575101">CSS网格布局即使带有前缀也不能在IE11中工作</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="如果需要兼容ie还是用flex比较好，慎用grid" style="padding-left:1em">如果需要兼容IE还是用flex比较好，慎用grid<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="如果需要兼容ie还是用flex比较好，慎用grid" style="padding-left:1em">如果需要兼容IE还是用flex比较好，慎用grid<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -77,10 +94,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

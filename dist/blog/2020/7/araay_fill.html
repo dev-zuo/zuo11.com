@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="arrayprototypefill填充引用类型值的问题">Array.prototype.fill()填充引用类型值的问题</h1>
             
     <div class="article-top">
-      <div>2020/07/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/26，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>js 数组fill填充的对象都指向同一个地址</span>，<span>array fill填充引用类型问题</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="arrayprototypefill填充引用类型值的问题">Array.prototype.fill()填充引用类型值的问题</h1>
+            
 <p>在mock表格list数据时，我一般为了简洁会先创建一个对象info，然后new Array(10).fill(info) 来生成10条数据的数组</p>
 <p>但这次发现一个问题，由于表格有一个字段是状态值0 - 5，我想随机设置下值，发现修改后的值都一样，来看看例子</p>
 <pre><code class="language-js">let a = {a: 1}
@@ -71,11 +80,19 @@ let list = new Array(5).fill({}).map(item =&gt; {
 })</code></pre>
 <p>参考: <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">Array.prototype.fill() - MDN</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="arrayprototypefill填充引用类型值的问题" style="padding-left:1em">Array.prototype.fill()填充引用类型值的问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="arrayprototypefill填充引用类型值的问题" style="padding-left:1em">Array.prototype.fill()填充引用类型值的问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -101,10 +118,14 @@ let list = new Array(5).fill({}).map(item =&gt; {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="dateprototypetolocalestring在0点或12点时转换异常的问题">Date.prototype.toLocaleString()在0点或12点时转换异常的问题</h1>
             
     <div class="article-top">
-      <div>2020/07/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/26，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>toLocaleString时间异常的情况</span>，<span>toLocaleString在0点或12点时时间转换问题</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="dateprototypetolocalestring在0点或12点时转换异常的问题">Date.prototype.toLocaleString()在0点或12点时转换异常的问题</h1>
+            
 <p>在使用toLocaleString把Date转为字符串时，需要额外注意时间为 &#39;00:00:00&#39; 和 &#39;12:00:00&#39; 的情况，它们分别会被转为 上午12:00:00，下午12点，下面来看看</p>
 <pre><code class="language-js">a = new Date(&#39;2020/04/10 00:00:00&#39;) 
 // Fri Apr 10 2020 00:00:00 GMT+0800 (中国标准时间)
@@ -59,11 +68,19 @@ a.getHours() // 12</code></pre>
 <p>综上:<strong>虽然Date对象的toLocaleString()比较好用，但还是仅用日期方面的toLocaleDateString()，时间方面的还是尽量不要使用</strong></p>
 <p>参考：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString">Date.prototype.toLocaleString() - MDN</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="dateprototypetolocalestring在0点或12点时转换异常的问题" style="padding-left:1em">Date.prototype.toLocaleString()在0点或12点时转换异常的问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="dateprototypetolocalestring在0点或12点时转换异常的问题" style="padding-left:1em">Date.prototype.toLocaleString()在0点或12点时转换异常的问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -89,10 +106,14 @@ a.getHours() // 12</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="jsonstringify的非常规用法以及内部执行顺序">JSON.stringify的非常规用法以及内部执行顺序</h1>
             
     <div class="article-top">
-      <div>2020/07/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/26，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>JSON.stringify</span>，<span>JSON.stringify用法总结</span>，<span>JSON.stringify内部执行顺序</span>，<span>JSON.stringify非常规用法</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="jsonstringify的非常规用法以及内部执行顺序">JSON.stringify的非常规用法以及内部执行顺序</h1>
+            
 <p>JSON.stringify我们一般用于将JSON对象转为字符串，但他不仅仅只有一个参数，而是三个，除最常用的用法外，还可以用来做三种实用功能: 1.利用第三参数在console里更好的展示对象; 2.有选择性的过滤字段; 3.详细处理没有字段序列化的值</p>
 <h2 id="利用第三参数在console里更好的展示对象">利用第三参数在console里更好的展示对象</h2>
 <pre><code class="language-js">// 1. 对于像这种多层级的数据，console到控制台时，会不好查看需要一层层点击，很麻烦
@@ -82,11 +91,19 @@ let new = JSON.stringify(obj, (key, value) =&gt; {
 </ol>
 <p>详情参考之前的笔记: <a href="https://www.yuque.com/guoqzuo/js_es6/strtxi#8960b7f6">JSON.stringify() - JS高程3笔记</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="jsonstringify的非常规用法以及内部执行顺序" style="padding-left:1em">JSON.stringify的非常规用法以及内部执行顺序<span></li><ul><li><span class="ul-span" data-id="利用第三参数在console里更好的展示对象" style="padding-left:2em">利用第三参数在console里更好的展示对象<span></li></ul><ul><li><span class="ul-span" data-id="有选择性的过滤字段" style="padding-left:2em">有选择性的过滤字段<span></li></ul><ul><li><span class="ul-span" data-id="详细处理每个字段序列化的值" style="padding-left:2em">详细处理每个字段序列化的值<span></li></ul><ul><li><span class="ul-span" data-id="jsonstringify执行顺序" style="padding-left:2em">JSON.stringify()执行顺序<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="jsonstringify的非常规用法以及内部执行顺序" style="padding-left:1em">JSON.stringify的非常规用法以及内部执行顺序<span></li><ul><li><span class="ul-span" data-id="利用第三参数在console里更好的展示对象" style="padding-left:2em">利用第三参数在console里更好的展示对象<span></li></ul><ul><li><span class="ul-span" data-id="有选择性的过滤字段" style="padding-left:2em">有选择性的过滤字段<span></li></ul><ul><li><span class="ul-span" data-id="详细处理每个字段序列化的值" style="padding-left:2em">详细处理每个字段序列化的值<span></li></ul><ul><li><span class="ul-span" data-id="jsonstringify执行顺序" style="padding-left:2em">JSON.stringify()执行顺序<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -112,10 +129,14 @@ let new = JSON.stringify(obj, (key, value) =&gt; {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

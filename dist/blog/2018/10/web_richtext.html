@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="富文本编辑器使用execcommand插入图片不生效的问题">富文本编辑器使用execCommand插入图片不生效的问题</h1>
             
     <div class="article-top">
-      <div>2018/10/02</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2018/10/02，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>execcommand插入图片光标消失</span>，<span>富文本编辑器使用execCommand插入图片不生效的问题</span>，<span>execCommand插入图片不生效</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="富文本编辑器使用execcommand插入图片不生效的问题">富文本编辑器使用execCommand插入图片不生效的问题</h1>
+            
 <blockquote>
 <p>最近打算实现一个评论系统，评论如果只能回复文字就太low了，于是就打算自己做一个简单的富文本编辑器。</p>
 </blockquote>
@@ -119,11 +128,19 @@ if (!result) {
 <p>网上找了篇可以获取光标位置的函数，但发现兼容性貌似不怎么好，暂时保持这样。
 有一遍文章还不错，收藏了以后研究 <a href="https://segmentfault.com/a/1190000005869372">html元素contenteditable属性如何定位光标和设置光标</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="富文本编辑器使用execcommand插入图片不生效的问题" style="padding-left:1em">富文本编辑器使用execCommand插入图片不生效的问题<span></li><ul><li><span class="ul-span" data-id="思路" style="padding-left:2em">思路<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="富文本编辑器使用execcommand插入图片不生效的问题" style="padding-left:1em">富文本编辑器使用execCommand插入图片不生效的问题<span></li><ul><li><span class="ul-span" data-id="思路" style="padding-left:2em">思路<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -149,10 +166,14 @@ if (!result) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

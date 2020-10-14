@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="客户端修改host后js获取locationhref不真实的问题">客户端修改host后js获取location.href不真实的问题</h1>
             
     <div class="article-top">
-      <div>2020/09/24</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/09/24，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>location.href不准确的问题</span>，<span>修改host后location.href也会变</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="客户端修改host后js获取locationhref不真实的问题">客户端修改host后js获取location.href不真实的问题</h1>
+            
 <p>macOS 修改host文件 /etc/hosts 后，本地访问某个域名会按照host指定的ip去解析，就会造成前端location.href不准确的问题，下面来看看</p>
 <p><img src="../../../images/blog/web/a_com_tongji.png" alt="a_com_tongji.png"></p>
 <pre><code class="language-bash"># 默认没有写的权限，无法编辑
@@ -60,11 +69,19 @@ guoqzuo-mac:~ kevin$ vi /etc/hosts
 47.107.190.93 a.com</code></pre>
 <p>macOS修改host是实时生效的，修改后，本地浏览器访问a.com，会访问47.107.190.93的服务器，显示的是zuo11.com的内容。这时用js获取location.href就是a.com，而不是zuo11.com。上面的图里是百度统计的数据，显示的就是a.com</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="客户端修改host后js获取locationhref不真实的问题" style="padding-left:1em">客户端修改host后js获取location.href不真实的问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="客户端修改host后js获取locationhref不真实的问题" style="padding-left:1em">客户端修改host后js获取location.href不真实的问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -90,10 +107,14 @@ guoqzuo-mac:~ kevin$ vi /etc/hosts
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

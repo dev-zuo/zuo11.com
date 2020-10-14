@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="failed-to-resolve-directive-infinite-scroll">Failed to resolve directive: infinite-scroll</h1>
             
     <div class="article-top">
-      <div>2020/07/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/26，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>Failed to resolve directive: infinite-scroll</span>，<span>element v-infinite-scroll指令</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="failed-to-resolve-directive-infinite-scroll">Failed to resolve directive: infinite-scroll</h1>
+            
 <p>在element InfiniteScroll无限滚动功能里，使用了v-infinite-scroll指令，但直接使用会发现提示 Failed to resolve directive: infinite-scroll，后面查了下，发现<strong>要使用该指令需要安装一个vue-infinite-scroll npm包，并且在main.js里引入才行</strong></p>
 <pre><code class="language-js">// 安装vue-infinite-scroll
 // npm install vue-infinite-scroll --save
@@ -58,11 +67,19 @@ Vue.use(infiniteScroll);</code></pre>
 <li><a href="https://element.eleme.cn/#/zh-CN/component/infiniteScroll">无限滚动指令 v-infinite-scroll - Element</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="failed-to-resolve-directive-infinite-scroll" style="padding-left:1em">Failed to resolve directive: infinite-scroll<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="failed-to-resolve-directive-infinite-scroll" style="padding-left:1em">Failed to resolve directive: infinite-scroll<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -88,10 +105,14 @@ Vue.use(infiniteScroll);</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

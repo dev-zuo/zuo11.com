@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="ie下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条">IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条</h1>
             
     <div class="article-top">
-      <div>2020/01/07</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/07，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="ie下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条">IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条</h1>
+            
 <p>Element dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条同样都是有遮罩层，chrome都是OK的，但IE下会有问题。经过定位后发现，对于dialog使用了append-to-body属性的，都没问题。发现dialog显示时body上添加了一个 el-popup-parent--hidden的class, 设置了overflow为hidden，关了滚动条。对于没有append-to-body属性的dialog如果想修复有两种办法：</p>
 <ol>
 <li>添加append-to-body，将dialog插入到body上</li>
@@ -53,11 +62,19 @@
 append-to-body属性： Dialog 自身是否插入至 body 元素上。嵌套的 Dialog 必须指定该属性并赋值为 true</p>
 <p>参考：<a href="https://element.eleme.cn/#/zh-CN/component/dialog">element dialog</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="ie下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条" style="padding-left:1em">IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="ie下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条" style="padding-left:1em">IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -83,10 +100,14 @@ append-to-body属性： Dialog 自身是否插入至 body 元素上。嵌套的 
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="ios通讯录小列子">iOS通讯录小列子</h1>
             
     <div class="article-top">
-      <div>2017/01/22</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2017/01/22，归类于 <a href="/blog/category.html#ios" class="hidden">iOS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>UITableView的使用</span>，<span>通讯录小例子</span>，<span>UITableView左滑删除功能</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="ios通讯录小列子">iOS通讯录小列子</h1>
+            
 <blockquote>
 <p>小马哥视频里讲的通讯录小例子登录界面用了动画，用的是storyboard拖线跳转，顺便讲了segue，页面传值及发送通知。这里简单的实现通讯录的基本功能，动画就不做了，主要练习页面的跳转以及tableView相关使用，只是了解基本的使用，可以根据实际情况进行优化。</p>
 </blockquote>
@@ -383,11 +392,19 @@ EditViewController.m
 
 @end</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="ios通讯录小列子" style="padding-left:1em">iOS通讯录小列子<span></li><ul><li><span class="ul-span" data-id="登录界面" style="padding-left:2em">登录界面<span></li></ul><ul><li><span class="ul-span" data-id="通讯录界面" style="padding-left:2em">通讯录界面<span></li></ul><ul><li><span class="ul-span" data-id="添加或修改内容" style="padding-left:2em">添加或修改内容<span></li></ul><ul><li><span class="ul-span" data-id="主要代码" style="padding-left:2em">主要代码<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="ios通讯录小列子" style="padding-left:1em">iOS通讯录小列子<span></li><ul><li><span class="ul-span" data-id="登录界面" style="padding-left:2em">登录界面<span></li></ul><ul><li><span class="ul-span" data-id="通讯录界面" style="padding-left:2em">通讯录界面<span></li></ul><ul><li><span class="ul-span" data-id="添加或修改内容" style="padding-left:2em">添加或修改内容<span></li></ul><ul><li><span class="ul-span" data-id="主要代码" style="padding-left:2em">主要代码<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -413,10 +430,14 @@ EditViewController.m
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

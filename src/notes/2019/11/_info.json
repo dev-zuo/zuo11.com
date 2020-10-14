@@ -15,7 +15,7 @@
     "createDate": "2019/11/04",
     "description": "通过vue-cli创建的项目，npm run build 的代码是可以根据开发环境的不同而调整的，使用 process.env.NODE_ENV 可以做一些只有开发环境有的逻辑，比如下面的例子中，仅开发环境，才能看到相应的路由",
     "keywords": "vue仅开发环境下能看到的路由",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "根据vue-router路由传参配置keep-alive以及登录校验.md",
@@ -24,7 +24,7 @@
     "createDate": "2019/11/04",
     "description": "在vue开发中，路由配置的时候，给每个路由添加一个自定义的meta对象，在meta对象中可以设置一些状态，来进行一些操作。可以用来设置是否使用keep-alive，以及登录校验，先来看看配置",
     "keywords": "vue 中路由meta,根据路由配置做登录验证,根据vue-router路由传参配置keep-alive",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "版本号中的rc是什么意思.md",
@@ -51,7 +51,7 @@
     "createDate": "2019/11/05",
     "description": "在web开发中，我们需要生成图片时，可以使用html2canvas，他可以将html转为png，pc端还好，移动端css的坑比较多，这里只是简单的介绍下怎么使用。先引入 html2canvas.js，根据其api调用，来看看具体示例",
     "keywords": "html2canvas将网页转换为图片,html2canvas使用示例",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "怎么使用Chrome断点调试功能，断点调试使用场景.md",
@@ -69,7 +69,7 @@
     "createDate": "2019/11/08",
     "description": "一般元素设置position:absolute后，就已经脱离了文档流，用css是无法计算其高度的，只能用js获取dom来计算。另外不要把自己限制死了，对于自适应高度的，为什么一定要使用position:absolute呢？**换position:relative也可以设置top、left等css属性**，如果自己真的想不到好的方法，问问其他同事或社群里的人试试？下面来看看我之前由于知识盲点踩的一个坑",
     "keywords": "position:absolute元素高度自适应,怎么用js计算元素高度",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "background-repeat与background-position冲突.md",
@@ -78,7 +78,7 @@
     "createDate": "2019/11/08",
     "description": "background-repeat和background-position最好不要一起使用，background-repeat可能会导致background-position设置失效，当设置是background-repeat在y轴重复背景时，background-position设置的顶部开始具体位置会无效",
     "keywords": "background-repeat与background-position冲突,background-repeat导致background-position失效",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "函数命名validate和verify的区别.md",
@@ -96,7 +96,7 @@
     "createDate": "2019/11/09",
     "description": "一般在写全局的样式时，总担心污染其他位置的样式，但我们怎么防止别人的样式来污染我们的样式了。一句话总结：对于很重要，不要被污染的用!import，如果不想用!important，那最前面加id，或者多加一个或多个优先级高的选择器，来提高整体优先级",
     "keywords": "css样式优先级,css样式优先级计算,css选择器样式优先级,css防止外部样式污染组件",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "非箭头函数作为参数时this问题.md",
@@ -105,7 +105,7 @@
     "createDate": "2019/11/09",
     "description": "复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数",
     "keywords": "非箭头函数作为参数时this问题",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "点击外部关闭div - js阻止事件冒泡实例.md",
@@ -114,7 +114,7 @@
     "createDate": "2019/11/09",
     "description": "点击外部关闭div，一般在做弹窗div时，需要做点击div外部关闭div的功能，怎么做到的呢？一句话总结：用一个父元素(铺满屏幕，绝对布局)包裹该div(绝对布局，水平垂直居中，固定宽高)，**父元素监听点击事件后移除div，子元素div监听点击后阻止事件冒泡**。这样就实现了，点击外部关闭div，点击内部区域不关不div。",
     "keywords": "点击div外部关闭div,js点击外部关闭div,点击外部关闭div,js阻止事件冒泡实例",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "原生JS封装prompt组件.md",
@@ -123,7 +123,7 @@
     "createDate": "2019/11/09",
     "description": "自定义prompt组件，原生JS封装prompt，就项目中要用到prompt功能，但需要优化下UI，整体导入elementUI不合适，就自己用原生JS写了个。样式、div结构，直接从elementUI message-box审查元素里面抽离，相关点击事件，校验，自己封装。",
     "keywords": "自定义prompt,原生js自定义prompt组件",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "Docker与K8S集群.md",
@@ -168,7 +168,7 @@
     "createDate": "2019/11/11",
     "description": "在开发中，我们一般需要知道常用手机型号的屏幕尺寸，这样才能更好的适配移动端，下面来看看小程序开发工具中提供的各个手机型号尺寸，对于全面屏来讲，宽度和 ihpone 7/8 一致，但页面长度却长很多，一般 高度 / 宽度 >=2 的就是全面屏，页面布局需要特殊处理下",
     "keywords": "移动端屏幕尺寸大小,常用手机屏幕大小,怎么判断是全面屏",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "为什么说toFixed是不准确的.md",
@@ -177,7 +177,7 @@
     "createDate": "2019/11/12",
     "description": "Number.prototype.toFixed() 对number取整或保留指定小数位，但它是不准确的，就类似 0.1 + 0.2 ≠ 0.3 一样，下面来看看怎么处理",
     "keywords": "toFixed不精确的问题,toFixed保留小数点不准确的问题",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "vscode好用的插件.md",
@@ -195,7 +195,7 @@
     "createDate": "2019/11/14",
     "description": "开发过程中遇到的相关真实场景，为什么需要使用Vuex状态管理？全局对象也可以管理状态，为什么需要vuex? 在vue开发中，我之前很少使用状态管理vuex，总觉得没有太大的实际用途。后面项目实践后，才能真正体会状态管理的强大。为什么需要状态管理，这个需要在开发实践中慢慢体会。",
     "keywords": "vuex使用场景,vue相对全局变量有什么优势,为什么需要使用Vuex状态管理,全局对象也可以管理状态，为什么需要vuex",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "toLocaleString将数字转为逗号分隔的字符串.md",
@@ -204,7 +204,7 @@
     "createDate": "2019/11/14",
     "description": "Number.prototype.toLocaleString()可以将数字转换为千分位逗号分隔的字符串，而且该方法还内置了数字转人民币、美元等字符串的方法，这样我们在处理金钱相关的数据时就可以很方便使用了，来看一个列子",
     "keywords": "toLocaleString将数字转为逗号分隔的字符串,toLocaleString,Number.prototype.toLocaleString",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "什么是yarn.md",
@@ -222,7 +222,7 @@
     "createDate": "2019/11/15",
     "description": "flex布局justify-content属性值区别，space-between 最左、最右item贴合左侧或右侧边框，item与item之间间距相等。space-around 每个item 左右方向的margin相等。两个item中间的间距会比较大",
     "keywords": "space-between 间距,space-around怎么使用,space-between与space-around的区别,space-around什么意思,space-around,space-around 三个 不居中,space-around调距离,",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "flex布局align-self使用场景.md",
@@ -231,7 +231,7 @@
     "createDate": "2019/11/21",
     "description": "一般flex布局，使用algin-items: center垂直居中后，item子项某一个高度比较高，其他子项的高度也会是高度最高的子项高度。设置border时会特别明显。如果需要让item高度适应内容，就可以使用 align-self: flex-start。",
     "keywords": "align-self,flex align-self使用场景",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "部分安卓机型scale后border显示不全的问题.md",
@@ -240,7 +240,7 @@
     "createDate": "2019/11/21",
     "description": "由于border需要画比1px还细的线，也就是0.5px，在移动端你设置px是没用的，一般会使用scale(0.5)缩放来实现,但在某些安卓机型上，发现这样实现的border边框会有显示不全的情况，重点来了，解决方法是将对应scale等样式用style写在内联样式里，刚开始不相信写成内联样式就可以解决这个问题，但实践后发现确实可以解决这个问题。",
     "keywords": "scale border消失,部分安卓机型scale后border显示不全的问题,border在手机上显示不全的问题s",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "画比1px还细的线或border.md",
@@ -249,7 +249,7 @@
     "createDate": "2019/11/21",
     "description": "画比1px还细的线或border",
     "keywords": "一般使用transform缩小0.5倍来实现，如果是border先将元素放大2倍，再缩小0.5倍，放大缩小后还是以放大的空间来占位，使用positon:absolute脱离标准文档流，就不会有两倍的占位了。",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "git创建新分支并提交到远程仓库origin.md",
@@ -267,6 +267,6 @@
     "createDate": "2019/11/22",
     "description": "v-if 不能用filters,在项目中，想在v-if里使用filters发现不生效，于是查了下vue的文档，发现v-if里是不支持使用filters的。一般filters只能在两种情况下使用：双花括号插值和 v-bind 表达式 (后者从 2.1.0+ 开始支持)。过滤器应该被添加在 JavaScript 表达式的尾部，由'管道'符号指示。",
     "keywords": "v-if里使用filters无效的问题,v-if里使用filters无效,v-if中使用filter无效,v-if中使用过滤器无效",
-    "category": "vue"
+    "category": "Vue"
   }
 ]

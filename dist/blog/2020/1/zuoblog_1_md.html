@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="静态博客生成系统一：js怎么将markdown文件转html">静态博客生成系统(一)：JS怎么将markdown文件转html</h1>
             
     <div class="article-top">
-      <div>2020/01/29</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/29，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>怎么用js将markdown转html</span>，<span>markdown转html文件</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="静态博客生成系统一：js怎么将markdown文件转html">静态博客生成系统(一)：JS怎么将markdown文件转html</h1>
+            
 <p>其实早在18年12月，我就已经写好了最简的demo，使用的是marked这个工具。本来准备将博客静态化的，但后来就没继续了，这里来说下方法</p>
 <h2 id="用node写demo">用node写demo</h2>
 <p>一般js处理文件使用的是nodejs，下面来看看具体步骤(假设你已经安装了npm)</p>
@@ -95,11 +104,19 @@ _handlerMdFile(article, articlePath, year, month) {
 <pre><code class="language-js">// - 这是一个ul
 // ul后面这里不能直接用```写代码，需要换行，如果不换行在Typora可以正常渲染，但marked转换时会出问题</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="静态博客生成系统一：js怎么将markdown文件转html" style="padding-left:1em">静态博客生成系统(一)：JS怎么将markdown文件转html<span></li><ul><li><span class="ul-span" data-id="用node写demo" style="padding-left:2em">用node写demo<span></li></ul><ul><li><span class="ul-span" data-id="在zuo-blog里的实际应用" style="padding-left:2em">在zuo-blog里的实际应用<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="静态博客生成系统一：js怎么将markdown文件转html" style="padding-left:1em">静态博客生成系统(一)：JS怎么将markdown文件转html<span></li><ul><li><span class="ul-span" data-id="用node写demo" style="padding-left:2em">用node写demo<span></li></ul><ul><li><span class="ul-span" data-id="在zuo-blog里的实际应用" style="padding-left:2em">在zuo-blog里的实际应用<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -125,10 +142,14 @@ _handlerMdFile(article, articlePath, year, month) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

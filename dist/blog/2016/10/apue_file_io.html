@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="apue-文件io">apue 文件IO</h1>
             
     <div class="article-top">
-      <div>2016/10/18</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2016/10/18，归类于 <a href="/blog/category.html#c与apue" class="hidden">C与APUE</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>文件IO</span>，<span>标准IO</span>，<span>C语言文件处理</span>，<span>APUE文件IO</span>，<span>apue 文件io</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="apue-文件io">apue 文件IO</h1>
+            
 <blockquote>
 <p>UNIX系统中，文件I/O常用的5个函数: open,read,write,lseek,close。与标准I/O相比文件I/O通常称为不带缓冲的I/O(unbuffered)。一般所有I/O都要经过内核的块缓冲。read，write的数据也要被内核缓冲，这里不带缓冲的I/O指的是在用户进程用不会自动缓冲，每次都是系统调用。</p>
 </blockquote>
@@ -136,11 +145,19 @@ int dup2(int oldfd, int newfd); // 复制fd，可指定新fd的值，如果新�
 dup(fd, fd2); // ==&gt; close(fd2); 
 fcntl(fd, F_DUPFD, fd2);  // dup2是一个原子性的操作</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="apue-文件io" style="padding-left:1em">apue 文件IO<span></li><ul><li><span class="ul-span" data-id="文件描述符-file-descriptor" style="padding-left:2em">文件描述符 (file descriptor)<span></li></ul><ul><li><span class="ul-span" data-id="io函数概述" style="padding-left:2em">I/O函数概述<span></li><ul><li><span class="ul-span" data-id="open函数" style="padding-left:3em">open函数<span></li></ul><ul><li><span class="ul-span" data-id="create函数" style="padding-left:3em">create函数<span></li></ul><ul><li><span class="ul-span" data-id="read函数" style="padding-left:3em">read函数<span></li></ul><ul><li><span class="ul-span" data-id="write函数" style="padding-left:3em">write函数<span></li></ul><ul><li><span class="ul-span" data-id="lseek函数" style="padding-left:3em">lseek函数<span></li></ul><ul><li><span class="ul-span" data-id="close函数" style="padding-left:3em">close函数<span></li></ul><ul><li><span class="ul-span" data-id="fcntl函数" style="padding-left:3em">fcntl函数<span></li></ul></ul><ul><li><span class="ul-span" data-id="内核io数据结构" style="padding-left:2em">内核I/O数据结构<span></li></ul><ul><li><span class="ul-span" data-id="两个进程操作同一个文件" style="padding-left:2em">两个进程操作同一个文件<span></li></ul><ul><li><span class="ul-span" data-id="文件描述符的copydup-dup2" style="padding-left:2em">文件描述符的copy(dup, dup2)<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="apue-文件io" style="padding-left:1em">apue 文件IO<span></li><ul><li><span class="ul-span" data-id="文件描述符-file-descriptor" style="padding-left:2em">文件描述符 (file descriptor)<span></li></ul><ul><li><span class="ul-span" data-id="io函数概述" style="padding-left:2em">I/O函数概述<span></li><ul><li><span class="ul-span" data-id="open函数" style="padding-left:3em">open函数<span></li></ul><ul><li><span class="ul-span" data-id="create函数" style="padding-left:3em">create函数<span></li></ul><ul><li><span class="ul-span" data-id="read函数" style="padding-left:3em">read函数<span></li></ul><ul><li><span class="ul-span" data-id="write函数" style="padding-left:3em">write函数<span></li></ul><ul><li><span class="ul-span" data-id="lseek函数" style="padding-left:3em">lseek函数<span></li></ul><ul><li><span class="ul-span" data-id="close函数" style="padding-left:3em">close函数<span></li></ul><ul><li><span class="ul-span" data-id="fcntl函数" style="padding-left:3em">fcntl函数<span></li></ul></ul><ul><li><span class="ul-span" data-id="内核io数据结构" style="padding-left:2em">内核I/O数据结构<span></li></ul><ul><li><span class="ul-span" data-id="两个进程操作同一个文件" style="padding-left:2em">两个进程操作同一个文件<span></li></ul><ul><li><span class="ul-span" data-id="文件描述符的copydup-dup2" style="padding-left:2em">文件描述符的copy(dup, dup2)<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -166,10 +183,14 @@ fcntl(fd, F_DUPFD, fd2);  // dup2是一个原子性的操作</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

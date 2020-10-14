@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="npm-install简写为npm-i安装包时项目文件名与包名冲突不报异常的问题">npm install简写为npm i安装包时项目文件名与包名冲突不报异常的问题</h1>
             
     <div class="article-top">
-      <div>2020/01/14</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/14，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>npm install简写为npm i注意事项</span>，<span>npm init -y注意事项</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="npm-install简写为npm-i安装包时项目文件名与包名冲突不报异常的问题">npm install简写为npm i安装包时项目文件名与包名冲突不报异常的问题</h1>
+            
 <p>最近在安装 npm install 时喜欢简写 npm i mysql2 -s 但发现执行后，并没有安装成功，在package.json里也没有任何记录。还没有报任何错误。</p>
 <pre><code class="language-bash"># 把简写的命令换成 非简写 再执行
 npm install mysql --save
@@ -63,11 +72,19 @@ npm init -y  # 所有默认yes，生成的package.json里面，项目名称字�
 # 由于文件夹名就是 mysql2，与安装的包名重复了。将package.json里的name属性改一个名字即可</code></pre>
 <p><strong>总结: 项目名称不要与依赖的包名相同，当npm安装简写执行异常时，使用非简写方法再试试。</strong></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="npm-install简写为npm-i安装包时项目文件名与包名冲突不报异常的问题" style="padding-left:1em">npm install简写为npm i安装包时项目文件名与包名冲突不报异常的问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="npm-install简写为npm-i安装包时项目文件名与包名冲突不报异常的问题" style="padding-left:1em">npm install简写为npm i安装包时项目文件名与包名冲突不报异常的问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -93,10 +110,14 @@ npm init -y  # 所有默认yes，生成的package.json里面，项目名称字�
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

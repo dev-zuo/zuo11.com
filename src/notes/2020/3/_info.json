@@ -6,7 +6,7 @@
     "createDate": "2020/03/28",
     "description": "web dark mode，网页js怎么监听深色模式改变事件，window.matchMedia, (prefers-color-scheme: dark)，目前iOS，macos都有了深色模式，而最近微信最新版也做了深色模式(dark mode)适配，我试了下，手机切换时页面效果样式是实时刷新的。于是就想着web怎么能够监听深色模式，并设置样式。查了资料后，在Stack Overflow上找到了答案，下面来看看",
     "keywords": "window.matchMedia, web drak mode event,web dark mode,web深色模式,网页深色模式,网页怎么监听深色模式,(prefers-color-scheme: dark)",
-    "category": "css"
+    "category": "CSS"
   },
   {
     "source": "JS操作复制copy的内容，向复制内容中追加内容.md",
@@ -15,7 +15,7 @@
     "createDate": "2020/03/02",
     "description": "在csdn等网站上，我们cttrl+c，ctrl+v时，会发现粘贴后的内容加了当前的作者信息、链接、版权问题等说明。那这个功能是怎么实现的呢？在JS高程中，有讲这一块的内容，下面来看看",
     "keywords": "js操作粘贴板内容,js向copy的内容中追加信息,js向复制信息里追加内容",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "JS怎么监听当前页面滚动比例，完整UI实现demo.md",
@@ -24,7 +24,7 @@
     "createDate": "2020/03/02",
     "description": "在阮一峰的es6入门教程里，顶部有一个计算页面百分比的UI，于是就想尝试实现这个功能，恰好在js高程3里有对应的描述，来看看",
     "keywords": "页面滚动比例监听",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "网页中怎么实时监听网络变动并给出提示.md",
@@ -33,7 +33,7 @@
     "createDate": "2020/03/02",
     "description": "在js高程3中有讲过一个内容，叫做离线检测，就是监听页面的online和offline事件，这样在断网或再次连接到网络时，就会有对应的提示，下面是zuo11.com使用的网络检测功能，可以参考下",
     "keywords": "js离线检测,js断网检测,js怎么实时监听网络变动",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "JS怎么监听浏览器tab页切换？浏览器tab页切换时更改标题.md",
@@ -42,6 +42,6 @@
     "createDate": "2020/03/02",
     "description": "当用户点击了浏览器其他tab页离开页面，或者从其他tab页进入当前页，都会触发visibilitychange事件，根据docuemnt.hidden可以判断是否离开或回来，我们可以修改标题达到可视化的一个效果",
     "keywords": "浏览器tab切换事件监听,visibilitychange,js 页面可见性API",
-    "category": "js"
+    "category": "Javascript"
   }
 ]

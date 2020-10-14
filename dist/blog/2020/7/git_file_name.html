@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="git无法检测到文件名大小写的更改，为什么？怎么解决？">git无法检测到文件名大小写的更改，为什么？怎么解决？</h1>
             
     <div class="article-top">
-      <div>2020/07/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/26，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>mac文件大小写不敏感</span>，<span>macOS文件大小写不敏感</span>，<span>git无法检测文件大小写改变</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="git无法检测到文件名大小写的更改，为什么？怎么解决？">git无法检测到文件名大小写的更改，为什么？怎么解决？</h1>
+            
 <p>今天把开发分支合并到月底分支后，发现之前修改过文件名没有提交上去，手动改文件名后，git status 提示没有任何改动。</p>
 <p>于是百度了下，发现git默认配置为忽略大小写，因此无法正确检测大小写的更改。</p>
 <p><strong>临时解决办法：在当前项目使用git config core.ignorecase false，关闭git忽略大小写配置即可</strong></p>
@@ -52,11 +61,19 @@
 <p><strong>最好的解决方法是将整个文件名都变更。而不是仅改变大小写</strong></p>
 <p>参考: <a href="https://blog.csdn.net/sqlquan/article/details/93722680">Git无法检测到文件名大小写的更改</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="git无法检测到文件名大小写的更改，为什么？怎么解决？" style="padding-left:1em">git无法检测到文件名大小写的更改，为什么？怎么解决？<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="git无法检测到文件名大小写的更改，为什么？怎么解决？" style="padding-left:1em">git无法检测到文件名大小写的更改，为什么？怎么解决？<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -82,10 +99,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

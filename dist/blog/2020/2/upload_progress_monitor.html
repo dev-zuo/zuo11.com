@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="前端怎么获取文件上传进度以及使用node-mock上传文件接口demo">前端怎么获取文件上传进度以及使用node mock上传文件接口demo</h1>
             
     <div class="article-top">
-      <div>2020/02/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/02/26，归类于 <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>前端获取文件上传进度</span>，<span>文件上传进度demo</span>，<span>怎么获取文件上传进度</span>，<span>axios文件上传进度监听</span>，<span>前端怎么mock上传文件接口</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="前端怎么获取文件上传进度以及使用node-mock上传文件接口demo">前端怎么获取文件上传进度以及使用node mock上传文件接口demo</h1>
+            
 <p>现在接口请求一般用的是axios，对于上传文件的进度监听，我们需要了解在axios的config参数里，可以传入onUploadProgress参数来接收upload进度事件，里面会有上传进度信息。我们前端怎么mock上传文件的接口呢？在koa处理时使用 <code>post-bodyparser</code> 可以很好的解析 <code>multipart/form-data</code> 数据，下面来具体看看</p>
 <p><img src="../../../images/blog/node/node_upload.png" alt="node文件上传进度.png"></p>
 <h2 id="前端demo">前端demo</h2>
@@ -128,11 +137,19 @@ app.listen(3000)
 <h2 id="完整demo-github地址">完整demo github地址</h2>
 <p>完整demo，参见: <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/upload%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6">upload文件上传demo - github</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="前端怎么获取文件上传进度以及使用node-mock上传文件接口demo" style="padding-left:1em">前端怎么获取文件上传进度以及使用node mock上传文件接口demo<span></li><ul><li><span class="ul-span" data-id="前端demo" style="padding-left:2em">前端demo<span></li></ul><ul><li><span class="ul-span" data-id="koa-mock上传接口" style="padding-left:2em">koa mock上传接口<span></li></ul><ul><li><span class="ul-span" data-id="完整demo-github地址" style="padding-left:2em">完整demo github地址<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="前端怎么获取文件上传进度以及使用node-mock上传文件接口demo" style="padding-left:1em">前端怎么获取文件上传进度以及使用node mock上传文件接口demo<span></li><ul><li><span class="ul-span" data-id="前端demo" style="padding-left:2em">前端demo<span></li></ul><ul><li><span class="ul-span" data-id="koa-mock上传接口" style="padding-left:2em">koa mock上传接口<span></li></ul><ul><li><span class="ul-span" data-id="完整demo-github地址" style="padding-left:2em">完整demo github地址<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -158,10 +175,14 @@ app.listen(3000)
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

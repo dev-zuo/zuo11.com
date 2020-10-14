@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="canvas不支持文本换行怎么处理">canvas不支持文本换行怎么处理</h1>
             
     <div class="article-top">
-      <div>2020/07/06</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/06，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>canvas不支持文本换行怎么处理</span>，<span>canvas文本换行</span>，<span>canvas文本怎么换行</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="canvas不支持文本换行怎么处理">canvas不支持文本换行怎么处理</h1>
+            
 <p>今天在stackoveflow里面搜索ctx.fill的问题时，查到了很多关于canvas ctx.fillText()绘制文本时不支持换行的问题，找到了一个比较好的答案</p>
 <blockquote>
 <p>I&#39;m afraid it is a limitation of Canvas&#39; fillText. There is no multi-line support. Whats worse, there&#39;s no built-in way to measure line height, only width, making doing it yourself even harder!</p>
@@ -54,11 +63,19 @@
 <li><a href="https://stackoverflow.com/questions/5026961/html5-canvas-ctx-filltext-wont-do-line-breaks">javascript - HTML5 canvas ctx.fillText won&#39;t do line breaks? - Stack Overflow</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="canvas不支持文本换行怎么处理" style="padding-left:1em">canvas不支持文本换行怎么处理<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="canvas不支持文本换行怎么处理" style="padding-left:1em">canvas不支持文本换行怎么处理<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -84,10 +101,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

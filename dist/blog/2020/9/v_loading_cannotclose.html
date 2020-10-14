@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,23 +36,40 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="element-v-loading在ie下可能会关不掉的问题">element v-loading在IE下可能会关不掉的问题</h1>
             
     <div class="article-top">
-      <div>2020/09/07</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/09/07，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>v-loading在IE下无法关闭的问题</span>，<span>IE 无法关闭v-loading</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="element-v-loading在ie下可能会关不掉的问题">element v-loading在IE下可能会关不掉的问题</h1>
+            
 <p>对于请求非常快的情况，loading一加载很快就关闭。在IE下，可能出现 v-loading设置的值已经是 false，但loading还是一直显示，关闭不了的情况，解决方法是：在关闭loading前，加一个500ms的延时，就没问题了。</p>
 <pre><code class="language-js">setTimeout(() =&gt; {
   this.loading = false
 }, 500)</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="element-v-loading在ie下可能会关不掉的问题" style="padding-left:1em">element v-loading在IE下可能会关不掉的问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="element-v-loading在ie下可能会关不掉的问题" style="padding-left:1em">element v-loading在IE下可能会关不掉的问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -78,10 +95,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

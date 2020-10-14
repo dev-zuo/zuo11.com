@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="怎么将date数据转为tz格式的字符串">怎么将Date数据转为TZ格式的字符串</h1>
             
     <div class="article-top">
-      <div>2020/07/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/26，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>TZ时间字符串</span>，<span>toJSON后时间转换为TZ格式</span>，<span>怎么将Date数据转为TZ格式的字符串</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="怎么将date数据转为tz格式的字符串">怎么将Date数据转为TZ格式的字符串</h1>
+            
 <p>后台要求的数据格式 &quot;2020-04-10T04:01:00.000Z&quot; 为TZ格式的字符串。Date对象toString为 &quot;Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)&quot; 这种格式，那怎么转TZ字符串格式呢？<strong>用 Date.prototype.toJSON() 方法即可</strong> </p>
 <pre><code class="language-js">a = new Date(&#39;2020/04/10 12:00:00&#39;) 
 Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)
@@ -50,11 +59,19 @@ Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)
 a.toJSON() //&quot;2020-04-10T04:01:00.000Z&quot;</code></pre>
 <p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON">Date.prototype.toJSON() - MDN</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="怎么将date数据转为tz格式的字符串" style="padding-left:1em">怎么将Date数据转为TZ格式的字符串<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="怎么将date数据转为tz格式的字符串" style="padding-left:1em">怎么将Date数据转为TZ格式的字符串<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -80,10 +97,14 @@ a.toJSON() //&quot;2020-04-10T04:01:00.000Z&quot;</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

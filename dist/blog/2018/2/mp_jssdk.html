@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="小程序web-view组件内嵌网页调用微信js-sdk">小程序web-view组件内嵌网页调用微信JS-SDK</h1>
             
     <div class="article-top">
-      <div>2018/02/24</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2018/02/24，归类于 <a href="/blog/category.html#微信开发" class="hidden">微信开发</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>web-view jssdk</span>，<span>小程序内嵌H5调用jssdk</span>，<span>微信JS-SDK使用</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="小程序web-view组件内嵌网页调用微信js-sdk">小程序web-view组件内嵌网页调用微信JS-SDK</h1>
+            
 <p>小程序web-view内置H5可以像公众号H5一样使用JS-SDK，但会有一定的限制，另外对于没有公众号H5调用JS-SDK经验的同学，可能会以为wx.config使用的参数是小程序的信息，下面以调用扫一扫为例子，介绍具体细节</p>
 <p><img src="../../../images/blog/mp/mp_jssdk_1.jpeg" alt="mp_jssdk_1.jpeg"></p>
 <p>小程序内嵌网页调用JSSDK与公众号网页里面调用基本一致，之前公众号h5可以直接嵌入到小程序里面使用，要注意的地方是：</p>
@@ -196,11 +205,19 @@ function initialize(app, data, req, res) {
 }</code></pre>
 <p>官方文档：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115">微信JS-SDK说明文档</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="小程序web-view组件内嵌网页调用微信js-sdk" style="padding-left:1em">小程序web-view组件内嵌网页调用微信JS-SDK<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="小程序web-view组件内嵌网页调用微信js-sdk" style="padding-left:1em">小程序web-view组件内嵌网页调用微信JS-SDK<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -226,10 +243,14 @@ function initialize(app, data, req, res) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

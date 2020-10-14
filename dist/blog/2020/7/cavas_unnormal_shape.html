@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="实战canvas绘制不规则形状填充渐变色">实战canvas绘制不规则形状填充渐变色</h1>
             
     <div class="article-top">
-      <div>2020/07/06</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/06，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>实战canvas绘制不规则形状填充渐变色</span>，<span>canvas画不规则形状</span>，<span>canvas渐变</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="实战canvas绘制不规则形状填充渐变色">实战canvas绘制不规则形状填充渐变色</h1>
+            
 <p>在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色</p>
 <p><img src="../../../images/blog/js/cavas_unnormal_shape.png" alt="cavas_unnormal_shape.png"></p>
 <pre><code class="language-js">&lt;canvas id=&quot;drawing1&quot; width=&quot;720&quot; height=&quot;45&quot; &gt;A draw of something.&lt;/canvas&gt;
@@ -117,11 +126,19 @@
 <p>参考之前的笔记：<a href="https://www.yuque.com/guoqzuo/js_es6/sbx6vi#a59e2f96">使用canvas绘图 - JS高程3笔记</a></p>
 <p>完整demo: <a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/canvas%E7%94%BB%E4%B8%8D%E8%A7%84%E5%88%99%E5%BD%A2%E7%8A%B6%E5%A1%AB%E5%85%85%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF/index.html">canvas画不规则形状填充渐变背景 - github</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="实战canvas绘制不规则形状填充渐变色" style="padding-left:1em">实战canvas绘制不规则形状填充渐变色<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="实战canvas绘制不规则形状填充渐变色" style="padding-left:1em">实战canvas绘制不规则形状填充渐变色<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -147,10 +164,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

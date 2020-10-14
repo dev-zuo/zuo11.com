@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="git-clone大文件仓库超时问题">git clone大文件仓库超时问题</h1>
             
     <div class="article-top">
-      <div>2019/12/04</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/12/04，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>git clone大文件仓库超时问题</span>，<span>git clone超时</span>，<span>git无法拉取文件</span>，<span>git克隆文件超时</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="git-clone大文件仓库超时问题">git clone大文件仓库超时问题</h1>
+            
 <p>当远程仓库比较大，或者弱网的情况，可能会出现git clone超时的问题，一直clone不下来，一般可以用两种方法来解决：一是git clone时使用 depth参数；二是使用ssh拉取方式</p>
 <h2 id="使用depth参数">使用depth参数</h2>
 <pre><code class="language-bash">git clone --depth=1 git://someserver/somerepo
@@ -55,11 +64,19 @@
 <p><img src="../../../images/blog/git/use_ssh_clone.png" alt="npm_config.png"></p>
 <p>参考：<a href="https://help.github.com/en/github/using-git/which-remote-url-should-i-use#cloning-with-ssh-urls">Cloning with SSH URLs</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="git-clone大文件仓库超时问题" style="padding-left:1em">git clone大文件仓库超时问题<span></li><ul><li><span class="ul-span" data-id="使用depth参数" style="padding-left:2em">使用depth参数<span></li></ul><ul><li><span class="ul-span" data-id="使用ssh方式clone" style="padding-left:2em">使用ssh方式clone<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="git-clone大文件仓库超时问题" style="padding-left:1em">git clone大文件仓库超时问题<span></li><ul><li><span class="ul-span" data-id="使用depth参数" style="padding-left:2em">使用depth参数<span></li></ul><ul><li><span class="ul-span" data-id="使用ssh方式clone" style="padding-left:2em">使用ssh方式clone<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -85,10 +102,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

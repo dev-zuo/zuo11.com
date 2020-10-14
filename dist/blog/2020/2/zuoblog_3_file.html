@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="静态博客生成系统三：node复制或删除文件夹以及npm包命令执行时所在路径获取">静态博客生成系统(三)：node复制或删除文件夹以及npm包命令执行时所在路径获取</h1>
             
     <div class="article-top">
-      <div>2020/02/02</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/02/02，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>node复制或删除文件夹</span>，<span>npm包命令执行时所在路径获取</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="静态博客生成系统三：node复制或删除文件夹以及npm包命令执行时所在路径获取">静态博客生成系统(三)：node复制或删除文件夹以及npm包命令执行时所在路径获取</h1>
+            
 <p>静态博客生成系统，需要把src目录下的源文件生成dist目录下的可部署的文件，对于资源文件需要从src下直接拷贝过去。这就涉及怎么用node复制或删除文件夹了，另外我们在使用zuoblog init执行构建生成时，需要知道命令执行时所在的路径，下面来看看</p>
 <h2 id="node复制或删除文件夹">node复制或删除文件夹</h2>
 <p>node只提供了复制文件、删除空文件夹的方法，如果需要复制文件夹或删除文件夹，就需要自己写方法了，在网上找了个不错的实现，稍微再次封装了下，来看<a href="https://github.com/zuoxiaobai/zuo-blog/blob/master/vendor/utils/FSExtend.js">源码 | github</a></p>
@@ -170,11 +179,19 @@ module.exports = FSExtend</code></pre>
 // 在每次构建前，先删除当前路径下的dist目录，下面是获取对应路径的方法
 delPath = path.join(process.cwd(), delPath)</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="静态博客生成系统三：node复制或删除文件夹以及npm包命令执行时所在路径获取" style="padding-left:1em">静态博客生成系统(三)：node复制或删除文件夹以及npm包命令执行时所在路径获取<span></li><ul><li><span class="ul-span" data-id="node复制或删除文件夹" style="padding-left:2em">node复制或删除文件夹<span></li></ul><ul><li><span class="ul-span" data-id="zuoblog-init命令执行时所在的路径获取" style="padding-left:2em">zuoblog init命令执行时所在的路径获取<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="静态博客生成系统三：node复制或删除文件夹以及npm包命令执行时所在路径获取" style="padding-left:1em">静态博客生成系统(三)：node复制或删除文件夹以及npm包命令执行时所在路径获取<span></li><ul><li><span class="ul-span" data-id="node复制或删除文件夹" style="padding-left:2em">node复制或删除文件夹<span></li></ul><ul><li><span class="ul-span" data-id="zuoblog-init命令执行时所在的路径获取" style="padding-left:2em">zuoblog init命令执行时所在的路径获取<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -200,10 +217,14 @@ delPath = path.join(process.cwd(), delPath)</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="nginx默认配置对前端开发的一些影响">nginx默认配置对前端开发的一些影响</h1>
             
     <div class="article-top">
-      <div>2019/10/28</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/10/28，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>nginx默认配置对前端开发的一些影响</span>，<span>ngnix请求超时时间默认60s</span>，<span>nginx默认文件上传大小限制为1M</span>，<span>nginx中文图片路径404的问题</span>，<span>nginx会影响前端页面超时吗</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="nginx默认配置对前端开发的一些影响">nginx默认配置对前端开发的一些影响</h1>
+            
 <p>一般前端代码开发好后，会部署到nginx，但nginx的某些默认配置，会使前端页面受到影响，比如默认请求超时限制，默认文件上传大小限制，默认字符编码问题等。下面来看具体的问题，以及怎么解决这些问题。</p>
 <h2 id="nginx请求超时时间默认60s">nginx请求超时时间默认60s</h2>
 <p>axios请求时，配置config里有一个是设置请求超时时间的，有一次接口响应巨慢，超过了1分钟，于是我在axios里设置了超时时间为2分钟，但没效果。后来发现是nginx的默认配置限制了。</p>
@@ -81,11 +90,19 @@ chcp 65001
 # 有个修改注册表的方法：不知道是否可行，但怕影响服务器的其它服务，还是算了，改英文名比较稳。。。。
 # https://blog.csdn.net/yangzhong0808/article/details/79012628?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="nginx默认配置对前端开发的一些影响" style="padding-left:1em">nginx默认配置对前端开发的一些影响<span></li><ul><li><span class="ul-span" data-id="nginx请求超时时间默认60s" style="padding-left:2em">nginx请求超时时间默认60s<span></li></ul><ul><li><span class="ul-span" data-id="nginx默认文件上传大小限制为1m" style="padding-left:2em">nginx默认文件上传大小限制为1M<span></li></ul><ul><li><span class="ul-span" data-id="nginx字符编码与系统字符编码不一致导致中文图片路径404的问题" style="padding-left:2em">nginx字符编码与系统字符编码不一致导致中文图片路径404的问题<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="nginx默认配置对前端开发的一些影响" style="padding-left:1em">nginx默认配置对前端开发的一些影响<span></li><ul><li><span class="ul-span" data-id="nginx请求超时时间默认60s" style="padding-left:2em">nginx请求超时时间默认60s<span></li></ul><ul><li><span class="ul-span" data-id="nginx默认文件上传大小限制为1m" style="padding-left:2em">nginx默认文件上传大小限制为1M<span></li></ul><ul><li><span class="ul-span" data-id="nginx字符编码与系统字符编码不一致导致中文图片路径404的问题" style="padding-left:2em">nginx字符编码与系统字符编码不一致导致中文图片路径404的问题<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -111,10 +128,14 @@ chcp 65001
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

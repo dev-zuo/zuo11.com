@@ -60,7 +60,7 @@
         "createDate": "2020/07/06",
         "description": "在axios请求下载文件接口时，一般设置responseType: 'blob'，文件返回正常就没问题，但后台如果处理文件或鉴权有问题，接口返回了包含错误信息的json格式数据，那样json数据也会被转为Blob对象，而前端有必要将错误信息展示，那怎么将Blob数据转JSON呢？下面来看看",
         "keywords": "blob转json,json转blob后怎么还原",
-        "category": "js"
+        "category": "Javascript"
     },
     {
         "source": "canvas多次fill会覆盖前面的fill的问题.md",
@@ -69,7 +69,7 @@
         "createDate": "2020/07/06",
         "description": "在使用canvas进行绘图时，封装了一个绘制函数，每次都会填充颜色 ctx.fill()，如果多次执行，只会在最后一次时，整体fill一次？刚开始以为是后面的fill覆盖了前面的fill，后来网上查了下，第一次fill后，再次fill需要再次调用ctx.beginPath()，不然只会在最后一次fill。",
         "keywords": "canvas多次fill会覆盖前面的fill的问题,ctx.fill覆盖了前一次的fill",
-        "category": "js" 
+        "category": "Javascript" 
     },
     {
         "source": "canvas不支持文本换行怎么处理.md",
@@ -78,7 +78,7 @@
         "createDate": "2020/07/06",
         "description": "今天在stackoveflow里面搜索ctx.fill的问题时，查到了很多关于canvas ctx.fillText()绘制文本时不支持换行的问题，找到了一个比较好的答案。I'm afraid it is a limitation of Canvas' fillText. There is no multi-line support. Whats worse, there's no built-in way to measure line height, only width, making doing it yourself even harder! 一般解决思路是，根据 ctx.measureText('Hello').width 来看需要显示的文字是否需要换行，写一个for循环来处理",
         "keywords": "canvas不支持文本换行怎么处理,canvas文本换行,canvas文本怎么换行",
-        "category": "js"
+        "category": "Javascript"
     },
     {
         "source": "canvas绘制模糊的问题.md",
@@ -87,7 +87,7 @@
         "createDate": "2020/07/06",
         "description": "今天发现同样的代码在两台电脑上绘制的一个清晰，一个模糊，后来查资料发现确实有这个问题: 因为canvas不是矢量图，高dpi屏幕每平方英寸有更多的像素，也就是两倍屏，浏览器会以两个像素点的宽度来渲染一个像素，所以在Retina屏上会导致图片、文字都会模糊，怎么解决呢？",
         "keywords": "canvas绘制模糊的问题,retina屏canvas绘制模糊的问题",
-        "category": "js" 
+        "category": "Javascript" 
     },
     {
         "source": "实战canvas绘制不规则形状填充渐变色.md",
@@ -96,7 +96,7 @@
         "createDate": "2020/07/06",
         "description": "在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色",
         "keywords": "实战canvas绘制不规则形状填充渐变色,canvas画不规则形状,canvas渐变",
-        "category": "js" 
+        "category": "Javascript" 
     },
     {     
         "source": "canvas怎么绘制环形进度条.md",
@@ -105,7 +105,7 @@
         "createDate": "2020/07/12",
         "description": "使用canvas绘制渐变的环形进度条，主要是使用arc函数，下面来看看。4个重点：1. 怎么画圆弧, ctx.arc函数里开始角度、结束角度以PI为基准，取值范围时：0 ~ 2PI，PI就是π值约等于3.14，圆心正上方位置为1.5PI，圆心右侧为 0 或 2*PI，圆心正下方为0.5PI，选定义额开始位置和结束位置就可以绘制任意一个弧形",
         "keywords": "canvas绘制环形进度条,js画环形渐变进度条,canvas画进度条",
-        "category": "js"
+        "category": "Javascript"
     },
     {     
         "source": "如果需要兼容IE还是用flex比较好，慎用grid.md",
@@ -114,7 +114,7 @@
         "createDate": "2020/07/12",
         "description": "grid适用于网格化布局，对于各个模块按百分比来的情况比较好，如果多个模块有的固定宽高有的非固定宽高就不怎么好分了, IE下支持需要加前缀，详情参见之前的笔记: grid网格布局。于是我在某个页面中使用了grid，但发现IE不兼容，grid的某些属性不兼容IE，加了-ms-都没用，最后为了不必要的麻烦和风险，还是换成flex布局了，改成flex后的代码居然比grid还简单...",
         "keywords": "grid的兼容性,grid使用场景,grid,ie grid不兼容",
-        "category": "css"
+        "category": "CSS"
     },
     {     
         "source": "mac pro retina屏两倍图，建议使用iconfont.md",
@@ -123,7 +123,7 @@
         "createDate": "2020/07/12",
         "description": "之前在处理canvas绘制模糊的问题时了解到，retina是两倍像素屏，50 x 50像素的图会绘制在 100 x 100 像素区域，会导致绘制模糊。同理，如果需要在retina屏上显示50 x 50的图，需要提供两倍图 100 * 100，然后设置样式宽高为50，这样才会清晰。最好的方式还是使用iconfont、svg矢量图等可以任意设置宽高(size)而不会失真的图或字体。这样就不会模糊。",
         "keywords": "retina屏两倍图,建议使用iconfont",
-        "category": "css"
+        "category": "CSS"
     },
     {     
         "source": "vue-cli项目使用@开头的路径是什么意思.md",
@@ -132,7 +132,7 @@
         "createDate": "2020/07/12",
         "description": "我们在vue-cli创建的vue项目里，可以使用@开头的路径，表示从src目录开始，这样如果后面代码的目录层级有调整，或者复用代码时，都不会影响功能，代码更健壮",
         "keywords": "vue-cli项目使用@开头的路径是什么意思,@开头的路径,路径中有@",
-        "category": "vue"
+        "category": "Vue"
     },
     {     
         "source": "常用的.gitignore配置.md",
@@ -168,7 +168,7 @@
         "createDate": "2020/07/12",
         "description": "前天4月4号全国哀悼日，各大网公司网站的风格都变灰了，是怎么实现的呢？其实很简单，一行代码就搞定。filter: grayscale(100%); css filter是什么属性？用css filter mdn关键字查了下，这里filter翻译为 滤镜，他可以将模糊或色相等图形效果应用于元素，来看一些例子",
         "keywords": "css滤镜,css filter,怎么用一行css代码将整个站点变灰,怎么将站点置灰",
-        "category": "css"
+        "category": "CSS"
     },
     {     
         "source": "web前端BFC，什么是BFC.md",
@@ -177,7 +177,7 @@
         "createDate": "2020/07/12",
         "description": "虽然做前端好几年了，但只是听说个这个名词，一直不清楚具体是什么意思，今天来研究下。BFC是 Block Formatting Context 的缩写，字面意思是 块格式化上下文。 字面意思很难理解，我们先来看几个例子",
         "keywords": "web BFC,前端BFC,css BFC,什么是BFC",
-        "category": "css"
+        "category": "CSS"
     },
     {     
         "source": "nginx以及koa实现301跳转：xx.com重定向到www.xx.com.md",
@@ -195,7 +195,7 @@
         "createDate": "2020/07/26",
         "description": "toLocaleString时间异常的情况，toLocaleString在0点或12点时时间转换问题，在使用toLocaleString把Date转为字符串时，需要额外注意时间为 '00:00:00' 和 '12:00:00' 的情况，它们分别会被转为 上午12:00:00，下午12点，下面来看看",
         "keywords": "toLocaleString时间异常的情况,toLocaleString在0点或12点时时间转换问题",
-        "category": "js"
+        "category": "Javascript"
     },
     {
         "source": "怎么将Date数据转为TZ格式的字符串.md",
@@ -204,7 +204,7 @@
         "createDate": "2020/07/26",
         "description": "TZ时间字符串，toJSON后时间转换为TZ格式，后台要求的数据格式 '2020-04-10T04:01:00.000Z' 为TZ格式的字符串。Date对象toString为 'Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)' 这种格式，那怎么转TZ字符串格式呢？用 Date.prototype.toJSON() 方法即可 ",
         "keywords": "TZ时间字符串,toJSON后时间转换为TZ格式,怎么将Date数据转为TZ格式的字符串",
-        "category": "js"
+        "category": "Javascript"
     },
     {
         "source": "Failed to resolve directive: infinite-scroll.md",
@@ -213,7 +213,7 @@
         "createDate": "2020/07/26",
         "description": "在element InfiniteScroll无限滚动功能里，使用了v-infinite-scroll指令，但直接使用会发现提示 Failed to resolve directive: infinite-scroll，后面查了下，发现要使用该指令需要安装一个vue-infinite-scroll npm包，并且在main.js里引入才行",
         "keywords": "Failed to resolve directive: infinite-scroll,element v-infinite-scroll指令",
-        "category": "vue"
+        "category": "Vue"
     },
     {
         "source": "v-infinite-scroll放到slot里或者用v-if控制时首次无法触发loadMore的问题.md",
@@ -222,7 +222,7 @@
         "createDate": "2020/07/26",
         "description": "v-infinite-scroll不触发loadMore，element v-infinite-scroll指令, 最新项目结构调整，发现一个问题，把 v-infinite-scroll 对应的元素放到 slot 里，首次无法触发loadMore, 不放到slot里面又是正常的，来看代码",
         "keywords": "v-infinite-scroll不触发loadMore,element v-infinite-scroll指令",
-        "category": "vue"
+        "category": "Vue"
     },
     {
         "source": "Array.prototype.fill()填充引用类型值的问题.md",
@@ -231,7 +231,7 @@
         "createDate": "2020/07/26",
         "description": "js 数组fill填充的对象都指向同一个地址，array fill填充引用类型问题，在mock表格list数据时，我一般为了简洁会先创建一个对象info，然后new Array(10).fill(info) 来生成10条数据的数。但这次发现一个问题，由于表格有一个字段是状态值0 - 5，我想随机设置下值，发现修改后的值都一样，来看看例子",
         "keywords": "js 数组fill填充的对象都指向同一个地址,array fill填充引用类型问题",
-        "category": "js"
+        "category": "Javascript"
     },
     {
         "source": "JSON.stringify的非常规用法以及内部执行顺序.md",
@@ -240,7 +240,7 @@
         "createDate": "2020/07/26",
         "description": "JSON.stringify，JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法，我们一般用于将JSON对象转为字符串，但他不仅仅只有一个参数，而是三个，除最常用的用法外，还可以用来做三种实用功能: 1.利用第三参数在console里更好的展示对象; 2.有选择性的过滤字段; 3.详细处理没有字段序列化的值",
         "keywords": "JSON.stringify,JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法",
-        "category": "js"
+        "category": "Javascript"
     },
     {
         "source": "iconfont通过设置class来显示图标内部做了那些操作.md",
@@ -249,7 +249,7 @@
         "createDate": "2020/07/26",
         "description": "iconfont是怎么通过class来加载图标的，内部做了哪些操作，注意我们在用class使用iconfont图标时，为什么可以使用，主要是iconfont.css里面做了三步操作: 1. 定义iconfont的 font-familay 2. 为.iconfont设置默认样式，指定为font-family字体 3. 为每个图标的class设置before的content",
         "keywords": "iconfont是怎么通过class来加载图标的,内部做了哪些操作,iconfont class字体图标",
-        "category": "css"
+        "category": "CSS"
     },
     {
         "source": "vue全局引入组件Vue.use()与Vue.component()的用法与区别.md",
@@ -258,7 +258,7 @@
         "createDate": "2020/07/26",
         "description": "vue全局组件，Vue.use与Vue.component区别，之前的笔记里有将Vue.use()全局引入组件的方法，其实用 Vue.compoennt()也可以全局引入组件。下面来看具体用法，以及他们的区别",
         "keywords": "vue全局组件,Vue.use()与Vue.component()的区别,Vue.use与Vue.component区别",
-        "category": "vue"
+        "category": "Vue"
     },
     {
         "source": "vue页面中监听路由改变的2种方法.md",
@@ -267,7 +267,7 @@
         "createDate": "2020/07/26",
         "description": "vue监听路由变化,vue监听路由,在vue中，怎么监听vue-router路由的变更呢？一般有两种方法 1. 单页面组件中，使用 beforeRouteEnter 2. 使用watch监听$route",
         "keywords": "ue监听路由变化,vue监听路由,监听vue-router变化",
-        "category": "vue"
+        "category": "Vue"
     },
     {
         "source": "git无法检测到文件名大小写的更改，为什么？怎么解决？.md",
@@ -285,7 +285,7 @@
         "createDate": "2020/07/26",
         "description": "今天看小伙伴的代码，发现有一个梯形的实现居然是css写的，我以为需要UI提供icon。这里用到了 perspective 远景这个参数",
         "keywords": "css画梯形,css perspective",
-        "category": "css"
+        "category": "CSS"
     },
     {
         "source": "element时间选择器限制选中：不能选择今天之后的日期，时间间隔不能超过一个月.md",
@@ -294,7 +294,7 @@
         "createDate": "2020/07/26",
         "description": "elmement el-date-picker限制选中,elmement el-date-picker disabled某些选中,element时间限制选中,一般使用 picker-options 这个属性来disable某些时间段，注意 如果设置了default-time 00:00:00 - 23:59:59 会影响对应的日期判断，必要时可以去掉，逻辑可以由后端处理",
         "keywords": "elmement el-date-picker限制选中,elmement el-date-picker disabled某些选中",
-        "category": "vue"
+        "category": "Vue"
     },
     {
         "source": "vue-router编程方式跳转路由以及其传参问题.md",
@@ -303,7 +303,7 @@
         "createDate": "2020/07/26",
         "description": "vue-router有以下几种编程方式跳转路由的方法。一般push和repalce用的比较多，下面来看看",
         "keywords": "vue-router,vue-router编程式跳转方法,vue-router跳转路由方法",
-        "category": "vue"
+        "category": "Vue"
     },
     {
         "source": "text-align: justify两端对齐不生效的问题.md",
@@ -312,7 +312,7 @@
         "createDate": "2020/07/26",
         "description": "一般直接设置text-align: justify是不会生效的。但你改为text又会立即居中对齐。我们需要注意的是我们需要将子元素设置一个after的属性或者后面放置一个空的占位标签，设置 display: inline-block; width: 100%，当出现高度占位间隙时，设置占位元素的height没用，需要设置元素的height。css 确实有点毫无逻辑的感觉....",
         "keywords": "text-align:justify,text-align:justify不生效的问题",
-        "category": "css"
+        "category": "CSS"
     },
     {
         "source": "uni.request封装为类似axios的请求对象.md",
@@ -339,7 +339,7 @@
         "createDate": "2020/07/26",
         "description": "之前提交链接都是手动将url粘贴到输入框提交。这次试了下curl方式提交还是很方便的，来看看步骤",
         "keywords": "向百度站长主动推送站点url,推送url到百度",
-        "category": "网站建设与seo"
+        "category": "网站建设与SEO"
     },
     {
         "source": "nginx配置二级域名解析目录.md",
@@ -366,6 +366,6 @@
         "createDate": "2020/07/26",
         "description": "在前面讨论过，使用v-model的场景，来看一个实例，假如我们需要封装一个弹窗组件需要引入el-dialog组件。首先，我们来看看我们写好这个组件后应该怎么调用，通过show这个参数来控制dialog显示或隐藏",
         "keywords": "v-model的理解,v-model与,.sync",
-        "category": "vue"
+        "category": "Vue"
     }
 ]

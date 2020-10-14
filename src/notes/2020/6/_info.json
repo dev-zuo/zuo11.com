@@ -60,7 +60,7 @@
       "createDate": "2020/06/29",
       "description": "css中某个元素hover后，可以对其他元素设置样式，但注意：只限定于改变他的子元素, 以及其后面的元素，下面我们写demo来看看",
       "keywords": "css hover后改变其他元素样式,css 元素hover后设置其他元素样式",
-      "category": "css"
+      "category": "CSS"
     },
     {
       "source": "vue封装组件时预留install函数便于Vue.use全局引入.md",
@@ -69,7 +69,7 @@
       "createDate": "2020/06/29",
       "description": "在element组件中，我们使用el-input等element元素时，不需要在components里引入。为什么呢？在引入element时，我们有在mian.js里我们使用了Vue.use(elemnt组件)，这样进行了全局注入组件，相当于组件做成了一个vue插件，如果我们自己封装组件如何能够在Vue.use后直接可以全局调用呢？",
       "keywords": "vue封装组件时预留install函数,element组件为什么use后可以直接使用",
-      "category": "vue"
+      "category": "Vue"
     },
     {
       "source": "vue自定义组件使用v-model指令实现dialog组件的二次封装.md",
@@ -78,7 +78,7 @@
       "createDate": "2020/06/29",
       "description": "当某个组件是对element的dialog组件进行二次封装时，我们需要对dialog进行隐藏显示，当子组件里的dialog关闭时，需要修改父组件传入的值，尽管不是表单组件也可以使用v-model来解决，先来看看怎么调用",
       "keywords": "v-model属性实现dialog组件的二次封装,element dialog组件的二次封装",
-      "category": "vue"
+      "category": "Vue"
     },
     {
       "source": "vue封装组件方式的思考.md",
@@ -87,7 +87,7 @@
       "createDate": "2020/06/29",
       "description": "在封装组件时，一般我们使用的方法是：把组件单独放到一个xx.vue，然后需要引入时在components使用懒加载引入再使用，我就在想，每次引入组件都需要三步：1. 把组件通过 components 引入 2. 在template中写对应的代码 3. 在data中写对应的数据，methods里写绑定的事件。会不会太麻烦了，我希望像element的组件那样，通过 this.$message.error(e.message) 这样直接调用一个组件",
       "keywords": "vue封装组件思考,vue封装组件总结",
-      "category": "vue"
+      "category": "Vue"
     },
     {
       "source": "他人提交了package-lock.json的更新导致拉取时和本地冲突的问题.md",

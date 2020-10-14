@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="前端通过documentcookie设置cookie，相关改动会传到后台吗？">前端通过document.cookie设置cookie，相关改动会传到后台吗？</h1>
             
     <div class="article-top">
-      <div>2020/10/01</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/10/01，归类于 <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>document.cookie设置cookie对接口影响</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="前端通过documentcookie设置cookie，相关改动会传到后台吗？">前端通过document.cookie设置cookie，相关改动会传到后台吗？</h1>
+            
 <p>首先我们来捋一捋，什么是cookie？与cookie相关的知识点有两个：</p>
 <ol>
 <li>前端获取/设置cookie，使用 document.cookie</li>
@@ -309,11 +318,19 @@ var docCookies = {
 <li><a href="https://blog.csdn.net/qq_39207066/article/details/80970668">HTTP-服务器端CooKie与浏览器端Cookie</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="前端通过documentcookie设置cookie，相关改动会传到后台吗？" style="padding-left:1em">前端通过document.cookie设置cookie，相关改动会传到后台吗？<span></li><ul><li><span class="ul-span" data-id="根据功能点写测试demo" style="padding-left:2em">根据功能点写测试demo<span></li></ul><ul><li><span class="ul-span" data-id="documentcookie设置对请求头的影响" style="padding-left:2em">document.cookie设置对请求头的影响<span></li></ul><ul><li><span class="ul-span" data-id="documentcookie操作方法" style="padding-left:2em">document.cookie操作方法<span></li></ul><ul><li><span class="ul-span" data-id="http-cookies后端接口向前端页面写入cookie" style="padding-left:2em">HTTP cookies后端接口向前端页面写入cookie<span></li></ul><ul><li><span class="ul-span" data-id="cookie设置属性详解" style="padding-left:2em">cookie设置属性详解<span></li></ul><ul><li><span class="ul-span" data-id="后端设置'set-cookie'响应头对前端的影响" style="padding-left:2em">后端设置'Set-Cookie'响应头对前端的影响<span></li></ul><ul><li><span class="ul-span" data-id="参考文档" style="padding-left:2em">参考文档<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="前端通过documentcookie设置cookie，相关改动会传到后台吗？" style="padding-left:1em">前端通过document.cookie设置cookie，相关改动会传到后台吗？<span></li><ul><li><span class="ul-span" data-id="根据功能点写测试demo" style="padding-left:2em">根据功能点写测试demo<span></li></ul><ul><li><span class="ul-span" data-id="documentcookie设置对请求头的影响" style="padding-left:2em">document.cookie设置对请求头的影响<span></li></ul><ul><li><span class="ul-span" data-id="documentcookie操作方法" style="padding-left:2em">document.cookie操作方法<span></li></ul><ul><li><span class="ul-span" data-id="http-cookies后端接口向前端页面写入cookie" style="padding-left:2em">HTTP cookies后端接口向前端页面写入cookie<span></li></ul><ul><li><span class="ul-span" data-id="cookie设置属性详解" style="padding-left:2em">cookie设置属性详解<span></li></ul><ul><li><span class="ul-span" data-id="后端设置'set-cookie'响应头对前端的影响" style="padding-left:2em">后端设置'Set-Cookie'响应头对前端的影响<span></li></ul><ul><li><span class="ul-span" data-id="参考文档" style="padding-left:2em">参考文档<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -339,10 +356,14 @@ var docCookies = {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

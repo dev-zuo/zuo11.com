@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="用node实现发送包含echarts图表的邮件">用node实现发送包含echarts图表的邮件</h1>
             
     <div class="article-top">
-      <div>2020/10/08</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/10/08，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>node发邮件</span>，<span>node发送图表邮件</span>，<span>node发送echart图表邮件</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="用node实现发送包含echarts图表的邮件">用node实现发送包含echarts图表的邮件</h1>
+            
 <p>在之前我用node研究过怎么收发邮件，但没有研究过邮件里面是否能包含图表，这次来研究下</p>
 <p>首先，我们来看看怎么发邮件</p>
 <h2 id="准备工作：配置发件人邮箱">准备工作：配置发件人邮箱</h2>
@@ -218,11 +227,19 @@ module.exports = getEchartsPng</code></pre>
 <p><img src="../../../images/blog/node/node_email_4_img.png" alt="node_echarts_img.png"></p>
 <p>完成demo，参见github: <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E7%94%A8%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81echarts%E5%9B%BE%E8%A1%A8">用邮件发送echarts图表</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="用node实现发送包含echarts图表的邮件" style="padding-left:1em">用node实现发送包含echarts图表的邮件<span></li><ul><li><span class="ul-span" data-id="准备工作：配置发件人邮箱" style="padding-left:2em">准备工作：配置发件人邮箱<span></li></ul><ul><li><span class="ul-span" data-id="使用nodemailer来发送邮件" style="padding-left:2em">使用nodemailer来发送邮件<span></li></ul><ul><li><span class="ul-span" data-id="使用接口生成echarts图片" style="padding-left:2em">使用接口生成echarts图片<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="用node实现发送包含echarts图表的邮件" style="padding-left:1em">用node实现发送包含echarts图表的邮件<span></li><ul><li><span class="ul-span" data-id="准备工作：配置发件人邮箱" style="padding-left:2em">准备工作：配置发件人邮箱<span></li></ul><ul><li><span class="ul-span" data-id="使用nodemailer来发送邮件" style="padding-left:2em">使用nodemailer来发送邮件<span></li></ul><ul><li><span class="ul-span" data-id="使用接口生成echarts图片" style="padding-left:2em">使用接口生成echarts图片<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -248,10 +265,14 @@ module.exports = getEchartsPng</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

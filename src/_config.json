@@ -40,19 +40,20 @@
     "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
   },
   "categorySequence": [
-    "vue",
-    "js",
-    "css",
+    "Vue",
+    "Javascript",
+    "CSS",
     "http与https",
     "前端工程化",
     "运维部署与版本控制",
     "计算机基础与开发工具",
     "图表可视化",
-    "网站建设与seo",
+    "网站建设与SEO",
     "微信开发",
     "移动端混合开发",
     "后端数据库等",
     "iOS",
     "C与APUE"
-  ]
+  ],
+  "asideTopHtml": "<ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>"
 }

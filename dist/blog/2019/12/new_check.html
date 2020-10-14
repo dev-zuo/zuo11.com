@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="symbol、bigint不能new，而string、number可以new，为什么？">Symbol、BigInt不能new，而String、Number可以new，为什么？</h1>
             
     <div class="article-top">
-      <div>2019/12/27</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/12/27，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>Symbol、BigInt不能new，而Stirng、Number可以new，为什么</span>，<span>BigInt内部是怎么检测用户使用了new来调用的</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="symbol、bigint不能new，而string、number可以new，为什么？">Symbol、BigInt不能new，而String、Number可以new，为什么？</h1>
+            
 <p>在基本数据类型中，我们发现像String, Number是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用new创建，这是为什么呢？ BigInt内部是怎么检测用户使用了new来调用的？下面来看看</p>
 <pre><code class="language-js">BigInt(&#39;1&#39;) // 1n
 new BigInt(1)
@@ -75,11 +84,19 @@ new A() // A {}  Uncaught TypeError: A is not a constructor</code></pre>
 <p>再复习一下class，class 创建的类型也是function，且只能通过new调用，应该函数内部也是加了类似上面的校验，当this instanceof 不等于当前class时，就直接抛异常</p>
 <p>总结：核心问题是 this 的指向问题，一般直接调用A()时this指向window</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="symbol、bigint不能new，而string、number可以new，为什么？" style="padding-left:1em">Symbol、BigInt不能new，而String、Number可以new，为什么？<span></li><ul><li><span class="ul-span" data-id="bigint内部是怎么检测用户使用了new来调用的？" style="padding-left:2em">BigInt内部是怎么检测用户使用了new来调用的？<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="symbol、bigint不能new，而string、number可以new，为什么？" style="padding-left:1em">Symbol、BigInt不能new，而String、Number可以new，为什么？<span></li><ul><li><span class="ul-span" data-id="bigint内部是怎么检测用户使用了new来调用的？" style="padding-left:2em">BigInt内部是怎么检测用户使用了new来调用的？<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -105,10 +122,14 @@ new A() // A {}  Uncaught TypeError: A is not a constructor</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

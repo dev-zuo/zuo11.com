@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="element怎么动态改变校验rules且实时生效">element怎么动态改变校验rules且实时生效</h1>
             
     <div class="article-top">
-      <div>2020/02/27</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/02/27，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>element怎么动态改变校验rules且实时生</span>，<span>element el-form rules动态改变</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="element怎么动态改变校验rules且实时生效">element怎么动态改变校验rules且实时生效</h1>
+            
 <p>在需要动态设置rules，并需要其实时生效的场景，一般需要将rules完成改变才行，这是为什么呢，下面来看看</p>
 <h2 id="实际应用场景">实际应用场景</h2>
 <p>在做项目的过程中，需要需要动态变更rules的场景，有两个功能点：</p>
@@ -74,11 +83,19 @@ watch: {
 },</code></pre>
 <p>我们来看看element form 相关源码，可以看到使用watch监听rules的改变，没有使用deep，所以直接改变某个嵌套的属性时，是无法监听到的。这里可能是为了提高性能，就没加deep</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="element怎么动态改变校验rules且实时生效" style="padding-left:1em">element怎么动态改变校验rules且实时生效<span></li><ul><li><span class="ul-span" data-id="实际应用场景" style="padding-left:2em">实际应用场景<span></li></ul><ul><li><span class="ul-span" data-id="element对rules的监听逻辑" style="padding-left:2em">element对rules的监听逻辑<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="element怎么动态改变校验rules且实时生效" style="padding-left:1em">element怎么动态改变校验rules且实时生效<span></li><ul><li><span class="ul-span" data-id="实际应用场景" style="padding-left:2em">实际应用场景<span></li></ul><ul><li><span class="ul-span" data-id="element对rules的监听逻辑" style="padding-left:2em">element对rules的监听逻辑<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -104,10 +121,14 @@ watch: {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

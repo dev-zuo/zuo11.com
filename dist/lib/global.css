@@ -65,3 +65,8 @@ th, td {
   border: 1px solid #ccc;
   border-collapse: collapse;
 }
+
+/* AD */
+ins {
+  margin-bottom: 10px;
+}

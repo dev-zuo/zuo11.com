@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="响应式设计和自适应设计的区别">响应式设计和自适应设计的区别</h1>
             
     <div class="article-top">
-      <div>2020/09/24</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/09/24，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>响应式布局和自适应设计的区别</span>，<span>响应式设计</span>，<span>自适应设计</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="响应式设计和自适应设计的区别">响应式设计和自适应设计的区别</h1>
+            
 <p>响应式(Responsive)布局和自适(Adaptive)应布局，也叫响应式设计与自适应设计。他们都用于在不同屏幕尺寸的设备上显示合适的内容。当你在思考这个问题的时候，表示你已经开始死扣概念了，这个问题在网上争议较大，包括国外的CSS-Tricks上的文章也有产生争议的。阮一峰博客里面将Responsive Web Design直接翻译为自适应web设计。</p>
 <h2 id="概念区别对比">概念区别对比</h2>
 <p>我们来对比下各个地方的解释，响应式web设计 responsive web design (RWD) ，自适应web设计 adaptive web design (AWD)</p>
@@ -97,11 +106,19 @@ On the surface, it appears that adaptive requires more work as you have to desig
 </ol>
 <p>这些都不是绝对的，一些展示性较强的pc官网，可能也会用到rem+js，<strong>总之，概念都是虚的，技术只是工具，大可不必过多的的纠结什么是响应式和什么是自适应，我们只需要根据产品的功能需要，找出合适的技术方案即可。</strong></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="响应式设计和自适应设计的区别" style="padding-left:1em">响应式设计和自适应设计的区别<span></li><ul><li><span class="ul-span" data-id="概念区别对比" style="padding-left:2em">概念区别对比<span></li><ul><li><span class="ul-span" data-id="css-tricks" style="padding-left:3em">CSS-Tricks<span></li></ul><ul><li><span class="ul-span" data-id="mdn" style="padding-left:3em">MDN<span></li></ul><ul><li><span class="ul-span" data-id="阮一峰博客" style="padding-left:3em">阮一峰博客<span></li></ul><ul><li><span class="ul-span" data-id="前端开发者博客" style="padding-left:3em">前端开发者博客<span></li></ul><ul><li><span class="ul-span" data-id="uxpin-studio" style="padding-left:3em">uxpin studio<span></li></ul><ul><li><span class="ul-span" data-id="博客园" style="padding-left:3em">博客园<span></li></ul></ul><ul><li><span class="ul-span" data-id="实际使用场景" style="padding-left:2em">实际使用场景<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="响应式设计和自适应设计的区别" style="padding-left:1em">响应式设计和自适应设计的区别<span></li><ul><li><span class="ul-span" data-id="概念区别对比" style="padding-left:2em">概念区别对比<span></li><ul><li><span class="ul-span" data-id="css-tricks" style="padding-left:3em">CSS-Tricks<span></li></ul><ul><li><span class="ul-span" data-id="mdn" style="padding-left:3em">MDN<span></li></ul><ul><li><span class="ul-span" data-id="阮一峰博客" style="padding-left:3em">阮一峰博客<span></li></ul><ul><li><span class="ul-span" data-id="前端开发者博客" style="padding-left:3em">前端开发者博客<span></li></ul><ul><li><span class="ul-span" data-id="uxpin-studio" style="padding-left:3em">uxpin studio<span></li></ul><ul><li><span class="ul-span" data-id="博客园" style="padding-left:3em">博客园<span></li></ul></ul><ul><li><span class="ul-span" data-id="实际使用场景" style="padding-left:2em">实际使用场景<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -127,10 +144,14 @@ On the surface, it appears that adaptive requires more work as you have to desig
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？">component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？</h1>
             
     <div class="article-top">
-      <div>2020/08/30</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/08/30，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>component is hooks</span>，<span>component is 钩子函数</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？">component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？</h1>
+            
 <p>假设动态组件component使用is控制组件显示，默认显示为A组件，可以切换到B组件。问：</p>
 <p><strong>首次进入页面以及用is切换组件时，会触发A/B组件的哪些钩子函数，加了keep-alive后呢？</strong></p>
 <p>先给出结论</p>
@@ -206,11 +215,19 @@ export default {
 </tbody></table>
 <p>完整demo地址，参见 <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/vuehooks/">vue hooks demo | github</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？" style="padding-left:1em">component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？" style="padding-left:1em">component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -236,10 +253,14 @@ export default {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

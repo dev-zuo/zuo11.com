@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="静态博客生成系统二：markdown大纲提取以及页面滚动到对应区域时高亮处理">静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理</h1>
             
     <div class="article-top">
-      <div>2020/02/02</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/02/02，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>提取markdown文件的大纲结构数据</span>，<span>markdown大纲提取</span>，<span>mardown目录提取</span>，<span>根据大纲数据生成html</span>，<span>页面滚动时，自动切换大纲focus</span>，<span>怎么监听页面滚动到了某个标题区域</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="静态博客生成系统二：markdown大纲提取以及页面滚动到对应区域时高亮处理">静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理</h1>
+            
 <p>在考虑把个人博客站点静态化时，其中一个原因是markdown的大纲显示比较好，文章结构层次分明，可以更好的阅读。那怎么提取markdown文件的大纲数据，并呈现在网页上呢？下面来看看zuo-blog是怎么处理的。</p>
 <h2 id="提取markdown文件的大纲结构数据">提取markdown文件的大纲结构数据</h2>
 <p>知道将md转换为html文件的方法后，需要生成对应的大纲数据。其实在marked这个npm包里有对应的方法。来看看具体实现</p>
@@ -280,11 +289,19 @@ function focusAsideSpan() {
 <h2 id="大纲更好的实现方式">大纲更好的实现方式</h2>
 <p>这里实现很复杂，对于非标准层级结构来说会有bug，<strong>其实这里没必要做的这么麻烦，没必要将对象数组，转换为树形结构，只需要渲染时根据不同的depth设置不同的margin-left或padding-left，其值为 (depth - 1) * baseWidth基础间距，这样就可以很好的显示了，待0.3.0版本优化</strong></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="静态博客生成系统二：markdown大纲提取以及页面滚动到对应区域时高亮处理" style="padding-left:1em">静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理<span></li><ul><li><span class="ul-span" data-id="提取markdown文件的大纲结构数据" style="padding-left:2em">提取markdown文件的大纲结构数据<span></li></ul><ul><li><span class="ul-span" data-id="根据大纲数据生成html" style="padding-left:2em">根据大纲数据生成html<span></li></ul><ul><li><span class="ul-span" data-id="页面滚动到对应的大纲区域时怎么设置高亮" style="padding-left:2em">页面滚动到对应的大纲区域时怎么设置高亮<span></li></ul><ul><li><span class="ul-span" data-id="大纲更好的实现方式" style="padding-left:2em">大纲更好的实现方式<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="静态博客生成系统二：markdown大纲提取以及页面滚动到对应区域时高亮处理" style="padding-left:1em">静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理<span></li><ul><li><span class="ul-span" data-id="提取markdown文件的大纲结构数据" style="padding-left:2em">提取markdown文件的大纲结构数据<span></li></ul><ul><li><span class="ul-span" data-id="根据大纲数据生成html" style="padding-left:2em">根据大纲数据生成html<span></li></ul><ul><li><span class="ul-span" data-id="页面滚动到对应的大纲区域时怎么设置高亮" style="padding-left:2em">页面滚动到对应的大纲区域时怎么设置高亮<span></li></ul><ul><li><span class="ul-span" data-id="大纲更好的实现方式" style="padding-left:2em">大纲更好的实现方式<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -310,10 +327,14 @@ function focusAsideSpan() {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

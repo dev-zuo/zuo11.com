@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="macos安装nginx">macOS安装nginx</h1>
             
     <div class="article-top">
-      <div>2019/10/08</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/10/08，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>mac nginx</span>，<span>mac 安装nginx</span>，<span>macos安装nginx</span>，<span>macos nginx</span>，<span>nginx安装</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="macos安装nginx">macOS安装nginx</h1>
+            
 <h2 id="使用命令安装">使用命令安装</h2>
 <p>mac下直接使brew install用命令安装，注意：mac自带的xcode不要随意卸载，不然会出各种奇怪的问题: 包括svn安装问题、nginx安装问题等</p>
 <pre><code class="language-bash">brew install nginx</code></pre>
@@ -83,11 +92,19 @@ kevindeMacBook-Air:~ kevin$ vi /usr/local/etc/nginx/nginx.conf # 打开配置文
 <p>修改好端口保存后，再sudo nginx，运行nginx，<a href="http://127.0.0.1:81/">http://127.0.0.1:81/</a> 可正常访问，如下图</p>
 <p><img src="../../../images/blog/ops/ops_mac_install_nginx_1.png" alt="ops_mac_install_nginx_1.png"></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="macos安装nginx" style="padding-left:1em">macOS安装nginx<span></li><ul><li><span class="ul-span" data-id="使用命令安装" style="padding-left:2em">使用命令安装<span></li></ul><ul><li><span class="ul-span" data-id="开启nginx" style="padding-left:2em">开启nginx<span></li></ul><ul><li><span class="ul-span" data-id="配置文件修改" style="padding-left:2em">配置文件修改<span></li></ul><ul><li><span class="ul-span" data-id="运行效果" style="padding-left:2em">运行效果<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="macos安装nginx" style="padding-left:1em">macOS安装nginx<span></li><ul><li><span class="ul-span" data-id="使用命令安装" style="padding-left:2em">使用命令安装<span></li></ul><ul><li><span class="ul-span" data-id="开启nginx" style="padding-left:2em">开启nginx<span></li></ul><ul><li><span class="ul-span" data-id="配置文件修改" style="padding-left:2em">配置文件修改<span></li></ul><ul><li><span class="ul-span" data-id="运行效果" style="padding-left:2em">运行效果<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -113,10 +130,14 @@ kevindeMacBook-Air:~ kevin$ vi /usr/local/etc/nginx/nginx.conf # 打开配置文
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

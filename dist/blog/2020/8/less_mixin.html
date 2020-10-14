@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="less使用mixin抽取css公共代码，减少重复代码">less使用mixin抽取css公共代码，减少重复代码</h1>
             
     <div class="article-top">
-      <div>2020/08/22</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/08/22，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>less函数</span>，<span>less mixin实例</span>，<span>less mixin</span>，<span>less封装css</span>，<span>less怎么抽取公共样式</span>，<span>less抽取公共样式</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="less使用mixin抽取css公共代码，减少重复代码">less使用mixin抽取css公共代码，减少重复代码</h1>
+            
 <p>由于没有系统的学习less，之前只用到less的嵌套写法，很少用变量，基本没用mixin模块化封装，这次尝试了下，发现还是不错的，下面来用封装一个基础的布局组件，主要涉及三个知识点</p>
 <ol>
 <li>把css单独提成文件使用 @import (reference) url(&#39;&#39;) 引入</li>
@@ -119,11 +128,19 @@ export default {}
 &lt;/style&gt;</code></pre>
 <p>上面的例子中使用 (reference) 是为了防止在不同的组件中引入导致公共代码多次打包问题</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="less使用mixin抽取css公共代码，减少重复代码" style="padding-left:1em">less使用mixin抽取css公共代码，减少重复代码<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="less使用mixin抽取css公共代码，减少重复代码" style="padding-left:1em">less使用mixin抽取css公共代码，减少重复代码<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -149,10 +166,14 @@ export default {}
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

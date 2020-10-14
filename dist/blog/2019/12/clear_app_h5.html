@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="怎么清除app内嵌h5的localstorage">怎么清除app内嵌H5的localStorage</h1>
             
     <div class="article-top">
-      <div>2019/12/27</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/12/27，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>怎么清除app内嵌H5的localStorage</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="怎么清除app内嵌h5的localstorage">怎么清除app内嵌H5的localStorage</h1>
+            
 <p>当你在app内容H5中使用了localStorage又担心可能会超出5M的限制时，就要注意localStorage的清除了。那怎么才能清除app内嵌H5的localStorage呢？我做了一些测试</p>
 <p>测试手机: iPhone8, 红米6，内嵌H5使用localStorage存储了一些数据，尝试清除</p>
 <ul>
@@ -55,11 +64,19 @@
 </ul>
 <p>总结，<strong>在不删除app以及使用H5内置的清除函数的情况下，安卓可以使用系统的清除app所有数据来清除，但iOS暂未发现清除的方法。</strong></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="怎么清除app内嵌h5的localstorage" style="padding-left:1em">怎么清除app内嵌H5的localStorage<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="怎么清除app内嵌h5的localstorage" style="padding-left:1em">怎么清除app内嵌H5的localStorage<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -85,10 +102,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

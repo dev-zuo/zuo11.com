@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="零编码或少编码生成通用封装的axios函数">零编码或少编码生成通用封装的axios函数</h1>
             
     <div class="article-top">
-      <div>2020/01/19</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/19，归类于 <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>axios二次封装</span>，<span>axios服务封装</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="零编码或少编码生成通用封装的axios函数">零编码或少编码生成通用封装的axios函数</h1>
+            
 <p>现在项目中，每个模块都会单独弄一个对应service.js，把所有接口请求放到里面，其实就是将axios请求封装为一个个函数。每个函数的函数名、url、请求方法会有所差别。重复代码比较多。最近在看mongodb教程时，了解到零编码编程的思想，于是想把这里优化下，最好以后写新模块时，只要写简单的配置文件就可以自动生成函数，不用再单独手写函数。先来看看原来的方式：</p>
 <pre><code class="language-js">// someService.js
 // 这里的service是对axios的封装，增加了一些请求拦截，用响应拦截等
@@ -119,11 +128,19 @@ function generateCommonApi(apiList, isAddTimestamp2Url) {
 export default generateCommonApi </code></pre>
 <p>后面我又对其进行了扩展与修改，这里只提供一个思路，并不是完美的实现，</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="零编码或少编码生成通用封装的axios函数" style="padding-left:1em">零编码或少编码生成通用封装的axios函数<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="零编码或少编码生成通用封装的axios函数" style="padding-left:1em">零编码或少编码生成通用封装的axios函数<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -149,10 +166,14 @@ export default generateCommonApi </code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

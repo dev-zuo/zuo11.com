@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="apue-进程process">apue 进程(Process)</h1>
             
     <div class="article-top">
-      <div>2016/10/22</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2016/10/22，归类于 <a href="/blog/category.html#c与apue" class="hidden">C与APUE</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>unix进程</span>，<span>fork</span>，<span>进程</span>，<span>process</span>，<span>apue fork</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="apue-进程process">apue 进程(Process)</h1>
+            
 <blockquote>
 <p>进程就是正在运行的程序。不管是进程还是线程，主要作用就是可以在同一时间内同时处理多个事情，提升用户体验。像shell终端，如果是单个进程，那每次执行完命令，都需要重新打开终端，非常不利于操作。拿扫雷来说，如果一边开个while(1)来处理输入输出，那如果你需要实时显示时间呢? 学了进程相关的操作后就可以fork一个子程序专门用来显示实时时钟。</p>
 </blockquote>
@@ -346,11 +355,19 @@ int main(int argc, char* argv[])
 }</code></pre>
 <p><img src="../../../images/blog/apue/apue_process_4.png" alt="apue_process_4.png"></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="apue-进程process" style="padding-left:1em">apue 进程(Process)<span></li><ul><li><span class="ul-span" data-id="进程---正在运行的程序" style="padding-left:2em">进程 - 正在运行的程序<span></li></ul><ul><li><span class="ul-span" data-id="进程终止" style="padding-left:2em">进程终止<span></li></ul><ul><li><span class="ul-span" data-id="进程环境表" style="padding-left:2em">进程环境表<span></li></ul><ul><li><span class="ul-span" data-id="fork-创建一个子进程" style="padding-left:2em">fork() 创建一个子进程<span></li></ul><ul><li><span class="ul-span" data-id="fork-分支" style="padding-left:2em">fork 分支<span></li></ul><ul><li><span class="ul-span" data-id="wait-示例" style="padding-left:2em">wait() 示例<span></li></ul><ul><li><span class="ul-span" data-id="fork的理解" style="padding-left:2em">fork的理解<span></li></ul><ul><li><span class="ul-span" data-id="sigchld信号" style="padding-left:2em">SIGCHLD信号<span></li></ul><ul><li><span class="ul-span" data-id="子进程对文件描述符的影响" style="padding-left:2em">子进程对文件描述符的影响<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="apue-进程process" style="padding-left:1em">apue 进程(Process)<span></li><ul><li><span class="ul-span" data-id="进程---正在运行的程序" style="padding-left:2em">进程 - 正在运行的程序<span></li></ul><ul><li><span class="ul-span" data-id="进程终止" style="padding-left:2em">进程终止<span></li></ul><ul><li><span class="ul-span" data-id="进程环境表" style="padding-left:2em">进程环境表<span></li></ul><ul><li><span class="ul-span" data-id="fork-创建一个子进程" style="padding-left:2em">fork() 创建一个子进程<span></li></ul><ul><li><span class="ul-span" data-id="fork-分支" style="padding-left:2em">fork 分支<span></li></ul><ul><li><span class="ul-span" data-id="wait-示例" style="padding-left:2em">wait() 示例<span></li></ul><ul><li><span class="ul-span" data-id="fork的理解" style="padding-left:2em">fork的理解<span></li></ul><ul><li><span class="ul-span" data-id="sigchld信号" style="padding-left:2em">SIGCHLD信号<span></li></ul><ul><li><span class="ul-span" data-id="子进程对文件描述符的影响" style="padding-left:2em">子进程对文件描述符的影响<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -376,10 +393,14 @@ int main(int argc, char* argv[])
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

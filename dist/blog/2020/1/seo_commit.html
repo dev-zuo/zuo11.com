@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与seo</a>
+            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="网页seo之将链接提交到搜索引擎进行评定收录">网页seo之将链接提交到搜索引擎进行评定收录</h1>
             
     <div class="article-top">
-      <div>2020/01/30</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/30，归类于 <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>提交站点链接到百度</span>，<span>提交链接到google</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="网页seo之将链接提交到搜索引擎进行评定收录">网页seo之将链接提交到搜索引擎进行评定收录</h1>
+            
 <p>最近对zuo11.com进行了改版，完成了博客的静态化并完成了上线，nginx + 静态文件代替了原来的 tomcat + jsp + mysql的模式。针对百度收录与索引，google收录，做了一些处理。</p>
 <h2 id="登录到百度站长平台">登录到百度站长平台</h2>
 <p>由于url除了zuo11.com其他原来文章的url全部失效，需要让百度重新收录，添加索引。入口：<a href="https://ziyuan.baidu.com/">百度站长平台，现在叫资源搜索平台</a></p>
@@ -80,11 +89,19 @@ curl -H &#39;Content-Type:text/plain&#39; --data-binary @urls.txt &quot;http://d
 <h2 id="登录到google-search-console">登录到Google search console</h2>
 <p>入口：<a href="https://search.google.com/search-console">Google search console</a>，登录后左侧菜单index - Sitemaps提交sitemap链接</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="网页seo之将链接提交到搜索引擎进行评定收录" style="padding-left:1em">网页seo之将链接提交到搜索引擎进行评定收录<span></li><ul><li><span class="ul-span" data-id="登录到百度站长平台" style="padding-left:2em">登录到百度站长平台<span></li><ul><li><span class="ul-span" data-id="提交改版规则" style="padding-left:3em">提交改版规则<span></li></ul><ul><li><span class="ul-span" data-id="提交死链" style="padding-left:3em">提交死链<span></li></ul><ul><li><span class="ul-span" data-id="sitemap" style="padding-left:3em">sitemap<span></li></ul><ul><li><span class="ul-span" data-id="向百度站长主动推送站点url" style="padding-left:3em">向百度站长主动推送站点url<span></li></ul></ul><ul><li><span class="ul-span" data-id="登录到google-search-console" style="padding-left:2em">登录到Google search console<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="网页seo之将链接提交到搜索引擎进行评定收录" style="padding-left:1em">网页seo之将链接提交到搜索引擎进行评定收录<span></li><ul><li><span class="ul-span" data-id="登录到百度站长平台" style="padding-left:2em">登录到百度站长平台<span></li><ul><li><span class="ul-span" data-id="提交改版规则" style="padding-left:3em">提交改版规则<span></li></ul><ul><li><span class="ul-span" data-id="提交死链" style="padding-left:3em">提交死链<span></li></ul><ul><li><span class="ul-span" data-id="sitemap" style="padding-left:3em">sitemap<span></li></ul><ul><li><span class="ul-span" data-id="向百度站长主动推送站点url" style="padding-left:3em">向百度站长主动推送站点url<span></li></ul></ul><ul><li><span class="ul-span" data-id="登录到google-search-console" style="padding-left:2em">登录到Google search console<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -110,10 +127,14 @@ curl -H &#39;Content-Type:text/plain&#39; --data-binary @urls.txt &quot;http://d
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

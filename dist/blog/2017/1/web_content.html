@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与seo</a>
+            <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="seo内容建设">seo内容建设</h1>
             
     <div class="article-top">
-      <div>2017/01/17</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2017/01/17，归类于 <a href="/blog/category.html#网站建设与seo" class="hidden">网站建设与SEO</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>zuo11.com优化记录</span>，<span>内容建设</span>，<span>网站内容质量提升经验</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="seo内容建设">seo内容建设</h1>
+            
 <blockquote>
 <p>我身边的很多朋友都曾抱怨过百度搜索的内容太杂，没有google搜索的内容质量高。之前感觉没什么，但有了这个站点后，写的内容也会提交给百度。当在百度搜索时，呈现的内容可能就是自己的笔记。如果我都没有用心去记录好内容，那还有什么理由去抱怨搜索引擎。</p>
 </blockquote>
@@ -71,11 +80,19 @@
 <p>参考资料:</p>
 <p><a href="http://zhanzhang.baidu.com/college/courseinfo?id=152">百度站长学院 - 内容建设</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="seo内容建设" style="padding-left:1em">seo内容建设<span></li><ul><li><span class="ul-span" data-id="初衷" style="padding-left:2em">初衷<span></li></ul><ul><li><span class="ul-span" data-id="修改记录" style="padding-left:2em">修改记录<span></li></ul><ul><li><span class="ul-span" data-id="以后" style="padding-left:2em">以后<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="seo内容建设" style="padding-left:1em">seo内容建设<span></li><ul><li><span class="ul-span" data-id="初衷" style="padding-left:2em">初衷<span></li></ul><ul><li><span class="ul-span" data-id="修改记录" style="padding-left:2em">修改记录<span></li></ul><ul><li><span class="ul-span" data-id="以后" style="padding-left:2em">以后<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -101,10 +118,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

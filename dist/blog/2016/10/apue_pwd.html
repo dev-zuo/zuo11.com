@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="apue-pwd命令实现">apue pwd命令实现</h1>
             
     <div class="article-top">
-      <div>2016/10/20</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2016/10/20，归类于 <a href="/blog/category.html#c与apue" class="hidden">C与APUE</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>apue笔记</span>，<span>pwd实现</span>，<span>ls -l实现</span>，<span>mkdir -p实现</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="apue-pwd命令实现">apue pwd命令实现</h1>
+            
 <blockquote>
 <p>了解了文件目录相关的系统调用后，就可以尝试模拟实现各种shell命令了。这里给出了ls -l的完成代码，加上pwd及mkdir -p的实现。里面用到了递归，也涉及到一些细节问题，如根目录的上一级目录还是根目录，chdir需要用户有目录的执行权限。</p>
 </blockquote>
@@ -276,11 +285,19 @@ int main(int argc, char* argv[])
     exit(0);
 }</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="apue-pwd命令实现" style="padding-left:1em">apue pwd命令实现<span></li><ul><li><span class="ul-span" data-id="pwd命令的实现，显示当前路径" style="padding-left:2em">pwd命令的实现，显示当前路径<span></li></ul><ul><li><span class="ul-span" data-id="ls--l-的完整实现" style="padding-left:2em">ls -l 的完整实现<span></li></ul><ul><li><span class="ul-span" data-id="mkdir--p-功能模拟" style="padding-left:2em">mkdir -p 功能模拟<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="apue-pwd命令实现" style="padding-left:1em">apue pwd命令实现<span></li><ul><li><span class="ul-span" data-id="pwd命令的实现，显示当前路径" style="padding-left:2em">pwd命令的实现，显示当前路径<span></li></ul><ul><li><span class="ul-span" data-id="ls--l-的完整实现" style="padding-left:2em">ls -l 的完整实现<span></li></ul><ul><li><span class="ul-span" data-id="mkdir--p-功能模拟" style="padding-left:2em">mkdir -p 功能模拟<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -306,10 +323,14 @@ int main(int argc, char* argv[])
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

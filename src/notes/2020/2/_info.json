@@ -6,7 +6,7 @@
     "createDate": "2020/02/16",
     "description": "网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。",
     "keywords": "description seo,网站页面描述(description),description在seo中的重要性,seo中Google和百度的一些区别",
-    "category": "网站建设与seo"
+    "category": "网站建设与SEO"
   },
   {
     "source": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理.md",
@@ -33,7 +33,7 @@
     "createDate": "2020/02/02",
     "description": "一般遍历对象时，大部分人可能想到的方法是for..in或Object.keys.forEach()，但你知道吗？截止ES2020，在JS中总共有8种方法来遍历对象，而且不同的遍历方法在一些细节方面会有区别，下面我们将从以下几个方面来深入理解JS遍历对象 1. 看似可以遍历对象但又不能遍历对象的for与for...of 2. 可能会对遍历对象产生影响的4种因素：属性是否可枚举、Symbol、是否有继承属性、遍历次序 3. 从ES5到ES2020发展过程中所有的可以遍历对象的方法 4. 通过实例demo来从4个维度比较8种遍历对象的方法 5. 属性遍历次序总结",
     "keywords": "js遍历对象,js遍历对象方法总结,js遍历对象的8种方法",
-    "category": "js"
+    "category": "Javascript"
   },
   {
     "source": "node中的4种模块类型.md",
@@ -60,7 +60,7 @@
     "createDate": "2020/02/08",
     "description": "在seo时，搜索引擎可能会将xx.com和www.xx.com一起收录。这里需要进行处理，当使用一级域名直接访问时(xx.com)，自动切到www.xx.com，下面来看看怎么配置nginx",
     "keywords": "不带www跳转到www二域名,xx.com重定向到www.xx.com",
-    "category": "网站建设与seo"
+    "category": "网站建设与SEO"
   },
   {
     "source": "mysql中char与varchar的区别.md",
@@ -96,7 +96,7 @@
     "createDate": "2020/02/20",
     "description": "在封装组件时，如果是dialog组件，一般封装好后，通过component引入，然后把标签放到html里，通过true或false来隐藏和显示，每次都要写一些重复代码。怎么能够像ElementUI的message函数一样直接调用呢，首先需要搞懂怎么用js来调用vue单文件组件，下面来看方法",
     "keywords": "使用js调用vue单文件组件",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "element表单校验函数没生效的问题.md",
@@ -105,7 +105,7 @@
     "createDate": "2020/02/24",
     "description": "根据element官网的dmeo，加入表单校验，发现校验的rules根本没执行。注意：el-form-item 标签也需要设置 prop 属性，并且名称需要和对应model的名称一致，我这次漏写了，所以一直没生效",
     "keywords": "element表单校验没生效",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "element cascader显示异常问题.md",
@@ -114,7 +114,7 @@
     "createDate": "2020/02/24",
     "description": "当cascader里选项比较多时，组件高度会异常，主要是 .el-cascader-menu__wrap 这个样式高度为100%，将cascader里其任意一父元素手动指定高度即可，但el-cascader-menu__wrap设置的效果最好",
     "keywords": "element cascader显示异常问题,element cascader高度问题",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "koa ctx.body写在异步里接口会返回404的问题.md",
@@ -150,7 +150,7 @@
     "createDate": "2020/02/27",
     "description": "在需要动态设置rules，并需要其实时生效的场景，一般需要将rules完成改变才行，这是为什么呢，下面来看看",
     "keywords": "element怎么动态改变校验rules且实时生,element el-form rules动态改变",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "el-form-item里非elment输入组件时，校验回调函数不触发的问题.md",
@@ -159,7 +159,7 @@
     "createDate": "2020/02/27",
     "description": "今天写表单校验规则，有个 el-form-item 里使用了富文本编辑器，发现校验规则校验这个值会有异常: 1. 当 change 或 blur 时，根本没有触发校验(提示错误) 2. 提交表单时，当该字段校验失败会提示错误，但该字段符合要求时，validate的回调一直没触发，导致无法进行校验成功之后的下一步操作，将富文本编辑器换成 el-input 正常，换成普通的 input 也会异常，感觉一头雾水。",
     "keywords": "element表单校验时如果非element组件会触发布料校验,富文本编辑器在element form中校验回调函数不触发的问题",
-    "category": "vue"
+    "category": "Vue"
   },
   {
     "source": "怎么给三角形加border，添加到我的小程序UI实现以及需要注意的问题.md",
@@ -168,6 +168,6 @@
     "createDate": "2020/02/29",
     "description": "在给小程序添加 '添加到我的小程序' 引导时，里面有个带边框的三角形，一般用css画三角形使用的是border，但三角形边的边框怎么画呢？一般用两个三角形叠加来实现",
     "keywords": "css 三角形加border,css 用border画的三角形怎么加border,小程序添加到我的小程序引导UI实现",
-    "category": "css"
+    "category": "CSS"
   }
 ]

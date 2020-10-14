@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="element表格ie下由于滚动条原因导致错位问题">Element表格IE下由于滚动条原因导致错位问题</h1>
             
     <div class="article-top">
-      <div>2020/01/07</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/07，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>Element表格IE下由于滚动条原因导致错位问题</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="element表格ie下由于滚动条原因导致错位问题">Element表格IE下由于滚动条原因导致错位问题</h1>
+            
 <p>Element 表头固定，表内容可滑动，在IE下滚动条会显示，有一定的宽度占位，导致表头与表内容由点错位，解决方法是：由于表单内容是从接口加载的，从接口加载完数据后，对el-talbe进行从新布局dolayout</p>
 <pre><code class="language-js">// Table Methods: doLayout
 // 对 Table 进行重新布局。当 Table 或其祖先元素由隐藏切换为显示时，可能需要调用此方法
@@ -54,11 +63,19 @@ this.$nextTick(() =&gt; {
 })</code></pre>
 <p>参考：<a href="https://element.eleme.cn/#/zh-CN/component/table">Table 表格组件 | Element</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="element表格ie下由于滚动条原因导致错位问题" style="padding-left:1em">Element表格IE下由于滚动条原因导致错位问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="element表格ie下由于滚动条原因导致错位问题" style="padding-left:1em">Element表格IE下由于滚动条原因导致错位问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -84,10 +101,14 @@ this.$nextTick(() =&gt; {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="vue组件里click事件监听可能会产生的性能问题">vue组件里click事件监听可能会产生的性能问题</h1>
             
     <div class="article-top">
-      <div>2019/12/13</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/12/13，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>vue click会不会影响性能？vue组件里click事件监听可能导致的性能问题</span>，<span>vue监听click事件注意事项</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="vue组件里click事件监听可能会产生的性能问题">vue组件里click事件监听可能会产生的性能问题</h1>
+            
 <p>之前在看JS高程3里面有一个知识点，就是当多个子元素需要绑定click事件时，大量添加处理程序，会影响性能，尽量少添加处理事件。</p>
 <p>但写vue习惯后，突然忘了这一点，其实vue监听事件我们也可以遵循这个原则：把事件放到其父元素上监听，然后通过 data-key属性来指定每个子元素对应的值。e.target.getAttribute(&#39;data-key&#39;)有值就表示子元素点击了</p>
 <p><strong>这样做的好处是，内存占用更小</strong></p>
@@ -87,11 +96,19 @@ EventUtil.addHandler(links, &#39;click&#39;, function(event) {
 });</code></pre>
 <p>参考之前的笔记 <a href="https://www.yuque.com/guoqzuo/js_es6/elgng1#0ea56e91">事件 内存和性能 | JS高程3</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="vue组件里click事件监听可能会产生的性能问题" style="padding-left:1em">vue组件里click事件监听可能会产生的性能问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="vue组件里click事件监听可能会产生的性能问题" style="padding-left:1em">vue组件里click事件监听可能会产生的性能问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -117,10 +134,14 @@ EventUtil.addHandler(links, &#39;click&#39;, function(event) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

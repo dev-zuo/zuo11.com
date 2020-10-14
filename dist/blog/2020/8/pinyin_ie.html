@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="pinyin中文转拼音npm包在前端使用时的坑ie下js错误调试方法">pinyin中文转拼音npm包在前端使用时的坑,IE下js错误调试方法</h1>
             
     <div class="article-top">
-      <div>2020/08/22</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/08/22，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>pinyin npm</span>，<span>前端中文转拼音</span>，<span>web中文转拼音</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="pinyin中文转拼音npm包在前端使用时的坑ie下js错误调试方法">pinyin中文转拼音npm包在前端使用时的坑,IE下js错误调试方法</h1>
+            
 <p>在很早之前node项目中就使用过这个npm包。这次由于Element table组件排序时，无法按照首字母排序，就引入了这个包。由于是单页面应用，import进来是没问题的，chrome里面正常。</p>
 <pre><code class="language-js">import pinyin from &quot;pinyin&quot;;
 
@@ -58,11 +67,19 @@ console.log(
 <p>IE下出现异常，console里是无法看到是哪个文件报错的，需要在F12里点击断点位置，选择遇到错误时停止，这样出现问题就会自动跳转到对应的位置</p>
 <p><img src="../../../images/blog/js/ie_jserror.png" alt="ie_jserror.png"></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="pinyin中文转拼音npm包在前端使用时的坑ie下js错误调试方法" style="padding-left:1em">pinyin中文转拼音npm包在前端使用时的坑,IE下js错误调试方法<span></li><ul><li><span class="ul-span" data-id="ie下调试js错误的方法" style="padding-left:2em">IE下调试js错误的方法<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="pinyin中文转拼音npm包在前端使用时的坑ie下js错误调试方法" style="padding-left:1em">pinyin中文转拼音npm包在前端使用时的坑,IE下js错误调试方法<span></li><ul><li><span class="ul-span" data-id="ie下调试js错误的方法" style="padding-left:2em">IE下调试js错误的方法<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -88,10 +105,14 @@ console.log(
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

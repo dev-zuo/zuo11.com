@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="使用iconfont时icon是如何加载成功的，字体图片？">使用iconfont时icon是如何加载成功的，字体图片？</h1>
             
     <div class="article-top">
-      <div>2019/12/06</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/12/06，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>iconfont使用</span>，<span>iconfont为什么可以加载图标</span>，<span>iconfont详细介绍</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="使用iconfont时icon是如何加载成功的，字体图片？">使用iconfont时icon是如何加载成功的，字体图片？</h1>
+            
 <p>在前端开发中，经常会使用图标，而iconfont是很好的一种管理图标的方式。这里总结下iconfont的几种使用方式，以及iconfont通过设置class来显示图标内部做了哪些操作</p>
 <h2 id="iconfont的两种使用方式">iconfont的两种使用方式</h2>
 <p>iconfont.cn 有两种icon使用方式：下载代码、或直接下载图片</p>
@@ -198,11 +207,19 @@
 }</code></pre>
 <p>参考: <a href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&amp;helptype=code">Iconfont-阿里巴巴矢量图标库 Web端使用</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="使用iconfont时icon是如何加载成功的，字体图片？" style="padding-left:1em">使用iconfont时icon是如何加载成功的，字体图片？<span></li><ul><li><span class="ul-span" data-id="iconfont的两种使用方式" style="padding-left:2em">iconfont的两种使用方式<span></li><ul><li><span class="ul-span" data-id="下载代码downloadzip" style="padding-left:3em">下载代码download.zip<span></li><ul><li><span class="ul-span" data-id="symbol-引用" style="padding-left:4em">Symbol 引用<span></li></ul><ul><li><span class="ul-span" data-id="font-class-引用" style="padding-left:4em">font-class 引用<span></li></ul><ul><li><span class="ul-span" data-id="unicode-引用" style="padding-left:4em">Unicode 引用<span></li></ul></ul><ul><li><span class="ul-span" data-id="下载素材-（直接下载多种格式icon）" style="padding-left:3em">下载素材 （直接下载多种格式icon）<span></li></ul></ul><ul><li><span class="ul-span" data-id="iconfont通过设置class来显示图标内部做了哪些操作" style="padding-left:2em">iconfont通过设置class来显示图标内部做了哪些操作<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="使用iconfont时icon是如何加载成功的，字体图片？" style="padding-left:1em">使用iconfont时icon是如何加载成功的，字体图片？<span></li><ul><li><span class="ul-span" data-id="iconfont的两种使用方式" style="padding-left:2em">iconfont的两种使用方式<span></li><ul><li><span class="ul-span" data-id="下载代码downloadzip" style="padding-left:3em">下载代码download.zip<span></li><ul><li><span class="ul-span" data-id="symbol-引用" style="padding-left:4em">Symbol 引用<span></li></ul><ul><li><span class="ul-span" data-id="font-class-引用" style="padding-left:4em">font-class 引用<span></li></ul><ul><li><span class="ul-span" data-id="unicode-引用" style="padding-left:4em">Unicode 引用<span></li></ul></ul><ul><li><span class="ul-span" data-id="下载素材-（直接下载多种格式icon）" style="padding-left:3em">下载素材 （直接下载多种格式icon）<span></li></ul></ul><ul><li><span class="ul-span" data-id="iconfont通过设置class来显示图标内部做了哪些操作" style="padding-left:2em">iconfont通过设置class来显示图标内部做了哪些操作<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -228,10 +245,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

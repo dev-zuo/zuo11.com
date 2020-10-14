@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="怎么判断当前鼠标是否在某个div内部">怎么判断当前鼠标是否在某个div内部</h1>
             
     <div class="article-top">
-      <div>2020/01/07</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/07，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>怎么判断当前鼠标是否在某个div内部</span>，<span>怎么判断当前event.target在某个div内部</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="怎么判断当前鼠标是否在某个div内部">怎么判断当前鼠标是否在某个div内部</h1>
+            
 <p>当监听到事件，事件的 eveent.target 怎么判断是否在某个div内部呢？可以使用DOM专有扩展的contains方法</p>
 <pre><code class="language-js">let eventType = document.mozHidden ? &#39;DOMMouseScroll&#39; : &#39;mousewheel&#39;
 let ele = &#39;某个dom&#39;
@@ -53,11 +62,19 @@ ele.addEventListener(eventType, (e) =&gt; {
 })</code></pre>
 <p>参考：<a href="https://www.yuque.com/guoqzuo/js_es6/qgh717#2a813746">DOM专有扩展 contains方法 | JS高程3笔记</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="怎么判断当前鼠标是否在某个div内部" style="padding-left:1em">怎么判断当前鼠标是否在某个div内部<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="怎么判断当前鼠标是否在某个div内部" style="padding-left:1em">怎么判断当前鼠标是否在某个div内部<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -83,10 +100,14 @@ ele.addEventListener(eventType, (e) =&gt; {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

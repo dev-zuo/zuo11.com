@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="ios-自定义viewcontroller中的view">iOS 自定义ViewController中的view</h1>
             
     <div class="article-top">
-      <div>2016/11/01</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2016/11/01，归类于 <a href="/blog/category.html#ios" class="hidden">iOS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>ViewController里的view</span>，<span>iOS 控制器view</span>，<span>ViewController里View的创建</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="ios-自定义viewcontroller中的view">iOS 自定义ViewController中的view</h1>
+            
 <blockquote>
 <p>手动加载storyboard时，我们用storyboard创建了ViewController，它会自动创建一个空的view，这个view就是UIView类型。我们拖拽的按钮、label等就是拖拽在这个视图上面。如果需要自定义该view可以在该ViewController的loadView方法里设置。</p>
 </blockquote>
@@ -152,11 +161,19 @@ _window.rootViewController = vc;
 
 }</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="ios-自定义viewcontroller中的view" style="padding-left:1em">iOS 自定义ViewController中的view<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="ios-自定义viewcontroller中的view" style="padding-left:1em">iOS 自定义ViewController中的view<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -182,10 +199,14 @@ _window.rootViewController = vc;
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

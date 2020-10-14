@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="js-为什么使用set对数组或对象去重时会无效？">JS 为什么使用set对数组或对象去重时会无效？</h1>
             
     <div class="article-top">
-      <div>2020/01/21</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/21，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>js set去重对数组，对象无效</span>，<span>为什么使用set对数组或对象去重时会无效</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="js-为什么使用set对数组或对象去重时会无效？">JS 为什么使用set对数组或对象去重时会无效？</h1>
+            
 <p>我们知道Set是JS的一个种新的数据结构，和数组类似，和数组不同的是它可以去重，比如存入两个1或两个&quot;123&quot;，只有1条数据会存入成功，但有个特殊情况，如果添加到set的值是引用类型，比如数组、对象，他将无法自动去重。因为值相同的两个引用类型地址是不一样的。下面来看一个例子：</p>
 <pre><code class="language-js">var mySet = new Set()
 mySet.add([-1,0,1])
@@ -70,11 +79,19 @@ a === b // false 尽管他们都是对象 { a: 1 }，但他们存储的地址是
 <p>那这种情况怎么去重呢。我们可以自己写方法来处理，以数组为例子，可以将值[-1, 0, 1].join(&#39;|&#39;) 处理下，添加进去，到时统一再split出来</p>
 <p>参考：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">The Set | MDN</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="js-为什么使用set对数组或对象去重时会无效？" style="padding-left:1em">JS 为什么使用set对数组或对象去重时会无效？<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="js-为什么使用set对数组或对象去重时会无效？" style="padding-left:1em">JS 为什么使用set对数组或对象去重时会无效？<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -100,10 +117,14 @@ a === b // false 尽管他们都是对象 { a: 1 }，但他们存储的地址是
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -36,24 +36,41 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="为什么要写单元测试">为什么要写单元测试</h1>
             
     <div class="article-top">
-      <div>2020/08/10</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/08/10，归类于 <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>为什么要写单元测试</span>，<span>单元测试有什么好处</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="为什么要写单元测试">为什么要写单元测试</h1>
+            
 <p>20/04/30日发版，持续到到今天凌晨2点左右，测试发现有个bug：时间区间组件DatePicker前面一个时间没有显示，而这里应该显示最近一周的时间区间，现在只显示了后面一个时间。</p>
 <p>但测试环境测试、UAT测试都是过了的，怎么突然就有问题了呢？于是看同事的代码定位问题，发现根据当前时间计算最近一周的日期逻辑有问题，只是简单粗暴的把 day 减了 6 天，之前一直是4月中下旬，大于6，所以没有出问题，这次正好是5月1号， 1 - 6 就是 -5 了, 时间拼接为 2020-05-0-5，这就导致有bug了。还好今天是5月1号，不然测不出这个bug就会导致后面生成环境的bug了。</p>
 <p>从发现问题到定位问提、解决问题，大概用了5-10分钟左右。最后用当前时间戳 - 6 * 24 * 3600 * 1000 来解决。 </p>
 <p>我们一般在写程序时，很难发现自己逻辑上的bug，假设我们这里有写单元测试，考虑了很多种情况，那就可以避免这个问题。但现实是，我们目前大部分人都没有这个习惯，只要测试过了，就基本以为没问题了。但对于那种测试都测试不出来的在特定时间才会触发的bug，真的很可能造成线上bug，完全依赖于个人写代码时的逻辑严谨性。</p>
 <p>怎么让自己写的代码更严谨，出问题的几率更小呢？那就是写单元测试。这样我们会考虑更多的特殊场景、而不是靠人肉测试。</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="为什么要写单元测试" style="padding-left:1em">为什么要写单元测试<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="为什么要写单元测试" style="padding-left:1em">为什么要写单元测试<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -79,10 +96,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

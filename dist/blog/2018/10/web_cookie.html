@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="前端cookie的使用">前端cookie的使用</h1>
             
     <div class="article-top">
-      <div>2018/10/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2018/10/26，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>前端cookie的使用</span>，<span>cookie</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="前端cookie的使用">前端cookie的使用</h1>
+            
 <p>http是基于请求和响应的无状态协议，无法保存状态，如果有数据需要在浏览器关闭后，下次进入还保存，就可以用cookie来解决这个问题。</p>
 <h2 id="前端cookie的读取">前端cookie的读取</h2>
 <p>前端cookie可以用document.cookie来读取，格式为key=value;key=value键值对的形式，如下图</p>
@@ -128,11 +137,19 @@ setCookie(name, null, {&#39;expires&#39;:new Date(0)})</code></pre>
 <p><a href="https://www.jianshu.com/p/2d79d548c635">阅读记录——利用httponly提高cookie安全性</a></p>
 <p><a href="https://msdn.microsoft.com/en-us/library/ms533046.aspx">Mitigating Cross-site Scripting With HTTP-only Cookies</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="前端cookie的使用" style="padding-left:1em">前端cookie的使用<span></li><ul><li><span class="ul-span" data-id="前端cookie的读取" style="padding-left:2em">前端cookie的读取<span></li></ul><ul><li><span class="ul-span" data-id="前端cookie的写入，设置有效时间" style="padding-left:2em">前端cookie的写入，设置有效时间<span></li></ul><ul><li><span class="ul-span" data-id="前端cookie的删除" style="padding-left:2em">前端cookie的删除<span></li></ul><ul><li><span class="ul-span" data-id="服务端写入cookie" style="padding-left:2em">服务端写入cookie<span></li></ul><ul><li><span class="ul-span" data-id="服务端读cookie" style="padding-left:2em">服务端读cookie<span></li></ul><ul><li><span class="ul-span" data-id="其他存储方式-localstorage" style="padding-left:2em">其他存储方式 localStorage<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="前端cookie的使用" style="padding-left:1em">前端cookie的使用<span></li><ul><li><span class="ul-span" data-id="前端cookie的读取" style="padding-left:2em">前端cookie的读取<span></li></ul><ul><li><span class="ul-span" data-id="前端cookie的写入，设置有效时间" style="padding-left:2em">前端cookie的写入，设置有效时间<span></li></ul><ul><li><span class="ul-span" data-id="前端cookie的删除" style="padding-left:2em">前端cookie的删除<span></li></ul><ul><li><span class="ul-span" data-id="服务端写入cookie" style="padding-left:2em">服务端写入cookie<span></li></ul><ul><li><span class="ul-span" data-id="服务端读cookie" style="padding-left:2em">服务端读cookie<span></li></ul><ul><li><span class="ul-span" data-id="其他存储方式-localstorage" style="padding-left:2em">其他存储方式 localStorage<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -158,10 +175,14 @@ setCookie(name, null, {&#39;expires&#39;:new Date(0)})</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="koa-multer与koamulter逻辑差异">koa-multer与@koa/multer逻辑差异</h1>
             
     <div class="article-top">
-      <div>2020/07/06</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/06，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>koa-multer与@koa/multer逻辑差异</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="koa-multer与koamulter逻辑差异">koa-multer与@koa/multer逻辑差异</h1>
+            
 <p>之前有了解过以@开头的作用域包，这次在使用koa-multer这个模块时，发现@koa/multer与koa-multer的逻辑居然不一样。源码有些差异，下面来具体看看</p>
 <pre><code class="language-js">// 在使用 koa-multer 时
 const multer = require(&#39;koa-multer&#39;)
@@ -104,11 +113,19 @@ router.post(&#39;/test&#39;, multer().none(), ctx =&gt; {
 }) </code></pre>
 <p><strong>综上，如果某个模块有两种包名，建议先考虑@开头的作用域包，通常这种功能会新点。后面迭代维护应该都是以这个为准</strong></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="koa-multer与@koamulter逻辑差异" style="padding-left:1em">koa-multer与@koa/multer逻辑差异<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="koa-multer与@koamulter逻辑差异" style="padding-left:1em">koa-multer与@koa/multer逻辑差异<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -134,10 +151,14 @@ router.post(&#39;/test&#39;, multer().none(), ctx =&gt; {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

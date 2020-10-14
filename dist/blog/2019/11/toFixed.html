@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="为什么说tofixed是不准确的">为什么说toFixed是不准确的</h1>
             
     <div class="article-top">
-      <div>2019/11/12</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/11/12，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>toFixed不精确的问题</span>，<span>toFixed保留小数点不准确的问题</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="为什么说tofixed是不准确的">为什么说toFixed是不准确的</h1>
+            
 <p>Number.prototype.toFixed() 对number取整或保留指定小数位，但它是不准确的，就类似 0.1 + 0.2 ≠ 0.3 一样，下面来看看怎么处理</p>
 <h2 id="numberprototypetofixed">Number.prototype.toFixed()</h2>
 <pre><code class="language-js">/**
@@ -104,11 +113,19 @@ Number.prototype.myToFixed = function (num) {
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed">Number.prototype.toFixed() - MDN</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="为什么说tofixed是不准确的" style="padding-left:1em">为什么说toFixed是不准确的<span></li><ul><li><span class="ul-span" data-id="numberprototypetofixed" style="padding-left:2em">Number.prototype.toFixed()<span></li></ul><ul><li><span class="ul-span" data-id="tofixed四舍五入不准确的问题" style="padding-left:2em">toFixed四舍五入不准确的问题<span></li></ul><ul><li><span class="ul-span" data-id="num\*100\*100与num*10000的区别" style="padding-left:2em">num\*100\*100与num*10000的区别<span></li></ul><ul><li><span class="ul-span" data-id="负数的运算符优先级问题" style="padding-left:2em">负数的运算符优先级问题<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="为什么说tofixed是不准确的" style="padding-left:1em">为什么说toFixed是不准确的<span></li><ul><li><span class="ul-span" data-id="numberprototypetofixed" style="padding-left:2em">Number.prototype.toFixed()<span></li></ul><ul><li><span class="ul-span" data-id="tofixed四舍五入不准确的问题" style="padding-left:2em">toFixed四舍五入不准确的问题<span></li></ul><ul><li><span class="ul-span" data-id="num\*100\*100与num*10000的区别" style="padding-left:2em">num\*100\*100与num*10000的区别<span></li></ul><ul><li><span class="ul-span" data-id="负数的运算符优先级问题" style="padding-left:2em">负数的运算符优先级问题<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -134,10 +151,14 @@ Number.prototype.myToFixed = function (num) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

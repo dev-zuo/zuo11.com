@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="java-web获取访客信息ip归属地等">java web获取访客信息(ip,归属地等)</h1>
             
     <div class="article-top">
-      <div>2017/02/01</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2017/02/01，归类于 <a href="/blog/category.html#后端数据库等" class="hidden">后端数据库等</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>servlet 获取ip</span>，<span>servlet获取访问信息</span>，<span>java获取访客信息</span>，<span>servlet获取访客ip</span>，<span>web获取用户访问信息</span>，<span>百度谷歌蜘蛛UA</span>，<span>java web获取访客信息</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="java-web获取访客信息ip归属地等">java web获取访客信息(ip,归属地等)</h1>
+            
 <blockquote>
 <p>之前写过一篇servlet判断是否为移动端访问的文章，是为了代码适配移动端或PC。这次需要记录访客信息。写了个类方法来获取访问者的ip、归属地、UA、访问URL以及是否为PC端访问。</p>
 </blockquote>
@@ -250,11 +259,19 @@ request.getRequestDispatcher(url).forward(request, response);</code></pre>
 <h2 id="延伸">延伸</h2>
 <p>这里在每次访问页面时都有去请求新浪的接口，可能会对访问速度有影响，比较合理的方法是用js来获取这些信息。页面都载入后，再执行js是个不错的选择，js获取访问信息的版本等有机会会研究下...</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="java-web获取访客信息ip归属地等" style="padding-left:1em">java web获取访客信息(ip,归属地等)<span></li><ul><li><span class="ul-span" data-id="获取访客信息" style="padding-left:2em">获取访客信息<span></li></ul><ul><li><span class="ul-span" data-id="本站中的应用" style="padding-left:2em">本站中的应用<span></li></ul><ul><li><span class="ul-span" data-id="搜索引擎蜘蛛ua" style="padding-left:2em">搜索引擎蜘蛛UA<span></li></ul><ul><li><span class="ul-span" data-id="延伸" style="padding-left:2em">延伸<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="java-web获取访客信息ip归属地等" style="padding-left:1em">java web获取访客信息(ip,归属地等)<span></li><ul><li><span class="ul-span" data-id="获取访客信息" style="padding-left:2em">获取访客信息<span></li></ul><ul><li><span class="ul-span" data-id="本站中的应用" style="padding-left:2em">本站中的应用<span></li></ul><ul><li><span class="ul-span" data-id="搜索引擎蜘蛛ua" style="padding-left:2em">搜索引擎蜘蛛UA<span></li></ul><ul><li><span class="ul-span" data-id="延伸" style="padding-left:2em">延伸<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -280,10 +297,14 @@ request.getRequestDispatcher(url).forward(request, response);</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

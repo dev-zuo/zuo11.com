@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢">根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢</h1>
             
     <div class="article-top">
-      <div>2020/07/06</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/07/06，归类于 <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>怎么判断两个文件一样</span>，<span>文件一致性检验</span>，<span>根据文件名后缀判断文件类型是不准确的</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢">根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢</h1>
+            
 <p>一般根据文件名后缀判断文件类型不准确，比如我有个1.png文件，我修改下后缀名 1.txt，那前端如果仅凭文件名的后缀来显然是不行的，我们需要根据文件类型的二进制数据标记来判断对应的文件类型，这样才会更加准确，安全性更高</p>
 <p><img src="../../../images/blog/web/file_type.png" alt="判断文件类型.png"></p>
 <h2 id="怎么判断两个文件一模一样呢">怎么判断两个文件一模一样呢</h2>
@@ -53,11 +62,19 @@
 <li>比较文件名是否一样</li>
 </ol>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢" style="padding-left:1em">根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢<span></li><ul><li><span class="ul-span" data-id="怎么判断两个文件一模一样呢" style="padding-left:2em">怎么判断两个文件一模一样呢<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢" style="padding-left:1em">根据文件名后缀判断文件类型不准确，那怎么判断两个文件一模一样呢<span></li><ul><li><span class="ul-span" data-id="怎么判断两个文件一模一样呢" style="padding-left:2em">怎么判断两个文件一模一样呢<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -83,10 +100,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

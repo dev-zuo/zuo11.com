@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="markdown里怎么为文字添加颜色，怎么画复杂表格">markdown里怎么为文字添加颜色，怎么画复杂表格</h1>
             
     <div class="article-top">
-      <div>2020/01/11</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/01/11，归类于 <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>markdown里怎么为文字添加颜色</span>，<span>markdown里怎么画复杂表格</span>，<span>markdown使用html时注意事项</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="markdown里怎么为文字添加颜色，怎么画复杂表格">markdown里怎么为文字添加颜色，怎么画复杂表格</h1>
+            
 <p>之前看markdown语法时，并没有添加颜色和复杂表格的方法，但最近了解到markdown里面可以直接使用html，那就方便了。复杂表格直接使用table标签画，如果想给文字加颜色，使用如下方法</p>
 <pre><code class="language-html">&lt;span style=&quot;color: red&quot;&gt;这是一段有颜色的字体&lt;/span&gt;
 
@@ -50,11 +59,19 @@
 &lt;u&gt;这是一段有下划线的文字&lt;/u&gt;</code></pre>
 <p><strong>注意：markdown解析器很多。在Typora嵌入html的复杂表格没什么问题，但在github上显示时，table被放到了文档的最下面。语雀里导入时，也会有一点问题。所以为了保证最大程度的兼容，写md时，尽量避免使用内嵌html，对于复杂表格可以使用图片代替</strong></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="markdown里怎么为文字添加颜色，怎么画复杂表格" style="padding-left:1em">markdown里怎么为文字添加颜色，怎么画复杂表格<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="markdown里怎么为文字添加颜色，怎么画复杂表格" style="padding-left:1em">markdown里怎么为文字添加颜色，怎么画复杂表格<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -80,10 +97,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

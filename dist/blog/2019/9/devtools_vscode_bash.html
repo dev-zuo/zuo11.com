@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="vscode中npm-run-dev提示端口被占用的问题">vscode中npm run dev提示端口被占用的问题</h1>
             
     <div class="article-top">
-      <div>2019/09/30</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/09/30，归类于 <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>vscode中npm run dev时提示端口被占用</span>，<span>mac查看端口占用情况</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="vscode中npm-run-dev提示端口被占用的问题">vscode中npm run dev提示端口被占用的问题</h1>
+            
 <p>vscode 提示端口被占用，vscode编辑器中npm run dev退出后依旧占用端口，vscode的console，有时候可能没关闭就开了新的terminal。</p>
 <h2 id="排查问题">排查问题</h2>
 <ol>
@@ -61,11 +70,19 @@ sudo kill -9 716 # 如果进程 ID为 716 占用了该端口，关闭该进程�
 # -9后面加一个空格，然后加上占用端口的进程PID，就可以杀掉占用端口的进程。最后重启terminal就ok。</code></pre>
 <p>参考: <a href="https://www.jianshu.com/p/9216b6127a82">Mac 查看端口占用情况及杀死进程</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="vscode中npm-run-dev提示端口被占用的问题" style="padding-left:1em">vscode中npm run dev提示端口被占用的问题<span></li><ul><li><span class="ul-span" data-id="排查问题" style="padding-left:2em">排查问题<span></li></ul><ul><li><span class="ul-span" data-id="mac-查看端口占用情况" style="padding-left:2em">mac 查看端口占用情况<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="vscode中npm-run-dev提示端口被占用的问题" style="padding-left:1em">vscode中npm run dev提示端口被占用的问题<span></li><ul><li><span class="ul-span" data-id="排查问题" style="padding-left:2em">排查问题<span></li></ul><ul><li><span class="ul-span" data-id="mac-查看端口占用情况" style="padding-left:2em">mac 查看端口占用情况<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -91,10 +108,14 @@ sudo kill -9 716 # 如果进程 ID为 716 占用了该端口，关闭该进程�
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

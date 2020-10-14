@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="git创建新分支并提交到远程仓库origin">git创建新分支并提交到远程仓库origin</h1>
             
     <div class="article-top">
-      <div>2019/11/26</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/11/26，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>git如何建立新的origin</span>，<span>git创建新分支并提交到远程仓库origin</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="git创建新分支并提交到远程仓库origin">git创建新分支并提交到远程仓库origin</h1>
+            
 <p>当我们加入到一个项目组开发项目，一般最开始的一件事情就是从远程仓库clone代码，然后新创建一个分支进行开发。显然你需要把每天写的代码上传到服务器，那怎么将本地创建的分支推送到远程并与之关联呢，下面来看一下对应的流程</p>
 <p>假设在 pc-v2 分支，新建一个分支 pc-v2-zuo，推送到远程步骤</p>
 <pre><code class="language-bash"># 基于当前分支创建一个pc-v2-zuo分支并切换到该分支
@@ -63,11 +72,19 @@ git branch --set-upstream-to=origin/pc-v2-zuo pc-v2-zuo</code></pre>
 </ol>
 <p>参考之前的笔记：<a href="https://www.yuque.com/guoqzuo/csm14e/gn4bpl">廖雪峰 git教程笔记</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="git创建新分支并提交到远程仓库origin" style="padding-left:1em">git创建新分支并提交到远程仓库origin<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="git创建新分支并提交到远程仓库origin" style="padding-left:1em">git创建新分支并提交到远程仓库origin<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -93,10 +110,14 @@ git branch --set-upstream-to=origin/pc-v2-zuo pc-v2-zuo</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

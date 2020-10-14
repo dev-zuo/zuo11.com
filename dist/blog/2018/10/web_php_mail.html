@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="php发送邮件">php发送邮件</h1>
             
     <div class="article-top">
-      <div>2018/10/05</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2018/10/05，归类于 <a href="/blog/category.html#后端数据库等" class="hidden">后端数据库等</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>php发送邮件</span>，<span>php发送邮件乱码</span>，<span>php 发邮件</span>，<span>php使用qq邮箱发邮件</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="php发送邮件">php发送邮件</h1>
+            
 <blockquote>
 <p>邮件发送是一个很重要的功能，具体应用包括注册时邮箱验证、评论回复提醒、推送广告、线上异常报告等。一般网上php教程里面邮件发送很简单，一个mail()函数就搞定。但这个方法如果你去试，90%是不成功的。然后就会去搜php怎么发送邮件，搜到的答案基本没有直接使用mail()的，都是使用PHPMailer这个开源库，我一般的思路是在能不使用第三方库的时候尽量不去使用。但后面发现还是要使用这个库。</p>
 </blockquote>
@@ -158,11 +167,19 @@ try {
 <p>直接加一句 $mail-&gt;CharSet = &quot;UTF-8&quot;;  即可，再发邮件就正常了，不会归到垃圾邮件了</p>
 <p><img src="../../../images/blog/web/web_php_mail_3.png" alt="image"></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="php发送邮件" style="padding-left:1em">php发送邮件<span></li><ul><li><span class="ul-span" data-id="php发送邮件的两种方式" style="padding-left:2em">php发送邮件的两种方式<span></li><ul><li><span class="ul-span" data-id="直接使用系统的mail函数需要本地邮件服务器" style="padding-left:3em">直接使用系统的mail()函数(需要本地邮件服务器)<span></li></ul><ul><li><span class="ul-span" data-id="使用phpmailer可使用qq发邮件" style="padding-left:3em">使用PHPMailer(可使用qq发邮件)<span></li><ul><li><span class="ul-span" data-id="在项目中引入composer" style="padding-left:4em">在项目中引入composer<span></li></ul><ul><li><span class="ul-span" data-id="开始发送邮件" style="padding-left:4em">开始发送邮件<span></li></ul></ul></ul><ul><li><span class="ul-span" data-id="发送邮件遇到的问题" style="padding-left:2em">发送邮件遇到的问题<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="php发送邮件" style="padding-left:1em">php发送邮件<span></li><ul><li><span class="ul-span" data-id="php发送邮件的两种方式" style="padding-left:2em">php发送邮件的两种方式<span></li><ul><li><span class="ul-span" data-id="直接使用系统的mail函数需要本地邮件服务器" style="padding-left:3em">直接使用系统的mail()函数(需要本地邮件服务器)<span></li></ul><ul><li><span class="ul-span" data-id="使用phpmailer可使用qq发邮件" style="padding-left:3em">使用PHPMailer(可使用qq发邮件)<span></li><ul><li><span class="ul-span" data-id="在项目中引入composer" style="padding-left:4em">在项目中引入composer<span></li></ul><ul><li><span class="ul-span" data-id="开始发送邮件" style="padding-left:4em">开始发送邮件<span></li></ul></ul></ul><ul><li><span class="ul-span" data-id="发送邮件遇到的问题" style="padding-left:2em">发送邮件遇到的问题<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -188,10 +205,14 @@ try {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

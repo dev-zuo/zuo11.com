@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="js怎么监听当前页面滚动比例，完整ui实现demo">JS怎么监听当前页面滚动比例，完整UI实现demo</h1>
             
     <div class="article-top">
-      <div>2020/03/02</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/03/02，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>页面滚动比例监听</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="js怎么监听当前页面滚动比例，完整ui实现demo">JS怎么监听当前页面滚动比例，完整UI实现demo</h1>
+            
 <p>在阮一峰的es6入门教程里，顶部有一个计算页面百分比的UI，于是就想尝试实现这个功能，恰好在js高程3里有对应的描述，来看看</p>
 <p><img src="../../../images/blog/js/page_scroll_percent.png" alt="page_scroll_percent.png"></p>
 <p>监听页面的scroll事件，整个滚动距离为 document.documentElement.scrollHeight - window.innerHeight，当前scrollTop除以整个滚动距离，就是页面的百分比，向body挂载两个div来显示进度信息</p>
@@ -71,11 +80,19 @@ window.addEventListener(&#39;scroll&#39;, function(e) {
   document.getElementById(&#39;posTop&#39;).style.width = `${persentage}%`;
 }, false)</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="js怎么监听当前页面滚动比例，完整ui实现demo" style="padding-left:1em">JS怎么监听当前页面滚动比例，完整UI实现demo<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="js怎么监听当前页面滚动比例，完整ui实现demo" style="padding-left:1em">JS怎么监听当前页面滚动比例，完整UI实现demo<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -101,10 +118,14 @@ window.addEventListener(&#39;scroll&#39;, function(e) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

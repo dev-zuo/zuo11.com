@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="网页深色模式样式适配web-dark-mode-support">网页深色模式样式适配(web dark mode support)</h1>
             
     <div class="article-top">
-      <div>2020/03/28</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/03/28，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>window.matchMedia</span>，<span> web drak mode event</span>，<span>web dark mode</span>，<span>web深色模式</span>，<span>网页深色模式</span>，<span>网页怎么监听深色模式</span>，<span>(prefers-color-scheme: dark)</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="网页深色模式样式适配web-dark-mode-support">网页深色模式样式适配(web dark mode support)</h1>
+            
 <p>目前iOS，macos都有了深色模式，而最近微信最新版也做了深色模式(dark mode)适配，我试了下，手机切换时页面效果样式是实时刷新的。于是就想着web怎么能够监听深色模式，并设置样式。查了资料后，在Stack Overflow上找到了答案，下面来看看</p>
 <p>一般通过css里的媒体查询就能适配深色模式: (prefers-color-scheme: dark)，先来看看怎么用js获取当前是否是深色模式</p>
 <h2 id="怎么用js判断当前是否是深色模式">怎么用js判断当前是否是深色模式</h2>
@@ -82,11 +91,19 @@ document.querySelector(&quot;.mq-value&quot;).innerText = mql.matches;</code></p
 <li><a href="https://developer.apple.com/documentation/xcode/supporting_dark_mode_in_your_interface">Supporting Dark Mode in Your Interface | Apple Developer Documentation</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="网页深色模式样式适配web-dark-mode-support" style="padding-left:1em">网页深色模式样式适配(web dark mode support)<span></li><ul><li><span class="ul-span" data-id="怎么用js判断当前是否是深色模式" style="padding-left:2em">怎么用js判断当前是否是深色模式<span></li></ul><ul><li><span class="ul-span" data-id="js实时监听深色模式的切换" style="padding-left:2em">js实时监听深色模式的切换<span></li></ul><ul><li><span class="ul-span" data-id="怎么用css媒体查询处理深色模式样式" style="padding-left:2em">怎么用css媒体查询处理深色模式样式<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="网页深色模式样式适配web-dark-mode-support" style="padding-left:1em">网页深色模式样式适配(web dark mode support)<span></li><ul><li><span class="ul-span" data-id="怎么用js判断当前是否是深色模式" style="padding-left:2em">怎么用js判断当前是否是深色模式<span></li></ul><ul><li><span class="ul-span" data-id="js实时监听深色模式的切换" style="padding-left:2em">js实时监听深色模式的切换<span></li></ul><ul><li><span class="ul-span" data-id="怎么用css媒体查询处理深色模式样式" style="padding-left:2em">怎么用css媒体查询处理深色模式样式<span></li></ul><ul><li><span class="ul-span" data-id="参考" style="padding-left:2em">参考<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -112,10 +129,14 @@ document.querySelector(&quot;.mq-value&quot;).innerText = mql.matches;</code></p
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

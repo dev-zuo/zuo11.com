@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="ios程序启动过程，从main函数开始uiapplication与appdelegate">iOS程序启动过程，从main函数开始UIApplication与AppDelegate</h1>
             
     <div class="article-top">
-      <div>2016/10/25</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2016/10/25，归类于 <a href="/blog/category.html#ios" class="hidden">iOS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>iOS程序启动过程</span>，<span>UIApplication</span>，<span>AppDelegate</span>，<span>iOS main函数执行过程</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="ios程序启动过程，从main函数开始uiapplication与appdelegate">iOS程序启动过程，从main函数开始UIApplication与AppDelegate</h1>
+            
 <blockquote>
 <p>想弄清楚一段程序，就需要了解程序的执行过程。一般程序都是从main函数开始执行，iOS app也不例外。iOS程序main函数里执行了UIApplicationMain()函数，这个函数会创建UIApplication对象及代理AppDelegate，并开启事件循环，显示UI.</p>
 </blockquote>
@@ -189,11 +198,19 @@ applicationWillTerminate</code></pre>
 <h2 id="the-main-run-loop">The Main Run loop</h2>
 <p><img src="../../../images/blog/ios/ios_startup_3.png" alt="ios_startup_3.png"></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="ios程序启动过程，从main函数开始uiapplication与appdelegate" style="padding-left:1em">iOS程序启动过程，从main函数开始UIApplication与AppDelegate<span></li><ul><li><span class="ul-span" data-id="uiapplication" style="padding-left:2em">UIApplication<span></li></ul><ul><li><span class="ul-span" data-id="uiapplication作用" style="padding-left:2em">UIApplication作用<span></li><ul><li><span class="ul-span" data-id="设置app图标的提醒数字" style="padding-left:3em">设置app图标的提醒数字<span></li></ul><ul><li><span class="ul-span" data-id="设置状态栏联网提示" style="padding-left:3em">设置状态栏联网提示<span></li></ul><ul><li><span class="ul-span" data-id="设置状态栏-隐藏" style="padding-left:3em">设置状态栏, 隐藏<span></li></ul><ul><li><span class="ul-span" data-id="打电话，发短信，发邮件，打开网页" style="padding-left:3em">打电话，发短信，发邮件，打开网页<span></li></ul></ul><ul><li><span class="ul-span" data-id="uiapplication与delegate" style="padding-left:2em">UIApplication与delegate<span></li></ul><ul><li><span class="ul-span" data-id="ios程序启动过程" style="padding-left:2em">iOS程序启动过程<span></li></ul><ul><li><span class="ul-span" data-id="the-main-run-loop" style="padding-left:2em">The Main Run loop<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="ios程序启动过程，从main函数开始uiapplication与appdelegate" style="padding-left:1em">iOS程序启动过程，从main函数开始UIApplication与AppDelegate<span></li><ul><li><span class="ul-span" data-id="uiapplication" style="padding-left:2em">UIApplication<span></li></ul><ul><li><span class="ul-span" data-id="uiapplication作用" style="padding-left:2em">UIApplication作用<span></li><ul><li><span class="ul-span" data-id="设置app图标的提醒数字" style="padding-left:3em">设置app图标的提醒数字<span></li></ul><ul><li><span class="ul-span" data-id="设置状态栏联网提示" style="padding-left:3em">设置状态栏联网提示<span></li></ul><ul><li><span class="ul-span" data-id="设置状态栏-隐藏" style="padding-left:3em">设置状态栏, 隐藏<span></li></ul><ul><li><span class="ul-span" data-id="打电话，发短信，发邮件，打开网页" style="padding-left:3em">打电话，发短信，发邮件，打开网页<span></li></ul></ul><ul><li><span class="ul-span" data-id="uiapplication与delegate" style="padding-left:2em">UIApplication与delegate<span></li></ul><ul><li><span class="ul-span" data-id="ios程序启动过程" style="padding-left:2em">iOS程序启动过程<span></li></ul><ul><li><span class="ul-span" data-id="the-main-run-loop" style="padding-left:2em">The Main Run loop<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -219,10 +236,14 @@ applicationWillTerminate</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

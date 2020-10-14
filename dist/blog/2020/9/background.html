@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#css" class="hidden">css</a>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="css-background设置图片背景">css background设置图片背景</h1>
             
     <div class="article-top">
-      <div>2020/09/24</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/09/24，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>background背景图片</span>，<span>background-size</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="css-background设置图片背景">css background设置图片背景</h1>
+            
 <p>HTML5权威指南这本书对background的简写貌似有点不正确，使用起来会有问题，这次让图片在某个区域完全显示，是分开写的，如下：</p>
 <pre><code class="language-css">div {
   background: #fff url(&#39;/images/xxx.png&#39;) no-repeat;
@@ -50,11 +59,19 @@
 }</code></pre>
 <p>具体语法，参见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background">background - CSS（层叠样式表） | MDN</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="css-background设置图片背景" style="padding-left:1em">css background设置图片背景<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="css-background设置图片背景" style="padding-left:1em">css background设置图片背景<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -80,10 +97,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

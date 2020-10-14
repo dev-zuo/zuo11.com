@@ -36,22 +36,39 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="他人提交了package-lockjson的更新导致拉取时和本地冲突的问题">他人提交了package-lock.json的更新导致拉取时和本地冲突的问题</h1>
             
     <div class="article-top">
-      <div>2020/06/29</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/06/29，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>是否要提交package-lock.json</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="他人提交了package-lockjson的更新导致拉取时和本地冲突的问题">他人提交了package-lock.json的更新导致拉取时和本地冲突的问题</h1>
+            
 <p>一般在npm install 时会修改package-lock.json文件，我一般不会提交这个更新，但今天发现有人提交。我拉取时，提示这个文件冲突，导致拉取不下来，我又不想提交更新，所以尝试用下面的命令，将工作区该文件的修改丢弃，再拉取</p>
 <pre><code class="language-bash">git checkout -- package-lock.json</code></pre>
 <p>拉取成功后，npm run serve 基本没什么影响</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="他人提交了package-lockjson的更新导致拉取时和本地冲突的问题" style="padding-left:1em">他人提交了package-lock.json的更新导致拉取时和本地冲突的问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="他人提交了package-lockjson的更新导致拉取时和本地冲突的问题" style="padding-left:1em">他人提交了package-lock.json的更新导致拉取时和本地冲突的问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -77,10 +94,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

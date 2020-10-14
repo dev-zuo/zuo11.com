@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="sessionstorage和localstorage的区别">sessionStorage和localstorage的区别</h1>
             
     <div class="article-top">
-      <div>2019/12/04</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2019/12/04，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>sessionStorage和localstorage的区别</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="sessionstorage和localstorage的区别">sessionStorage和localstorage的区别</h1>
+            
 <p>sessionStorage和localstorage都属于Web Storage，在JS高程3中有讲，这里来回顾下，一般sessionStorage关闭浏览器后会消失，localstorage不会。</p>
 <h2 id="web存储机制web-storage">web存储机制(Web Storage)</h2>
 <p>Web Storage的目的是克服cookie的限制，当数据需要严格控制在客户端时，无需持续的将数据发回服务器，IE8+支持, Web Storage的两个主要目标是:</p>
@@ -89,11 +98,19 @@ window.addEventListener(&#39;storage&#39;, function (event) {
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage">Window.localStorage - Web API 接口参考 | MDN</a></li>
 </ul>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="sessionstorage和localstorage的区别" style="padding-left:1em">sessionStorage和localstorage的区别<span></li><ul><li><span class="ul-span" data-id="web存储机制web-storage" style="padding-left:2em">web存储机制(Web Storage)<span></li></ul><ul><li><span class="ul-span" data-id="storage类型" style="padding-left:2em">Storage类型<span></li></ul><ul><li><span class="ul-span" data-id="sessionstorage" style="padding-left:2em">sessionStorage<span></li></ul><ul><li><span class="ul-span" data-id="localstorage" style="padding-left:2em">localStorage<span></li></ul><ul><li><span class="ul-span" data-id="storage事件" style="padding-left:2em">storage事件<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="sessionstorage和localstorage的区别" style="padding-left:1em">sessionStorage和localstorage的区别<span></li><ul><li><span class="ul-span" data-id="web存储机制web-storage" style="padding-left:2em">web存储机制(Web Storage)<span></li></ul><ul><li><span class="ul-span" data-id="storage类型" style="padding-left:2em">Storage类型<span></li></ul><ul><li><span class="ul-span" data-id="sessionstorage" style="padding-left:2em">sessionStorage<span></li></ul><ul><li><span class="ul-span" data-id="localstorage" style="padding-left:2em">localStorage<span></li></ul><ul><li><span class="ul-span" data-id="storage事件" style="padding-left:2em">storage事件<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -119,10 +136,14 @@ window.addEventListener(&#39;storage&#39;, function (event) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

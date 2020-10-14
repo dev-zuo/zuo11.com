@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="javaweb判断是否为移动端访问">javaweb判断是否为移动端访问</h1>
             
     <div class="article-top">
-      <div>2016/12/25</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2016/12/25，归类于 <a href="/blog/category.html#后端数据库等" class="hidden">后端数据库等</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>javaweb判断是否为移动端访问</span>，<span>java判断是否为移动端访问</span>，<span>判断是否为移动端访问</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="javaweb判断是否为移动端访问">javaweb判断是否为移动端访问</h1>
+            
 <blockquote>
 <p>一般java后台，会先用servlet获取数据，再跳转到前端页面。在servlet里获取数据时，我们可以根据request.getheader(User-Agent&amp;quot)的内容，判断是否为移动端访问，再转发到相应的页面。可以在保持url不变的情况下，生成两种页面。</p>
 </blockquote>
@@ -112,11 +121,19 @@ if (isMobile.checkAgentIsMobile(ua)) { // 判断是否为移动端
 request.getRequestDispatcher(url).forward(request, response);</code></pre>
 <p>参考：<a href="https://jingyan.baidu.com/article/870c6fc30708f7b03fe4be06.html">Java语言如何判断请求是否来自移动端</a></p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="javaweb判断是否为移动端访问" style="padding-left:1em">javaweb判断是否为移动端访问<span></li><ul><li><span class="ul-span" data-id="测试功能" style="padding-left:2em">测试功能<span></li></ul><ul><li><span class="ul-span" data-id="在本站中的应用" style="padding-left:2em">在本站中的应用<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="javaweb判断是否为移动端访问" style="padding-left:1em">javaweb判断是否为移动端访问<span></li><ul><li><span class="ul-span" data-id="测试功能" style="padding-left:2em">测试功能<span></li></ul><ul><li><span class="ul-span" data-id="在本站中的应用" style="padding-left:2em">在本站中的应用<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -142,10 +159,14 @@ request.getRequestDispatcher(url).forward(request, response);</code></pre>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

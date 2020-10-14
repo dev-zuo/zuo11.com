@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#js" class="hidden">js</a>
+            <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="输入法组合文字事件compositionstart等不能用on监听">输入法组合文字事件compositionstart等不能用on监听</h1>
             
     <div class="article-top">
-      <div>2020/09/12</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/09/12，归类于 <a href="/blog/category.html#javascript" class="hidden">Javascript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>compositionstart等输入法组合文字过程的事件不能使用on监听</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="输入法组合文字事件compositionstart等不能用on监听">输入法组合文字事件compositionstart等不能用on监听</h1>
+            
 <p>今天用原生的js来写demo时发现使用oncompositoinstart无法监听到输入法组合文件的过程，后面替换为addEventListener就可以了。因此对于输入法组合文字过程事件必须要使用DOM2级事件监听</p>
 <pre><code class="language-html">&lt;body&gt;
   &lt;input id=&quot;input&quot;&gt;&lt;/input&gt;
@@ -74,11 +83,19 @@
   &lt;/script&gt;
 &lt;/body&gt;</code></pre>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="输入法组合文字事件compositionstart等不能用on监听" style="padding-left:1em">输入法组合文字事件compositionstart等不能用on监听<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="输入法组合文字事件compositionstart等不能用on监听" style="padding-left:1em">输入法组合文字事件compositionstart等不能用on监听<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -104,10 +121,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

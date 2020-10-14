@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="使用new-date在前端获取当期时间是不准确的">使用new Date()在前端获取当期时间是不准确的</h1>
             
     <div class="article-top">
-      <div>2020/06/21</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/06/21，归类于 <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>前端获取当前时间是不准确的</span>，<span>new Date()获取当前时间不准确</span>，<span>new Date()获取当前时间是当前操作系统的时间</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="使用new-date在前端获取当期时间是不准确的">使用new Date()在前端获取当期时间是不准确的</h1>
+            
 <p>一般我们在前端开发中，经常会用到new Date()来获取当前时间，但我们要知道：new Date()是获取的当前操作系统的时间，它是不准确的？</p>
 <h2 id="为什么不准确呢？">为什么不准确呢？</h2>
 <p>因为我们知道电脑的时间是可以自己修改的。当我们修改了电脑上的时间，再用new Date()获取时间就是修改后的时间，而不是当前时间。</p>
@@ -64,11 +73,19 @@
 <p>通过上面的例子，我们可以发现前端获取时间是不准确的。<strong>因此，一般获取当前时间是后端来处理的，比如在发送信息时，记录当前信息的发送时间，一般是后端来记录</strong></p>
 <p>思考：后端来记录就没问题了吗？其实如果服务器系统的系统变更后，获取的时间也是不准确的。但一般不会有这个问题。就算有问题，这也不是前端的问题了，后端应该有一套机制来处理时间的问题。</p>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="使用new-date在前端获取当期时间是不准确的" style="padding-left:1em">使用new Date()在前端获取当期时间是不准确的<span></li><ul><li><span class="ul-span" data-id="为什么不准确呢？" style="padding-left:2em">为什么不准确呢？<span></li></ul><ul><li><span class="ul-span" data-id="测试" style="padding-left:2em">测试<span></li><ul><li><span class="ul-span" data-id="1打开百度，搜索-"时间"" style="padding-left:3em">1.打开百度，搜索 "时间"<span></li></ul><ul><li><span class="ul-span" data-id="2打开console，打印new-date的值" style="padding-left:3em">2.打开console，打印new Date()的值<span></li></ul><ul><li><span class="ul-span" data-id="3修改系统时间" style="padding-left:3em">3.修改系统时间<span></li></ul><ul><li><span class="ul-span" data-id="4再次打印new-date的值" style="padding-left:3em">4.再次打印new Date()的值<span></li></ul></ul><ul><li><span class="ul-span" data-id="总结" style="padding-left:2em">总结<span></li></ul></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="使用new-date在前端获取当期时间是不准确的" style="padding-left:1em">使用new Date()在前端获取当期时间是不准确的<span></li><ul><li><span class="ul-span" data-id="为什么不准确呢？" style="padding-left:2em">为什么不准确呢？<span></li></ul><ul><li><span class="ul-span" data-id="测试" style="padding-left:2em">测试<span></li><ul><li><span class="ul-span" data-id="1打开百度，搜索-"时间"" style="padding-left:3em">1.打开百度，搜索 "时间"<span></li></ul><ul><li><span class="ul-span" data-id="2打开console，打印new-date的值" style="padding-left:3em">2.打开console，打印new Date()的值<span></li></ul><ul><li><span class="ul-span" data-id="3修改系统时间" style="padding-left:3em">3.修改系统时间<span></li></ul><ul><li><span class="ul-span" data-id="4再次打印new-date的值" style="padding-left:3em">4.再次打印new Date()的值<span></li></ul></ul><ul><li><span class="ul-span" data-id="总结" style="padding-left:2em">总结<span></li></ul></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -94,10 +111,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 

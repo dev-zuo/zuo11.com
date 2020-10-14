@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#vue" class="hidden">vue</a>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
           </div>
           <div>
             
@@ -36,13 +36,22 @@
         </header>
         <section class="content">
           <article>
+            <h1 id="el-form-item里非elment输入组件时，校验回调函数不触发的问题">el-form-item里非elment输入组件时，校验回调函数不触发的问题</h1>
             
     <div class="article-top">
-      <div>2020/02/27</div> 
-      <div class="article-top-right">Author: guoqzuo</div>
+      <div class="flex">
+        这篇文章发布于 2020/02/27，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>element表单校验时如果非element组件会触发布料校验</span>，<span>富文本编辑器在element form中校验回调函数不触发的问题</span></div>
+      </div>
     </div>
+    
   
-            <h1 id="el-form-item里非elment输入组件时，校验回调函数不触发的问题">el-form-item里非elment输入组件时，校验回调函数不触发的问题</h1>
+            
 <p>今天写表单校验规则，有个 el-form-item 里使用了富文本编辑器，发现校验规则校验这个值会有异常：</p>
 <ol>
 <li>当 change 或 blur 时，根本没有触发校验(提示错误)</li>
@@ -106,11 +115,19 @@ value(val) {
 <li>单独写校验逻辑，如果校验失败加上一个error-class，如果想做的更逼真一点，在错误时给输入组件加一个红色的border</li>
 </ol>
 
+            
+            
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
           </article>
+
           <aside>
-            <div>
-              <ul><li><span class="ul-span" data-id="el-form-item里非elment输入组件时，校验回调函数不触发的问题" style="padding-left:1em">el-form-item里非elment输入组件时，校验回调函数不触发的问题<span></li></ul>
-            <div>
+            <div class="aside-wrap">
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907' data-ad-format='auto' data-full-width-responsive='true'></ins>
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="el-form-item里非elment输入组件时，校验回调函数不触发的问题" style="padding-left:1em">el-form-item里非elment输入组件时，校验回调函数不触发的问题<span></li></ul>
+              <div>
+            </div>
           </aside>
         </section>
         <footer>
@@ -136,10 +153,14 @@ value(val) {
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
 <script>
+  // Google AD
+  console.log('adsbygoogle', window.adsbygoogle || []);
+
+  (adsbygoogle = window.adsbygoogle || []).push({});
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-178732583-1');
 </script>
 
