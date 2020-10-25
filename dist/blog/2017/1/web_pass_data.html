@@ -16,7 +16,7 @@
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
         <link rel="stylesheet" href="/lib/global.css">
-        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
       </head>
       <body>
         <header>
@@ -301,10 +301,10 @@
 
           <aside>
             <div class="aside-wrap">
-              <ins class='adsbygoogle' style='display:inline-block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
               <div class="top ">
                 <ul><li><span class="ul-span" data-id="ios页面之间传值---segue、通知、代理" style="padding-left:1em">iOS页面之间传值 - Segue、通知、代理<span></li><ul><li><span class="ul-span" data-id="界面拖拽" style="padding-left:2em">界面拖拽<span></li></ul><ul><li><span class="ul-span" data-id="tableview数据相关" style="padding-left:2em">TableView数据相关<span></li></ul><ul><li><span class="ul-span" data-id="新增联系人传值---逆传" style="padding-left:2em">新增联系人传值 - 逆传<span></li><ul><li><span class="ul-span" data-id="用通知notification传值" style="padding-left:3em">用通知Notification传值<span></li></ul><ul><li><span class="ul-span" data-id="用代理传值" style="padding-left:3em">用代理传值<span></li></ul></ul><ul><li><span class="ul-span" data-id="修改联系人传值---顺传" style="padding-left:2em">修改联系人传值 - 顺传<span></li><ul><li><span class="ul-span" data-id="准备跳转前的传值" style="padding-left:3em">准备跳转前的传值<span></li></ul><ul><li><span class="ul-span" data-id="接收到值的处理" style="padding-left:3em">接收到值的处理<span></li></ul></ul><ul><li><span class="ul-span" data-id="主要代码不含代理传值代码" style="padding-left:2em">主要代码(不含代理传值代码)<span></li></ul></ul>
-              <div>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
           </aside>
         </section>
@@ -329,12 +329,22 @@
     
         </script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-178732583-1');
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 2000);
+  }
 </script>
 
       </body>

@@ -16,7 +16,7 @@
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
         <link rel="stylesheet" href="/lib/global.css">
-        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
       </head>
       <body>
         <header>
@@ -209,10 +209,10 @@ function addRoute(page, lang, index) {
 
           <aside>
             <div class="aside-wrap">
-              <ins class='adsbygoogle' style='display:inline-block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
               <div class="top ">
                 <ul><li><span class="ul-span" data-id="怎么写出类似element官网那样可以看代码运行效果的文档" style="padding-left:1em">怎么写出类似element官网那样可以看代码运行效果的文档<span></li><ul><li><span class="ul-span" data-id="docsify" style="padding-left:2em">docsify<span></li></ul><ul><li><span class="ul-span" data-id="vuepress" style="padding-left:2em">vuepress<span></li></ul><ul><li><span class="ul-span" data-id="element官网源码" style="padding-left:2em">element官网源码<span></li></ul></ul>
-              <div>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
           </aside>
         </section>
@@ -237,12 +237,22 @@ function addRoute(page, lang, index) {
     
         </script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-178732583-1');
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 2000);
+  }
 </script>
 
       </body>

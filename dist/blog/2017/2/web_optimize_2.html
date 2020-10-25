@@ -16,7 +16,7 @@
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
         <link rel="stylesheet" href="/lib/global.css">
-        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
       </head>
       <body>
         <header>
@@ -100,10 +100,10 @@ ${fn:replace(string2,&#39;&lt;/pre&gt;&#39;,&#39;&lt;/code&gt;&lt;/pre&gt;&#39;)
 
           <aside>
             <div class="aside-wrap">
-              <ins class='adsbygoogle' style='display:inline-block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
               <div class="top ">
                 <ul><li><span class="ul-span" data-id="站点优化-新增访客记录、新ui及mip等" style="padding-left:1em">站点优化 新增访客记录、新UI及mip等<span></li><ul><li><span class="ul-span" data-id="前端页面修改" style="padding-left:2em">前端页面修改<span></li></ul><ul><li><span class="ul-span" data-id="新增访问记录表" style="padding-left:2em">新增访问记录表<span></li></ul><ul><li><span class="ul-span" data-id="servlet获取访问信息" style="padding-left:2em">servlet获取访问信息<span></li></ul><ul><li><span class="ul-span" data-id="prism代码高亮" style="padding-left:2em">prism代码高亮<span></li></ul><ul><li><span class="ul-span" data-id="第二次mip改造" style="padding-left:2em">第二次mip改造<span></li></ul><ul><li><span class="ul-span" data-id="总结" style="padding-left:2em">总结<span></li></ul></ul>
-              <div>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
           </aside>
         </section>
@@ -128,12 +128,22 @@ ${fn:replace(string2,&#39;&lt;/pre&gt;&#39;,&#39;&lt;/code&gt;&lt;/pre&gt;&#39;)
     
         </script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-178732583-1');
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 2000);
+  }
 </script>
 
       </body>

@@ -16,7 +16,7 @@
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
         <link rel="stylesheet" href="/lib/global.css">
-        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
       </head>
       <body>
         <header>
@@ -172,10 +172,10 @@ pod install # 安装，成功后的界面如下图</code></pre>
 
           <aside>
             <div class="aside-wrap">
-              <ins class='adsbygoogle' style='display:inline-block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
               <div class="top ">
                 <ul><li><span class="ul-span" data-id="cocoapods安装及使用" style="padding-left:1em">CocoaPods安装及使用<span></li><ul><li><span class="ul-span" data-id="cocoapods安装" style="padding-left:2em">CocoaPods安装<span></li></ul><ul><li><span class="ul-span" data-id="用cocoapods导入afnetworking框架到xcode项目" style="padding-left:2em">用CocoaPods导入AFNetworking框架到Xcode项目<span></li></ul></ul>
-              <div>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
           </aside>
         </section>
@@ -200,12 +200,22 @@ pod install # 安装，成功后的界面如下图</code></pre>
     
         </script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-178732583-1');
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 2000);
+  }
 </script>
 
       </body>

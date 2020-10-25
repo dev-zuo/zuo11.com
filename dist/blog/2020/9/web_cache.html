@@ -16,7 +16,7 @@
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
         <link rel="stylesheet" href="/lib/global.css">
-        <script data-ad-client="ca-pub-9527676606416641" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
       </head>
       <body>
         <header>
@@ -241,10 +241,10 @@ module.exports = (filePath) =&gt; {
 
           <aside>
             <div class="aside-wrap">
-              <ins class='adsbygoogle' style='display:inline-block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
               <div class="top ">
                 <ul><li><span class="ul-span" data-id="通过koa写demo彻底理解前端http缓存" style="padding-left:1em">通过koa写demo彻底理解前端http缓存<span></li><ul><li><span class="ul-span" data-id="强缓存-document-expiration" style="padding-left:2em">强缓存 document expiration<span></li><ul><li><span class="ul-span" data-id="expires相对时间" style="padding-left:3em">Expires(相对时间)<span></li></ul><ul><li><span class="ul-span" data-id="cache-control" style="padding-left:3em">Cache-Control<span></li></ul></ul><ul><li><span class="ul-span" data-id="弱缓存协商缓存-server-revalidation" style="padding-left:2em">弱缓存/协商缓存 server revalidation<span></li><ul><li><span class="ul-span" data-id="last-modifiedif-modified-since" style="padding-left:3em">Last-Modified/If-Modified-Since<span></li></ul><ul><li><span class="ul-span" data-id="etagif-none-macth" style="padding-left:3em">ETag/if-None-Macth<span></li></ul></ul><ul><li><span class="ul-span" data-id="chrome下注意事项" style="padding-left:2em">Chrome下注意事项<span></li></ul></ul>
-              <div>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
           </aside>
         </section>
@@ -269,12 +269,22 @@ module.exports = (filePath) =&gt; {
     
         </script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-178732583-1');
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 2000);
+  }
 </script>
 
       </body>
