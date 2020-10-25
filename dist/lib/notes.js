@@ -18,26 +18,29 @@ asideDiv.onclick = (e) => {
 let headersArr = []
 
 // 通过category.html#web进入页面时, 由于顶部fixed会有遮挡，fix方案
-window.onload = () => {
-  // 如果是category，且有hash值，向上滚动 -70
-  let { pathname, hash } = location
-  pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
+window.addEventListener('load', () => {
 
-  // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
-  let nodes = document.getElementsByClassName('ul-span')
-  for (let i = 0, len = nodes.length; i < len; i++) {
-    // console.log(nodes.dataset)
-    let id = nodes[i].dataset.id
-    headersArr.push({id: id, offsetTop: document.getElementById(id).offsetTop})
-  }
-  // console.log(headersArr)
+  // 2500 执行是因为 google 广告为了优化加载体验，延迟2s加载，插入广告内容会对内容位置产生影响
+  setTimeout(() => {
+    // 如果是category，且有hash值，向上滚动 -70
+    let { pathname, hash } = location
+    pathname.includes('category.html') && hash && document.documentElement.scrollBy(0, -70)
 
-  window.onscroll = () => {
-    focusAsideSpan()
-    // debounce(focusAsideSpan)
-  }
-}
+    // 将每个标题的高度，存到数组里，当滚动时，自动focus右侧大纲
+    let nodes = document.getElementsByClassName('ul-span')
+    for (let i = 0, len = nodes.length; i < len; i++) {
+      // console.log(nodes.dataset)
+      let id = nodes[i].dataset.id
+      headersArr.push({ id: id, offsetTop: document.getElementById(id).offsetTop })
+    }
+    // console.log(headersArr)
 
+    window.addEventListener('scroll', () => {
+      focusAsideSpan()
+      // debounce(focusAsideSpan)
+    })
+  }, 2500);
+})
 // 效果不好，没有实时滚动的感觉，关闭防抖
 // function debounce(method, context) {
 //   clearTimeout(method.tId)
@@ -49,10 +52,21 @@ window.onload = () => {
 function focusAsideSpan() {
   let scrollTop = document.documentElement.scrollTop
   let curNode
+  let nodes = document.getElementsByClassName('ul-span')
+  // console.log(scrollTop)
   for (let i = 0, len = headersArr.length; i < len; i++) {
-    if (headersArr[i].offsetTop - scrollTop >= 0) {
+    if (scrollTop < headersArr[0].offsetTop) {
+      for (let i = 0, len = nodes.length; i < len; i++) {
+        nodes[i].classList.remove('active')
+      }
+      nodes[0].classList.add('active')
+    } else if (i === len - 1) {
+      for (let i = 0, len = nodes.length; i < len; i++) {
+        nodes[i].classList.remove('active')
+      }
+      nodes[nodes.length - 1].classList.add('active')
+    } else if (scrollTop >= headersArr[i].offsetTop && scrollTop < headersArr[i + 1].offsetTop) {
       // 移除所有的active
-      let nodes = document.getElementsByClassName('ul-span')
       for (let j = 0, len = nodes.length; j < len; j++) {
         if (headersArr[i].id === nodes[j].dataset.id) {
           nodes[j].classList.remove('active')
@@ -64,13 +78,6 @@ function focusAsideSpan() {
       return
     }
   }
-  // 如果走到这里，说明滚到底部了
-  // 移除所有的active
-  let nodes = document.getElementsByClassName('ul-span')
-  for (let i = 0, len = nodes.length; i < len; i++) {
-    nodes[i].classList.remove('active')
-  }
-  nodes[nodes.length - 1].classList.add('active')
 }
 
 // 返回首页
