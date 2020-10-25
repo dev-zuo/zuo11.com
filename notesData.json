@@ -877,6 +877,13 @@
         "keywords": "文件大小转换合适单位,单位元数据加合适的单位"
       },
       {
+        "title": "FileReader.readAsDataURL与URL.createObjectURL的区别",
+        "href": "2020/10/file_preview_download.html",
+        "time": "2020/10/25",
+        "description": "在前端开发中，这两个函数都是可以用于处理文件二进制数据的，一般用于上传文件时预览图片，或者在下载、导出文件时使用。下面来以上传图片、前端预览图片的功能为例，比较两个函数的的区别。下面的代码中，我们使用一个 radio 来切换使用两种方法。当检测到上传文件的 input 内容 change 后，根据当前 radio 的值，调用不同的方法来预览图片。运行效果如上图",
+        "keywords": "文件预览,文件下载函数,createObjectURL,readAsDataURL"
+      },
+      {
         "title": "深入JS遍历对象，从4个维度比较遍历对象的8种方法",
         "href": "2020/2/js_obj_iterator.html",
         "time": "2020/02/02",
@@ -1490,6 +1497,41 @@
         "keywords": "前端代码规范,前端命名规范"
       },
       {
+        "title": "el-tabs跳转之前先弹窗确认后再切到tab页",
+        "href": "2020/10/el-tabs-confirm.html",
+        "time": "2020/10/25",
+        "description": "增加 before-leave 钩子函数，如果返回 false，就不会跳转过去。它的返回值除了支持true，false外，还支持 promise 的 resolve 和 reject。我们可以将调用js弹窗组件函数改为promise，如果非提交表单关闭弹窗就返回 reject。否则 resove 表单数据。调用该函数时使用try catch可以很好的处理筛选组件弹窗确定后再跳转到对应tab的逻辑。",
+        "keywords": "el-tabs阻止切换钩子函数,el-tabs跳转前确认"
+      },
+      {
+        "title": "怎么写出类似element官网那样可以实时看运行效果的文档",
+        "href": "2020/10/ui_doc.html",
+        "time": "2020/10/25",
+        "description": "对于UI组件、echarts图表相关文档来说，能够实时看具体显示效果是必须的。它是将文档和demo合并在一起，这样更有说服力。那怎么写出类似的文档呢？这里来介绍三种方法：1.dosify 2.vuepress 3.element官网源码",
+        "keywords": "UI组件官网,组件展示官网,dosify实例"
+      },
+      {
+        "title": "怎么用vue写一个组件库，类似element",
+        "href": "2020/10/vue_ui_lib.html",
+        "time": "2020/10/25",
+        "description": "下面通过一个简单的示例来看怎么写一个vue组件库，分为 6 步：1. 目录规划 2. 组件库入口文件 3. 本地测试组件 4. 打包构建 UMD 5. 上传 npm 包 6. dosify搭建官网",
+        "keywords": "vue组件库,vue组件库编写流程"
+      },
+      {
+        "title": "Vue CLI构建项目时选择不同的eslint规则会有什么区别？",
+        "href": "2020/10/vue_cli_eslint.html",
+        "time": "2020/10/25",
+        "description": "当我们使用 vue create xxx 时，会让选择是否需要某个模块，如果有使用空格选择 Linter / Formatter，那么后面的流程会让你选择一种eslint规则。总共有 5 种情况，我们都逐一试试，看生成的package.json有什么不同",
+        "keywords": "vue-cli eslint,Vue CLI eslint"
+      },
+      {
+        "title": "怎么在老项目中加入eslint规则，并可以保存后自动fix",
+        "href": "2020/10/old_project_eslint.html",
+        "time": "2020/10/25",
+        "description": "在 'Vue CLI 构建项目时选择不同的 eslint 规则会有什么区别？' 中，我们有了解到，不同的 eslint 配置项，会对应不同的 npm 包，eslintConfig 中对应的 extends 也不一样。我们只要找出某个配置特有的 npm 包，以及配置，就可以在旧项目中，引入对应的 eslint 配置，结合 vscode eslint 插件就可以做到保存后自动 fix",
+        "keywords": "老项目加eslint,旧项目引入eslint,vue eslint"
+      },
+      {
         "title": "使用js调用vue单文件组件",
         "href": "2020/2/js_vue_comp.html",
         "time": "2020/02/20",
@@ -1905,6 +1947,13 @@
         "keywords": "前端什么是好代码,什么是好的代码"
       },
       {
+        "title": "mac设置vscode默认打开的浏览器",
+        "href": "2020/10/mac_default_browser.html",
+        "time": "2020/10/25",
+        "description": "vscode中，安装 Live Server 插件后，在html文件里，右键 open with Live Server，可以将网页使用http服务在浏览器里面打开。我电脑里面默认打开的是 safari，但我一般习惯用Chrome，这个默认浏览器的设置需要在mac系统里设置，点击屏幕左上角苹果标志 => 系统偏好设置 => 通用 => 默认网页浏览器 选择 Google Chrome 即可",
+        "keywords": "vscode默认浏览器,mac设置默认浏览器"
+      },
+      {
         "title": "使用new Date()在前端获取当期时间是不准确的",
         "href": "2020/6/new_date_fe.html",
         "time": "2020/06/21",
@@ -2066,6 +2115,13 @@
         "time": "2020/10/08",
         "description": "在之前我用node研究过怎么收发邮件，但没有研究过邮件里面是否能包含图表，这次来研究下。首先，我们来看看怎么发邮件，准备工作：配置发件人邮箱 我们发送邮件，首先需要有一个邮箱作为发件人，以QQ邮箱为例，我们发邮件使用 `916707888@qq.com` 作为发件人，我们需要使用程序自动发邮件，所以需要配置发邮件的服务，开启发邮件的POP3/SMTP服务，得到授权码在操作，下面来看看具体过程",
         "keywords": "node发邮件,node发送图表邮件,node发送echart图表邮件"
+      },
+      {
+        "title": "npm run 运行多条命令 && 不生效的问题",
+        "href": "2020/10/npm_run_multi.html",
+        "time": "2020/10/25",
+        "description": "在项目中除了默认的 webpack-dev-server 外，我们还想同时运行 mock 接口的 node 服务，，会使用 && 同时执行两条命令。在有些使用实际运行 npm run server 时，只运行了第一条命令，我的是mac，不知道是不是node版本的问题。网上找了下， && 存在兼容性问题。建议使用 concurrently 来代替，concurrently 跨平台兼容",
+        "keywords": "npm run &&多条命令不生效"
       },
       {
         "title": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理",
@@ -8222,6 +8278,255 @@
       }
     },
     {
+      "htmlStr": "<h1 id=\"filereaderreadasdataurl与urlcreateobjecturl的区别\">FileReader.readAsDataURL与URL.createObjectURL的区别</h1>\n<p>在前端开发中，这两个函数都是可以用于处理文件二进制数据的，一般用于上传文件时预览图片，或者在下载、导出文件时使用。</p>\n<p>下面来以上传图片、前端预览图片的功能为例，比较两个函数的的区别</p>\n<p><img src=\"../../../images/blog/js/img_preview.gif\" alt=\"img_preview.gif\"></p>\n<p>下面的代码中，我们使用一个 radio 来切换使用两种方法。当检测到上传文件的 input 内容 change 后，根据当前 radio 的值，调用不同的方法来预览图片。运行效果如上图</p>\n<pre><code class=\"language-js\">&lt;div&gt;\n  &lt;form id=&quot;form&quot;&gt;\n    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;type&quot; value=&quot;a&quot; checked&gt;URL.createObjectURL&lt;/label&gt;\n    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;type&quot; value=&quot;b&quot;&gt;FileReader.readAsDataURL&lt;/label&gt;\n  &lt;/form&gt;\n&lt;/div&gt;\n&lt;input type=&quot;file&quot; id=&quot;file&quot;&gt;\n&lt;div&gt;&lt;img src=&quot;&quot; id=&quot;img&quot;&gt;&lt;/div&gt;\n&lt;div id=&quot;imgSrc&quot;&gt;&lt;/div&gt;\n&lt;script&gt;\n  let file = document.getElementById(&#39;file&#39;)\n  file.onchange = function (e) {\n    let funcType = document.getElementById(&#39;form&#39;).type.value\n    if (funcType === &#39;a&#39;) {\n      // 方法1 \n      // blob:http://127.0.0.1:5501/dffc0dee-93e7-4b8f-bee2-8a3b8671aeb2\n      let dataUrl = window.URL.createObjectURL(this.files[0])\n      document.getElementById(&#39;img&#39;).src = dataUrl\n      document.querySelector(&#39;#imgSrc&#39;).innerHTML = dataUrl\n    } else {\n      // 方法2 \n      // data:image/png;base64,iVBORw0KGgoAAA....\n      let reader = new FileReader();\n      reader.readAsDataURL(this.files[0])\n      reader.onload = function (e) {\n        document.getElementById(&#39;img&#39;).src = reader.result\n        document.querySelector(&#39;#imgSrc&#39;).innerHTML = reader.result\n      }\n    }\n  }\n&lt;/script&gt;</code></pre>\n<p>有上面的例子可以得出 </p>\n<ul>\n<li>readAsDataURL 它是将二进制文件数据转成了 URI，base64数据。</li>\n<li>createObjectURL 它是二进制文件数据转成了临时的 URL，是 URL 链接。 </li>\n</ul>\n<p>这里假设我们拿到数据后，进行下载，一般使用 a 标签，再 click。如果是 IE，使用 window.navigator.msSaveBlob。假设我们使用下面的函数来进行下载。如果createObjectURL 生成的 URL，是没问题的，但如果是 readAsDataURL 生成的 base64 就会出现兼容性问题、卡顿问题。</p>\n<p>因此在图片预览时可以使用 FileReader.readAsDataURL，但下载文件时，就需要使用 URL.createObjectURL 了。</p>\n<pre><code class=\"language-js\">    function downloadFile(dataUrl) {\n      // 如果是IE，特殊处理，防止IE下提提示 &quot;拒绝访问&quot;\n      // blob拒绝访问文件 fix\n      if (window.navigator.msSaveBlob) {\n        try {\n          // 根据实际情况加后缀名\n          window.navigator.msSaveBlob(dataUrl, &#39;下载文件.zip&#39;)\n        } catch(e) {\n          console.log(&#39;msSaveBlob异常&#39;, e)\n        }\n        return\n      } \n      const downloadEl = document.createElement(&#39;a&#39;)\n      downloadEl.href = dataUrl\n      downloadEl.download = &#39;下载文件&#39; // download文件名\n      document.body.appendChild(downloadEl)\n      downloadEl.click() \n    }</code></pre>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader/readAsDataURL\">FileReader.readAsDataURL() | MDN</a></li>\n<li><a href=\"https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL\">URL.createObjectURL() | MDN</a></li>\n<li><a href=\"https://www.yuque.com/guoqzuo/js_es6/nocthb#97824fad\">File API - 新兴的API | JS高程3笔记</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "FileReader.readAsDataURL与URL.createObjectURL的区别"
+        }
+      ],
+      "config": {
+        "source": "FileReader.readAsDataURL与URL.createObjectURL的区别.md",
+        "staticFileName": "file_preview_download.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "在前端开发中，这两个函数都是可以用于处理文件二进制数据的，一般用于上传文件时预览图片，或者在下载、导出文件时使用。下面来以上传图片、前端预览图片的功能为例，比较两个函数的的区别。下面的代码中，我们使用一个 radio 来切换使用两种方法。当检测到上传文件的 input 内容 change 后，根据当前 radio 的值，调用不同的方法来预览图片。运行效果如上图",
+        "keywords": "文件预览,文件下载函数,createObjectURL,readAsDataURL",
+        "category": "Javascript",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"el-tabs跳转之前先弹窗确认后再切到tab页\">el-tabs跳转之前先弹窗确认后再切到tab页</h1>\n<p>增加 before-leave 钩子函数，如果返回 false，就不会跳转过去。它的返回值除了支持true，false外，还支持 promise 的 resolve 和 reject。我们可以将调用js弹窗组件函数改为promise，如果非提交表单关闭弹窗就返回 reject。否则 resove 表单数据。调用该函数时使用try catch可以很好的处理筛选组件弹窗确定后再跳转到对应tab的逻辑。</p>\n<p><img src=\"../../../images/blog/vue/before-leave.png\" alt=\"before-leave.png\"></p>\n<p>参考：<a href=\"https://element.eleme.cn/#/zh-CN/component/tabs\">Tabs Attributes | Tab标签页</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "el-tabs跳转之前先弹窗确认后再切到tab页"
+        }
+      ],
+      "config": {
+        "source": "el-tabs跳转之前先弹窗确认后再切到tab页.md",
+        "staticFileName": "el-tabs-confirm.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "增加 before-leave 钩子函数，如果返回 false，就不会跳转过去。它的返回值除了支持true，false外，还支持 promise 的 resolve 和 reject。我们可以将调用js弹窗组件函数改为promise，如果非提交表单关闭弹窗就返回 reject。否则 resove 表单数据。调用该函数时使用try catch可以很好的处理筛选组件弹窗确定后再跳转到对应tab的逻辑。",
+        "keywords": "el-tabs阻止切换钩子函数,el-tabs跳转前确认",
+        "category": "Vue",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"怎么写出类似element官网那样可以看代码运行效果的文档\">怎么写出类似element官网那样可以看代码运行效果的文档</h1>\n<p>对于UI组件、echarts 图表相关文档来说，能够实时看具体显示效果是必须的。它是将文档和 demo 合并在一起，这样更有说服力。那怎么写出类似的文档呢？这里来介绍三种方法：</p>\n<ol>\n<li>dosify </li>\n<li>vuepress </li>\n<li>element官网源码</li>\n</ol>\n<h2 id=\"docsify\">docsify</h2>\n<p>一个神奇的文档网站生成器，支持 markdown 语法，可嵌入 vue 代码。基础用法可以参考文档: <a href=\"https://docsify.js.org/#/quickstart\">docsify </a>，这里介绍下嵌入vue代码需要注意的问题</p>\n<p>由于 docsify 入口是 index.html，本身不支持 ES modules，假设 vue 示例代码中，需要引入 echarts 模块，是无法 import 直接运行的。需要通过在 index.html 引入 js 来引入组件。有一个比较好的示例，可以参考 <a href=\"https://vueblocks.github.io/ve-charts/#/chart-line\">ve-charts</a>, 可以把源码 clone 下来跑一跑。通过 <code>npm run build:lib</code> 打包生成 umd 形式的 js文件，直接引入即可。</p>\n<pre><code class=\"language-html\">&lt;!-- index.html部分代码 --&gt;\n&lt;script src=&quot;//cdn.jsdelivr.net/npm/vue/dist/vue.min.js&quot;&gt;&lt;/script&gt;\n&lt;!-- vuep docsify插件，用于实时编辑、显示代码 --&gt;\n&lt;script src=&quot;//cdn.jsdelivr.net/npm/vuep/dist/vuep.min.js&quot;&gt;&lt;/script&gt;\n&lt;!-- vuep默认是CommonJS规范，需要使用 module.exports，加babel后可以使用ES Modules的export default --&gt;\n&lt;script src=&quot;https://unpkg.com/babel-standalone/babel.min.js&quot;&gt;&lt;/script&gt;\n&lt;script src=&quot;//unpkg.com/echarts@latest/dist/echarts.min.js&quot;&gt;&lt;/script&gt;\n&lt;!-- ve-echarts组件库输出的umd形式js文件，只载入这个js即可完整引入ve-echarts组件库 --&gt;\n&lt;script src=&quot;./lib/ve-charts.umd.min.js&quot;&gt;&lt;/script&gt;</code></pre>\n<p>README.md</p>\n<pre><code class=\"language-markdown\">&lt;!-- README.md 里面嵌入vue代码 --&gt;\n&lt;vuep template=&quot;#basicLine&quot; :options=&quot;{ theme: &#39;vue&#39;, lineNumbers: false }&quot;&gt;&lt;/vuep&gt;\n\n&lt;script v-pre type=&quot;text/x-template&quot; id=&quot;basicLine&quot;&gt;\n&lt;template&gt;\n  &lt;ve-line-chart :data=&quot;chartData&quot; /&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\n  export default {\n    created () {\n      this.chartData = {\n        dimensions: {\n          name: &#39;Week&#39;,\n          data: [&#39;Mon.&#39;, &#39;Tue.&#39;, &#39;Wed.&#39;, &#39;Thu.&#39;, &#39;Fir.&#39;, &#39;Sat.&#39;, &#39;Sun.&#39;]\n        },\n        measures: [{\n          name: &#39;Vue&#39;,\n          data: [30, 40, 35, 50, 49, 70, 90]\n        }]\n      }\n    }\n  }\n&lt;/script&gt;</code></pre>\n<p>效果如下图</p>\n<p><img src=\"../../../images/blog/vue/dosify_vuep_ve_charts.png\" alt=\"dosify_vuep_ve_charts.png\"></p>\n<h2 id=\"vuepress\">vuepress</h2>\n<p><a href=\"https://vuepress.vuejs.org/\">vuepress</a> 是一个静态站点生成器，用于vue官网文档生成。可以内嵌vue代码，<a href=\"https://vuepress.vuejs.org/guide/using-vue.html#browser-api-access-restrictions\">Using Vue in Markdown</a> </p>\n<p>一般vue组件需要在 <code>.vuepress/components/</code> 下实现，在 markdown 语法中才能使用。下面是一个实例</p>\n<pre><code class=\"language-markdown\"># markdown引入vue组件测试\n\n&lt;span v-for=&quot;i in 3&quot;&gt;{{ i }} &lt;/span&gt;\n\n`zchart-test`\n\n&lt;zchart-test&gt;&lt;/zchart-test&gt;</code></pre>\n<p><img src=\"../../../images/blog/vue/vuepress_vue.png\" alt=\"vuepress_vue.png\"></p>\n<h2 id=\"element官网源码\">element官网源码</h2>\n<p>它是自己写的一套构建程序，将 tpl 转 vue，markdown 解析时，内嵌 vue demo 会自动渲染代码，ElementUI官网源码: <a href=\"https://github.com/ElemeFE/element/tree/dev/examples\">ElementUI官网 examples | github</a></p>\n<p>下面以 <a href=\"https://github.com/ElemeFE/element/blob/dev/examples/docs/zh-CN/alert.md\">alert文档源码</a> 为例，来看看具体写法</p>\n<pre><code class=\"language-markdown\">## Alert 警告\n\n用于页面中展示重要的提示信息。\n\n### 基本用法\n\n页面中的非浮层元素，不会自动消失。\n\n:::demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。\n&lt;template&gt;\n  &lt;el-alert\n    title=&quot;成功提示的文案&quot;\n    type=&quot;success&quot;&gt;\n  &lt;/el-alert&gt;\n  &lt;el-alert\n    title=&quot;消息提示的文案&quot;\n    type=&quot;info&quot;&gt;\n  &lt;/el-alert&gt;\n  &lt;el-alert\n    title=&quot;警告提示的文案&quot;\n    type=&quot;warning&quot;&gt;\n  &lt;/el-alert&gt;\n  &lt;el-alert\n    title=&quot;错误提示的文案&quot;\n    type=&quot;error&quot;&gt;\n  &lt;/el-alert&gt;\n&lt;/template&gt;\n:::\n\n### 主题</code></pre>\n<p>渲染效果如下</p>\n<p><img src=\"../../../images/blog/vue/elementui_doc_source.png\" alt=\"elementui_doc_source.png\"></p>\n<pre><code class=\"language-js\">// 将 官网.tpl单文件组件转.vue\n// /examples/pages/template/component.tpl 就是element组件文档的入口\n// https://github.com/ElemeFE/element/blob/dev/build/bin/i18n.js\n&#39;use strict&#39;;\n\nvar fs = require(&#39;fs&#39;);\nvar path = require(&#39;path&#39;);\nvar langConfig = require(&#39;../../examples/i18n/page.json&#39;);\n\nlangConfig.forEach(lang =&gt; {\n  try {\n    fs.statSync(path.resolve(__dirname, `../../examples/pages/${ lang.lang }`));\n  } catch (e) {\n    fs.mkdirSync(path.resolve(__dirname, `../../examples/pages/${ lang.lang }`));\n  }\n\n  Object.keys(lang.pages).forEach(page =&gt; {\n    var templatePath = path.resolve(__dirname, `../../examples/pages/template/${ page }.tpl`);\n    var outputPath = path.resolve(__dirname, `../../examples/pages/${ lang.lang }/${ page }.vue`);\n    var content = fs.readFileSync(templatePath, &#39;utf8&#39;);\n    var pairs = lang.pages[page];\n\n    Object.keys(pairs).forEach(key =&gt; {\n      content = content.replace(new RegExp(`&lt;%=\\\\s*${ key }\\\\s*&gt;`, &#39;g&#39;), pairs[key]);\n    });\n\n    fs.writeFileSync(outputPath, content);\n  });\n});</code></pre>\n<p>/examples/pages/template/component.tpl 部分代码</p>\n<pre><code class=\"language-html\">&lt;el-scrollbar class=&quot;page-component__nav&quot;&gt;\n  &lt;side-nav :data=&quot;navsData[lang]&quot; :base=&quot;`/${ lang }/component`&quot;&gt;&lt;/side-nav&gt;\n&lt;/el-scrollbar&gt;\n&lt;div class=&quot;page-component__content&quot;&gt;\n  &lt;!-- 像 alert、button 文档切换，就是切的这里的路由 --&gt;\n  &lt;router-view class=&quot;content&quot;&gt;&lt;/router-view&gt;\n  &lt;footer-nav&gt;&lt;/footer-nav&gt;\n&lt;/div&gt;</code></pre>\n<p>对应的路由代码</p>\n<pre><code class=\"language-js\">// element/examples/route.config.js为alert等文档添加路由部分代码\nfunction addRoute(page, lang, index) {\n  const component = page.path === &#39;/changelog&#39;\n    ? load(lang, &#39;changelog&#39;)\n    : loadDocs(lang, page.path); // 根据path载入对应的docs/zh-CN/xx.md \n  let child = {\n    path: page.path.slice(1),\n    meta: {\n      title: page.title || page.name,\n      description: page.description,\n      lang\n    },\n    name: &#39;component-&#39; + lang + (page.title || page.name),\n    component: component.default || component \n  };\n\n  route[index].children.push(child);\n}</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "怎么写出类似element官网那样可以看代码运行效果的文档",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "docsify"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "vuepress"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "element官网源码"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "怎么写出类似element官网那样可以实时看运行效果的文档.md",
+        "staticFileName": "ui_doc.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "对于UI组件、echarts图表相关文档来说，能够实时看具体显示效果是必须的。它是将文档和demo合并在一起，这样更有说服力。那怎么写出类似的文档呢？这里来介绍三种方法：1.dosify 2.vuepress 3.element官网源码",
+        "keywords": "UI组件官网,组件展示官网,dosify实例",
+        "category": "Vue",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"怎么用vue写一个组件库，类似element\">怎么用vue写一个组件库，类似element</h1>\n<p>下面通过一个简单的示例来看怎么写一个vue组件库，分为 6 步</p>\n<ol>\n<li>目录规划</li>\n<li>组件库入口文件</li>\n<li>本地测试组件</li>\n<li>打包构建 UMD</li>\n<li>上传 npm 包</li>\n<li>dosify搭建官网</li>\n</ol>\n<h2 id=\"1组件库目录结构\">1.组件库目录结构</h2>\n<p>以 element 为例，下面是一个简单的目录结构</p>\n<pre><code class=\"language-bash\">├── examples # 用于测试组件，demo展示（可以直接是一个完整的vue项目）\n├── packages # 用于存放编写的组件\n│   └── my-button # 封装的组件，具体写法参见element源码\n│       ├── src    \n│       │   └── main.vue  # 单文件组件，组件\n│       └── index.js  # install方法，用于Vue.use()引入单个组件\n└── src\n    └── index.js # 入口文件</code></pre>\n<h2 id=\"2导出组件库\">2.导出组件库</h2>\n<p>我们写好组件后，主要问题是要怎么导出(export)供其他项目使用，一般在 src/index.js 里进行处理</p>\n<pre><code class=\"language-js\">// src/index.js 示例，主要是引入(import)组件再导出(export)，包括Vue.use所需的 install函数处理\nimport MyButton from &quot;../packages/my-button/index.js&quot;;\nconst components = [MyButton];\n\n// Vue.use() 一次性安装所有组件\nconst install = function(Vue) {\n  if (install.installed) return;\n  components.forEach(component =&gt; Vue.use(component));\n  // 如果没有在src/index.js里实现install方法，就需要使用下面的\n  // components.forEach(component =&gt; Vue.component(component.name, component))\n};\n\n// 直接给浏览器或 AMD loader 使用\nif (typeof window !== undefined &amp;&amp; window.Vue) {\n  window.Vue.use(install);\n  if (install.installed) {\n    install.installed = false;\n  }\n}\n\nexport default {\n  install, // 用于ES modules，import Vue 后直接使用 Vue.use()\n  MyButton // 支持解构赋值按需引入单个组件\n};</code></pre>\n<h2 id=\"3本地测试组件\">3.本地测试组件</h2>\n<p>假设我们这个组件命名为vue-chart，那可以在 examples/src/mian.js 直接使用</p>\n<pre><code class=\"language-js\">// examples/src/mian.js\n// 引入所有组件\nimport VueChart from &#39;../../src/index.js&#39;\nVue.use(VueChart)\n\n// 按需引入单个组件\nimport { MyButton } from &#39;../../src/index.js&#39;\nVue.use(MyButton)</code></pre>\n<p>引入后，我们在 App.vue里直接使用该组件</p>\n<pre><code class=\"language-html\">&lt;!-- App.vue --&gt;\n&lt;template&gt;\n  &lt;div id=&quot;app&quot;&gt;\n    &lt;my-button id=&quot;btn&quot;&gt;测试按钮&lt;/my-button&gt;\n  &lt;/div&gt;\n&lt;/template&gt;</code></pre>\n<p>这里可能涉及到 examples 目录 npm run serve 时，提示 eslint 错误</p>\n<p><img src=\"../../../images/blog/vue/eslint-error.png\" alt=\"eslint-error.png\"></p>\n<p>因为 examples 是一个独立的vue项目，引入了外部 packages 目录的文件，如果 packages 下组件不符合eslint规则就需要在项目根目录的package.json里配置eslint规则了，与examples项目的eslint规则保持一致。参考我之前的笔记：&quot;怎么在老项目中加入eslint规则，并可以保存后自动fix&quot;</p>\n<p>这样使用eslint处理 packages 目录下的代码，再运行 examples 目录下的 npm run serve 就可以正常加载组件了</p>\n<h2 id=\"4打包构建umd\">4.打包构建umd</h2>\n<p>上面我们本地测试了，但他不能直接在普通网页中通过引入某个js文件来使用，这就需要使用Vue CLI来打包构建了</p>\n<p>使用 vue-cli 打包成 lib，参考文档 <a href=\"https://cli.vuejs.org/zh/guide/build-targets.html#%E5%BA%94%E7%94%A8\">构建目标 | Vue CLI</a></p>\n<p>由于我们的项目结构不是通过vue-cli生成的，所以就算使用<code>npm install @vue/cli --save</code>，安装 @vue/cli，也无法使用 vue-cli-service 服务，因为 @vue/cli 这个包是一个用于生成脚手架项目的。你没有用它生成项目，如果不安装对应的 npm 包是无法使用 vue-cli-servie 的，我们直接从 vue create 生成的项目中把 devDependencies、dependencies，配置移动到根目录的 package.json 里，再npm install</p>\n<pre><code class=\"language-js\">// dependencies\n&quot;dependencies&quot;: {\n  &quot;core-js&quot;: &quot;^3.6.5&quot;,\n  &quot;vue&quot;: &quot;^2.6.11&quot;\n},\n// devDependencies\n&quot;@vue/cli-plugin-babel&quot;: &quot;~4.5.0&quot;,\n&quot;@vue/cli-plugin-router&quot;: &quot;~4.5.0&quot;,\n&quot;@vue/cli-plugin-vuex&quot;: &quot;~4.5.0&quot;,\n&quot;@vue/cli-service&quot;: &quot;~4.5.0&quot;,\n&quot;less&quot;: &quot;^3.0.4&quot;,\n&quot;less-loader&quot;: &quot;^5.0.0&quot;,\n&quot;vue-template-compiler&quot;: &quot;^2.6.11&quot;\n// browserslist\n&quot;browserslist&quot;: [\n  &quot;&gt; 1%&quot;,\n  &quot;last 2 versions&quot;,\n  &quot;not dead&quot;\n],</code></pre>\n<p>新增一个lib打包命令</p>\n<pre><code class=\"language-js\">// --dest  lib 指定 output 目录文 lib，默认为 dist 目录\n// src/index.js 最后为入口文件，默认为 src/App.vue。\n&quot;scripts&quot;: {\n  &quot;build:lib&quot;: &quot;vue-cli-service build --mode lib --target lib --dest lib src/index.js&quot;\n}   </code></pre>\n<p>理论上 npm run build:lib 会在当前目录下创建lib目录，且包含4个文件</p>\n<ul>\n<li>lib/myLib.common.js：一个给打包器用的 CommonJS 包 (不幸的是，webpack 目前还并没有支持 ES modules 输出格式的包)</li>\n<li>lib/myLib.umd.js：一个直接给浏览器或 AMD loader 使用的 UMD 包</li>\n<li>lib/myLib.umd.min.js：压缩后的 UMD 构建版本</li>\n<li>lib/myLib.css：提取出来的 CSS 文件 (可以通过在 vue.config.js 中设置 css: { extract: false } 强制内联)</li>\n</ul>\n<p>实际我这里打包后没有生成css文件，因为我们多加了一个 --mode lib 参数</p>\n<p><img src=\"../../../images/blog/vue/vue_chart_build_lib.png\" alt=\"vue_chart_build_lib.png\"></p>\n<p>一般将打包后的文件 xx.umd.js 引入到项目中就可以使用了，来看看示例</p>\n<pre><code class=\"language-html\">&lt;!-- docs/index.html --&gt;\n&lt;body&gt;\n    &lt;div id=&quot;app&quot;&gt;\n        &lt;my-button&gt;我的按钮&lt;/my-button&gt;\n    &lt;/div&gt;\n    &lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;\n    &lt;script src=&quot;../lib/vue-chart.umd.js&quot;&gt;&lt;/script&gt;\n    &lt;script&gt;\n        const app = new Vue({\n            el: &#39;#app&#39;\n        })\n    &lt;/script&gt;\n&lt;/body&gt;</code></pre>\n<p><img src=\"../../../images/blog/vue/vue_chat_test1.png\" alt=\"vue_chat_test1.png\"></p>\n<p>vue项目中引用</p>\n<pre><code class=\"language-js\">// examples/src/main.js\nimport VueChart from &quot;../../lib/vue-chart.umd.js&quot;;\nVue.use(VueChart);</code></pre>\n<p>效果如下</p>\n<p><img src=\"../../../images/blog/vue/vue_chat_test2.png\" alt=\"vue_chat_test2.png\"></p>\n<h2 id=\"5上传npm包\">5.上传npm包</h2>\n<p>我们可以把包弄成npm包，在其他vue项目中，可以直接引入，将 package.json 的 main.js 设置为umd模块地址，并加上unpkg参数，用于cdn直接引入</p>\n<pre><code class=\"language-js\">// package.json\n&quot;name&quot;: &quot;@guoqzuo/vue-chart&quot;, // 将项目名称改为加上自己作用域的包\n&quot;version&quot;: &quot;0.0.2&quot;, // 设置项目版本，注意每次修改版本，package-lock.json的版本也要改\n// 指定npm包入口，当我们import某个npm包时，导入的文件就是这个main指定的文件\n&quot;main&quot;: &quot;lib/vue-chart.umd.min.js&quot;\n// cdn相关\n&quot;unpkg&quot;: &quot;lib/vue-chart.umd.min.js&quot;,</code></pre>\n<p>关于unpkg</p>\n<p><img src=\"../../../images/blog/vue/unpkg_info.png\" alt=\"unpkg_info.png\"></p>\n<p>修改好后，我们来发布这个npm包，注意：需要先有对应的npm账号，我的npm账号是 guoqzuo，这里在项目根目录新建一个publish.sh脚本来发布</p>\n<pre><code class=\"language-sh\">#!/usr/bin/env bash\nnpm config get registry # 检查仓库镜像库\nnpm config set registry=http://registry.npmjs.org\necho &#39;请进行登录相关操作：&#39;\nnpm login # 登陆\n# npm login --scope=@guoqzuo # 设置登录作用域\necho &quot;-------publishing-------&quot;\nnpm publish --access public # 发布\nnpm config set registry=https://registry.npm.taobao.org # 设置为淘宝镜像\necho &quot;发布完成&quot;\nexit</code></pre>\n<p>一般新建的publish.sh是没有执行权限的，使用 <code>chmod +x publish.sh</code> 添加可执行权限，再 <code>./publish.sh</code> 执行发布，发布过程中，需要登录npm账号、密码等即可</p>\n<p><img src=\"../../../images/blog/vue/vue_chart_npm_push.png\" alt=\"vue_chart_npm_push.png\"></p>\n<p>我们这里examples目录也跟着发布上传了，可以加参数来限定上传到npm包的文件。细节方面后面在优化。我们可以看到npm官网有我们刚上传的 <a href=\"https://www.npmjs.com/package/@guoqzuo/vue-chart\">@guoqzuo/vue-chart</a> 了</p>\n<p><img src=\"../../../images/blog/vue/guoqzuo_vue_chart.png\" alt=\"guoqzuo_vue_chart.png\"></p>\n<p>测试npm包，在vue项目中先安装</p>\n<pre><code class=\"language-bash\"># 这里建议加@latest，因为有时候发布后有延时\n# 直接npm i @guoqzuo/vue-chart 后可能还是原来的旧版本\nnpm i @guoqzuo/vue-chart@latest</code></pre>\n<p>安装完成后，再在 main.js 里引入，npm run serve 后可正常渲染</p>\n<pre><code class=\"language-js\">// examples/src/main.js\nimport VueChart from &quot;@guoqzuo/vue-chart&quot;;\nVue.use(VueChart);</code></pre>\n<p>另外，我们再测试下 unpkg cdn是否生效</p>\n<pre><code class=\"language-html\">&lt;!-- docs/index.html --&gt;\n&lt;body&gt;\n    &lt;div id=&quot;app&quot;&gt;\n        &lt;my-button&gt;我的按钮&lt;/my-button&gt;\n    &lt;/div&gt;\n    &lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;\n    &lt;!-- &lt;script src=&quot;../lib/vue-chart.umd.js&quot;&gt;&lt;/script&gt; --&gt;\n     &lt;script src=&quot;https://unpkg.com/@guoqzuo/vue-chart@latest/lib/vue-chart.umd.min.js&quot;&gt;&lt;/script&gt;\n    &lt;script&gt;\n        const app = new Vue({\n            el: &#39;#app&#39;\n        })\n    &lt;/script&gt;\n&lt;/body&gt;</code></pre>\n<p>测试可正常运行，以上完成了一个基本vue组件库的开发流程，后面再慢慢优化。</p>\n<h2 id=\"6-dosify官网搭建\">6. dosify官网搭建</h2>\n<p>使用 dosify 写一个组件库官网，参考 <a href=\"http://www.zuo11.com/blog/2020/10/ui_doc.html\">怎么写出类似element官网那样可以实时看运行效果的文档</a></p>\n<p>完整代码已上传github，参见 <a href=\"https://github.com/zuoxiaobai/vue-chart\">zuoxiaobai/vue-chart</a></p>\n<p>使用 dosify 写的对应的官网 <a href=\"https://vuechart.zuo11.com\">@guoqzuo/vue-chart官网</a></p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://segmentfault.com/a/1190000014924557\">如何用vue写一个组件库</a></li>\n<li><a href=\"http://www.fly63.com/article/detial/2631\">写一个vue组件库_跟着element学习写组件</a></li>\n<li><a href=\"https://vue-loader.vuejs.org/zh/#vue-loader\">Vue Loader</a></li>\n<li><a href=\"https://segmentfault.com/a/1190000016365409\">package.json 非官方字段集合 - 前端小站 - SegmentFault 思否</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "怎么用vue写一个组件库，类似element",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "1.组件库目录结构"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "2.导出组件库"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "3.本地测试组件"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "4.打包构建umd"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "5.上传npm包"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "6. dosify官网搭建"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "怎么用vue写一个组件库，类似element.md",
+        "staticFileName": "vue_ui_lib.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "下面通过一个简单的示例来看怎么写一个vue组件库，分为 6 步：1. 目录规划 2. 组件库入口文件 3. 本地测试组件 4. 打包构建 UMD 5. 上传 npm 包 6. dosify搭建官网",
+        "keywords": "vue组件库,vue组件库编写流程",
+        "category": "Vue",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-cli构建项目时选择不同的eslint规则会有什么区别？\">Vue CLI构建项目时选择不同的eslint规则会有什么区别？</h1>\n<p>当我们使用 vue create xxx 时，会让选择是否需要某个模块，如下图</p>\n<p><img src=\"../../../images/blog/vue/vue_create_perset.png\" alt=\"vue_create_perset.png\"></p>\n<p>如果有使用空格选择 Linter / Formatter，那么后面的流程会让你选择一种eslint规则</p>\n<pre><code class=\"language-bash\">? Pick a linter / formatter config: (Use arrow keys)\n❯ ESLint with error prevention only \n  ESLint + Airbnb config \n  ESLint + Standard config \n  ESLint + Prettier </code></pre>\n<p>加上不使用Linter / Formatter，总共有 5 种情况，我们都逐一试试，看生成的package.json有什么不同</p>\n<blockquote>\n<p>注意除了eslint规则选择不一样外，其他都一样。vue-cli 版本 4.5.0，vue 版本 2.x</p>\n</blockquote>\n<pre><code class=\"language-js\">// 统一选择 lint on save，配置放到package.json，不单独生成elsint配置文件\n? Pick additional lint features: Lint on save\n? Where do you prefer placing config for Babel, ESLint, etc.? In package.json</code></pre>\n<h2 id=\"不使用eslint时\">不使用eslint时</h2>\n<p>package.json里面只有 vue 依赖的一些基础模块</p>\n<pre><code class=\"language-js\">  &quot;scripts&quot;: {\n    &quot;serve&quot;: &quot;vue-cli-service serve&quot;,\n    &quot;build&quot;: &quot;vue-cli-service build&quot;\n  },\n  &quot;devDependencies&quot;: {\n    &quot;@vue/cli-plugin-babel&quot;: &quot;~4.5.0&quot;,\n    &quot;@vue/cli-plugin-router&quot;: &quot;~4.5.0&quot;,\n    &quot;@vue/cli-plugin-vuex&quot;: &quot;~4.5.0&quot;,\n    &quot;@vue/cli-service&quot;: &quot;~4.5.0&quot;,\n    &quot;less&quot;: &quot;^3.0.4&quot;,\n    &quot;less-loader&quot;: &quot;^5.0.0&quot;,\n    &quot;vue-template-compiler&quot;: &quot;^2.6.11&quot;\n  },</code></pre>\n<h2 id=\"eslint-with-error-prevention-only\">ESLint with error prevention only</h2>\n<p>下面是除了 vue 必要模块外，新增的 eslint 相关配置</p>\n<pre><code class=\"language-js\">&quot;scripts&quot;: {\n  &quot;lint&quot;: &quot;vue-cli-service lint&quot;\n},\n&quot;devDependencies&quot;: {\n    &quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n    &quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n    &quot;eslint&quot;: &quot;^6.7.2&quot;,\n    &quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n  },\n  &quot;eslintConfig&quot;: {\n    &quot;root&quot;: true,\n    &quot;env&quot;: {\n      &quot;node&quot;: true\n    },\n    &quot;extends&quot;: [\n      &quot;plugin:vue/essential&quot;,\n      &quot;eslint:recommended&quot;\n    ],\n    &quot;parserOptions&quot;: {\n      &quot;parser&quot;: &quot;babel-eslint&quot;\n    },\n    &quot;rules&quot;: {}\n  },</code></pre>\n<h2 id=\"eslint--airbnb-config\">ESLint + Airbnb config</h2>\n<pre><code class=\"language-js\"> &quot;devDependencies&quot;: {\n    &quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n    &quot;@vue/eslint-config-airbnb&quot;: &quot;^5.0.2&quot;,\n    &quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n    &quot;eslint&quot;: &quot;^6.7.2&quot;,\n    &quot;eslint-plugin-import&quot;: &quot;^2.20.2&quot;,\n    &quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n  },\n  &quot;eslintConfig&quot;: {\n    &quot;root&quot;: true,\n    &quot;env&quot;: {\n      &quot;node&quot;: true\n    },\n    &quot;extends&quot;: [\n      &quot;plugin:vue/essential&quot;,\n      &quot;@vue/airbnb&quot;\n    ],\n    &quot;parserOptions&quot;: {\n      &quot;parser&quot;: &quot;babel-eslint&quot;\n    },\n    &quot;rules&quot;: {}\n  },</code></pre>\n<p>多了一个.editorconfig</p>\n<pre><code class=\"language-js\">[*.{js,jsx,ts,tsx,vue}]\nindent_style = space\nindent_size = 2\nend_of_line = lf\ntrim_trailing_whitespace = true\ninsert_final_newline = true\nmax_line_length = 100</code></pre>\n<h2 id=\"eslint--standard-config\">ESLint + Standard config</h2>\n<pre><code class=\"language-js\"> &quot;devDependencies&quot;: {\n    &quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n    &quot;@vue/eslint-config-standard&quot;: &quot;^5.1.2&quot;,\n    &quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n    &quot;eslint&quot;: &quot;^6.7.2&quot;,\n    &quot;eslint-plugin-import&quot;: &quot;^2.20.2&quot;,\n    &quot;eslint-plugin-node&quot;: &quot;^11.1.0&quot;,\n    &quot;eslint-plugin-promise&quot;: &quot;^4.2.1&quot;,\n    &quot;eslint-plugin-standard&quot;: &quot;^4.0.0&quot;,\n    &quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n  },\n  &quot;eslintConfig&quot;: {\n    &quot;root&quot;: true,\n    &quot;env&quot;: {\n      &quot;node&quot;: true\n    },\n    &quot;extends&quot;: [\n      &quot;plugin:vue/essential&quot;,\n      &quot;@vue/standard&quot;\n    ],\n    &quot;parserOptions&quot;: {\n      &quot;parser&quot;: &quot;babel-eslint&quot;\n    },\n    &quot;rules&quot;: {}\n  },</code></pre>\n<p>多了一个.editorconfig</p>\n<pre><code class=\"language-js\">[*.{js,jsx,ts,tsx,vue}]\nindent_style = space\nindent_size = 2\ntrim_trailing_whitespace = true\ninsert_final_newline = true</code></pre>\n<h2 id=\"eslint--prettier\">ESLint + Prettier</h2>\n<pre><code class=\"language-js\">  &quot;devDependencies&quot;: {\n    &quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n    &quot;@vue/eslint-config-prettier&quot;: &quot;^6.0.0&quot;,\n    &quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n    &quot;eslint&quot;: &quot;^6.7.2&quot;,\n    &quot;eslint-plugin-prettier&quot;: &quot;^3.1.3&quot;,\n    &quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n    &quot;prettier&quot;: &quot;^1.19.1&quot;,\n  },\n  &quot;eslintConfig&quot;: {\n    &quot;root&quot;: true,\n    &quot;env&quot;: {\n      &quot;node&quot;: true\n    },\n    &quot;extends&quot;: [\n      &quot;plugin:vue/essential&quot;,\n      &quot;eslint:recommended&quot;,\n      &quot;@vue/prettier&quot;\n    ],\n    &quot;parserOptions&quot;: {\n      &quot;parser&quot;: &quot;babel-eslint&quot;\n    },\n    &quot;rules&quot;: {}\n  },</code></pre>\n<p>我们使用上面相同的配置，只是不选择将eslint配置放到paackage.json，而是选择 In dedicated config files 使用专门的配置文件，他会额外生成一个 .eslintrc.js 存放对应的eslint配置</p>\n<pre><code class=\"language-js\">// .eslintrc.js\nmodule.exports = {\n  root: true,\n  env: {\n    node: true\n  },\n  extends: [&quot;plugin:vue/essential&quot;, &quot;eslint:recommended&quot;, &quot;@vue/prettier&quot;],\n  parserOptions: {\n    parser: &quot;babel-eslint&quot;\n  },\n  rules: {\n    &quot;no-console&quot;: process.env.NODE_ENV === &quot;production&quot; ? &quot;warn&quot; : &quot;off&quot;,\n    &quot;no-debugger&quot;: process.env.NODE_ENV === &quot;production&quot; ? &quot;warn&quot; : &quot;off&quot;\n  }\n};</code></pre>\n<h2 id=\"eslint配置配置对比总结\">ESLint配置配置对比总结</h2>\n<pre><code class=\"language-js\">// 1. ESLint with error prevention only \n// - devDependencies\n&quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n&quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n&quot;eslint&quot;: &quot;^6.7.2&quot;,\n&quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n// - eslintConfig\n&quot;extends&quot;: [\n  &quot;plugin:vue/essential&quot;,\n  &quot;eslint:recommended&quot;\n],\n\n// 2. ESLint + Airbnb config \n// - devDependencies\n&quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n&quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n&quot;eslint&quot;: &quot;^6.7.2&quot;,\n&quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n&quot;@vue/eslint-config-airbnb&quot;: &quot;^5.0.2&quot;,\n&quot;eslint-plugin-import&quot;: &quot;^2.20.2&quot;,\n// - eslintConfig\n&quot;extends&quot;: [\n  &quot;plugin:vue/essential&quot;,\n  &quot;@vue/airbnb&quot;\n],\n\n// 3. ESLint + Standard config \n// - devDependencies\n&quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n&quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n&quot;eslint&quot;: &quot;^6.7.2&quot;,\n&quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n&quot;@vue/eslint-config-standard&quot;: &quot;^5.1.2&quot;,\n&quot;eslint-plugin-import&quot;: &quot;^2.20.2&quot;,\n&quot;eslint-plugin-node&quot;: &quot;^11.1.0&quot;,\n&quot;eslint-plugin-promise&quot;: &quot;^4.2.1&quot;,\n&quot;eslint-plugin-standard&quot;: &quot;^4.0.0&quot;,\n\n// - eslintConfig\n&quot;extends&quot;: [\n  &quot;plugin:vue/essential&quot;,\n  &quot;@vue/standard&quot;\n],\n\n// 4. ESLint + Prettier\n// - devDependencies\n&quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n&quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n&quot;eslint&quot;: &quot;^6.7.2&quot;,\n&quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n&quot;@vue/eslint-config-prettier&quot;: &quot;^6.0.0&quot;,\n&quot;eslint-plugin-prettier&quot;: &quot;^3.1.3&quot;,\n&quot;prettier&quot;: &quot;^1.19.1&quot;,\n// - eslintConfig\n&quot;extends&quot;: [\n  &quot;plugin:vue/essential&quot;,\n  &quot;eslint:recommended&quot;,\n  &quot;@vue/prettier&quot;\n],</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue CLI构建项目时选择不同的eslint规则会有什么区别？",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "不使用eslint时"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "ESLint with error prevention only"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "ESLint + Airbnb config"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "ESLint + Standard config"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "ESLint + Prettier"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "ESLint配置配置对比总结"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "Vue CLI构建项目时选择不同的eslint规则会有什么区别？.md",
+        "staticFileName": "vue_cli_eslint.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "当我们使用 vue create xxx 时，会让选择是否需要某个模块，如果有使用空格选择 Linter / Formatter，那么后面的流程会让你选择一种eslint规则。总共有 5 种情况，我们都逐一试试，看生成的package.json有什么不同",
+        "keywords": "vue-cli eslint,Vue CLI eslint",
+        "category": "Vue",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"怎么在老项目中加入eslint规则，并可以保存后自动fix\">怎么在老项目中加入eslint规则，并可以保存后自动fix</h1>\n<p>在 &quot;Vue CLI 构建项目时选择不同的 eslint 规则会有什么区别？&quot; 中，我们有了解到，不同的 eslint 配置项，会对应不同的 npm 包，eslintConfig 中对应的 extends 也不一样。我们只要找出某个配置特有的 npm 包，以及配置，就可以在旧项目中，引入对应的 eslint 配置，结合 vscode eslint 插件就可以做到保存后自动 fix</p>\n<ol>\n<li>新建一个目录 eslint-fix-test，cd 到该目录，使用 npm init -y 创建一个新的 package.json</li>\n<li>我们把 ESLint + Prettier 的 package.json 配置拷贝到这个 package.json 中</li>\n</ol>\n<pre><code class=\"language-js\">// ESLint + Prettier package.json配置\n &quot;devDependencies&quot;: {\n    &quot;@vue/cli-plugin-eslint&quot;: &quot;~4.5.0&quot;,\n    &quot;@vue/eslint-config-prettier&quot;: &quot;^6.0.0&quot;,\n    &quot;babel-eslint&quot;: &quot;^10.1.0&quot;,\n    &quot;eslint&quot;: &quot;^6.7.2&quot;,\n    &quot;eslint-plugin-prettier&quot;: &quot;^3.1.3&quot;,\n    &quot;eslint-plugin-vue&quot;: &quot;^6.2.2&quot;,\n    &quot;prettier&quot;: &quot;^1.19.1&quot;\n  },\n  &quot;eslintConfig&quot;: {\n    &quot;root&quot;: true,\n    &quot;env&quot;: {\n      &quot;node&quot;: true\n    },\n    &quot;extends&quot;: [\n      &quot;plugin:vue/essential&quot;,\n      &quot;eslint:recommended&quot;,\n      &quot;@vue/prettier&quot;\n    ],\n    &quot;parserOptions&quot;: {\n      &quot;parser&quot;: &quot;babel-eslint&quot;\n    },\n    &quot;rules&quot;: {}\n  }</code></pre>\n<ol start=\"3\">\n<li>npm install 安装依赖</li>\n<li>在该目录下写一个 test.vue 文件，或 test.js 文件，特意写的很随意，看eslint是否报错</li>\n</ol>\n<p>一般情况下，npm install 后，如果vscode eslint插件配置正确，会弹出如下弹窗，提示是否允许 eslint 修复</p>\n<p><img src=\"../../../images/blog/vue/eslint-fix-1.png\" alt=\"eslint-fix-1.png\"></p>\n<p>注意：</p>\n<ol>\n<li>如果没有安装配置好vscode的eslint插件，请先安装，可以参考我之前的笔记: <a href=\"http://www.zuo11.com/blog/2019/10/devtools_autofix.html\">2020 vscode配置eslint保存后自动fix</a></li>\n<li>如果没有生效，可以尝试<strong>新开一个vscode窗口，直接打开eslint-fix-test目录</strong>，有时候目录层级深了，会不起作用</li>\n<li>如果还是没生效，可以尝试彻底关闭 vscode，再重新打开</li>\n<li>有时候刚打开项目，eslint插件可能需要时间加载，等个几秒钟才会工作</li>\n</ol>\n<p>下面是我测试时，eslint插件工作正常的示例</p>\n<p><img src=\"../../../images/blog/vue/eslint-fix-2.png\" alt=\"eslint-fix-2.png\"></p>\n<p>保存后会自动fix，由于两个变量没使用还是会报警告，我用console.log打印了下，就没 warning了</p>\n<p><img src=\"../../../images/blog/vue/eslint-fix-3.png\" alt=\"eslint-fix-3.png\"></p>\n<p>综上，只要你知道某个 eslint 配置所需的npm包及 eslintConfig.extends 配置，那么就可以在项目中任意使用eslint了，完整测试 demo 可以从 github 下载 <a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/eslint-fix-test\">eslint-fix-test | github</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "怎么在老项目中加入eslint规则，并可以保存后自动fix"
+        }
+      ],
+      "config": {
+        "source": "怎么在老项目中加入eslint规则，并可以保存后自动fix.md",
+        "staticFileName": "old_project_eslint.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "在 'Vue CLI 构建项目时选择不同的 eslint 规则会有什么区别？' 中，我们有了解到，不同的 eslint 配置项，会对应不同的 npm 包，eslintConfig 中对应的 extends 也不一样。我们只要找出某个配置特有的 npm 包，以及配置，就可以在旧项目中，引入对应的 eslint 配置，结合 vscode eslint 插件就可以做到保存后自动 fix",
+        "keywords": "老项目加eslint,旧项目引入eslint,vue eslint",
+        "category": "Vue",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"mac设置vscode默认打开的浏览器\">mac设置vscode默认打开的浏览器</h1>\n<p>vscode中，安装 Live Server 插件后，在html文件里，右键 open with Live Server，可以将网页使用http服务在浏览器里面打开。</p>\n<p>我电脑里面默认打开的是 safari，但我一般习惯用Chrome，这个默认浏览器的设置需要在mac系统里设置</p>\n<p>点击屏幕左上角苹果标志 =&gt; 系统偏好设置 =&gt; 通用 =&gt; 默认网页浏览器 选择 Google Chrome 即可</p>\n<p><img src=\"../../../images/blog/vue/default_browser.png\" alt=\"default_browser.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "mac设置vscode默认打开的浏览器"
+        }
+      ],
+      "config": {
+        "source": "mac设置vscode默认打开的浏览器.md",
+        "staticFileName": "mac_default_browser.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "vscode中，安装 Live Server 插件后，在html文件里，右键 open with Live Server，可以将网页使用http服务在浏览器里面打开。我电脑里面默认打开的是 safari，但我一般习惯用Chrome，这个默认浏览器的设置需要在mac系统里设置，点击屏幕左上角苹果标志 => 系统偏好设置 => 通用 => 默认网页浏览器 选择 Google Chrome 即可",
+        "keywords": "vscode默认浏览器,mac设置默认浏览器",
+        "category": "计算机基础与开发工具",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"npm-run-运行多条命令--不生效的问题\">npm run 运行多条命令 &amp;&amp; 不生效的问题</h1>\n<p>在项目中除了默认的 webpack-dev-server 外，我们还想同时运行 mock 接口的 node 服务，会使用 &amp;&amp; 同时执行两条命令</p>\n<pre><code class=\"language-js\">// npm run 同时执行下面的两条命令\n// webpack-dev-server --config webpack.dev.js\n// nodemon ./mock/index.js</code></pre>\n<p>一般 &amp; 表示并列执行，&amp;&amp; 表示两条命令顺序执行。使用 &amp;&amp; 的形式设置对应的script，如下</p>\n<pre><code class=\"language-js\">&quot;scripts&quot;: {\n  &quot;server&quot;: &quot;nodemon ./mock/index.js &amp;&amp; webpack-dev-server --config webpack.dev.js&quot;\n}</code></pre>\n<p>但实际运行 npm run server 时，只运行了第一条命令，我的是mac，不知道是不是node版本的问题。网上找了下， &amp;&amp; 存在兼容性问题。建议使用 concurrently 来代替，concurrently 跨平台兼容</p>\n<pre><code class=\"language-js\">// 先安装 concurrently\n// npm install concurrently --save\n// 修改 package.json 如下\n&quot;server&quot;: &quot;concurrently \\&quot;nodemon ./mock/index.js\\&quot; \\&quot;webpack-dev-server --config webpack.dev.js\\&quot;&quot;</code></pre>\n<p>这样就可以了，运行效果如下</p>\n<p><img src=\"../../../images/blog/node/npm_run_multi.png\" alt=\"npm_run_multi.png\"></p>\n<p>注意：&amp;&amp; 是按顺序执行多条命令， concurrently 是并列执行多条命令，对于跨平台的顺序执行，可以使用 npm-run-all</p>\n<p>参考：<a href=\"https://blog.csdn.net/ligang2585116/article/details/105909789/\">npm并行&amp;串行执行多个scripts命令</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "npm run 运行多条命令 && 不生效的问题"
+        }
+      ],
+      "config": {
+        "source": "npm run 运行多条命令 && 不生效的问题.md",
+        "staticFileName": "npm_run_multi.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/25",
+        "description": "在项目中除了默认的 webpack-dev-server 外，我们还想同时运行 mock 接口的 node 服务，，会使用 && 同时执行两条命令。在有些使用实际运行 npm run server 时，只运行了第一条命令，我的是mac，不知道是不是node版本的问题。网上找了下， && 存在兼容性问题。建议使用 concurrently 来代替，concurrently 跨平台兼容",
+        "keywords": "npm run &&多条命令不生效",
+        "category": "前端工程化",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
       "htmlStr": "<h1 id=\"description在seo中的重要性\">description在seo中的重要性</h1>\n<p>网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。</p>\n<h2 id=\"网站页面描述description\">网站页面描述(description)</h2>\n<p>2020年02月15号，我像往常一样在百度搜索 <strong>site:zuo11.com</strong> 来看网站的收录情况。发现之前在半个月前提交的页面，百度已经收录了部分。但仔细看发现有点怪，百度搜索出来的页面，内容显示的信息比较少，如下图：</p>\n<p><img src=\"../../../images/blog/seo/mata_description_baidu.png\" alt=\"mata_description_baidu.png\"></p>\n<p>而且这些信息正好是我通过 <strong>meta</strong> 元素指定的 <strong>description</strong> 属性的内容</p>\n<pre><code class=\"language-html\">&lt;meta name=&quot;application name&quot; content=&quot;apue_first.html&quot;&gt;\n&lt;meta name=&quot;author&quot; content=&quot;guoqzuo&quot;&gt;\n&lt;meta name=&quot;description&quot; content=&quot;UNIX环境高级编程简介，概览&quot;&gt;\n&lt;meta name=&quot;keywords&quot; content=&quot;APUE,apue 笔记, APUE笔记,UNIX基础知识,UNIX环境高级编程,apue&quot;&gt;</code></pre>\n<p>所以得出结论，在百度的搜索中，description的内容是很重要的，还是不能谁便填写。</p>\n<h2 id=\"google对description的处理\">Google对description的处理</h2>\n<p>后面我看了下google的收录情况，发现同样的页面，google并不像百度那样直接显示description内容，而是直接截取了文章内容的开头部分，如下图:</p>\n<p><img src=\"../../../images/blog/seo/mata_description_google.png\" alt=\"mata_description_google.png\"></p>\n<h2 id=\"seo中google和百度的一些区别\">seo中Google和百度的一些区别</h2>\n<p>上面提到了Google在显示descrption时与百度的差异，其实还有有些地方有区别，比如收录页面规则，处理死链规则。</p>\n<h3 id=\"收录页面方面\">收录页面方面</h3>\n<ul>\n<li>百度: 先进行一段时间判定，页面评定OK后，会进行收录，提交一个页面，可能要半个月才会收录</li>\n<li>Google: 先进行收录，然后再一段时间内对页面进行判定，完成评估内容不好久会撤掉，提交一个页面，1天后就会收录</li>\n</ul>\n<h3 id=\"死链处理方面\">死链处理方面</h3>\n<ul>\n<li>百度: 当页面被收录，网站如果出现了改版，且收录的页面成了死链，提交死链给百度，3天后收录里面居然还有，处理的比较很慢</li>\n<li>Google: 提交死链后，最多一天你就在收录里看不到对应的死链页面了</li>\n</ul>\n<p>注意：提交链接，提交死链需要在百度站长平台或Google Search console里提交</p>\n<h3 id=\"总结\">总结</h3>\n<p>相对于百度来讲google确实更智能一点</p>\n",
       "outline": [
         {
@@ -12443,7 +12748,7 @@
       }
     }
   ],
-  "count": 315,
+  "count": 323,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,
