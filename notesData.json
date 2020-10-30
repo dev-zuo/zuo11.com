@@ -602,6 +602,13 @@
         "keywords": "git修改commit信息"
       },
       {
+        "title": "git status中文乱码怎么解决",
+        "href": "2020/10/git_status_chinese.html",
+        "time": "2020/10/31",
+        "description": "git status时，如果中文乱码，可以对git进行一个配置即可 `git config --global core.quotepath false` 具体效果如下图",
+        "keywords": "git中文乱码,git status乱码,git乱码"
+      },
+      {
         "title": "windows下nginx部署https服务实战",
         "href": "2020/6/nginx_https.html",
         "time": "2020/06/21",
@@ -1215,6 +1222,13 @@
         "keywords": "css变量,-- css变量的使用，var() 与变量 --"
       },
       {
+        "title": "normalize.css浏览器样式差异抹平",
+        "href": "2020/10/normalize.html",
+        "time": "2020/10/31",
+        "description": "normalize.css, A modern alternative to CSS resets 一个用于CSS重置的现代替代方法。主要用于解决不同浏览器默认样式之间的差异。What does it do? - Preserves useful defaults, unlike many CSS resets. 保留有用的默认样式，重置许多不一样的CSS - Normalizes styles for a wide range of elements. 为许多各种各样的元素标准化样式",
+        "keywords": "浏览器样式差异抹平,normalize.css"
+      },
+      {
         "title": "怎么给三角形加border，添加到我的小程序UI实现以及需要注意的问题",
         "href": "2020/2/border_border.html",
         "time": "2020/02/29",
@@ -1530,6 +1544,20 @@
         "time": "2020/10/25",
         "description": "在 'Vue CLI 构建项目时选择不同的 eslint 规则会有什么区别？' 中，我们有了解到，不同的 eslint 配置项，会对应不同的 npm 包，eslintConfig 中对应的 extends 也不一样。我们只要找出某个配置特有的 npm 包，以及配置，就可以在旧项目中，引入对应的 eslint 配置，结合 vscode eslint 插件就可以做到保存后自动 fix",
         "keywords": "老项目加eslint,旧项目引入eslint,vue eslint"
+      },
+      {
+        "title": "Vue实用echarts组件封装",
+        "href": "2020/10/vue_echarts.html",
+        "time": "2020/10/31",
+        "description": "vue中使用echarts可以自己封装一个简单的组件。实现每次更新数据只需要修改options的值即可，并自带loading、暂无数据slot。先来看看使用demo",
+        "keywords": "Vue echarts组件封装,echarts组件"
+      },
+      {
+        "title": "vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题",
+        "href": "2020/10/vue_comps_complex.html",
+        "time": "2020/10/31",
+        "description": "一般在封装vue组件时，怎么把组件封装的更好，更容易维护理解是值得思考的问题。来看一个实际场景：一个组件里有高级查询和列表，他们东西都比较多，需要拆分成两个子组件",
+        "keywords": "vue组件封装,props ref vuex封装组件时对比"
       },
       {
         "title": "使用js调用vue单文件组件",
@@ -1954,6 +1982,27 @@
         "keywords": "vscode默认浏览器,mac设置默认浏览器"
       },
       {
+        "title": "mac安装nginx在官网下载与使用brew下载的区别",
+        "href": "2020/10/nginx_install.html",
+        "time": "2020/10/31",
+        "description": "nginx官网直接下载的包，mac下可以直接进入该目录使用，但没有加到环境变量，不能在Terminal的任何目录下直接使用。如果使用 `brew install nginx` 安装，他会直接都安装好，并修改环境变量。可以使用which nginx来看具体的地址",
+        "keywords": "mac nginx安装方法,mac nginx"
+      },
+      {
+        "title": "svn: error: The subversion command line tools are no longer provided by Xcode",
+        "href": "2020/10/svn_error.html",
+        "time": "2020/10/31",
+        "description": "在新的macos系统中，xcode不再集成svn，需要自己安装。可以使用 `brew install svn` 进行安装。一般 brew 安装前，需要替换源，会快一点，参考：[mac安装brew下载慢，安装异常，切换成ruby-china源](http://www.zuo11.com/blog/2020/10/brew_slow.html)",
+        "keywords": "svn error,mac svn安装"
+      },
+      {
+        "title": "mac安装brew下载慢，安装异常，切换成ruby-china源",
+        "href": "2020/10/brew_slow.html",
+        "time": "2020/10/31",
+        "description": "mac下使用brew可以很方便的安装svn、nginx等常用的工具。什么是brew [bruː]，它的全称是 [Homebrew](https://brew.sh/)，The Missing Package Manager for macOS (or Linux)。它可以安装macOS或linux下没有的包(Package)。一般使用ruby来安装",
+        "keywords": "brew下载慢,brew切换ruby源,brew安装异常"
+      },
+      {
         "title": "使用new Date()在前端获取当期时间是不准确的",
         "href": "2020/6/new_date_fe.html",
         "time": "2020/06/21",
@@ -2122,6 +2171,13 @@
         "time": "2020/10/25",
         "description": "在项目中除了默认的 webpack-dev-server 外，我们还想同时运行 mock 接口的 node 服务，，会使用 && 同时执行两条命令。在有些使用实际运行 npm run server 时，只运行了第一条命令，我的是mac，不知道是不是node版本的问题。网上找了下， && 存在兼容性问题。建议使用 concurrently 来代替，concurrently 跨平台兼容",
         "keywords": "npm run &&多条命令不生效"
+      },
+      {
+        "title": "npm install -g或者npm link需要sudo的问题",
+        "href": "2020/10/npm_sudo.html",
+        "time": "2020/10/31",
+        "description": "在mac下，安装node后，会出现两个命令 npm 和 node，再使用 npm install -g 时，默认需要管理员权限，可以再前面加 sudo 以管理源方式运行即可。如果在开发 npm 包的时候。如果开发对应的命令程序，测试时需要在当前目录执行 npm link，这里也需要加 sudo。",
+        "keywords": "sudo npm install -g,sudo npm link,npm link执行报错,npm install -g执行报错"
       },
       {
         "title": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理",
@@ -8527,6 +8583,174 @@
       }
     },
     {
+      "htmlStr": "<h1 id=\"normalizecss浏览器样式差异抹平\">normalize.css浏览器样式差异抹平</h1>\n<p><a href=\"https://github.com/necolas/normalize.css\">normalize.css</a>, A modern alternative to CSS resets 一个用于CSS重置的现代替代方法</p>\n<p>主要用于解决不同浏览器默认样式之间的差异</p>\n<p>What does it do?</p>\n<ul>\n<li>Preserves useful defaults, unlike many CSS resets. 保留有用的默认样式，重置许多不一样的CSS</li>\n<li>Normalizes styles for a wide range of elements. 为许多各种各样的元素标准化样式</li>\n<li>Corrects bugs and common browser inconsistencies. 修正bug和常见的浏览器不一致样式</li>\n<li>Improves usability with subtle modifications. 通细微的修改提高可用性</li>\n<li>Explains what code does using detailed comments. 使用详细的注释来解释代码的作用</li>\n</ul>\n<p>下面来看看 Chrome、Safari、Firefox 三个浏览器之间的差异</p>\n<p><img src=\"../../../images/blog/css/before_normalize.png\" alt=\"before_normalize.png\"></p>\n<p>使用 normalize.css 后的效果 </p>\n<p><img src=\"../../../images/blog/css/after_normalize.png\" alt=\"after_normalize.png\"></p>\n<p>现有的UI框架也抹平了这些差异</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "normalize.css浏览器样式差异抹平"
+        }
+      ],
+      "config": {
+        "source": "normalize.css浏览器样式差异抹平.md",
+        "staticFileName": "normalize.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "normalize.css, A modern alternative to CSS resets 一个用于CSS重置的现代替代方法。主要用于解决不同浏览器默认样式之间的差异。What does it do? - Preserves useful defaults, unlike many CSS resets. 保留有用的默认样式，重置许多不一样的CSS - Normalizes styles for a wide range of elements. 为许多各种各样的元素标准化样式",
+        "keywords": "浏览器样式差异抹平,normalize.css",
+        "category": "CSS",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue实用echarts组件封装\">Vue实用echarts组件封装</h1>\n<p>vue中使用echarts可以自己封装一个简单的组件。实现每次更新数据只需要修改options的值即可，并自带loading、暂无数据slot。先来看看使用demo</p>\n<p><img src=\"../../../images/blog/vue/z-echart.gif\" alt=\"z-echart.gif\"></p>\n<pre><code class=\"language-js\">// main.js 全局引入\nimport VueChart from &quot;@guoqzuo/vue-chart&quot;;\nVue.use(VueChart);</code></pre>\n<p>然后在任意组件里可以直接使用 z-echart</p>\n<pre><code class=\"language-html\">&lt;!-- 固定宽柱状图，不自动resize --&gt;\n&lt;div style=&quot;width:300px; height: 300px&quot;&gt;\n  &lt;z-chart :options=&quot;bar&quot; :loading=&quot;loading&quot; :autoResize=&quot;false&quot;&gt; &lt;/z-chart&gt;\n&lt;/div&gt;\n&lt;!-- 宽高自适应，resize后自动渲染，当hasData为false时显示暂无数据的slot内容--&gt;\n&lt;div style=&quot;width: 50%; height: 50vh&quot;&gt;\n  &lt;z-chart :options=&quot;pie&quot; :hasData=&quot;hasData&quot;&gt;\n    暂无数据\n  &lt;/z-chart&gt;\n&lt;/div&gt;</code></pre>\n<p>来看看z-chart组件的实现细节，这里把echart单独用一个组件处理，在z-echart组件里引入，并加入loading、无数据的slot显示处理</p>\n<pre><code class=\"language-html\">&lt;template&gt;\n  &lt;!-- z-chart --&gt;\n  &lt;div class=&quot;z-chart-container&quot;&gt;\n    &lt;base-chart\n      v-if=&quot;!loading &amp;&amp; hasData&quot;\n      :options=&quot;options&quot;\n      v-on=&quot;$listeners&quot;\n      v-bind=&quot;$attrs&quot;\n    &gt;&lt;/base-chart&gt;\n    &lt;base-loading v-if=&quot;loading&quot;&gt;&lt;/base-loading&gt;\n\n    &lt;!-- no data slot --&gt;\n    &lt;slot v-if=&quot;!loading &amp;&amp; !hasData&quot;&gt;&lt;/slot&gt;\n  &lt;/div&gt;\n&lt;/template&gt;</code></pre>\n<p>base-chart代码如下，它主要做了三个操作</p>\n<ul>\n<li>使用options初始化图表</li>\n<li>如果是百分比大小的图，resize时，自动重绘</li>\n<li>使用watch监听options改动，如果有改动为了防止渲染异常，直接dispose销毁echart实例，重新加载</li>\n</ul>\n<pre><code class=\"language-html\">&lt;template&gt;\n  &lt;!-- base chart --&gt;\n  &lt;div class=&quot;z-chart&quot; ref=&quot;z-echart&quot;&gt;&lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nimport echarts from &quot;echarts&quot;;\nimport { addListener, removeListener } from &quot;resize-detector&quot;;\nimport { debounce } from &quot;lodash-es&quot;;\n\nexport default {\n  name: &quot;BaseChart&quot;,\n\n  props: {\n    options: {\n      type: Object,\n      required: false\n    },\n    autoResize: {\n      type: Boolean,\n      required: false,\n      default: true\n    }\n  },\n\n  data() {\n    return {};\n  },\n\n  created() {\n    // 监听 options 改动，改动后重绘数据\n    this.$watch(\n      &quot;options&quot;,\n      () =&gt; {\n        this.refresh();\n      },\n      { deep: true }\n    );\n  },\n\n  mounted() {\n    this.init();\n  },\n\n  beforeDestroy() {\n    this.destroy();\n  },\n\n  methods: {\n    init() {\n      let chart = echarts.init(this.$refs[&quot;z-echart&quot;]);\n      chart.setOption(this.options || {});\n      this.chart = chart;\n\n      // 当元素宽高改变时resize执行重绘\n      if (this.autoResize) {\n        this.__resizeHanlder = debounce(\n          () =&gt; {\n            chart.resize();\n          },\n          100,\n          { leading: true }\n        );\n        addListener(this.$el, this.__resizeHanlder);\n      }\n    },\n\n    destroy() {\n      // 销毁实例，防止 柱状图 动态切换到 饼图 时，柱状图部分属性依旧留存的问题\n      this.chart.dispose();\n      this.chart = null;\n      this.autoResize &amp;&amp; removeListener(this.$el, this.__resizeHanlder);\n    },\n\n    // 销毁后重绘，用于options变更后刷新图表\n    refresh() {\n      this.destroy();\n      this.init();\n    }\n  }\n};\n&lt;/script&gt;\n\n&lt;style lang=&quot;less&quot; scoped&gt;\n.z-chart {\n  width: 100%;\n  height: 100%;\n}\n&lt;/style&gt;</code></pre>\n<ul>\n<li><a href=\"https://github.com/zuoxiaobai/vue-chart/tree/master/examples/src/views/zchart\">完整测试demo地址 | github</a></li>\n<li><a href=\"https://github.com/zuoxiaobai/vue-chart/packages/z-chart/\">z-chart组件源码 | github</a></li>\n<li>更加高级的封装，可以查看 <a href=\"https://github.com/vueblocks/ve-charts\">ve-charts源码</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue实用echarts组件封装"
+        }
+      ],
+      "config": {
+        "source": "Vue实用echarts组件封装.md",
+        "staticFileName": "vue_echarts.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "vue中使用echarts可以自己封装一个简单的组件。实现每次更新数据只需要修改options的值即可，并自带loading、暂无数据slot。先来看看使用demo",
+        "keywords": "Vue echarts组件封装,echarts组件",
+        "category": "Vue",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"mac安装nginx在官网下载与使用brew下载的区别\">mac安装nginx在官网下载与使用brew下载的区别</h1>\n<p>nginx官网直接下载的包，mac下可以直接进入该目录使用，但没有加到环境变量，不能在Terminal的任何目录下直接使用。</p>\n<p><img src=\"../../../images/blog/others/nginx_down.png\" alt=\"nginx_down.png\"></p>\n<p>如果使用 <code>brew install nginx</code> 安装，他会直接都安装好，并修改环境变量。可以使用which nginx来看具体的地址</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "mac安装nginx在官网下载与使用brew下载的区别"
+        }
+      ],
+      "config": {
+        "source": "mac安装nginx在官网下载与使用brew下载的区别.md",
+        "staticFileName": "nginx_install.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "nginx官网直接下载的包，mac下可以直接进入该目录使用，但没有加到环境变量，不能在Terminal的任何目录下直接使用。如果使用 `brew install nginx` 安装，他会直接都安装好，并修改环境变量。可以使用which nginx来看具体的地址",
+        "keywords": "mac nginx安装方法,mac nginx",
+        "category": "计算机基础与开发工具",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"mac安装svn，svn-error-the-subversion-command-line-tools-are-no-longer-provided-by-xcode\">mac安装svn，svn: error: The subversion command line tools are no longer provided by Xcode.</h1>\n<p>在新的macos系统中，xcode不再集成svn，需要自己安装。可以使用 <code>brew install svn</code> 进行安装</p>\n<p>一般 brew 安装前，需要替换源，会快一点，参考：<a href=\"http://www.zuo11.com/blog/2020/10/brew_slow.html\">mac安装brew下载慢，安装异常，切换成ruby-china源</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "mac安装svn，svn: error: The subversion command line tools are no longer provided by Xcode."
+        }
+      ],
+      "config": {
+        "source": "svn: error: The subversion command line tools are no longer provided by Xcode.md",
+        "staticFileName": "svn_error.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "在新的macos系统中，xcode不再集成svn，需要自己安装。可以使用 `brew install svn` 进行安装。一般 brew 安装前，需要替换源，会快一点，参考：[mac安装brew下载慢，安装异常，切换成ruby-china源](http://www.zuo11.com/blog/2020/10/brew_slow.html)",
+        "keywords": "svn error,mac svn安装",
+        "category": "计算机基础与开发工具",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"mac安装brew下载慢，安装异常，切换成ruby-china源\">mac安装brew下载慢，安装异常，切换成ruby-china源</h1>\n<p>mac下使用brew可以很方便的安装svn、nginx等常用的工具。</p>\n<p>什么是brew [bruː]，它的全称是 <a href=\"https://brew.sh/\">Homebrew</a>，The Missing Package Manager for macOS (or Linux)。它可以安装macOS或linux下没有的包(Package)。</p>\n<p>一般使用ruby来安装</p>\n<pre><code class=\"language-bash\">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>\n<p>mac自带ruby，但如果直接安装，他会比较慢，直接卡死，安装不上。</p>\n<p><img src=\"../../../images/blog/others/ruby_brew_1.png\" alt=\"ruby_brew_1.png\"></p>\n<p>这就需要使用国内的 ruby 源了。类似与npm与cnpm的概念，这里使用ruby-china的源，具体参考：<a href=\"https://gems.ruby-china.com/\">RubyGems - Ruby China</a></p>\n<pre><code class=\"language-bash\"># 设置ruby源\ngem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/\n# 查看ruby源\ngem sources -l</code></pre>\n<p><img src=\"../../../images/blog/others/ruby_brew_2.png\" alt=\"ruby_brew_2.png\"></p>\n<p><strong>这样，再重新运行安装brew的命令就可以安装成功了，虽然也慢，但至少可以安装成功。安装包就快了。</strong></p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://zhuanlan.zhihu.com/p/59805070\">Mac必备神器Homebrew</a></li>\n<li><a href=\"https://ruby-china.org/topics/29250\">taobao Gems 源已停止维护，现由 ruby-china 提供镜像服务</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "mac安装brew下载慢，安装异常，切换成ruby-china源"
+        }
+      ],
+      "config": {
+        "source": "mac安装brew下载慢，安装异常，切换成ruby-china源.md",
+        "staticFileName": "brew_slow.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "mac下使用brew可以很方便的安装svn、nginx等常用的工具。什么是brew [bruː]，它的全称是 [Homebrew](https://brew.sh/)，The Missing Package Manager for macOS (or Linux)。它可以安装macOS或linux下没有的包(Package)。一般使用ruby来安装",
+        "keywords": "brew下载慢,brew切换ruby源,brew安装异常",
+        "category": "计算机基础与开发工具",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"git-status中文乱码怎么解决\">git status中文乱码怎么解决</h1>\n<p>git status时，如果中文乱码，可以对git进行一个配置即可 <code>git config --global core.quotepath false</code></p>\n<p>具体效果如下图</p>\n<p><img src=\"../../../images/blog/git/git_chinese_show.png\" alt=\"git_chinese_show.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "git status中文乱码怎么解决"
+        }
+      ],
+      "config": {
+        "source": "git status中文乱码怎么解决.md",
+        "staticFileName": "git_status_chinese.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "git status时，如果中文乱码，可以对git进行一个配置即可 `git config --global core.quotepath false` 具体效果如下图",
+        "keywords": "git中文乱码,git status乱码,git乱码",
+        "category": "运维部署与版本控制",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"npm-install--g或者npm-link需要sudo的问题\">npm install -g或者npm link需要sudo的问题</h1>\n<p>在mac下，安装node后，会出现两个命令 npm 和 node，再使用 npm install -g 时，默认需要管理员权限，可以再前面加 sudo 以管理源方式运行即可。</p>\n<p>如果在开发 npm 包的时候。如果开发对应的命令程序，测试时需要在当前目录执行 npm link，这里也需要加 sudo。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "npm install -g或者npm link需要sudo的问题"
+        }
+      ],
+      "config": {
+        "source": "npm install -g或者npm link需要sudo的问题.md",
+        "staticFileName": "npm_sudo.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "在mac下，安装node后，会出现两个命令 npm 和 node，再使用 npm install -g 时，默认需要管理员权限，可以再前面加 sudo 以管理源方式运行即可。如果在开发 npm 包的时候。如果开发对应的命令程序，测试时需要在当前目录执行 npm link，这里也需要加 sudo。",
+        "keywords": "sudo npm install -g,sudo npm link,npm link执行报错,npm install -g执行报错",
+        "category": "前端工程化",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题\">vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题</h1>\n<p>一般在封装vue组件时，怎么把组件封装的更好，更容易维护理解是值得思考的问题</p>\n<p>来看一个实际场景：一个组件里有高级查询和列表，他们东西都比较多，需要拆分成两个子组件</p>\n<pre><code class=\"language-html\">&lt;!-- index.vue --&gt;\n&lt;project-search&gt;&lt;/project-search&gt;\n&lt;project-list&gt;&lt;/project-list&gt;</code></pre>\n<p>查询的条件参数比较多，假设表单数据变量为 searchForm。</p>\n<p>按照封装的完整性原则，自己的组件的数据放到自己的组件中，那么 searchForm 就需要放到 project-search 组件里。</p>\n<p>但在index.vue中，我们需要查询列表，依赖searchForm的值，涉及到父组件取子组件的值的问题，一般有四种方法可以选择</p>\n<ul>\n<li>searchForm变量放到父组件，通过props传递到子组件（这样有点违背组件的封装性）</li>\n<li>vuex 个人认为，能不使用vuex的场景，尽量不要使用，除非真的需要使用，他会影响代码的简单性。</li>\n<li>bus 使用 bus 来通信，但和vuex类似，尽量少使用</li>\n<li>使用ref直接取。但由于副组件加载子组件时，在mounted钩子里 ref 拿对应的子组件可能会拿不到，需要加 setTiemout，也是一种比较怪的操作</li>\n</ul>\n<p>对比这几种情况。我一般使用props，把值直接放到index.vue里，再传递给子组件。这样算是比较好理解的一种方法，虽然封装性不强。但涉及到数据需要交互的场景，必须要做一些妥协。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题"
+        }
+      ],
+      "config": {
+        "source": "vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题.md",
+        "staticFileName": "vue_comps_complex.html",
+        "author": "guoqzuo",
+        "createDate": "2020/10/31",
+        "description": "一般在封装vue组件时，怎么把组件封装的更好，更容易维护理解是值得思考的问题。来看一个实际场景：一个组件里有高级查询和列表，他们东西都比较多，需要拆分成两个子组件",
+        "keywords": "vue组件封装,props ref vuex封装组件时对比",
+        "category": "Vue",
+        "year": "2020",
+        "month": "10"
+      }
+    },
+    {
       "htmlStr": "<h1 id=\"description在seo中的重要性\">description在seo中的重要性</h1>\n<p>网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。</p>\n<h2 id=\"网站页面描述description\">网站页面描述(description)</h2>\n<p>2020年02月15号，我像往常一样在百度搜索 <strong>site:zuo11.com</strong> 来看网站的收录情况。发现之前在半个月前提交的页面，百度已经收录了部分。但仔细看发现有点怪，百度搜索出来的页面，内容显示的信息比较少，如下图：</p>\n<p><img src=\"../../../images/blog/seo/mata_description_baidu.png\" alt=\"mata_description_baidu.png\"></p>\n<p>而且这些信息正好是我通过 <strong>meta</strong> 元素指定的 <strong>description</strong> 属性的内容</p>\n<pre><code class=\"language-html\">&lt;meta name=&quot;application name&quot; content=&quot;apue_first.html&quot;&gt;\n&lt;meta name=&quot;author&quot; content=&quot;guoqzuo&quot;&gt;\n&lt;meta name=&quot;description&quot; content=&quot;UNIX环境高级编程简介，概览&quot;&gt;\n&lt;meta name=&quot;keywords&quot; content=&quot;APUE,apue 笔记, APUE笔记,UNIX基础知识,UNIX环境高级编程,apue&quot;&gt;</code></pre>\n<p>所以得出结论，在百度的搜索中，description的内容是很重要的，还是不能谁便填写。</p>\n<h2 id=\"google对description的处理\">Google对description的处理</h2>\n<p>后面我看了下google的收录情况，发现同样的页面，google并不像百度那样直接显示description内容，而是直接截取了文章内容的开头部分，如下图:</p>\n<p><img src=\"../../../images/blog/seo/mata_description_google.png\" alt=\"mata_description_google.png\"></p>\n<h2 id=\"seo中google和百度的一些区别\">seo中Google和百度的一些区别</h2>\n<p>上面提到了Google在显示descrption时与百度的差异，其实还有有些地方有区别，比如收录页面规则，处理死链规则。</p>\n<h3 id=\"收录页面方面\">收录页面方面</h3>\n<ul>\n<li>百度: 先进行一段时间判定，页面评定OK后，会进行收录，提交一个页面，可能要半个月才会收录</li>\n<li>Google: 先进行收录，然后再一段时间内对页面进行判定，完成评估内容不好久会撤掉，提交一个页面，1天后就会收录</li>\n</ul>\n<h3 id=\"死链处理方面\">死链处理方面</h3>\n<ul>\n<li>百度: 当页面被收录，网站如果出现了改版，且收录的页面成了死链，提交死链给百度，3天后收录里面居然还有，处理的比较很慢</li>\n<li>Google: 提交死链后，最多一天你就在收录里看不到对应的死链页面了</li>\n</ul>\n<p>注意：提交链接，提交死链需要在百度站长平台或Google Search console里提交</p>\n<h3 id=\"总结\">总结</h3>\n<p>相对于百度来讲google确实更智能一点</p>\n",
       "outline": [
         {
@@ -12748,7 +12972,7 @@
       }
     }
   ],
-  "count": 323,
+  "count": 331,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,
@@ -12763,8 +12987,8 @@
           "href": "/blog/category.html"
         },
         {
-          "name": "语雀",
-          "href": "https://www.yuque.com/guoqzuo",
+          "name": "我的笔记",
+          "href": "http://fe.zuo11.com",
           "target": "_black"
         },
         {
@@ -12776,8 +13000,8 @@
     },
     "topRightLink": [
       {
-        "name": "语雀",
-        "href": "https://www.yuque.com/guoqzuo",
+        "name": "我的笔记",
+        "href": "http://fe.zuo11.com",
         "target": "_black"
       },
       {
