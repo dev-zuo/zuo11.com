@@ -214,6 +214,78 @@
     "description": "在项目中除了默认的 webpack-dev-server 外，我们还想同时运行 mock 接口的 node 服务，，会使用 && 同时执行两条命令。在有些使用实际运行 npm run server 时，只运行了第一条命令，我的是mac，不知道是不是node版本的问题。网上找了下， && 存在兼容性问题。建议使用 concurrently 来代替，concurrently 跨平台兼容",
     "keywords": "npm run &&多条命令不生效",
     "category": "前端工程化"
+  },
+  {
+    "source": "normalize.css浏览器样式差异抹平.md",
+    "staticFileName": "normalize.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "normalize.css, A modern alternative to CSS resets 一个用于CSS重置的现代替代方法。主要用于解决不同浏览器默认样式之间的差异。What does it do? - Preserves useful defaults, unlike many CSS resets. 保留有用的默认样式，重置许多不一样的CSS - Normalizes styles for a wide range of elements. 为许多各种各样的元素标准化样式",
+    "keywords": "浏览器样式差异抹平,normalize.css",
+    "category": "CSS"
+  },
+  {
+    "source": "Vue实用echarts组件封装.md",
+    "staticFileName": "vue_echarts.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "vue中使用echarts可以自己封装一个简单的组件。实现每次更新数据只需要修改options的值即可，并自带loading、暂无数据slot。先来看看使用demo",
+    "keywords": "Vue echarts组件封装,echarts组件",
+    "category": "Vue"
+  },
+  {
+    "source": "mac安装nginx在官网下载与使用brew下载的区别.md",
+    "staticFileName": "nginx_install.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "nginx官网直接下载的包，mac下可以直接进入该目录使用，但没有加到环境变量，不能在Terminal的任何目录下直接使用。如果使用 `brew install nginx` 安装，他会直接都安装好，并修改环境变量。可以使用which nginx来看具体的地址",
+    "keywords": "mac nginx安装方法,mac nginx",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "svn: error: The subversion command line tools are no longer provided by Xcode.md",
+    "staticFileName": "svn_error.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "在新的macos系统中，xcode不再集成svn，需要自己安装。可以使用 `brew install svn` 进行安装。一般 brew 安装前，需要替换源，会快一点，参考：[mac安装brew下载慢，安装异常，切换成ruby-china源](http://www.zuo11.com/blog/2020/10/brew_slow.html)",
+    "keywords": "svn error,mac svn安装",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "mac安装brew下载慢，安装异常，切换成ruby-china源.md",
+    "staticFileName": "brew_slow.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "mac下使用brew可以很方便的安装svn、nginx等常用的工具。什么是brew [bruː]，它的全称是 [Homebrew](https://brew.sh/)，The Missing Package Manager for macOS (or Linux)。它可以安装macOS或linux下没有的包(Package)。一般使用ruby来安装",
+    "keywords": "brew下载慢,brew切换ruby源,brew安装异常",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "git status中文乱码怎么解决.md",
+    "staticFileName": "git_status_chinese.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "git status时，如果中文乱码，可以对git进行一个配置即可 `git config --global core.quotepath false` 具体效果如下图",
+    "keywords": "git中文乱码,git status乱码,git乱码",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "npm install -g或者npm link需要sudo的问题.md",
+    "staticFileName": "npm_sudo.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "在mac下，安装node后，会出现两个命令 npm 和 node，再使用 npm install -g 时，默认需要管理员权限，可以再前面加 sudo 以管理源方式运行即可。如果在开发 npm 包的时候。如果开发对应的命令程序，测试时需要在当前目录执行 npm link，这里也需要加 sudo。",
+    "keywords": "sudo npm install -g,sudo npm link,npm link执行报错,npm install -g执行报错",
+    "category": "前端工程化"
+  },
+  {
+    "source": "vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题.md",
+    "staticFileName": "vue_comps_complex.html",
+    "author": "guoqzuo",
+    "createDate": "2020/10/31",
+    "description": "一般在封装vue组件时，怎么把组件封装的更好，更容易维护理解是值得思考的问题。来看一个实际场景：一个组件里有高级查询和列表，他们东西都比较多，需要拆分成两个子组件",
+    "keywords": "vue组件封装,props ref vuex封装组件时对比",
+    "category": "Vue"
   }
 ]
 

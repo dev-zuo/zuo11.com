@@ -12,8 +12,8 @@
         "href": "/blog/category.html"
       },
       {
-        "name": "语雀",
-        "href": "https://www.yuque.com/guoqzuo",
+        "name": "我的笔记",
+        "href": "http://fe.zuo11.com",
         "target": "_black"
       },
       {
@@ -25,8 +25,8 @@
   },
   "topRightLink": [
     {
-      "name": "语雀",
-      "href": "https://www.yuque.com/guoqzuo",
+      "name": "我的笔记",
+      "href": "http://fe.zuo11.com",
       "target": "_black"
     },
     {
