@@ -1,0 +1,74 @@
+[
+  {
+    "source": "Vue 父组件在什么时候开始加载子组件，父子组件的钩子函数顺序是什么？.md",
+    "staticFileName": "vue_son_hooks.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": "一般父组件会在自身组件 mounted 后，开始加载子组件，下面来通过一个例子来看完整的父子组件钩子函数。下面的例子中在 index.vue 以及 compA.vue 父子组件中都加了对应的钩子函数 console。父组件 beforeCreate => 父组件 created => 父组件 beforeMount => 父组件 mounted => 父组件 beforeUpdate => 子组件 beforeCreate => 子组件 created => 子组件 beforeMount => 子组件 mounted => 父组件 index updated",
+    "keywords": "vue父组件在什么时候开始加载子组件,vue父子组件钩子函数顺序",
+    "category": "Vue"
+  },
+  {
+    "source": "eslintignore不生效, vscode eslint插件不同版本有差异的问题.md",
+    "staticFileName": "eslintignore_vscode.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": ".eslintignore 文件的作用是，当不想对项目的某个目录进行 eslint 检查时，可以在这个文件中声明，类似 .gitignore 文件的效果。但有一个问题，vscode eslint插件不同版本的行为可能有差异，有可能把目录加入到了.eslintignore 后，保存时还是会 fix 这个目录下的 eslint 错误。这种情况建议升级到最新版本。",
+    "keywords": ".eslintignore不生效,vscode eslint插件不同版本差异",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "Vue 子组件名称与父组件name相同时死循环的问题.md",
+    "staticFileName": "vue_stacksize_exceeded'.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": "在vue项目中，假设父组件name与子组件名称一致，会造成死循环，出现 Error in nextTick: 'RangeError: Maximum call stack size exceeded' 的错误，template在编译时，不会去找 components 引入的组件，而是直接引入自己，形成一个循环引用、递归组件，要特别注意。",
+    "keywords": "vue组件循环引用,vue递归组件,Maximum call stack size exceeded",
+    "category": "Vue"
+  },
+  {
+    "source": "Vue keep-alive在路由跳转时按需缓存当前页面数据，$route非双向绑定的问题.md",
+    "staticFileName": "keep-alive-include.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": "有这么一个需求，页面 B 跳转到页面 C 时需要保存页面交互数据，跳到其他页面不缓存数据。在 Vue 中这种功能一般会使用 keep-alive 的 include 或 exclude 有条件的缓存来实现。起初我想省事，直接使用 $route.meta 来动态修改 include 值，但后面发现不生效，原来 $router.meta 不是双向绑定的，需要使用其他变量才行，下面来看看具体逻辑。",
+    "keywords": "vue keep-alive按需缓存页面,vue按需缓存,$route是否是双向绑定的",
+    "category": "Vue"
+  },
+  {
+    "source": "不全局安装npm包，怎么在项目目录下局部执行对应的命令.md",
+    "staticFileName": "npm_cmd_part.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": "一般在 Vue 开发中，vue 命令可以执行，是因为全局安装了 `@vue/cli` npm包。假设你无法使用 npm install -g 全局安装，那怎么在当前项目所在的目录运行对应的命令呢？这里我们使用 zuo-util 这么 npm 包来介绍 3 种在项目种运行 npm 包命令的方法：1. npm run xxx 2. npx 命令 3. ./node_modules/.bin/命令",
+    "keywords": "局部执行npm包命令,不全局安装npm包，怎么在项目中运行命令,局部执行命令",
+    "category": "前端工程化"
+  },
+  {
+    "source": "mac下怎么截取屏幕gif图：Gifox.md",
+    "staticFileName": "mac_gif_tools.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": "之前在 windows 下用过一款比较好用的免费 gif 工具。后面在 mac 上，就没怎么做 gif 图了。最开始在 mac 上尝试做 gif 图是使用 QuickTime 录制屏幕后，再搜索在线视频转 gif 图的网站进行转换，比较麻烦。最近发现一个比较好的软件 [Gifox](https://gifox.io/)，我使用的是免费版的，有水印，最大长度限制为10s。升级付费的版本可以去水印(watermark)，且没有10s限制。它功能强大，录制gif很方便",
+    "keywords": "mac gif,mac好用的gif工具,mac做gif图",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "涉及到状态code相关判断逻辑，建议使用常量.md",
+    "staticFileName": "code_logic.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": "对于一些状态较多的场景，当我们需要进行一些逻辑时，如果我们用状态的code来写判断逻辑。当后端提供的这个状态文案、code变更或调整，改动可能会很麻烦，特别是功能较多时。对于状态相关的判断逻辑，尽量把状态定义为容易识别的常量。这样状态名或状态code变更后，就不需要做大量修改了。",
+    "keywords": "code消除魔术字符串,code判断逻辑使用常量",
+    "category": "Javascript"
+  },
+  {
+    "source": "js生成二维码怎么实现.md",
+    "staticFileName": "js_qrcode.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/08",
+    "description": "QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式。QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM. QRCode.js has no dependencies. QRCode.js 使用很简单，下面来写一个自动生成二维码的工具",
+    "keywords": "js生成二维码,前端生成二维码,js生成二维码链接",
+    "category": "Javascript"
+  }
+]
