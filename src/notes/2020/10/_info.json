@@ -33,7 +33,7 @@
     "createDate": "2020/10/01",
     "description": "一般我们在需要设置某个对象的多个值时Object.assgin是一种很好的方法，但又怕当某个属性的值为空字符串、null或undefined时，会自动跳过的情况。这里来做一个简单的测试",
     "keywords": "Object.assgin是否会跳过null,undefined,''",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "http请求有哪几种传参方式.md",
@@ -78,7 +78,7 @@
     "createDate": "2020/10/08",
     "description": "在写下载/导出文件接口时，由于接口文件数据是流的形式而非buffer，导致total为0，无法获取进度。只能通过loaded知道当前下载了多少字节。前端显示时，怎么给出合适的单位，是KB、MB，还是G？",
     "keywords": "文件大小转换合适单位,单位元数据加合适的单位",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "节流与防抖理解以及element源码中节流与防抖的应用.md",
@@ -150,7 +150,7 @@
     "createDate": "2020/10/25",
     "description": "在前端开发中，这两个函数都是可以用于处理文件二进制数据的，一般用于上传文件时预览图片，或者在下载、导出文件时使用。下面来以上传图片、前端预览图片的功能为例，比较两个函数的的区别。下面的代码中，我们使用一个 radio 来切换使用两种方法。当检测到上传文件的 input 内容 change 后，根据当前 radio 的值，调用不同的方法来预览图片。运行效果如上图",
     "keywords": "文件预览,文件下载函数,createObjectURL,readAsDataURL",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "el-tabs跳转之前先弹窗确认后再切到tab页.md",

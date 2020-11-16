@@ -51,7 +51,7 @@
     "createDate": "2019/11/05",
     "description": "在web开发中，我们需要生成图片时，可以使用html2canvas，他可以将html转为png，pc端还好，移动端css的坑比较多，这里只是简单的介绍下怎么使用。先引入 html2canvas.js，根据其api调用，来看看具体示例",
     "keywords": "html2canvas将网页转换为图片,html2canvas使用示例",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "怎么使用Chrome断点调试功能，断点调试使用场景.md",
@@ -105,7 +105,7 @@
     "createDate": "2019/11/09",
     "description": "复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数",
     "keywords": "非箭头函数作为参数时this问题",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "点击外部关闭div - js阻止事件冒泡实例.md",
@@ -114,7 +114,7 @@
     "createDate": "2019/11/09",
     "description": "点击外部关闭div，一般在做弹窗div时，需要做点击div外部关闭div的功能，怎么做到的呢？一句话总结：用一个父元素(铺满屏幕，绝对布局)包裹该div(绝对布局，水平垂直居中，固定宽高)，**父元素监听点击事件后移除div，子元素div监听点击后阻止事件冒泡**。这样就实现了，点击外部关闭div，点击内部区域不关不div。",
     "keywords": "点击div外部关闭div,js点击外部关闭div,点击外部关闭div,js阻止事件冒泡实例",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "原生JS封装prompt组件.md",
@@ -123,7 +123,7 @@
     "createDate": "2019/11/09",
     "description": "自定义prompt组件，原生JS封装prompt，就项目中要用到prompt功能，但需要优化下UI，整体导入elementUI不合适，就自己用原生JS写了个。样式、div结构，直接从elementUI message-box审查元素里面抽离，相关点击事件，校验，自己封装。",
     "keywords": "自定义prompt,原生js自定义prompt组件",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "Docker与K8S集群.md",
@@ -177,7 +177,7 @@
     "createDate": "2019/11/12",
     "description": "Number.prototype.toFixed() 对number取整或保留指定小数位，但它是不准确的，就类似 0.1 + 0.2 ≠ 0.3 一样，下面来看看怎么处理",
     "keywords": "toFixed不精确的问题,toFixed保留小数点不准确的问题",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "vscode好用的插件.md",
@@ -204,7 +204,7 @@
     "createDate": "2019/11/14",
     "description": "Number.prototype.toLocaleString()可以将数字转换为千分位逗号分隔的字符串，而且该方法还内置了数字转人民币、美元等字符串的方法，这样我们在处理金钱相关的数据时就可以很方便使用了，来看一个列子",
     "keywords": "toLocaleString将数字转为逗号分隔的字符串,toLocaleString,Number.prototype.toLocaleString",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "什么是yarn.md",

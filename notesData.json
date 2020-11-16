@@ -714,7 +714,7 @@
         "keywords": "github clone慢,github clone超时,github clone不下来"
       }
     ],
-    "Javascript": [
+    "JavaScript": [
       {
         "title": "富文本编辑器使用execCommand插入图片不生效的问题",
         "href": "2018/10/web_richtext.html",
@@ -4480,7 +4480,7 @@
         "createDate": "2018/10/02",
         "description": "execcommand插入图片光标消失，最近打算实现一个评论系统，评论如果只能回复文字就太low了，于是就打算自己做一个简单的富文本编辑器。一般回复内容，我第一个想到的是textarea，做完回复文字的功能后，想着如果插入图片貌似不可行。",
         "keywords": "execcommand插入图片光标消失,富文本编辑器使用execCommand插入图片不生效的问题,execCommand插入图片不生效",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2018",
         "month": "10"
       }
@@ -4640,7 +4640,7 @@
         "createDate": "2018/10/26",
         "description": "http是基于请求和响应的无状态协议，无法保存状态，如果有数据需要在浏览器关闭后，下次进入还保存，就可以用cookie来解决这个问题。前端cookie可以用document.cookie来读取，格式为key=value;key=value键值对的形式",
         "keywords": "前端cookie的使用,cookie",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2018",
         "month": "10"
       }
@@ -4963,7 +4963,7 @@
         "createDate": "2019/10/09",
         "description": "通过一个URL进入一个页面，需要滚动到对应的锚点位置，可以用什么方法呢，下面我们来总结下页面滚动相关的一些方法，例如：Element.scrollIntoView、window.scroll、window.scrollTo、window.scrollBy、Element.scrollTop等",
         "keywords": "js页面滚动,页面滚动,scroll,scrollTo,scrollBy,scrollTop,scrollLeft,scrollIntoView,使用hash滚动,vue中vue-router滚动",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "10"
       }
@@ -5091,7 +5091,7 @@
         "createDate": "2019/10/10",
         "description": "一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams",
         "keywords": "URLSearchParams URL查询字符串处理,url查询字符串处理,URLSearchParams,处理查询字符串优雅的方法",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "10"
       }
@@ -5436,7 +5436,7 @@
         "createDate": "2019/10/26",
         "description": "之前一朋友在微信群里问，是否能做一个动画，在每次进入页面的时候，实现美元钞票向四周扩散的效果，也就是一个遮罩动画。当时刚看完js高程3不久，就用原生js写了个动画，如果页面需要这个动画，只需要引入一个js就可以。",
         "keywords": "原生JS实现遮罩动画,js实现美元图片四周散开动画效果,js实现美元各方向散开的动画效果",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "10"
       }
@@ -5517,7 +5517,7 @@
         "createDate": "2019/10/28",
         "description": "JS到底是解释型语言还是编译型语言呢？一般的书里都写的是js是一种解释型语言，但令人令人困惑的地方是：—般解释型语言是逐行解释执行的，为什么JS会有変曩提升(hoisting)的能力？执行JS时会用到JIT, JIT(just in time compilers 及时编译）会做代码优化(同时也会创建代码的编译版本),解释型语言无法做到这些变量提升问题",
         "keywords": "JS到底是解释型语言还是编译型语言",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "10"
       }
@@ -5750,7 +5750,7 @@
         "createDate": "2019/11/05",
         "description": "在web开发中，我们需要生成图片时，可以使用html2canvas，他可以将html转为png，pc端还好，移动端css的坑比较多，这里只是简单的介绍下怎么使用。先引入 html2canvas.js，根据其api调用，来看看具体示例",
         "keywords": "html2canvas将网页转换为图片,html2canvas使用示例",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "11"
       }
@@ -5905,7 +5905,7 @@
         "createDate": "2019/11/09",
         "description": "复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数",
         "keywords": "非箭头函数作为参数时this问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "11"
       }
@@ -5926,7 +5926,7 @@
         "createDate": "2019/11/09",
         "description": "点击外部关闭div，一般在做弹窗div时，需要做点击div外部关闭div的功能，怎么做到的呢？一句话总结：用一个父元素(铺满屏幕，绝对布局)包裹该div(绝对布局，水平垂直居中，固定宽高)，**父元素监听点击事件后移除div，子元素div监听点击后阻止事件冒泡**。这样就实现了，点击外部关闭div，点击内部区域不关不div。",
         "keywords": "点击div外部关闭div,js点击外部关闭div,点击外部关闭div,js阻止事件冒泡实例",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "11"
       }
@@ -5976,7 +5976,7 @@
         "createDate": "2019/11/09",
         "description": "自定义prompt组件，原生JS封装prompt，就项目中要用到prompt功能，但需要优化下UI，整体导入elementUI不合适，就自己用原生JS写了个。样式、div结构，直接从elementUI message-box审查元素里面抽离，相关点击事件，校验，自己封装。",
         "keywords": "自定义prompt,原生js自定义prompt组件",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "11"
       }
@@ -6207,7 +6207,7 @@
         "createDate": "2019/11/12",
         "description": "Number.prototype.toFixed() 对number取整或保留指定小数位，但它是不准确的，就类似 0.1 + 0.2 ≠ 0.3 一样，下面来看看怎么处理",
         "keywords": "toFixed不精确的问题,toFixed保留小数点不准确的问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "11"
       }
@@ -6316,7 +6316,7 @@
         "createDate": "2019/11/14",
         "description": "Number.prototype.toLocaleString()可以将数字转换为千分位逗号分隔的字符串，而且该方法还内置了数字转人民币、美元等字符串的方法，这样我们在处理金钱相关的数据时就可以很方便使用了，来看一个列子",
         "keywords": "toLocaleString将数字转为逗号分隔的字符串,toLocaleString,Number.prototype.toLocaleString",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "11"
       }
@@ -6619,7 +6619,7 @@
         "createDate": "2019/12/04",
         "description": "sessionStorage和localstorage都属于Web Storage，在JS高程3中有讲，这里来回顾下，一般sessionStorage关闭浏览器后会消失，localstorage不会。",
         "keywords": "sessionStorage和localstorage的区别",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -6652,7 +6652,7 @@
         "createDate": "2019/12/05",
         "description": "在做get请求时，我们需要传一些参数，单纯的字符串拼接的方法不够优雅，下面来看怎么用URLSearchParams将对象直接转为查询字符串，另外查看axios源码，看看axios内部是怎么将params对象拼接到url上的",
         "keywords": "对象转url查询字符串,axios是怎么将params对象转查询字符串的",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -6790,7 +6790,7 @@
         "createDate": "2019/12/09",
         "description": "Optional chaining operator(?.) 与 Nullish coalescing Operator(??) 目前正式进入 stg4，确定会成为ES2020标准，阮一峰老师已经在他的es6入门教程里更新了，下面来看看具体怎么使用",
         "keywords": "??与?.,js ??是什么意思,js ?.是什么意思",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -6901,7 +6901,7 @@
         "createDate": "2019/12/18",
         "description": "在写app内嵌H5页面时，之前遇到过这个问题，当输入时，键盘弹起导致底部按钮也被抬起了，这里用监听视窗高度变换的方法来fix这个问题,监听window.onresize，如果与之前的视窗高度不一致：变小了，就隐藏底部button，完成输入后，监听到视窗高度变大再次显示底部按钮",
         "keywords": "安卓input键盘弹起导致底部按钮也被抬起的问题,app内嵌H5安卓键盘抬起相关问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -7056,7 +7056,7 @@
         "createDate": "2019/12/19",
         "description": "localStorage本身没有提供对应的遍历方法，我们可以使用 localStorage.key(index) 结合for循环来遍历",
         "keywords": "怎么遍历localStorage,怎么遍历sessionStorage",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -7077,7 +7077,7 @@
         "createDate": "2019/12/19",
         "description": "在开发app内嵌H5时，iOS系统里，输入框输入时，页面会被抬起，但输入完成后，页面不会自动回弹，这里需要特殊处理下，解决方法：在对应的input元素加 @blur 事件，input失去焦点时，手动滚动页面 window.scroll(0,0)",
         "keywords": "iOS环境下点击输入框页面被顶起不能自动回弹底部的问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -7318,7 +7318,7 @@
         "createDate": "2019/12/26",
         "description": "ES5之前，基本数据类型有五个 boolean, string, number, null, undefined, ES6(ES2015)新增了一个symbol，ES2019 新增了 bigint，它用于表示大于 2的53次方 - 1的数据，即 > 9007199254740991",
         "keywords": "a + 1 === a + 2为true的场景,es2019 bigint数据类型",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -7372,7 +7372,7 @@
         "createDate": "2019/12/27",
         "description": "在基本数据类型中，我们发现像String, Number是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用new创建，这是为什么呢？ BigInt内部是怎么检测用户使用了new来调用的？下面来看看",
         "keywords": "Symbol、BigInt不能new，而Stirng、Number可以new，为什么,BigInt内部是怎么检测用户使用了new来调用的",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -7393,7 +7393,7 @@
         "createDate": "2019/12/27",
         "description": "当你在app内容H5中使用了localStorage又担心可能会超出5M的限制时，就要注意localStorage的清除了。那怎么才能清除app内嵌H5的localStorage呢？我做了一些测试",
         "keywords": "怎么清除app内嵌H5的localStorage",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2019",
         "month": "12"
       }
@@ -7574,7 +7574,7 @@
         "createDate": "2020/01/07",
         "description": "当监听到事件，事件的 eveent.target 怎么判断是否在某个div内部呢？可以使用DOM专有扩展的contains方法",
         "keywords": "怎么判断当前鼠标是否在某个div内部,怎么判断当前event.target在某个div内部",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "1"
       }
@@ -7696,7 +7696,7 @@
         "createDate": "2020/01/09",
         "description": "在ES5中新增了很多方便操作数组的方法，包括新5种数组的迭代方法：forEach, map, filter, some, every；缩小方法：reduce()；检测数组方法Array.isArray()等，这些方法让操作数组更加优雅，趋近于函数式编程. 在ES6中又增加了for..of以及values,entres,keys等，下面来详细看看",
         "keywords": "js遍历数组方法总结,es5 es6遍历数组方法,forEach的缺点以及与for..of和for...in的区别",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "1"
       }
@@ -7717,7 +7717,7 @@
         "createDate": "2020/01/09",
         "description": "包含await操作的函数被二次封装成函数，await该函数时执行顺序需要注意，当一个包含await的函数A，被另一个函数B包裹，当await函数B执行时，如果包裹函数B里并没有return函数A或await函数A，await函数B执行时并不会等到函数A全部执行完毕才继续执行，来看个例子",
         "keywords": "async await执行顺序的额问题，如果await的非promise不会等待",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "1"
       }
@@ -7843,7 +7843,7 @@
         "createDate": "2020/01/19",
         "description": "一般想模拟延时，测试loading效果时，会写一个等待函数，怎么最简单方便呢？下面来研究下",
         "keywords": "js sleep测试loading时写的等待函数最简代码",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "1"
       }
@@ -7885,7 +7885,7 @@
         "createDate": "2020/01/21",
         "description": "正常情况使用 sort 是好用的，但如果有数字时，会有问题，因为如果sort不传参，默认情况下会将所有元素转换为字符串后，再根据unicode值来进行排序，下面我们来看看对应的实例",
         "keywords": "js sort数组不准确,js sort负数不准确, js sort对数组排序时的坑",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "1"
       }
@@ -7906,7 +7906,7 @@
         "createDate": "2020/01/21",
         "description": "我们知道Set是JS的一个种新的数据结构，和数组类似，和数组不同的是它可以去重，比如存入两个1或两个'123'，只有1条数据会存入成功，但有个特殊情况，如果添加到set的值是引用类型，比如数组、对象，他将无法自动去重。因为值相同的两个引用类型地址是不一样的。下面来看一个例子：",
         "keywords": "js set去重对数组，对象无效,为什么使用set对数组或对象去重时会无效",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "1"
       }
@@ -8169,7 +8169,7 @@
         "createDate": "2020/10/01",
         "description": "一般我们在需要设置某个对象的多个值时Object.assgin是一种很好的方法，但又怕当某个属性的值为空字符串、null或undefined时，会自动跳过的情况。这里来做一个简单的测试",
         "keywords": "Object.assgin是否会跳过null,undefined,''",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "10"
       }
@@ -8274,7 +8274,7 @@
         "createDate": "2020/10/08",
         "description": "在写下载/导出文件接口时，由于接口文件数据是流的形式而非buffer，导致total为0，无法获取进度。只能通过loaded知道当前下载了多少字节。前端显示时，怎么给出合适的单位，是KB、MB，还是G？",
         "keywords": "文件大小转换合适单位,单位元数据加合适的单位",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "10"
       }
@@ -8466,7 +8466,7 @@
         "createDate": "2020/10/25",
         "description": "在前端开发中，这两个函数都是可以用于处理文件二进制数据的，一般用于上传文件时预览图片，或者在下载、导出文件时使用。下面来以上传图片、前端预览图片的功能为例，比较两个函数的的区别。下面的代码中，我们使用一个 radio 来切换使用两种方法。当检测到上传文件的 input 内容 change 后，根据当前 radio 的值，调用不同的方法来预览图片。运行效果如上图",
         "keywords": "文件预览,文件下载函数,createObjectURL,readAsDataURL",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "10"
       }
@@ -9043,7 +9043,7 @@
         "createDate": "2020/11/08",
         "description": "对于一些状态较多的场景，当我们需要进行一些逻辑时，如果我们用状态的code来写判断逻辑。当后端提供的这个状态文案、code变更或调整，改动可能会很麻烦，特别是功能较多时。对于状态相关的判断逻辑，尽量把状态定义为容易识别的常量。这样状态名或状态code变更后，就不需要做大量修改了。",
         "keywords": "code消除魔术字符串,code判断逻辑使用常量",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "11"
       }
@@ -9064,7 +9064,7 @@
         "createDate": "2020/11/08",
         "description": "QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式。QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM. QRCode.js has no dependencies. QRCode.js 使用很简单，下面来写一个自动生成二维码的工具",
         "keywords": "js生成二维码,前端生成二维码,js生成二维码链接",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "11"
       }
@@ -9249,7 +9249,7 @@
         "createDate": "2020/11/16",
         "description": "在 JS 高程 3 中，并没有讲到 append()，基本都是用的 appendChild()，所以有知识盲点，这里对比下 append() 和 apendChiild() 的区别，如下表所示：append 用于在元素内容里追加一个 Node 节点，appendChiled() 用于在元素内容里追加一个或多个 Node 节点或 String，注意，如果 append 或 appendChild 的元素是已经存在的，会移动该元素，如果需要保持原来的不移动，需要先 cloneNode, 下面来看一个例子",
         "keywords": "append appendChild区别,append()和appendchild(),append和appendChild",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "11"
       }
@@ -9494,7 +9494,7 @@
         "createDate": "2020/02/02",
         "description": "一般遍历对象时，大部分人可能想到的方法是for..in或Object.keys.forEach()，但你知道吗？截止ES2020，在JS中总共有8种方法来遍历对象，而且不同的遍历方法在一些细节方面会有区别，下面我们将从以下几个方面来深入理解JS遍历对象 1. 看似可以遍历对象但又不能遍历对象的for与for...of 2. 可能会对遍历对象产生影响的4种因素：属性是否可枚举、Symbol、是否有继承属性、遍历次序 3. 从ES5到ES2020发展过程中所有的可以遍历对象的方法 4. 通过实例demo来从4个维度比较8种遍历对象的方法 5. 属性遍历次序总结",
         "keywords": "js遍历对象,js遍历对象方法总结,js遍历对象的8种方法",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "2"
       }
@@ -9948,7 +9948,7 @@
         "createDate": "2020/03/02",
         "description": "在csdn等网站上，我们cttrl+c，ctrl+v时，会发现粘贴后的内容加了当前的作者信息、链接、版权问题等说明。那这个功能是怎么实现的呢？在JS高程中，有讲这一块的内容，下面来看看",
         "keywords": "js操作粘贴板内容,js向copy的内容中追加信息,js向复制信息里追加内容",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "3"
       }
@@ -9969,7 +9969,7 @@
         "createDate": "2020/03/02",
         "description": "在阮一峰的es6入门教程里，顶部有一个计算页面百分比的UI，于是就想尝试实现这个功能，恰好在js高程3里有对应的描述，来看看",
         "keywords": "页面滚动比例监听",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "3"
       }
@@ -9990,7 +9990,7 @@
         "createDate": "2020/03/02",
         "description": "在js高程3中有讲过一个内容，叫做离线检测，就是监听页面的online和offline事件，这样在断网或再次连接到网络时，就会有对应的提示，下面是zuo11.com使用的网络检测功能，可以参考下",
         "keywords": "js离线检测,js断网检测,js怎么实时监听网络变动",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "3"
       }
@@ -10011,7 +10011,7 @@
         "createDate": "2020/03/02",
         "description": "当用户点击了浏览器其他tab页离开页面，或者从其他tab页进入当前页，都会触发visibilitychange事件，根据docuemnt.hidden可以判断是否离开或回来，我们可以修改标题达到可视化的一个效果",
         "keywords": "浏览器tab切换事件监听,visibilitychange,js 页面可见性API",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "3"
       }
@@ -10660,7 +10660,7 @@
         "createDate": "2020/07/06",
         "description": "在axios请求下载文件接口时，一般设置responseType: 'blob'，文件返回正常就没问题，但后台如果处理文件或鉴权有问题，接口返回了包含错误信息的json格式数据，那样json数据也会被转为Blob对象，而前端有必要将错误信息展示，那怎么将Blob数据转JSON呢？下面来看看",
         "keywords": "blob转json,json转blob后怎么还原",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -10681,7 +10681,7 @@
         "createDate": "2020/07/06",
         "description": "在使用canvas进行绘图时，封装了一个绘制函数，每次都会填充颜色 ctx.fill()，如果多次执行，只会在最后一次时，整体fill一次？刚开始以为是后面的fill覆盖了前面的fill，后来网上查了下，第一次fill后，再次fill需要再次调用ctx.beginPath()，不然只会在最后一次fill。",
         "keywords": "canvas多次fill会覆盖前面的fill的问题,ctx.fill覆盖了前一次的fill",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -10702,7 +10702,7 @@
         "createDate": "2020/07/06",
         "description": "今天在stackoveflow里面搜索ctx.fill的问题时，查到了很多关于canvas ctx.fillText()绘制文本时不支持换行的问题，找到了一个比较好的答案。I'm afraid it is a limitation of Canvas' fillText. There is no multi-line support. Whats worse, there's no built-in way to measure line height, only width, making doing it yourself even harder! 一般解决思路是，根据 ctx.measureText('Hello').width 来看需要显示的文字是否需要换行，写一个for循环来处理",
         "keywords": "canvas不支持文本换行怎么处理,canvas文本换行,canvas文本怎么换行",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -10723,7 +10723,7 @@
         "createDate": "2020/07/06",
         "description": "今天发现同样的代码在两台电脑上绘制的一个清晰，一个模糊，后来查资料发现确实有这个问题: 因为canvas不是矢量图，高dpi屏幕每平方英寸有更多的像素，也就是两倍屏，浏览器会以两个像素点的宽度来渲染一个像素，所以在Retina屏上会导致图片、文字都会模糊，怎么解决呢？",
         "keywords": "canvas绘制模糊的问题,retina屏canvas绘制模糊的问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -10744,7 +10744,7 @@
         "createDate": "2020/07/06",
         "description": "在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色",
         "keywords": "实战canvas绘制不规则形状填充渐变色,canvas画不规则形状,canvas渐变",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -10782,7 +10782,7 @@
         "createDate": "2020/07/12",
         "description": "使用canvas绘制渐变的环形进度条，主要是使用arc函数，下面来看看。4个重点：1. 怎么画圆弧, ctx.arc函数里开始角度、结束角度以PI为基准，取值范围时：0 ~ 2PI，PI就是π值约等于3.14，圆心正上方位置为1.5PI，圆心右侧为 0 或 2*PI，圆心正下方为0.5PI，选定义额开始位置和结束位置就可以绘制任意一个弧形",
         "keywords": "canvas绘制环形进度条,js画环形渐变进度条,canvas画进度条",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -11050,7 +11050,7 @@
         "createDate": "2020/07/26",
         "description": "toLocaleString时间异常的情况，toLocaleString在0点或12点时时间转换问题，在使用toLocaleString把Date转为字符串时，需要额外注意时间为 '00:00:00' 和 '12:00:00' 的情况，它们分别会被转为 上午12:00:00，下午12点，下面来看看",
         "keywords": "toLocaleString时间异常的情况,toLocaleString在0点或12点时时间转换问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -11071,7 +11071,7 @@
         "createDate": "2020/07/26",
         "description": "TZ时间字符串，toJSON后时间转换为TZ格式，后台要求的数据格式 '2020-04-10T04:01:00.000Z' 为TZ格式的字符串。Date对象toString为 'Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)' 这种格式，那怎么转TZ字符串格式呢？用 Date.prototype.toJSON() 方法即可 ",
         "keywords": "TZ时间字符串,toJSON后时间转换为TZ格式,怎么将Date数据转为TZ格式的字符串",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -11134,7 +11134,7 @@
         "createDate": "2020/07/26",
         "description": "js 数组fill填充的对象都指向同一个地址，array fill填充引用类型问题，在mock表格list数据时，我一般为了简洁会先创建一个对象info，然后new Array(10).fill(info) 来生成10条数据的数。但这次发现一个问题，由于表格有一个字段是状态值0 - 5，我想随机设置下值，发现修改后的值都一样，来看看例子",
         "keywords": "js 数组fill填充的对象都指向同一个地址,array fill填充引用类型问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -11177,7 +11177,7 @@
         "createDate": "2020/07/26",
         "description": "JSON.stringify，JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法，我们一般用于将JSON对象转为字符串，但他不仅仅只有一个参数，而是三个，除最常用的用法外，还可以用来做三种实用功能: 1.利用第三参数在console里更好的展示对象; 2.有选择性的过滤字段; 3.详细处理没有字段序列化的值",
         "keywords": "JSON.stringify,JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "7"
       }
@@ -11724,7 +11724,7 @@
         "createDate": "2020/08/02",
         "description": "在价格显示时，如果有小数位，由于js浮点数的缺陷，累加的价格可能会有经度差，我们直接 toFixed(2) 即可。一般不会超过3位小数点，且精度异常一般都是小数点很多位以后，注意js小数点运算时一定要注意这个问题，确定要保留几位小数点",
         "keywords": "商品价格有小数点时精度异常的问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -11808,7 +11808,7 @@
         "createDate": "2020/08/02",
         "description": "Object.observe()是js实现观察者设计模式的一个API，现在已废弃，由Proxy取代，但Proxy不支持IE。它用于异步地监视一个对象的修改。当对象属性被修改时，方法的回调函数会提供一个有序的修改流。在vue2.0的双向绑定的实现里，会遍历data对象，通过建立对应的getter/setter访问器属性来追踪属性变化。Vue 3.0里已使用Proxy来追踪属性变化",
         "keywords": "observe与proxy",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -12308,7 +12308,7 @@
         "createDate": "2020/08/22",
         "description": "a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2,在js面试时，有时候会考察 ==（比较运算符）隐式转换的问题，问  a == 1 && a == 2 怎么使他成立，这个有好几种方法。还有一种情况下 a + 1 全等于 a + 2，这就涉及到最大安全整数的问题了，下面来具体看看",
         "keywords": "a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -12351,7 +12351,7 @@
         "createDate": "2020/08/22",
         "description": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop,一般在网页中，如果需要实现拖放，首先要有两个元素：1. 可拖动的元素，元素draggable='true' 属性就是可拖放，如果设置为false就是不可拖放 2. 可以放置的区域，注意chrome如果不将放置区域的onenter和onover事件阻止默认行为，无法触发drop函数。拖放的过程中的钩子 1. 拖动元素时，会触发元素的 dragstart 钩子函数，在函数里可以设置数据、以及拖动到放置区域的鼠标样式 2. 当拖动元素进入放置区域时，放置区域元素会触发一次dragenter钩子(拖动进入)，触发多次dragover(拖动元素在放置区域移动中)，放下时再触发放置元素的drop钩子，这里可以用来接收拖拽元素dragstart设置的data，处理拖动的行为",
         "keywords": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -12372,7 +12372,7 @@
         "createDate": "2020/08/22",
         "description": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失,首页我们要知道3点：1. sessionStorage在浏览器的两个tab页之前是无法共享的，一个tab页中sessionStorage修改后，不能触发其他tab页的storage事件 2. 当前tab页的localStorage修改是无法触发当前页的storage事件的，他会触发其他tab页的storage事件 3. localStorage的共享，只发生在同源的地址里。非同源无法共享localStorage 怎么将就页面的sessionStorage传递到新开的tab页呢？",
         "keywords": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -12550,7 +12550,7 @@
         "createDate": "2020/08/30",
         "description": "js手动触发resize事件,手动触发resize事件,自定义resize事件,这里手动触发window.resize事件的目的，主要用于fix改变窗口大小后其他tab页echarts图表显示异常的问题，在echarts图表组件里，有时候需要图表大小自适应浏览器窗口大小。这种情况echart宽高都会设定为100%，依赖父元素的宽高。然后再监听window的resize事件，当窗口大小改变后，重绘图表。那么问题来了",
         "keywords": "js手动触发resize事件,手动触发resize事件,自定义resize事件,改变窗口大小后其他tab页echarts图表显示异常的问题",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -12715,7 +12715,7 @@
         "createDate": "2020/08/30",
         "description": "vue项目里使用includes，IE11支持吗？在mdn上可以查相关API的兼容性,可以看到Symbol和Array.prototype.includes是不支持IE的，但我们在vue-cli的项目中，发现使用了这些api，在IE下也可以运行，这是为什么呢？主要是安装了babel，babel有进行转换，当IE不支持某个方法时，会使用替代的pollyfill，那它是怎么打包进项目的？",
         "keywords": "vue项目里使用includes，IE11支持吗？",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -12736,7 +12736,7 @@
         "createDate": "2020/08/30",
         "description": "reduce使用场景,js 判断一个字符串出现次数最多的字符,在js处理数组时，有一个reduce方法是比较实用的，特别是计算字符串出现次数的时候。下面来逐步介绍，怎么用js写一个函数，显示判断一个字符串出现次数最多的字符，并输出其次数",
         "keywords": "reduce使用场景,js 判断一个字符串出现次数最多的字符",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "8"
       }
@@ -13087,7 +13087,7 @@
         "createDate": "2020/09/12",
         "description": "数组去重优雅写法,引用类型数组去重,有一个需求，客户信息列表，需要去除重复的客户。于是想着怎么优雅的写去重的逻辑，下面是最后使用的方法，使用 filter 遍历数组，将遍历的id存入 Set 数组，判断该数组里是否存在该id，如果已经存在就过滤，这样返回的就是去重后的数组了，具体实现如下",
         "keywords": "数组去重优雅写法,引用类型数组去重",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "9"
       }
@@ -13186,7 +13186,7 @@
         "createDate": "2020/09/12",
         "description": "今天用原生的js来写demo时发现使用oncompositoinstart无法监听到输入法组合文件的过程，后面替换为addEventListener就可以了。因此对于输入法组合文字过程事件必须要使用DOM2级事件监听",
         "keywords": "compositionstart等输入法组合文字过程的事件不能使用on监听",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "9"
       }
@@ -13449,7 +13449,7 @@
         "createDate": "2020/09/24",
         "description": "macOS 修改host文件 /etc/hosts 后，本地访问某个域名会按照host指定的ip去解析，就会造成前端location.href不准确的问题，下面来看看",
         "keywords": "location.href不准确的问题,修改host后location.href也会变",
-        "category": "Javascript",
+        "category": "JavaScript",
         "year": "2020",
         "month": "9"
       }
@@ -13520,7 +13520,7 @@
     },
     "categorySequence": [
       "Vue",
-      "Javascript",
+      "JavaScript",
       "CSS",
       "http与https",
       "前端工程化",

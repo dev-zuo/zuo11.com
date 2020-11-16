@@ -24,7 +24,7 @@
     "createDate": "2019/10/09",
     "description": "通过一个URL进入一个页面，需要滚动到对应的锚点位置，可以用什么方法呢，下面我们来总结下页面滚动相关的一些方法，例如：Element.scrollIntoView、window.scroll、window.scrollTo、window.scrollBy、Element.scrollTop等",
     "keywords": "js页面滚动,页面滚动,scroll,scrollTo,scrollBy,scrollTop,scrollLeft,scrollIntoView,使用hash滚动,vue中vue-router滚动",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "Vue中img的src是动态参数时不显示的问题.md",
@@ -60,7 +60,7 @@
     "createDate": "2019/10/10",
     "description": "一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams",
     "keywords": "URLSearchParams URL查询字符串处理,url查询字符串处理,URLSearchParams,处理查询字符串优雅的方法",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "vue v-cloak指定防止页面内容显示抖动的问题.md",
@@ -168,7 +168,7 @@
     "createDate": "2019/10/26",
     "description": "之前一朋友在微信群里问，是否能做一个动画，在每次进入页面的时候，实现美元钞票向四周扩散的效果，也就是一个遮罩动画。当时刚看完js高程3不久，就用原生js写了个动画，如果页面需要这个动画，只需要引入一个js就可以。",
     "keywords": "原生JS实现遮罩动画,js实现美元图片四周散开动画效果,js实现美元各方向散开的动画效果",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "nginx默认配置对前端开发的一些影响.md",
@@ -186,7 +186,7 @@
     "createDate": "2019/10/28",
     "description": "JS到底是解释型语言还是编译型语言呢？一般的书里都写的是js是一种解释型语言，但令人令人困惑的地方是：—般解释型语言是逐行解释执行的，为什么JS会有変曩提升(hoisting)的能力？执行JS时会用到JIT, JIT(just in time compilers 及时编译）会做代码优化(同时也会创建代码的编译版本),解释型语言无法做到这些变量提升问题",
     "keywords": "JS到底是解释型语言还是编译型语言",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "mac没安装xcode怎么安装svn以及怎么用命令操作svn.md",

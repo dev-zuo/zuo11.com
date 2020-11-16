@@ -42,7 +42,7 @@
     "createDate": "2019/12/04",
     "description": "sessionStorage和localstorage都属于Web Storage，在JS高程3中有讲，这里来回顾下，一般sessionStorage关闭浏览器后会消失，localstorage不会。",
     "keywords": "sessionStorage和localstorage的区别",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "使用URLSearchParams将对象转为url查询字符串.md",
@@ -51,7 +51,7 @@
     "createDate": "2019/12/05",
     "description": "在做get请求时，我们需要传一些参数，单纯的字符串拼接的方法不够优雅，下面来看怎么用URLSearchParams将对象直接转为查询字符串，另外查看axios源码，看看axios内部是怎么将params对象拼接到url上的",
     "keywords": "对象转url查询字符串,axios是怎么将params对象转查询字符串的",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "文件结构目录树自动生成.md",
@@ -78,7 +78,7 @@
     "createDate": "2019/12/09",
     "description": "Optional chaining operator(?.) 与 Nullish coalescing Operator(??) 目前正式进入 stg4，确定会成为ES2020标准，阮一峰老师已经在他的es6入门教程里更新了，下面来看看具体怎么使用",
     "keywords": "??与?.,js ??是什么意思,js ?.是什么意思",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": ":not和:nth混用的问题.md",
@@ -114,7 +114,7 @@
     "createDate": "2019/12/18",
     "description": "在写app内嵌H5页面时，之前遇到过这个问题，当输入时，键盘弹起导致底部按钮也被抬起了，这里用监听视窗高度变换的方法来fix这个问题,监听window.onresize，如果与之前的视窗高度不一致：变小了，就隐藏底部button，完成输入后，监听到视窗高度变大再次显示底部按钮",
     "keywords": "安卓input键盘弹起导致底部按钮也被抬起的问题,app内嵌H5安卓键盘抬起相关问题",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "npm查询包信息以及安装指定版本.md",
@@ -168,7 +168,7 @@
     "createDate": "2019/12/19",
     "description": "localStorage本身没有提供对应的遍历方法，我们可以使用 localStorage.key(index) 结合for循环来遍历",
     "keywords": "怎么遍历localStorage,怎么遍历sessionStorage",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "iOS环境下点击输入框页面被顶起不能自动回弹底部的问题.md",
@@ -177,7 +177,7 @@
     "createDate": "2019/12/19",
     "description": "在开发app内嵌H5时，iOS系统里，输入框输入时，页面会被抬起，但输入完成后，页面不会自动回弹，这里需要特殊处理下，解决方法：在对应的input元素加 @blur 事件，input失去焦点时，手动滚动页面 window.scroll(0,0)",
     "keywords": "iOS环境下点击输入框页面被顶起不能自动回弹底部的问题",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "长英文单词不换行的问题.md",
@@ -249,7 +249,7 @@
     "createDate": "2019/12/26",
     "description": "ES5之前，基本数据类型有五个 boolean, string, number, null, undefined, ES6(ES2015)新增了一个symbol，ES2019 新增了 bigint，它用于表示大于 2的53次方 - 1的数据，即 > 9007199254740991",
     "keywords": "a + 1 === a + 2为true的场景,es2019 bigint数据类型",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "为什么我们使用.html代替.htm?",
@@ -267,7 +267,7 @@
     "createDate": "2019/12/27",
     "description": "在基本数据类型中，我们发现像String, Number是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用new创建，这是为什么呢？ BigInt内部是怎么检测用户使用了new来调用的？下面来看看",
     "keywords": "Symbol、BigInt不能new，而Stirng、Number可以new，为什么,BigInt内部是怎么检测用户使用了new来调用的",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "怎么清除app内嵌H5的localStorage.md",
@@ -276,7 +276,7 @@
     "createDate": "2019/12/27",
     "description": "当你在app内容H5中使用了localStorage又担心可能会超出5M的限制时，就要注意localStorage的清除了。那怎么才能清除app内嵌H5的localStorage呢？我做了一些测试",
     "keywords": "怎么清除app内嵌H5的localStorage",
-    "category": "Javascript"
+    "category": "JavaScript"
   }
 ]
 

@@ -60,7 +60,7 @@
         "createDate": "2020/07/06",
         "description": "在axios请求下载文件接口时，一般设置responseType: 'blob'，文件返回正常就没问题，但后台如果处理文件或鉴权有问题，接口返回了包含错误信息的json格式数据，那样json数据也会被转为Blob对象，而前端有必要将错误信息展示，那怎么将Blob数据转JSON呢？下面来看看",
         "keywords": "blob转json,json转blob后怎么还原",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "canvas多次fill会覆盖前面的fill的问题.md",
@@ -69,7 +69,7 @@
         "createDate": "2020/07/06",
         "description": "在使用canvas进行绘图时，封装了一个绘制函数，每次都会填充颜色 ctx.fill()，如果多次执行，只会在最后一次时，整体fill一次？刚开始以为是后面的fill覆盖了前面的fill，后来网上查了下，第一次fill后，再次fill需要再次调用ctx.beginPath()，不然只会在最后一次fill。",
         "keywords": "canvas多次fill会覆盖前面的fill的问题,ctx.fill覆盖了前一次的fill",
-        "category": "Javascript" 
+        "category": "JavaScript" 
     },
     {
         "source": "canvas不支持文本换行怎么处理.md",
@@ -78,7 +78,7 @@
         "createDate": "2020/07/06",
         "description": "今天在stackoveflow里面搜索ctx.fill的问题时，查到了很多关于canvas ctx.fillText()绘制文本时不支持换行的问题，找到了一个比较好的答案。I'm afraid it is a limitation of Canvas' fillText. There is no multi-line support. Whats worse, there's no built-in way to measure line height, only width, making doing it yourself even harder! 一般解决思路是，根据 ctx.measureText('Hello').width 来看需要显示的文字是否需要换行，写一个for循环来处理",
         "keywords": "canvas不支持文本换行怎么处理,canvas文本换行,canvas文本怎么换行",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "canvas绘制模糊的问题.md",
@@ -87,7 +87,7 @@
         "createDate": "2020/07/06",
         "description": "今天发现同样的代码在两台电脑上绘制的一个清晰，一个模糊，后来查资料发现确实有这个问题: 因为canvas不是矢量图，高dpi屏幕每平方英寸有更多的像素，也就是两倍屏，浏览器会以两个像素点的宽度来渲染一个像素，所以在Retina屏上会导致图片、文字都会模糊，怎么解决呢？",
         "keywords": "canvas绘制模糊的问题,retina屏canvas绘制模糊的问题",
-        "category": "Javascript" 
+        "category": "JavaScript" 
     },
     {
         "source": "实战canvas绘制不规则形状填充渐变色.md",
@@ -96,7 +96,7 @@
         "createDate": "2020/07/06",
         "description": "在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色",
         "keywords": "实战canvas绘制不规则形状填充渐变色,canvas画不规则形状,canvas渐变",
-        "category": "Javascript" 
+        "category": "JavaScript" 
     },
     {     
         "source": "canvas怎么绘制环形进度条.md",
@@ -105,7 +105,7 @@
         "createDate": "2020/07/12",
         "description": "使用canvas绘制渐变的环形进度条，主要是使用arc函数，下面来看看。4个重点：1. 怎么画圆弧, ctx.arc函数里开始角度、结束角度以PI为基准，取值范围时：0 ~ 2PI，PI就是π值约等于3.14，圆心正上方位置为1.5PI，圆心右侧为 0 或 2*PI，圆心正下方为0.5PI，选定义额开始位置和结束位置就可以绘制任意一个弧形",
         "keywords": "canvas绘制环形进度条,js画环形渐变进度条,canvas画进度条",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {     
         "source": "如果需要兼容IE还是用flex比较好，慎用grid.md",
@@ -195,7 +195,7 @@
         "createDate": "2020/07/26",
         "description": "toLocaleString时间异常的情况，toLocaleString在0点或12点时时间转换问题，在使用toLocaleString把Date转为字符串时，需要额外注意时间为 '00:00:00' 和 '12:00:00' 的情况，它们分别会被转为 上午12:00:00，下午12点，下面来看看",
         "keywords": "toLocaleString时间异常的情况,toLocaleString在0点或12点时时间转换问题",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "怎么将Date数据转为TZ格式的字符串.md",
@@ -204,7 +204,7 @@
         "createDate": "2020/07/26",
         "description": "TZ时间字符串，toJSON后时间转换为TZ格式，后台要求的数据格式 '2020-04-10T04:01:00.000Z' 为TZ格式的字符串。Date对象toString为 'Fri Apr 10 2020 12:00:00 GMT+0800 (中国标准时间)' 这种格式，那怎么转TZ字符串格式呢？用 Date.prototype.toJSON() 方法即可 ",
         "keywords": "TZ时间字符串,toJSON后时间转换为TZ格式,怎么将Date数据转为TZ格式的字符串",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "Failed to resolve directive: infinite-scroll.md",
@@ -231,7 +231,7 @@
         "createDate": "2020/07/26",
         "description": "js 数组fill填充的对象都指向同一个地址，array fill填充引用类型问题，在mock表格list数据时，我一般为了简洁会先创建一个对象info，然后new Array(10).fill(info) 来生成10条数据的数。但这次发现一个问题，由于表格有一个字段是状态值0 - 5，我想随机设置下值，发现修改后的值都一样，来看看例子",
         "keywords": "js 数组fill填充的对象都指向同一个地址,array fill填充引用类型问题",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "JSON.stringify的非常规用法以及内部执行顺序.md",
@@ -240,7 +240,7 @@
         "createDate": "2020/07/26",
         "description": "JSON.stringify，JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法，我们一般用于将JSON对象转为字符串，但他不仅仅只有一个参数，而是三个，除最常用的用法外，还可以用来做三种实用功能: 1.利用第三参数在console里更好的展示对象; 2.有选择性的过滤字段; 3.详细处理没有字段序列化的值",
         "keywords": "JSON.stringify,JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "iconfont通过设置class来显示图标内部做了那些操作.md",

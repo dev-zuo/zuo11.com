@@ -105,7 +105,7 @@
     "createDate": "2020/09/12",
     "description": "数组去重优雅写法,引用类型数组去重,有一个需求，客户信息列表，需要去除重复的客户。于是想着怎么优雅的写去重的逻辑，下面是最后使用的方法，使用 filter 遍历数组，将遍历的id存入 Set 数组，判断该数组里是否存在该id，如果已经存在就过滤，这样返回的就是去重后的数组了，具体实现如下",
     "keywords": "数组去重优雅写法,引用类型数组去重",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "obs录制视不是全屏、录制视频模糊的问题.md",
@@ -132,7 +132,7 @@
     "createDate": "2020/09/12",
     "description": "今天用原生的js来写demo时发现使用oncompositoinstart无法监听到输入法组合文件的过程，后面替换为addEventListener就可以了。因此对于输入法组合文字过程事件必须要使用DOM2级事件监听",
     "keywords": "compositionstart等输入法组合文字过程的事件不能使用on监听",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "为什么有效的URI不能包含空格等其他字符，URI编码方法详解.md",
@@ -204,7 +204,7 @@
     "createDate": "2020/09/24",
     "description": "macOS 修改host文件 /etc/hosts 后，本地访问某个域名会按照host指定的ip去解析，就会造成前端location.href不准确的问题，下面来看看",
     "keywords": "location.href不准确的问题,修改host后location.href也会变",
-    "category": "Javascript"
+    "category": "JavaScript"
   },
   {
     "source": "github clone下载太慢怎么解决.md",

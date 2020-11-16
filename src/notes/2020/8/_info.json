@@ -24,7 +24,7 @@
         "createDate": "2020/08/02",
         "description": "在价格显示时，如果有小数位，由于js浮点数的缺陷，累加的价格可能会有经度差，我们直接 toFixed(2) 即可。一般不会超过3位小数点，且精度异常一般都是小数点很多位以后，注意js小数点运算时一定要注意这个问题，确定要保留几位小数点",
         "keywords": "商品价格有小数点时精度异常的问题",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "0-9数字中，每个数字的宽度是多少.md",
@@ -60,7 +60,7 @@
         "createDate": "2020/08/02",
         "description": "Object.observe()是js实现观察者设计模式的一个API，现在已废弃，由Proxy取代，但Proxy不支持IE。它用于异步地监视一个对象的修改。当对象属性被修改时，方法的回调函数会提供一个有序的修改流。在vue2.0的双向绑定的实现里，会遍历data对象，通过建立对应的getter/setter访问器属性来追踪属性变化。Vue 3.0里已使用Proxy来追踪属性变化",
         "keywords": "observe与proxy",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "WebSocket的使用场景.md",
@@ -213,7 +213,7 @@
         "createDate": "2020/08/22",
         "description": "a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2,在js面试时，有时候会考察 ==（比较运算符）隐式转换的问题，问  a == 1 && a == 2 怎么使他成立，这个有好几种方法。还有一种情况下 a + 1 全等于 a + 2，这就涉及到最大安全整数的问题了，下面来具体看看",
         "keywords": "a == 1 && a == 2,a == 1 && a == 2 && a == 3,a + 1 === a + 2",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "H5原生拖放(Drag and Drop)demo以及浏览器兼容性处理.md",
@@ -222,7 +222,7 @@
         "createDate": "2020/08/22",
         "description": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop,一般在网页中，如果需要实现拖放，首先要有两个元素：1. 可拖动的元素，元素draggable='true' 属性就是可拖放，如果设置为false就是不可拖放 2. 可以放置的区域，注意chrome如果不将放置区域的onenter和onover事件阻止默认行为，无法触发drop函数。拖放的过程中的钩子 1. 拖动元素时，会触发元素的 dragstart 钩子函数，在函数里可以设置数据、以及拖动到放置区域的鼠标样式 2. 当拖动元素进入放置区域时，放置区域元素会触发一次dragenter钩子(拖动进入)，触发多次dragover(拖动元素在放置区域移动中)，放下时再触发放置元素的drop钩子，这里可以用来接收拖拽元素dragstart设置的data，处理拖动的行为",
         "keywords": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "怎么解决sessionStorage新打开一个tab页就失效的问题.md",
@@ -231,7 +231,7 @@
         "createDate": "2020/08/22",
         "description": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失,首页我们要知道3点：1. sessionStorage在浏览器的两个tab页之前是无法共享的，一个tab页中sessionStorage修改后，不能触发其他tab页的storage事件 2. 当前tab页的localStorage修改是无法触发当前页的storage事件的，他会触发其他tab页的storage事件 3. localStorage的共享，只发生在同源的地址里。非同源无法共享localStorage 怎么将就页面的sessionStorage传递到新开的tab页呢？",
         "keywords": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失",
-        "category": "Javascript"
+        "category": "JavaScript"
     }, 
     {
         "source": "pinyin中文转拼音npm包在前端使用时的坑,IE下js错误调试方法.md",
@@ -276,7 +276,7 @@
         "createDate": "2020/08/30",
         "description": "js手动触发resize事件,手动触发resize事件,自定义resize事件,这里手动触发window.resize事件的目的，主要用于fix改变窗口大小后其他tab页echarts图表显示异常的问题，在echarts图表组件里，有时候需要图表大小自适应浏览器窗口大小。这种情况echart宽高都会设定为100%，依赖父元素的宽高。然后再监听window的resize事件，当窗口大小改变后，重绘图表。那么问题来了",
         "keywords": "js手动触发resize事件,手动触发resize事件,自定义resize事件,改变窗口大小后其他tab页echarts图表显示异常的问题",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "vue + element实现在用户列表页同时打开多个用户详情页tab功能.md",
@@ -330,7 +330,7 @@
         "createDate": "2020/08/30",
         "description": "vue项目里使用includes，IE11支持吗？在mdn上可以查相关API的兼容性,可以看到Symbol和Array.prototype.includes是不支持IE的，但我们在vue-cli的项目中，发现使用了这些api，在IE下也可以运行，这是为什么呢？主要是安装了babel，babel有进行转换，当IE不支持某个方法时，会使用替代的pollyfill，那它是怎么打包进项目的？",
         "keywords": "vue项目里使用includes，IE11支持吗？",
-        "category": "Javascript"
+        "category": "JavaScript"
     },
     {
         "source": "判断一个字符串出现次数最多的字符，并输出其次数.md",
@@ -339,7 +339,7 @@
         "createDate": "2020/08/30",
         "description": "reduce使用场景,js 判断一个字符串出现次数最多的字符,在js处理数组时，有一个reduce方法是比较实用的，特别是计算字符串出现次数的时候。下面来逐步介绍，怎么用js写一个函数，显示判断一个字符串出现次数最多的字符，并输出其次数",
         "keywords": "reduce使用场景,js 判断一个字符串出现次数最多的字符",
-        "category": "Javascript"
+        "category": "JavaScript"
     }
 
 ]
