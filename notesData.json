@@ -179,6 +179,20 @@
         "keywords": "提交站点链接到百度,提交链接到google"
       },
       {
+        "title": "Google AdSense被拒理由网站已下线或无法访问怎么解决",
+        "href": "2020/11/adsense_cannot_found.html",
+        "time": "2020/11/16",
+        "description": "在自己网站的 head 部分加入 AdSense 的校验代码后，会有一段审核的时间。在这个过程中，网站可能会有来自福建龙岩的 203.208.60.* IP段蜘蛛来爬取你的网页。蜘蛛会爬取JS渲染后的效果，可以触发百度统计等js代码。不用屏蔽，这属于 Google 蜘蛛正常爬取，Google Analytics 在计算访客时会忽略这一部分访客信息。蜘蛛爬完的第二天，就收到了邮件，说审核不通过，看了下原因：'网站已下线或无法访问怎么解决' ，如下图所示。但我的网站是确定可以正常访问的。",
+        "keywords": "AdSense网站已下线或无法访问"
+      },
+      {
+        "title": "Google Analytics、Google AdSense、Google Search Console分别是干什么的?",
+        "href": "2020/11/google_web_tools.html",
+        "time": "2020/11/16",
+        "description": "在站点管理这一块，Google的工具有好几个，我现在知道的有三个，他们分别对应不同的功能，下面来看看他们的介绍、区别：Google Search Console，搜索控制台| 站长工具、sitemap提交，展现量/点击量简单查看，死链提交等；Google Analytics 偏数据分析，统计实时用户/累计用户/会话时长/跳出率等，受众群体、流量来源、转化率、页面价值等；Google AdSense 广告联盟 | 用于在自己站点投放 Google 广告，赚取收益",
+        "keywords": "Google Analytics,Google AdSense,Google Search Console"
+      },
+      {
         "title": "description在seo中的重要性",
         "href": "2020/2/seo_description.html",
         "time": "2020/02/16",
@@ -609,6 +623,27 @@
         "keywords": "git中文乱码,git status乱码,git乱码"
       },
       {
+        "title": "xx.github.io偶尔访问不了是为什么？",
+        "href": "2020/11/github_io_failure.html",
+        "time": "2020/11/16",
+        "description": "在 Github 上开启 Pages 服务后，可以通过 xx.github.io 访问对应的网页。但偶尔会出现打不开的问题，之前都是可以打开的，试了其他人的 github.io，发现也打不开，这就不是自己网络的问题了。网上查原因是电信运营商 DNS 污染（域名解析不到正确的 IP 地址）。我们在本地手动设置 host 指定对应域名的解析 IP 即可正常访问。下面来看具体怎么操作",
+        "keywords": "xx.github.io打不开,github.io打不开,githu.io访问不了"
+      },
+      {
+        "title": "ssh生成rsa key时Enter passphrase加和不加有什么区别",
+        "href": "2020/11/ssh_passphrase.html",
+        "time": "2020/11/16",
+        "description": "在使用 ssh 拉取 git 仓库前，需要先生成公共/私有 rsa 密钥对。(Generating public/private rsa key pair.)，一般使用 `ssh-keygen -t rsa -C '邮箱@xx.com'` 命令，这个时候，会有下面的提示：Enter passphrase (empty for no passphrase): 输入通行码(密码、口令短语)，如果不输入，那么就是不使用密码。如果输入了密码，这个有什么用呢？",
+        "keywords": "ssh passphrase,ssh passphrase有什么用"
+      },
+      {
+        "title": "使用git ssh方式解决RPC failed; HTTP 413 curl 22 The requested URL returned error: 413",
+        "href": "2020/11/git_http_413.html",
+        "time": "2020/11/16",
+        "description": "由于改了博客生成系统的生成方式，每个html都改了，导致文件相对较多，也不算大，才 4.57 M, 但 git push 一直push不了，提示如下 error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 fatal: the remote end hung up unexpectedly，网上查了下，可以改用 ssh 的方式 push 代码，结合之前的经验，大文件 git clone 不下来，可以换 ssh 方式 git clone。",
+        "keywords": "RPC failed; HTTP 413 curl 22,The requested URL returned error: 413,fatal: the remote end hung up unexpectedly"
+      },
+      {
         "title": "windows下nginx部署https服务实战",
         "href": "2020/6/nginx_https.html",
         "time": "2020/06/21",
@@ -903,6 +938,13 @@
         "time": "2020/11/08",
         "description": "QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式。QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM. QRCode.js has no dependencies. QRCode.js 使用很简单，下面来写一个自动生成二维码的工具",
         "keywords": "js生成二维码,前端生成二维码,js生成二维码链接"
+      },
+      {
+        "title": "JS append 和 appendChild 的区别",
+        "href": "2020/11/append_append.html",
+        "time": "2020/11/16",
+        "description": "在 JS 高程 3 中，并没有讲到 append()，基本都是用的 appendChild()，所以有知识盲点，这里对比下 append() 和 apendChiild() 的区别，如下表所示：append 用于在元素内容里追加一个 Node 节点，appendChiled() 用于在元素内容里追加一个或多个 Node 节点或 String，注意，如果 append 或 appendChild 的元素是已经存在的，会移动该元素，如果需要保持原来的不移动，需要先 cloneNode, 下面来看一个例子",
+        "keywords": "append appendChild区别,append()和appendchild(),append和appendChild"
       },
       {
         "title": "深入JS遍历对象，从4个维度比较遍历对象的8种方法",
@@ -1593,6 +1635,20 @@
         "time": "2020/11/08",
         "description": "有这么一个需求，页面 B 跳转到页面 C 时需要保存页面交互数据，跳到其他页面不缓存数据。在 Vue 中这种功能一般会使用 keep-alive 的 include 或 exclude 有条件的缓存来实现。起初我想省事，直接使用 $route.meta 来动态修改 include 值，但后面发现不生效，原来 $router.meta 不是双向绑定的，需要使用其他变量才行，下面来看看具体逻辑。",
         "keywords": "vue keep-alive按需缓存页面,vue按需缓存,$route是否是双向绑定的"
+      },
+      {
+        "title": "Vue 单元测试",
+        "href": "2020/11/vue_unit_test.html",
+        "time": "2020/11/16",
+        "description": "在 Vue.js 官网，学习 => CookBook 下有一个 Vue 组件的单元测试 文档。为什么要测试？组件的单元测试的好处: 节省手动测试的时间，减少研发新特性时产生的 bug，自动化测试使得大团队中的开发者可以维护复杂的基础代码。Vue Test Utils 是 Vue 组件单元测试的官方库。他的作者写了一本书 《Testing Vue.js Applications》，对应的中文版本是《Vue.js应用测试》，如果想系统的学习 Vue 应用测试，建议看这本书。",
+        "keywords": "vue单元测试,vue测试,vue应用测试"
+      },
+      {
+        "title": "什么是e2e test，除了单元测试外还有什么测试？",
+        "href": "2020/11/e2e_test.html",
+        "time": "2020/11/16",
+        "description": "e2e 是 end to end 的缩写，翻译为端到端测试。单元测试只是整个测试金字塔中的一部分。其他类型的测试还包括 e2e(端到端)测试，快照比对测试等。e2e(端到端)测试致力于确保组件的一系列交互是正确的。相比简单快速的单元测试，它是更高级别的测试，例如可能会测试用户是否注册、登录以及更新他们的用户名。这种测试运行起来会比单元测试和快照比对测试慢一些。运行起来会更慢很多。这些测试通常只在部署前运行，来确保系统的每个部分都能够正常的协同工作。",
+        "keywords": "e2e test,e2e test示例,端到端测试"
       },
       {
         "title": "使用js调用vue单文件组件",
@@ -7289,7 +7345,7 @@
       }
     },
     {
-      "htmlStr": "<h1 id=\"symbol、bigint不能new，而string、number可以new，为什么？\">Symbol、BigInt不能new，而String、Number可以new，为什么？</h1>\n<p>在基本数据类型中，我们发现像String, Number是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用new创建，这是为什么呢？ BigInt内部是怎么检测用户使用了new来调用的？下面来看看</p>\n<pre><code class=\"language-js\">BigInt(&#39;1&#39;) // 1n\nnew BigInt(1)\n// Uncaught TypeError: BigInt is not a constructor\n//     at new BigInt (&lt;anonymous&gt;)\n//     at &lt;anonymous&gt;:1:1</code></pre>\n<p>可以看到BigInt并不是构造函数，没有constructor，就是一个普通的函数。我们来对比下Number。</p>\n<pre><code class=\"language-js\">var a = Number(&#39;1&#39;) // 这个创建了一个 number 类型的数据, 非对象\ntypeof a  // &quot;number&quot;\nvar b = new Number(&#39;1&#39;) // 这个是创建了一个Number对象,是对象\ntypeof b // &quot;object&quot;\nb // Number {1}\nb.valueOf() // 1\nb.__proto__ === a.__proto__ // true</code></pre>\n<p>可以看到其实Number不仅可以当构造函数用，也可以直接当普通函数用，内部有处理，而BigInt它是不支持new调用的，内部没有做相应处理</p>\n<p>为什么？我的理解是，对于BigInt来说，支持new调用，是一个比较鸡肋的功能。然后就没有加。与他有关联的 BigInt64Array 是支持new调用的。</p>\n<h2 id=\"bigint内部是怎么检测用户使用了new来调用的？\">BigInt内部是怎么检测用户使用了new来调用的？</h2>\n<p>对于函数来讲，怎么区分是new调用，还是直接调用? 复习下JS高程3中 <a href=\"https://www.yuque.com/guoqzuo/js_es6/aquxsq#482800ea\">作用域安全的构造函数</a> 的内容，在构造函数中，通过 this instanseof XX 来判断是new 调用的，还是直接调用的构造函数，像BigInt这种，当new调用时，直接就抛出了异常，来用个例子试试</p>\n<pre><code class=\"language-js\">// 模拟实现\nfunction A() {\n  console.log(this)\n  if (this instanceof A) {\n    throw new Error(&#39;Uncaught TypeError: A is not a constructor&#39;)\n  }\n  return &#39;&#39;\n}\n// 测试\nA() // window   &#39;&#39;\nnew A() // A {}  Uncaught TypeError: A is not a constructor</code></pre>\n<p>再复习一下class，class 创建的类型也是function，且只能通过new调用，应该函数内部也是加了类似上面的校验，当this instanceof 不等于当前class时，就直接抛异常</p>\n<p>总结：核心问题是 this 的指向问题，一般直接调用A()时this指向window</p>\n",
+      "htmlStr": "<h1 id=\"symbol、bigint不能new，而string、number可以new，为什么？\">Symbol、BigInt不能new，而String、Number可以new，为什么？</h1>\n<p>在基本数据类型中，我们发现像 String, Number 是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用 new 创建，这是为什么呢？ BigInt 内部是怎么检测用户使用了new来调用的？下面来看看</p>\n<pre><code class=\"language-js\">BigInt(&#39;1&#39;) // 1n\nnew BigInt(1)\n// Uncaught TypeError: BigInt is not a constructor\n//     at new BigInt (&lt;anonymous&gt;)\n//     at &lt;anonymous&gt;:1:1</code></pre>\n<p>可以看到BigInt并不是构造函数，没有 constructor，就是一个普通的函数。我们来对比下Number。</p>\n<pre><code class=\"language-js\">var a = Number(&#39;1&#39;) // 这个创建了一个 number 类型的数据, 非对象\ntypeof a  // &quot;number&quot;\nvar b = new Number(&#39;1&#39;) // 这个是创建了一个Number对象,是对象\ntypeof b // &quot;object&quot;\nb // Number {1}\nb.valueOf() // 1\nb.__proto__ === a.__proto__ // true</code></pre>\n<p>可以看到其实 Number 不仅可以当构造函数用，也可以直接当普通函数用，内部有处理，而 BigInt 它是不支持 new 调用的。</p>\n<h2 id=\"为什么-bigint、symbol-不能-new\">为什么 BigInt、Symbol 不能 new</h2>\n<p>最近看 JavaScript 高级程序设计第四版，在 Symbol 类型 p45 有介绍，Symbol 不支持 new。<strong>这样做是为了避免创建 Symbol 原始值包装对象</strong> </p>\n<p>在引用类型中，有三种原始值包装类型：String、Number、Boolean。原始值类型 &quot;abc&quot;、123 不是对象，<strong>原始值包装类型</strong> 是用来把原始值包装成对象的引用类型。</p>\n<p>除了 JS 自身内部处理可能会使用外，我们在开发的实际场景中，一般都不会使用。一般使用字面量的形式，不会创建对应的对象。对开发体验来讲是比较鸡肋的功能。新增的 Symbol、BigInt 没有必要向开发者提供创建对应原始值对象的 API。一般也不会使用，多此一举。</p>\n<p>以 Symbol 为例，如果你要创建 Symbol 包装对象，可以使用 Object()，代码如下</p>\n<pre><code class=\"language-js\">let mySymbol = Symbol() \nmySymbol // Symbol()\ntypeof mySymbol // &quot;symbol&quot;\nlet myWrappedSymbol = Object(mySymbol)\nmyWrappedSymbol // Symbol {Symbol()}\ntypeof myWrappedSymbol // &quot;object&quot;</code></pre>\n<h2 id=\"symbol、bigint内部是怎么检测用户使用了new来调用的？\">Symbol、BigInt内部是怎么检测用户使用了new来调用的？</h2>\n<p>对于函数来讲，怎么区分是new调用，还是直接调用? 复习下JS高程3中 <a href=\"https://www.yuque.com/guoqzuo/js_es6/aquxsq#482800ea\">作用域安全的构造函数</a> 的内容，在构造函数中，通过 this instanseof XX 来判断是new 调用的，还是直接调用的构造函数，像BigInt这种，当new调用时，直接就抛出了异常，来用个例子试试</p>\n<pre><code class=\"language-js\">// 模拟实现\nfunction A() {\n  console.log(this)\n  if (this instanceof A) {\n    throw new Error(&#39;Uncaught TypeError: A is not a constructor&#39;)\n  }\n  return &#39;&#39;\n}\n// 测试\nA() // window   &#39;&#39;\nnew A() // A {}  Uncaught TypeError: A is not a constructor</code></pre>\n<p>再复习一下class，class 创建的类型也是function，且只能通过new调用，应该函数内部也是加了类似上面的校验，当this instanceof 不等于当前class时，就直接抛异常</p>\n<p>总结：核心问题是 this 的指向问题，一般直接调用A()时this指向window</p>\n",
       "outline": [
         {
           "type": "heading",
@@ -7299,7 +7355,12 @@
             {
               "type": "heading",
               "depth": 2,
-              "text": "BigInt内部是怎么检测用户使用了new来调用的？"
+              "text": "为什么 BigInt、Symbol 不能 new"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "Symbol、BigInt内部是怎么检测用户使用了new来调用的？"
             }
           ]
         }
@@ -9003,6 +9064,191 @@
         "createDate": "2020/11/08",
         "description": "QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式。QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM. QRCode.js has no dependencies. QRCode.js 使用很简单，下面来写一个自动生成二维码的工具",
         "keywords": "js生成二维码,前端生成二维码,js生成二维码链接",
+        "category": "Javascript",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-单元测试\">Vue 单元测试</h1>\n<p>在 Vue.js 官网，学习 =&gt; CookBook 下有一个 <strong>Vue 组件的单元测试</strong> 文档。</p>\n<p>为什么要测试？组件的单元测试的好处:</p>\n<ul>\n<li>提供描述组件行为的文档</li>\n<li><strong>节省手动测试的时间</strong></li>\n<li><strong>减少研发新特性时产生的 bug</strong></li>\n<li>改进设计</li>\n<li>促进重构</li>\n<li><strong>自动化测试使得大团队中的开发者可以维护复杂的基础代码</strong></li>\n</ul>\n<p>Vue Test Utils 是 Vue 组件单元测试的官方库。他的作者 Edd Yerburgh 写了一本书 《Testing Vue.js Applications》，中文翻译版为《Vue.js应用测试》，如果想系统的学习 Vue 应用测试，建议看这本书。掘金上有一篇该书的笔记，可以参考：<a href=\"https://juejin.im/post/6865477717220851720\">学习Vue应用测试，让你的项目更加健壮和稳定 | 掘金</a></p>\n<p>Vue 官方相关参考文档</p>\n<ul>\n<li><a href=\"https://cn.vuejs.org/v2/cookbook/unit-testing-vue-components.html\">Vue 组件的单元测试 | Vue.js</a></li>\n<li><a href=\"https://vue-test-utils.vuejs.org/zh/\">Vue Test Utils | 文档</a></li>\n<li><a href=\"https://github.com/vuejs/vue-test-utils\">Vue Test Utils | Github</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue 单元测试"
+        }
+      ],
+      "config": {
+        "source": "Vue 单元测试.md",
+        "staticFileName": "vue_unit_test.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "在 Vue.js 官网，学习 => CookBook 下有一个 Vue 组件的单元测试 文档。为什么要测试？组件的单元测试的好处: 节省手动测试的时间，减少研发新特性时产生的 bug，自动化测试使得大团队中的开发者可以维护复杂的基础代码。Vue Test Utils 是 Vue 组件单元测试的官方库。他的作者写了一本书 《Testing Vue.js Applications》，对应的中文版本是《Vue.js应用测试》，如果想系统的学习 Vue 应用测试，建议看这本书。",
+        "keywords": "vue单元测试,vue测试,vue应用测试",
+        "category": "Vue",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"什么是e2e-test，除了单元测试外还有什么测试？\">什么是e2e test，除了单元测试外还有什么测试？</h1>\n<p>e2e 是 end to end 的缩写，翻译为端到端测试。单元测试只是整个测试金字塔中的一部分。其他类型的测试还包括 e2e(端到端)测试，快照比对测试等。</p>\n<h2 id=\"e2e端到端测试\">e2e(端到端)测试</h2>\n<p>e2e(端到端)测试致力于确保组件的一系列交互是正确的。相比简单快速的单元测试，它是更高级别的测试，例如可能会测试用户是否注册、登录以及更新他们的用户名。这种测试运行起来会比单元测试和快照比对测试慢一些。运行起来会更慢很多。这些测试通常只在部署前运行，来确保系统的每个部分都能够正常的协同工作。下面是一个简单的 e2e 测试示例：检查计算器两数求和的方法</p>\n<pre><code class=\"language-js\">function testCal(browser) {\n  browser\n    .url(&#39;http://localhost:8080&#39;) // 使用浏览器打开 http://localhost:8080\n    .click(&#39;#button-1&#39;) // 点击计算机按钮\n    .click(&#39;#button-plus&#39;)\n    .click(&#39;#button-1&#39;)\n    .click(&#39;#button-equal&#39;)\n    .assert.containsText(&quot;#result&quot;, &quot;2&quot;) // 断言计算器显示结果是否正确\n    .end()\n}</code></pre>\n<h2 id=\"单元测试\">单元测试</h2>\n<p>单元测试是最小巧、最简单、最有用的测试。它们通过隔离单个组件的每一个部分，来在最小工作单元上进行断言。能帮助开发者思考如何设计一个组件或重构一个现有组。通常每次代码发生变化的时候它们都会被运行，来看一个基本的单元测试例子：</p>\n<pre><code class=\"language-js\">// sum.js\n// 待测试函数 sum\nexport default function sum(a, b) {\n  return a + b\n}\n\n// sum.spec.js\n// 将 sum 函数导入测试文件\nimport sum from &#39;../sum.js&#39;\n\nfunction testSum() {\n  // 如果 sum 函数不返回 2，则抛出错误\n  if (sum(1, 1) !== 2) {\n    throw new Error(&#39;sum(1, 1) did not return 2&#39;)\n  }\n}\n\ntestSum() // 运行测试</code></pre>\n<h2 id=\"快照比对测试\">快照比对测试</h2>\n<p>类似于找不同的游戏，快照测试会给运行中的应用拍一张图片，并将它与之前保存的图片进行比较。如果不同就是测试失败。这种方法对于确保代码变更后是否任然可以正确渲染很有帮助。以 Vue 组件为例子，会保存你的 Vue 组件的标记，然后比较每次新生成的测试运行结果。如果有些东西改变了，开发者就会得到通知，并决定这个改变是刻意为之 (组件更新时) 还是意外发生的 (组件行为不正确)。</p>\n<p>更多测试 Vue 测试细节，可以参考 Edd Yerburgh 的书《Testing Vue.js Applications》，中文翻译版为《Vue.js应用测试》</p>\n<p>参考：<a href=\"https://cn.vuejs.org/v2/cookbook/unit-testing-vue-components.html#%E9%A2%9D%E5%A4%96%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87\">额外的上下文 - Vue 组件的单元测试</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "什么是e2e test，除了单元测试外还有什么测试？",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "e2e(端到端)测试"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "单元测试"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "快照比对测试"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "什么是e2e test，除了单元测试外还有什么测试？.md",
+        "staticFileName": "e2e_test.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "e2e 是 end to end 的缩写，翻译为端到端测试。单元测试只是整个测试金字塔中的一部分。其他类型的测试还包括 e2e(端到端)测试，快照比对测试等。e2e(端到端)测试致力于确保组件的一系列交互是正确的。相比简单快速的单元测试，它是更高级别的测试，例如可能会测试用户是否注册、登录以及更新他们的用户名。这种测试运行起来会比单元测试和快照比对测试慢一些。运行起来会更慢很多。这些测试通常只在部署前运行，来确保系统的每个部分都能够正常的协同工作。",
+        "keywords": "e2e test,e2e test示例,端到端测试",
+        "category": "Vue",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"xxgithubio偶尔访问不了是为什么？\">xx.github.io偶尔访问不了是为什么？</h1>\n<p>在 Github 上开启 Pages 服务后，可以通过 xx.github.io 访问对应的网页。但偶尔会出现打不开的问题，之前都是可以打开的，试了其他人的 github.io，发现也打不开，这就不是自己网络的问题了。</p>\n<p>网上查原因是电信运营商 DNS 污染（域名解析不到正确的 IP 地址）。我们在本地手动设置 host 指定对应域名的解析 IP 即可正常访问，假设我要访问 <code>https://zuoxiaobai.github.io/fedemo/</code> 那手动指定一下这个域名的解析ip即可。下面来看具体怎么操作</p>\n<pre><code class=\"language-bash\"># 修改 /etc/hosts\nsudo vi /etc/hosts\n# 添加如下host记录\n185.199.108.153 zuoxiaobai.github.io\n# 查看host文件\ncat /etc/hosts    \n##\n# Host Database\n#\n# localhost is used to configure the loopback interface\n# when the system is booting.  Do not change this entry.\n##\n127.0.0.1    localhost\n185.199.108.153 zuoxiaobai.github.io\n255.255.255.255    broadcasthost\n::1             localhost</code></pre>\n<p>保存后，就可以打开 <code>https://zuoxiaobai.github.io/fedemo/</code> 了。<strong>这样只能保证自己的电脑上可以正常访问这个网站，但其他人也会出现偶尔访问不了的情况，对于要求较高的网站，建议部署在自己的服务器上。如果想要免费的，可以在 码云 上面弄一个仓库来做自己的网站。国内 IP 解析很快，参考 vant 组件官网。</strong></p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://blog.csdn.net/qq_43229056/article/details/108036569\">github.io无法访问问题及解决</a></li>\n<li><a href=\"https://www.cnblogs.com/onelikeone/p/12791969.html\">github无法访问的解决方法 --- 2020</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "xx.github.io偶尔访问不了是为什么？"
+        }
+      ],
+      "config": {
+        "source": "xx.github.io偶尔访问不了是为什么？.md",
+        "staticFileName": "github_io_failure.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "在 Github 上开启 Pages 服务后，可以通过 xx.github.io 访问对应的网页。但偶尔会出现打不开的问题，之前都是可以打开的，试了其他人的 github.io，发现也打不开，这就不是自己网络的问题了。网上查原因是电信运营商 DNS 污染（域名解析不到正确的 IP 地址）。我们在本地手动设置 host 指定对应域名的解析 IP 即可正常访问。下面来看具体怎么操作",
+        "keywords": "xx.github.io打不开,github.io打不开,githu.io访问不了",
+        "category": "运维部署与版本控制",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"ssh生成rsa-key时enter-passphrase加和不加有什么区别？\">ssh生成rsa key时Enter passphrase加和不加有什么区别？</h1>\n<p>在使用 ssh 拉取 git 仓库前，需要先生成公共/私有 rsa 密钥对。(Generating public/private rsa key pair.)，一般使用 <code>ssh-keygen -t rsa -C &#39;邮箱@xx.com&#39;</code> 命令，这个时候，会有下面的提示</p>\n<p>Enter passphrase (empty for no passphrase): </p>\n<p>输入通行码(密码、口令短语)，如果不输入，那么就是不使用密码。<strong>如果输入了密码，这个有什么用呢？</strong></p>\n<p>这个主要是安全方面的考虑，如果你私钥泄露了，还有一个保护机制。在你每次使用 ssh 做敏感操作时，就会提示你输入密码</p>\n<p>比如我们使用 ssh 方式拉取 git 仓库代码，远程 origin 源是 ssh 地址，<strong>那么提交代码时，每次 git pull, git push 时都需要输入对应的秘钥</strong>。相对会比较麻烦一点，但安全性更高。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "ssh生成rsa key时Enter passphrase加和不加有什么区别？"
+        }
+      ],
+      "config": {
+        "source": "ssh生成rsa key时Enter passphrase加和不加有什么区别.md",
+        "staticFileName": "ssh_passphrase.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "在使用 ssh 拉取 git 仓库前，需要先生成公共/私有 rsa 密钥对。(Generating public/private rsa key pair.)，一般使用 `ssh-keygen -t rsa -C '邮箱@xx.com'` 命令，这个时候，会有下面的提示：Enter passphrase (empty for no passphrase): 输入通行码(密码、口令短语)，如果不输入，那么就是不使用密码。如果输入了密码，这个有什么用呢？",
+        "keywords": "ssh passphrase,ssh passphrase有什么用",
+        "category": "运维部署与版本控制",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"使用git-ssh方式解决rpc-failed-http-413-curl-22-the-requested-url-returned-error-413\">使用git ssh方式解决RPC failed; HTTP 413 curl 22 The requested URL returned error: 413</h1>\n<p>由于改了博客生成系统的生成方式，每个html都改了，导致文件相对较多，也不算大，才 4.57 M, 但 git push 一直push不了，提示如下</p>\n<pre><code class=\"language-js\">error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413\nfatal: the remote end hung up unexpectedly</code></pre>\n<p><img src=\"../../../images/blog/git/git_push_hang_up.png\" alt=\"git_push_hang_up.png\"></p>\n<p>网上查了下，可以改用 ssh 的方式 push 代码，结合之前的经验，大文件 git clone 不下来，可以换 ssh 方式 git clone。这条路应该可行。找了下之前的笔记 <a href=\"http://www.zuo11.com/blog/2020/8/git_ssh.html\">使用ssh方式拉取代码的步骤</a>，下面来梳理下整个过程。</p>\n<p><strong>1. 使用git平台(这里是github)邮箱账号生成公钥和私钥</strong></p>\n<pre><code class=\"language-bash\"># 先查看 github 对应的邮箱，user.email 就是git邮箱账号\ngit config -l\n# credential.helper=osxkeychain\n# user.name=guoqzuo\n# user.email=guoqzuo@gmail.com\n# core.quotepath=false\n\n# 开始生成秘钥\nssh-keygen -t rsa -C &#39;guoqzuo@gmail.com&#39;\n# 全部默认、回车，也可以输入密码，我这里输入了密码，后面每次pull, push都需要输入密码。\n# Generating public/private rsa key pair.\n# Enter file in which to save the key (/Users/guoqzuo/.ssh/id_rsa): \n# Enter passphrase (empty for no passphrase): \n# Enter same passphrase again: \n# Your identification has been saved in /Users/guoqzuo/.ssh/id_rsa.\n# Your public key has been saved in /Users/guoqzuo/.ssh/id_rsa.pub.\n\n# 查看公钥内容，copy后到github里设置ssh key\ncat ~/.ssh/id_rsa.pub </code></pre>\n<p><strong>2. copy公钥，并配置到对应的git平台里（这里是github）</strong></p>\n<p>登录 github，在个人设置里找到 ssh key，添加 ssh key，内容为 <code>cat ~/.ssh/id_rsa.pub</code> 后显示的内容</p>\n<p><img src=\"../../../images/blog/git/github_ssh_key.png\" alt=\"github_ssh_key.png\"></p>\n<p><strong>3. 测试是否配置成功</strong></p>\n<p>使用下面的命令，测试 github ssh key 是否配置成功，如果之前生成 key 时有输入 passphrase，这里就要输入</p>\n<pre><code class=\"language-bash\">ssh -T git@github.com\n# Enter passphrase for key &#39;/Users/guoqzuo/.ssh/id_rsa&#39;: \n# Hi zuoxiaobai! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>\n<p><strong>4. 将仓库http的origin地址，替换为ssh的origin地址</strong></p>\n<pre><code class=\"language-bash\"># 查看 remote 地址\ngit remote -v\n# origin  https://github.com.cnpmjs.org/zuoxiaobai/zuo11.com (fetch)\n# origin  https://github.com.cnpmjs.org/zuoxiaobai/zuo11.com (push)\n\n# 设置 remote 地址为对应仓库的 ssh 地址\ngit remote set-url origin git@github.com:zuoxiaobai/zuo11.com.git\n\n# 查看设置是否生效\ngit remote -v                                                    \n# origin  git@github.com:zuoxiaobai/zuo11.com.git (fetch)\n# origin  git@github.com:zuoxiaobai/zuo11.com.git (push)</code></pre>\n<p>配置好后，再进行git pull, git push 就可以 push 成功了，虽然也有点慢，但至少不会报错。可以push成功</p>\n<pre><code class=\"language-bash\">guoqzuo@zuomac zuo11.com % git pull\nEnter passphrase for key &#39;/Users/guoqzuo/.ssh/id_rsa&#39;: \nAlready up to date.\n\nguoqzuo@zuomac zuo11.com % git push\nEnter passphrase for key &#39;/Users/guoqzuo/.ssh/id_rsa&#39;: \nEnumerating objects: 685, done.\nCounting objects: 100% (685/685), done.\nDelta compression using up to 8 threads\nCompressing objects: 100% (358/358), done.\nWriting objects: 100% (360/360), 4.57 MiB | 150.00 KiB/s, done.\nTotal 360 (delta 306), reused 0 (delta 0)\nremote: Resolving deltas: 100% (306/306), completed with 296 local objects.\nTo github.com:zuoxiaobai/zuo11.com.git\n   85b3d21..bf8eab3  master -&gt; master\nguoqzuo@zuomac zuo11.com % </code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "使用git ssh方式解决RPC failed; HTTP 413 curl 22 The requested URL returned error: 413"
+        }
+      ],
+      "config": {
+        "source": "使用git ssh方式解决RPC failed; HTTP 413 curl 22 The requested URL returned error: 413.md",
+        "staticFileName": "git_http_413.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "由于改了博客生成系统的生成方式，每个html都改了，导致文件相对较多，也不算大，才 4.57 M, 但 git push 一直push不了，提示如下 error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 fatal: the remote end hung up unexpectedly，网上查了下，可以改用 ssh 的方式 push 代码，结合之前的经验，大文件 git clone 不下来，可以换 ssh 方式 git clone。",
+        "keywords": "RPC failed; HTTP 413 curl 22,The requested URL returned error: 413,fatal: the remote end hung up unexpectedly",
+        "category": "运维部署与版本控制",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"google-adsense被拒理由网站已下线或无法访问怎么解决？\">Google AdSense被拒理由网站已下线或无法访问怎么解决？</h1>\n<p>在自己网站的 head 部分加入 AdSense 的校验代码后，会有一段审核的时间。在这个过程中，网站可能会有来自福建龙岩的 203.208.60.* IP段蜘蛛来爬取你的网页。蜘蛛会爬取JS渲染后的效果，可以触发百度统计等js代码。不用屏蔽，这属于 Google 蜘蛛正常爬取，Google Analytics 在计算访客时会忽略这一部分访客信息。</p>\n<p>蜘蛛爬完的第二天，就收到了邮件，说审核不通过，看了下原因：&quot;网站已下线或无法访问怎么解决&quot; ，如下图所示。但我的网站是确定可以正常访问的。</p>\n<p><img src=\"../../../images/blog/seo/google_ad_1.png\" alt=\"网站已下线或无法访问怎么解决\"></p>\n<p>网上查了下，这种情况，需要在域名解析里增加两条解析记录，解析路线设置为境外。然后重新提交审核，等待即可。<strong>但我加了解析后，等了一段时间，又是同样的理由被拒绝，于是找到了官方的回复。首页不能重定向，比如 xx.com 不能重定向到 xx.com/home，或者 <code>www.xx.com</code></strong>，再次修改后，重新提交审核，大概5、6天后审核通过。参考 <a href=\"https://support.google.com/adsense/thread/43647550?hl=zh-Hans\">为什么一直提示找不到adsense代码和网站已下线或无法访问？ - AdSense Community</a></p>\n<p>主机记录 | 记录类型 | 解析路线 | 记录值 | TTL\n--- | --- | --- | --- | --- | ---\n@ | A | 境外 | 服务器IP地址 | 10分钟(默认) \nwww | A | 境外 | 服务器IP地址 | 10分钟(默认) </p>\n<p><img src=\"../../../images/blog/seo/google_ad_2.png\" alt=\"域名解析.png\"></p>\n<p>www 和 @ 这样的主机记录是什么意思?</p>\n<ul>\n<li>www：解析后的域名为 <code>www.xx.com</code>。</li>\n<li>@：直接解析主域名 xx.com。</li>\n<li>*：泛解析，匹配其他所有域名 *.xx.com。</li>\n</ul>\n<p>关闭 zuo11.com 到 <code>www.zuo11.com</code> 的重定向，大概是09月27，再次提交后，10月02号收到审核通过邮件。如下图</p>\n<p><img src=\"../../../images/blog/seo/google_ad.jpg\" alt=\"google_ad.jpg\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Google AdSense被拒理由网站已下线或无法访问怎么解决？"
+        }
+      ],
+      "config": {
+        "source": "Google AdSense被拒理由网站已下线或无法访问怎么解决.md",
+        "staticFileName": "adsense_cannot_found.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "在自己网站的 head 部分加入 AdSense 的校验代码后，会有一段审核的时间。在这个过程中，网站可能会有来自福建龙岩的 203.208.60.* IP段蜘蛛来爬取你的网页。蜘蛛会爬取JS渲染后的效果，可以触发百度统计等js代码。不用屏蔽，这属于 Google 蜘蛛正常爬取，Google Analytics 在计算访客时会忽略这一部分访客信息。蜘蛛爬完的第二天，就收到了邮件，说审核不通过，看了下原因：'网站已下线或无法访问怎么解决' ，如下图所示。但我的网站是确定可以正常访问的。",
+        "keywords": "AdSense网站已下线或无法访问",
+        "category": "网站建设与SEO",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"google-analytics、google-adsense、google-search-console分别是干什么的\">Google Analytics、Google AdSense、Google Search Console分别是干什么的?</h1>\n<p>在站点管理这一块，Google的工具有好几个，我现在知道的有三个，他们分别对应不同的功能，下面来看看他们的介绍、区别</p>\n<table>\n<thead>\n<tr>\n<th>平台</th>\n<th>功能</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a href=\"https://search.google.com/search-console\">Google Search Console</a>  搜索控制台</td>\n<td>站长工具、sitemap提交，展现量/点击量简单查看，死链提交等</td>\n</tr>\n<tr>\n<td><a href=\"https://analytics.google.com/analytics/\">Google Analytics</a> 分析</td>\n<td>偏数据分析，统计实时用户/累计用户/会话时长/跳出率等，受众群体、流量来源、转化率、页面价值等</td>\n</tr>\n<tr>\n<td><a href=\"https://www.google.com/adsense\">Google AdSense</a> 广告联盟</td>\n<td>用于在自己站点投放 Google 广告，赚取收益</td>\n</tr>\n</tbody></table>\n<p><img src=\"../../../images/blog/seo/google_ad_3.png\" alt=\"google站长工具对比\"></p>\n<p>百度统计类似 Google Search Console 和 Google Analytics 的结合体，但 Google Analytics 的细分功能更加强大</p>\n<p>关于 Google AdSense，有一本书可以参考下：《Google AdSense 实战宝典》</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Google Analytics、Google AdSense、Google Search Console分别是干什么的?"
+        }
+      ],
+      "config": {
+        "source": "Google Analytics、Google AdSense、Google Search Console分别是干什么的?.md",
+        "staticFileName": "google_web_tools.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "在站点管理这一块，Google的工具有好几个，我现在知道的有三个，他们分别对应不同的功能，下面来看看他们的介绍、区别：Google Search Console，搜索控制台| 站长工具、sitemap提交，展现量/点击量简单查看，死链提交等；Google Analytics 偏数据分析，统计实时用户/累计用户/会话时长/跳出率等，受众群体、流量来源、转化率、页面价值等；Google AdSense 广告联盟 | 用于在自己站点投放 Google 广告，赚取收益",
+        "keywords": "Google Analytics,Google AdSense,Google Search Console",
+        "category": "网站建设与SEO",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"js-append-和-appendchild-的区别\">JS append 和 appendChild 的区别</h1>\n<p>在JS高程3中，并没有讲到 append()，基本都是用的 appendChild()，所以有知识盲点，这里对比下 append() 和 apendChiild() 的区别，如下表所示：append 用于在元素内容里追加一个 Node 节点，appendChiled() 用于在元素内容里追加一个或多个 Node 节点或 String 。</p>\n<table>\n<thead>\n<tr>\n<th>方法</th>\n<th>所属对象</th>\n<th>功能</th>\n<th>返回值</th>\n<th>兼容性</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild\">appendChild</a></td>\n<td><a href=\"https://developer.mozilla.org/zh-CN/docs/Web/API/Node\">Node</a></td>\n<td>在元素内容里追加一个 Node 节点</td>\n<td>append的节点</td>\n<td>基本都兼容</td>\n</tr>\n<tr>\n<td><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append\">append</a></td>\n<td><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/ParentNode\">ParentNode</a></td>\n<td>在元素内容里追加一个或多个 Node 节点或 String</td>\n<td>undefined</td>\n<td>实验性功能 <a href=\"https://developer.mozilla.org/zh-CN/docs/Web/API/ParentNode#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7\">不支持 IE</a></td>\n</tr>\n</tbody></table>\n<p>注意，如果 append 或 appendChild 的元素是已经存在的，会移动该元素，如果需要保持原来的不移动，需要先 cloneNode, 下面来看一个例子</p>\n<pre><code class=\"language-html\">&lt;body&gt;\n  &lt;div id=&quot;c1&quot;&gt;&lt;/div&gt;\n  &lt;div id=&quot;existDiv&quot;&gt;我是一段已经存在的dom&lt;/div&gt;\n  &lt;div id=&quot;c2&quot;&gt;&lt;/div&gt;\n  &lt;div id=&quot;c3&quot;&gt;&lt;/div&gt;\n  &lt;script&gt;\n    // 1.测试基本功能：创建节点，并 appendChild 到 c1元素\n    let p = document.createElement(&#39;p&#39;)\n    let text = document.createTextNode(&#39;我是一段信息&#39;)\n    p.appendChild(text)\n    console.log(p, p.__proto__) // HTMLParagraphElement\n    document.querySelector(&#39;#c1&#39;).appendChild(p)\n    // document.querySelector(&#39;#c1&#39;).appendChild(&#39;1212&#39;) // Error, Node\n\n    // 2.测试 appendChild 一个已存在的节点，移动节点，而不是copy\n    let existDiv = document.querySelector(&#39;#existDiv&#39;)\n    console.log(existDiv, existDiv.__proto__)  // HTMLDivElement\n    console.log(&#39;测试appendChild 返回&#39;, document.querySelector(&#39;#c2&#39;).appendChild(existDiv))\n    // console.log(&#39;测试append 返回&#39;, document.querySelector(&#39;#c2&#39;).append(existDiv))\n\n    // 4.测试append\n    let span = document.createElement(&#39;span&#39;)\n    // 不要写成链式调用，它返回的是成功appendChild的节点\n    span.appendChild(document.createTextNode(&#39;测试append&#39;))\n    document.querySelector(&#39;#c3&#39;).append(&#39;&lt;span&gt;abc&lt;/span&gt;&#39;)\n    document.querySelector(&#39;#c3&#39;).append(span, &#39;a&#39;, &#39;b&#39;, &#39;&lt;div&gt;c&lt;/div&gt;&#39;)\n  &lt;/script&gt;\n&lt;/body&gt;</code></pre>\n<p>执行效果如下图</p>\n<p><img src=\"../../../images/blog/js/append_vs_appendChild.png\" alt=\"append_vs_appendChild.png\"></p>\n<p>关于 Node 节点 Element 元素对象的一些值</p>\n<pre><code class=\"language-js\">&lt;div id=&quot;myDiv&quot; class=&quot;bg test&quot; title=&quot;body text&quot; lang=&quot;en&quot; dir=&quot;rtl&quot;&gt;abcdefg&lt;/div&gt;\n// 3.测试节点类型、对象信息 HTMLDivElement =&gt; HTMLElement =&gt; Element =&gt; Node\n// 参考：DOM https://www.yuque.com/guoqzuo/js_es6/hoglme#6bbee863\nvar div = document.getElementById(&quot;myDiv&quot;); // HTMLDivElement\nconsole.log(div.nodeType) // 1 Node.ELEMENT_NODE\nconsole.log(div.nodeName) // DIV\nconsole.log(div.id); // myDiv\nconsole.log(div.className); // bg test\nconsole.log(div.title); // body text\nconsole.log(div.lang); // en\nconsole.log(div.dir); // rtl   </code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "JS append 和 appendChild 的区别"
+        }
+      ],
+      "config": {
+        "source": "JS append 和 appendChild 的区别.md",
+        "staticFileName": "append_append.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/16",
+        "description": "在 JS 高程 3 中，并没有讲到 append()，基本都是用的 appendChild()，所以有知识盲点，这里对比下 append() 和 apendChiild() 的区别，如下表所示：append 用于在元素内容里追加一个 Node 节点，appendChiled() 用于在元素内容里追加一个或多个 Node 节点或 String，注意，如果 append 或 appendChild 的元素是已经存在的，会移动该元素，如果需要保持原来的不移动，需要先 cloneNode, 下面来看一个例子",
+        "keywords": "append appendChild区别,append()和appendchild(),append和appendChild",
         "category": "Javascript",
         "year": "2020",
         "month": "11"
@@ -13230,7 +13476,7 @@
       }
     }
   ],
-  "count": 339,
+  "count": 347,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,
