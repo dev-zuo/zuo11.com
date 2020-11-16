@@ -70,5 +70,80 @@
     "description": "QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式。QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM. QRCode.js has no dependencies. QRCode.js 使用很简单，下面来写一个自动生成二维码的工具",
     "keywords": "js生成二维码,前端生成二维码,js生成二维码链接",
     "category": "Javascript"
+  },
+  {
+    "source": "Vue 单元测试.md",
+    "staticFileName": "vue_unit_test.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "在 Vue.js 官网，学习 => CookBook 下有一个 Vue 组件的单元测试 文档。为什么要测试？组件的单元测试的好处: 节省手动测试的时间，减少研发新特性时产生的 bug，自动化测试使得大团队中的开发者可以维护复杂的基础代码。Vue Test Utils 是 Vue 组件单元测试的官方库。他的作者写了一本书 《Testing Vue.js Applications》，对应的中文版本是《Vue.js应用测试》，如果想系统的学习 Vue 应用测试，建议看这本书。",
+    "keywords": "vue单元测试,vue测试,vue应用测试",
+    "category": "Vue"
+  },
+  {
+    "source": "什么是e2e test，除了单元测试外还有什么测试？.md",
+    "staticFileName": "e2e_test.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "e2e 是 end to end 的缩写，翻译为端到端测试。单元测试只是整个测试金字塔中的一部分。其他类型的测试还包括 e2e(端到端)测试，快照比对测试等。e2e(端到端)测试致力于确保组件的一系列交互是正确的。相比简单快速的单元测试，它是更高级别的测试，例如可能会测试用户是否注册、登录以及更新他们的用户名。这种测试运行起来会比单元测试和快照比对测试慢一些。运行起来会更慢很多。这些测试通常只在部署前运行，来确保系统的每个部分都能够正常的协同工作。",
+    "keywords": "e2e test,e2e test示例,端到端测试",
+    "category": "Vue"
+  },
+  {
+    "source": "xx.github.io偶尔访问不了是为什么？.md",
+    "staticFileName": "github_io_failure.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "在 Github 上开启 Pages 服务后，可以通过 xx.github.io 访问对应的网页。但偶尔会出现打不开的问题，之前都是可以打开的，试了其他人的 github.io，发现也打不开，这就不是自己网络的问题了。网上查原因是电信运营商 DNS 污染（域名解析不到正确的 IP 地址）。我们在本地手动设置 host 指定对应域名的解析 IP 即可正常访问。下面来看具体怎么操作",
+    "keywords": "xx.github.io打不开,github.io打不开,githu.io访问不了",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "ssh生成rsa key时Enter passphrase加和不加有什么区别.md",
+    "staticFileName": "ssh_passphrase.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "在使用 ssh 拉取 git 仓库前，需要先生成公共/私有 rsa 密钥对。(Generating public/private rsa key pair.)，一般使用 `ssh-keygen -t rsa -C '邮箱@xx.com'` 命令，这个时候，会有下面的提示：Enter passphrase (empty for no passphrase): 输入通行码(密码、口令短语)，如果不输入，那么就是不使用密码。如果输入了密码，这个有什么用呢？",
+    "keywords": "ssh passphrase,ssh passphrase有什么用",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "使用git ssh方式解决RPC failed; HTTP 413 curl 22 The requested URL returned error: 413.md",
+    "staticFileName": "git_http_413.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "由于改了博客生成系统的生成方式，每个html都改了，导致文件相对较多，也不算大，才 4.57 M, 但 git push 一直push不了，提示如下 error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 fatal: the remote end hung up unexpectedly，网上查了下，可以改用 ssh 的方式 push 代码，结合之前的经验，大文件 git clone 不下来，可以换 ssh 方式 git clone。",
+    "keywords": "RPC failed; HTTP 413 curl 22,The requested URL returned error: 413,fatal: the remote end hung up unexpectedly",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "Google AdSense被拒理由网站已下线或无法访问怎么解决.md",
+    "staticFileName": "adsense_cannot_found.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "在自己网站的 head 部分加入 AdSense 的校验代码后，会有一段审核的时间。在这个过程中，网站可能会有来自福建龙岩的 203.208.60.* IP段蜘蛛来爬取你的网页。蜘蛛会爬取JS渲染后的效果，可以触发百度统计等js代码。不用屏蔽，这属于 Google 蜘蛛正常爬取，Google Analytics 在计算访客时会忽略这一部分访客信息。蜘蛛爬完的第二天，就收到了邮件，说审核不通过，看了下原因：'网站已下线或无法访问怎么解决' ，如下图所示。但我的网站是确定可以正常访问的。",
+    "keywords": "AdSense网站已下线或无法访问",
+    "category": "网站建设与SEO"
+  },
+  {
+    "source": "Google Analytics、Google AdSense、Google Search Console分别是干什么的?.md",
+    "staticFileName": "google_web_tools.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "在站点管理这一块，Google的工具有好几个，我现在知道的有三个，他们分别对应不同的功能，下面来看看他们的介绍、区别：Google Search Console，搜索控制台| 站长工具、sitemap提交，展现量/点击量简单查看，死链提交等；Google Analytics 偏数据分析，统计实时用户/累计用户/会话时长/跳出率等，受众群体、流量来源、转化率、页面价值等；Google AdSense 广告联盟 | 用于在自己站点投放 Google 广告，赚取收益",
+    "keywords": "Google Analytics,Google AdSense,Google Search Console",
+    "category": "网站建设与SEO"
+  },
+  { 
+    "source": "JS append 和 appendChild 的区别.md",
+    "staticFileName": "append_append.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/16",
+    "description": "在 JS 高程 3 中，并没有讲到 append()，基本都是用的 appendChild()，所以有知识盲点，这里对比下 append() 和 apendChiild() 的区别，如下表所示：append 用于在元素内容里追加一个 Node 节点，appendChiled() 用于在元素内容里追加一个或多个 Node 节点或 String，注意，如果 append 或 appendChild 的元素是已经存在的，会移动该元素，如果需要保持原来的不移动，需要先 cloneNode, 下面来看一个例子",
+    "keywords": "append appendChild区别,append()和appendchild(),append和appendChild",
+    "category": "Javascript"
   }
 ]
+
+
+
