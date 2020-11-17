@@ -56,10 +56,31 @@
 <p>蜘蛛爬完的第二天，就收到了邮件，说审核不通过，看了下原因：&quot;网站已下线或无法访问怎么解决&quot; ，如下图所示。但我的网站是确定可以正常访问的。</p>
 <p><img src="../../../images/blog/seo/google_ad_1.png" alt="网站已下线或无法访问怎么解决"></p>
 <p>网上查了下，这种情况，需要在域名解析里增加两条解析记录，解析路线设置为境外。然后重新提交审核，等待即可。<strong>但我加了解析后，等了一段时间，又是同样的理由被拒绝，于是找到了官方的回复。首页不能重定向，比如 xx.com 不能重定向到 xx.com/home，或者 <code>www.xx.com</code></strong>，再次修改后，重新提交审核，大概5、6天后审核通过。参考 <a href="https://support.google.com/adsense/thread/43647550?hl=zh-Hans">为什么一直提示找不到adsense代码和网站已下线或无法访问？ - AdSense Community</a></p>
-<p>主机记录 | 记录类型 | 解析路线 | 记录值 | TTL
---- | --- | --- | --- | --- | ---
-@ | A | 境外 | 服务器IP地址 | 10分钟(默认) 
-www | A | 境外 | 服务器IP地址 | 10分钟(默认) </p>
+<table>
+<thead>
+<tr>
+<th>主机记录</th>
+<th>记录类型</th>
+<th>解析路线</th>
+<th>记录值</th>
+<th>TTL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@</td>
+<td>A</td>
+<td>境外</td>
+<td>服务器IP地址</td>
+<td>10分钟(默认)</td>
+</tr>
+<tr>
+<td>www</td>
+<td>A</td>
+<td>境外</td>
+<td>服务器IP地址</td>
+<td>10分钟(默认)</td>
+</tr>
+</tbody></table>
 <p><img src="../../../images/blog/seo/google_ad_2.png" alt="域名解析.png"></p>
 <p>www 和 @ 这样的主机记录是什么意思?</p>
 <ul>
