@@ -474,6 +474,20 @@
         "keywords": "http请求传参方式,http传参,swagger参数类型"
       },
       {
+        "title": "HTTP2，怎么确定网站是否开启了HTTP2，HTTP3？",
+        "href": "2020/11/http2_http3.html",
+        "time": "2020/11/23",
+        "description": "HTTP/2 是新一代的 HTTP 协议，于 2015 正式发布。相对 HTTP/1 来说，大幅提升了网页性能，绝大多数浏览器都支持了 HTTP/2。http 怎么开启 http2 呢？HTTP/2 现阶段必须使用 https，80端口就不要想了。HTTP/1.1 不足的地方 - 连接无法复用，每次请求都经历三次握手和慢启动 - HTTP/1.0 传输数据时，每次都需要重新建立连接，增加延迟。- HTTP/1.1 虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。",
+        "keywords": "HTTP2,HTTP3,怎么开启HTTP/2"
+      },
+      {
+        "title": "Let’s Encrypt 免费HTTPS证书",
+        "href": "2020/11/free_https.html",
+        "time": "2020/11/23",
+        "description": "Let’s Encrypt 是一个非盈利TLS（Transport Layer Security) 证书颁发机构（CA），免费提供 https 证书。 由于 Let’s Encrypt 证书的有效期为 3 个月，所以一般使用程序来自动续期更换证书。官方推荐使用 Certbot 来管理，它可以一站式申请、续期证书。在 Certbot 官网选择部署服务器使用的软件及系统，会自动列出需要操作的步骤，如下图",
+        "keywords": "免费https,https"
+      },
+      {
         "title": "前端怎么获取文件上传进度以及使用node mock上传文件接口demo",
         "href": "2020/2/upload_progress_monitor.html",
         "time": "2020/02/26",
@@ -947,6 +961,20 @@
         "keywords": "append appendChild区别,append()和appendchild(),append和appendChild"
       },
       {
+        "title": "图片占位、懒加载、预览",
+        "href": "2020/11/img_placeholder_lazyload.html",
+        "time": "2020/11/23",
+        "description": "使用占位图片有什么好处? 1. 用户体验更好，标识此处有图片，但正在加载中的这一个状态，避免弱网或图片较大时，完全不显示的问题 2. 不阻塞其他资源加载，更快的整体文档加载速度，不阻塞其他请求。占位图片一般会和图片懒加载一起使用，当滚动到该区域时再加载图片，减少不必要的并发网络请求。3. 可以避免回流/重排，让图片加载完成后不改变页面的整体布局，避免回流(重新布局)，只需要重绘，注意: 需要占位图片与实际图片宽高不变",
+        "keywords": "怎么实现图片懒加载,图片占位好处,图片预览,image lazyload,图片懒加载"
+      },
+      {
+        "title": "Script error产生原因与解决方法、调试技巧",
+        "href": "2020/11/script_error.html",
+        "time": "2020/11/23",
+        "description": "一般为了安全起见，如果当前页面引入了跨域的 js 文件，当这个 js 文件出现错误，监听错误会无法获取对应的行号、真实的错误message。这种情况错误信息就是 Script error。本地来做一个试验，重现该问题，用 koa 写两个服务，分别监听 5001/5002端口，同时开启服务",
+        "keywords": "script error,script error是什么错误"
+      },
+      {
         "title": "深入JS遍历对象，从4个维度比较遍历对象的8种方法",
         "href": "2020/2/js_obj_iterator.html",
         "time": "2020/02/02",
@@ -1283,6 +1311,13 @@
         "time": "2020/10/31",
         "description": "normalize.css, A modern alternative to CSS resets 一个用于CSS重置的现代替代方法。主要用于解决不同浏览器默认样式之间的差异。What does it do? - Preserves useful defaults, unlike many CSS resets. 保留有用的默认样式，重置许多不一样的CSS - Normalizes styles for a wide range of elements. 为许多各种各样的元素标准化样式",
         "keywords": "浏览器样式差异抹平,normalize.css"
+      },
+      {
+        "title": "什么是回流(Reflow)和重绘(Repaint)？怎么避免？",
+        "href": "2020/11/css_reflow_repaint.html",
+        "time": "2020/11/23",
+        "description": "什么是回流和重绘？ 浏览器使用流式布局模型 (Flow Based Layout)，浏览器把 HTML 解析成 DOM，把 CSS 解析为 CSDOM，DOM 和 CSDOM 合并就产生了 Render Tree(渲染树)，根据Render Tree，计算各个元素在页面中的大小和位置，绘制到页面上。",
+        "keywords": "回流和重绘,reflow,repaint,css回流,css重绘"
       },
       {
         "title": "怎么给三角形加border，添加到我的小程序UI实现以及需要注意的问题",
@@ -2108,6 +2143,13 @@
         "keywords": "mac gif,mac好用的gif工具,mac做gif图"
       },
       {
+        "title": "Chrome DevTools Network Waterfall 瀑布图各阶段详解",
+        "href": "2020/11/chrome_waterfall.html",
+        "time": "2020/11/23",
+        "description": "在Chrom调试工具Network tab下，每个请求都有一个Waterfal diagrams(瀑布图)，点击具体接口，Timming(时序)位置会有具体描述。它记录了网络请求各个阶段的耗时，可以用于分析页面加载性能。Timing breakdown phases explained（时序分解阶段明细）。Here's more information about each of the phases you may see in the Timing tab:（下面是在Timing标签页中能看到的各个阶段的更多信息）",
+        "keywords": "chrome瀑布图,Timming时序图"
+      },
+      {
         "title": "使用new Date()在前端获取当期时间是不准确的",
         "href": "2020/6/new_date_fe.html",
         "time": "2020/06/21",
@@ -2290,6 +2332,20 @@
         "time": "2020/11/08",
         "description": "一般在 Vue 开发中，vue 命令可以执行，是因为全局安装了 `@vue/cli` npm包。假设你无法使用 npm install -g 全局安装，那怎么在当前项目所在的目录运行对应的命令呢？这里我们使用 zuo-util 这么 npm 包来介绍 3 种在项目种运行 npm 包命令的方法：1. npm run xxx 2. npx 命令 3. ./node_modules/.bin/命令",
         "keywords": "局部执行npm包命令,不全局安装npm包，怎么在项目中运行命令,局部执行命令"
+      },
+      {
+        "title": "AMD、UMD、CommonJS、ES Modules的理解",
+        "href": "2020/11/amd_umd_commonjs.html",
+        "time": "2020/11/23",
+        "description": "在 ES6 之前，JS 本身没有模块功能，社区出现了 CommonJS 和 AMD 等模块方案。从 ES6 开始, JS 开始原生支持模块，一般称之为 ES Modules。- CommonJS: 主要用于服务端，是 node 中使用的 require、module.exports。从 Node.js v13.2 版本开始，Node.js 已经默认打开了 ES6 模块支持。但需要采用 .mjs 后缀文件名。如果不希望将后缀名改成.mjs，可以在项目的package.json文件中，指定type字段为module。- AMD: Asynchronous Module Definition，异步模块定义，主要用于客户端(浏览器)，以 RequireJS 为代表 define、require -  UMD: Universal Module Definition，通用模块定义模式，主要用来解决 CommonJS 模式和 AMD 模式代码不能通用的问题，并同时还支持老式的全局变量规范。",
+        "keywords": "AMD,UMD,CommonJS,ES Modules"
+      },
+      {
+        "title": "pm2 process.yml You cannot define a mapping item when in a sequence",
+        "href": "2020/11/pm2_map.html",
+        "time": "2020/11/23",
+        "description": "使用 pm2 运行 node 项目，`pm2 start process.yml` 后提示 You cannot define a mapping item when in a sequence，是 process.yml 配置文件的问题，修改下配置文件即可。将 `- script: app.js` 改为 `script: app.js` 重新运行就可以了",
+        "keywords": "pm2 process.yml"
       },
       {
         "title": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理",
@@ -9255,6 +9311,174 @@
       }
     },
     {
+      "htmlStr": "<h1 id=\"chrome-devtools-network-waterfall-瀑布图各阶段详解\">Chrome DevTools Network Waterfall 瀑布图各阶段详解</h1>\n<p>在 Chrome 调试工具 Network tab 下，每个请求都有一个 Waterfal diagrams(瀑布图)，点击具体接口，Timming(时序)位置会有具体描述。它记录了网络请求各个阶段的耗时，可以用于分析页面加载性能。</p>\n<p><img src=\"../../../images/blog/devtools/waterfall-hover.png\" alt=\"waterfall-hover.png\"></p>\n<p>Timing breakdown phases explained（时序分解阶段明细）</p>\n<p>Here&#39;s more information about each of the phases you may see in the Timing tab:（下面是在Timing标签页中能看到的各个阶段的更多信息）</p>\n<p><strong>1. Resource Scheduling(资源调度)</strong></p>\n<ul>\n<li><strong>Queueing(排队)</strong>. The browser queues requests when:（浏览器在以下情况会排队请求）<ul>\n<li>There are higher priority requests.（有更高优先级的请求）</li>\n<li>There are already six TCP connections open for this origin, which is the limit. Applies to HTTP/1.0 and HTTP/1.1 only. (当前请求的 origin/domain，已经有 6 个 TCP 连接打开，这是限制。仅应用于 HTTP/1.0 and HTTP/1.1)</li>\n<li>The browser is briefly allocating space in the disk cache（浏览器正在磁盘缓存中短暂分配空间）</li>\n</ul>\n</li>\n</ul>\n<p><strong>2. Connecttion Start(连接开始)</strong></p>\n<ul>\n<li><strong>Stalled(停滞/暂缓)</strong>. The request could be stalled for any of the reasons described in Queueing. （处于排队中描述的任何原因，请求都有可能停滞/暂缓）</li>\n<li><strong>DNS Lookup(DNS查询)</strong>. The browser is resolving the request&#39;s IP address. （域名解析成IP。在浏览器和服务器进行通信之前, 必须经过DNS查询, 将域名转换成IP地址. 在这个阶段, 你可以处理的东西很少. 但幸运的是, 并非所有的请求都需要经过这一阶段.）</li>\n<li><strong>Initial connection(初始化连接)</strong>. The browser is establishing a connection, including TCP handshakes/retries and negotiating an SSL.（浏览器正在创建一个连接，包括握手/重试）和 协商SSL。在浏览器发送请求之前, 必须建立TCP连接. 这个过程仅仅发生在瀑布图中的开头几行, 否则这就是性能问题.</li>\n<li><strong>SSL(SSL协商)</strong> SSL/TLS Negotiation  如果你的页面是通过SSL/TLS这类安全协议加载资源, 这段时间就是浏览器建立安全连接的过程. </li>\n<li><strong>Proxy negotiation(代理协商)</strong>. The browser is negotiating the request with a proxy server. （浏览器正在与代理服务器协商请求）</li>\n</ul>\n<p><strong>3. Request/Response(请求/响应)</strong></p>\n<ul>\n<li><p><strong>Request sent(请求发送)</strong>. The request is being sent. 请求开始发送</p>\n</li>\n<li><p><strong>ServiceWorker Preparation(ServiceWorker准备)</strong>. The browser is starting up the service worker. （浏览器正在启动 Service Worker）</p>\n</li>\n<li><p><strong>Request to ServiceWorker(请求到ServiceWorker)</strong>. The request is being sent to the service worker.（请求被发送到 service worker）</p>\n</li>\n<li><p><strong>Waiting (TTFB) 等待</strong>. The browser is waiting for the first byte of a response. TTFB stands for <strong>Time To First Byte</strong>. This timing includes 1 round trip of latency and the time the server took to prepare the response.（浏览器正在等待响应的第一个字节。 TTFB代表到第一个字节的时间。 此时间包括一次往返延迟和服务器准备响应所花费的时间） TTFB 是浏览器请求发送到服务器的时间+服务器处理请求时间+响应报文的第一字节到达浏览器的时间. 我们用这个指标来判断你的web服务器是否性能不够, 或者说你是否需要使用CDN.</p>\n</li>\n<li><p><strong>Content Download</strong>. The browser is receiving the response. （浏览器正在接收响应），这是浏览器用来下载资源所用的时间. 这段时间越长, 说明资源越大. 理想情况下, 你可以通过控制资源的大小来控制这段时间的长度.</p>\n</li>\n<li><p><strong>Receiving Push</strong>. The browser is receiving data for this response via HTTP/2 Server Push.（浏览器正在通过HTTP / 2服务器推送接收此响应的数据）</p>\n</li>\n<li><p><strong>Reading Push</strong>. The browser is reading the local data previously received.（浏览器正在读取先前接收的本地数据。）</p>\n</li>\n</ul>\n<p>参考资料及扩展：</p>\n<ul>\n<li><a href=\"https://developers.google.com/web/tools/chrome-devtools/network/reference?utm_source=devtools#timing-explanation\">Timing breakdown phases explained - Network Analysis Reference  |  Chrome DevTools</a></li>\n<li><a href=\"https://www.html.cn/doc/chrome-devtools/\">Chrome 开发者工具中文文档</a></li>\n<li><a href=\"https://blog.csdn.net/csdn_girl/article/details/54911632\">教你读懂网络请求的瀑布图</a></li>\n<li><a href=\"https://moz.com/blog/the-seo-professional-s-guide-to-waterfall-diagrams\">The SEO Professional&#39;s Guide to Waterfall Diagrams</a></li>\n<li><a href=\"https://github.com/xitu/gold-miner/blob/master/TODO/understanding-service-workers.md\">理解 Service Workers</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Chrome DevTools Network Waterfall 瀑布图各阶段详解"
+        }
+      ],
+      "config": {
+        "source": "Chrome DevTools Network Waterfall 瀑布图各阶段详解.md",
+        "staticFileName": "chrome_waterfall.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "在Chrom调试工具Network tab下，每个请求都有一个Waterfal diagrams(瀑布图)，点击具体接口，Timming(时序)位置会有具体描述。它记录了网络请求各个阶段的耗时，可以用于分析页面加载性能。Timing breakdown phases explained（时序分解阶段明细）。Here's more information about each of the phases you may see in the Timing tab:（下面是在Timing标签页中能看到的各个阶段的更多信息）",
+        "keywords": "chrome瀑布图,Timming时序图",
+        "category": "计算机基础与开发工具",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"图片占位、懒加载、预览\">图片占位、懒加载、预览</h1>\n<p><strong>使用占位图片有什么好处?</strong></p>\n<ol>\n<li>用户体验更好，标识此处有图片，但正在加载中的这一个状态，避免弱网或图片较大时，完全不显示的问题</li>\n<li>不阻塞其他资源加载，更快的整体文档加载速度，不阻塞其他请求。占位图片一般会和图片懒加载一起使用，当滚动到该区域时再加载图片，减少不必要的并发网络请求</li>\n<li>可以避免回流/重排，让图片加载完成后不改变页面的整体布局，避免回流(重新布局)，只需要重绘，注意: 需要占位图片与实际图片宽高不变</li>\n</ol>\n<p><strong>怎么实现图片懒加载</strong></p>\n<p>这里核心问题是怎么判断图片是否已滚动到当前视口。一般可以通过监听页面滚动事件，实时比较元素的 offsetTop 与页面的 scrollTop。另外还可以通过元素的 getBoundingClientRect() 获取当前元素距离视窗的距离，如果小于 window.innerHeight 就加载，下面来看一个简单的实现</p>\n<pre><code class=\"language-html\">&lt;body&gt;\n  &lt;div&gt;\n    &lt;div style=&quot;height:50px;&quot;&gt;我是占位文本&lt;/div&gt;\n    &lt;img class=&quot;lazy-img&quot; data-src=&quot;http://zuo11.com/images/blog/c/c_vim.png&quot;&gt;\n    &lt;div style=&quot;height:500px;&quot;&gt;我是占位文本&lt;/div&gt;\n    &lt;img class=&quot;lazy-img&quot; data-src=&quot;http://zuo11.com/images/blog/c/c_saolei_3.png&quot;&gt;\n  &lt;/div&gt;\n  &lt;script&gt;\n    let imgEls = document.querySelectorAll(&#39;.lazy-img&#39;)\n    let imgs = []\n    imgEls.forEach(imgEl =&gt; {\n      imgEl.style.height = &#39;300px&#39;\n      imgEl.style.width = &#39;300px&#39;\n      imgEl.src = &quot;placeholder.png&quot;\n      // 存储信息用于监听滚动后比对\n      imgs.push({\n        offsetTop: imgEl.offsetTop,\n        el: imgEl,\n        src: imgEl.dataset.src,\n        isLoad: false\n      })\n    })\n    console.log(imgs)\n    // 判断滚动位置，显示图片\n    function showImg() {\n      console.log(&#39;&gt;&gt;&gt;&gt;&gt;&gt;&#39;)\n      imgs.forEach(item =&gt; {\n        // 如果图片未加载\n        if (!item.isLoad) {\n          console.log(window.innerHeight, item.src, item.el.getBoundingClientRect())\n          let elPos = item.el.getBoundingClientRect()\n          if (elPos.top &lt; window.innerHeight) {\n            // 如果元素相对顶部的距离 &lt; 视窗高度，加载图片\n            item.el.src = item.src\n            item.isLoad = true\n          }\n        }\n      })\n    }\n    showImg()\n    window.onscroll = () =&gt; {\n      showImg()\n    }\n  &lt;/script&gt;\n&lt;/body&gt;</code></pre>\n<p><strong>图片预览</strong></p>\n<p>可以参考Element UI el-image组件实现，<a href=\"https://element.eleme.cn/#/zh-CN/component/image#da-tu-yu-lan\">Element UI 大图预览 | el-image</a></p>\n<p>参考资料与扩展</p>\n<ul>\n<li><a href=\"https://segmentfault.com/q/1010000007357371?_ea=1320000\">前端为什么要使用占位图 | segmentfault</a></li>\n<li><a href=\"https://www.jianshu.com/p/4876a4fe7731\">图片懒加载和预加载 | 简书</a></li>\n<li><a href=\"https://juejin.im/post/6844903725249609741\">如何判断元素是否进入可视区域viewport？| 掘金</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "图片占位、懒加载、预览"
+        }
+      ],
+      "config": {
+        "source": "图片占位、懒加载、预览.md",
+        "staticFileName": "img_placeholder_lazyload.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "使用占位图片有什么好处? 1. 用户体验更好，标识此处有图片，但正在加载中的这一个状态，避免弱网或图片较大时，完全不显示的问题 2. 不阻塞其他资源加载，更快的整体文档加载速度，不阻塞其他请求。占位图片一般会和图片懒加载一起使用，当滚动到该区域时再加载图片，减少不必要的并发网络请求。3. 可以避免回流/重排，让图片加载完成后不改变页面的整体布局，避免回流(重新布局)，只需要重绘，注意: 需要占位图片与实际图片宽高不变",
+        "keywords": "怎么实现图片懒加载,图片占位好处,图片预览,image lazyload,图片懒加载",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"什么是回流reflow和重绘repaint？怎么避免？\">什么是回流(Reflow)和重绘(Repaint)？怎么避免？</h1>\n<p><strong>1. 什么是回流和重绘</strong></p>\n<ul>\n<li>浏览器使用流式布局模型 (Flow Based Layout)</li>\n<li>浏览器把 HTML 解析成 DOM，把 CSS 解析为 CSDOM，DOM 和 CSDOM 合并就产生了 Render Tree(渲染树)</li>\n<li>根据Render Tree，计算各个元素在页面中的大小和位置，绘制到页面上。</li>\n</ul>\n<p><strong>回流/重排（Reflow）</strong>：当 Render Tree 中部分或全部元素的尺寸、结构或位置发生改变时，浏览器会重新渲染部分或整个文档的过程就称为Reflow</p>\n<p><strong>重绘（RePaint）</strong>: 当页面中元素样式的改变并不影响它在文档中的位置时，浏览器会重绘该区域，这个过程称为重绘</p>\n<p><strong>2. 回流和重绘的比较</strong></p>\n<p>DOM、CSS style的改变会照成回流或者重绘，回流比重绘更消耗性能</p>\n<ul>\n<li>回流：重新布局，会引起元素位置变化的就会reflow，比如修改 DOM 的宽高、字体大小、窗口大小改变、元素位置改变等</li>\n<li>重绘：重新绘制区域，不改变元素位置，比如修改背景、颜色，visibility等</li>\n</ul>\n<p><strong>3. 如何避免回流或重绘</strong></p>\n<p>CSS：</p>\n<ul>\n<li>尽可能在DOM树的最末端改变class</li>\n<li>避免设置多层内联样式，将动画效果应用到 position 属性为 absolute 或 fixed 的元素上</li>\n<li>避免使用CSS表达式（例如：calc())</li>\n</ul>\n<p>JavaScript</p>\n<ul>\n<li>避免频繁操作样式、DOM</li>\n<li>在 documentFragment 或 display 为 none 的元素上进行 dom 操作不会引起回流或重绘</li>\n<li>对复杂动画，使用绝对定位脱离文档流，避免整体回流</li>\n</ul>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://juejin.im/post/6844903569087266823\">浏览器的回流与重绘 (Reflow &amp; Repaint) | 掘金</a></li>\n<li><a href=\"https://www.zhoulujun.cn/html/webfront/browser/webkit/2016_0506_7820.html\">使用chrome对页面重绘和回流做优化</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "什么是回流(Reflow)和重绘(Repaint)？怎么避免？"
+        }
+      ],
+      "config": {
+        "source": "什么是回流(Reflow)和重绘(Repaint)？怎么避免？.md",
+        "staticFileName": "css_reflow_repaint.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "什么是回流和重绘？ 浏览器使用流式布局模型 (Flow Based Layout)，浏览器把 HTML 解析成 DOM，把 CSS 解析为 CSDOM，DOM 和 CSDOM 合并就产生了 Render Tree(渲染树)，根据Render Tree，计算各个元素在页面中的大小和位置，绘制到页面上。",
+        "keywords": "回流和重绘,reflow,repaint,css回流,css重绘",
+        "category": "CSS",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"script-error产生原因与解决方法、调试技巧\">Script error产生原因与解决方法、调试技巧</h1>\n<p>一般为了安全起见，如果当前页面引入了跨域的 js 文件，当这个 js 文件出现错误，监听错误会无法获取对应的行号、真实的错误message。这种情况错误信息就是 Script error.</p>\n<p>本地来做一个试验，重现该问题，用 koa 写两个服务，分别监听 5001/5002端口，同时开启服务</p>\n<pre><code class=\"language-js\">/**\n * index_a.js\n * index_b.js 代码和下面的基本一致，只是将 5001 改为 5002\n */\nconst Koa = require(&#39;koa&#39;)\nconst app = new Koa()\n\napp.use(require(&#39;koa-static&#39;)(__dirname + &#39;/public&#39;))\n\napp.listen(&#39;5001&#39;, () =&gt; {\n  console.log(&#39;server listen on 5001 port&#39;)\n})</code></pre>\n<p>public/index.html 测试页面中，我们引入 5001端口的 a.js 或 5002 端口的 a.js，看具体 error 信息</p>\n<pre><code class=\"language-html\">&lt;body&gt;\n  &lt;button onclick=&quot;btnClick()&quot;&gt;点击&lt;/button&gt;\n  &lt;script src=&quot;http://127.0.0.1:5001/a.js&quot;&gt;&lt;/script&gt;\n  &lt;!-- &lt;script src=&quot;http://127.0.0.1:5002/a.js&quot;&gt;&lt;/script&gt; --&gt;\n  &lt;script&gt;\n    window.addEventListener(&#39;error&#39;, e =&gt; {\n      console.log(e, e.message)\n    })\n  &lt;/script&gt;\n&lt;/body&gt;\n&lt;!-- \n// a.js代码\nfunction btnClick() {\n  console.logaaa(&#39;aaa&#39;) // 故意制造一个错误\n}\n-- &gt;</code></pre>\n<p>访问 <code>http://127.0.0.1:5001/index.html</code>，然后测试不同端口下执行情况，具体如下图</p>\n<p><img src=\"../../../images/blog/js/cross_origin_script_error.png\" alt=\"cross_origin_script_error.png\"></p>\n<p>知道问题后，我们可以通过使用同域的方式引入 js。如果一定要使用跨域的，需要设置下面两点</p>\n<ol>\n<li>script引入时加入 crossorigin=&quot;anonymous&quot;，anonymous 即不发送 Cookie 和 HTTP 认证信息</li>\n<li>服务器对应的js，增加允许跨域</li>\n</ol>\n<pre><code class=\"language-js\">// html里\n// &lt;script src=&quot;http://127.0.0.1:5002/a.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;\n// index_b.js 5002端口增加允许跨域\n\nconst Koa = require(&#39;koa&#39;)\nconst app = new Koa()\n// 允许跨域\napp.use(async (ctx, next) =&gt; {\n  ctx.set({\n    &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Headers&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Methods&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Credentials&#39;: &#39;true&#39;, // 允许携带cookie\n    &#39;Access-Control-Max-Age&#39;: 3600 // 对于相同的请求，仅在第一次发送options预检请求，之后1小时内不需要预检请求\n  })\n  await next()\n})\napp.use(require(&#39;koa-static&#39;)(__dirname + &#39;/public&#39;))\napp.listen(&#39;5002&#39;, () =&gt; {\n  console.log(&#39;server listen on 5002 port&#39;)\n})</code></pre>\n<p>设置好后，我们再测试就会发现可以正常显示跨域的信息了。如下图，完整demo参见 <a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E8%B7%A8%E5%9F%9FScript_error%E6%B5%8B%E8%AF%95\">跨域Script_error测试demo | github</a></p>\n<p><img src=\"../../../images/blog/js/cross_origin_script_error_fix.png\" alt=\"cross_origin_script_error_fix.png\"></p>\n<p>参考：<a href=\"https://blog.fundebug.com/2017/04/05/understand-script-error/\">Script error.全面解析 | Fundebug</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Script error产生原因与解决方法、调试技巧"
+        }
+      ],
+      "config": {
+        "source": "Script error产生原因与解决方法、调试技巧.md",
+        "staticFileName": "script_error.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "一般为了安全起见，如果当前页面引入了跨域的 js 文件，当这个 js 文件出现错误，监听错误会无法获取对应的行号、真实的错误message。这种情况错误信息就是 Script error。本地来做一个试验，重现该问题，用 koa 写两个服务，分别监听 5001/5002端口，同时开启服务",
+        "keywords": "script error,script error是什么错误",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"amd、umd、commonjs、es-modules的理解\">AMD、UMD、CommonJS、ES Modules的理解</h1>\n<p>在 ES6 之前，JS 本身没有模块功能，社区出现了 CommonJS 和 AMD 等模块方案。从 ES6 开始, JS 开始原生支持模块，一般称之为 ES Modules。</p>\n<ul>\n<li>CommonJS: 主要用于服务端，是 node 中使用的 require、module.exports。从 Node.js v13.2 版本开始，Node.js 已经默认打开了 ES6 模块支持。但需要采用 .mjs 后缀文件名。如果不希望将后缀名改成.mjs，可以在项目的package.json文件中，指定type字段为module。</li>\n<li>AMD: Asynchronous Module Definition，异步模块定义，主要用于客户端(浏览器)，以 RequireJS 为代表 define、require</li>\n<li>UMD: Universal Module Definition，通用模块定义模式，主要用来解决 CommonJS 模式和 AMD 模式代码不能通用的问题，并同时还支持老式的全局变量规范。</li>\n<li>ES Modules 是 ES 标准模块系统，import、export ，可以和 CommonJS 混合使用</li>\n</ul>\n<pre><code class=\"language-js\">/*\n * bundle.js  UMD webpack打包后的js\n * 判断define为函数，并且是否存在define.amd，来判断是否为AMD规范,\n * 判断module是否为一个对象，并且是否存在module.exports来判断是否为CommonJS规范\n * 如果以上两种都没有，设定为原始的代码规范。\n */\n(function (global, factory) {\n    typeof exports === &#39;object&#39; &amp;&amp; typeof module !== &#39;undefined&#39; ? module.exports = factory() :\n    typeof define === &#39;function&#39; &amp;&amp; define.amd ? define(factory) :\n    (global = global || self, global.myBundle = factory());\n}(this, (function () { &#39;use strict&#39;;\n\n    var main = () =&gt; {\n        return &#39;hello world&#39;;\n    };\n\n    return main;\n\n})));\n// index.html\n&lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;\n&lt;script&gt;\n  console.log(myBundle());\n&lt;/script&gt;</code></pre>\n<p>区别:</p>\n<ol>\n<li>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。CommonJS一旦输出一个值，模块内部的变化就影响不到这个值。ES6 模块的运行机制与 CommonJS 不一样。JS 引擎对脚本静态分析的时候，遇到模块加载命令import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。</li>\n<li>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</li>\n<li>CommonJS 模块的require()是同步加载模块，ES6 模块的import命令是异步加载，有一个独立的模块依赖的解析阶段。</li>\n</ol>\n<pre><code class=\"language-js\">// CommonJS模块\nlet { stat, exists, readfile } = require(&#39;fs&#39;);\n\n// 等同于\nlet _fs = require(&#39;fs&#39;);\nlet stat = _fs.stat;\nlet exists = _fs.exists;\nlet readfile = _fs.readfile;\n\n// ES6模块\nimport { stat, exists, readFile } from &#39;fs&#39;;</code></pre>\n<p>参考</p>\n<ul>\n<li><a href=\"https://zhuanlan.zhihu.com/p/108217164\">《模块化系列》彻底理清 AMD,CommonJS,CMD,UMD,ES6</a></li>\n<li><a href=\"https://es6.ruanyifeng.com/#docs/module\">Module 的语法 | ES6入门</a></li>\n<li><a href=\"https://es6.ruanyifeng.com/#docs/module-loader\">Module 的加载实现 | ES6入门</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "AMD、UMD、CommonJS、ES Modules的理解"
+        }
+      ],
+      "config": {
+        "source": "AMD、UMD、CommonJS、ES Modules的理解.md",
+        "staticFileName": "amd_umd_commonjs.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "在 ES6 之前，JS 本身没有模块功能，社区出现了 CommonJS 和 AMD 等模块方案。从 ES6 开始, JS 开始原生支持模块，一般称之为 ES Modules。- CommonJS: 主要用于服务端，是 node 中使用的 require、module.exports。从 Node.js v13.2 版本开始，Node.js 已经默认打开了 ES6 模块支持。但需要采用 .mjs 后缀文件名。如果不希望将后缀名改成.mjs，可以在项目的package.json文件中，指定type字段为module。- AMD: Asynchronous Module Definition，异步模块定义，主要用于客户端(浏览器)，以 RequireJS 为代表 define、require -  UMD: Universal Module Definition，通用模块定义模式，主要用来解决 CommonJS 模式和 AMD 模式代码不能通用的问题，并同时还支持老式的全局变量规范。",
+        "keywords": "AMD,UMD,CommonJS,ES Modules",
+        "category": "前端工程化",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"http2，怎么确定网站是否开启了http2，http3？\">HTTP/2，怎么确定网站是否开启了HTTP/2，HTTP/3？</h1>\n<p>HTTP/2 是新一代的 HTTP 协议，于 2015 正式发布。相对 HTTP/1 来说，大幅提升了网页性能，绝大多数浏览器都支持了 HTTP/2。</p>\n<p>http 怎么开启 http2 呢？HTTP/2 现阶段必须使用 https，80端口就不要想了。参考: <a href=\"https://ziyuan.baidu.com/wiki/786\">拥抱HTTP2.0时代，让网站飞起来 | 百度站长</a></p>\n<p>HTTP/1.1 不足的地方</p>\n<ul>\n<li>连接无法复用，每次请求都经历三次握手和慢启动<ul>\n<li>HTTP/1.0 传输数据时，每次都需要重新建立连接，增加延迟。</li>\n<li>HTTP/1.1 虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。</li>\n</ul>\n</li>\n<li>队头阻塞(Head-Of-Line Blocking,HOLB)，并发请求数量限制<ul>\n<li>当页面中需要请求很多资源的时候，HOLB（队头阻塞）会导致在达到最大请求数量时，剩余的资源需要等待其他资源请求完成后才能发起请求。</li>\n<li>HTTP 1.0：下个请求必须在前一个请求返回后才能发出，request-response对按序发生。显然，如果某个请求长时间没有返回，那么接下来的请求就全部阻塞了。</li>\n<li>HTTP 1.1：尝试使用 pipeling 来解决，即浏览器可以一次性发出多个请求（同个域名，同一条 TCP 链接）。但 pipeling 要求返回是按序的，那么前一个请求如果很耗时（比如处理大图片），那么后面的请求即使服务器已经处理完，仍会等待前面的请求处理完才开始按序返回。所以，pipeling 只部分解决了 HOLB。</li>\n</ul>\n</li>\n<li>协议开销大，header 里携带的内容过大，在一定程度上增加了传输的成本，并且每次请求 header 基本不怎么变化，尤其在移动端增加用户流量。</li>\n<li>安全因素，所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份，这在一定程度上无法保证数据的安全性</li>\n</ul>\n<p>HTTP/2 就是为了解决 HTTP/1 存在的问题而产生的</p>\n<ul>\n<li>二进制传输，HTTP/1.1传输的是文本数据，而HTTP/2传输的是二进制数据，提高了数据传输效率。</li>\n<li>多路复用，多个HTTP请求可以复用同一个TCP连接。解决了浏览器限制同一个域名下的请求数量的问题，减少额外的3次握手开销。</li>\n<li>压缩请求头(Header)，减少重复发送相同的请求头</li>\n<li>支持服务器推送(Server push)，允许在请求之前先响应数据到客户端（之前请求过的数据），可以加快css/js等资源加载速度</li>\n</ul>\n<p>开启 HTTP/2 只需要在 listen 443 ssl 后面加上 http2 即可，可以使用 curl -I 进行测试看HTTP/2是否生效</p>\n<pre><code class=\"language-bash\"># /etc/nginx/conf.d/docker.conf \nserver\n{\n    server_name www.zuoguoqing.com;\n\n    location / {\n      proxy_pass http://127.0.0.1:3000;\n    }\n\n    listen 443 ssl http2; # managed by Certbot\n    ssl_certificate /etc/letsencrypt/live/www.zuoguoqing.com/fullchain.pem; # managed by Certbot\n    ssl_certificate_key /etc/letsencrypt/live/www.zuoguoqing.com/privkey.pem; # managed by Certbot\n    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot\n    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot\n}</code></pre>\n<p>来看看 HTTP/1.1 和 HTTP/2 的测试对比</p>\n<pre><code class=\"language-bash\">curl -I www.zuo11.com\n# HTTP/1.1 200 OK\n# Server: nginx/1.16.1\n# Date: Thu, 08 Oct 2020 09:08:55 GMT\n# Content-Type: text/html; charset=utf-8\n# Content-Length: 3666\n# Last-Modified: Thu, 01 Oct 2020 15:02:42 GMT\n# Connection: keep-alive\n# Vary: Accept-Encoding\n# ETag: &quot;5f75ef92-e52&quot;\n# Accept-Ranges: bytes\n\ncurl -I https://www.zuoguoqing.com\n# HTTP/2 200 \n# server: nginx/1.14.0 (Ubuntu)\n# date: Thu, 08 Oct 2020 09:09:07 GMT\n# content-type: text/html\n# content-length: 213\n# last-modified: Wed, 07 Oct 2020 09:03:03 GMT\n# etag: &quot;5f7d8447-d5&quot;\n# accept-ranges: bytes</code></pre>\n<p><strong>HTTP/2够好了，为什么还会有 HTTP/3？</strong></p>\n<p>HTTP/2 的问题在于，其底层支撑协议为 TCP，在丢包的情况下，多个请求复用一个 TCP 连接时，整个 TCP 都要开始等待重传，也就导致了后面的所有数据都被阻塞了。这时 HTTP/2 效果可能还不如 HTTP/1</p>\n<p>因此，Google 又弄了一个基于 UDP 协议的 QUIC 协议，是 HTTP/3 中的底层支撑协议，又取了 TCP 中的精华，实现了即快又可靠的协议。</p>\n<ul>\n<li>通过提高链接利用效率减少 RTT（Round Trip Time，通俗地说，就是通信一来一回的时间），提高数据交互速度。</li>\n<li>在第一条的基础上，囊括安全需求。</li>\n<li>解决当前实际网络环境中的适配问题</li>\n</ul>\n<p>参考 </p>\n<ul>\n<li><a href=\"https://blog.fundebug.com/2019/03/07/understand-http2-and-http3/\">一文读懂 HTTP/2 及 HTTP/3 特性</a></li>\n<li><a href=\"https://kiwenlau.com/2019/10/28/speedup-fundebug-by-using-http2/\">Fundebug网站升级HTTP/2，真的变快了！</a></li>\n<li><a href=\"https://zhuanlan.zhihu.com/p/40595473\">HTTP/2之服务器推送(Server Push)最佳实践</a></li>\n<li><a href=\"https://www.zhihu.com/question/302412059\">如何看待 HTTP/3 ？</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "HTTP/2，怎么确定网站是否开启了HTTP/2，HTTP/3？"
+        }
+      ],
+      "config": {
+        "source": "HTTP2，怎么确定网站是否开启了HTTP2，HTTP3？.md",
+        "staticFileName": "http2_http3.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "HTTP/2 是新一代的 HTTP 协议，于 2015 正式发布。相对 HTTP/1 来说，大幅提升了网页性能，绝大多数浏览器都支持了 HTTP/2。http 怎么开启 http2 呢？HTTP/2 现阶段必须使用 https，80端口就不要想了。HTTP/1.1 不足的地方 - 连接无法复用，每次请求都经历三次握手和慢启动 - HTTP/1.0 传输数据时，每次都需要重新建立连接，增加延迟。- HTTP/1.1 虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。",
+        "keywords": "HTTP2,HTTP3,怎么开启HTTP/2",
+        "category": "http与https",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"lets-encrypt-免费https证书\">Let’s Encrypt 免费HTTPS证书</h1>\n<p><a href=\"https://letsencrypt.org/\">Let’s Encrypt</a> 是一个非盈利TLS（Transport Layer Security) 证书颁发机构（CA），免费提供 https 证书。 </p>\n<p>由于 Let’s Encrypt 证书的有效期为 3 个月，所以一般使用程序来自动续期更换证书。官方推荐使用 Certbot 来管理，它可以一站式申请、续期证书。</p>\n<p>在 <a href=\"https://certbot.eff.org/\">Certbot 官网</a> 选择部署服务器使用的软件及系统，会自动列出需要操作的步骤，如下图</p>\n<p><img src=\"../../../images/blog/web/https_cert_1.png\" alt=\"https_cert_1.png\"></p>\n<p>注意文档里面分了两种：</p>\n<ol>\n<li>单个域名，仅单个 https 比如 <code>https://xx.com</code> 或 <code>https://www.xx.com</code></li>\n<li>通配符(Wildcard)证书，支持多个二级域名 <code>https://*.xx.com</code>，但不支持 <code>https://xx.com</code></li>\n</ol>\n<p>一般我们写好 nginx.conf 的配置，certbot 会根据 server_name 自动识别域名，并申请安装证书</p>\n<p>这里把两个域名进行 https 处理，分别是 <code>https:/www.zuoguoqing.com</code> 和 <code>https://api.zuoguoqing.com</code></p>\n<p>需要写两个 nginx 配置文件，分别对应下面两个文件，如果还有其他二级域名可以再增加配置文件</p>\n<ul>\n<li>/etc/nginx/conf.d/docker.conf  这里是 www 二级域名</li>\n<li>/etc/nginx/conf.d/api.conf 这里是 api 二级域名的nginx配置</li>\n</ul>\n<pre><code class=\"language-bash\"># /etc/nginx/conf.d/docker.conf \nserver\n{\n    listen 80;\n    server_name www.zuoguoqing.com;\n}\n\n# /etc/nginx/conf.d/api.conf \nserver\n{\n    listen 80;\n    server_name api.zuoguoqing.com;\n}</code></pre>\n<p>开始安装 certbot，并执行</p>\n<pre><code class=\"language-bash\"># 登录到 ubuntu linux 服务器\nsudo apt update\nsudo apt install snapd\nsudo snap install core; sudo snap refresh core\nsudo apt-get remove certbot\nsudo dnf remove certbot\nsudo snap install --classic certbot\nsudo ln -s /snap/bin/certbot /usr/bin/certbot\n# 获取并安装证书\nsudo certbot --nginx</code></pre>\n<p><img src=\"../../../images/blog/web/https_cert_2.png\" alt=\"https_cert_2.png\"></p>\n<pre><code class=\"language-bash\"># 测试续订\nsudo certbot renew --dry-run</code></pre>\n<p>3个月有效期自动续订测试，提示了个 <code>Python 3.8 OSError: [Errno 101] Network is unreachable</code>，但提示又是续订测试成功。只有后面再看是否有问题</p>\n<p>来看看 certbot 自动修改的 nginx 配置，会有 managed by Certbot 注释，后面我又加了一些基本的重定向配置</p>\n<p>/etc/nginx/conf.d/docker.conf</p>\n<pre><code class=\"language-bash\"># /etc/nginx/conf.d/docker.conf \nserver\n{\n    server_name www.zuoguoqing.com;\n\n    location / {\n      # root   html;\n      # index  index.html index.htm;\n      proxy_pass http://127.0.0.1:3000;\n    }\n\n    listen 443 ssl http2; # managed by Certbot\n    ssl_certificate /etc/letsencrypt/live/www.zuoguoqing.com/fullchain.pem; # managed by Certbot\n    ssl_certificate_key /etc/letsencrypt/live/www.zuoguoqing.com/privkey.pem; # managed by Certbot\n    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot\n    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot\n\n\n}\n\nserver\n{\n    server_name zuoguoqing.com;\n\n    if ($host = zuoguoqing.com) {\n      return 301 https://www.$host$request_uri;\n    }\n\n    listen 443 ssl; # managed by Certbot\n}\n\nserver\n{ \n    if ($host = zuoguoqing.com) {\n      return 301 https://www.$host$request_uri;\n    }\n    listen 80;\n    server_name zuoguoqing.com;\n    return 404;\n}\n\nserver\n{\n    if ($host = www.zuoguoqing.com) {\n        return 301 https://$host$request_uri;\n    } # managed by Certbot\n\n\n    listen 80;\n    server_name www.zuoguoqing.com;\n    return 404; # managed by Certbot\n\n\n}</code></pre>\n<p>/etc/nginx/conf.d/api.conf </p>\n<pre><code class=\"language-bash\">#  /etc/nginx/conf.d/api.conf \nserver\n{\n    server_name api.zuoguoqing.com;\n\n    location / {\n      # root   html;\n      # index  index.html index.htm;\n      proxy_pass http://127.0.0.1:8700;\n    }\n\n    listen 443 ssl; # managed by Certbot\n    ssl_certificate /etc/letsencrypt/live/www.zuoguoqing.com/fullchain.pem; # managed by Certbot\n    ssl_certificate_key /etc/letsencrypt/live/www.zuoguoqing.com/privkey.pem; # managed by Certbot\n    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot\n    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot\n\n}\n\nserver {\n    server_name api.zuoguoqing.com;\n    if ($host = &#39;api.zuoguoqing.com&#39;) {\n        return 301 https://$host$request_uri;\n    }\n    listen 80;\n}</code></pre>\n<p>参考:</p>\n<ul>\n<li><a href=\"https://blog.fundebug.com/2018/07/06/apply-lets-encrypt-certificate/\">教你快速撸一个免费HTTPS证书 | FunDebug</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Let’s Encrypt 免费HTTPS证书"
+        }
+      ],
+      "config": {
+        "source": "Let’s Encrypt 免费HTTPS证书.md",
+        "staticFileName": "free_https.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "Let’s Encrypt 是一个非盈利TLS（Transport Layer Security) 证书颁发机构（CA），免费提供 https 证书。 由于 Let’s Encrypt 证书的有效期为 3 个月，所以一般使用程序来自动续期更换证书。官方推荐使用 Certbot 来管理，它可以一站式申请、续期证书。在 Certbot 官网选择部署服务器使用的软件及系统，会自动列出需要操作的步骤，如下图",
+        "keywords": "免费https,https",
+        "category": "http与https",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"pm2-processyml-you-cannot-define-a-mapping-item-when-in-a-sequence\">pm2 process.yml You cannot define a mapping item when in a sequence</h1>\n<p>使用 pm2 运行 node 项目，<code>pm2 start process.yml</code> 后提示 You cannot define a mapping item when in a sequence，是 process.yml 配置文件的问题，修改下配置文件即可</p>\n<pre><code class=\"language-js\">// cat process.yml\napps:\n  - script: app.js \n  instances: 2\n  watch: true\n  env:\n    NODE_ENV: production</code></pre>\n<p>将 <code>- script: app.js</code> 改为 <code>script: app.js</code> 重新运行就可以了</p>\n<p>参考: <a href=\"https://stackoverflow.com/questions/16482875/you-cannot-define-a-mapping-item-when-in-a-sequence-when-running-phpunit-in-sy\">“You cannot define a mapping item when in a sequence” when running phpunit in symfony\n | Stack overflow</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "pm2 process.yml You cannot define a mapping item when in a sequence"
+        }
+      ],
+      "config": {
+        "source": "pm2 process.yml You cannot define a mapping item when in a sequence.md",
+        "staticFileName": "pm2_map.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/23",
+        "description": "使用 pm2 运行 node 项目，`pm2 start process.yml` 后提示 You cannot define a mapping item when in a sequence，是 process.yml 配置文件的问题，修改下配置文件即可。将 `- script: app.js` 改为 `script: app.js` 重新运行就可以了",
+        "keywords": "pm2 process.yml",
+        "category": "前端工程化",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
       "htmlStr": "<h1 id=\"description在seo中的重要性\">description在seo中的重要性</h1>\n<p>网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。</p>\n<h2 id=\"网站页面描述description\">网站页面描述(description)</h2>\n<p>2020年02月15号，我像往常一样在百度搜索 <strong>site:zuo11.com</strong> 来看网站的收录情况。发现之前在半个月前提交的页面，百度已经收录了部分。但仔细看发现有点怪，百度搜索出来的页面，内容显示的信息比较少，如下图：</p>\n<p><img src=\"../../../images/blog/seo/mata_description_baidu.png\" alt=\"mata_description_baidu.png\"></p>\n<p>而且这些信息正好是我通过 <strong>meta</strong> 元素指定的 <strong>description</strong> 属性的内容</p>\n<pre><code class=\"language-html\">&lt;meta name=&quot;application name&quot; content=&quot;apue_first.html&quot;&gt;\n&lt;meta name=&quot;author&quot; content=&quot;guoqzuo&quot;&gt;\n&lt;meta name=&quot;description&quot; content=&quot;UNIX环境高级编程简介，概览&quot;&gt;\n&lt;meta name=&quot;keywords&quot; content=&quot;APUE,apue 笔记, APUE笔记,UNIX基础知识,UNIX环境高级编程,apue&quot;&gt;</code></pre>\n<p>所以得出结论，在百度的搜索中，description的内容是很重要的，还是不能谁便填写。</p>\n<h2 id=\"google对description的处理\">Google对description的处理</h2>\n<p>后面我看了下google的收录情况，发现同样的页面，google并不像百度那样直接显示description内容，而是直接截取了文章内容的开头部分，如下图:</p>\n<p><img src=\"../../../images/blog/seo/mata_description_google.png\" alt=\"mata_description_google.png\"></p>\n<h2 id=\"seo中google和百度的一些区别\">seo中Google和百度的一些区别</h2>\n<p>上面提到了Google在显示descrption时与百度的差异，其实还有有些地方有区别，比如收录页面规则，处理死链规则。</p>\n<h3 id=\"收录页面方面\">收录页面方面</h3>\n<ul>\n<li>百度: 先进行一段时间判定，页面评定OK后，会进行收录，提交一个页面，可能要半个月才会收录</li>\n<li>Google: 先进行收录，然后再一段时间内对页面进行判定，完成评估内容不好久会撤掉，提交一个页面，1天后就会收录</li>\n</ul>\n<h3 id=\"死链处理方面\">死链处理方面</h3>\n<ul>\n<li>百度: 当页面被收录，网站如果出现了改版，且收录的页面成了死链，提交死链给百度，3天后收录里面居然还有，处理的比较很慢</li>\n<li>Google: 提交死链后，最多一天你就在收录里看不到对应的死链页面了</li>\n</ul>\n<p>注意：提交链接，提交死链需要在百度站长平台或Google Search console里提交</p>\n<h3 id=\"总结\">总结</h3>\n<p>相对于百度来讲google确实更智能一点</p>\n",
       "outline": [
         {
@@ -13476,7 +13700,7 @@
       }
     }
   ],
-  "count": 347,
+  "count": 355,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,
