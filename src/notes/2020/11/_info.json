@@ -142,8 +142,83 @@
     "description": "在 JS 高程 3 中，并没有讲到 append()，基本都是用的 appendChild()，所以有知识盲点，这里对比下 append() 和 apendChiild() 的区别，如下表所示：append 用于在元素内容里追加一个 Node 节点，appendChiled() 用于在元素内容里追加一个或多个 Node 节点或 String，注意，如果 append 或 appendChild 的元素是已经存在的，会移动该元素，如果需要保持原来的不移动，需要先 cloneNode, 下面来看一个例子",
     "keywords": "append appendChild区别,append()和appendchild(),append和appendChild",
     "category": "JavaScript"
+  },
+  {
+    "source": "Chrome DevTools Network Waterfall 瀑布图各阶段详解.md",
+    "staticFileName": "chrome_waterfall.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "在Chrom调试工具Network tab下，每个请求都有一个Waterfal diagrams(瀑布图)，点击具体接口，Timming(时序)位置会有具体描述。它记录了网络请求各个阶段的耗时，可以用于分析页面加载性能。Timing breakdown phases explained（时序分解阶段明细）。Here's more information about each of the phases you may see in the Timing tab:（下面是在Timing标签页中能看到的各个阶段的更多信息）",
+    "keywords": "chrome瀑布图,Timming时序图",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "图片占位、懒加载、预览.md",
+    "staticFileName": "img_placeholder_lazyload.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "使用占位图片有什么好处? 1. 用户体验更好，标识此处有图片，但正在加载中的这一个状态，避免弱网或图片较大时，完全不显示的问题 2. 不阻塞其他资源加载，更快的整体文档加载速度，不阻塞其他请求。占位图片一般会和图片懒加载一起使用，当滚动到该区域时再加载图片，减少不必要的并发网络请求。3. 可以避免回流/重排，让图片加载完成后不改变页面的整体布局，避免回流(重新布局)，只需要重绘，注意: 需要占位图片与实际图片宽高不变",
+    "keywords": "怎么实现图片懒加载,图片占位好处,图片预览,image lazyload,图片懒加载",
+    "category": "JavaScript"
+  },
+  {
+    "source": "什么是回流(Reflow)和重绘(Repaint)？怎么避免？.md",
+    "staticFileName": "css_reflow_repaint.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "什么是回流和重绘？ 浏览器使用流式布局模型 (Flow Based Layout)，浏览器把 HTML 解析成 DOM，把 CSS 解析为 CSDOM，DOM 和 CSDOM 合并就产生了 Render Tree(渲染树)，根据Render Tree，计算各个元素在页面中的大小和位置，绘制到页面上。",
+    "keywords": "回流和重绘,reflow,repaint,css回流,css重绘",
+    "category": "CSS"
+  },
+  {
+    "source": "Script error产生原因与解决方法、调试技巧.md",
+    "staticFileName": "script_error.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "一般为了安全起见，如果当前页面引入了跨域的 js 文件，当这个 js 文件出现错误，监听错误会无法获取对应的行号、真实的错误message。这种情况错误信息就是 Script error。本地来做一个试验，重现该问题，用 koa 写两个服务，分别监听 5001/5002端口，同时开启服务",
+    "keywords": "script error,script error是什么错误",
+    "category": "JavaScript"
+  },
+  {
+    "source": "AMD、UMD、CommonJS、ES Modules的理解.md",
+    "staticFileName": "amd_umd_commonjs.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "在 ES6 之前，JS 本身没有模块功能，社区出现了 CommonJS 和 AMD 等模块方案。从 ES6 开始, JS 开始原生支持模块，一般称之为 ES Modules。- CommonJS: 主要用于服务端，是 node 中使用的 require、module.exports。从 Node.js v13.2 版本开始，Node.js 已经默认打开了 ES6 模块支持。但需要采用 .mjs 后缀文件名。如果不希望将后缀名改成.mjs，可以在项目的package.json文件中，指定type字段为module。- AMD: Asynchronous Module Definition，异步模块定义，主要用于客户端(浏览器)，以 RequireJS 为代表 define、require -  UMD: Universal Module Definition，通用模块定义模式，主要用来解决 CommonJS 模式和 AMD 模式代码不能通用的问题，并同时还支持老式的全局变量规范。",
+    "keywords": "AMD,UMD,CommonJS,ES Modules",
+    "category": "前端工程化"
+  },
+  {
+    "source": "HTTP2，怎么确定网站是否开启了HTTP2，HTTP3？.md",
+    "staticFileName": "http2_http3.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "HTTP/2 是新一代的 HTTP 协议，于 2015 正式发布。相对 HTTP/1 来说，大幅提升了网页性能，绝大多数浏览器都支持了 HTTP/2。http 怎么开启 http2 呢？HTTP/2 现阶段必须使用 https，80端口就不要想了。HTTP/1.1 不足的地方 - 连接无法复用，每次请求都经历三次握手和慢启动 - HTTP/1.0 传输数据时，每次都需要重新建立连接，增加延迟。- HTTP/1.1 虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。",
+    "keywords": "HTTP2,HTTP3,怎么开启HTTP/2",
+    "category": "http与https"
+  },
+  {
+    "source": "Let’s Encrypt 免费HTTPS证书.md",
+    "staticFileName": "free_https.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "Let’s Encrypt 是一个非盈利TLS（Transport Layer Security) 证书颁发机构（CA），免费提供 https 证书。 由于 Let’s Encrypt 证书的有效期为 3 个月，所以一般使用程序来自动续期更换证书。官方推荐使用 Certbot 来管理，它可以一站式申请、续期证书。在 Certbot 官网选择部署服务器使用的软件及系统，会自动列出需要操作的步骤，如下图",
+    "keywords": "免费https,https",
+    "category": "http与https"
+  },
+  {
+    "source": "pm2 process.yml You cannot define a mapping item when in a sequence.md",
+    "staticFileName": "pm2_map.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/23",
+    "description": "使用 pm2 运行 node 项目，`pm2 start process.yml` 后提示 You cannot define a mapping item when in a sequence，是 process.yml 配置文件的问题，修改下配置文件即可。将 `- script: app.js` 改为 `script: app.js` 重新运行就可以了",
+    "keywords": "pm2 process.yml",
+    "category": "前端工程化"
   }
 ]
+
+
+
 
 
 
