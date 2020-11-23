@@ -49,7 +49,7 @@
         <div class="flex" style="flex-wrap: wrap;"><span>IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条</span></div>
       </div>
     </div>
-    <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    
   
             
 <p>Element dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条同样都是有遮罩层，chrome都是OK的，但IE下会有问题。经过定位后发现，对于dialog使用了append-to-body属性的，都没问题。发现dialog显示时body上添加了一个 el-popup-parent--hidden的class, 设置了overflow为hidden，关了滚动条。对于没有append-to-body属性的dialog如果想修复有两种办法：</p>
@@ -63,7 +63,7 @@ append-to-body属性： Dialog 自身是否插入至 body 元素上。嵌套的 
 <p>参考：<a href="https://element.eleme.cn/#/zh-CN/component/dialog">element dialog</a></p>
 
             
-            <ins class='adsbygoogle' style='display:block;text-align:center;' data-ad-layout='in-article' data-ad-format='fluid' data-ad-client='ca-pub-9527676606416641' data-ad-slot='5125924359'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             <!-- 评论系统占位 -->
             <div id="commentDiv"></div>
           </article>
@@ -112,7 +112,7 @@ append-to-body属性： Dialog 自身是否插入至 body 元素上。嵌套的 
       script.setAttribute("async", "");
       script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
       document.body.appendChild(script);
-    }, 2000);
+    }, 200);
   }
 </script>
 

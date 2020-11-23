@@ -49,7 +49,7 @@
         <div class="flex" style="flex-wrap: wrap;"><span>element el-tabs钩子</span>，<span>el-tabs钩子函数</span></div>
       </div>
     </div>
-    <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    
   
             
 <p>这里主要是要弄清楚el-tabs是怎么实现组件切换的，使用el-tab-pane slot和不用这个插槽触发的钩子函数会相同吗？</p>
@@ -105,7 +105,7 @@
 <p><strong>综上，el-tabs组件el-tab-pane的slot有好多种情况，会比较混乱，对于需要精准控制tabs组件切换逻辑的场景，个人建议不要使用他的slot，除非你能很明确的知道其钩子函数的执行顺序与逻辑，最好还是仅使用其顶部tab，下面的主内容写在外部，不要写在el-tab-pane内部</strong>。其实主要区别是，如果slot里不用v-if控制，首次加载后，A/B来回切换不会触发A/B的任何钩子函数。完整demo参见 <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/elementTabs/">el-tabs 切换逻辑demo| github</a></p>
 
             
-            <ins class='adsbygoogle' style='display:block;text-align:center;' data-ad-layout='in-article' data-ad-format='fluid' data-ad-client='ca-pub-9527676606416641' data-ad-slot='5125924359'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             <!-- 评论系统占位 -->
             <div id="commentDiv"></div>
           </article>
@@ -154,7 +154,7 @@
       script.setAttribute("async", "");
       script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
       document.body.appendChild(script);
-    }, 2000);
+    }, 200);
   }
 </script>
 

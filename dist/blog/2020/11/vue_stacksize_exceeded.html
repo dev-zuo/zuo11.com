@@ -49,7 +49,7 @@
         <div class="flex" style="flex-wrap: wrap;"><span>vue组件循环引用</span>，<span>vue递归组件</span>，<span>Maximum call stack size exceeded</span></div>
       </div>
     </div>
-    <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    
   
             
 <p>在vue项目中，假设父组件name与子组件名称一致，会造成死循环，出现 <code>Error in nextTick: &quot;RangeError: Maximum call stack size exceeded&quot;</code> 的错误，template在编译时，不会去找 components 引入的组件，而是直接引入自己，形成一个循环引用、递归组件，要特别注意。</p>
@@ -76,7 +76,7 @@ export default {
 <p>完成demo地址，参考 <a href="https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/subcomp_samename">subcomp_samename demo| github</a></p>
 
             
-            <ins class='adsbygoogle' style='display:block;text-align:center;' data-ad-layout='in-article' data-ad-format='fluid' data-ad-client='ca-pub-9527676606416641' data-ad-slot='5125924359'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             <!-- 评论系统占位 -->
             <div id="commentDiv"></div>
           </article>
@@ -125,7 +125,7 @@ export default {
       script.setAttribute("async", "");
       script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
       document.body.appendChild(script);
-    }, 2000);
+    }, 200);
   }
 </script>
 
