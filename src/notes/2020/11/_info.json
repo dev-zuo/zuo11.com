@@ -214,11 +214,77 @@
     "description": "使用 pm2 运行 node 项目，`pm2 start process.yml` 后提示 You cannot define a mapping item when in a sequence，是 process.yml 配置文件的问题，修改下配置文件即可。将 `- script: app.js` 改为 `script: app.js` 重新运行就可以了",
     "keywords": "pm2 process.yml",
     "category": "前端工程化"
+  },
+  {
+    "source": "Vue @功能实现.md",
+    "staticFileName": "vue_mentions.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库 Tribute - ES6 Native @mentions，它是 ES 原生的实现，社区有各种框架的实现。这里我们使用它的 Vue 实现 vue-tribute。下图是实现效果",
+    "keywords": "@实现,@功能实现,@下拉选择实现,Vue @功能实现",
+    "category": "Vue"
+  },
+  {
+    "source": "vue.config.js: 'plugins' is not allowed.md",
+    "staticFileName": "vue_cfg_plugins.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "在 vue.config.js 中，webpack 相关的配置需要写到 configureWebpack 里，不能直接写到外面，否则会报错：vue.config.js: 'plugins' is not allowed。",
+    "keywords": "plugins is not allowed",
+    "category": "Vue"
+  },
+  {
+    "source": "Vue ElementUI Cannot read property 'prototype' of undefined.md",
+    "staticFileName": "vue_element_err.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "由于 vue 项目 npm run build 打包时 ElementUI 体积较大，因此把他单独抽离出去。放到 public/index.html 里直接引入。但抽离出去后发现启动后控制台会报这样一个错误：Cannot read property 'prototype' of undefined。网上查了下，是因为在 public/index.html 中引入 ElementUI 的 js 时，前面没有加 Vue.js 的引入。这里我们在前面加入 Vue.js 的引入即可。",
+    "keywords": "element cannot read property 'prototype' of undefined",
+    "category": "Vue"
+  },
+  {
+    "source": "Vue CLI 项目页面打开时间优化：从16秒到2秒内.md",
+    "staticFileName": "vue_cli_slow.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "在日常开发中，经常要写一些 demo 来测试一些功能，于是专门新建了一个 github 仓库来管理，方便积累。这次想着把 vue demo 部署到服务器，方便 PC/手机 实时看效果。于是把 vue-cli 项目 npm run build 后，将 dist 部署到服务器 nginx 下，但发现打开很慢，下面来看看怎么优化。如下图，DOM 加载完 15 秒，完全加载 16 秒",
+    "keywords": "vue-cli项目页面加载时间太长,npm run build 打包很大,vue vendor.js文件太大,vue项目包体积优化",
+    "category": "Vue"
+  },
+  {
+    "source": "DOMContentLoaded 与 Load 时间具体指的是什么时间？.md",
+    "staticFileName": "page_load_time.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "在 Chrome DevTools 官网 Network Reference 里是这样介绍的：View load events：DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red. 这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间",
+    "keywords": "DOMContentLoaded,load",
+    "category": "JavaScript"
+  },
+  {
+    "source": "Google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？.md",
+    "staticFileName": "google_ad_multiple.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "在 Google Adsense 中，理论上配置好广告形式后，获取代码，把对应的代码放到页面中就可以显示广告了。但发现，如果放多个广告，只有一个可以显示出来，下面来看看是为什么？一般在验证开通 Google Adsense 时，就会引入第一行 script 代码。那么只需要把下面的 ins 元素 和 script 里的代码拷贝进页面里就行。当有多个广告时，我只拷贝了 多个 ins 到指定位置。",
+    "keywords": "Google 广告同页面多个广告不显示,Google 配置了多个广告只显示一个",
+    "category": "网站建设与SEO"
+  },
+  {
+    "source": "Vue CLI build --target lib 时如何避免打包成多个umd.js文件.md",
+    "staticFileName": "vue_umd_multiple.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "Vue CLI 项目中，一般我们使用的是 npm run build 来构建项目，并发布到线上。当我们写组件/工具库的时候，就需要使用 `--target lib` 参数了。打包成库（Library）与普通的构建应用不一样，它会在 dist 目录下生成对应的 umd.js 文件，也就是通用模块定义的 js 文件。一般用于组件/工具库的入口文件，我们可以在静态 html 以及 Vue CLI 等项目中直接引入并使用。如果不进行构建，只能在 Vue CLI 项目中使用，无法引入一个 js 直接使用。",
+    "keywords": "怎么避免生成多个umd.js,如何避免打包成多个umd.js",
+    "category": "前端工程化"
+  },
+  {
+    "source": "lodash.js 打包后默认是整包，怎么按需打包，减少包体积.md",
+    "staticFileName": "loadsh_as_demand.html",
+    "author": "guoqzuo",
+    "createDate": "2020/11/30",
+    "description": "在 vue-cli 打包 lib 项目时，发现包体积较大有 600多KB，于是使用 `-- report` 参数看具体是哪个包较大，发现尽管只用到了 lodash 的一个函数，但打包体积却有几百k，如下图，应该是整包打的，没有按需打包。 以下是 打开 lib/项目名.umd-report.html 后，显示的各模块大小示意图。这里借助 babel 的 loadsh 插件来进行按需打包。如果没有babel的配置文件，新建 .babelrc 文件，加入如下内容：",
+    "keywords": "loadsh按需打包,loadsh tree shaking,loadsh摇树",
+    "category": "前端工程化"
   }
 ]
-
-
-
-
-
-
