@@ -193,6 +193,13 @@
         "keywords": "Google Analytics,Google AdSense,Google Search Console"
       },
       {
+        "title": "Google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？",
+        "href": "2020/11/google_ad_multiple.html",
+        "time": "2020/11/30",
+        "description": "在 Google Adsense 中，理论上配置好广告形式后，获取代码，把对应的代码放到页面中就可以显示广告了。但发现，如果放多个广告，只有一个可以显示出来，下面来看看是为什么？一般在验证开通 Google Adsense 时，就会引入第一行 script 代码。那么只需要把下面的 ins 元素 和 script 里的代码拷贝进页面里就行。当有多个广告时，我只拷贝了 多个 ins 到指定位置。",
+        "keywords": "Google 广告同页面多个广告不显示,Google 配置了多个广告只显示一个"
+      },
+      {
         "title": "description在seo中的重要性",
         "href": "2020/2/seo_description.html",
         "time": "2020/02/16",
@@ -975,6 +982,13 @@
         "keywords": "script error,script error是什么错误"
       },
       {
+        "title": "DOMContentLoaded 与 Load 时间具体指的是什么时间？",
+        "href": "2020/11/page_load_time.html",
+        "time": "2020/11/30",
+        "description": "在 Chrome DevTools 官网 Network Reference 里是这样介绍的：View load events：DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red. 这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间",
+        "keywords": "DOMContentLoaded,load"
+      },
+      {
         "title": "深入JS遍历对象，从4个维度比较遍历对象的8种方法",
         "href": "2020/2/js_obj_iterator.html",
         "time": "2020/02/02",
@@ -1686,6 +1700,34 @@
         "keywords": "e2e test,e2e test示例,端到端测试"
       },
       {
+        "title": "Vue @功能实现",
+        "href": "2020/11/vue_mentions.html",
+        "time": "2020/11/30",
+        "description": "如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库 Tribute - ES6 Native @mentions，它是 ES 原生的实现，社区有各种框架的实现。这里我们使用它的 Vue 实现 vue-tribute。下图是实现效果",
+        "keywords": "@实现,@功能实现,@下拉选择实现,Vue @功能实现"
+      },
+      {
+        "title": "vue.config.js: 'plugins' is not allowed",
+        "href": "2020/11/vue_cfg_plugins.html",
+        "time": "2020/11/30",
+        "description": "在 vue.config.js 中，webpack 相关的配置需要写到 configureWebpack 里，不能直接写到外面，否则会报错：vue.config.js: 'plugins' is not allowed。",
+        "keywords": "plugins is not allowed"
+      },
+      {
+        "title": "Vue ElementUI Cannot read property 'prototype' of undefined",
+        "href": "2020/11/vue_element_err.html",
+        "time": "2020/11/30",
+        "description": "由于 vue 项目 npm run build 打包时 ElementUI 体积较大，因此把他单独抽离出去。放到 public/index.html 里直接引入。但抽离出去后发现启动后控制台会报这样一个错误：Cannot read property 'prototype' of undefined。网上查了下，是因为在 public/index.html 中引入 ElementUI 的 js 时，前面没有加 Vue.js 的引入。这里我们在前面加入 Vue.js 的引入即可。",
+        "keywords": "element cannot read property 'prototype' of undefined"
+      },
+      {
+        "title": "Vue CLI 项目页面打开时间优化：从16秒到2秒内",
+        "href": "2020/11/vue_cli_slow.html",
+        "time": "2020/11/30",
+        "description": "在日常开发中，经常要写一些 demo 来测试一些功能，于是专门新建了一个 github 仓库来管理，方便积累。这次想着把 vue demo 部署到服务器，方便 PC/手机 实时看效果。于是把 vue-cli 项目 npm run build 后，将 dist 部署到服务器 nginx 下，但发现打开很慢，下面来看看怎么优化。如下图，DOM 加载完 15 秒，完全加载 16 秒",
+        "keywords": "vue-cli项目页面加载时间太长,npm run build 打包很大,vue vendor.js文件太大,vue项目包体积优化"
+      },
+      {
         "title": "使用js调用vue单文件组件",
         "href": "2020/2/js_vue_comp.html",
         "time": "2020/02/20",
@@ -2346,6 +2388,20 @@
         "time": "2020/11/23",
         "description": "使用 pm2 运行 node 项目，`pm2 start process.yml` 后提示 You cannot define a mapping item when in a sequence，是 process.yml 配置文件的问题，修改下配置文件即可。将 `- script: app.js` 改为 `script: app.js` 重新运行就可以了",
         "keywords": "pm2 process.yml"
+      },
+      {
+        "title": "Vue CLI build --target lib 时如何避免打包成多个umd.js文件",
+        "href": "2020/11/vue_umd_multiple.html",
+        "time": "2020/11/30",
+        "description": "Vue CLI 项目中，一般我们使用的是 npm run build 来构建项目，并发布到线上。当我们写组件/工具库的时候，就需要使用 `--target lib` 参数了。打包成库（Library）与普通的构建应用不一样，它会在 dist 目录下生成对应的 umd.js 文件，也就是通用模块定义的 js 文件。一般用于组件/工具库的入口文件，我们可以在静态 html 以及 Vue CLI 等项目中直接引入并使用。如果不进行构建，只能在 Vue CLI 项目中使用，无法引入一个 js 直接使用。",
+        "keywords": "怎么避免生成多个umd.js,如何避免打包成多个umd.js"
+      },
+      {
+        "title": "lodash.js 打包后默认是整包，怎么按需打包，减少包体积",
+        "href": "2020/11/loadsh_as_demand.html",
+        "time": "2020/11/30",
+        "description": "在 vue-cli 打包 lib 项目时，发现包体积较大有 600多KB，于是使用 `-- report` 参数看具体是哪个包较大，发现尽管只用到了 lodash 的一个函数，但打包体积却有几百k，如下图，应该是整包打的，没有按需打包。 以下是 打开 lib/项目名.umd-report.html 后，显示的各模块大小示意图。这里借助 babel 的 loadsh 插件来进行按需打包。如果没有babel的配置文件，新建 .babelrc 文件，加入如下内容：",
+        "keywords": "loadsh按需打包,loadsh tree shaking,loadsh摇树"
       },
       {
         "title": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理",
@@ -9479,6 +9535,220 @@
       }
     },
     {
+      "htmlStr": "<h1 id=\"vue-功能实现\">Vue @功能实现</h1>\n<p>如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库：<a href=\"https://github.com/zurb/tribute\">Tribute</a> - ES6 Native @mentions，它是ES 原生的实现，社区有各种框架的实现。这里我们使用它的 vue 实现 <a href=\"https://github.com/syropian/vue-tribute\">vue-tribute</a>。下图是实现效果</p>\n<p><img src=\"../../../images/blog/vue/vue_at_mention.gif\" alt=\"vue_at_mention.gif\"></p>\n<p>在线示例：<a href=\"https://www.zuoguoqing.com/at\">Vue @功能在线示例</a> 对应的 vue 代码如下，需要注意的地方</p>\n<ol>\n<li>我们引入 vue-tribute 组件，传入 options 即可</li>\n<li>样式方面，需要写弹出选择框的样式，不然就没有样式</li>\n<li>options 的配置完全是 Tribute 的配置，到对应的 github 上查找即可，options 的可选值支持动态渲染，支持从接口取</li>\n</ol>\n<pre><code class=\"language-html\">&lt;template&gt;\n  &lt;div class=&quot;container&quot;&gt;\n    &lt;h3&gt;contenteditable @mentions&lt;/h3&gt;\n    &lt;vue-tribute :options=&quot;options&quot;&gt;\n      &lt;div\n        class=&quot;content-editable&quot;\n        contenteditable=&quot;true&quot;\n        @input=&quot;valueChange&quot;\n        placeholder=&quot;@...&quot;\n      &gt;&lt;/div&gt;\n    &lt;/vue-tribute&gt;\n    &lt;br /&gt;\n    &lt;div&gt;\n      &lt;p&gt;纯文本textContent：&lt;/p&gt;\n      &lt;p&gt;{{ textContent }}&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div&gt;\n      &lt;p&gt;富文本innerHTML：&lt;/p&gt;\n      &lt;p&gt;{{ innerHTML }}&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n&lt;script&gt;\nimport VueTribute from &quot;vue-tribute&quot;;\nexport default {\n  components: {\n    VueTribute\n  },\n  computed: {},\n  data() {\n    return {\n      textContent: &quot;&quot;,\n      innerHTML: &quot;&quot;,\n      options: {\n        trigger: &quot;@&quot;,\n        // specify whether a space is required before the trigger string\n        requireLeadingSpace: false,\n        noMatchTemplate: &quot;&lt;li&gt;暂无数据&lt;/li&gt;&quot;,\n        values: [\n          { key: &quot;张三 zhangsan&quot;, value: &quot;张三&quot; },\n          { key: &quot;李四 lisi&quot;, value: &quot;李四&quot; },\n          { key: &quot;王五 wangwu&quot;, value: &quot;王五&quot; },\n          { key: &quot;周杰伦 zhoujielun&quot;, value: &quot;周杰伦&quot; }\n        ],\n        positionMenu: true,\n        selectTemplate: function(item) {\n          return (\n            &#39;&lt;span contenteditable=&quot;false&quot;&gt;&lt;a&gt;&#39; +\n            &quot;@&quot; +\n            item.original.value +\n            &quot;&lt;/a&gt;&lt;/span&gt;&quot;\n          );\n        }\n      }\n    };\n  },\n  methods: {\n    noMatchFound() {\n      console.log(&quot;暂无数据&quot;);\n    },\n    valueChange(e) {\n      console.log(e.target.innerHTML, e.target.textContent);\n      this.textContent = e.target.textContent;\n      this.innerHTML = e.target.innerHTML;\n    }\n  }\n};\n&lt;/script&gt;\n&lt;style lang=&quot;less&quot;&gt;\n// Tribute-specific styles 略\n&lt;/style&gt;</code></pre>\n<p>完整代码参见：<a href=\"https://github.com/zuoxiaobai/fedemo/blob/master/src/vuecli-demo/src/views/at/index.vue\">vue @功能实现demo | github</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue @功能实现"
+        }
+      ],
+      "config": {
+        "source": "Vue @功能实现.md",
+        "staticFileName": "vue_mentions.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库 Tribute - ES6 Native @mentions，它是 ES 原生的实现，社区有各种框架的实现。这里我们使用它的 Vue 实现 vue-tribute。下图是实现效果",
+        "keywords": "@实现,@功能实现,@下拉选择实现,Vue @功能实现",
+        "category": "Vue",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vueconfigjs-plugins-is-not-allowed\">vue.config.js: &quot;plugins&quot; is not allowed</h1>\n<p>在 vue.config.js 中，webpack 相关的配置需要写到 configureWebpack 里，不能直接写到外面，否则会报错：vue.config.js: &#39;plugins&#39; is not allowed。</p>\n<p><img src=\"../../../images/blog/vue/vue_config_js_plugins.png\" alt=\"vue_config_js_plugins.png\"></p>\n<pre><code class=\"language-js\">// vue.config.js\nmodule.exports = {\n  plugins: [], // error，&quot;plugins&quot; is not allowed\n  configureWebpack: {\n    plugins: [], // 正确写法\n    externals: {}\n  }\n};</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "vue.config.js: \"plugins\" is not allowed"
+        }
+      ],
+      "config": {
+        "source": "vue.config.js: 'plugins' is not allowed.md",
+        "staticFileName": "vue_cfg_plugins.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "在 vue.config.js 中，webpack 相关的配置需要写到 configureWebpack 里，不能直接写到外面，否则会报错：vue.config.js: 'plugins' is not allowed。",
+        "keywords": "plugins is not allowed",
+        "category": "Vue",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-elementui-cannot-read-property-prototype-of-undefined\">Vue ElementUI Cannot read property &#39;prototype&#39; of undefined</h1>\n<p>由于 vue 项目 npm run build 打包时 ElementUI 体积较大，因此把他单独抽离出去。放到 public/index.html 里直接引入。但抽离出去后发现启动后控制台会报这样一个错误：Cannot read property &#39;prototype&#39; of undefined。</p>\n<p><img src=\"../../../images/blog/vue/vue_prototype_undefined.png\" alt=\"vue_prototype_undefined.png\"></p>\n<p>网上查了下，是因为在 public/index.html 中引入 ElementUI 的 js 时，前面没有加 Vue.js 的引入。这里我们在前面加入 Vue.js 的引入即可。</p>\n<pre><code class=\"language-html\">&lt;!-- public/index.html --&gt;\n&lt;!-- 引入element组件js前加入vue的引入 --&gt;\n&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;\n&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/element-ui/2.9.2/index.js&quot;&gt;&lt;/script&gt;</code></pre>\n<p>在 vue.config.js 里设置 ElementUI以及JS使用外部引入</p>\n<pre><code class=\"language-js\">module.exports = {\n  configureWebpack: {\n    externals: {\n      // 需要使用外部引入的包名：包名\n      vue: &quot;Vue&quot;,\n      &quot;element-ui&quot;: &quot;ELEMENT&quot;\n    }\n  }\n};</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue ElementUI Cannot read property 'prototype' of undefined"
+        }
+      ],
+      "config": {
+        "source": "Vue ElementUI Cannot read property 'prototype' of undefined.md",
+        "staticFileName": "vue_element_err.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "由于 vue 项目 npm run build 打包时 ElementUI 体积较大，因此把他单独抽离出去。放到 public/index.html 里直接引入。但抽离出去后发现启动后控制台会报这样一个错误：Cannot read property 'prototype' of undefined。网上查了下，是因为在 public/index.html 中引入 ElementUI 的 js 时，前面没有加 Vue.js 的引入。这里我们在前面加入 Vue.js 的引入即可。",
+        "keywords": "element cannot read property 'prototype' of undefined",
+        "category": "Vue",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-cli-项目页面打开时间优化：从16秒到2秒内\">Vue CLI 项目页面打开时间优化：从16秒到2秒内</h1>\n<p>在日常开发中，经常要写一些 demo 来测试一些功能，于是专门新建了一个 github 仓库来管理，方便积累。这次想着把 vue demo 部署到服务器，方便 PC/手机 实时看效果。于是把 vue-cli 项目 npm run build 后，将 dist 部署到服务器 nginx 下，但发现打开很慢，下面来看看怎么优化。</p>\n<p>如下图，DOM 加载完 15 秒，完全加载 16 秒</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_1.png\" alt=\"vue_vendor_optimize_1.png\"></p>\n<h2 id=\"nginx-开启-gzip---16s-到-11s\">nginx 开启 gzip - 16s 到 11s</h2>\n<p>主要是 chunk-vendors.js 接近 1.7M，下载时间较长。npm run build 打包后 log 如下图(这是后面补的图，中间把路由懒加载改了下，size 会比上图里的小一点)，超出建议的 244kB</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_2.png\" alt=\"vue_vendor_optimize_2.png\"></p>\n<p><strong>理论上，nginx 开启 gzip 成功后，文件大小应该是 600多kb，看最上面的 Chrome Network 图里面，vendors 是 1.7M，且 Content-Encoding 那一栏没有 gzip，说明 js,css文件没有开启 gzip</strong> 咱们配置下 nginx 服务，开启 gzip</p>\n<pre><code class=\"language-bash\">server\n{\n  server_name www.zuoguoqing.com;\n\n  # 开启gzip\n  gzip on;\n  gzip_vary on;\n  gzip_min_length 1000;\n  gzip_comp_level 2;\n  gzip_types text/plain text/css text/xml text/javascript application/x-javascript application/xml image/jpeg image/gif image/png application/javascript; \n\n  location / {\n    # root   html;\n    # index  index.html index.htm;\n    proxy_pass http://127.0.0.1:3000;\n  }\n}</code></pre>\n<p>咱们再来看看效果，如下图。vendors.js 文件从 1.7M 变为 600多k，且 Content-Type 那一栏也有了 gzip 标识。</p>\n<p><strong>下图可以看出 nginx 开启 gzip 压缩后，加载时间快了 5s。注意网上说的 compresion-webpack-plugin 插件在前端进行 gzip 基本是多此一举。nginx 本身可以配置 gzip 功能，前端不用做 gzip 处理</strong></p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_3.png\" alt=\"vue_vendor_optimize_3.png\"></p>\n<h2 id=\"使用-vue-cli-report-分析-vendorjs\">使用 Vue CLI report 分析 vendor.js</h2>\n<p>11秒还是有点长，咱们想办法来减少 vendor.js 的体积看看，上面的图里面，gzip压缩后的 venders.js 有 613KB，加载也要 7 秒多。</p>\n<p><strong>这里我们要使用 Vue CLI（@vue/cli）自带的 webpack 包体积优化工具，它可以查看各个模块的 size 大小，方便优化。只需要在 build 后面加上 --report 参数即可。我们把命令配置到 package.json 里，方便 npm run report 打包并生成 report</strong>，注意：网上很多说要先安装 webpack-bundle-analyzer 包，其实不需要安装。</p>\n<pre><code class=\"language-js\">// package.json\n&quot;scripts&quot;: {\n  &quot;serve&quot;: &quot;vue-cli-service serve&quot;,\n  &quot;build&quot;: &quot;vue-cli-service build&quot;,\n  // 加入下面一行\n  &quot;report&quot;: &quot;vue-cli-service build --report&quot;\n},</code></pre>\n<p>根据上面的配置后，运行 npm run report 后，会在 build 的同时，在 dist 目录会生成一个 report.html，打开后如下图，我们可以看到 ElementUI 和 Echarts 占用较大，直接打包了 node_modules 里面框架的内容。</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_4.png\" alt=\"vue_vendor_optimize_4.png\"></p>\n<h2 id=\"echarts-改外部引用，elementui-改按需加载---11s-到-36s\">Echarts 改外部引用，ElementUI 改按需加载 - 11s 到 3.6s</h2>\n<p><strong>这里我们可以把 Echarts 改为外部引用 cdn，不打包到主包 vendors.js 里，另外再把 Element 改为懒加载，只加载使用到的部分模块</strong></p>\n<p>如果只把 Echarts 改为外部引入，ElementUI 整体引入，大概还有 1.4M 左右。Element 按需加载后就锐减了，提示大小就变为 596KB 了，如下图</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_5.png\" alt=\"vue_vendor_optimize_5.png\"></p>\n<p>对应的 report.html 图如下，可以看到 </p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_6.png\" alt=\"vue_vendor_optimize_6.png\"></p>\n<h3 id=\"echarts-改外部引用方法\">Echarts 改外部引用方法</h3>\n<p>看完效果后，下面来看方法，怎么把 Echarts 外部引用，以及 Element 怎么按需加载。外部引入需要配置两个地方：</p>\n<ol>\n<li>在 vue.config.js 的 configureWebpack.externals 加入需要外部使用的包 </li>\n<li>在 public/index.html 里引入对应的包</li>\n</ol>\n<p>下面是 Echarts 外部引用需要配置的地方</p>\n<pre><code class=\"language-js\">// vue.config.js \nmodule.exports = {\n  configureWebpack: {\n    externals: {\n      echarts: &quot;echarts&quot;,\n    }\n  }\n};</code></pre>\n<pre><code class=\"language-html\">&lt;!-- public/index.html --&gt;\n&lt;!-- 写在 head 最下面或 body 最下面 --&gt;\n&lt;!-- echarts cdn --&gt;\n&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.common.min.js&quot;&gt;&lt;/script&gt;</code></pre>\n<h3 id=\"elementui-改按需引用方法\">ElementUI 改按需引用方法</h3>\n<p>再来看看 Element 按需引入。注意 Element 按需引入，也需要两步</p>\n<ol>\n<li>修改 main.js 里的 Element 引入方式，单个模块逐一引入</li>\n<li>按需引入，依赖的是 babel-plugin-component，vue-cli 项目已经带了对应的功能，在 babel.config.js 加入配置即可(官网提示是在 .babelrc ，如果vue-cli 项目,有了 babel.config.js 就在该文件配置)。 参考: <a href=\"https://element.eleme.cn/#/zh-CN/component/quickstart#an-xu-yin-ru\">按需引入 | ElementUI</a></li>\n</ol>\n<pre><code class=\"language-js\">// main.js \n// Element 完整引入\n// import ElementUI from &quot;element-ui&quot;;\n// Vue.use(ElementUI);\n// Element 按需引入\nimport {\n  Input,\n  Button,\n  // ...\n} from &quot;element-ui&quot;;\nimport &quot;element-ui/lib/theme-chalk/index.css&quot;;\nVue.use(Input);\nVue.use(Button);\n// ...</code></pre>\n<pre><code class=\"language-js\">// babel.config.js\nmodule.exports = {\n  presets: [&quot;@vue/cli-plugin-babel/preset&quot;]\n  // element 按需引入\n  plugins: [\n    [\n      &quot;component&quot;,\n      {\n        libraryName: &quot;element-ui&quot;,\n        styleLibraryName: &quot;theme-chalk&quot;\n      }\n    ]\n  ]\n};\n</code></pre>\n<p>这样设置后，从原来的 1.8M 优化到了 596KB，再来看看加载时间，如下图。只需要 3.6s 了，整整快了 7~8s</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_7.png\" alt=\"vue_vendor_optimize_7.png\"></p>\n<h2 id=\"cnd-链接优化，elementui-也改外部引入-36s---18s\">CND 链接优化，ElementUI 也改外部引入 3.6s - 1.8s</h2>\n<p>如上图所示，<strong>echarts 外部引入的 js 使用了 cdn，且开启了 gzip，只有 168KB，加载时间仅 65ms，而我的 vendors.js gzip 压缩后只有 122KB，下载时间较长，加载用了 2.23s，我部署的服务器是入门级的较慢，还是 cdn 快</strong>。另外 vendors.css 里面有 Element 的 css 文件，咱们也换成外部引入 cdn 试试</p>\n<p>修改 main.js，不按需引入 Element。把 Element 的 css 也放到外部引入</p>\n<pre><code class=\"language-js\">// main.js\nimport ElementUI from &quot;element-ui&quot;;\nVue.use(ElementUI);\n// import &quot;element-ui/lib/theme-chalk/index.css&quot;;</code></pre>\n<p>修改 vue.config.js，设置 vue、ElementUI 外部引用</p>\n<pre><code class=\"language-js\">module.exports = {\n  configureWebpack: {\n    externals: {\n      // 需要使用外部引入的包名：包名\n      echarts: &quot;echarts&quot;, \n      vue: &quot;Vue&quot;, // 注意 vue需要外部引入。放到 echarts前面，防止 console 报错\n      // element: &quot;ElementUI&quot; 可以打包成功，但chunk-vendors.js里面会打包element\n      &quot;element-ui&quot;: &quot;ELEMENT&quot;\n    }\n  }\n};</code></pre>\n<p>去掉 babel.config.js 里面 Element 按需引入代码，修改 public/index.html，直接head里面引入</p>\n<pre><code class=\"language-html\">&lt;!-- pbulic/index.html --&gt;\n&lt;head&gt;\n  &lt;!-- 引入Element css --&gt;\n  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/element-ui/lib/theme-chalk/index.css&quot;&gt;\n  &lt;!-- echarts --&gt;\n  &lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.common.min.js&quot;&gt;&lt;/script&gt;\n  &lt;!-- 引入vue --&gt;\n  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;\n  &lt;!-- 引入Element js --&gt;\n  &lt;script src=&quot;https://unpkg.com/element-ui/lib/index.js&quot;&gt;&lt;/script&gt;\n&lt;head&gt;</code></pre>\n<p>把 Element 和 vue 都改为外部引入后，再来看看，如下图，完全没警告了，低于 244KB，vendors.js 只有 68 KB</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_8.png\" alt=\"vue_vendor_optimize_8.png\"></p>\n<p>对应的 report.html 图如下，其实吧 vue-router、vuex 也使用 cdn 可能 vendor 会更小，但感觉不是很必要了。vendors.js 已经很小了</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_9.png\" alt=\"vue_vendor_optimize_9.png\"></p>\n<h3 id=\"unpkg-cdn-负优化（br-压缩比-gzip-还慢）\">unpkg cdn 负优化（br 压缩比 gzip 还慢）</h3>\n<p>再来看看加载时间，还是要 3s 多 ？？？ 可以明显的看到 index.css 是 ElementUI 的 css，这个官方推荐的 unpkg cdn 有点慢，不是 gzip的压缩，是 br 的压缩方式。 32.7k 要 1.33s。（下图里面是 2.5s，其实整体是 3s 多，ElementUI的 JS 我已经换为了 bootcdn。之前的图压缩时不小心被覆盖了。）</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_10.png\" alt=\"vue_vendor_optimize_10.png\"></p>\n<p>这里我们再把 Element css 也替换为 bootcdn 连接，连接如下</p>\n<pre><code class=\"language-html\">&lt;link href=&quot;https://cdn.bootcdn.net/ajax/libs/element-ui/2.9.2/theme-chalk/index.css&quot; rel=&quot;stylesheet&quot;&gt;\n&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/element-ui/2.9.2/index.js&quot;&gt;&lt;/script&gt;</code></pre>\n<h3 id=\"使用-bootcdn-优化到-18s\">使用 bootcdn 优化到 1.8s</h3>\n<p>替换后再来看看效果，整体 loaded 只要 1.89s 了。</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_11.png\" alt=\"vue_vendor_optimize_11.png\"></p>\n<p>上面的图，是取的均值。再次刷新可能会低于 1s，也可能会高于。我这里在测试时都勾选了 Disable cache。就是不使用缓存，有时候可能 dns 解析，https 验证时间、服务器响应时间会有差别。</p>\n<p><img src=\"../../../images/blog/vue/vue_vendor_optimize_12.png\" alt=\"vue_vendor_optimize_12.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue CLI 项目页面打开时间优化：从16秒到2秒内",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "nginx 开启 gzip - 16s 到 11s"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "使用 Vue CLI report 分析 vendor.js"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "Echarts 改外部引用，ElementUI 改按需加载 - 11s 到 3.6s",
+              "children": [
+                {
+                  "type": "heading",
+                  "depth": 3,
+                  "text": "Echarts 改外部引用方法"
+                },
+                {
+                  "type": "heading",
+                  "depth": 3,
+                  "text": "ElementUI 改按需引用方法"
+                }
+              ]
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "CND 链接优化，ElementUI 也改外部引入 3.6s - 1.8s",
+              "children": [
+                {
+                  "type": "heading",
+                  "depth": 3,
+                  "text": "unpkg cdn 负优化（br 压缩比 gzip 还慢）"
+                },
+                {
+                  "type": "heading",
+                  "depth": 3,
+                  "text": "使用 bootcdn 优化到 1.8s"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "Vue CLI 项目页面打开时间优化：从16秒到2秒内.md",
+        "staticFileName": "vue_cli_slow.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "在日常开发中，经常要写一些 demo 来测试一些功能，于是专门新建了一个 github 仓库来管理，方便积累。这次想着把 vue demo 部署到服务器，方便 PC/手机 实时看效果。于是把 vue-cli 项目 npm run build 后，将 dist 部署到服务器 nginx 下，但发现打开很慢，下面来看看怎么优化。如下图，DOM 加载完 15 秒，完全加载 16 秒",
+        "keywords": "vue-cli项目页面加载时间太长,npm run build 打包很大,vue vendor.js文件太大,vue项目包体积优化",
+        "category": "Vue",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"domcontentloaded-与-load-时间具体指的是什么时间？\">DOMContentLoaded 与 Load 时间具体指的是什么时间？</h1>\n<p>在 <a href=\"https://developers.google.com/web/tools/chrome-devtools/network/reference#load\">Chrome DevTools 官网 Network Reference</a> 里是这样介绍的：</p>\n<p>View load events</p>\n<blockquote>\n<p>DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red.</p>\n</blockquote>\n<p>这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间</p>\n<p><img src=\"../../../images/blog/js/chrome_load_event.png\" alt=\"chrome_load_events.png\"></p>\n<p>来看看 <code>DOMContentLoaded</code> 和 <code>load</code> 事件在 MDN 的解释</p>\n<p><strong>DOMContentLoaded事件：window 和 document 上都可以监听，意思一致</strong></p>\n<pre><code class=\"language-js\">window.addEventListener(&#39;DOMContentLoaded&#39;, (event) =&gt; {\n  console.log(&#39;DOM fully loaded and parsed&#39;);\n});\ndocument.addEventListener(&#39;DOMContentLoaded&#39;, (event) =&gt; {\n  console.log(&#39;DOM fully loaded and parsed&#39;);\n});</code></pre>\n<blockquote>\n<p>The DOMContentLoaded event fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.</p>\n</blockquote>\n<p><code>DOMContentLoaded</code> 事件：<strong>当 DOM (HTML document) 完成加载并解析，而不用等 css样式、图片和子 frame 完全加载完成时触发</strong> </p>\n<p>同步 JS 会使 DOM 的解析暂停，如果希望用户在请求页面后尽快解析DOM，你可以把 JS 使用异步加载，并优化 css 样式加载方式。如果按照惯例加载，样式表和 JS 是并行加载的，会减慢 DOM 解析，窃取主 html 文档解析速度。下面是 head 中 script 默认加载以及加上 async, defer 参数的对比，一般把 script 放到 body 末尾，基本等价于 header 中 defer 的效果</p>\n<p><img src=\"../../../images/blog/js/script_load.png\" alt=\"script_load.png\"></p>\n<p><strong>load事件：window</strong></p>\n<pre><code class=\"language-js\">window.addEventListener(&#39;load&#39;, (event) =&gt; {\n  console.log(&#39;page is fully loaded&#39;);\n});\n// 或\nwindow.onload = (event) =&gt; {\n  console.log(&#39;page is fully loaded&#39;);\n};</code></pre>\n<blockquote>\n<p>The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets and images. This is in contrast to DOMContentLoaded, which is fired as soon as the page DOM has been loaded, without waiting for resources to finish loading.</p>\n</blockquote>\n<p><strong>当整个页面加载完成时（包括所有相关资源，例如css样式表和图片），这与 <code>DOMContentLoaded</code> 相反，它在页面DOM被加载后立即触发，而无需等待资源完成加载。</strong></p>\n<p>参考:</p>\n<ul>\n<li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event\">Window: DOMContentLoaded event | MDN</a></li>\n<li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event\">Document: DOMContentLoaded event</a></li>\n<li><a href=\"https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery\">优化 css 加载方式 | Google developers</a></li>\n<li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event\">Window: load event | MDN</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "DOMContentLoaded 与 Load 时间具体指的是什么时间？"
+        }
+      ],
+      "config": {
+        "source": "DOMContentLoaded 与 Load 时间具体指的是什么时间？.md",
+        "staticFileName": "page_load_time.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "在 Chrome DevTools 官网 Network Reference 里是这样介绍的：View load events：DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red. 这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间",
+        "keywords": "DOMContentLoaded,load",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？\">Google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？</h1>\n<p>在 Google Adsense 中，理论上配置好广告形式后，获取代码，把对应的代码放到页面中就可以显示广告了。但发现，如果放多个广告，只有一个可以显示出来，下面来看看是为什么？</p>\n<p>官方提供的代码如下:</p>\n<pre><code class=\"language-html\">&lt;script async src=&#39;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#39;&gt;&lt;/script&gt;\n&lt;ins class=&#39;adsbygoogle&#39;\n     style=&#39;display:block&#39;\n     data-ad-client=&#39;ca-pub-9527676606416000&#39;\n     data-ad-slot=&#39;3653238000&#39;\n     data-ad-format=&#39;auto&#39;\n     data-full-width-responsive=&#39;true&#39;&gt;&lt;/ins&gt;\n&lt;script&gt;\n     (adsbygoogle = window.adsbygoogle || []).push({});\n&lt;/script&gt;</code></pre>\n<p>一般在验证开通 Google Adsense 时，就会引入第一行 script 代码。那么只需要把下面的 ins 元素 和 script 里的代码拷贝进页面里就行。</p>\n<p>当有多个广告时，我只拷贝了 多个 ins 到指定位置。 script 里面 <code>(adsbygoogle = window.adsbygoogle || []).push({});</code> 只放到了 body最后面的 script 里，这时只能显示一个广告。于是我看了下其他可以显示多个 google 广告的页面，打开源码后，发现最下面的 script 里的内容也要多次拷贝。也就是 <strong>如果页面上要放多个 google 广告，每次都需要引入 ins +  script 两部分的代码</strong></p>\n<pre><code class=\"language-html\">&lt;!-- 广告 1 --&gt;\n&lt;ins class=&#39;adsbygoogle&#39; style=&quot;ins内容简写&quot;&gt;&lt;/ins&gt;\n&lt;script&gt;(adsbygoogle = window.adsbygoogle || []).push({});&lt;/script&gt;\n\n&lt;!-- 广告 2 --&gt;\n&lt;ins class=&#39;adsbygoogle&#39; style=&quot;ins内容简写&quot;&gt;&lt;/ins&gt;\n&lt;script&gt;(adsbygoogle = window.adsbygoogle || []).push({});&lt;/script&gt;</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？"
+        }
+      ],
+      "config": {
+        "source": "Google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？.md",
+        "staticFileName": "google_ad_multiple.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "在 Google Adsense 中，理论上配置好广告形式后，获取代码，把对应的代码放到页面中就可以显示广告了。但发现，如果放多个广告，只有一个可以显示出来，下面来看看是为什么？一般在验证开通 Google Adsense 时，就会引入第一行 script 代码。那么只需要把下面的 ins 元素 和 script 里的代码拷贝进页面里就行。当有多个广告时，我只拷贝了 多个 ins 到指定位置。",
+        "keywords": "Google 广告同页面多个广告不显示,Google 配置了多个广告只显示一个",
+        "category": "网站建设与SEO",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-cli-build---target-lib-时如何避免打包成多个umdjs文件\">Vue CLI build --target lib 时如何避免打包成多个umd.js文件</h1>\n<p>Vue CLI 项目中，一般我们使用的是 npm run build 来构建项目，并发布到线上。当我们写组件/工具库的时候，就需要使用 <code>--target lib</code> 参数了。</p>\n<p>打包成库（Library）与普通的构建应用不一样，它会在 dist 目录下生成对应的 umd.js 文件，也就是通用模块定义的 js 文件。一般用于组件/工具库的入口文件，我们可以在静态 html 以及 Vue CLI 等项目中直接引入并使用。<strong>如果不进行构建，只能在 Vue CLI 项目中使用，无法引入一个 js 直接使用。</strong></p>\n<p>在项目中，运行打包命令</p>\n<pre><code class=\"language-bash\"># 打包成库 Library，指定入口为 src/index.js，构建后生成目录为 lib 目录\n# --mode lib 不单独生成css，样式内联\n# --target lib 打包形式为 lib\nvue-cli-service build --mode lib --target lib --dest lib src/index.js</code></pre>\n<p>执行效果如下</p>\n<p><img src=\"../../../images/blog/node/multi_umd_1.png\" alt=\"multi_umd_1.png\"></p>\n<p>一般我们把 *.umd.js 引入到项目中就可以使用。但这里分包了。将 *.umd.js 文件，分了好几个小包。在普通 html 文件里面引入是可以正常运行的。他会根据 umd.js 找到需要加载的其他分包并加载。但在vue项目中只引入 *.umd.js，其他分包不会打包到项目中，导致无法运行。</p>\n<p>其实看上面的图，js 文件超过 77KB 左右就分块了。Gzipped 压缩后不到 12KB，我们完全可以将这些打包成一个 umd.js 文件，而不需要分多个文件。</p>\n<p>这里借助 webpack 的一个插件来配置 Chunk 数量，maxChunks  设置为 1，只打一个包，不分多个 js 文件。在 vue.config.js 里修改webpack 的配置。</p>\n<pre><code class=\"language-js\">// vue.config.js\nconst webpack = require(&quot;webpack&quot;);\nmodule.exports = {\n  configureWebpack: {\n    plugins: [\n      // 限制只打一个包，不分Chunk\n      new webpack.optimize.LimitChunkCountPlugin({\n        maxChunks: 1\n      })\n    ],\n    // 当库里面引入了比较大的文件时，为了不影响主包大小，需要设置下该包使用外部引入\n    externals: {\n      echarts: &quot;echarts&quot;\n    }\n  }\n};</code></pre>\n<p>这样设置后，再重新打包就正常了，只有一个包，各平台就都没问题了。而且 gzip 压缩后也才 14KB 不到。如下图</p>\n<p><img src=\"../../../images/blog/node/multi_umd_2.png\" alt=\"multi_umd_2.png\"></p>\n<p>扩展：</p>\n<p>如果想要了解对于 vue-cli 打包 <code>vue-cli-service --target lib</code> 的具体执行，可以看 Vue CLI 源码</p>\n<pre><code class=\"language-js\">// @vue/cli-service/lib/commands/build/index.js\n// Vue CLI源码，bulid 入口文件，lib时，配置处理\n// resolve raw webpack config\nlet webpackConfig\nif (args.target === &#39;lib&#39;) {\n  webpackConfig = require(&#39;./resolveLibConfig&#39;)(api, args, options)\n} \n// .....\nelse {\n  webpackConfig = require(&#39;./resolveAppConfig&#39;)(api, args, options)\n}\n\n// @vue/cli-service/lib/commands/build/resolveLibConfig.js\n// Vue CLI源码，lib 时 输入、输出文件配置\nrawConfig.output = Object.assign({\n  library: libName,\n  libraryExport: isVueEntry ? &#39;default&#39; : undefined,\n  libraryTarget: format,\n  // preserve UDM header from webpack 3 until webpack provides either\n  // libraryTarget: &#39;esm&#39; or target: &#39;universal&#39;\n  // https://github.com/webpack/webpack/issues/6522\n  // https://github.com/webpack/webpack/issues/6525\n  globalObject: `(typeof self !== &#39;undefined&#39; ? self : this)`\n}, rawConfig.output, {\n  filename: `${entryName}.js`,\n  chunkFilename: `${entryName}.[name].js`,\n  // use dynamic publicPath so this can be deployed anywhere\n  // the actual path will be determined at runtime by checking\n  // document.currentScript.src.\n  publicPath: &#39;&#39;\n})</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue CLI build --target lib 时如何避免打包成多个umd.js文件"
+        }
+      ],
+      "config": {
+        "source": "Vue CLI build --target lib 时如何避免打包成多个umd.js文件.md",
+        "staticFileName": "vue_umd_multiple.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "Vue CLI 项目中，一般我们使用的是 npm run build 来构建项目，并发布到线上。当我们写组件/工具库的时候，就需要使用 `--target lib` 参数了。打包成库（Library）与普通的构建应用不一样，它会在 dist 目录下生成对应的 umd.js 文件，也就是通用模块定义的 js 文件。一般用于组件/工具库的入口文件，我们可以在静态 html 以及 Vue CLI 等项目中直接引入并使用。如果不进行构建，只能在 Vue CLI 项目中使用，无法引入一个 js 直接使用。",
+        "keywords": "怎么避免生成多个umd.js,如何避免打包成多个umd.js",
+        "category": "前端工程化",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"lodashjs-打包后默认是整包，怎么按需打包，减少包体积\">lodash.js 打包后默认是整包，怎么按需打包，减少包体积</h1>\n<p>在 vue-cli 打包 lib 项目时，发现包体积较大有 600多KB，于是使用 <code>-- report</code> 参数看具体是哪个包较大，发现尽管只用到了 lodash 的一个函数，但打包体积却有几百k，如下图，应该是整包打的，没有按需打包。</p>\n<p><img src=\"../../../images/blog/node/lodash_need_1.png\" alt=\"lodash_need_1.png\"></p>\n<pre><code class=\"language-bash\"># 以 src/index.js 为入口，以库的形式打包到lib目录下，并生成 report.html\nvue-cli-service build --mode lib --target lib --dest lib --report src/index.js</code></pre>\n<p>以下是 打开 lib/项目名.umd-report.html 后，显示的各模块大小示意图</p>\n<p><img src=\"../../../images/blog/node/lodash_need_2.png\" alt=\"lodash_need_2.png\"></p>\n<p>这里借助 babel 的 loadsh 插件来进行按需打包。如果没有babel的配置文件，新建 .babelrc 文件，加入如下内容：</p>\n<pre><code class=\"language-js\">// .babelrc  使用 lodash 的babel插件\n{\n  &quot;plugins&quot;: [&quot;lodash&quot;]\n}</code></pre>\n<p>lodash 的 babel 插件就是 babel-plugin-lodash，需要先 npm 安装下</p>\n<pre><code class=\"language-bash\">npm install babel-plugin-lodash -D</code></pre>\n<p>ok后，重新打包，就是按需打包了。如下图，体积只有 100 多 KB 了。</p>\n<p><img src=\"../../../images/blog/node/lodash_need_3.png\" alt=\"lodash_need_3.png\"></p>\n<p>再来看看 report 信息，可以看到，只打包了使用到的函数</p>\n<p><img src=\"../../../images/blog/node/lodash_need_4.png\" alt=\"lodash_need_4.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "lodash.js 打包后默认是整包，怎么按需打包，减少包体积"
+        }
+      ],
+      "config": {
+        "source": "lodash.js 打包后默认是整包，怎么按需打包，减少包体积.md",
+        "staticFileName": "loadsh_as_demand.html",
+        "author": "guoqzuo",
+        "createDate": "2020/11/30",
+        "description": "在 vue-cli 打包 lib 项目时，发现包体积较大有 600多KB，于是使用 `-- report` 参数看具体是哪个包较大，发现尽管只用到了 lodash 的一个函数，但打包体积却有几百k，如下图，应该是整包打的，没有按需打包。 以下是 打开 lib/项目名.umd-report.html 后，显示的各模块大小示意图。这里借助 babel 的 loadsh 插件来进行按需打包。如果没有babel的配置文件，新建 .babelrc 文件，加入如下内容：",
+        "keywords": "loadsh按需打包,loadsh tree shaking,loadsh摇树",
+        "category": "前端工程化",
+        "year": "2020",
+        "month": "11"
+      }
+    },
+    {
       "htmlStr": "<h1 id=\"description在seo中的重要性\">description在seo中的重要性</h1>\n<p>网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。</p>\n<h2 id=\"网站页面描述description\">网站页面描述(description)</h2>\n<p>2020年02月15号，我像往常一样在百度搜索 <strong>site:zuo11.com</strong> 来看网站的收录情况。发现之前在半个月前提交的页面，百度已经收录了部分。但仔细看发现有点怪，百度搜索出来的页面，内容显示的信息比较少，如下图：</p>\n<p><img src=\"../../../images/blog/seo/mata_description_baidu.png\" alt=\"mata_description_baidu.png\"></p>\n<p>而且这些信息正好是我通过 <strong>meta</strong> 元素指定的 <strong>description</strong> 属性的内容</p>\n<pre><code class=\"language-html\">&lt;meta name=&quot;application name&quot; content=&quot;apue_first.html&quot;&gt;\n&lt;meta name=&quot;author&quot; content=&quot;guoqzuo&quot;&gt;\n&lt;meta name=&quot;description&quot; content=&quot;UNIX环境高级编程简介，概览&quot;&gt;\n&lt;meta name=&quot;keywords&quot; content=&quot;APUE,apue 笔记, APUE笔记,UNIX基础知识,UNIX环境高级编程,apue&quot;&gt;</code></pre>\n<p>所以得出结论，在百度的搜索中，description的内容是很重要的，还是不能谁便填写。</p>\n<h2 id=\"google对description的处理\">Google对description的处理</h2>\n<p>后面我看了下google的收录情况，发现同样的页面，google并不像百度那样直接显示description内容，而是直接截取了文章内容的开头部分，如下图:</p>\n<p><img src=\"../../../images/blog/seo/mata_description_google.png\" alt=\"mata_description_google.png\"></p>\n<h2 id=\"seo中google和百度的一些区别\">seo中Google和百度的一些区别</h2>\n<p>上面提到了Google在显示descrption时与百度的差异，其实还有有些地方有区别，比如收录页面规则，处理死链规则。</p>\n<h3 id=\"收录页面方面\">收录页面方面</h3>\n<ul>\n<li>百度: 先进行一段时间判定，页面评定OK后，会进行收录，提交一个页面，可能要半个月才会收录</li>\n<li>Google: 先进行收录，然后再一段时间内对页面进行判定，完成评估内容不好久会撤掉，提交一个页面，1天后就会收录</li>\n</ul>\n<h3 id=\"死链处理方面\">死链处理方面</h3>\n<ul>\n<li>百度: 当页面被收录，网站如果出现了改版，且收录的页面成了死链，提交死链给百度，3天后收录里面居然还有，处理的比较很慢</li>\n<li>Google: 提交死链后，最多一天你就在收录里看不到对应的死链页面了</li>\n</ul>\n<p>注意：提交链接，提交死链需要在百度站长平台或Google Search console里提交</p>\n<h3 id=\"总结\">总结</h3>\n<p>相对于百度来讲google确实更智能一点</p>\n",
       "outline": [
         {
@@ -13700,7 +13970,7 @@
       }
     }
   ],
-  "count": 355,
+  "count": 363,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,

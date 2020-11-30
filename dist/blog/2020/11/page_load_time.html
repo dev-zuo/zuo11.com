@@ -1,0 +1,152 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="page_load_time.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在 Chrome DevTools 官网 Network Reference 里是这样介绍的：View load events：DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red. 这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间">
+        <meta name="keywords" content="DOMContentLoaded,load">
+
+        <title>DOMContentLoaded 与 Load 时间具体指的是什么时间？ - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="domcontentloaded-与-load-时间具体指的是什么时间？">DOMContentLoaded 与 Load 时间具体指的是什么时间？</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2020/11/30，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>DOMContentLoaded</span>，<span>load</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>在 <a href="https://developers.google.com/web/tools/chrome-devtools/network/reference#load">Chrome DevTools 官网 Network Reference</a> 里是这样介绍的：</p>
+<p>View load events</p>
+<blockquote>
+<p>DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red.</p>
+</blockquote>
+<p>这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间</p>
+<p><img src="../../../images/blog/js/chrome_load_event.png" alt="chrome_load_events.png"></p>
+<p>来看看 <code>DOMContentLoaded</code> 和 <code>load</code> 事件在 MDN 的解释</p>
+<p><strong>DOMContentLoaded事件：window 和 document 上都可以监听，意思一致</strong></p>
+<pre><code class="language-js">window.addEventListener(&#39;DOMContentLoaded&#39;, (event) =&gt; {
+  console.log(&#39;DOM fully loaded and parsed&#39;);
+});
+document.addEventListener(&#39;DOMContentLoaded&#39;, (event) =&gt; {
+  console.log(&#39;DOM fully loaded and parsed&#39;);
+});</code></pre>
+<blockquote>
+<p>The DOMContentLoaded event fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.</p>
+</blockquote>
+<p><code>DOMContentLoaded</code> 事件：<strong>当 DOM (HTML document) 完成加载并解析，而不用等 css样式、图片和子 frame 完全加载完成时触发</strong> </p>
+<p>同步 JS 会使 DOM 的解析暂停，如果希望用户在请求页面后尽快解析DOM，你可以把 JS 使用异步加载，并优化 css 样式加载方式。如果按照惯例加载，样式表和 JS 是并行加载的，会减慢 DOM 解析，窃取主 html 文档解析速度。下面是 head 中 script 默认加载以及加上 async, defer 参数的对比，一般把 script 放到 body 末尾，基本等价于 header 中 defer 的效果</p>
+<p><img src="../../../images/blog/js/script_load.png" alt="script_load.png"></p>
+<p><strong>load事件：window</strong></p>
+<pre><code class="language-js">window.addEventListener(&#39;load&#39;, (event) =&gt; {
+  console.log(&#39;page is fully loaded&#39;);
+});
+// 或
+window.onload = (event) =&gt; {
+  console.log(&#39;page is fully loaded&#39;);
+};</code></pre>
+<blockquote>
+<p>The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets and images. This is in contrast to DOMContentLoaded, which is fired as soon as the page DOM has been loaded, without waiting for resources to finish loading.</p>
+</blockquote>
+<p><strong>当整个页面加载完成时（包括所有相关资源，例如css样式表和图片），这与 <code>DOMContentLoaded</code> 相反，它在页面DOM被加载后立即触发，而无需等待资源完成加载。</strong></p>
+<p>参考:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event">Window: DOMContentLoaded event | MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event">Document: DOMContentLoaded event</a></li>
+<li><a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery">优化 css 加载方式 | Google developers</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event">Window: load event | MDN</a></li>
+</ul>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="domcontentloaded-与-load-时间具体指的是什么时间？" style="padding-left:1em">DOMContentLoaded 与 Load 时间具体指的是什么时间？<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  

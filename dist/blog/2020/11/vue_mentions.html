@@ -1,0 +1,192 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="vue_mentions.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库 Tribute - ES6 Native @mentions，它是 ES 原生的实现，社区有各种框架的实现。这里我们使用它的 Vue 实现 vue-tribute。下图是实现效果">
+        <meta name="keywords" content="@实现,@功能实现,@下拉选择实现,Vue @功能实现">
+
+        <title>Vue @功能实现 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="vue-功能实现">Vue @功能实现</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2020/11/30，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>@实现</span>，<span>@功能实现</span>，<span>@下拉选择实现</span>，<span>Vue @功能实现</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库：<a href="https://github.com/zurb/tribute">Tribute</a> - ES6 Native @mentions，它是ES 原生的实现，社区有各种框架的实现。这里我们使用它的 vue 实现 <a href="https://github.com/syropian/vue-tribute">vue-tribute</a>。下图是实现效果</p>
+<p><img src="../../../images/blog/vue/vue_at_mention.gif" alt="vue_at_mention.gif"></p>
+<p>在线示例：<a href="https://www.zuoguoqing.com/at">Vue @功能在线示例</a> 对应的 vue 代码如下，需要注意的地方</p>
+<ol>
+<li>我们引入 vue-tribute 组件，传入 options 即可</li>
+<li>样式方面，需要写弹出选择框的样式，不然就没有样式</li>
+<li>options 的配置完全是 Tribute 的配置，到对应的 github 上查找即可，options 的可选值支持动态渲染，支持从接口取</li>
+</ol>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h3&gt;contenteditable @mentions&lt;/h3&gt;
+    &lt;vue-tribute :options=&quot;options&quot;&gt;
+      &lt;div
+        class=&quot;content-editable&quot;
+        contenteditable=&quot;true&quot;
+        @input=&quot;valueChange&quot;
+        placeholder=&quot;@...&quot;
+      &gt;&lt;/div&gt;
+    &lt;/vue-tribute&gt;
+    &lt;br /&gt;
+    &lt;div&gt;
+      &lt;p&gt;纯文本textContent：&lt;/p&gt;
+      &lt;p&gt;{{ textContent }}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;p&gt;富文本innerHTML：&lt;/p&gt;
+      &lt;p&gt;{{ innerHTML }}&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import VueTribute from &quot;vue-tribute&quot;;
+export default {
+  components: {
+    VueTribute
+  },
+  computed: {},
+  data() {
+    return {
+      textContent: &quot;&quot;,
+      innerHTML: &quot;&quot;,
+      options: {
+        trigger: &quot;@&quot;,
+        // specify whether a space is required before the trigger string
+        requireLeadingSpace: false,
+        noMatchTemplate: &quot;&lt;li&gt;暂无数据&lt;/li&gt;&quot;,
+        values: [
+          { key: &quot;张三 zhangsan&quot;, value: &quot;张三&quot; },
+          { key: &quot;李四 lisi&quot;, value: &quot;李四&quot; },
+          { key: &quot;王五 wangwu&quot;, value: &quot;王五&quot; },
+          { key: &quot;周杰伦 zhoujielun&quot;, value: &quot;周杰伦&quot; }
+        ],
+        positionMenu: true,
+        selectTemplate: function(item) {
+          return (
+            &#39;&lt;span contenteditable=&quot;false&quot;&gt;&lt;a&gt;&#39; +
+            &quot;@&quot; +
+            item.original.value +
+            &quot;&lt;/a&gt;&lt;/span&gt;&quot;
+          );
+        }
+      }
+    };
+  },
+  methods: {
+    noMatchFound() {
+      console.log(&quot;暂无数据&quot;);
+    },
+    valueChange(e) {
+      console.log(e.target.innerHTML, e.target.textContent);
+      this.textContent = e.target.textContent;
+      this.innerHTML = e.target.innerHTML;
+    }
+  }
+};
+&lt;/script&gt;
+&lt;style lang=&quot;less&quot;&gt;
+// Tribute-specific styles 略
+&lt;/style&gt;</code></pre>
+<p>完整代码参见：<a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/vuecli-demo/src/views/at/index.vue">vue @功能实现demo | github</a></p>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="vue-功能实现" style="padding-left:1em">Vue @功能实现<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  
