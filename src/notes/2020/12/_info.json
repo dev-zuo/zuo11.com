@@ -1,0 +1,76 @@
+[
+  {
+    "source": "xx.github.io仓库配置Github pages后对其他仓库Github pages的影响.md",
+    "staticFileName": "github-io.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "在 github 中，假设我们创建了 'github用户名.github.io' 仓库，开启 Github Pages 后，访问该域名，就指向了这个仓库的文件。这时如果你的其他仓库也开启了 Github Pages，那么对于的目录解析可能会有问题。以我的 github 账号 zuoxiaobai 为例，如果 zuoxiaobai.github.io 这个仓库开启 pages，再把另一个仓库 zuo-blog 也开启 pages，那么访问 `https://zuoxiaobai.github.io/zuo-blog/` 并不能自动跳转到对应的 index.html，而是提示 404。需要访问 `https://zuoxiaobai.github.io/zuo-blog/index.html` 才行。这里我直接把 zuoxiaobai.github.io 的仓库关掉了 Github Pages。这样 `https://zuoxiaobai.github.io/zuo-blog/` 才能自动解析目录下的 index.html。",
+    "keywords": "github.io仓库开启pages后对其他仓库pages的影响",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "GitHub Pages使用自定义域名开启HTTPS，配置CNAME解析.md",
+    "staticFileName": "github_pages_https.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "一般在仓库的 Setting 中，开启 Github Pages 会生成一个 `xxx.github.io/xx/` 的地址，地址有点长，我们可以使用自定义域名，这里我将 vue-chart 这个仓库设置成了自定义域名 vuechart.zuo11.com。然后，我们需要把自定义的域名解析到 github.com 地址。可以使用 ping github.com 来获取它的服务器 IP。",
+    "keywords": "github pages https",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "docsify嵌入vue echarts组件无法显示图表的问题.md",
+    "staticFileName": "dosify_vue_echarts.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "在使用 docsify 自带的 vue 功能加载 echarts 相关的 vue 组件时，图表都无法正常显示。后来打印 log 发现，最终渲染到页面的 echarts div并不是 vue 初始化之后，进行绘制的 div，而是一个拷贝后的副本，所以图片显示不出来。 需要使用 vuep 插件才行。实例参考 https://vuechart.zuo11.com，效果如下图:",
+    "keywords": "docsify echarts vue组件无法正常显示",
+    "category": "Vue"
+  },
+  {
+    "source": "vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log.md",
+    "staticFileName": "vscode_eslint_log.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "你是否会遇到下面的问题：在 vscode 里面安装了 eslint 插件后，正确设置了保存后自动 fix 参数，但没有生效。或者之前是生效的。忽然就不生效了。只要你的配置是没有问题的，那就是插件以来的包加载异常了，一般都重启几次就Ok了。那怎么看 eslint 对应的log呢？可以分下面两步 1. 点击 vscode 右下角的错误信息、警告信息图标，看是信息里是否有 eslint 相关报 2. 点击 输出 - 选择 ESLint 就可以看 ESLint 相关 log 了。",
+    "keywords": "vscode eslit log",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "两种方法解决Error: Cannot find module 'webpack-cli-bin-config-yargs'.md",
+    "staticFileName": "webpack_dev_server_err.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "两种方法解决Error: Cannot find module 'webpack-cli/bin/config-yargs', 在运行 webpack-dev-server 这个命令时，如果出现了 Error: Cannot find module 'webpack-cli/bin/config-yargs' 这个错误，是因为默认情况下 webpack-dev-server 执行依赖 webpack-cli 包目录下的 bin/config-yargs，但 webpack-cli 4.1.0 的版本，做了一些调整，删除了这个文件，导致了这个错误。",
+    "keywords": "Error: Cannot find module 'webpack-cli/bin/config-yargs'",
+    "category": "前端工程化"
+  },
+  {
+    "source": "console.log 打印带样式的文字、图片.md",
+    "staticFileName": "console_style_img.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "console.log 的第一个参数中，如果有 '%c'，表示设置样式，会将第二个参数的 css 样式字符串应用到第一个参数的内容中 console.log('%c文字', 'css样式') 这样可以打印绿色的文字 console.log('%cSuccess!', 'color: green')，不仅可以设置文字颜色，还可以通过设置 background-color 在控制台显示图片",
+    "keywords": "console.log打印样式文字,console.log打印图片",
+    "category": "JavaScript"
+  },
+  {
+    "source": "JS 判断两个日期是否是同一周，带单元测试.md",
+    "staticFileName": "js_same_week.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "给定两个日期，怎么判断他们是同一周呢？核心是 **所有时间都是从 1970年1月1日(周4) 开始，计算出当前时间距离该日期的天数，再用 (天数 + 4)/7 就是周数，如果相同则是同一周**，这里会有一个特殊情况，就是周日的时候，需要特殊处理。判断时只需要日期，不要输入时间，默认都是以 '08:00:00' 为准。",
+    "keywords": "判断两个时间是否是同一周,判断两个日期是否是同一周",
+    "category": "JavaScript"
+  },
+  {
+    "source": "JS 使用 localeCompare 函数对中文进行首字母排序.md",
+    "staticFileName": "js_chinese_sort.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/07",
+    "description": "String.prototype.localeCompare(compareString[, locales[, options]]) 该方法用于对字符串进行排序。第二个参数 locales 可以指定语言，中文排序传 'ch' 即可。它的返回值为 -1, 1, 0 ，与 sort 自定义排序的返回值基本一致。来看一个例子",
+    "keywords": "js中文按首字母排序,前端中文按首字母排序,前端中文排序",
+    "category": "JavaScript"
+  }
+] 
+
+
