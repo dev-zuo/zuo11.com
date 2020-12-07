@@ -665,6 +665,20 @@
         "keywords": "RPC failed; HTTP 413 curl 22,The requested URL returned error: 413,fatal: the remote end hung up unexpectedly"
       },
       {
+        "title": "xx.github.io仓库配置Github pages后对其他仓库Github pages的影响",
+        "href": "2020/12/github-io.html",
+        "time": "2020/12/07",
+        "description": "在 github 中，假设我们创建了 'github用户名.github.io' 仓库，开启 Github Pages 后，访问该域名，就指向了这个仓库的文件。这时如果你的其他仓库也开启了 Github Pages，那么对于的目录解析可能会有问题。以我的 github 账号 zuoxiaobai 为例，如果 zuoxiaobai.github.io 这个仓库开启 pages，再把另一个仓库 zuo-blog 也开启 pages，那么访问 `https://zuoxiaobai.github.io/zuo-blog/` 并不能自动跳转到对应的 index.html，而是提示 404。需要访问 `https://zuoxiaobai.github.io/zuo-blog/index.html` 才行。这里我直接把 zuoxiaobai.github.io 的仓库关掉了 Github Pages。这样 `https://zuoxiaobai.github.io/zuo-blog/` 才能自动解析目录下的 index.html。",
+        "keywords": "github.io仓库开启pages后对其他仓库pages的影响"
+      },
+      {
+        "title": "GitHub Pages使用自定义域名开启HTTPS，配置CNAME解析",
+        "href": "2020/12/github_pages_https.html",
+        "time": "2020/12/07",
+        "description": "一般在仓库的 Setting 中，开启 Github Pages 会生成一个 `xxx.github.io/xx/` 的地址，地址有点长，我们可以使用自定义域名，这里我将 vue-chart 这个仓库设置成了自定义域名 vuechart.zuo11.com。然后，我们需要把自定义的域名解析到 github.com 地址。可以使用 ping github.com 来获取它的服务器 IP。",
+        "keywords": "github pages https"
+      },
+      {
         "title": "windows下nginx部署https服务实战",
         "href": "2020/6/nginx_https.html",
         "time": "2020/06/21",
@@ -987,6 +1001,27 @@
         "time": "2020/11/30",
         "description": "在 Chrome DevTools 官网 Network Reference 里是这样介绍的：View load events：DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red. 这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间",
         "keywords": "DOMContentLoaded,load"
+      },
+      {
+        "title": "console.log 打印带样式的文字、图片",
+        "href": "2020/12/console_style_img.html",
+        "time": "2020/12/07",
+        "description": "console.log 的第一个参数中，如果有 '%c'，表示设置样式，会将第二个参数的 css 样式字符串应用到第一个参数的内容中 console.log('%c文字', 'css样式') 这样可以打印绿色的文字 console.log('%cSuccess!', 'color: green')，不仅可以设置文字颜色，还可以通过设置 background-color 在控制台显示图片",
+        "keywords": "console.log打印样式文字,console.log打印图片"
+      },
+      {
+        "title": "JS 判断两个日期是否是同一周，带单元测试",
+        "href": "2020/12/js_same_week.html",
+        "time": "2020/12/07",
+        "description": "给定两个日期，怎么判断他们是同一周呢？核心是 **所有时间都是从 1970年1月1日(周4) 开始，计算出当前时间距离该日期的天数，再用 (天数 + 4)/7 就是周数，如果相同则是同一周**，这里会有一个特殊情况，就是周日的时候，需要特殊处理。判断时只需要日期，不要输入时间，默认都是以 '08:00:00' 为准。",
+        "keywords": "判断两个时间是否是同一周,判断两个日期是否是同一周"
+      },
+      {
+        "title": "JS 使用 localeCompare 函数对中文进行首字母排序",
+        "href": "2020/12/js_chinese_sort.html",
+        "time": "2020/12/07",
+        "description": "String.prototype.localeCompare(compareString[, locales[, options]]) 该方法用于对字符串进行排序。第二个参数 locales 可以指定语言，中文排序传 'ch' 即可。它的返回值为 -1, 1, 0 ，与 sort 自定义排序的返回值基本一致。来看一个例子",
+        "keywords": "js中文按首字母排序,前端中文按首字母排序,前端中文排序"
       },
       {
         "title": "深入JS遍历对象，从4个维度比较遍历对象的8种方法",
@@ -1728,6 +1763,13 @@
         "keywords": "vue-cli项目页面加载时间太长,npm run build 打包很大,vue vendor.js文件太大,vue项目包体积优化"
       },
       {
+        "title": "docsify嵌入vue echarts组件无法显示图表的问题",
+        "href": "2020/12/dosify_vue_echarts.html",
+        "time": "2020/12/07",
+        "description": "在使用 docsify 自带的 vue 功能加载 echarts 相关的 vue 组件时，图表都无法正常显示。后来打印 log 发现，最终渲染到页面的 echarts div并不是 vue 初始化之后，进行绘制的 div，而是一个拷贝后的副本，所以图片显示不出来。 需要使用 vuep 插件才行。实例参考 https://vuechart.zuo11.com，效果如下图:",
+        "keywords": "docsify echarts vue组件无法正常显示"
+      },
+      {
         "title": "使用js调用vue单文件组件",
         "href": "2020/2/js_vue_comp.html",
         "time": "2020/02/20",
@@ -2192,6 +2234,13 @@
         "keywords": "chrome瀑布图,Timming时序图"
       },
       {
+        "title": "vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log",
+        "href": "2020/12/vscode_eslint_log.html",
+        "time": "2020/12/07",
+        "description": "你是否会遇到下面的问题：在 vscode 里面安装了 eslint 插件后，正确设置了保存后自动 fix 参数，但没有生效。或者之前是生效的。忽然就不生效了。只要你的配置是没有问题的，那就是插件以来的包加载异常了，一般都重启几次就Ok了。那怎么看 eslint 对应的log呢？可以分下面两步 1. 点击 vscode 右下角的错误信息、警告信息图标，看是信息里是否有 eslint 相关报 2. 点击 输出 - 选择 ESLint 就可以看 ESLint 相关 log 了。",
+        "keywords": "vscode eslit log"
+      },
+      {
         "title": "使用new Date()在前端获取当期时间是不准确的",
         "href": "2020/6/new_date_fe.html",
         "time": "2020/06/21",
@@ -2402,6 +2451,13 @@
         "time": "2020/11/30",
         "description": "在 vue-cli 打包 lib 项目时，发现包体积较大有 600多KB，于是使用 `-- report` 参数看具体是哪个包较大，发现尽管只用到了 lodash 的一个函数，但打包体积却有几百k，如下图，应该是整包打的，没有按需打包。 以下是 打开 lib/项目名.umd-report.html 后，显示的各模块大小示意图。这里借助 babel 的 loadsh 插件来进行按需打包。如果没有babel的配置文件，新建 .babelrc 文件，加入如下内容：",
         "keywords": "loadsh按需打包,loadsh tree shaking,loadsh摇树"
+      },
+      {
+        "title": "两种方法解决Error: Cannot find module 'webpack-cli-bin-config-yargs'",
+        "href": "2020/12/webpack_dev_server_err.html",
+        "time": "2020/12/07",
+        "description": "两种方法解决Error: Cannot find module 'webpack-cli/bin/config-yargs', 在运行 webpack-dev-server 这个命令时，如果出现了 Error: Cannot find module 'webpack-cli/bin/config-yargs' 这个错误，是因为默认情况下 webpack-dev-server 执行依赖 webpack-cli 包目录下的 bin/config-yargs，但 webpack-cli 4.1.0 的版本，做了一些调整，删除了这个文件，导致了这个错误。",
+        "keywords": "Error: Cannot find module 'webpack-cli/bin/config-yargs'"
       },
       {
         "title": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理",
@@ -9749,6 +9805,174 @@
       }
     },
     {
+      "htmlStr": "<h1 id=\"xxgithubio仓库配置github-pages后对其他仓库github-pages的影响\">xx.github.io仓库配置Github pages后对其他仓库Github pages的影响</h1>\n<p>在 github 中，假设我们创建了 <code>github用户名.github.io</code> 仓库，开启 Github Pages 后，访问该域名，就指向了这个仓库的文件。这时如果你的其他仓库也开启了 Github Pages，那么对于的目录解析可能会有问题。</p>\n<p><img src=\"../../../images/blog/git/github_pages.png\" alt=\"github_pages.png\"></p>\n<p>以我的 github 账号 zuoxiaobai 为例，如果 zuoxiaobai.github.io 这个仓库开启 pages，再把另一个仓库 zuo-blog 也开启 pages，那么访问 <code>https://zuoxiaobai.github.io/zuo-blog/</code> 并不能自动跳转到对应的 index.html，而是提示 404。需要访问 <code>https://zuoxiaobai.github.io/zuo-blog/index.html</code> 才行。这里我直接把 zuoxiaobai.github.io 的仓库关掉了 Github Pages。这样 <code>https://zuoxiaobai.github.io/zuo-blog/</code> 才能自动解析目录下的 index.html。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "xx.github.io仓库配置Github pages后对其他仓库Github pages的影响"
+        }
+      ],
+      "config": {
+        "source": "xx.github.io仓库配置Github pages后对其他仓库Github pages的影响.md",
+        "staticFileName": "github-io.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "在 github 中，假设我们创建了 'github用户名.github.io' 仓库，开启 Github Pages 后，访问该域名，就指向了这个仓库的文件。这时如果你的其他仓库也开启了 Github Pages，那么对于的目录解析可能会有问题。以我的 github 账号 zuoxiaobai 为例，如果 zuoxiaobai.github.io 这个仓库开启 pages，再把另一个仓库 zuo-blog 也开启 pages，那么访问 `https://zuoxiaobai.github.io/zuo-blog/` 并不能自动跳转到对应的 index.html，而是提示 404。需要访问 `https://zuoxiaobai.github.io/zuo-blog/index.html` 才行。这里我直接把 zuoxiaobai.github.io 的仓库关掉了 Github Pages。这样 `https://zuoxiaobai.github.io/zuo-blog/` 才能自动解析目录下的 index.html。",
+        "keywords": "github.io仓库开启pages后对其他仓库pages的影响",
+        "category": "运维部署与版本控制",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"github-pages使用自定义域名开启https，配置cname解析\">GitHub Pages使用自定义域名开启HTTPS，配置CNAME解析</h1>\n<p>一般在仓库的 Setting 中，开启 Github Pages 会生成一个 <code>xxx.github.io/xx/</code> 的地址，地址有点长，我们可以使用自定义域名，这里我将 vue-chart 这个仓库设置成了自定义域名 vuechart.zuo11.com。然后，我们需要把自定义的域名解析到 github.com 地址。可以使用 ping github.com 来获取它的服务器 IP。</p>\n<p><img src=\"../../../images/blog/git/github_custom_domain.png\" alt=\"github_custom_domain.png\"></p>\n<p>获取 IP 后，我们到域名管理的位置，设置解析。</p>\n<ul>\n<li>记录类型，就是域名的解析类型，最常见的是 <code>A</code> 类型，就是将域名解析到服务器 IP。<code>CNAME</code> 是将域名指向另一个域名</li>\n<li>主机记录，就是域名前缀，<code>@</code> 表示 xx.com，<code>www</code> 表示 <code>www.xx.com</code>，一般设置这两种。<code>mail</code> 表示 mail.xx.com，代表二级域名。</li>\n</ul>\n<p><img src=\"../../../images/blog/git/github_custom_domain_2.png\" alt=\"github_custom_domain_2.png\"></p>\n<p>解析到 github IP 后，可以正常用域名访问到。但开启 https 后，证书有问题。这时提示需要配置 CNAME 解析。于是就把 &#39;A&#39; 类型的解析改成 了 CNAME。将 zuo11.com 的二级域名 vuechart 解析到 zuoxiaobia.github.io，这样就可以使用 https 访问了，而且证书正常。</p>\n<p><img src=\"../../../images/blog/git/github_custom_domain_3.png\" alt=\"github_custom_domain_3.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "GitHub Pages使用自定义域名开启HTTPS，配置CNAME解析"
+        }
+      ],
+      "config": {
+        "source": "GitHub Pages使用自定义域名开启HTTPS，配置CNAME解析.md",
+        "staticFileName": "github_pages_https.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "一般在仓库的 Setting 中，开启 Github Pages 会生成一个 `xxx.github.io/xx/` 的地址，地址有点长，我们可以使用自定义域名，这里我将 vue-chart 这个仓库设置成了自定义域名 vuechart.zuo11.com。然后，我们需要把自定义的域名解析到 github.com 地址。可以使用 ping github.com 来获取它的服务器 IP。",
+        "keywords": "github pages https",
+        "category": "运维部署与版本控制",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"docsify嵌入vue-echarts组件无法显示图表的问题\">docsify嵌入vue echarts组件无法显示图表的问题</h1>\n<p>在使用 docsify 自带的 vue 功能加载 echarts 相关的 vue 组件时，图表都无法正常显示。后来打印 log 发现，<strong>最终渲染到页面的 echarts div并不是 vue 初始化之后，进行绘制的 div，而是一个拷贝后的副本，所以图片显示不出来。</strong> 需要使用 vuep 插件才行。实例参考 <a href=\"https://vuechart.zuo11.com\">https://vuechart.zuo11.com</a> ，效果如下图:</p>\n<p><img src=\"../../../images/blog/vue/z_chart_doc.png\" alt=\"z_chart_doc.png\"></p>\n<p>对应的 markdown 文件内容如下</p>\n<pre><code class=\"language-markdown\">### z-chart\nz-chart组件是基于echarts的组件，只需要设置父容器的宽高，再设置 options 值即可。\n&lt;!-- markdown文档里插入vuep代码 --&gt;\n\n&lt;vuep template=&quot;#basicBar&quot;&gt;&lt;/vuep&gt;\n&lt;script v-pre type=&quot;text/x-template&quot; id=&quot;basicBar&quot;&gt;\n&lt;template&gt;\n  &lt;div style=&quot;width:100%; height:100%;&quot;&gt;\n    &lt;z-chart :options=&quot;chartData&quot; /&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\n module.exports = {\n    created () {\n      this.chartData = {\n          title: {\n            text: &quot;ECharts 入门示例&quot;\n          },\n          tooltip: {},\n          xAxis: {\n            data: [&quot;衬衫&quot;, &quot;羊毛衫&quot;, &quot;雪纺衫&quot;, &quot;裤子&quot;, &quot;高跟鞋&quot;, &quot;袜子&quot;]\n          },\n          yAxis: {},\n          series: [\n            {\n              name: &quot;销量&quot;,\n              type: &quot;bar&quot;,\n              data: [5, 20, 36, 10, 10, 20]\n            }\n          ]\n        }\n    }\n  }\n&lt;/script&gt;</code></pre>\n<p>注意在 index.html 里面需要引入 vuep，以及其他你需要的组件</p>\n<pre><code class=\"language-html\">&lt;script src=&quot;//cdn.jsdelivr.net/npm/vue/dist/vue.min.js&quot;&gt;&lt;/script&gt;\n&lt;script src=&quot;//unpkg.com/vuep/dist/vuep.min.js&quot;&gt;&lt;/script&gt;\n&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.common.min.js&quot;&gt;&lt;/script&gt;\n&lt;script src=&quot;https://unpkg.com/@guoqzuo/vue-chart@latest/lib/vue-chart.umd.min.js&quot;&gt;&lt;/script&gt;</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "docsify嵌入vue echarts组件无法显示图表的问题"
+        }
+      ],
+      "config": {
+        "source": "docsify嵌入vue echarts组件无法显示图表的问题.md",
+        "staticFileName": "dosify_vue_echarts.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "在使用 docsify 自带的 vue 功能加载 echarts 相关的 vue 组件时，图表都无法正常显示。后来打印 log 发现，最终渲染到页面的 echarts div并不是 vue 初始化之后，进行绘制的 div，而是一个拷贝后的副本，所以图片显示不出来。 需要使用 vuep 插件才行。实例参考 https://vuechart.zuo11.com，效果如下图:",
+        "keywords": "docsify echarts vue组件无法正常显示",
+        "category": "Vue",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log\">vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log</h1>\n<p>你是否会遇到下面的问题：在 vscode 里面安装了 eslint 插件后，正确设置了保存后自动 fix 参数，但没有生效。或者之前是生效的，忽然就不生效了。</p>\n<p>只要你的配置是没有问题的，那就是插件依赖的包加载异常了，一般都重启 vscode 一次或多次就 Ok 了。我们可以通过下面两个步骤，查看 eslint 插件对应的 log。</p>\n<ol>\n<li>点击 vscode 右下角的错误信息、警告信息图标，看是信息里是否有 eslint 相关报错</li>\n<li>点击 输出 - 选择 ESLint 就可以看 ESLint 相关 log 了。</li>\n</ol>\n<p>下图是 ESLint 正常加载的 log</p>\n<p><img src=\"../../../images/blog/devtools/vscode_eslint_log.png\" alt=\"vscode_eslint_log.png\"></p>\n<p>下图是 eslint 失效后，查看 输出 - ESLint log 报的错误。提示 eslint-plugin-vue 找不到，一般就是 vscode 内部加载失败了。将 vscode 完全退出，再打开，或者将项目单独用一个新窗口打开就又正常了。</p>\n<p><img src=\"../../../images/blog/devtools/vscode_eslint_log_2.png\" alt=\"vscode_eslint_log_2.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log"
+        }
+      ],
+      "config": {
+        "source": "vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log.md",
+        "staticFileName": "vscode_eslint_log.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "你是否会遇到下面的问题：在 vscode 里面安装了 eslint 插件后，正确设置了保存后自动 fix 参数，但没有生效。或者之前是生效的。忽然就不生效了。只要你的配置是没有问题的，那就是插件以来的包加载异常了，一般都重启几次就Ok了。那怎么看 eslint 对应的log呢？可以分下面两步 1. 点击 vscode 右下角的错误信息、警告信息图标，看是信息里是否有 eslint 相关报 2. 点击 输出 - 选择 ESLint 就可以看 ESLint 相关 log 了。",
+        "keywords": "vscode eslit log",
+        "category": "计算机基础与开发工具",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"两种方法解决error-cannot-find-module-webpack-clibinconfig-yargs\">两种方法解决Error: Cannot find module &#39;webpack-cli/bin/config-yargs&#39;</h1>\n<p>在运行 webpack-dev-server 这个命令时，如果出现了 Error: Cannot find module &#39;webpack-cli/bin/config-yargs&#39; 这个错误，是因为默认情况下 webpack-dev-server 执行依赖 webpack-cli 包目录下的 bin/config-yargs，但 webpack-cli 4.1.0 的版本，做了一些调整，删除了这个文件，导致了这个错误。</p>\n<p><img src=\"../../../images/blog/node/config-yargs_error.png\" alt=\"config-yargs_error.png\"></p>\n<pre><code class=\"language-json\">&quot;webpack&quot;: &quot;^5.1.3&quot;,\n&quot;webpack-cli&quot;: &quot;^4.1.0&quot;,\n&quot;webpack-dev-server&quot;: &quot;^3.11.0&quot;</code></pre>\n<p>有两种解决方法</p>\n<ol>\n<li>将 webpack-cli 降级到 3.x版本, &quot;webpack-cli&quot;: &quot;^ 3.3.12&quot;</li>\n<li>使用 webpack 5.x 中用于替代 webpack-dev-server 命令的 webpack serve 命令。其实它内部还是使用的 webpack-dev-server 这个包</li>\n</ol>\n<pre><code class=\"language-js\">// package.json scripts\n&quot;dev:server&quot;: &quot;webpack serve --config webpack.dev.js&quot;</code></pre>\n<p>参考：<a href=\"https://github.com/webpack/webpack-cli/issues/1948\">Error: Cannot find module &#39;webpack-cli/bin/config-yargs&#39; · Issue #1948 · webpack/webpack-cli</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "两种方法解决Error: Cannot find module 'webpack-cli/bin/config-yargs'"
+        }
+      ],
+      "config": {
+        "source": "两种方法解决Error: Cannot find module 'webpack-cli-bin-config-yargs'.md",
+        "staticFileName": "webpack_dev_server_err.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "两种方法解决Error: Cannot find module 'webpack-cli/bin/config-yargs', 在运行 webpack-dev-server 这个命令时，如果出现了 Error: Cannot find module 'webpack-cli/bin/config-yargs' 这个错误，是因为默认情况下 webpack-dev-server 执行依赖 webpack-cli 包目录下的 bin/config-yargs，但 webpack-cli 4.1.0 的版本，做了一些调整，删除了这个文件，导致了这个错误。",
+        "keywords": "Error: Cannot find module 'webpack-cli/bin/config-yargs'",
+        "category": "前端工程化",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"consolelog-打印带样式的文字、图片\">console.log 打印带样式的文字、图片</h1>\n<p>console.log 的第一个参数中，如果有 &#39;%c&#39;，表示设置样式，会将第二个参数的 css 样式字符串应用到第一个参数的内容中</p>\n<pre><code class=\"language-js\">console.log(&#39;%c文字&#39;, &#39;css样式&#39;)</code></pre>\n<p>这样可以打印绿色的文字</p>\n<pre><code class=\"language-js\">console.log(&#39;%cSuccess!&#39;, &#39;color: green&#39;)</code></pre>\n<p><img src=\"../../../images/blog/js/console_color.png\" alt=\"console_color.png\"></p>\n<p>不仅可以设置文字颜色，还可以通过设置 background-color 在控制台显示图片</p>\n<pre><code class=\"language-js\">if (console) {\n  console.clear();\n  console.log(&quot;%c &quot;, &quot;padding:112px 150px;background:url(&#39;https://images.cnblogs.com/cnblogs_com/enumx/1647344/o_200214113324console.gif&#39;) no-repeat;&quot;);\n  console.log(&#39;%cWelcome&#39;, &#39;color: #0000ff;font-size: 20px;font-weight: bold;&#39;);\n}</code></pre>\n<p>效果如下</p>\n<p><img src=\"../../../images/blog/js/console_img.gif\" alt=\"console_img.gif\"></p>\n<p>参考：<a href=\"https://www.cnblogs.com/enumx/p/12308528.html\">console.log输出字体颜色 - enumx - 博客园</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "console.log 打印带样式的文字、图片"
+        }
+      ],
+      "config": {
+        "source": "console.log 打印带样式的文字、图片.md",
+        "staticFileName": "console_style_img.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "console.log 的第一个参数中，如果有 '%c'，表示设置样式，会将第二个参数的 css 样式字符串应用到第一个参数的内容中 console.log('%c文字', 'css样式') 这样可以打印绿色的文字 console.log('%cSuccess!', 'color: green')，不仅可以设置文字颜色，还可以通过设置 background-color 在控制台显示图片",
+        "keywords": "console.log打印样式文字,console.log打印图片",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"js-判断两个日期是否是同一周，带单元测试\">JS 判断两个日期是否是同一周，带单元测试</h1>\n<p>给定两个日期，怎么判断他们是同一周呢？核心是 <strong>所有时间都是从 1970年1月1日(周4) 开始，计算出当前时间距离该日期的天数，再用 (天数 + 4)/7 就是周数，如果相同则是同一周</strong>，这里会有一个特殊情况，就是周日的时候，需要特殊处理。判断时只需要日期，不要输入时间，默认都是以 &#39;08:00:00&#39; 为准。</p>\n<pre><code class=\"language-js\">/**\n * @description 判断两个时间是否是同一周\n * 所有时间都是从 1970年1月1日(周4) 开始，(天数 + 4)/7 就是周数，如果相同则是同一周\n * 特殊情况：周日会是整数，如果直接取整，周日会和下周一是同一天\n * (+new Date(&#39;1970-01-01&#39;) / oneDay) + 4 / 7  // 周四 = 0.57\n * (+new Date(&#39;1970-01-04&#39;) / oneDay) + 4 / 7  // 周日 = 1\n * (+new Date(&#39;1970-01-05&#39;) / oneDay) + 4 / 7  // 周一 = 1.14\n * @params { Stirng } timeA &#39;1970-01-03&#39;\n * @params { Stirng } timeB &#39;1970-01-22&#39;\n */\nfunction isSameWeek(timeA, timeB) {\n  let weekIndexA = getWeekIndex(timeA)\n  let weekIndexB = getWeekIndex(timeB)\n  let tempArr = [weekIndexA, weekIndexB].sort((a, b) =&gt; a - b)\n  // 如果有周日，间隔 &lt; 1，则是 [1.9, 2] 或 [1, 1.14]，\n  // 较大的数为整数则是同一周。间隔 &gt;=1 则不是同一周\n  if (tempArr.some(item =&gt; Number.isInteger(item))) {\n    return tempArr[1] - tempArr[0] &lt; 1 ? Number.isInteger(tempArr[1]) : false\n  } else {\n    return parseInt(weekIndexA) === parseInt(weekIndexB)\n  }\n  // 获取周数\n  function getWeekIndex(time) {\n    let oneDayTime = 24 * 3600 * 1000\n    let dayCount = time.getTime() / oneDayTime\n    let weekCount = (dayCount + 4) / 7\n    return weekCount\n  }\n}</code></pre>\n<p>单元测试</p>\n<pre><code class=\"language-js\">// isSameWeek 单元测试\nfunction isSameWeekTest() {\n  let list = [\n    { a: &#39;1970-01-01&#39;, b: &#39;1970-01-04&#39;, result: true },\n    { a: &#39;1970-01-04&#39;, b: &#39;1970-01-05&#39;, result: false },\n    { a: &#39;1970-01-12&#39;, b: &#39;1970-01-11&#39;, result: false },\n    { a: &#39;1970-01-22&#39;, b: &#39;1970-01-23&#39;, result: true },\n  ]\n  list.forEach(item =&gt; {\n    let res = isSameWeek(new Date(item.a), new Date(item.b)) === item.result\n    console.log(\n      `%c${res ? &#39;PASS&#39; : &#39;FAIL&#39;} &#39;${item.a}&#39;,&#39;${item.b}&#39;,${item.result}`,\n      `color: ${res ? &#39;green&#39; : &#39;red&#39;}`\n    )\n  })\n}\n// Run\nisSameWeekTest()</code></pre>\n<p>运行效果:</p>\n<p><img src=\"../../../images/blog/js/is_same_week.png\" alt=\"is_same_week.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "JS 判断两个日期是否是同一周，带单元测试"
+        }
+      ],
+      "config": {
+        "source": "JS 判断两个日期是否是同一周，带单元测试.md",
+        "staticFileName": "js_same_week.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "给定两个日期，怎么判断他们是同一周呢？核心是 **所有时间都是从 1970年1月1日(周4) 开始，计算出当前时间距离该日期的天数，再用 (天数 + 4)/7 就是周数，如果相同则是同一周**，这里会有一个特殊情况，就是周日的时候，需要特殊处理。判断时只需要日期，不要输入时间，默认都是以 '08:00:00' 为准。",
+        "keywords": "判断两个时间是否是同一周,判断两个日期是否是同一周",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"js-使用-localecompare-函数对中文进行首字母排序\">JS 使用 localeCompare 函数对中文进行首字母排序</h1>\n<blockquote>\n<p>tag: js中文按首字母排序, 前端中文按首字母排序,前端中文排序</p>\n</blockquote>\n<p>String.prototype.localeCompare(compareString[, locales[, options]]) 该方法用于对字符串进行排序。第二个参数 locales 可以指定语言，中文排序传 &#39;ch&#39; 即可。它的返回值为 -1, 1, 0 ，与 sort 自定义排序的返回值基本一致。来看一个例子</p>\n<pre><code class=\"language-js\">[&#39;中文zw&#39;, &#39;啊啊啊aaa&#39;, &#39;猜猜猜ccc&#39;].sort((a, b) =&gt; a.localeCompare(b, &#39;ch&#39;))\n//  [&quot;啊啊啊aaa&quot;, &quot;猜猜猜ccc&quot;, &quot;中文zw&quot;]</code></pre>\n<p><img src=\"../../../images/blog/js/sort_ch.png\" alt=\"sort_ch.png\"></p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare\">String.prototype.localeCompare() | MDN</a></li>\n<li><a href=\"https://blog.csdn.net/stone10086/article/details/83752227\">js中文按首字母排序</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "JS 使用 localeCompare 函数对中文进行首字母排序"
+        }
+      ],
+      "config": {
+        "source": "JS 使用 localeCompare 函数对中文进行首字母排序.md",
+        "staticFileName": "js_chinese_sort.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/07",
+        "description": "String.prototype.localeCompare(compareString[, locales[, options]]) 该方法用于对字符串进行排序。第二个参数 locales 可以指定语言，中文排序传 'ch' 即可。它的返回值为 -1, 1, 0 ，与 sort 自定义排序的返回值基本一致。来看一个例子",
+        "keywords": "js中文按首字母排序,前端中文按首字母排序,前端中文排序",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
       "htmlStr": "<h1 id=\"description在seo中的重要性\">description在seo中的重要性</h1>\n<p>网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。</p>\n<h2 id=\"网站页面描述description\">网站页面描述(description)</h2>\n<p>2020年02月15号，我像往常一样在百度搜索 <strong>site:zuo11.com</strong> 来看网站的收录情况。发现之前在半个月前提交的页面，百度已经收录了部分。但仔细看发现有点怪，百度搜索出来的页面，内容显示的信息比较少，如下图：</p>\n<p><img src=\"../../../images/blog/seo/mata_description_baidu.png\" alt=\"mata_description_baidu.png\"></p>\n<p>而且这些信息正好是我通过 <strong>meta</strong> 元素指定的 <strong>description</strong> 属性的内容</p>\n<pre><code class=\"language-html\">&lt;meta name=&quot;application name&quot; content=&quot;apue_first.html&quot;&gt;\n&lt;meta name=&quot;author&quot; content=&quot;guoqzuo&quot;&gt;\n&lt;meta name=&quot;description&quot; content=&quot;UNIX环境高级编程简介，概览&quot;&gt;\n&lt;meta name=&quot;keywords&quot; content=&quot;APUE,apue 笔记, APUE笔记,UNIX基础知识,UNIX环境高级编程,apue&quot;&gt;</code></pre>\n<p>所以得出结论，在百度的搜索中，description的内容是很重要的，还是不能谁便填写。</p>\n<h2 id=\"google对description的处理\">Google对description的处理</h2>\n<p>后面我看了下google的收录情况，发现同样的页面，google并不像百度那样直接显示description内容，而是直接截取了文章内容的开头部分，如下图:</p>\n<p><img src=\"../../../images/blog/seo/mata_description_google.png\" alt=\"mata_description_google.png\"></p>\n<h2 id=\"seo中google和百度的一些区别\">seo中Google和百度的一些区别</h2>\n<p>上面提到了Google在显示descrption时与百度的差异，其实还有有些地方有区别，比如收录页面规则，处理死链规则。</p>\n<h3 id=\"收录页面方面\">收录页面方面</h3>\n<ul>\n<li>百度: 先进行一段时间判定，页面评定OK后，会进行收录，提交一个页面，可能要半个月才会收录</li>\n<li>Google: 先进行收录，然后再一段时间内对页面进行判定，完成评估内容不好久会撤掉，提交一个页面，1天后就会收录</li>\n</ul>\n<h3 id=\"死链处理方面\">死链处理方面</h3>\n<ul>\n<li>百度: 当页面被收录，网站如果出现了改版，且收录的页面成了死链，提交死链给百度，3天后收录里面居然还有，处理的比较很慢</li>\n<li>Google: 提交死链后，最多一天你就在收录里看不到对应的死链页面了</li>\n</ul>\n<p>注意：提交链接，提交死链需要在百度站长平台或Google Search console里提交</p>\n<h3 id=\"总结\">总结</h3>\n<p>相对于百度来讲google确实更智能一点</p>\n",
       "outline": [
         {
@@ -13970,7 +14194,7 @@
       }
     }
   ],
-  "count": 363,
+  "count": 371,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,
