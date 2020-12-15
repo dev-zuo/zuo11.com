@@ -1,0 +1,139 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="js_data_type.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="ES3 有 5 种基本数据类型：null、undefined、boolean、number、string；1 种复杂数据类型 object。ES6+ 后面新增了两种基本数据类型：Symbol, Bigint。如果把函数 function 也算作一种数据类型，就是 9 种。需要注意的是：- typeof 数组值为 `object`，typeof 函数值为 `function`, typeof null 值为 `object`，本质上其实有 9 种数据类型。- new String('12') 是字符串对象，不是 string，new Number(1) 是数字对象，不是 number，new Boolean(false) 是对象，不是 boolean">
+        <meta name="keywords" content="js数据类型有多少种,js数据类型,js data type">
+
+        <title>JS 数据类型有多少种，有哪些细节需要注意的？ - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="js数据类型有多少种，有哪些细节需要注意的？">JS数据类型有多少种，有哪些细节需要注意的？</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2020/12/15，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>js数据类型有多少种</span>，<span>js数据类型</span>，<span>js data type</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>ES3 有 5 种基本数据类型：null、undefined、boolean、number、string；1 种复杂数据类型 object。ES6+ 后面新增了两种基本数据类型：Symbol, Bigint。如果把函数 function 也算作一种数据类型，就是 9 种。</p>
+<p>需要注意的是：</p>
+<ul>
+<li>typeof 数组值为 <code>object</code>，typeof 函数值为 <code>function</code>, typeof null 值为 <code>object</code>，本质上其实有 9 种数据类型。</li>
+<li>new String(&#39;12&#39;) 是字符串对象，不是 string，new Number(1) 是数字对象，不是 number，new Boolean(false) 是对象，不是 boolean</li>
+<li>新增的 Symbol 以及 bigint 都是不能 new 的，没有 constructor 构造函数方法，参考：<a href="http://127.0.0.1:3001/blog/2019/12/new_check.html">Symbol、BigInt不能new，而String、Number可以new，为什么？ - 左小白的技术日常</a></li>
+</ul>
+<p>测试 demo 如下</p>
+<pre><code class="language-js">var a = null,       // null
+    b = undefined, // undefined 
+    c = false, // boolean
+    d = 1, // mumber
+    e = &quot;123&quot;, // string
+    f = {}, // object
+    g = Symbol(&quot;3&quot;), // symbol
+    h = BigInt(4), // 4n bigint
+    i = function() {}; // function
+[a, b, c, d, e, f, g, h, i].forEach(item =&gt; console.log(`typeof `, item, `: ${typeof item}`))
+// typeof  null : object
+// typeof  undefined : undefined
+// typeof  false : boolean
+// typeof  1 : number
+// typeof  123 : string
+// typeof  {} : object
+// typeof  Symbol(3) : symbol
+// typeof  4n : bigint
+// typeof  ƒ () {} : function</code></pre>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="js数据类型有多少种，有哪些细节需要注意的？" style="padding-left:1em">JS数据类型有多少种，有哪些细节需要注意的？<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  

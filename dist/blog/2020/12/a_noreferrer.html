@@ -1,0 +1,145 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="a_noreferrer.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="一般页面的外部链接 a 标签都会加上 ref='noreferrer noopener'，这样可以避免一些安全问题，下面通过几个问题来具体看看 1. a 标签加上 noreferrer 和 noopener 后会有什么效果？2. Referer 是什么？有什么应用场景? 3. window.opener 可以做什么？">
+        <meta name="keywords" content="noreferrer和noopener,noreferrer,noopener">
+
+        <title>外部链接 a 标签为什么要加 noreferer 与 noopener ？ - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="外部链接-a-标签为什么要加-noreferrer-与-noopener-？">外部链接 a 标签为什么要加 noreferrer 与 noopener ？</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2020/12/15，归类于 <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>noreferrer和noopener</span>，<span>noreferrer</span>，<span>noopener</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>一般页面的外部链接 a 标签都会加上 <code>ref=&quot;noreferrer noopener&quot;</code>，这样可以避免一些安全问题，下面通过几个问题来具体看看</p>
+<ol>
+<li>a 标签加上 noreferrer 和 noopener 后会有什么效果？</li>
+<li>Referer 是什么？有什么应用场景?</li>
+<li>window.opener 可以做什么？</li>
+</ol>
+<p><img src="../../../images/blog/js/noreferer_1.png" alt="noreferer_1.png"></p>
+<h2 id="a-标签加上-noreferrer-和-noopener-后会有什么效果？">a 标签加上 noreferrer 和 noopener 后会有什么效果？</h2>
+<p>以 Github 上 less.js 仓库设置的网站链接为例，如上图。加了这两个参数后点击链接，该页面打开后</p>
+<ul>
+<li>请求头（Request Headers）部分的 Referer 和直接访问的 Referer 一致，都为空，不会携带来源信息。</li>
+<li>window.opener 和直接访问该网站一致，无法获取来源网站信息，无法操作来源网站的跳转等</li>
+</ul>
+<h2 id="请求头-referer-的作用是什么？">请求头 Referer 的作用是什么？</h2>
+<p>一般网页在加载html、js、css、图片等静态资源发送请求时，<strong>请求头部分会有一个 Referer 字段，用于标记请求来源</strong>。referer 单词存在拼写错误，本意是打算使用 referrer，写错了。后来为了兼容，将错就错，还是保留了错误的拼写方式。</p>
+<p>Referer可以标记请求来源，有以下几个应用场景</p>
+<ul>
+<li><strong>用于统计分析中页面来源</strong>，可以知道用户是从哪种方式进入网站的。搜索引擎一般不会开启 noreferrer，比如百度统计可以知道你是通过哪个关键字进入的页面。</li>
+</ul>
+<p><img src="../../../images/blog/js/noreferer_2.png" alt="noreferer_2.png"></p>
+<ul>
+<li><p><strong>用于防盗链</strong>，防止网页静态资源被其他站点直接引用，如淘宝店铺图片、CDN图片链接、文件、视频链接等。一般会设置 referer 白名单，仅允许白名单内的 Referer 访问，否则禁止访问。减少服务器负载或不必要的 CDN 流量花费。</p>
+</li>
+<li><p><strong>用于鉴权</strong>，比如页面在集成评论系统、Google AdSense等第三方功能时，会校验站点与ID是否匹配，如果不匹配会提示 403。防止其他网站引入对应的代码后，导致数据错乱。我们在处理接口请求时，也可以对 Referer 值进行判断，禁止某些来源访问接口。</p>
+</li>
+</ul>
+<h2 id="windowopener-可以做什么？">window.opener 可以做什么？</h2>
+<p>window.opener 可以拿到来源网站的 window 对象，虽然一般访问 dom 等有跨域限制，但 window.opener.location.href 可以直接重定向源网站，使来源站点发生变化。使用 noopener 可以避免一些安全风险。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1555507">你了解Referer吗 - 云+社区 - 腾讯云</a></li>
+<li><a href="https://help.aliyun.com/document_detail/31869.html?spm=5176.8466010.referer.1.1e611450esasVK">防盗链_访问控制_数据安全_开发指南_对象存储 OSS-阿里云</a></li>
+</ul>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="外部链接-a-标签为什么要加-noreferrer-与-noopener-？" style="padding-left:1em">外部链接 a 标签为什么要加 noreferrer 与 noopener ？<span></li><ul><li><span class="ul-span" data-id="a-标签加上-noreferrer-和-noopener-后会有什么效果？" style="padding-left:2em">a 标签加上 noreferrer 和 noopener 后会有什么效果？<span></li></ul><ul><li><span class="ul-span" data-id="请求头-referer-的作用是什么？" style="padding-left:2em">请求头 Referer 的作用是什么？<span></li></ul><ul><li><span class="ul-span" data-id="windowopener-可以做什么？" style="padding-left:2em">window.opener 可以做什么？<span></li></ul></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  
