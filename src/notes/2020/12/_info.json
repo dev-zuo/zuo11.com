@@ -70,7 +70,80 @@
     "description": "String.prototype.localeCompare(compareString[, locales[, options]]) 该方法用于对字符串进行排序。第二个参数 locales 可以指定语言，中文排序传 'ch' 即可。它的返回值为 -1, 1, 0 ，与 sort 自定义排序的返回值基本一致。来看一个例子",
     "keywords": "js中文按首字母排序,前端中文按首字母排序,前端中文排序",
     "category": "JavaScript"
+  },
+  {
+    "source": "使用 VuePress 生成静态网站并部署到 Github Pages.md",
+    "staticFileName": "vuepress.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "VuePress 是一个静态网站生成器，诞生初衷是为了支持 Vue 及其子项目的文档需求。目前 Vue 相关文档都是由 vuepress 搭建。相比其他静态站点生成工具，Docsify 是运行时驱动，通过 JS 加载内容，对 SEO 不够友好。VuePress 类似于 Hexo，主要区别是 VuePress 是由 Vue 驱动。",
+    "keywords": "VuePress,VuePress 创建网站,vuepress 使用",
+    "category": "Vue"
+  },
+  {
+    "source": "VuePress 复选框、任务列表不生效怎么处理.md",
+    "staticFileName": "vuepress_tasklist.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "在写 markdown 笔记时，复选框、任务列表（task list）功能在本地 Typora 是生效的，但在 VuePress 中无法正常显示。于是在 Github 对应的 issue 里面搜索 Task lists，找到了解决方法：需要安装一个 markdown 插件 `markdown-it-task-lists`",
+    "keywords": "VuePress复选框显示不正常,VuePress任务列表,VuePress Task list",
+    "category": "Vue"
+  },
+  {
+    "source": "外部链接 a 标签为什么要加 noreferer 与 noopener ？.md",
+    "staticFileName": "a_noreferrer.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "一般页面的外部链接 a 标签都会加上 ref='noreferrer noopener'，这样可以避免一些安全问题，下面通过几个问题来具体看看 1. a 标签加上 noreferrer 和 noopener 后会有什么效果？2. Referer 是什么？有什么应用场景? 3. window.opener 可以做什么？",
+    "keywords": "noreferrer和noopener,noreferrer,noopener",
+    "category": "http与https"
+  },
+  {
+    "source": "防盗链时需要注意搜索引擎 Referer，百度和 Google 搜索内容跳转链接之间的区别.md",
+    "staticFileName": "search_referer.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "一般搜索引擎为了方便网页做来源分析，不会使用 noreferer，因此从搜索引擎进入页面时，会携带对应的 Referer。当首页 index.html 也放在 CDN 的情况时，做防盗链 Referer 白名单时，要记得放开搜索引擎的相关 Referer。下面分两个部分介绍搜索引擎跳转链接的处理 1. 百度搜索结果链接的跳转方式 2. Google搜索结构链接的跳转方式",
+    "keywords": "防盗链需要注意搜索引擎,百度和Google搜索跳转链接区别",
+    "category": "http与https"
+  },
+  {
+    "source": "JS 数据类型有多少种，有哪些细节需要注意的？.md",
+    "staticFileName": "js_data_type.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "ES3 有 5 种基本数据类型：null、undefined、boolean、number、string；1 种复杂数据类型 object。ES6+ 后面新增了两种基本数据类型：Symbol, Bigint。如果把函数 function 也算作一种数据类型，就是 9 种。需要注意的是：- typeof 数组值为 `object`，typeof 函数值为 `function`, typeof null 值为 `object`，本质上其实有 9 种数据类型。- new String('12') 是字符串对象，不是 string，new Number(1) 是数字对象，不是 number，new Boolean(false) 是对象，不是 boolean",
+    "keywords": "js数据类型有多少种,js数据类型,js data type",
+    "category": "JavaScript"
+  },
+  {
+    "source": "getElementsByTagName 结果为什么不可以 forEach ？和 querySelectorAll 有什么区别.md",
+    "staticFileName": "dom_arr_forEach.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "在 JS DOM 编程艺术的例子中，看到 `document.getElementsByTagName` 后使用了 `Array.from(xx)` 将其结果转为标准数组后再使用 `forEach`。下面写个例子来验证为什么？从上面的例子中，我们可以看到 `getElementsByTagName` 函数返回的数据类型是 `HTMLCollection`，类数组对象，并没有实现 forEach 方法，但它内部实现了迭代 for...of（Symbol.iterator）方法，因此可以使用 for、for...of 来遍历",
+    "keywords": "getElementsByTagName,querySelectorAll",
+    "category": "JavaScript"
+  },
+  {
+    "source": "Promise.all、race 实现，函数作为参数时的简写.md",
+    "staticFileName": "promise_all_abbr.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "一般函数当参数时，有一种情况可以直接简写，例子如下 func(data => { console.log(data) })，可以简写为 func(console.log) 下面来看看在 Promise.all 和 Promise.race 实现中的应用",
+    "keywords": "Promise.all实现,Promise.race实现,函数参数简写",
+    "category": "JavaScript"
+  },
+  {
+    "source": "JS 事件循环, Promise.then 与 setTimeout 执行顺序问题.md",
+    "staticFileName": "js_eventloop.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/15",
+    "description": "来看一个 demo 的执行顺序，执行顺序是：2 3 5 4 1，我们知道 setTimeout 与 Promise.then 的回调都是异步的。setTimeout 的执行函数是先 push 到任务队列的，而 Promise.then 的回调是后面 push 的。为什么 Promise.then 的回调先执行呢？这里涉及到 JS 事件循环中 **宏任务** 与 **微任务**。- 宏任务：同步任务、I/O(比如文件读写等)、setTimeout、setInterval、requestAnimationFrame 等 - 微任务：Promise.then/catch/finally、generator、async/await、MutationObserver 等。某个宏任务执行 ok 后，会先看微任务事件队列里是否有任务，有就执行，然后才是宏任务队列。",
+    "keywords": "宏任务与微任务,JS 事件循环",
+    "category": "JavaScript"
   }
-] 
+]
+
 
 
