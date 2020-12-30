@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <meta name="application name" content="js_this.html">
+        <meta name="application name" content="string-base.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数">
-        <meta name="keywords" content="非箭头函数作为参数时this问题">
+        <meta name="description" content="理论上，原始值本身不是对象，逻辑上是不能有属性、方法的。那为什么字符串可以使用点语法执行 substring 等方法呢？下面的例子中，第 2 行可以正常执行。主要是 JS 内部在后台进行了一些处理。在执行到第 2 行时 1. 临时创建一个 String 类型的实例 `let t = new String('some text')` 2. 调用实例上的特定方法 `s2 = t.substring(2)` 3. 销毁实例 `t = null`">
+        <meta name="keywords" content="基本包装类型,原始类型不是对象为什么可以执行方法">
 
-        <title>非箭头函数作为参数时this问题 - 左小白的技术日常</title>
+        <title>字符串原始类型不是对象，为什么可以使用点语法运行方法 - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
@@ -36,83 +36,36 @@
         </header>
         <section class="content">
           <article>
-            <h1 id="非箭头函数作为参数时this问题">非箭头函数作为参数时this问题</h1>
+            <h1 id="字符串原始类型不是对象，为什么可以使用点语法运行方法">字符串原始类型不是对象，为什么可以使用点语法运行方法</h1>
             
     <div class="article-top">
       <div class="flex">
-        这篇文章发布于 2019/11/09，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+        这篇文章发布于 2020/12/30，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
         <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
         <div id="readAndComment" class="flex"></div>
       </div> 
       <div class="flex keywords" style="flex-wrap: nowrap;">
         <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
-        <div class="flex" style="flex-wrap: wrap;"><span>非箭头函数作为参数时this问题</span></div>
+        <div class="flex" style="flex-wrap: wrap;"><span>基本包装类型</span>，<span>原始类型不是对象为什么可以执行方法</span></div>
       </div>
     </div>
     
   
             
-<p>复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法</p>
+<p>理论上，原始值本身不是对象，逻辑上是不能有属性、方法的。那为什么字符串可以使用点语法执行 substring 等方法呢？下面的例子中，第 2 行可以正常执行。主要是 JS 内部在后台进行了一些处理</p>
+<pre><code class="language-js">let s1 = &quot;some text&quot;
+let s2 = s1.substring(2) // &quot;me text&quot;</code></pre>
+<p>在执行到第 2 行时</p>
 <ol>
-<li>使用bind绑定一个作用域 </li>
-<li>使用闭包 </li>
-<li>使用箭头函数</li>
+<li>临时创建一个 String 类型的实例 <code>let t = new String(&quot;some text&quot;)</code></li>
+<li>调用实例上的特定方法 <code>s2 = t.substring(2)</code></li>
+<li>销毁实例 <code>t = null</code></li>
 </ol>
-<p>来看 demo</p>
-<pre><code class="language-js">var a = 5
-
-function callback() {
-  console.log(&#39;-- callback this&#39;, this, this.a, &#39;--&#39;)
-}
-function validate() {
-  console.log(&#39;-- validate this&#39;, this, this.a, &#39;--&#39;)
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate, callback) // 5 5 
-showPrompt(&#39;1&#39;, validate.bind({a: 2}), callback.bind({a: 1})) // 2 1</code></pre>
-<p>或者</p>
-<pre><code class="language-js">var a = 5
-var callback = {
-  a: 1,
-  handler() {
-    console.log(this, this.a)
-  }
-}
-var validate = {
-  a: 2,
-  handler() {
-    console.log(this, this.a)
-  }
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 
-showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 2 1</code></pre>
-<p>使用箭头函数</p>
-<pre><code class="language-js">var a = 5
-var callback = {
-  a: 1,
-  handler: () =&gt; {
-    console.log(this, this.a)
-  }
-}
-var validate = {
-  a: 2,
-  handler: () =&gt; {
-    console.log(this, this.a)
-  }
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 
-showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 5 5</code></pre>
+<p>这种行为可以让原始值拥有对象的行为。临时创建的 原始值包装类型（String）实例的声明周期只在执行的那一行。执行完后，就销毁了。下面的例子即可说明这个问题。</p>
+<pre><code class="language-js">let s1 = &quot;some text&quot;
+s1.color = &quot;red&quot;
+console.log(s1.color) // undefined</code></pre>
+<p>更多详情参考：《JavaScript高级程序设计》第四版 p113 原始值包装类型。在线笔记 <a href="http://fe.zuo11.com/js/ad3/js-ad3-5.html#%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B-%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B">原始值包装类型(基本包装类型) - 5. 基本引用类型 - JS高程4 | 左小白的前端笔记</a></p>
 
             
             <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -123,7 +76,7 @@ showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(c
           <aside>
             <div class="aside-wrap">
               <div class="top ">
-                <ul><li><span class="ul-span" data-id="非箭头函数作为参数时this问题" style="padding-left:1em">非箭头函数作为参数时this问题<span></li></ul>
+                <ul><li><span class="ul-span" data-id="字符串原始类型不是对象，为什么可以使用点语法运行方法" style="padding-left:1em">字符串原始类型不是对象，为什么可以使用点语法运行方法<span></li></ul>
               </div>
               <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>

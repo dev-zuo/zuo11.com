@@ -693,6 +693,13 @@
         "keywords": "github pages https"
       },
       {
+        "title": "git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？",
+        "href": "2020/12/git_edit_loss.html",
+        "time": "2020/12/30",
+        "description": "最近修改某个文件后，还没将改动提交到 git，中途不小心删了该文件。然后想着恢复文件，就使用 git 恢复该文件。这个时候发现未提交的修改内容都丢失了，文件内容是 git 上最近的内容。这种情况，理论上 git 是无法还原的。因为没有提交，git 不会记录对应的内容。我们不能总是想着使用 git 怎么恢复，需要换一下思路。**修改的文件删除后，默认会存在废纸篓(回收站)，去里面找即可。**",
+        "keywords": "git修改内容丢失怎么恢复,git修改内容未提交误删后怎么恢复"
+      },
+      {
         "title": "windows下nginx部署https服务实战",
         "href": "2020/6/nginx_https.html",
         "time": "2020/06/21",
@@ -1066,6 +1073,41 @@
         "keywords": "宏任务与微任务,JS 事件循环"
       },
       {
+        "title": "DOMContentLoaded 与白屏, performance timing",
+        "href": "2020/12/white-screen.html",
+        "time": "2020/12/30",
+        "description": "白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素，首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成。一般页面白屏结束的时间节点在 head 结束，body 开始执行时。可以通过 `window.performance.timing` 这个对象来看具体时间。",
+        "keywords": "白屏时间计算,DOMContentLoaded与白屏"
+      },
+      {
+        "title": "通过 performance.timing 简单理解浏览器输入 url 到页面显示全过程",
+        "href": "2020/12/performance-timing.html",
+        "time": "2020/12/30",
+        "description": "performance.timing 记录了在浏览器中输入 url 到页面显示整个过程中各个关键节点的时间。包括：网页重定向的耗时、检查本地缓存的耗时、DNS查询的耗时、TCP连接的耗时、dom 加载完成的时间、页面 load 的总耗时等。performance.timing 是 PerformanceTiming 对象的实例。下面我们通过了解 performance.timing 各个字段的意思来实现下面图片的功能。",
+        "keywords": "浏览器输入 url 到页面显示全过程,performance.timing各字段详解"
+      },
+      {
+        "title": "字符串原始类型不是对象，为什么可以使用点语法运行方法",
+        "href": "2020/12/string-base.html",
+        "time": "2020/12/30",
+        "description": "理论上，原始值本身不是对象，逻辑上是不能有属性、方法的。那为什么字符串可以使用点语法执行 substring 等方法呢？下面的例子中，第 2 行可以正常执行。主要是 JS 内部在后台进行了一些处理。在执行到第 2 行时 1. 临时创建一个 String 类型的实例 `let t = new String('some text')` 2. 调用实例上的特定方法 `s2 = t.substring(2)` 3. 销毁实例 `t = null`",
+        "keywords": "基本包装类型,原始类型不是对象为什么可以执行方法"
+      },
+      {
+        "title": "element.childNodes 和 element.children 有什么区别",
+        "href": "2020/12/childNodes-children.html",
+        "time": "2020/12/30",
+        "description": "元素的 childNodes 和 children 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：1. childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。2. childNodes 类型是 NodeList，HTMLCollection 类型是 HTMLCollection",
+        "keywords": "childNodes与children,childNodes children区别"
+      },
+      {
+        "title": "HTMLCollection 和 NodeList 有什么区别",
+        "href": "2020/12/HTMLCollection-NodeList.html",
+        "time": "2020/12/30",
+        "description": "在获取 dom 节点结集合时，有的 API 返回的是 HTMLCollection 类型，有的是 NodeList 类型。他们有什么区别呢？下来看看具体的 API。HTMLCollection 和 NodeList 的相同点：1. 它们都是表示节点集合的类数组对象，都可以是活动对象（实时监听 dom 变化并修改值） 2. 它们都有 length 属性，都可以通过 item() 和数组下标的方式访问内部元素。都实现了 Symbol.iterator 迭代器方法（可以被 for...of 遍历）",
+        "keywords": "HTMLCollection,NodeList,HTMLCollection与NodeList区别"
+      },
+      {
         "title": "深入JS遍历对象，从4个维度比较遍历对象的8种方法",
         "href": "2020/2/js_obj_iterator.html",
         "time": "2020/02/02",
@@ -1409,6 +1451,13 @@
         "time": "2020/11/23",
         "description": "什么是回流和重绘？ 浏览器使用流式布局模型 (Flow Based Layout)，浏览器把 HTML 解析成 DOM，把 CSS 解析为 CSDOM，DOM 和 CSDOM 合并就产生了 Render Tree(渲染树)，根据Render Tree，计算各个元素在页面中的大小和位置，绘制到页面上。",
         "keywords": "回流和重绘,reflow,repaint,css回流,css重绘"
+      },
+      {
+        "title": "使用 hash 滚动页面时，被顶部 fixed 区域遮挡怎么解决",
+        "href": "2020/12/hash_scroll_fixed.html",
+        "time": "2020/12/30",
+        "description": "一般页面 URL 的 hash 值变化后，如果当前页面中存在 id 为该 hash 值的元素，页面会滚动到该区域。下面的例子中，点击跳转到h1，页面会滚动到 h1 元素，元素对齐到顶部。**这里有一个问题，如果顶部导航栏是 fixed 固定的，那使用这种方法滚动时，h1 标题会被导航栏遮挡。**后来使用 VuePress 时，发现跳转的时候没有遮挡，于是审查元素，看了下样式。发现使用一个 css 就可以解决这个问题。 **给需要定位到该 id 的元素加一个超过导航栏高度的 padding-top，再加一个保持元素位置的 margin-top，这样使用 hash 滚动到该 id 元素时，就不会有遮挡，会与顶部保持 padding 的距离**",
+        "keywords": "hash滚动被fixed区域遮挡,fixed遮挡a标签滚动怎么解决"
       },
       {
         "title": "怎么给三角形加border，添加到我的小程序UI实现以及需要注意的问题",
@@ -2295,6 +2344,13 @@
         "time": "2020/12/07",
         "description": "你是否会遇到下面的问题：在 vscode 里面安装了 eslint 插件后，正确设置了保存后自动 fix 参数，但没有生效。或者之前是生效的。忽然就不生效了。只要你的配置是没有问题的，那就是插件以来的包加载异常了，一般都重启几次就Ok了。那怎么看 eslint 对应的log呢？可以分下面两步 1. 点击 vscode 右下角的错误信息、警告信息图标，看是信息里是否有 eslint 相关报 2. 点击 输出 - 选择 ESLint 就可以看 ESLint 相关 log 了。",
         "keywords": "vscode eslit log"
+      },
+      {
+        "title": "前端低代码框架 amis，通过 JSON 配置生成页面",
+        "href": "2020/12/low-code-amis.html",
+        "time": "2020/12/30",
+        "description": "什么是低代码开发平台？ (LCDP，Low-Code Development Platform)，是无需编码（0代码）或通过少量代码就可以快速生成应用程序的开发平台。对于比较简单的、通用的页面可以自动生成代码。amis 就是这样的一个框架。可以根据 JSON 配置，自动生成页面，而且还支持在线可视化编辑。对于简单、通用、不需要定制化开发的情况，可以直接使用。",
+        "keywords": "低代码开发平台,amis,根据json生成页面"
       },
       {
         "title": "使用new Date()在前端获取当期时间是不准确的",
@@ -6114,7 +6170,7 @@
       }
     },
     {
-      "htmlStr": "<h1 id=\"非箭头函数作为参数时this问题\">非箭头函数作为参数时this问题</h1>\n<p>复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法</p>\n<ol>\n<li>使用bind绑定一个作用域 </li>\n<li>使用闭包 </li>\n<li>使用箭头函数</li>\n</ol>\n<p>来看demo</p>\n<pre><code class=\"language-js\">var a = 5\n\nfunction callback() {\n  var a = 1\n  console.log(&#39;-- callback this&#39;, this, this.a, &#39;--&#39;)\n}\nfunction validate() {\n  var a = 2\n  console.log(&#39;-- validate this&#39;, this, this.a, &#39;--&#39;)\n}\nfunction showPrompt(title, validate, callback) {\n  validate() // 打印 5\n  callback() // 打印 5\n}\nshowPrompt(&#39;1&#39;, validate, callback) // 5 5 \nshowPrompt(&#39;1&#39;, validate.bind(validate), callback.bind(callback)) // 2 1</code></pre>\n",
+      "htmlStr": "<h1 id=\"非箭头函数作为参数时this问题\">非箭头函数作为参数时this问题</h1>\n<p>复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法</p>\n<ol>\n<li>使用bind绑定一个作用域 </li>\n<li>使用闭包 </li>\n<li>使用箭头函数</li>\n</ol>\n<p>来看 demo</p>\n<pre><code class=\"language-js\">var a = 5\n\nfunction callback() {\n  console.log(&#39;-- callback this&#39;, this, this.a, &#39;--&#39;)\n}\nfunction validate() {\n  console.log(&#39;-- validate this&#39;, this, this.a, &#39;--&#39;)\n}\nfunction showPrompt(title, validate, callback) {\n  validate()\n  callback()\n}\nshowPrompt(&#39;1&#39;, validate, callback) // 5 5 \nshowPrompt(&#39;1&#39;, validate.bind({a: 2}), callback.bind({a: 1})) // 2 1</code></pre>\n<p>或者</p>\n<pre><code class=\"language-js\">var a = 5\nvar callback = {\n  a: 1,\n  handler() {\n    console.log(this, this.a)\n  }\n}\nvar validate = {\n  a: 2,\n  handler() {\n    console.log(this, this.a)\n  }\n}\nfunction showPrompt(title, validate, callback) {\n  validate()\n  callback()\n}\nshowPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 \nshowPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 2 1</code></pre>\n<p>使用箭头函数</p>\n<pre><code class=\"language-js\">var a = 5\nvar callback = {\n  a: 1,\n  handler: () =&gt; {\n    console.log(this, this.a)\n  }\n}\nvar validate = {\n  a: 2,\n  handler: () =&gt; {\n    console.log(this, this.a)\n  }\n}\nfunction showPrompt(title, validate, callback) {\n  validate()\n  callback()\n}\nshowPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 \nshowPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 5 5</code></pre>\n",
       "outline": [
         {
           "type": "heading",
@@ -10233,6 +10289,174 @@
         "description": "来看一个 demo 的执行顺序，执行顺序是：2 3 5 4 1，我们知道 setTimeout 与 Promise.then 的回调都是异步的。setTimeout 的执行函数是先 push 到任务队列的，而 Promise.then 的回调是后面 push 的。为什么 Promise.then 的回调先执行呢？这里涉及到 JS 事件循环中 **宏任务** 与 **微任务**。- 宏任务：同步任务、I/O(比如文件读写等)、setTimeout、setInterval、requestAnimationFrame 等 - 微任务：Promise.then/catch/finally、generator、async/await、MutationObserver 等。某个宏任务执行 ok 后，会先看微任务事件队列里是否有任务，有就执行，然后才是宏任务队列。",
         "keywords": "宏任务与微任务,JS 事件循环",
         "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"domcontentloaded-与白屏-performance-timing\">DOMContentLoaded 与白屏, performance timing</h1>\n<p>白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素</p>\n<p>首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成</p>\n<p>一般页面 <strong>白屏结束</strong> 的时间节点在 head 结束，body 开始执行时。可以通过 <code>window.performance.timing</code> 这个对象来看具体时间。</p>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;title&gt;白屏&lt;/title&gt;\n  &lt;script&gt;\n    // 不兼容 performance.timing 的浏览器\n    window.pageStartTime = Date.now()\n  &lt;/script&gt;\n  &lt;!-- 页面 CSS 资源 --&gt;\n  &lt;link rel=&quot;stylesheet&quot; href=&quot;xx.css&quot;&gt;\n  &lt;link rel=&quot;stylesheet&quot; href=&quot;zz.css&quot;&gt;\n  &lt;script&gt;\n    // 白屏结束时间\n    window.firstPaint = Date.now()\n    // 白屏时间\n    console.log(firstPaint - performance.timing.navigationStart)\n  &lt;/script&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1&gt;Hello World&lt;/h1&gt;\n&lt;/body&gt;\n&lt;/html&gt;</code></pre>\n<p>白屏时间 = firstPaint - performance.timing.navigationStart || pageStartTime</p>\n<p>因此：<strong>在 head 元素里面如果放了非 async 或 defer 的 JS，会增加白屏时间。</strong></p>\n<p>DOMContentLoaded 是页面元素(dom)完成加载并解析，而不用等 css样式、图片和子 frame 完全加载完成时触发。对应 jQuery 的 <code>$(document).ready()</code></p>\n<p>Load 事件是当整个页面加载完成时（包括所有相关资源，例如css样式表和图片）触发，对应 jQuery 里面的 <code>$(document).load()</code></p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://blog.csdn.net/z9061/article/details/101454438\">Web 性能优化-首屏和白屏时间</a></li>\n<li><a href=\"http://fe.zuo11.com/daily/2020-10.html#domcontentloaded%E4%B8%8Eload%E6%97%B6%E9%97%B4%E5%85%B7%E4%BD%93%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%97%B6%E9%97%B4\">DOMContentLoaded与Load时间具体指的是什么时间？</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "DOMContentLoaded 与白屏, performance timing"
+        }
+      ],
+      "config": {
+        "source": "DOMContentLoaded 与白屏, performance timing.md",
+        "staticFileName": "white-screen.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素，首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成。一般页面白屏结束的时间节点在 head 结束，body 开始执行时。可以通过 `window.performance.timing` 这个对象来看具体时间。",
+        "keywords": "白屏时间计算,DOMContentLoaded与白屏",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"通过-performancetiming-简单理解浏览器输入-url-到页面显示全过程\">通过 performance.timing 简单理解浏览器输入 url 到页面显示全过程</h1>\n<p>performance.timing 记录了在浏览器中输入 url 到页面显示整个过程中各个关键节点的时间。包括：网页重定向的耗时、检查本地缓存的耗时、DNS查询的耗时、TCP连接的耗时、dom 加载完成的时间、页面 load 的总耗时等。performance.timing 是 PerformanceTiming 对象的实例。下面我们通过了解 performance.timing 各个字段的意思来实现下面图片的功能。</p>\n<p><img src=\"../../../images/blog/js/jianshu_timing.png\" alt=\"jianshu_timing.png\"></p>\n<p>首先我们来看一张非常重要的图，下图是页面打开过程中 performance.timing 各字段所在的位置</p>\n<p><img src=\"../../../images/blog/js/performance.png\" alt=\"performance.png\"></p>\n<p>按照顺序对各个字段的解释：</p>\n<ul>\n<li><code>navigationStart: 1607492537332</code> 同一个浏览器上一个页面卸载结束时的时间戳。如果没有上一个页面的话，那么该值会和 fetchStart 的值相同。</li>\n<li><code>redirectStart: 0</code> 第一个 HTTP 重定向开始的时间戳。如果没有重定向，或者重定向到一个不同源的话，那么该值返回为 0。</li>\n<li><code>redirectEnd: 0</code> 最后一个 HTTP 重定向完成时的时间戳。如果没有重定向，或者重定向到一个不同的源，该值也返回为 0。</li>\n<li><code>fetchStart: 1607492537338</code> 浏览器准备好使用 http 请求的时间(发生在检查本地缓存之前)。</li>\n<li><code>domainLookupStart: 1607492537349</code> DNS 域名查询开始的时间，如果使用了本地缓存（即无 DNS 查询）或持久连接，则与 fetchStart 值相等</li>\n<li><code>domainLookupEnd: 1607492537403</code> DNS 域名查询结束的时间，如果使用了本地缓存（即无 DNS 查询）或持久连接，则与 fetchStart 值相等</li>\n<li><code>connectStart: 1607492537403</code> HTTP（TCP）开始/重新 建立连接的时间，如果是持久连接，则与 fetchStart 值相等。</li>\n<li><code>secureConnectionStart: 1607492537472</code> HTTPS 连接开始的时间，如果不是安全连接，则值为 0。</li>\n<li><code>connectEnd: 1607492537600</code> HTTP（TCP） 完成建立连接的时间（完成握手），如果是持久连接，则与 fetchStart 值相等。</li>\n<li><code>requestStart: 1607492537601</code> HTTP 请求读取真实文档开始的时间（完成建立连接），包括从本地读取缓存。</li>\n<li><code>responseStart: 1607492537841</code>  HTTP 开始接收响应的时间（获取到第一个字节），包括从本地读取缓存。</li>\n<li><code>responseEnd: 1607492537996</code> HTTP 响应全部接收完成的时间（获取到最后一个字节），包括从本地读取缓存。</li>\n<li><code>unloadEventStart: 0</code> 前一个网页（和当前页面同域）unload的时间戳，如果没有前一个网页或前一个网页是不同的域的话，那么该值为0.</li>\n<li><code>unloadEventEnd: 0</code> 前一个页面 unload 时间绑定的回掉函数执行完毕的时间戳。</li>\n<li><code>domLoading: 1607492537852</code> 开始解析渲染 DOM 树的时间，此时 Document.readyState 变为 loading，并将抛出 readystatechange 相关事件。</li>\n<li><code>domInteractive: 1607492538002</code>  完成解析 DOM 树的时间，Document.readyState 变为 interactive，并将抛出 readystatechange 相关事件，注意只是 DOM 树解析完成，这时候并没有开始加载网页内的资源。</li>\n<li><code>domContentLoadedEventStart: 1607492538002</code> DOM 解析完成后，网页内资源加载开始的时间，在 DOMContentLoaded 事件抛出前发生。</li>\n<li><code>domContentLoadedEventEnd: 1607492538002</code> DOM 解析完成后，网页内资源加载完成的时间（如 JS 脚本加载执行完毕）。</li>\n<li><code>domComplete: 1607492544648</code> DOM 树解析完成，且资源也准备就绪的时间，Document.readyState 变为 complete，并将抛出 readystatechange 相关事件。</li>\n<li><code>loadEventStart: 1607492544648</code> load 事件发送给文档，也即 load 回调函数开始执行的时间。如果没有绑定load事件，该值为0.</li>\n<li><code>loadEventEnd: 1607492544653</code> load 事件的回调函数执行完毕的时间。如果没有绑定load事件，该值为0.</li>\n</ul>\n<p>结合上面的各字段含义以及页面打开过程图，我们可以实现一个简单的计算页面耗时函数</p>\n<pre><code class=\"language-js\">function getPerfermanceTiming() {\n  let t = performance.timing\n\n  // 重定向结束时间 - 重定向开始时间\n  let redirect = t.redirectEnd - t.redirectStart\n  // DNS 查询开始时间 - fetech start 时间\n  let appCache = t.domainLookupStart - t.fetchStart\n  // DNS 查询结束时间 - DNS 查询开始时间\n  let dns = t.domainLookupEnd - t.domainLookupStart\n  // 完成 TCP 连接握手时间 - TCP 连接开始时间 \n  let tcp = t.connectEnd - t.connectStart\n  // 从请求开始到接收到第一个响应字符的时间 \n  let ttfb = t.responseStart - t.requestStart\n  // 资源下载时间，响应结束时间 - 响应开始时间\n  let contentDL = t.responseEnd - t.responseStart\n  // 从请求开始到响应结束的时间\n  let httpTotal = t.responseEnd - t.requestStart\n  // 从页面开始到 domContentLoadedEventEnd\n  let domContentloaded = t.domContentLoadedEventEnd - t.navigationStart\n  // 从页面开始到 loadEventEnd\n  let loaded = t.loadEventEnd - t.navigationStart\n\n  let result = [\n    { key: &quot;Redirect&quot;, desc: &quot;网页重定向的耗时&quot;, value: redirect }, \n    { key: &quot;AppCache&quot;, desc: &quot;检查本地缓存的耗时&quot;, value: appCache },\n    { key: &quot;DNS&quot;, desc: &quot;DNS查询的耗时&quot;, value: dns },\n    { key: &quot;TCP&quot;, desc: &quot;TCP连接的耗时&quot;, value: tcp },\n    { key: &quot;Waiting(TTFB)&quot;, desc: &quot;从客户端发起请求到接收到响应的时间 / Time To First Byte&quot;, value: ttfb },\n    { key: &quot;Content Download&quot;, desc: &quot;下载服务端返回数据的时间&quot;, value: contentDL },\n    { key: &quot;HTTP Total Time&quot;, desc: &quot;http请求总耗时&quot;, value: httpTotal },\n    { key: &quot;DOMContentLoaded&quot;, desc: &quot;dom加载完成的时间&quot;, value: domContentloaded },\n    { key: &quot;Loaded&quot;, desc: &quot;页面load的总耗时&quot;, value: loaded }\n  ]\n  return result\n}\ngetPerfermanceTiming()</code></pre>\n<p>参考: </p>\n<ul>\n<li><a href=\"https://blog.csdn.net/z9061/article/details/101454438\">Web 性能优化-首屏和白屏时间</a></li>\n<li><a href=\"https://www.jianshu.com/p/1355232d525a\">Performance --- 前端性能监控</a></li>\n<li><a href=\"http://fe.zuo11.com/js/ad3/js-ad3-20.html#%E8%AE%A1%E6%97%B6-api-performace%E6%80%A7%E8%83%BD\">计时 API（Performace性能）- 20. JavaScript API - JS高程4笔记</a></li>\n<li><a href=\"https://www.jianshu.com/p/dd07cca0a48e\">该函数实现是对简书 console 内容的模仿实现</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "通过 performance.timing 简单理解浏览器输入 url 到页面显示全过程"
+        }
+      ],
+      "config": {
+        "source": "通过 performance.timing 简单理解浏览器输入 url 到页面显示全过程.md",
+        "staticFileName": "performance-timing.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "performance.timing 记录了在浏览器中输入 url 到页面显示整个过程中各个关键节点的时间。包括：网页重定向的耗时、检查本地缓存的耗时、DNS查询的耗时、TCP连接的耗时、dom 加载完成的时间、页面 load 的总耗时等。performance.timing 是 PerformanceTiming 对象的实例。下面我们通过了解 performance.timing 各个字段的意思来实现下面图片的功能。",
+        "keywords": "浏览器输入 url 到页面显示全过程,performance.timing各字段详解",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"字符串原始类型不是对象，为什么可以使用点语法运行方法\">字符串原始类型不是对象，为什么可以使用点语法运行方法</h1>\n<p>理论上，原始值本身不是对象，逻辑上是不能有属性、方法的。那为什么字符串可以使用点语法执行 substring 等方法呢？下面的例子中，第 2 行可以正常执行。主要是 JS 内部在后台进行了一些处理</p>\n<pre><code class=\"language-js\">let s1 = &quot;some text&quot;\nlet s2 = s1.substring(2) // &quot;me text&quot;</code></pre>\n<p>在执行到第 2 行时</p>\n<ol>\n<li>临时创建一个 String 类型的实例 <code>let t = new String(&quot;some text&quot;)</code></li>\n<li>调用实例上的特定方法 <code>s2 = t.substring(2)</code></li>\n<li>销毁实例 <code>t = null</code></li>\n</ol>\n<p>这种行为可以让原始值拥有对象的行为。临时创建的 原始值包装类型（String）实例的声明周期只在执行的那一行。执行完后，就销毁了。下面的例子即可说明这个问题。</p>\n<pre><code class=\"language-js\">let s1 = &quot;some text&quot;\ns1.color = &quot;red&quot;\nconsole.log(s1.color) // undefined</code></pre>\n<p>更多详情参考：《JavaScript高级程序设计》第四版 p113 原始值包装类型。在线笔记 <a href=\"http://fe.zuo11.com/js/ad3/js-ad3-5.html#%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B-%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B\">原始值包装类型(基本包装类型) - 5. 基本引用类型 - JS高程4 | 左小白的前端笔记</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "字符串原始类型不是对象，为什么可以使用点语法运行方法"
+        }
+      ],
+      "config": {
+        "source": "字符串原始类型不是对象，为什么可以使用点语法运行方法.md",
+        "staticFileName": "string-base.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "理论上，原始值本身不是对象，逻辑上是不能有属性、方法的。那为什么字符串可以使用点语法执行 substring 等方法呢？下面的例子中，第 2 行可以正常执行。主要是 JS 内部在后台进行了一些处理。在执行到第 2 行时 1. 临时创建一个 String 类型的实例 `let t = new String('some text')` 2. 调用实例上的特定方法 `s2 = t.substring(2)` 3. 销毁实例 `t = null`",
+        "keywords": "基本包装类型,原始类型不是对象为什么可以执行方法",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"elementchildnodes-和-elementchildren-有什么区别\">element.childNodes 和 element.children 有什么区别</h1>\n<p>元素的 <strong>childNodes</strong> 和 <strong>children</strong> 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：</p>\n<ol>\n<li>childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。</li>\n<li>childNodes 类型是 NodeList，HTMLCollection 类型是 HTMLCollection</li>\n</ol>\n<p>有了 childNodes 为什么又出了 children 这个 DOM 专有扩展？children 属性是因为 IE9 之前的版本与其他浏览器在处理空白文本节点上有差异才出现的。参见 《JavaScript 高级程序设计（第 4 版）》第 15 章 DOM 扩展 - 专有扩展 - children 属性 p456</p>\n<pre><code class=\"language-js\">(function() {\n  let testDom = document.createElement(&#39;div&#39;)\n  testDom.innerHTML = `\n    123\n    &lt;!-- sdfsdf --&gt;\n    &lt;span&gt;abc&lt;/span&gt;\n    &lt;div&gt;test&lt;/div&gt;\n  `\n  let { childNodes, children } = testDom\n  console.log(childNodes) // NodeList(7) [text, comment, text, span, text, div, text]\n  console.log(children) // HTMLCollection(2) [span, div]\n\n  // 动态性、再次向节点追加内容，再打印之前获取的值\n  testDom.appendChild(document.createElement(&#39;div&#39;))\n  console.log(childNodes) // NodeList(8) [text, comment, text, span, text, div, text, div]\n  console.log(children) // HTMLCollection(3) [span, div, div]\n})()</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "element.childNodes 和 element.children 有什么区别"
+        }
+      ],
+      "config": {
+        "source": "element.childNodes 和 element.children 有什么区别.md",
+        "staticFileName": "childNodes-children.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "元素的 childNodes 和 children 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：1. childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。2. childNodes 类型是 NodeList，HTMLCollection 类型是 HTMLCollection",
+        "keywords": "childNodes与children,childNodes children区别",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"htmlcollection-和-nodelist-有什么区别\">HTMLCollection 和 NodeList 有什么区别</h1>\n<p>在获取 dom 节点结集合时，有的 API 返回的是 HTMLCollection 类型，有的是 NodeList 类型。他们有什么区别呢？下来看看具体的 API</p>\n<p>返回 HTMLCollection 类型的 API</p>\n<ul>\n<li>element.children 获取 element 元素的所有子元素节点</li>\n<li>document.getElementsByTagName(&#39;div&#39;)</li>\n<li>document.getElementsByName(&#39;kk&#39;)</li>\n<li>document.getElementsByClassName(&#39;kk&#39;)</li>\n<li>document.anchors 获取文档中所有带 name 特性的 a 元素，必须要有 name 属性</li>\n<li>document.forms 相当于 document.getElementsByTagName(&#39;form&#39;)</li>\n<li>document.images 相当于 document.getElementsByTageName(&#39;img&#39;)</li>\n<li>document.links 获取所有a元素，相当于 documet.getElmentsByTagName(&#39;a&#39;)</li>\n<li>form.elements 表单 form 元素的所有表单字段元素</li>\n</ul>\n<p>返回 NodeList 类型的 API</p>\n<ul>\n<li>element.childNodes 获取元素所有子节点(包含元素节点、文本节点、注释节点等)</li>\n<li>document.querySelectorAll(&#39;div&#39;)</li>\n</ul>\n<p>HTMLCollection 和 NodeList 的相同点：</p>\n<ol>\n<li>它们都是表示节点集合的类数组对象，都可以是活动对象（实时监听 dom 变化并修改值）</li>\n<li>它们都有 length 属性，都可以通过 item() 和数组下标的方式访问内部元素。都实现了 Symbol.iterator 迭代器方法（可以被 for...of 遍历）</li>\n</ol>\n<p>HTMLCollection 和 NodeList 的不同点：</p>\n<ul>\n<li>HTMLCollection 中的值都是 Element 元素节点类型，NodeList 中的值是 Node 节点类型，可以是 Element 元素节点，也可以是 文本节点、注释节点等</li>\n<li>HTMLCollection 支持但 NodeList 不支持的方法：namedItem() - 通过 name 属性查找元素。NodeList 支持但 HTMLCollection 不支持的方法 keys(), values(), entries(), forEach()</li>\n</ul>\n<p>关于 document.querySelectorAll() 函数的特殊情况，理论上该函数获取的是元素集合，可以使用 HTMLCollection，但为什么使用了 NodeList 呢？来看下面的例子</p>\n<pre><code class=\"language-js\">a = document.querySelectorAll(&#39;div&#39;)\nb = document.getElementsByTagName(&#39;div&#39;)\nconsole.log(a.length, b.length) // 75 75\ndocument.body.appendChild(document.createElement(&#39;div&#39;))\nconsole.log(a.length, b.length) // 75 76\nconsole.log(document.querySelectorAll(&#39;div&#39;).length) // 76\nconsole.log(document.getElementsByTagName(&#39;div&#39;).length) // 76</code></pre>\n<p>上面的例子中 getElementsByTagName 获取的 HTMLCollection 类型的集合是实时的，动态的。而 querySelectorAll 获取的 NodeList 是非实时的，是静态的。</p>\n<p>我的理解是，HTMLCollection 可能不支持创建静态副本。而 NodeList 可以是动态的活动对象，比如 element.childNodes，也可以是静态的，比如 querySelectorAll() 返回值。</p>\n<p>参考：</p>\n<ul>\n<li><a href=\"http://fe.zuo11.com/js/ad3/js-ad3-15.html#queryslectorall\">querySelectorAll() - Selectors API - 15. DOM 扩展 - JS高程4</a></li>\n<li><a href=\"https://segmentfault.com/a/1190000006782004\">HTMLCollection与NodeList - Segmentfault</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "HTMLCollection 和 NodeList 有什么区别"
+        }
+      ],
+      "config": {
+        "source": "HTMLCollection 和 NodeList 有什么区别.md",
+        "staticFileName": "HTMLCollection-NodeList.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "在获取 dom 节点结集合时，有的 API 返回的是 HTMLCollection 类型，有的是 NodeList 类型。他们有什么区别呢？下来看看具体的 API。HTMLCollection 和 NodeList 的相同点：1. 它们都是表示节点集合的类数组对象，都可以是活动对象（实时监听 dom 变化并修改值） 2. 它们都有 length 属性，都可以通过 item() 和数组下标的方式访问内部元素。都实现了 Symbol.iterator 迭代器方法（可以被 for...of 遍历）",
+        "keywords": "HTMLCollection,NodeList,HTMLCollection与NodeList区别",
+        "category": "JavaScript",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"使用-hash-滚动页面时，被顶部-fixed-区域遮挡怎么解决\">使用 hash 滚动页面时，被顶部 fixed 区域遮挡怎么解决</h1>\n<p>一般页面 URL 的 hash 值变化后，如果当前页面中存在 id 为该 hash 值的元素，页面会滚动到该区域。下面的例子中，点击跳转到h1，页面会滚动到 h1 元素，元素对齐到顶部。<strong>这里有一个问题，如果顶部导航栏是 fixed 固定的，那使用这种方法滚动时，h1 标题会被导航栏遮挡。</strong></p>\n<pre><code class=\"language-js\">&lt;h1 id=&quot;h1&quot;&gt;一级标题&lt;/h1&gt;\n&lt;a href=&quot;#h2&quot;&gt;跳转到h2&lt;/a&gt;\n// 假设这里有很长的内容，超过一页\n&lt;h2 id=&quot;h2&quot;&gt;二级标题&lt;/h2&gt;\n&lt;a href=&quot;#h1&quot;&gt;跳转到h1&lt;/a&gt;</code></pre>\n<p>之前在写 zuo-blog 时，我的解决方案是：滚动到顶部后，再往下滚动 70 px，这种方法有一个缺点，就是只能是 JS 跳转，如果直接通过 a 标签访问，还是会被遮挡</p>\n<pre><code class=\"language-js\">document.getElementById(id).scrollIntoView(true)\ndocument.documentElement.scrollBy(0, -70)</code></pre>\n<p>后来使用 VuePress 时，发现跳转的时候没有遮挡，于是审查元素，看了下样式。发现使用一个 css 就可以解决这个问题。 <strong>给需要定位到该 id 的元素加一个超过导航栏高度的 padding-top，再加一个保持元素位置的 margin-top，这样使用 hash 滚动到该 id 元素时，就不会有遮挡，会与顶部保持 padding 的距离</strong></p>\n<pre><code class=\"language-css\">h1,h2,h3,h4,h5,h6 {\n  margin-top: -3.1rem;\n  padding-top: 4.6rem;\n  margin-bottom: 0;\n}</code></pre>\n<p>我写了一个测试 demo，可以看对应的效果，完整 demo 参见 <a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E9%A1%B6%E9%83%A8fix%E9%81%AE%E6%8C%A1hash/index.html\">顶部 fix 遮挡 hash demo | Github</a></p>\n<pre><code class=\"language-html\">&lt;style&gt;\n  body {\n    margin: 0;\n  }\n  .top {\n    position: fixed;\n    height: 60px;\n    width: 100%;;\n    border-bottom: 1px solid #ccc;\n    background-color: #fff;\n  }\n  .main {\n    padding-top: 80px;\n  }\n  /* fix 顶部遮挡的问题 */\n  /* h1,h2 {\n    padding-top: 100px;\n    margin-top: -90px;\n  } */\n&lt;/style&gt;\n&lt;body&gt;\n  &lt;div class=&quot;top&quot;&gt;顶部区域&lt;/div&gt;\n  &lt;div class=&quot;main&quot;&gt;\n    我是主内容区域\n   &lt;h1 id=&quot;h1&quot;&gt;一级标题&lt;/h1&gt;\n   &lt;a href=&quot;#h2&quot;&gt;跳转到h2&lt;/a&gt;\n    &lt;div&gt;\n      &lt;ul&gt;\n        &lt;li&gt;列表a&lt;/li&gt;\n        &lt;!-- 省略多行... --&gt;\n        &lt;li&gt;列表a&lt;/li&gt;\n      &lt;/ul&gt;\n      &lt;h2 id=&quot;h2&quot;&gt;二级标题&lt;/h2&gt;\n      &lt;a href=&quot;#h1&quot;&gt;跳转到h1&lt;/a&gt;\n      &lt;ul&gt;\n        &lt;li&gt;列表a&lt;/li&gt;\n        &lt;!-- 省略多行... --&gt;\n        &lt;li&gt;列表a&lt;/li&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/body&gt;</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "使用 hash 滚动页面时，被顶部 fixed 区域遮挡怎么解决"
+        }
+      ],
+      "config": {
+        "source": "使用 hash 滚动页面时，被顶部 fixed 区域遮挡怎么解决.md",
+        "staticFileName": "hash_scroll_fixed.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "一般页面 URL 的 hash 值变化后，如果当前页面中存在 id 为该 hash 值的元素，页面会滚动到该区域。下面的例子中，点击跳转到h1，页面会滚动到 h1 元素，元素对齐到顶部。**这里有一个问题，如果顶部导航栏是 fixed 固定的，那使用这种方法滚动时，h1 标题会被导航栏遮挡。**后来使用 VuePress 时，发现跳转的时候没有遮挡，于是审查元素，看了下样式。发现使用一个 css 就可以解决这个问题。 **给需要定位到该 id 的元素加一个超过导航栏高度的 padding-top，再加一个保持元素位置的 margin-top，这样使用 hash 滚动到该 id 元素时，就不会有遮挡，会与顶部保持 padding 的距离**",
+        "keywords": "hash滚动被fixed区域遮挡,fixed遮挡a标签滚动怎么解决",
+        "category": "CSS",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"前端低代码框架-amis，通过-json-配置生成页面\">前端低代码框架 amis，通过 JSON 配置生成页面</h1>\n<p>什么是低代码开发平台？ (LCDP，Low-Code Development Platform)，是无需编码（0代码）或通过少量代码就可以快速生成应用程序的开发平台。</p>\n<p>对于比较简单的、通用的页面可以自动生成代码。amis 就是这样的一个框架。可以根据 JSON 配置，自动生成页面，而且还支持在线可视化编辑。对于简单、通用、不需要定制化开发的情况，可以直接使用。</p>\n<p><strong>我们主要是学习这种思路，可以参考这种方法做一些类似的封装</strong></p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://github.com/baidu/amis\">baidu/amis | Github</a></li>\n<li><a href=\"https://github.com/fex-team/amis-editor-demo\">amis 可视化编辑器 | Github</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "前端低代码框架 amis，通过 JSON 配置生成页面"
+        }
+      ],
+      "config": {
+        "source": "前端低代码框架 amis，通过 JSON 配置生成页面.md",
+        "staticFileName": "low-code-amis.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "什么是低代码开发平台？ (LCDP，Low-Code Development Platform)，是无需编码（0代码）或通过少量代码就可以快速生成应用程序的开发平台。对于比较简单的、通用的页面可以自动生成代码。amis 就是这样的一个框架。可以根据 JSON 配置，自动生成页面，而且还支持在线可视化编辑。对于简单、通用、不需要定制化开发的情况，可以直接使用。",
+        "keywords": "低代码开发平台,amis,根据json生成页面",
+        "category": "计算机基础与开发工具",
+        "year": "2020",
+        "month": "12"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"git-修改文件内容后误删了该文件，再使用-git-还原该文件，修改的文件内容丢失怎么办？\">git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？</h1>\n<p>最近修改某个文件后，还没将改动提交到 git，中途不小心删了该文件。然后想着恢复文件，就使用 git 恢复该文件。这个时候发现未提交的修改内容都丢失了，文件内容是 git 上最近的内容。</p>\n<p>这种情况，理论上 git 是无法还原的。因为没有提交，git 不会记录对应的内容。我们不能总是想着使用 git 怎么恢复，需要换一下思路。<strong>修改的文件删除后，默认会存在废纸篓(回收站)，去里面找即可。</strong></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？"
+        }
+      ],
+      "config": {
+        "source": "git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？.md",
+        "staticFileName": "git_edit_loss.html",
+        "author": "guoqzuo",
+        "createDate": "2020/12/30",
+        "description": "最近修改某个文件后，还没将改动提交到 git，中途不小心删了该文件。然后想着恢复文件，就使用 git 恢复该文件。这个时候发现未提交的修改内容都丢失了，文件内容是 git 上最近的内容。这种情况，理论上 git 是无法还原的。因为没有提交，git 不会记录对应的内容。我们不能总是想着使用 git 怎么恢复，需要换一下思路。**修改的文件删除后，默认会存在废纸篓(回收站)，去里面找即可。**",
+        "keywords": "git修改内容丢失怎么恢复,git修改内容未提交误删后怎么恢复",
+        "category": "运维部署与版本控制",
         "year": "2020",
         "month": "12"
       }
@@ -14459,7 +14683,7 @@
       }
     }
   ],
-  "count": 379,
+  "count": 387,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,

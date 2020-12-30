@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <meta name="application name" content="js_this.html">
+        <meta name="application name" content="white-screen.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数">
-        <meta name="keywords" content="非箭头函数作为参数时this问题">
+        <meta name="description" content="白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素，首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成。一般页面白屏结束的时间节点在 head 结束，body 开始执行时。可以通过 `window.performance.timing` 这个对象来看具体时间。">
+        <meta name="keywords" content="白屏时间计算,DOMContentLoaded与白屏">
 
-        <title>非箭头函数作为参数时this问题 - 左小白的技术日常</title>
+        <title>DOMContentLoaded 与白屏, performance timing - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
@@ -36,83 +36,57 @@
         </header>
         <section class="content">
           <article>
-            <h1 id="非箭头函数作为参数时this问题">非箭头函数作为参数时this问题</h1>
+            <h1 id="domcontentloaded-与白屏-performance-timing">DOMContentLoaded 与白屏, performance timing</h1>
             
     <div class="article-top">
       <div class="flex">
-        这篇文章发布于 2019/11/09，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+        这篇文章发布于 2020/12/30，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
         <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
         <div id="readAndComment" class="flex"></div>
       </div> 
       <div class="flex keywords" style="flex-wrap: nowrap;">
         <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
-        <div class="flex" style="flex-wrap: wrap;"><span>非箭头函数作为参数时this问题</span></div>
+        <div class="flex" style="flex-wrap: wrap;"><span>白屏时间计算</span>，<span>DOMContentLoaded与白屏</span></div>
       </div>
     </div>
     
   
             
-<p>复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法</p>
-<ol>
-<li>使用bind绑定一个作用域 </li>
-<li>使用闭包 </li>
-<li>使用箭头函数</li>
-</ol>
-<p>来看 demo</p>
-<pre><code class="language-js">var a = 5
-
-function callback() {
-  console.log(&#39;-- callback this&#39;, this, this.a, &#39;--&#39;)
-}
-function validate() {
-  console.log(&#39;-- validate this&#39;, this, this.a, &#39;--&#39;)
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate, callback) // 5 5 
-showPrompt(&#39;1&#39;, validate.bind({a: 2}), callback.bind({a: 1})) // 2 1</code></pre>
-<p>或者</p>
-<pre><code class="language-js">var a = 5
-var callback = {
-  a: 1,
-  handler() {
-    console.log(this, this.a)
-  }
-}
-var validate = {
-  a: 2,
-  handler() {
-    console.log(this, this.a)
-  }
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 
-showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 2 1</code></pre>
-<p>使用箭头函数</p>
-<pre><code class="language-js">var a = 5
-var callback = {
-  a: 1,
-  handler: () =&gt; {
-    console.log(this, this.a)
-  }
-}
-var validate = {
-  a: 2,
-  handler: () =&gt; {
-    console.log(this, this.a)
-  }
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 
-showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 5 5</code></pre>
+<p>白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素</p>
+<p>首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成</p>
+<p>一般页面 <strong>白屏结束</strong> 的时间节点在 head 结束，body 开始执行时。可以通过 <code>window.performance.timing</code> 这个对象来看具体时间。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;白屏&lt;/title&gt;
+  &lt;script&gt;
+    // 不兼容 performance.timing 的浏览器
+    window.pageStartTime = Date.now()
+  &lt;/script&gt;
+  &lt;!-- 页面 CSS 资源 --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;xx.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;zz.css&quot;&gt;
+  &lt;script&gt;
+    // 白屏结束时间
+    window.firstPaint = Date.now()
+    // 白屏时间
+    console.log(firstPaint - performance.timing.navigationStart)
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>白屏时间 = firstPaint - performance.timing.navigationStart || pageStartTime</p>
+<p>因此：<strong>在 head 元素里面如果放了非 async 或 defer 的 JS，会增加白屏时间。</strong></p>
+<p>DOMContentLoaded 是页面元素(dom)完成加载并解析，而不用等 css样式、图片和子 frame 完全加载完成时触发。对应 jQuery 的 <code>$(document).ready()</code></p>
+<p>Load 事件是当整个页面加载完成时（包括所有相关资源，例如css样式表和图片）触发，对应 jQuery 里面的 <code>$(document).load()</code></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/z9061/article/details/101454438">Web 性能优化-首屏和白屏时间</a></li>
+<li><a href="http://fe.zuo11.com/daily/2020-10.html#domcontentloaded%E4%B8%8Eload%E6%97%B6%E9%97%B4%E5%85%B7%E4%BD%93%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%97%B6%E9%97%B4">DOMContentLoaded与Load时间具体指的是什么时间？</a></li>
+</ul>
 
             
             <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -123,7 +97,7 @@ showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(c
           <aside>
             <div class="aside-wrap">
               <div class="top ">
-                <ul><li><span class="ul-span" data-id="非箭头函数作为参数时this问题" style="padding-left:1em">非箭头函数作为参数时this问题<span></li></ul>
+                <ul><li><span class="ul-span" data-id="domcontentloaded-与白屏-performance-timing" style="padding-left:1em">DOMContentLoaded 与白屏, performance timing<span></li></ul>
               </div>
               <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>

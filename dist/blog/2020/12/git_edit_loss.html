@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <meta name="application name" content="js_this.html">
+        <meta name="application name" content="git_edit_loss.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法，1.使用bind绑定一个作用域 2.使用闭包 3.使用箭头函数">
-        <meta name="keywords" content="非箭头函数作为参数时this问题">
+        <meta name="description" content="最近修改某个文件后，还没将改动提交到 git，中途不小心删了该文件。然后想着恢复文件，就使用 git 恢复该文件。这个时候发现未提交的修改内容都丢失了，文件内容是 git 上最近的内容。这种情况，理论上 git 是无法还原的。因为没有提交，git 不会记录对应的内容。我们不能总是想着使用 git 怎么恢复，需要换一下思路。**修改的文件删除后，默认会存在废纸篓(回收站)，去里面找即可。**">
+        <meta name="keywords" content="git修改内容丢失怎么恢复,git修改内容未提交误删后怎么恢复">
 
-        <title>非箭头函数作为参数时this问题 - 左小白的技术日常</title>
+        <title>git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？ - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+            <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
           </div>
           <div>
             
@@ -36,83 +36,24 @@
         </header>
         <section class="content">
           <article>
-            <h1 id="非箭头函数作为参数时this问题">非箭头函数作为参数时this问题</h1>
+            <h1 id="git-修改文件内容后误删了该文件，再使用-git-还原该文件，修改的文件内容丢失怎么办？">git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？</h1>
             
     <div class="article-top">
       <div class="flex">
-        这篇文章发布于 2019/11/09，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+        这篇文章发布于 2020/12/30，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
         <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
         <div id="readAndComment" class="flex"></div>
       </div> 
       <div class="flex keywords" style="flex-wrap: nowrap;">
         <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
-        <div class="flex" style="flex-wrap: wrap;"><span>非箭头函数作为参数时this问题</span></div>
+        <div class="flex" style="flex-wrap: wrap;"><span>git修改内容丢失怎么恢复</span>，<span>git修改内容未提交误删后怎么恢复</span></div>
       </div>
     </div>
     
   
             
-<p>复习下JS高程3里面将的函数做参数时this的问题，如果是非箭头函数，参数函数中使用了this，那么this取决于执行函数的this指向，而非参数函数执行环境的this，怎么将this绑定呢？有三种方法</p>
-<ol>
-<li>使用bind绑定一个作用域 </li>
-<li>使用闭包 </li>
-<li>使用箭头函数</li>
-</ol>
-<p>来看 demo</p>
-<pre><code class="language-js">var a = 5
-
-function callback() {
-  console.log(&#39;-- callback this&#39;, this, this.a, &#39;--&#39;)
-}
-function validate() {
-  console.log(&#39;-- validate this&#39;, this, this.a, &#39;--&#39;)
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate, callback) // 5 5 
-showPrompt(&#39;1&#39;, validate.bind({a: 2}), callback.bind({a: 1})) // 2 1</code></pre>
-<p>或者</p>
-<pre><code class="language-js">var a = 5
-var callback = {
-  a: 1,
-  handler() {
-    console.log(this, this.a)
-  }
-}
-var validate = {
-  a: 2,
-  handler() {
-    console.log(this, this.a)
-  }
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 
-showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 2 1</code></pre>
-<p>使用箭头函数</p>
-<pre><code class="language-js">var a = 5
-var callback = {
-  a: 1,
-  handler: () =&gt; {
-    console.log(this, this.a)
-  }
-}
-var validate = {
-  a: 2,
-  handler: () =&gt; {
-    console.log(this, this.a)
-  }
-}
-function showPrompt(title, validate, callback) {
-  validate()
-  callback()
-}
-showPrompt(&#39;1&#39;, validate.handler, callback.handler) // 5 5 
-showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(callback)) // 5 5</code></pre>
+<p>最近修改某个文件后，还没将改动提交到 git，中途不小心删了该文件。然后想着恢复文件，就使用 git 恢复该文件。这个时候发现未提交的修改内容都丢失了，文件内容是 git 上最近的内容。</p>
+<p>这种情况，理论上 git 是无法还原的。因为没有提交，git 不会记录对应的内容。我们不能总是想着使用 git 怎么恢复，需要换一下思路。<strong>修改的文件删除后，默认会存在废纸篓(回收站)，去里面找即可。</strong></p>
 
             
             <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -123,7 +64,7 @@ showPrompt(&#39;1&#39;, validate.handler.bind(validate), callback.handler.bind(c
           <aside>
             <div class="aside-wrap">
               <div class="top ">
-                <ul><li><span class="ul-span" data-id="非箭头函数作为参数时this问题" style="padding-left:1em">非箭头函数作为参数时this问题<span></li></ul>
+                <ul><li><span class="ul-span" data-id="git-修改文件内容后误删了该文件，再使用-git-还原该文件，修改的文件内容丢失怎么办？" style="padding-left:1em">git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？<span></li></ul>
               </div>
               <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
