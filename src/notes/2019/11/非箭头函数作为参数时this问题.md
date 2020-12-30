@@ -6,23 +6,65 @@
 2. 使用闭包 
 3. 使用箭头函数
 
-来看demo
+来看 demo
 
 ```js
 var a = 5
 
 function callback() {
-  var a = 1
   console.log('-- callback this', this, this.a, '--')
 }
 function validate() {
-  var a = 2
   console.log('-- validate this', this, this.a, '--')
 }
 function showPrompt(title, validate, callback) {
-  validate() // 打印 5
-  callback() // 打印 5
+  validate()
+  callback()
 }
 showPrompt('1', validate, callback) // 5 5 
-showPrompt('1', validate.bind(validate), callback.bind(callback)) // 2 1
+showPrompt('1', validate.bind({a: 2}), callback.bind({a: 1})) // 2 1
+```
+或者
+```js
+var a = 5
+var callback = {
+  a: 1,
+  handler() {
+    console.log(this, this.a)
+  }
+}
+var validate = {
+  a: 2,
+  handler() {
+    console.log(this, this.a)
+  }
+}
+function showPrompt(title, validate, callback) {
+  validate()
+  callback()
+}
+showPrompt('1', validate.handler, callback.handler) // 5 5 
+showPrompt('1', validate.handler.bind(validate), callback.handler.bind(callback)) // 2 1
+```
+使用箭头函数
+```js
+var a = 5
+var callback = {
+  a: 1,
+  handler: () => {
+    console.log(this, this.a)
+  }
+}
+var validate = {
+  a: 2,
+  handler: () => {
+    console.log(this, this.a)
+  }
+}
+function showPrompt(title, validate, callback) {
+  validate()
+  callback()
+}
+showPrompt('1', validate.handler, callback.handler) // 5 5 
+showPrompt('1', validate.handler.bind(validate), callback.handler.bind(callback)) // 5 5
 ```

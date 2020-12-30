@@ -142,8 +142,85 @@
     "description": "来看一个 demo 的执行顺序，执行顺序是：2 3 5 4 1，我们知道 setTimeout 与 Promise.then 的回调都是异步的。setTimeout 的执行函数是先 push 到任务队列的，而 Promise.then 的回调是后面 push 的。为什么 Promise.then 的回调先执行呢？这里涉及到 JS 事件循环中 **宏任务** 与 **微任务**。- 宏任务：同步任务、I/O(比如文件读写等)、setTimeout、setInterval、requestAnimationFrame 等 - 微任务：Promise.then/catch/finally、generator、async/await、MutationObserver 等。某个宏任务执行 ok 后，会先看微任务事件队列里是否有任务，有就执行，然后才是宏任务队列。",
     "keywords": "宏任务与微任务,JS 事件循环",
     "category": "JavaScript"
+  },
+  {
+    "source": "DOMContentLoaded 与白屏, performance timing.md",
+    "staticFileName": "white-screen.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素，首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成。一般页面白屏结束的时间节点在 head 结束，body 开始执行时。可以通过 `window.performance.timing` 这个对象来看具体时间。",
+    "keywords": "白屏时间计算,DOMContentLoaded与白屏",
+    "category": "JavaScript"
+  },
+  {
+    "source": "通过 performance.timing 简单理解浏览器输入 url 到页面显示全过程.md",
+    "staticFileName": "performance-timing.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "performance.timing 记录了在浏览器中输入 url 到页面显示整个过程中各个关键节点的时间。包括：网页重定向的耗时、检查本地缓存的耗时、DNS查询的耗时、TCP连接的耗时、dom 加载完成的时间、页面 load 的总耗时等。performance.timing 是 PerformanceTiming 对象的实例。下面我们通过了解 performance.timing 各个字段的意思来实现下面图片的功能。",
+    "keywords": "浏览器输入 url 到页面显示全过程,performance.timing各字段详解",
+    "category": "JavaScript"
+  },
+  {
+    "source": "字符串原始类型不是对象，为什么可以使用点语法运行方法.md",
+    "staticFileName": "string-base.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "理论上，原始值本身不是对象，逻辑上是不能有属性、方法的。那为什么字符串可以使用点语法执行 substring 等方法呢？下面的例子中，第 2 行可以正常执行。主要是 JS 内部在后台进行了一些处理。在执行到第 2 行时 1. 临时创建一个 String 类型的实例 `let t = new String('some text')` 2. 调用实例上的特定方法 `s2 = t.substring(2)` 3. 销毁实例 `t = null`",
+    "keywords": "基本包装类型,原始类型不是对象为什么可以执行方法",
+    "category": "JavaScript"
+  },
+  {
+    "source": "element.childNodes 和 element.children 有什么区别.md",
+    "staticFileName": "childNodes-children.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "元素的 childNodes 和 children 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：1. childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。2. childNodes 类型是 NodeList，HTMLCollection 类型是 HTMLCollection",
+    "keywords": "childNodes与children,childNodes children区别",
+    "category": "JavaScript"
+  },
+  {
+    "source": "HTMLCollection 和 NodeList 有什么区别.md",
+    "staticFileName": "HTMLCollection-NodeList.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "在获取 dom 节点结集合时，有的 API 返回的是 HTMLCollection 类型，有的是 NodeList 类型。他们有什么区别呢？下来看看具体的 API。HTMLCollection 和 NodeList 的相同点：1. 它们都是表示节点集合的类数组对象，都可以是活动对象（实时监听 dom 变化并修改值） 2. 它们都有 length 属性，都可以通过 item() 和数组下标的方式访问内部元素。都实现了 Symbol.iterator 迭代器方法（可以被 for...of 遍历）",
+    "keywords": "HTMLCollection,NodeList,HTMLCollection与NodeList区别",
+    "category": "JavaScript"
+  },
+  {
+    "source": "使用 hash 滚动页面时，被顶部 fixed 区域遮挡怎么解决.md",
+    "staticFileName": "hash_scroll_fixed.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "一般页面 URL 的 hash 值变化后，如果当前页面中存在 id 为该 hash 值的元素，页面会滚动到该区域。下面的例子中，点击跳转到h1，页面会滚动到 h1 元素，元素对齐到顶部。**这里有一个问题，如果顶部导航栏是 fixed 固定的，那使用这种方法滚动时，h1 标题会被导航栏遮挡。**后来使用 VuePress 时，发现跳转的时候没有遮挡，于是审查元素，看了下样式。发现使用一个 css 就可以解决这个问题。 **给需要定位到该 id 的元素加一个超过导航栏高度的 padding-top，再加一个保持元素位置的 margin-top，这样使用 hash 滚动到该 id 元素时，就不会有遮挡，会与顶部保持 padding 的距离**",
+    "keywords": "hash滚动被fixed区域遮挡,fixed遮挡a标签滚动怎么解决",
+    "category": "CSS"
+  },
+  {
+    "source": "前端低代码框架 amis，通过 JSON 配置生成页面.md",
+    "staticFileName": "low-code-amis.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "什么是低代码开发平台？ (LCDP，Low-Code Development Platform)，是无需编码（0代码）或通过少量代码就可以快速生成应用程序的开发平台。对于比较简单的、通用的页面可以自动生成代码。amis 就是这样的一个框架。可以根据 JSON 配置，自动生成页面，而且还支持在线可视化编辑。对于简单、通用、不需要定制化开发的情况，可以直接使用。",
+    "keywords": "低代码开发平台,amis,根据json生成页面",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "git 修改文件内容后误删了该文件，再使用 git 还原该文件，修改的文件内容丢失怎么办？.md",
+    "staticFileName": "git_edit_loss.html",
+    "author": "guoqzuo",
+    "createDate": "2020/12/30",
+    "description": "最近修改某个文件后，还没将改动提交到 git，中途不小心删了该文件。然后想着恢复文件，就使用 git 恢复该文件。这个时候发现未提交的修改内容都丢失了，文件内容是 git 上最近的内容。这种情况，理论上 git 是无法还原的。因为没有提交，git 不会记录对应的内容。我们不能总是想着使用 git 怎么恢复，需要换一下思路。**修改的文件删除后，默认会存在废纸篓(回收站)，去里面找即可。**",
+    "keywords": "git修改内容丢失怎么恢复,git修改内容未提交误删后怎么恢复",
+    "category": "运维部署与版本控制"
   }
 ]
+
+
+
+
+
 
 
 
