@@ -1,0 +1,76 @@
+[
+  {
+    "source": "设置允许跨域的响应头后，为什么还是不能跨域.md",
+    "staticFileName": "cors-allow.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "在 post 请求中，设置了允许跨域的响应头，且考虑了 preflight 预检请求，但为什么还是报不能跨域的错误呢？下面来看看下面的例子，POST 请求中设置了允许跨域、允许预检的响应头。我们需要深入了解预检请求的过程，预检请求会先发送一个 OPTIONS 的请求去测试服务端是否允许跨域。这个时候我们需要注意，我们也需要处理对应接口的 OPTIONS 请求，上面只处理了接口 URL 的 POST 请求，并没有处理 OPTIONS 请求，可以使用 router.use(url, func) 或者加一个 router.options 请求处理",
+    "keywords": "跨域,cors,请求预检",
+    "category": "JavaScript"
+  },
+  {
+    "source": "koa 使用 multer 处理文件上传，FormData 数据解析.md",
+    "staticFileName": "koa-formdata.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "一般在 koa 中，post 请求的数据是需要中间件来处理的，koa-bodyparser 可以很好的处理 json、serializer 数据，但 `multipart/form-data` 的类型无法处理，一般需要引入另外的中间件来处理，一般建议使用 multer 中间件来处理。先来看看前端上传文件代码，这里使用的是 fetch，当然也可以使用 xhr",
+    "keywords": "multipart/form-data,FormData,文件上传",
+    "category": "前端工程化"
+  },
+  {
+    "source": "node koa 怎么获取 POST 请求 Content-Type 为 'text-plain' 的数据.md",
+    "staticFileName": "text-plain-post.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "在 Beacon API 中，使用 `navigator.sendBeacon(url, dataString)` 发送的是 POST 请求，Content-Type 是比较少见的 'text/plain;charset=UTF-8' 。它既不是 xhr，也不是 fetch，是一种独立的请求类型。在 koa 中，一般使用 koa-bodyparser 来处理 post 请求数据。但这次发现使用 ctx.request.body 无法接收到数据。之前接收 'application/x-www-form-urlencoded' 和 'application/json' 类型的数据都是正常的。",
+    "keywords": "text/plain post,post text/plain数据解析",
+    "category": "前端工程化"
+  },
+  {
+    "source": "socket 'Bad handshake method' 400.md",
+    "staticFileName": "socket-400.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "在使用 socket.io 测试 scoket 功能时，发现之前都运行正常的 demo 突然就无法正常运行了。接口返回 400 Bad Request，响应信息为 { code: 2, message: 'Bad handshake method' } 后来发现是版本的问题，前端页面引入的 socket.io 版本是 `2.3.0`，通过 npm install 默认安装的 socket.io 版本是 `3.0.4`，将 koa 里面的 npm 包降到  2.3.0 就正常了",
+    "keywords": "socket.io 400,Bad handshake method",
+    "category": "JavaScript"
+  },
+  {
+    "source": "HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理.md",
+    "staticFileName": "http-301-302.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "301 和 302 状态码都是表示页面重定向，它们有两个用处：一是告诉浏览器，访问当前页面时需要跳转到新的页面。二是告诉搜索引擎如何正确的处理页面收录、索引。同样是发送 HTTP 请求，接收响应内容，浏览器对重定向页面的处理流程和普通页面有什么区别呢？一般访问某个页面时，基本流程如下：1. `客户端（浏览器）发起请求` 在浏览器中访问某个页面时，会向该页面资源所在的 URL 发送一个 HTTP 请求。2. `服务端处理请求并响应` 服务器接收到请求后，会将资源的数据响应给前端，一般响应状态码 status 为 200，响应内容为 html 文本。3. `客户端（浏览器）处理` 客户端接收到响应后，看状态码是否是 200 或 304(资源未修改)，如果是就将浏览器返回的 html 内容解析、绘制在浏览器窗口中。",
+    "keywords": "301与302区别",
+    "category": "http与https"
+  },
+  {
+    "source": "什么是 BDD 风格（BDD style）.md",
+    "staticFileName": "bdd-style.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "在 Mocha 官网的中，介绍 should.js 时，说它是一种 BDD 风格的断言库。而且在 mocha 的源码中，有很多都是以 bdd 命名的。那什么是 BDD 呢？BDD 是 Behavior Driven Development 的简写，行为驱动开发，是在测试驱动开发（Test-Driven Development，TDD）基础上发展而来的一种软件开发方法。",
+    "keywords": "BDD,TDD,BDD Style",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "Error: Timeout of 2000ms exceeded. Mocha 超时解决方法.md",
+    "staticFileName": "mocha-timeout.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "在 mocha 中，默认每个测试时间限制为 2s，如果超过两秒就会抛出异常。对于大于 2s 的异步任务可以使用 mocha 上下文的 timeout() 方法手动指定超时时间。注意不要使用箭头函数，否则无法调用 this.timeout() 方法。 - `this.timeout(5000)` 将超时时间设置为 5s，这样就不会有 2s 的限制了 - `this.timeout(1000)` 对于性能要求较高的场景，可以限制超时时间为 1s",
+    "keywords": "mocha tiemout,mocha 超时",
+    "category": "JavaScript"
+  },
+  {
+    "source": "使用 Service Worker 接收服务器推送消息并显示通知.md",
+    "staticFileName": "sw-notification.html",
+    "author": "guoqzuo",
+    "createDate": "2021/01/12",
+    "description": "推送通知一般需要支持服务器推送，在常规网页中是不可能的。service worker 可以实现该行为 - service worker 可以显示通知 - service worker 可以处理这些通知的交互 - service worker 能够订阅服务器发送的推送通知 - service worker 能够处理推送消息，即使应用没有在前台运行或者根本没打开",
+    "keywords": "service worker接收服务器推送消息",
+    "category": "JavaScript"
+  }
+]
+
+
