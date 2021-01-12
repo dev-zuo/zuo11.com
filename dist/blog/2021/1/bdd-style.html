@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <meta name="application name" content="childNodes-children.html">
+        <meta name="application name" content="bdd-style.html">
         <meta name="author" content="guoqzuo">
-        <meta name="description" content="元素的 childNodes 和 children 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：1. childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。2. childNodes 类型是 NodeList，HTMLCollection 类型是 HTMLCollection">
-        <meta name="keywords" content="childNodes与children,childNodes children区别">
+        <meta name="description" content="在 Mocha 官网的中，介绍 should.js 时，说它是一种 BDD 风格的断言库。而且在 mocha 的源码中，有很多都是以 bdd 命名的。那什么是 BDD 呢？BDD 是 Behavior Driven Development 的简写，行为驱动开发，是在测试驱动开发（Test-Driven Development，TDD）基础上发展而来的一种软件开发方法。">
+        <meta name="keywords" content="BDD,TDD,BDD Style">
 
-        <title>element.childNodes 和 element.children 有什么区别 - 左小白的技术日常</title>
+        <title>什么是 BDD 风格（BDD style） - 左小白的技术日常</title>
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
         <link href="/lib/notes.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
             <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
             <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
             <span class="hidden"> | </span>
-            <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+            <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
           </div>
           <div>
             
@@ -36,45 +36,41 @@
         </header>
         <section class="content">
           <article>
-            <h1 id="elementchildnodes-和-elementchildren-有什么区别">element.childNodes 和 element.children 有什么区别</h1>
+            <h1 id="什么是-bdd-风格（bdd-style）">什么是 BDD 风格（BDD style）</h1>
             
     <div class="article-top">
       <div class="flex">
-        这篇文章发布于 2020/12/30，归类于 <a href="/blog/category.html#javascript" class="hidden">JavaScript</a>
+        这篇文章发布于 2021/01/12，归类于 <a href="/blog/category.html#计算机基础与开发工具" class="hidden">计算机基础与开发工具</a>
         <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
         <div id="readAndComment" class="flex"></div>
       </div> 
       <div class="flex keywords" style="flex-wrap: nowrap;">
         <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
-        <div class="flex" style="flex-wrap: wrap;"><span>childNodes与children</span>，<span>childNodes children区别</span></div>
+        <div class="flex" style="flex-wrap: wrap;"><span>BDD</span>，<span>TDD</span>，<span>BDD Style</span></div>
       </div>
     </div>
     
   
             
-<p>元素的 <strong>childNodes</strong> 和 <strong>children</strong> 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：</p>
-<ol>
-<li>childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。</li>
-<li>childNodes 类型是 NodeList，children 类型是 HTMLCollection</li>
-</ol>
-<p>有了 childNodes 为什么又出了 children 这个 DOM 专有扩展？children 属性是因为 IE9 之前的版本与其他浏览器在处理空白文本节点上有差异才出现的。参见 《JavaScript 高级程序设计（第 4 版）》第 15 章 DOM 扩展 - 专有扩展 - children 属性 p456</p>
-<pre><code class="language-js">(function() {
-  let testDom = document.createElement(&#39;div&#39;)
-  testDom.innerHTML = `
-    123
-    &lt;!-- sdfsdf --&gt;
-    &lt;span&gt;abc&lt;/span&gt;
-    &lt;div&gt;test&lt;/div&gt;
-  `
-  let { childNodes, children } = testDom
-  console.log(childNodes) // NodeList(7) [text, comment, text, span, text, div, text]
-  console.log(children) // HTMLCollection(2) [span, div]
-
-  // 动态性、再次向节点追加内容，再打印之前获取的值
-  testDom.appendChild(document.createElement(&#39;div&#39;))
-  console.log(childNodes) // NodeList(8) [text, comment, text, span, text, div, text, div]
-  console.log(children) // HTMLCollection(3) [span, div, div]
-})()</code></pre>
+<blockquote>
+<p>should.js - BDD style shown throughout these docs</p>
+</blockquote>
+<p>在 Mocha 官网的中，介绍 should.js 时，说它是一种 BDD 风格的断言库。而且在 mocha 的源码中，有很多都是以 bdd 命名的。那什么是 BDD 呢？</p>
+<p>BDD 是 Behavior Driven Development 的简写，行为驱动开发，是在测试驱动开发（Test-Driven Development，TDD）基础上发展而来的一种软件开发方法。</p>
+<p>TDD 测试驱动开发只关心代码要怎么写，有如下特点</p>
+<ul>
+<li>写代码的时候要先写测试，反之测试不了的代码就不能写。测试是多种多样的，单元测试是最常见的，还有 UI 自动化测试</li>
+<li>先写测试也有助于你理清代码的调用关系，写出来的逻辑更严谨</li>
+<li>只要你写的每一次代码都有测试可以运行，那你的测试就非常全面了</li>
+</ul>
+<p>BDD 行为驱动开发的本质在于 <strong>尽可能避免在需求描述、用例撰写、代码实现、测试等各环节衔接、转译过程中发生的信息丢失</strong>。和 TDD 不是一个概念。BDD使用 &quot;用户故事&quot; 来描述需求，然后开发人员将这些故事带入具体应用，通过不断迭代添加入真正的业务本质。</p>
+<p><strong>BDD 风格强调使用完整的、描述性的、便于业务用户理解的名称或术语，避免使用技术术语</strong>。BDD 希望类、方法和变量的名称尽可能地反映日常用语。在编写单元测试的时候，尽量使用 BDD 风格为测试命名。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/Abbey/p/4999634.html">行为驱动开发BDD概要 - 没头脑的老毕 - 博客园</a></li>
+<li><a href="https://www.zhihu.com/question/20161970/answer/1341811526">TDD 与 BDD 仅仅是语言描述上的区别么？- 知乎</a></li>
+<li><a href="https://www.cnblogs.com/Leo_wl/p/5300368.html">行为驱动开发（BDD） - HackerVirus - 博客园</a></li>
+</ul>
 
             
             <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -85,7 +81,7 @@
           <aside>
             <div class="aside-wrap">
               <div class="top ">
-                <ul><li><span class="ul-span" data-id="elementchildnodes-和-elementchildren-有什么区别" style="padding-left:1em">element.childNodes 和 element.children 有什么区别<span></li></ul>
+                <ul><li><span class="ul-span" data-id="什么是-bdd-风格（bdd-style）" style="padding-left:1em">什么是 BDD 风格（BDD style）<span></li></ul>
               </div>
               <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>

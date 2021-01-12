@@ -1,0 +1,143 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="http-301-302.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="301 和 302 状态码都是表示页面重定向，它们有两个用处：一是告诉浏览器，访问当前页面时需要跳转到新的页面。二是告诉搜索引擎如何正确的处理页面收录、索引。同样是发送 HTTP 请求，接收响应内容，浏览器对重定向页面的处理流程和普通页面有什么区别呢？一般访问某个页面时，基本流程如下：1. `客户端（浏览器）发起请求` 在浏览器中访问某个页面时，会向该页面资源所在的 URL 发送一个 HTTP 请求。2. `服务端处理请求并响应` 服务器接收到请求后，会将资源的数据响应给前端，一般响应状态码 status 为 200，响应内容为 html 文本。3. `客户端（浏览器）处理` 客户端接收到响应后，看状态码是否是 200 或 304(资源未修改)，如果是就将浏览器返回的 html 内容解析、绘制在浏览器窗口中。">
+        <meta name="keywords" content="301与302区别">
+
+        <title>HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="http-301-和-302-状态码的区别以及它们在浏览器和搜索引擎中的处理">HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2021/01/12，归类于 <a href="/blog/category.html#http与https" class="hidden">http与https</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>301与302区别</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>301 和 302 状态码都是表示页面重定向，它们有两个用处：一是告诉浏览器，访问当前页面时需要跳转到新的页面。二是告诉搜索引擎如何正确的处理页面收录、索引。同样是发送 HTTP 请求，接收响应内容，浏览器对重定向页面的处理流程和普通页面有什么区别呢？一般访问某个页面时，基本流程如下：</p>
+<ol>
+<li><code>客户端（浏览器）发起请求</code> 在浏览器中访问某个页面时，会向该页面资源所在的 URL 发送一个 HTTP 请求。</li>
+<li><code>服务端处理请求并响应</code> 服务器接收到请求后，会将资源的数据响应给前端，一般响应状态码 status 为 200，响应内容为 html 文本。</li>
+<li><code>客户端（浏览器）处理</code> 客户端接收到响应后，看状态码是否是 200 或 304(资源未修改)，如果是就将浏览器返回的 html 内容解析、绘制在浏览器窗口中。</li>
+</ol>
+<p>上面是简化版的普通页面打开流程，301 和 302 重定向的处理一般从第 2 步开始，服务器接收到请求后，我们需要自己加判断逻辑：</p>
+<ul>
+<li>如果访问的 <strong>url 已失效，之后这个 url 可能会无法访问</strong>，需要跳转到新的 url，我们需要告诉浏览器我们的这种想法。可以将响应状态码设置为 <strong>301（Permanently Moved 永久性重定向 <code>[ˈpɜːmənəntli]</code>）</strong>，并将 Location 响应头部设置为需要跳转的新 url。</li>
+<li>如果访问的 <strong>url 没有失效，之后这个 url 还是可以访问</strong>，当前只是希望访问该 url 时临时跳转到一个新的 url。可以将响应状态码设置为 <strong>302（Temporarily Moved 临时性重定向 <code>[ˈtemprərəli]</code>）</strong>，并将 Location 响应头部设置为需要跳转的新 url。</li>
+</ul>
+<p>浏览器接收到响应后，当发现响应状态码 status 为 301 或 302 时，会将页面跳转（重定向）到 Location 响应头里设置的 url。下面是使用 koa 在服务端对 301 的实现，参考 <a href="http://www.zuo11.com/blog/2020/7/nginx_koa_301.html">nginx以及koa实现301跳转：xx.com重定向到www.xx.com - 左小白的技术日常</a></p>
+<pre><code class="language-js">const Koa = require(&#39;koa&#39;)
+const app = new Koa()
+
+app.use((ctx) =&gt; {
+  console.log(ctx.url)
+  if (ctx.url === &#39;/test&#39;) {
+    // 当访问 /test 时 301重定向到 http://www.zuo11.com
+    ctx.status = 301
+    ctx.set({
+      &#39;Location&#39;: &#39;http://www.zuo11.com&#39;
+    })
+    return
+  }
+  // 非 /test 时，页面显示 welcome
+  ctx.body = &#39;welcome&#39;
+})
+
+app.listen(&#39;9000&#39;, () =&gt; { console.log(&#39;服务已开启，9000端口&#39;) }) </code></pre>
+<p>对浏览器来说，301 和 302 都是从一个 url 跳转到另一个新的 url，基本没啥区别。但对搜索引擎来说，如果是 301 永久性重定向，页面会删除失效的 url 收录、索引，并替换为新的 url。对于 302 的情况，搜索引擎会保留原 url 的收录和索引，并新增新 url 的收录、索引，这样更有利于页面的程序化处理。</p>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="http-301-和-302-状态码的区别以及它们在浏览器和搜索引擎中的处理" style="padding-left:1em">HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  

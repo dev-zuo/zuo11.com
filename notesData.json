@@ -556,6 +556,13 @@
         "time": "2020/09/12",
         "description": "在JS高程3里介绍URI编码方法时，有这样一个描述：**有效的URI中不能包含某些字符，比如空格。使用URI编码方法可以把所有无效的字符替换为特殊的utf-8编码，从而让浏览器能够接受和理解** 为什么有效的URI不能包含空格等其他字符？ 在《HTTP权威指南》第2章URL与资源 - 各种令人头疼的字符(p38)里有介绍原因：",
         "keywords": "URI编码方法详解"
+      },
+      {
+        "title": "HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理",
+        "href": "2021/1/http-301-302.html",
+        "time": "2021/01/12",
+        "description": "301 和 302 状态码都是表示页面重定向，它们有两个用处：一是告诉浏览器，访问当前页面时需要跳转到新的页面。二是告诉搜索引擎如何正确的处理页面收录、索引。同样是发送 HTTP 请求，接收响应内容，浏览器对重定向页面的处理流程和普通页面有什么区别呢？一般访问某个页面时，基本流程如下：1. `客户端（浏览器）发起请求` 在浏览器中访问某个页面时，会向该页面资源所在的 URL 发送一个 HTTP 请求。2. `服务端处理请求并响应` 服务器接收到请求后，会将资源的数据响应给前端，一般响应状态码 status 为 200，响应内容为 html 文本。3. `客户端（浏览器）处理` 客户端接收到响应后，看状态码是否是 200 或 304(资源未修改)，如果是就将浏览器返回的 html 内容解析、绘制在浏览器窗口中。",
+        "keywords": "301与302区别"
       }
     ],
     "运维部署与版本控制": [
@@ -1288,6 +1295,34 @@
         "time": "2020/09/24",
         "description": "macOS 修改host文件 /etc/hosts 后，本地访问某个域名会按照host指定的ip去解析，就会造成前端location.href不准确的问题，下面来看看",
         "keywords": "location.href不准确的问题,修改host后location.href也会变"
+      },
+      {
+        "title": "设置允许跨域的响应头后，为什么还是不能跨域",
+        "href": "2021/1/cors-allow.html",
+        "time": "2021/01/12",
+        "description": "在 post 请求中，设置了允许跨域的响应头，且考虑了 preflight 预检请求，但为什么还是报不能跨域的错误呢？下面来看看下面的例子，POST 请求中设置了允许跨域、允许预检的响应头。我们需要深入了解预检请求的过程，预检请求会先发送一个 OPTIONS 的请求去测试服务端是否允许跨域。这个时候我们需要注意，我们也需要处理对应接口的 OPTIONS 请求，上面只处理了接口 URL 的 POST 请求，并没有处理 OPTIONS 请求，可以使用 router.use(url, func) 或者加一个 router.options 请求处理",
+        "keywords": "跨域,cors,请求预检"
+      },
+      {
+        "title": "socket 'Bad handshake method' 400",
+        "href": "2021/1/socket-400.html",
+        "time": "2021/01/12",
+        "description": "在使用 socket.io 测试 scoket 功能时，发现之前都运行正常的 demo 突然就无法正常运行了。接口返回 400 Bad Request，响应信息为 { code: 2, message: 'Bad handshake method' } 后来发现是版本的问题，前端页面引入的 socket.io 版本是 `2.3.0`，通过 npm install 默认安装的 socket.io 版本是 `3.0.4`，将 koa 里面的 npm 包降到  2.3.0 就正常了",
+        "keywords": "socket.io 400,Bad handshake method"
+      },
+      {
+        "title": "Error: Timeout of 2000ms exceeded. Mocha 超时解决方法",
+        "href": "2021/1/mocha-timeout.html",
+        "time": "2021/01/12",
+        "description": "在 mocha 中，默认每个测试时间限制为 2s，如果超过两秒就会抛出异常。对于大于 2s 的异步任务可以使用 mocha 上下文的 timeout() 方法手动指定超时时间。注意不要使用箭头函数，否则无法调用 this.timeout() 方法。 - `this.timeout(5000)` 将超时时间设置为 5s，这样就不会有 2s 的限制了 - `this.timeout(1000)` 对于性能要求较高的场景，可以限制超时时间为 1s",
+        "keywords": "mocha tiemout,mocha 超时"
+      },
+      {
+        "title": "使用 Service Worker 接收服务器推送消息并显示通知",
+        "href": "2021/1/sw-notification.html",
+        "time": "2021/01/12",
+        "description": "推送通知一般需要支持服务器推送，在常规网页中是不可能的。service worker 可以实现该行为 - service worker 可以显示通知 - service worker 可以处理这些通知的交互 - service worker 能够订阅服务器发送的推送通知 - service worker 能够处理推送消息，即使应用没有在前台运行或者根本没打开",
+        "keywords": "service worker接收服务器推送消息"
       }
     ],
     "CSS": [
@@ -2442,6 +2477,13 @@
         "time": "2020/09/12",
         "description": "obs录制视频不是全屏的问题,obs录制视频模糊的问题，1. obs录制视不是全屏的问题, 解决方法：打开OBS => 点击顶部 '编辑' 按钮 => 选择 '变换' => 点击比例适配屏幕，2. obs录制视频模糊的问题 解决方法，右键显示捕获，选择调整输出大小到源大小，正常情况下是可以点击的。这里因为我已经设置了，且正在推流、录制，就是灰色的了。",
         "keywords": "obs录制视频不是全屏的问题,obs录制视频模糊的问题"
+      },
+      {
+        "title": "什么是 BDD 风格（BDD style）",
+        "href": "2021/1/bdd-style.html",
+        "time": "2021/01/12",
+        "description": "在 Mocha 官网的中，介绍 should.js 时，说它是一种 BDD 风格的断言库。而且在 mocha 的源码中，有很多都是以 bdd 命名的。那什么是 BDD 呢？BDD 是 Behavior Driven Development 的简写，行为驱动开发，是在测试驱动开发（Test-Driven Development，TDD）基础上发展而来的一种软件开发方法。",
+        "keywords": "BDD,TDD,BDD Style"
       }
     ],
     "前端工程化": [
@@ -2668,6 +2710,20 @@
         "time": "2020/08/30",
         "description": "koa-router router.allowedMethods()中间件作用,router.allowedMethods 405,在使用koa koa-router mock接口时，我们会看到 `app.use(router.routes()).use(router.allowedMethods())`，使用 router中间件后，又链式调用了router.allowedMethods()这个中间件，那为什么要加router.allowedMethods()中间件呢？他有什么作用？我们写个demo来测试下。先下结论：1. router.allowedMethods()中间件，主要用于 405 Method Not Allowed 这个状态码相关 2. 如果不加这个中间件，如果接口是get请求，而前端使用post请求，会返回 404 状态码，接口未定义。如果加了这个中间件，这种情况时，会返回405 Method Not Allowed ，提示 request method 不匹配，并在响应头返回接口支持的请求方法，更有利于调试",
         "keywords": "koa-router router.allowedMethods()中间件作用,router.allowedMethods 405"
+      },
+      {
+        "title": "koa 使用 multer 处理文件上传，FormData 数据解析",
+        "href": "2021/1/koa-formdata.html",
+        "time": "2021/01/12",
+        "description": "一般在 koa 中，post 请求的数据是需要中间件来处理的，koa-bodyparser 可以很好的处理 json、serializer 数据，但 `multipart/form-data` 的类型无法处理，一般需要引入另外的中间件来处理，一般建议使用 multer 中间件来处理。先来看看前端上传文件代码，这里使用的是 fetch，当然也可以使用 xhr",
+        "keywords": "multipart/form-data,FormData,文件上传"
+      },
+      {
+        "title": "node koa 怎么获取 POST 请求 Content-Type 为 'text-plain' 的数据",
+        "href": "2021/1/text-plain-post.html",
+        "time": "2021/01/12",
+        "description": "在 Beacon API 中，使用 `navigator.sendBeacon(url, dataString)` 发送的是 POST 请求，Content-Type 是比较少见的 'text/plain;charset=UTF-8' 。它既不是 xhr，也不是 fetch，是一种独立的请求类型。在 koa 中，一般使用 koa-bodyparser 来处理 post 请求数据。但这次发现使用 ctx.request.body 无法接收到数据。之前接收 'application/x-www-form-urlencoded' 和 'application/json' 类型的数据都是正常的。",
+        "keywords": "text/plain post,post text/plain数据解析"
       }
     ],
     "图表可视化": [
@@ -10357,7 +10413,7 @@
       }
     },
     {
-      "htmlStr": "<h1 id=\"elementchildnodes-和-elementchildren-有什么区别\">element.childNodes 和 element.children 有什么区别</h1>\n<p>元素的 <strong>childNodes</strong> 和 <strong>children</strong> 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：</p>\n<ol>\n<li>childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。</li>\n<li>childNodes 类型是 NodeList，HTMLCollection 类型是 HTMLCollection</li>\n</ol>\n<p>有了 childNodes 为什么又出了 children 这个 DOM 专有扩展？children 属性是因为 IE9 之前的版本与其他浏览器在处理空白文本节点上有差异才出现的。参见 《JavaScript 高级程序设计（第 4 版）》第 15 章 DOM 扩展 - 专有扩展 - children 属性 p456</p>\n<pre><code class=\"language-js\">(function() {\n  let testDom = document.createElement(&#39;div&#39;)\n  testDom.innerHTML = `\n    123\n    &lt;!-- sdfsdf --&gt;\n    &lt;span&gt;abc&lt;/span&gt;\n    &lt;div&gt;test&lt;/div&gt;\n  `\n  let { childNodes, children } = testDom\n  console.log(childNodes) // NodeList(7) [text, comment, text, span, text, div, text]\n  console.log(children) // HTMLCollection(2) [span, div]\n\n  // 动态性、再次向节点追加内容，再打印之前获取的值\n  testDom.appendChild(document.createElement(&#39;div&#39;))\n  console.log(childNodes) // NodeList(8) [text, comment, text, span, text, div, text, div]\n  console.log(children) // HTMLCollection(3) [span, div, div]\n})()</code></pre>\n",
+      "htmlStr": "<h1 id=\"elementchildnodes-和-elementchildren-有什么区别\">element.childNodes 和 element.children 有什么区别</h1>\n<p>元素的 <strong>childNodes</strong> 和 <strong>children</strong> 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：</p>\n<ol>\n<li>childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。</li>\n<li>childNodes 类型是 NodeList，children 类型是 HTMLCollection</li>\n</ol>\n<p>有了 childNodes 为什么又出了 children 这个 DOM 专有扩展？children 属性是因为 IE9 之前的版本与其他浏览器在处理空白文本节点上有差异才出现的。参见 《JavaScript 高级程序设计（第 4 版）》第 15 章 DOM 扩展 - 专有扩展 - children 属性 p456</p>\n<pre><code class=\"language-js\">(function() {\n  let testDom = document.createElement(&#39;div&#39;)\n  testDom.innerHTML = `\n    123\n    &lt;!-- sdfsdf --&gt;\n    &lt;span&gt;abc&lt;/span&gt;\n    &lt;div&gt;test&lt;/div&gt;\n  `\n  let { childNodes, children } = testDom\n  console.log(childNodes) // NodeList(7) [text, comment, text, span, text, div, text]\n  console.log(children) // HTMLCollection(2) [span, div]\n\n  // 动态性、再次向节点追加内容，再打印之前获取的值\n  testDom.appendChild(document.createElement(&#39;div&#39;))\n  console.log(childNodes) // NodeList(8) [text, comment, text, span, text, div, text, div]\n  console.log(children) // HTMLCollection(3) [span, div, div]\n})()</code></pre>\n",
       "outline": [
         {
           "type": "heading",
@@ -14681,9 +14737,199 @@
         "year": "2020",
         "month": "9"
       }
+    },
+    {
+      "htmlStr": "<h1 id=\"设置允许跨域的响应头后，为什么还是不能跨域\">设置允许跨域的响应头后，为什么还是不能跨域</h1>\n<p>在 post 请求中，设置了允许跨域的响应头，且考虑了 preflight 预检请求，但为什么还是报不能跨域的错误呢？下面来看看下面的例子，POST 请求中设置了允许跨域、允许预检的响应头</p>\n<pre><code class=\"language-js\">router.post(&#39;/corsTest&#39;, ctx =&gt; {\n  // 以及允许跨域了\n  ctx.set({\n    &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Methods&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Headers&#39;: &#39;*&#39;\n  })\n  ctx.body = { a: 123 }\n})</code></pre>\n<p>我们需要深入了解预检请求的过程，预检请求会先发送一个 OPTIONS 的请求去测试服务端是否允许跨域。这个时候我们需要注意，我们也需要处理对应接口的 OPTIONS 请求，上面只处理了接口 URL 的 POST 请求，并没有处理 OPTIONS 请求，可以使用 router.use(url, func) 或者加一个 router.options 请求处理</p>\n<pre><code class=\"language-js\">// options 预检请求时允许\nrouter.options(&#39;/corsTest&#39;, ctx =&gt; {\n  ctx.set({\n    &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Methods&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Headers&#39;: &#39;*&#39;\n  })\n  ctx.body = {}\n})\n\n// 真实请求\nrouter.post(&#39;/corsTest&#39;, ctx =&gt; {\n  ctx.set({\n    &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Methods&#39;: &#39;*&#39;,\n    &#39;Access-Control-Allow-Headers&#39;: &#39;*&#39;\n  })\n  ctx.body = { a: 123 }\n})</code></pre>\n<p>关于请求预检的更多信息参见：<a href=\"http://www.zuo11.com/blog/2020/6/koa_web_cros.html\">CORS跨域资源共享 - 利用koa来彻底理解web前端跨域问题 - 左小白的技术日常</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "设置允许跨域的响应头后，为什么还是不能跨域"
+        }
+      ],
+      "config": {
+        "source": "设置允许跨域的响应头后，为什么还是不能跨域.md",
+        "staticFileName": "cors-allow.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "在 post 请求中，设置了允许跨域的响应头，且考虑了 preflight 预检请求，但为什么还是报不能跨域的错误呢？下面来看看下面的例子，POST 请求中设置了允许跨域、允许预检的响应头。我们需要深入了解预检请求的过程，预检请求会先发送一个 OPTIONS 的请求去测试服务端是否允许跨域。这个时候我们需要注意，我们也需要处理对应接口的 OPTIONS 请求，上面只处理了接口 URL 的 POST 请求，并没有处理 OPTIONS 请求，可以使用 router.use(url, func) 或者加一个 router.options 请求处理",
+        "keywords": "跨域,cors,请求预检",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "1"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"koa-使用-multer-处理文件上传，formdata-数据解析\">koa 使用 multer 处理文件上传，FormData 数据解析</h1>\n<p>一般在 koa 中，post 请求的数据是需要中间件来处理的，koa-bodyparser 可以很好的处理 json、serializer 数据，但 <code>multipart/form-data</code> 的类型无法处理，一般需要引入另外的中间件来处理，一般建议使用 multer 中间件来处理。先来看看前端上传文件代码，这里使用的是 fetch，当然也可以使用 xhr</p>\n<pre><code class=\"language-html\">&lt;!-- &lt;input type=&quot;file&quot; id=&quot;file&quot;&gt; --&gt;\n&lt;input type=&quot;file&quot; id=&quot;file&quot; multiple&gt;\n&lt;script&gt;\n  let fileInput = document.getElementById(&#39;file&#39;)\n\n  fileInput.onchange = (event) =&gt; {\n    let formData = new FormData()\n    // 多个文件上传：使用同一个字段上传\n    console.log(event.target.files) // FileList 类数组对象\n    let files = event.target.files\n    for (let i = 0, len = files.length; i &lt; len; i++) {\n      formData.append(&#39;image&#39;, files[i])\n    }\n    // 单文件上传\n    // formData.append(&#39;image&#39;, files[0])\n    formData.append(&#39;param1&#39;, &#39;abc&#39;)\n    fetch(&#39;/upload&#39;, {\n      method: &#39;POST&#39;,\n      body: formData\n    })\n    .then(console.log)\n    .catch(console.log)\n    //  { param1: &#39;abc&#39; }\n  }\n&lt;/script&gt;</code></pre>\n<p>可以看到在前端需要上传文件时，一般使用 FormData 类型数据。使用一个字段存放文件数据，上面例子中使用的是 &quot;image&quot; 字段。另外在上传文件时，额外添加了一个 param1 字段数据。下面来看看 multer 中间件是如何处理文件上传的，注意以下几点:</p>\n<ul>\n<li>如果是单文件上传，使用 <code>multer().single(&#39;文件字段&#39;)</code>。ctx.file 可以拿到 file 对象</li>\n<li>如果是多文件上传，使用 <code>multer().fields([{ name: &#39;文件字段&#39;, maxCount: &#39;允许最大数&#39;}])</code>。ctx.files 可以拿到文件数据对象 <code>{ 字段1: [ file 数组], 字段2: [file 数组] }</code></li>\n<li>如果非文件上传，仅接收 FormData 类型的文本字段，使用 <code>multer().none()</code></li>\n<li>普通 FormData 字段可以从 ctx.request.body 中获取</li>\n<li>file 对象包含如下属性<ul>\n<li><code>fieldname</code> 前端用于存放文件的字段名，这里例子中使用的是 &#39;image&#39;</li>\n<li><code>originalname</code> 文件名</li>\n<li><code>mimetype</code> 文件 MIMT 类型</li>\n<li><code>buffer</code> 文件二进制数据，可以直接使用 <code>fs.writeFileSync(文件名, buffer)</code> 创建文件</li>\n<li><code>size</code> 文件大小，单位字节</li>\n</ul>\n</li>\n</ul>\n<pre><code class=\"language-js\">const multer = require(&#39;@koa/multer&#39;)\nconst fs = require(&#39;fs&#39;)\n\n// 文件上传处理\n// 前端 append 文件时使用的是 image 字段\nlet singleFileConfig = multer().single(&#39;image&#39;)\nlet multipleFilesConfig = multer().fields([\n  {\n    name: &#39;image&#39;,\n    maxCount: 5\n  }\n])\nlet isMultiple = true\nlet fileConfig = isMultiple ? multipleFilesConfig : singleFileConfig\nrouter.post(&#39;/upload&#39;, fileConfig ,async ctx =&gt; {\n\n  // 文件外的其他 FormData数据 { param1: &#39;abc&#39; }\n  console.log(&#39;ctx.request.body&#39;, ctx.request.body) \n  console.log(&#39;ctx.files&#39;, ctx.files) // 多文件，返回 { 字段1: [file数组], 字段2: [file数组] }\n  console.log(&#39;ctx.file&#39;, ctx.file) // 单文件，返回 file 对象\n\n  // 如果是单文件取文件内容，如果是多文件，取第一个文件，前端字段传的 image\n  let file = isMultiple ? ctx.files[&#39;image&#39;][0] : ctx.file\n  isMultiple &amp;&amp; console.log(`ctx.files[&#39;image&#39;]`, ctx.files[&#39;image&#39;][0])\n\n  // 在服务端本地创建文件\n  let { originalname, buffer } = file\n  fs.writeFileSync(originalname, buffer)\n  // {\n  //   fieldname: &#39;image&#39;,\n  //   originalname: &#39;截屏2020-12-10 下午8.01.44.png&#39;,\n  //   encoding: &#39;7bit&#39;, \n  //   mimetype: &#39;image/png&#39;,\n  //   buffer: &lt;Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52 00 00 03 18 00 00 01 56 08 06 00 00 00 ea b0 3b 51 00 00 0c 64 69 43 43 50 49 43 43 20 50 72 6f 66 69 ... 90135 more bytes&gt;,\n  //   size: 90185\n  // }\n  ctx.body = ctx.request.body \n})</code></pre>\n<p>完整测试代码，参见 <a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/JS_ES6/JS%E9%AB%98%E7%A8%8B3/fetch\">fetch 上传文件 前端后代码 | Github</a></p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://github.com/expressjs/multer\">express/multer &#39;multipart/form-data&#39; | Github</a></li>\n<li><a href=\"https://github.com/koajs/multer\">@koa/multer | Github</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "koa 使用 multer 处理文件上传，FormData 数据解析"
+        }
+      ],
+      "config": {
+        "source": "koa 使用 multer 处理文件上传，FormData 数据解析.md",
+        "staticFileName": "koa-formdata.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "一般在 koa 中，post 请求的数据是需要中间件来处理的，koa-bodyparser 可以很好的处理 json、serializer 数据，但 `multipart/form-data` 的类型无法处理，一般需要引入另外的中间件来处理，一般建议使用 multer 中间件来处理。先来看看前端上传文件代码，这里使用的是 fetch，当然也可以使用 xhr",
+        "keywords": "multipart/form-data,FormData,文件上传",
+        "category": "前端工程化",
+        "year": "2021",
+        "month": "1"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"node-koa-怎么获取-post-请求-content-type-为-textplain-的数据\">node koa 怎么获取 POST 请求 Content-Type 为 &quot;text/plain&quot; 的数据</h1>\n<p>在 Beacon API 中，使用 <code>navigator.sendBeacon(url, dataString)</code> 发送的是 POST 请求，Content-Type 是比较少见的 &quot;text/plain;charset=UTF-8&quot; 。它既不是 xhr，也不是 fetch，是一种独立的请求类型。在 koa 中，一般使用 koa-bodyparser 来处理 post 请求数据。但这次发现使用 ctx.request.body 无法接收到数据。之前接收 &quot;application/x-www-form-urlencoded&quot; 和 &quot;application/json&quot; 类型的数据都是正常的。</p>\n<p>查了下文档，发现 koa-bodyparser 默认情况下不支持解析 <code>text/plain</code> 类型的数据，需要设置可配置选项才行。</p>\n<blockquote>\n<p>enableTypes: parser will only parse when request type hits enableTypes, support json/form/text/xml, default is [&#39;json&#39;, &#39;form&#39;].</p>\n</blockquote>\n<pre><code class=\"language-js\">app.use(require(&#39;koa-bodyparser&#39;)({\n  enableTypes: [&#39;json&#39;, &#39;form&#39;, &#39;text&#39;]\n}))\nrouter.post(&#39;/user&#39;, async ctx =&gt; {\n  console.log(ctx.request.body) \n  // { page: &#39;/xxx&#39;, duration: &#39;12s&#39; } \n  ctx.body = {\n    a: 1\n  }\n})</code></pre>\n<p>其他 koa-bodyparser 需要注意的地方</p>\n<ul>\n<li>encoding: requested encoding. Default is utf-8 by co-body.</li>\n<li>formLimit: limit of the urlencoded body. If the body ends up being larger than this limit, a 413 error code is returned. Default is 56kb.</li>\n<li>jsonLimit: limit of the json body. Default is 1mb.</li>\n<li>textLimit: limit of the text body. Default is 1mb.</li>\n<li>xmlLimit: limit of the xml body. Default is 1mb.</li>\n</ul>\n<p>参考 </p>\n<ul>\n<li><a href=\"https://github.com/koajs/bodyparser\">post数据解析 koa-bodyparser</a></li>\n<li><a href=\"http://fe.zuo11.com/js/ad3/js-ad3-24.html#beacon-api\">Beacon API - 20. JavaScript API - JS高程4笔记</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "node koa 怎么获取 POST 请求 Content-Type 为 \"text/plain\" 的数据"
+        }
+      ],
+      "config": {
+        "source": "node koa 怎么获取 POST 请求 Content-Type 为 'text-plain' 的数据.md",
+        "staticFileName": "text-plain-post.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "在 Beacon API 中，使用 `navigator.sendBeacon(url, dataString)` 发送的是 POST 请求，Content-Type 是比较少见的 'text/plain;charset=UTF-8' 。它既不是 xhr，也不是 fetch，是一种独立的请求类型。在 koa 中，一般使用 koa-bodyparser 来处理 post 请求数据。但这次发现使用 ctx.request.body 无法接收到数据。之前接收 'application/x-www-form-urlencoded' 和 'application/json' 类型的数据都是正常的。",
+        "keywords": "text/plain post,post text/plain数据解析",
+        "category": "前端工程化",
+        "year": "2021",
+        "month": "1"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"socket-bad-handshake-method-400\">socket &quot;Bad handshake method&quot; 400</h1>\n<p>在使用 socket.io 测试 scoket 功能时，发现之前都运行正常的 demo 突然就无法正常运行了。接口返回 400 Bad Request，响应信息为 { code: 2, message: &quot;Bad handshake method&quot; }</p>\n<p><img src=\"../../../images/blog/js/socket_io_err.png\" alt=\"socket_io_err.png\"></p>\n<p>后来发现是版本的问题，前端页面引入的 socket.io 版本是 <code>2.3.0</code>，通过 npm install 默认安装的 socket.io 版本是 <code>3.0.4</code>，将 koa 里面的 npm 包降到  2.3.0 就正常了</p>\n<pre><code class=\"language-bash\">npm uninstall socket.io --save;\nnpm install socket.io@2.3.0 --save;</code></pre>\n<p><img src=\"../../../images/blog/js/socket_io_err_2.png\" alt=\"socket_io_err_2.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "socket \"Bad handshake method\" 400"
+        }
+      ],
+      "config": {
+        "source": "socket 'Bad handshake method' 400.md",
+        "staticFileName": "socket-400.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "在使用 socket.io 测试 scoket 功能时，发现之前都运行正常的 demo 突然就无法正常运行了。接口返回 400 Bad Request，响应信息为 { code: 2, message: 'Bad handshake method' } 后来发现是版本的问题，前端页面引入的 socket.io 版本是 `2.3.0`，通过 npm install 默认安装的 socket.io 版本是 `3.0.4`，将 koa 里面的 npm 包降到  2.3.0 就正常了",
+        "keywords": "socket.io 400,Bad handshake method",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "1"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"http-301-和-302-状态码的区别以及它们在浏览器和搜索引擎中的处理\">HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理</h1>\n<p>301 和 302 状态码都是表示页面重定向，它们有两个用处：一是告诉浏览器，访问当前页面时需要跳转到新的页面。二是告诉搜索引擎如何正确的处理页面收录、索引。同样是发送 HTTP 请求，接收响应内容，浏览器对重定向页面的处理流程和普通页面有什么区别呢？一般访问某个页面时，基本流程如下：</p>\n<ol>\n<li><code>客户端（浏览器）发起请求</code> 在浏览器中访问某个页面时，会向该页面资源所在的 URL 发送一个 HTTP 请求。</li>\n<li><code>服务端处理请求并响应</code> 服务器接收到请求后，会将资源的数据响应给前端，一般响应状态码 status 为 200，响应内容为 html 文本。</li>\n<li><code>客户端（浏览器）处理</code> 客户端接收到响应后，看状态码是否是 200 或 304(资源未修改)，如果是就将浏览器返回的 html 内容解析、绘制在浏览器窗口中。</li>\n</ol>\n<p>上面是简化版的普通页面打开流程，301 和 302 重定向的处理一般从第 2 步开始，服务器接收到请求后，我们需要自己加判断逻辑：</p>\n<ul>\n<li>如果访问的 <strong>url 已失效，之后这个 url 可能会无法访问</strong>，需要跳转到新的 url，我们需要告诉浏览器我们的这种想法。可以将响应状态码设置为 <strong>301（Permanently Moved 永久性重定向 <code>[ˈpɜːmənəntli]</code>）</strong>，并将 Location 响应头部设置为需要跳转的新 url。</li>\n<li>如果访问的 <strong>url 没有失效，之后这个 url 还是可以访问</strong>，当前只是希望访问该 url 时临时跳转到一个新的 url。可以将响应状态码设置为 <strong>302（Temporarily Moved 临时性重定向 <code>[ˈtemprərəli]</code>）</strong>，并将 Location 响应头部设置为需要跳转的新 url。</li>\n</ul>\n<p>浏览器接收到响应后，当发现响应状态码 status 为 301 或 302 时，会将页面跳转（重定向）到 Location 响应头里设置的 url。下面是使用 koa 在服务端对 301 的实现，参考 <a href=\"http://www.zuo11.com/blog/2020/7/nginx_koa_301.html\">nginx以及koa实现301跳转：xx.com重定向到www.xx.com - 左小白的技术日常</a></p>\n<pre><code class=\"language-js\">const Koa = require(&#39;koa&#39;)\nconst app = new Koa()\n\napp.use((ctx) =&gt; {\n  console.log(ctx.url)\n  if (ctx.url === &#39;/test&#39;) {\n    // 当访问 /test 时 301重定向到 http://www.zuo11.com\n    ctx.status = 301\n    ctx.set({\n      &#39;Location&#39;: &#39;http://www.zuo11.com&#39;\n    })\n    return\n  }\n  // 非 /test 时，页面显示 welcome\n  ctx.body = &#39;welcome&#39;\n})\n\napp.listen(&#39;9000&#39;, () =&gt; { console.log(&#39;服务已开启，9000端口&#39;) }) </code></pre>\n<p>对浏览器来说，301 和 302 都是从一个 url 跳转到另一个新的 url，基本没啥区别。但对搜索引擎来说，如果是 301 永久性重定向，页面会删除失效的 url 收录、索引，并替换为新的 url。对于 302 的情况，搜索引擎会保留原 url 的收录和索引，并新增新 url 的收录、索引，这样更有利于页面的程序化处理。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理"
+        }
+      ],
+      "config": {
+        "source": "HTTP 301 和 302 状态码的区别以及它们在浏览器和搜索引擎中的处理.md",
+        "staticFileName": "http-301-302.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "301 和 302 状态码都是表示页面重定向，它们有两个用处：一是告诉浏览器，访问当前页面时需要跳转到新的页面。二是告诉搜索引擎如何正确的处理页面收录、索引。同样是发送 HTTP 请求，接收响应内容，浏览器对重定向页面的处理流程和普通页面有什么区别呢？一般访问某个页面时，基本流程如下：1. `客户端（浏览器）发起请求` 在浏览器中访问某个页面时，会向该页面资源所在的 URL 发送一个 HTTP 请求。2. `服务端处理请求并响应` 服务器接收到请求后，会将资源的数据响应给前端，一般响应状态码 status 为 200，响应内容为 html 文本。3. `客户端（浏览器）处理` 客户端接收到响应后，看状态码是否是 200 或 304(资源未修改)，如果是就将浏览器返回的 html 内容解析、绘制在浏览器窗口中。",
+        "keywords": "301与302区别",
+        "category": "http与https",
+        "year": "2021",
+        "month": "1"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"什么是-bdd-风格（bdd-style）\">什么是 BDD 风格（BDD style）</h1>\n<blockquote>\n<p>should.js - BDD style shown throughout these docs</p>\n</blockquote>\n<p>在 Mocha 官网的中，介绍 should.js 时，说它是一种 BDD 风格的断言库。而且在 mocha 的源码中，有很多都是以 bdd 命名的。那什么是 BDD 呢？</p>\n<p>BDD 是 Behavior Driven Development 的简写，行为驱动开发，是在测试驱动开发（Test-Driven Development，TDD）基础上发展而来的一种软件开发方法。</p>\n<p>TDD 测试驱动开发只关心代码要怎么写，有如下特点</p>\n<ul>\n<li>写代码的时候要先写测试，反之测试不了的代码就不能写。测试是多种多样的，单元测试是最常见的，还有 UI 自动化测试</li>\n<li>先写测试也有助于你理清代码的调用关系，写出来的逻辑更严谨</li>\n<li>只要你写的每一次代码都有测试可以运行，那你的测试就非常全面了</li>\n</ul>\n<p>BDD 行为驱动开发的本质在于 <strong>尽可能避免在需求描述、用例撰写、代码实现、测试等各环节衔接、转译过程中发生的信息丢失</strong>。和 TDD 不是一个概念。BDD使用 &quot;用户故事&quot; 来描述需求，然后开发人员将这些故事带入具体应用，通过不断迭代添加入真正的业务本质。</p>\n<p><strong>BDD 风格强调使用完整的、描述性的、便于业务用户理解的名称或术语，避免使用技术术语</strong>。BDD 希望类、方法和变量的名称尽可能地反映日常用语。在编写单元测试的时候，尽量使用 BDD 风格为测试命名。</p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://www.cnblogs.com/Abbey/p/4999634.html\">行为驱动开发BDD概要 - 没头脑的老毕 - 博客园</a></li>\n<li><a href=\"https://www.zhihu.com/question/20161970/answer/1341811526\">TDD 与 BDD 仅仅是语言描述上的区别么？- 知乎</a></li>\n<li><a href=\"https://www.cnblogs.com/Leo_wl/p/5300368.html\">行为驱动开发（BDD） - HackerVirus - 博客园</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "什么是 BDD 风格（BDD style）"
+        }
+      ],
+      "config": {
+        "source": "什么是 BDD 风格（BDD style）.md",
+        "staticFileName": "bdd-style.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "在 Mocha 官网的中，介绍 should.js 时，说它是一种 BDD 风格的断言库。而且在 mocha 的源码中，有很多都是以 bdd 命名的。那什么是 BDD 呢？BDD 是 Behavior Driven Development 的简写，行为驱动开发，是在测试驱动开发（Test-Driven Development，TDD）基础上发展而来的一种软件开发方法。",
+        "keywords": "BDD,TDD,BDD Style",
+        "category": "计算机基础与开发工具",
+        "year": "2021",
+        "month": "1"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"error-timeout-of-2000ms-exceeded-mocha-超时解决方法\">Error: Timeout of 2000ms exceeded. Mocha 超时解决方法</h1>\n<p>在 mocha 中，默认每个测试时间限制为 2s，如果超过两秒就会抛出异常。对于大于 2s 的异步任务可以使用 mocha 上下文的 timeout() 方法手动指定超时时间。注意不要使用箭头函数，否则无法调用 this.timeout() 方法。</p>\n<ul>\n<li><code>this.timeout(5000)</code> 将超时时间设置为 5s，这样就不会有 2s 的限制了</li>\n<li><code>this.timeout(1000)</code> 对于性能要求较高的场景，可以限制超时时间为 1s</li>\n</ul>\n<pre><code class=\"language-js\">// 耗时 3s 的异步任务\nfunction asyncOptPromise() {\n  return new Promise((resolve, reject) =&gt; {\n    setTimeout(() =&gt; {\n      if (1 === 2) {\n        resolve()\n      } else {\n        reject(&#39;不相等&#39;) // 也可以是 reject(new Error(&#39;不相等&#39;))\n      }\n    }, 3000)\n  })\n}\n\ndescribe(&#39;异步测试&#39;, function () {\n  it(&#39;asyncOpt 正确执行应该返回 true&#39;, async function() {\n    this.timeout(5000); // 设置超时时间为 5s\n    // this.timeout(1000); \n    await asyncOptPromise()\n  })\n})</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Error: Timeout of 2000ms exceeded. Mocha 超时解决方法"
+        }
+      ],
+      "config": {
+        "source": "Error: Timeout of 2000ms exceeded. Mocha 超时解决方法.md",
+        "staticFileName": "mocha-timeout.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "在 mocha 中，默认每个测试时间限制为 2s，如果超过两秒就会抛出异常。对于大于 2s 的异步任务可以使用 mocha 上下文的 timeout() 方法手动指定超时时间。注意不要使用箭头函数，否则无法调用 this.timeout() 方法。 - `this.timeout(5000)` 将超时时间设置为 5s，这样就不会有 2s 的限制了 - `this.timeout(1000)` 对于性能要求较高的场景，可以限制超时时间为 1s",
+        "keywords": "mocha tiemout,mocha 超时",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "1"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"使用-service-worker-接收服务器推送消息并显示通知\">使用 Service Worker 接收服务器推送消息并显示通知</h1>\n<p>推送通知一般需要支持服务器推送，在常规网页中是不可能的。service worker 可以实现该行为</p>\n<ul>\n<li>service worker 可以显示通知</li>\n<li>service worker 可以处理这些通知的交互</li>\n<li>service worker 能够订阅服务器发送的推送通知</li>\n<li>service worker 能够处理推送消息，即使应用没有在前台运行或者根本没打开</li>\n</ul>\n<p><img src=\"../../../images/blog/js/sw-push-img.png\" alt=\"sw-push-img.png\"></p>\n<h2 id=\"1-显示通知\">1. 显示通知</h2>\n<p>在 service worker 中可以使用 ServcieWorkerRegistration 对象支持 showNotifications() 方法来显示通知，可以配置 title 和 options 配置</p>\n<pre><code class=\"language-js\">navigator.serviceWorker.register(&#39;./serviceWorker.js&#39;)\n  .then((registration) =&gt; {\n    Notification.requestPermission()\n      .then(status =&gt; {\n        if (status === &#39;granted&#39;) {\n          registration.showNotification(&#39;title&#39;)\n        }\n      })\n  })</code></pre>\n<p>在 serviceWorker.js 中使用 self.registration 也可以显示通知</p>\n<pre><code class=\"language-js\">// 注意 onactivate 默认只触发一次\nself.onactivate = () =&gt; self.registration.showNotification(&#39;bar&#39;)</code></pre>\n<h2 id=\"2-处理通知事件\">2. 处理通知事件</h2>\n<p>ServiceWorkerRegistration 对象创建的通知会向 service worker 发送 notificationclick 和 notificationclose 事件</p>\n<pre><code class=\"language-js\">self.onnotificationclick = (event) =&gt; {\n  // NotificationEvent {}, Notification {}\n  console.log(&#39;notification click&#39;, event, event.notification)\n  // 点击通知后，在新的 tab 打开网页\n  clients.openWindow(&#39;http://www.zuo11.com&#39;)\n}\nself.onnotificationclose = (event) =&gt; {\n  console.log(&#39;notification close&#39;, event, event.notification)\n}</code></pre>\n<h2 id=\"3订阅推送事件\">3.订阅推送事件</h2>\n<p>使用 registration.pushManager.subscribe() 可以对服务器推送消息发起订阅。注意这个过程中不会发送请求到我们的应用服务器。该函数包含两个参数：</p>\n<ul>\n<li><code>userVisibleOnly</code> 通常被设置为 true，用来表示后续信息是否展示给用户。</li>\n<li><code>applicationServerKey</code> 秘钥，类型为 Uint8Array，用于加密服务端的推送信息，防止中间人攻击，会话被攻击者篡改。测试时，可以通过 <a href=\"https://web-push-codelab.glitch.me/\">web-push-codelab</a> 网站获取秘钥并验证全流程，将该网站随机生产的 Application Server Keys 中的 Public Key 使用 urlBase64ToUint8Array() 转换后即可当做 applicationServerKey 使用</li>\n</ul>\n<p>urlBase64ToUint8Array() 函数代码</p>\n<pre><code class=\"language-js\">function urlBase64ToUint8Array(base64String) {\n  const padding = &#39;=&#39;.repeat((4 - base64String.length % 4) % 4);\n  const base64 = (base64String + padding)\n    .replace(/-/g, &#39;+&#39;)\n    .replace(/_/g, &#39;/&#39;);\n\n  const rawData = window.atob(base64);\n  const outputArray = new Uint8Array(rawData.length);\n\n  for (let i = 0; i &lt; rawData.length; ++i) {\n    outputArray[i] = rawData.charCodeAt(i);\n  }\n  return outputArray;\n}</code></pre>\n<p><strong>registration.pushManager.subscribe() 函数返回一个 Promise，resolve 为 PushSubscription 对象，该对象包含服务器推送时必要的信息</strong> 不同的浏览器，对应的 endpoint 不一样。Chrome 和 Firefox 会不一样，如下图</p>\n<p><img src=\"../../../images/blog/js/sw_push.png\" alt=\"sw_push.png\"></p>\n<p><strong>如果一直卡在 registration.pushManager.subscribe()，不向下执行，状态一直时 pending，可能是因为 Chrome 浏览器关于推送消息的功能，被墙了，需要科学上网才能正常返回</strong></p>\n<p>订阅代码如下：</p>\n<pre><code class=\"language-js\">// main.js\n(async () =&gt; {\n  try {\n    const registration = await navigator.serviceWorker.register(&quot;sw.js&quot;);\n    const status = await Notification.requestPermission()\n    if (status === &#39;granted&#39;) {\n      const vapidPublicKey = &#39;BF9WWlvQiKSOwziO4gVeBdMeuhDW2HU2aCWAmaSLgXqGCGZK3ho15l30oQ6pdavh8acsc1kiXJNK-DtaqbHaZCQ&#39;;\n      const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);\n      // 防止 DOMException: Failed to execute &#39;subscribe&#39; on &#39;PushManager&#39;: Subscription failed - no active Service Worker\n      if (!registration.active) {\n        // 等待变为激活状态\n        await new Promise(r =&gt; setTimeout(r, 500))\n      }\n      const pushSubscription = await registration.pushManager.subscribe({\n        applicationServerKey: convertedVapidKey, // 来自服务器的公钥\n        userVisibleOnly: true\n      });\n      console.log(pushSubscription) // PushSubscription\n      console.log(JSON.stringify(pushSubscription)) // 这个消息可用于服务端发起推送\n      // { \n      //   &quot;endpoint&quot;: &quot;https://fcm.googleapis.com/fcm/send/ecbqKLEnhB8:APA91bGvTW0x3k57bT9gDMLPPVkwLotGJyqJ1kk8yvNHyNAJ8Z0F6O74BuA8QxVNPIsgf1gWlGrUe0bYSs4L6fo-Fl18WkwGyHc3FEo2YvSUXBr5AA7KenaZBkL1D87WuAE7ERl-JCM4&quot;,\n      //   &quot;expirationTime&quot;: null, \n      //   &quot;keys&quot;: { \n      //     &quot;p256dh&quot;: &quot;BIpKDNOPNQcBnfJVmdtZM2eJ0qS-FjicsiZK8jyUU07lGREwM_VZe2ulIWdrdlNlg7RFnHge8vJSe5y6TagW3Oc&quot;,\n      //     &quot;auth&quot;: &quot;IlAite8VLBLWV5ubUXg91w&quot;\n      //   }\n      // }\n    }\n  } catch (err) {\n    console.log(err);\n  }\n})()</code></pre>\n<p>上面的例子中，成功拿到 JSON.stringify(pushSubscription) 后，就可以在服务端使用该信息进行推送通知了。</p>\n<h2 id=\"4处理服务端推送消息\">4.处理服务端推送消息</h2>\n<pre><code class=\"language-js\">// sw.js\n// 当接收到服务端推送的消息时\nself.onpush = pushEvent =&gt; {\n  // 服务器推送的消息文本\n  console.log(pushEvent.data.text())\n  // 保持 service worker 活动到显示通知 resolve\n  pushEvent.waitUntil(\n    // 将服务器推送的消息作为通知显示\n    self.registration.showNotification(pushEvent.data.text())\n  )\n}\n// 点击消息时\nself.onnotificationclick = (event) =&gt; {\n  // NotificationEvent {}, Notification {}\n  console.log(&#39;notification click&#39;, event, event.notification)\n  // 点击通知后，在新的 tab 打开网页\n  clients.openWindow(&#39;http://www.zuo11.com&#39;)\n}</code></pre>\n<p>现在来测试下，上面的例子中，我们使用 <a href=\"https://web-push-codelab.glitch.me/\">web-push-codelab</a> 网站获取了 applicationServerKey 秘钥，我们同样可以在该网站发起服务端消息推送。将之前我们获取的 JSON.stringify(pushSubscription) 字符串拷贝到该网站的 Subscription to Send To 那一栏，然后在 Text to Send 中填写需要推送的消息。再点击 Send Push Message 按钮即可进行服务器推送。</p>\n<p>这样就可以看到通知了。上面只是为了方便测试，如果需要使用程序化的方式来进行服务端推送，那就需要把 JSON.stringify(pushSubscription) 字符串传到后端，以 Node.js 为例，后端可以使用 <a href=\"https://github.com/web-push-libs/web-push\">web-push</a> 来进行服务端推送。</p>\n<p>参考：</p>\n<ul>\n<li><a href=\"https://zhuanlan.zhihu.com/p/57225424\">Service Worker学习与实践（三）——消息推送 - 知乎</a></li>\n<li><a href=\"https://blog.csdn.net/weixin_33841722/article/details/88731760\">Service Worker学习与实践（三）——消息推送 - CSDN</a></li>\n<li><a href=\"https://w3c.github.io/push-api/#widl-PushManager-subscribe-Promise-PushSubscription--PushSubscriptionOptions-options\">Push API - W3C Editor&#39;s Draft 07 October 2020</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "使用 Service Worker 接收服务器推送消息并显示通知",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "1. 显示通知"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "2. 处理通知事件"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "3.订阅推送事件"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "4.处理服务端推送消息"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "使用 Service Worker 接收服务器推送消息并显示通知.md",
+        "staticFileName": "sw-notification.html",
+        "author": "guoqzuo",
+        "createDate": "2021/01/12",
+        "description": "推送通知一般需要支持服务器推送，在常规网页中是不可能的。service worker 可以实现该行为 - service worker 可以显示通知 - service worker 可以处理这些通知的交互 - service worker 能够订阅服务器发送的推送通知 - service worker 能够处理推送消息，即使应用没有在前台运行或者根本没打开",
+        "keywords": "service worker接收服务器推送消息",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "1"
+      }
     }
   ],
-  "count": 387,
+  "count": 395,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,
