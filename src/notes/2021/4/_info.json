@@ -1,0 +1,139 @@
+[
+  {
+    "source": "TypeScript error in 'AntdModal' refers to a value, but is being used as a type here.md",
+    "staticFileName": "ts_error_yarn.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在 ts + react + ant-design 的项目中，git clone 项目后，npm install 了，但 npm run serve 时一直提示 TypeScript error in 'AntdModal' refers to a value, but is being used as a type here. 在这个项目的场景下，npm install 安装的包是不全的。需要使用 yarn 来安装，具体命令如下",
+    "keywords": "TypeScript error in 'AntModal',refers to a value, but is being used as a type here",
+    "category": "TypeScript"
+  },
+  {
+    "source": "npm run start 为什么可以简写为 npm start，npm run start 与 npm start 区别.md",
+    "staticFileName": "npm_start.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在一些项目中发现项目启动命令是 npm start，但一般启动都是 npm run xxx，而 npm start 有点像 npm run start 的简写，于是就想着他们之间有什么关系，其它的命令是否也可以简写。下面来具体看看 npm start 与 npm run start.",
+    "keywords": "npm start 与 npm run start 区别,npm start,npm run start",
+    "category": "前端工程化"
+  },
+  {
+    "source": "npx create-react-app my-app 是什么意思？npx 有什么作用？.md",
+    "staticFileName": "npx_use.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在 react 官网，介绍 create-react-app 构建工具时，直接使用 npx create-react-app my-app 就可以直接创建一个 react 项目的脚手架，那 npx 命令执行和普通的 create-react-app my-app 有什么区别呢？下面来看看",
+    "keywords": "npx 用法,npx 有什么用,npx create-react-app",
+    "category": "前端工程化"
+  },
+  {
+    "source": "React Declarative 声明式是什么意思？声明式编程与命令式 imperative 编程.md",
+    "staticFileName": "react_declarative.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "React 的 Declarative 特性是什么意思？在 React github 的 README.md 中，介绍 react 的特点时，第一个是 Declarative，翻译成中文是声明式，具体要怎么理解呢？下面来看看",
+    "keywords": "declarative与imperative,声明式编程,React Declarative; react declarative",
+    "category": "React"
+  },
+  {
+    "source": "mac 安装 brew 异常: fatal: unable to access 'https:--github.com-Homebrew-brew-'.md",
+    "staticFileName": "mac_brew_new.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "为了快速安装 svn, git, nginx 等，我想着先在 macbook 上安装 brew，按照常规的方法修改了 ruby 源，但还是出现安装错误 `fatal: unable to access 'https://github.com/Homebrew/brew/' LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 Failed during: git fetch --force origin` ",
+    "keywords": "mac安装brew fail,mac 安装 brew,mac homebrew 安装失败",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "git xcrun: error: invalid active developer path.md",
+    "staticFileName": "git_xcrun_error.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在 mac 下输入 git 命令，突然提示 xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun，可能是没有安装 xcode，有些功能没有的原因。一般可以通过运行 `xcode-select --install` 命令来解决，按照提示完成安装，就 OK 了",
+    "keywords": "git xcrun error,invalid active developer path",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "vscode 下载太慢，vscode 官网下载太慢解决方法.md",
+    "staticFileName": "vscode_download_slow.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在 vscode 官网下载 vscode 时，发现非常慢，过会儿就下载失败了。如下图，为了解决这个问题，我们可以在下载中，找到对应的下载链接将 url 前面的域名修改为其他源，这样下载会很快。如下图，将 vscode 官网默认下载 url 前面的路径改为 `vscode.cdn.azure.cn` 即可。参考: [国内下载vscode速度慢问题解决 - 知乎](https://zhuanlan.zhihu.com/p/112215618)",
+    "keywords": "vscode下载慢,vscode官网下载慢,vscode download slow",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "多个 ssh 怎么配置，github、gitlab、gitee 多个平台配置并测试.md",
+    "staticFileName": "multiple_ssh.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在之前我们有介绍过使用 ssh 方式拉取代码的步骤，仅一个平台时（比如 github）还可以。如果多个 git 平台（比如 github、gitlab、gitee）都需要配置 ssh 时，那怎么配置呢？首先我们要在 ~/.ssh/ 目录下新建一个 config 文件，内容如下",
+    "keywords": "ssh多git平台,多个ssh配置,multiple ssh",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "vscode terminal 中 the term 'node' is not recognied.md",
+    "staticFileName": "not_recognied_terminal.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "windows 系统下，在 vscode 的 Terminal 中，运行 npm install 或 node 命令时都会提示 the term node/npm is not recognied... 但是如果打开系统的 terminal 运行命令就是正常的。仔细看会发现 vscode 中使用的是 Powershell，而一般默认的 bash。Powershell 中无法执行 node 命令，需要运行下面的命令更新环境变量中的 Path",
+    "keywords": "the term 'node' is not recognied,the term 'npm' is not recognied",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "git clone 输错了密码，怎么重新输入或修改密码.md",
+    "staticFileName": "git_clone_pw_error.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在 windows 系统中，如果是第一次拉取代码，而且是使用的 http 方式，涉及到登录的时候，会要求输入 git 相关账号密码，如果账号密码不小心输入错误。后面每次 git clone 都会提示 auth 失败。这时我们可以在 **控制面板 - 用户账户 - 凭据管理器** 里修改对应的密码",
+    "keywords": "git clone error,git clone auth fail",
+    "category": "运维部署与版本控制"
+  },
+  {
+    "source": "vuepress html lang 默认为英文，总是弹出 google 翻译怎么解决.md",
+    "staticFileName": "vuepress_lang.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "默认情况下，vuepress 生成的网页 html lang 属性为 'en-US'，当在 Chrome 浏览器打开时，总是会弹出翻译的窗口。如下图，解决这个问题的方法就是将默认的 lang 设置为中文 'zh-CN' 即可。vuepress 支持国际化功能，我们只需要修改下对应的配置即可。",
+    "keywords": "总是弹出 google 翻译怎么解决,vuepress 默认 lang 设置",
+    "category": "Vue"
+  },
+  {
+    "source": "import 出现黄色警告提示，ESLint is disabled since its execution has not been approved.md",
+    "staticFileName": "eslint_auth.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在有 ESLint 的项目中，发现 import 都出现了黄色警告，提示 ESLint is disabled since its execution has not been approved or denied yet. Use the light bulb menu to open the approval dialog.eslint。这是因为初次打开项目，没有 eslint 授权产生的错误提示。点击 vscode 开发工具右下角的 ESLint 就会弹出授权窗口，点击允许即可。",
+    "keywords": "ESLint 授权弹窗,eslint auth dialog",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "ESLint 与 Prettier 冲突的问题怎么处理？.md",
+    "staticFileName": "eslint_prettier_conflict.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在安装 @vue/cli 后，使用 vue create xx 创建项目，如果选择了 eslint + prettier，可能会出现冲突。比如 在 .eslintrc.js 的 rules 中设置了强制单引号，而默认情况下 prettier 是双引号。`如果有双引号，eslint 会提示 error。如果有单引号 prettier 会警告提示`，保存自动 fix 会在单双引号之间来回切换，总是会有异常提示。",
+    "keywords": "eslint prettier conflict,ESLint 与 Prettier 冲突",
+    "category": "前端工程化"
+  },
+  {
+    "source": "Vue 使用 vue-i18n 国际化.md",
+    "staticFileName": "vue_international.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在 vue 项目中，可以使用 vue-i18n 来做国际化。下面来看具体是怎么使用的 1. 安装 npm install vue-i18n --save 2. 在 main.js 引入，并做初始化配置，使用 locale 设置默认语言，使用 messages 对象属性，指定不同语言对应的内容。3. 在 vue template 中直接使用。如果想动态切换语言，使用 `this.$root.$i18n.locale = 'en'` 即可修改语言",
+    "keywords": "vue 国际化,vue international, vue i18n",
+    "category": "Vue"
+  },
+  {
+    "source": "import { } 解构与 export 和 export default.md",
+    "staticFileName": "import_export.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/03",
+    "description": "在封装功能函数时，我们经常需要在 import 时使用解构 {} 来仅导出部分模块功能。在有些情况会发现是无法解构的，下面来看看 - 一般 export default 的内容，需要使用 `import xxx from 'xx'` 直接接收，不能在 import 时解构 - 通过 export xx 的内容，需要使用 `import { xx, xx } from 'xx'` 或 `import * as xx from 'xx'` 接收",
+    "keywords": "import {} 与 export default,import {}",
+    "category": "JavaScript"
+  }
+]
+
+
