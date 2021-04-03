@@ -1,0 +1,148 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="multiple_ssh.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在之前我们有介绍过使用 ssh 方式拉取代码的步骤，仅一个平台时（比如 github）还可以。如果多个 git 平台（比如 github、gitlab、gitee）都需要配置 ssh 时，那怎么配置呢？首先我们要在 ~/.ssh/ 目录下新建一个 config 文件，内容如下">
+        <meta name="keywords" content="ssh多git平台,多个ssh配置,multiple ssh">
+
+        <title>多个 ssh 怎么配置，github、gitlab、gitee 多个平台配置并测试 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="多个-ssh-怎么配置，github、gitlab、gitee-多个平台配置并测试">多个 ssh 怎么配置，github、gitlab、gitee 多个平台配置并测试</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2021/04/03，归类于 <a href="/blog/category.html#运维部署与版本控制" class="hidden">运维部署与版本控制</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>ssh多git平台</span>，<span>多个ssh配置</span>，<span>multiple ssh</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>在之前我们有介绍过 <a href="http://www.zuo11.com/blog/2020/8/git_ssh.html">使用ssh方式拉取代码的步骤</a>，仅一个平台时（比如 github）还可以。如果多个 git 平台（比如 github、gitlab、gitee）都需要配置 ssh 时，那怎么配置呢？</p>
+<p>首先我们要在 ~/.ssh/ 目录下新建一个 config 文件，内容如下</p>
+<pre><code class="language-bash"># github 配置
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/id_rsa
+    User guoqzuo@gmail.com
+
+# gitee 配置
+Host gitee.com
+    HostName gitee.com
+    IdentityFile ~/.ssh/gitee/id_rsa_gitee
+    User 916707888@qq.com
+
+# gitlab 配置
+Host gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/gitlab/id_rsa_gitlab
+    User i@zuoguoqing.com</code></pre>
+<p>其中 IdentityFile 指定的秘钥文件是需要注意的，需要使用 <code>ssh-keygen -t rsa -C &quot;对应的邮箱&quot;</code> 生成 id_rsa 秘钥对，其中 id_rsa.pub 公钥文件中的内容是需要设置到 github/gitee/gitlab 等平台上的。由于有多个，我们需要指定对应的文件名字，一般以 id_rsa_github 或 id_rsa_gitlab 来与默认的文件名做区别。注意：如果不指定名字，默认会放到 <code>~/.ssh/id_rsa</code>，自定义文件名后，如果没指定目录，会在当前目录生成。建议都放到 <code>~/.ssh/</code> 目录下方便管理。</p>
+<p>测试 ssh key 是否配置成功</p>
+<pre><code class="language-bash"># 测试 gitee ssh 是否配置成功
+ssh -T git@gitee.com
+# Hi 左国清! You&#39;ve successfully authenticated, but GITEE.COM does not provide shell access.
+
+# 测试 github ssh 是否配置成功
+ssh -T git@github.com
+# Hi zuoxiaobai! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+
+# 测试 gitlab ssh 是否配置成功
+ssh -T git@gitlab.com
+# Welcome to GitLab, @zuoxiaobai!</code></pre>
+<p>如果在测试时，没有提示上面的内容，而是提示 <code>The authenticity of host &#39;github.com (140.82.121.4)&#39; can&#39;t be established. RSA key fingerprint is SHA256:xxxx... Are you sure you want to continue connecting (yes/no/[fingerprint])?</code> 选择 yes 即可，会将对应的 key 添加到 <code>~/.ssh/known_hosts</code> 中，然后就能看到上面的成功信息了。我的 <code>~/.ssh/</code> 目录内容如下</p>
+<pre><code class="language-bash"># 查看 
+ls ~/.ssh/
+# config        gitee        gitlab        id_rsa        id_rsa.pub    known_hosts</code></pre>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="多个-ssh-怎么配置，github、gitlab、gitee-多个平台配置并测试" style="padding-left:1em">多个 ssh 怎么配置，github、gitlab、gitee 多个平台配置并测试<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  

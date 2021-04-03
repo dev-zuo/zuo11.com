@@ -1,0 +1,135 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="npm_start.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在一些项目中发现项目启动命令是 npm start，但一般启动都是 npm run xxx，而 npm start 有点像 npm run start 的简写，于是就想着他们之间有什么关系，其它的命令是否也可以简写。下面来具体看看 npm start 与 npm run start.">
+        <meta name="keywords" content="npm start 与 npm run start 区别,npm start,npm run start">
+
+        <title>npm run start 为什么可以简写为 npm start，npm run start 与 npm start 区别 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="npm-run-start-为什么可以简写为-npm-start，npm-run-start-与-npm-start-区别">npm run start 为什么可以简写为 npm start，npm run start 与 npm start 区别</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2021/04/03，归类于 <a href="/blog/category.html#前端工程化" class="hidden">前端工程化</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>npm start 与 npm run start 区别</span>，<span>npm start</span>，<span>npm run start</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>在一些项目中发现项目启动命令是 npm start，但一般启动都是 npm run xxx，而 npm start 有点像 npm run start 的简写，于是就想着他们之间有什么关系，其它的命令是否也可以简写。下面来具体看看 npm start 与 npm run start.</p>
+<p>一般在 node 项目中，npm run xxx 会执行 package.json 配置中 &quot;scripts&quot; 字段中对应的命令，可以用于创建某些命令的快捷执行方式。比如在下面的例子中</p>
+<pre><code class="language-js">// package.json
+{
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node foo.js&quot;,
+    &quot;dev&quot; &quot;node dev.js&quot;,
+    &quot;build&quot;: &quot;vuepress build docs&quot;
+  }
+}</code></pre>
+<p>npm run dev 相当于 node dev.js 命令的快捷方式。另外它还可以<strong>用于在未全局安装某个命令时，项目内局部运行命令</strong>。上面的例子中 vuepress 命令未全局安装，仅项目内安装，要执行 vuepress 命令就需要使用 scripts 快捷方式执行了。</p>
+<p>这里的 npm run build，相当于在项目目录下执行了 <code>./node_modules/.bin/vuepress build docs</code></p>
+<p>知道这些后，再回归我们的主题，npm run start 为什么可以简写为 npm start 呢？是否 npm run xxx，可以直接简写问 npm xxx 呢？</p>
+<p>查阅了 npm 官方文档，发现 npm start 其实是内置的命令。只是巧合，并不是 npm run xxx 可以简写为 npm xxx</p>
+<p>npm start 的运行机制，<code>npm start</code> Description</p>
+<p>This runs a predefined command specified in the &quot;start&quot; property of a package&#39;s &quot;scripts&quot; object.</p>
+<p>If the &quot;scripts&quot; object does not define a &quot;start&quot; property, npm will run node server.js.</p>
+<p>它会执行 scripts 中 &quot;start&quot; 属性预先指定的脚本，如果 &quot;scripts&quot; 中没有设置 &quot;start&quot; 属性，那么就运行 &quot;node server.js&quot; 命令。</p>
+<p>更多 npm 指令、scripts 相关，参考:</p>
+<ul>
+<li><a href="https://docs.npmjs.com/cli/v7/commands/npm-run-script">npm-run-script | npm Docs</a></li>
+<li><a href="https://docs.npmjs.com/cli/v7/commands/npm-start">npm-start | npm Docs</a></li>
+</ul>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="npm-run-start-为什么可以简写为-npm-start，npm-run-start-与-npm-start-区别" style="padding-left:1em">npm run start 为什么可以简写为 npm start，npm run start 与 npm start 区别<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  
