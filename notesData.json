@@ -428,6 +428,13 @@
         "time": "2020/06/21",
         "description": "微信小程序很早就已经开放个人主体了，也就是个人也可以上传发布小程序。但现在个人主体小程序可以做的内容越来越少了，相信很多微信小程序的开发者都遇到过这种情况：好不容易做好了小程序，结果准备提交审核上线时，由于类目问题，审核被拒，无法上线的情况。",
         "keywords": "开发个人微信小程序前必看,小程序个人主体可以做什么内容,个人小程序审核被拒"
+      },
+      {
+        "title": "小程序代码找回，代码丢失后找回过程记录（反编译、云开发函数恢复）",
+        "href": "2021/4/miniprogram_code_reverse.html",
+        "time": "2021/04/11",
+        "description": "小程序代码找回，小程序云开发代码找回，小程序云函数恢复，最近想把之前写的一个已上线的小程序开源，发现当时居然没有用 git 管理，换电脑、折腾 mac 双系统后，代码丢失了。尝试用数据恢复软件恢复都没有找回代码，尽管小程序的文件特征很好找，比如 .wxml、project.config.json 等。后面在网上找了反编译线上小程序的方法。这样可以拿到 uglify 混淆压缩后的代码，至少比没有强。另外，云函数的代码也是可以恢复的，因为之前开发时上传过，它是可以下载的。",
+        "keywords": "小程序代码找回,小程序云开发代码找回,小程序云函数恢复"
       }
     ],
     "http与https": [
@@ -789,6 +796,13 @@
         "time": "2021/04/03",
         "description": "在 windows 系统中，如果是第一次拉取代码，而且是使用的 http 方式，涉及到登录的时候，会要求输入 git 相关账号密码，如果账号密码不小心输入错误。后面每次 git clone 都会提示 auth 失败。这时我们可以在 **控制面板 - 用户账户 - 凭据管理器** 里修改对应的密码",
         "keywords": "git clone error,git clone auth fail"
+      },
+      {
+        "title": "Make sure you configure your ‘user.name’ and ‘user.email’ in git",
+        "href": "2021/4/git_user_email.html",
+        "time": "2021/04/11",
+        "description": "git 设置 user.name user.email，github 提交没有绿点，github提交没头像，在 vscode 中，使用可视化工具，而非命令的方式提交代码时，如果没有配置 git 的 user.name 和 user.email，可能会弹出 Make sure you configure your ‘user.name’ and ‘user.email’ in git 的错误，代码无法提交。这就需要先配置好，再提交了。另外，在 github 或 gitlab 等页面中，可能会遇到提交没有绿点或者看不到头像的情况，可能是因为配置的 user.email 发生了变化，和平台的 email 不一致导致的。修改成一致的就正常了。",
+        "keywords": "git config,git 设置 user.name user.email,github 提交没有绿点,github提交没头像"
       }
     ],
     "JavaScript": [
@@ -1344,6 +1358,13 @@
         "time": "2021/04/03",
         "description": "在封装功能函数时，我们经常需要在 import 时使用解构 {} 来仅导出部分模块功能。在有些情况会发现是无法解构的，下面来看看 - 一般 export default 的内容，需要使用 `import xxx from 'xx'` 直接接收，不能在 import 时解构 - 通过 export xx 的内容，需要使用 `import { xx, xx } from 'xx'` 或 `import * as xx from 'xx'` 接收",
         "keywords": "import {} 与 export default,import {}"
+      },
+      {
+        "title": "用游戏中的场景理解节流与防抖，最简单的 js 实现",
+        "href": "2021/4/easy_throttle_debounce.html",
+        "time": "2021/04/11",
+        "description": "节流和防抖，手写节流和防抖，节流(throttle) 对应技能冷却时间，如果冷却(cooldown/cd)是 5 秒，使用技能后，5秒内，无法再次执行。用于控制事件执行一次后，多长时间内不允许再次执行。一般用于防止按钮多次点击，重复触发事件。防抖(去抖动 debounce、de + bounce) 对应 **回城**，在推塔游戏中，回城等待时间是 8 秒。可以理解为回城时，会开启一个定时任务，8 秒后执行完成回城的函数。防抖/去抖动，就是在定时任务等待执行的时间内，如果再次触发发了函数，会取消上一次的定时任务，重新开始一个定时任务。这样可以**将一段时间内连续的多次触发转化为一次触发，单位时间内仅执行最后一次**。一般用于 window 的 scroll、resize 事件、搜索框输入搜索内容后实时查询接口等。",
+        "keywords": "节流和防抖,手写节流和防抖,节流和防抖,throttle debounce"
       }
     ],
     "CSS": [
@@ -2223,6 +2244,13 @@
         "time": "2021/04/03",
         "description": "在 vue 项目中，可以使用 vue-i18n 来做国际化。下面来看具体是怎么使用的 1. 安装 npm install vue-i18n --save 2. 在 main.js 引入，并做初始化配置，使用 locale 设置默认语言，使用 messages 对象属性，指定不同语言对应的内容。3. 在 vue template 中直接使用。如果想动态切换语言，使用 `this.$root.$i18n.locale = 'en'` 即可修改语言",
         "keywords": "vue 国际化,vue international, vue i18n"
+      },
+      {
+        "title": "props Right-hand side of 'instanceof' is not an object",
+        "href": "2021/4/vue_props_error.html",
+        "time": "2021/04/11",
+        "description": "在 Vue 中写 props 属性时，一般最简单的方式是使用数组的形式： props: ['属性名1', '属性名2']，但这样没有类型校验、默认值。在使用对象的写法时，发现出现 props Right-hand side of 'instanceof' is not an object，错误，写法如下",
+        "keywords": "vue props error"
       }
     ],
     "计算机基础与开发工具": [
@@ -2554,6 +2582,13 @@
         "time": "2021/04/03",
         "description": "在有 ESLint 的项目中，发现 import 都出现了黄色警告，提示 ESLint is disabled since its execution has not been approved or denied yet. Use the light bulb menu to open the approval dialog.eslint。这是因为初次打开项目，没有 eslint 授权产生的错误提示。点击 vscode 开发工具右下角的 ESLint 就会弹出授权窗口，点击允许即可。",
         "keywords": "ESLint 授权弹窗,eslint auth dialog"
+      },
+      {
+        "title": "提示 hints、tips、prompt 以及 message 的区别",
+        "href": "2021/4/tips_hints.html",
+        "time": "2021/04/11",
+        "description": "在程序开发中，关于提示组件的命名，有 tips、hints、prompt、message 等，一般怎么使用呢？下面来看看  tips，n. 小贴士、温馨提示、小窍门。主要用于文字提示，比如 tooltip 组件。 hints，n. 暗示、提示，v. 暗示、示意。开发中用的较少，相比于 tips，它有间接含蓄, 暗示，不直接提示的意思。",
+        "keywords": "hints和tips区别,提示命名,提示 英文,提示 英语"
       }
     ],
     "前端工程化": [
@@ -8725,7 +8760,7 @@
       }
     },
     {
-      "htmlStr": "<h1 id=\"节流与防抖理解以及element源码中节流与防抖的应用\">节流与防抖理解以及element源码中节流与防抖的应用</h1>\n<p>理论上 throttle 节流一般用于监听类似 resize 方法，想要减少执行频率的场景。对于点击按钮提交，防止短时间内多次点击可以用 debounce 防抖</p>\n<p>但实际使用时可根据具体情况来看，本质上都是利用 setTimeout 来处理执行频率或执行间隔。下面是一个简单的 lodash 防抖示例，300ms 内放置重复点击</p>\n<pre><code class=\"language-js\">import { debounce } from &#39;lodash&#39;\nexport default {\n  methods: {\n    submitFormDebounce: debounce(function() {\n      console.log(&#39;submit&#39;, +new Date())\n      this.submitForm()\n    }, 300, {trailing: true}),\n\n    submitForm() {\n\n    }\n  }\n}</code></pre>\n<h2 id=\"element源码中节流与防抖的应用\">element源码中节流与防抖的应用</h2>\n<p>在做input搜索时，由于input change后需要请求接口，这里el-autocomplete有个默认的300豪秒debounce，可以减少请求频率。理论上这里减少频率需要使用节流，但为什么是防抖呢？</p>\n<p>我们把 element 源码中对节流防抖的使用都找一找。可以看到element使用的节流防抖库是 <code>throttle-debounce</code></p>\n<p>发现节流 throttle 用的比较少，只找到了三个地方：</p>\n<pre><code class=\"language-js\">// Backtop 回到顶部\n// packages/backtop/src/main.vue  滚动监听时用到了节流\nimport throttle from &#39;throttle-debounce/throttle&#39;;\nmounted() {\n  this.init();\n  this.throttledScrollHandler = throttle(300, this.onScroll);\n  this.container.addEventListener(&#39;scroll&#39;, this.throttledScrollHandler);\n},\n\n// Carousel 走马灯 \n// packages/carouse/src/main.vue 鼠标hover，箭头点击使用了节流\nimport throttle from &#39;throttle-debounce/throttle&#39;;\ncreated() {\n  this.throttledArrowClick = throttle(300, true, index =&gt; {\n    this.setActiveItem(index);\n  });\n  this.throttledIndicatorHover = throttle(300, index =&gt; {\n    this.handleIndicatorHover(index);\n  });\n},\n\n// Image 图片 滚动到区域懒加载时，使用了节流\nif (_scrollContainer) {\n  this._scrollContainer = _scrollContainer;\n  this._lazyLoadHandler = throttle(200, this.handleLazyLoad);\n  on(_scrollContainer, &#39;scroll&#39;, this._lazyLoadHandler);\n  this.handleLazyLoad();\n}</code></pre>\n<p>再来看看防抖的地方</p>\n<p><img src=\"../../../images/blog/js/el_debounce.png\" alt=\"el_debounce.png\"></p>\n<p><strong>总结：涉及到接口请求次数限制的基本都是防抖，对于滚动类别防止多次执行的情况才用节流，其他请求一律防抖</strong></p>\n",
+      "htmlStr": "<h1 id=\"节流与防抖理解以及element源码中节流与防抖的应用\">节流与防抖理解以及element源码中节流与防抖的应用</h1>\n<blockquote>\n<p>该内容存在理解错误，最新修正笔记参考：<a href=\"/blog/2021/4/easy_throttle_debounce.html\">用游戏中的场景理解节流与防抖，最简单的 js 实现</a></p>\n</blockquote>\n<p>理论上 throttle 节流一般用于监听类似 resize 方法，想要减少执行频率的场景。对于点击按钮提交，防止短时间内多次点击可以用 debounce 防抖</p>\n<p>但实际使用时可根据具体情况来看，本质上都是利用 setTimeout 来处理执行频率或执行间隔。下面是一个简单的 lodash 防抖示例，300ms 内放置重复点击</p>\n<pre><code class=\"language-js\">import { debounce } from &#39;lodash&#39;\nexport default {\n  methods: {\n    submitFormDebounce: debounce(function() {\n      console.log(&#39;submit&#39;, +new Date())\n      this.submitForm()\n    }, 300, {trailing: true}),\n\n    submitForm() {\n\n    }\n  }\n}</code></pre>\n<h2 id=\"element源码中节流与防抖的应用\">element源码中节流与防抖的应用</h2>\n<p>在做input搜索时，由于input change后需要请求接口，这里el-autocomplete有个默认的300豪秒debounce，可以减少请求频率。理论上这里减少频率需要使用节流，但为什么是防抖呢？</p>\n<p>我们把 element 源码中对节流防抖的使用都找一找。可以看到element使用的节流防抖库是 <code>throttle-debounce</code></p>\n<p>发现节流 throttle 用的比较少，只找到了三个地方：</p>\n<pre><code class=\"language-js\">// Backtop 回到顶部\n// packages/backtop/src/main.vue  滚动监听时用到了节流\nimport throttle from &#39;throttle-debounce/throttle&#39;;\nmounted() {\n  this.init();\n  this.throttledScrollHandler = throttle(300, this.onScroll);\n  this.container.addEventListener(&#39;scroll&#39;, this.throttledScrollHandler);\n},\n\n// Carousel 走马灯 \n// packages/carouse/src/main.vue 鼠标hover，箭头点击使用了节流\nimport throttle from &#39;throttle-debounce/throttle&#39;;\ncreated() {\n  this.throttledArrowClick = throttle(300, true, index =&gt; {\n    this.setActiveItem(index);\n  });\n  this.throttledIndicatorHover = throttle(300, index =&gt; {\n    this.handleIndicatorHover(index);\n  });\n},\n\n// Image 图片 滚动到区域懒加载时，使用了节流\nif (_scrollContainer) {\n  this._scrollContainer = _scrollContainer;\n  this._lazyLoadHandler = throttle(200, this.handleLazyLoad);\n  on(_scrollContainer, &#39;scroll&#39;, this._lazyLoadHandler);\n  this.handleLazyLoad();\n}</code></pre>\n<p>再来看看防抖的地方</p>\n<p><img src=\"../../../images/blog/js/el_debounce.png\" alt=\"el_debounce.png\"></p>\n<p><strong>总结：涉及到接口请求次数限制的基本都是防抖，对于滚动类别防止多次执行的情况才用节流，其他请求一律防抖</strong></p>\n",
       "outline": [
         {
           "type": "heading",
@@ -15351,9 +15386,153 @@
         "year": "2021",
         "month": "4"
       }
+    },
+    {
+      "htmlStr": "<h1 id=\"提示-hints、tips、prompt-以及-message-的区别\">提示 hints、tips、prompt 以及 message 的区别</h1>\n<p>在程序开发中，关于提示组件的命名，有 tips、hints、prompt、message 等，一般怎么使用呢？下面来看看</p>\n<ul>\n<li><p><strong>tips</strong>，n. 小贴士、温馨提示、小窍门。<strong>主要用于文字提示</strong>，比如 tooltip 组件。</p>\n</li>\n<li><p><strong>hints</strong>，n. 暗示、提示，v. 暗示、示意。开发中用的较少，相比于 tips，<strong>它有间接含蓄, 暗示，不直接提示</strong>的意思。</p>\n</li>\n<li><p><strong>prompt</strong>，n. 提示、提词，v. 提示、鼓励、促进。在开发中用的较少，BOM API 中带输入框的提示，使用的就是 prompt <code>window.prompt(&#39;最近还好吗？&#39;)</code></p>\n</li>\n<li><p><strong>message</strong> n. 消息、信息，v. 通知。<strong>主要是全局提示，强调信息、消息</strong>。收到一条通知、消息。常用于 message 消息/信息提示/显示。</p>\n</li>\n</ul>\n<p>另外还有一个 alert，属于 <strong>警告提示</strong>。</p>\n<p>参考: <a href=\"https://zhidao.baidu.com/question/2144372129649021108.html\">英语hints和tips区别？</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "提示 hints、tips、prompt 以及 message 的区别"
+        }
+      ],
+      "config": {
+        "source": "提示 hints、tips、prompt 以及 message 的区别.md",
+        "staticFileName": "tips_hints.html",
+        "author": "guoqzuo",
+        "createDate": "2021/04/11",
+        "description": "在程序开发中，关于提示组件的命名，有 tips、hints、prompt、message 等，一般怎么使用呢？下面来看看  tips，n. 小贴士、温馨提示、小窍门。主要用于文字提示，比如 tooltip 组件。 hints，n. 暗示、提示，v. 暗示、示意。开发中用的较少，相比于 tips，它有间接含蓄, 暗示，不直接提示的意思。",
+        "keywords": "hints和tips区别,提示命名,提示 英文,提示 英语",
+        "category": "计算机基础与开发工具",
+        "year": "2021",
+        "month": "4"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"小程序代码找回，代码丢失后找回过程记录（反编译、云开发函数恢复）\">小程序代码找回，代码丢失后找回过程记录（反编译、云开发函数恢复）</h1>\n<p>最近想把之前写的一个已上线的小程序开源，发现当时居然没有用 git 管理，换电脑、折腾 mac 双系统后，代码丢失了。尝试用数据恢复软件恢复都没有找回代码，尽管小程序的文件特征很好找，比如 .wxml、project.config.json 等。</p>\n<p>后面在网上找了反编译线上小程序的方法。这样可以拿到 uglify 混淆压缩后的代码，至少比没有强。另外，云函数的代码也是可以恢复的，因为之前开发时上传过，它是可以下载的。</p>\n<blockquote>\n<p>注意：反编译小程序要求必须是已上线的小程序。对于云函数的恢复/下载，需要知道之前开发的 appid，且微信账号拥有对应的管理员/开发权限。</p>\n</blockquote>\n<h2 id=\"为什么小程序可以反编译？\">为什么小程序可以反编译？</h2>\n<p>理论上小程序也是属于前端代码，前端的 js、css、html 一般是可以拿到的。微信在打开小程序时，会先下载对应小程序的包(.wxapkg文件)来执行。只要我们拿到这个文件，就可以通过反编译拿到混淆压缩后的代码。这里反编译使用的是 <a href=\"https://github.com/qwerty472123/wxappUnpacker\">wxappUnpacker</a>，虽然删除了，但点开 fork，有很多之前备份的代码。 </p>\n<h2 id=\"获取小程序的-wxapkg-文件\">获取小程序的 wxapkg 文件</h2>\n<ol>\n<li>下载安装 <a href=\"https://www.yeshen.com/\">夜神模拟器</a>，注意：如果是 mac 系统，打开后一直卡在 99%，可能是因为 VirtualBox 的原因，安装该模拟器时，会自动安装 VirtualBox，可以在 app 中手动打开 VirtualBox 并启动，再打开模拟器。</li>\n<li>下载 <a href=\"http://www.pc6.com/az/56118.html\">RE 文件管理器</a>，文件名为：com.speedsoftware.rootexplorer_999496.apk</li>\n<li>在 模拟器中 安装 RE文件管理器，点击模拟器右侧的 添加 apk 文件图标，选择刚才下好的 apk 文件进行安装。如下图，安装完成后打开该 app，并允许获取权限。</li>\n</ol>\n<p><img src=\"../../../images/blog/mp/wxapkg_1_1.png\" alt=\"wxapkg_1_1.png\"></p>\n<ol start=\"4\">\n<li>在模拟器中搜索 微信，安装好后，运行微信，登录后，打开对应的小程序</li>\n<li>打开小程序后，在文件管理器的 <code>/data/data/com.tencent.mm/MicroMsg/{数字串}/appbrand/pkg/</code> 目录，可以看到对应的 .wxapkg 文件，如下图。注意：如果找不到对应的文件，可以点击右上角的三个点，搜索对应的文件。</li>\n</ol>\n<p><img src=\"../../../images/blog/mp/wxapkg_1_2.png\" alt=\"wxapkg_1_2.png\"></p>\n<ol start=\"6\">\n<li>导出 .wxapkg 文件。鼠标长按对应的文件，多选两个 wxapkg 文件，点击右上角三个点，zip 压缩，压缩后，查看对应的文件，再点击右上角三个点，发送到微信即可。 </li>\n</ol>\n<p><img src=\"../../../images/blog/mp/wxapkg_1_3.png\" alt=\"wxapkg_1_3.png\"></p>\n<h2 id=\"使用-wxappunpacker-反编译-wxapkg-文件\">使用 wxappUnpacker 反编译 wxapkg 文件</h2>\n<p>拿到小程序的 wxapkg 文件后，我们将之前在 fork 仓库中下载好的 wxappUnpacker 在 vscode 中打开，使用 Terminal cd（进入）到对应的目录。运行 npm install 或 yarn add 安装对应的依赖。安装完成后，在当前目录下，运行 <code>node wuWxapkg.js 对应的小程序wxapkg文件</code> 命令，就可以得到反编译后的代码。</p>\n<pre><code class=\"language-bash\"># 安装依赖\nnpm install css-tree cssbeautify escodegen esprima js-beautify uglify-es vm2\n# 还原小程序代码示例\nnode wuWxapkg.js &#39;/Users/zuo/Desktop/test1234/_626200936_1.wxapkg&#39;</code></pre>\n<p>运行后，虽然生成了代码，但是 terminal 出现了下面的错误，css 文件未被还原</p>\n<pre><code class=\"language-js\">/wxappUnpacker-master/node_modules/vm2/lib/main.js:890\n                                throw this._internal.Decontextify.value(e);\n                                ^\nReferenceError [Error]: __vd_version_info__ is not defined</code></pre>\n<p>这里需要修改 wxappUnpacker 项目中 wuWxss.js 中的 runOnce() 函数代码</p>\n<pre><code class=\"language-js\">// wuWxss.js\n// function runOnce(){\n//     for(let name in runList)runVM(name,runList[name]);\n// }\nfunction runOnce() {\n  for (let name in runList) {\n    // console.log(name, runList[name]);\n    var start = `var window = window || {}; var __pageFrameStartTime__ = Date.now(); var __webviewId__; var __wxAppCode__={}; var __mainPageFrameReady__ = function(){}; var __WXML_GLOBAL__={entrys:{},defines:{},modules:{},ops:[],wxs_nf_init:undefined,total_ops:0}; var __vd_version_info__=__vd_version_info__||{};\n\n    $gwx=function(path,global){\n\n    if(typeof global === &#39;undefined&#39;) global={};if(typeof __WXML_GLOBAL__ === &#39;undefined&#39;) {__WXML_GLOBAL__={};\n\n    }__WXML_GLOBAL__.modules = __WXML_GLOBAL__.modules || {};\n\n    }`;\n    runVM(name, start + &quot; \\r\\n&quot; + runList[name]);\n  }\n}</code></pre>\n<p>修改后再次执行就 OK 了，代码大致就恢复了。目录结构如下</p>\n<p><img src=\"../../../images/blog/mp/wxapkg_2_1.png\" alt=\"wxapkg_2_1.png\"></p>\n<h2 id=\"小程序云开发，云函数代码恢复\">小程序云开发，云函数代码恢复</h2>\n<blockquote>\n<p>理论上云开发和小程序 appid，微信号开发权限是相关联的，如果没有权限是无法还原云函数的</p>\n</blockquote>\n<p>这个项目是小程序云开发的项目，而 wxappUnpacker 恢复的只是普通小程序的目录结构。下面是小程序云开发的目录结构</p>\n<p><img src=\"../../../images/blog/mp/wxapkg_2_2.png\" alt=\"wxapkg_2_2.png\"></p>\n<p>我们需要进一步处理</p>\n<ol>\n<li>创建一个新的文件夹，比如 my-app，然后在目录下创建 cloudfunctions 和 miniprogram 文件夹，将恢复的代码，拷贝到 miniprogram 中</li>\n<li>创建 project.config.json 文件，找到之前开发该小程序时，使用的该小程序的 appid，修改 project.config.json 文件</li>\n</ol>\n<pre><code class=\"language-js\">{\n  &quot;miniprogramRoot&quot;: &quot;miniprogram/&quot;,\n  &quot;cloudfunctionRoot&quot;: &quot;cloudfunctions/&quot;,\n  &quot;appid&quot;: &quot;wx45333c9fc02af773&quot;,\n  &quot;projectname&quot;: &quot;my-app&quot;\n}</code></pre>\n<ol start=\"3\">\n<li>打开微信小程序开发工具，选择导入项目，选择 my-app 目录，即可打开项目，如下图</li>\n</ol>\n<p><img src=\"../../../images/blog/mp/wxapkg_3_1.png\" alt=\"wxapkg_3_1.png\"></p>\n<p>由于我们之前创建过云开发环境，因此我们右键 cloudfunctions 目录，可以选择当前环境比如 test。这时 cloudfunctions 是空的，可以右键后，选择同步云函数列表</p>\n<p><img src=\"../../../images/blog/mp/wxapkg_3_2.png\" alt=\"wxapkg_3_2.png\"></p>\n<p>同步后，cloudfunctions 目录下就会创建之前的云函数文件夹，如下图，右键对应的云函数文件夹，选择下载，即可下载对应云函数的代码。</p>\n<p><img src=\"../../../images/blog/mp/wxapkg_3_3.png\" alt=\"wxapkg_3_3.png\"></p>\n<p>云函数代码，不是混淆压缩的，是 100% 还原的，如下图</p>\n<p><img src=\"../../../images/blog/mp/wxapkg_3_4.png\" alt=\"wxapkg_3_4.png\"></p>\n<p>自此，项目就大致还原了。美中不足的是，样式没有恢复完全，另外 js 都是混淆压缩后的代码，需要慢慢修改还原。</p>\n<p>不过项目还是可以跑起来的，比完全丢失了好，还原后的该小程序已开源，后面会慢慢修复还原混淆压缩后的代码。开源地址：<a href=\"https://github.com/ibdlib/remicade-record\">remicade-record - github</a></p>\n<p>参考: </p>\n<ul>\n<li><a href=\"https://blog.csdn.net/qq_38822390/article/details/82152004\">小程序源码丢失了怎么在微信平台反编译找回</a></li>\n<li><a href=\"https://www.jianshu.com/p/83b9e7d3ded4\">最新解决小程序反编译$gwx is not defined和<strong>vd_version_info</strong> is not defined</a></li>\n<li><a href=\"https://www.cnblogs.com/yeahwell/p/13546770.html\">2020微信小程序反编译（逆向），仅用于学习请勿商用</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "小程序代码找回，代码丢失后找回过程记录（反编译、云开发函数恢复）",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "为什么小程序可以反编译？"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "获取小程序的 wxapkg 文件"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "使用 wxappUnpacker 反编译 wxapkg 文件"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "小程序云开发，云函数代码恢复"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "小程序代码找回，代码丢失后找回过程记录（反编译、云开发函数恢复）.md",
+        "staticFileName": "miniprogram_code_reverse.html",
+        "author": "guoqzuo",
+        "createDate": "2021/04/11",
+        "description": "小程序代码找回，小程序云开发代码找回，小程序云函数恢复，最近想把之前写的一个已上线的小程序开源，发现当时居然没有用 git 管理，换电脑、折腾 mac 双系统后，代码丢失了。尝试用数据恢复软件恢复都没有找回代码，尽管小程序的文件特征很好找，比如 .wxml、project.config.json 等。后面在网上找了反编译线上小程序的方法。这样可以拿到 uglify 混淆压缩后的代码，至少比没有强。另外，云函数的代码也是可以恢复的，因为之前开发时上传过，它是可以下载的。",
+        "keywords": "小程序代码找回,小程序云开发代码找回,小程序云函数恢复",
+        "category": "微信开发",
+        "year": "2021",
+        "month": "4"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"props-right-hand-side-of-instanceof-is-not-an-object\">props Right-hand side of &#39;instanceof&#39; is not an object</h1>\n<p>在 Vue 中写 props 属性时，一般最简单的方式是使用数组的形式： props: [&#39;属性名1&#39;, &#39;属性名2&#39;]，但这样没有类型校验、默认值。在使用对象的写法时，发现出现 props Right-hand side of &#39;instanceof&#39; is not an object，错误，写法如下</p>\n<pre><code class=\"language-js\">export default {\n  props: {\n    tips: {\n      type: “Array”,\n      default: () =&gt; []\n    }\n  }\n}</code></pre>\n<p>后面发现是 type 属性设置的有问题。限定为数组，Array 类型，直接用 Array 就行，不要加引号，它不是字符串，而是对象 object（类）。</p>\n<pre><code class=\"language-js\">tips: {\n  type: Array,\n  default: () =&gt; []\n}</code></pre>\n<p>参考: <a href=\"https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81\">Prop 验证 — Vue.js</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "props Right-hand side of 'instanceof' is not an object"
+        }
+      ],
+      "config": {
+        "source": "props Right-hand side of 'instanceof' is not an object.md",
+        "staticFileName": "vue_props_error.html",
+        "author": "guoqzuo",
+        "createDate": "2021/04/11",
+        "description": "在 Vue 中写 props 属性时，一般最简单的方式是使用数组的形式： props: ['属性名1', '属性名2']，但这样没有类型校验、默认值。在使用对象的写法时，发现出现 props Right-hand side of 'instanceof' is not an object，错误，写法如下",
+        "keywords": "vue props error",
+        "category": "Vue",
+        "year": "2021",
+        "month": "4"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"用游戏中的场景理解节流与防抖，最简单的-js-实现\">用游戏中的场景理解节流与防抖，最简单的 js 实现</h1>\n<p>之前对节流(throttle) 和防抖（debounce）的理解有偏差，以为 <del>scroll 或 resize 时，为了减少执行事件函数频率，需要用节流，减少执行次数。而防抖在于点击某个按钮后，多长时间内不允许再次点击。防止多次重复提交表单，或执行下一步函数。</del></p>\n<p>这种理解是反的。我们可以用游戏的中的场景来理解节流和防抖</p>\n<h2 id=\"节流throttle\">节流(throttle)</h2>\n<p>对应 <strong>技能冷却时间</strong>，如果冷却(cooldown/cd)是 5 秒，使用技能后，5秒内，无法再次执行。用于控制事件执行一次后，多长时间内不允许再次执行。一般用于防止按钮多次点击，重复触发事件。</p>\n<p><img src=\"../../../images/blog/js/throttle.gif\" alt=\"throttle.gif\"></p>\n<p>来实现节流的功能，比较好的实现是，创建一个可复用的节流函数，它可以将普通函数转换为增加了节流功能的函数，基本结构如下</p>\n<pre><code class=\"language-js\">/**\n * throttle\n * @param { Function } func 执行函数\n * @param { Interger } time 多长时间内不能第二次执行\n * @returns function 返回经过节流处理的函数\n */\nfunction throttle(func, time) {\n  return (...args) =&gt; {\n    // 返回一个可以正常执行的函数\n    func.apply(this, args)\n  }\n}</code></pre>\n<p>在基本的机构中，增加节流控制处理</p>\n<pre><code class=\"language-js\">/**\n * throttle\n * @param { Function } func 执行函数\n * @param { Interger } time 多长时间内不能第二次执行\n * @returns function 返回经过节流处理的函数\n */\nfunction throttle(func, time) {\n  let isLock = false // 是否冷却(cooldown)中\n  // 返回一个经过节流处理的 func\n  return (...args) =&gt; {\n    if (isLock) { // 如果是冷却中，不执行函数\n      console.log(&#39;冷却(cd)中...&#39;)\n      return \n    }\n    // 非冷却中\n    func.apply(this, args) // 执行函数\n    isLock = true // 执行函数后设置为冷却中\n    setTimeout(() =&gt; {\n      isLock = false // 经过 time 微秒后，设置为非冷却中\n    }, time);\n  }\n}</code></pre>\n<p>使用示例</p>\n<pre><code class=\"language-html\">&lt;button id=&quot;skillsABtn&quot;&gt;释放技能A&lt;/button&gt;\n&lt;script&gt;\n  let skillsABtn = document.querySelector(&#39;#skillsABtn&#39;)\n  releaseASkills = () =&gt; {\n    console.log(`释放A技能, ${+new Date()}`)\n  }\n  // 技能冷却时间 3 秒\n  skillsABtn.onclick = throttle(releaseASkills, 3000)\n&lt;/script&gt;</code></pre>\n<h2 id=\"防抖去抖动-debounce、de--bounce\">防抖(去抖动 debounce、de + bounce)</h2>\n<p>对应 <strong>回城</strong>，在推塔游戏中，回城等待时间是 8 秒。可以理解为回城时，会开启一个定时任务，8 秒后执行完成回城的函数。</p>\n<p>防抖/去抖动，就是在定时任务等待执行的时间内，如果再次触发发了函数，会取消上一次的定时任务，重新开始一个定时任务。这样可以<strong>将一段时间内连续的多次触发转化为一次触发，单位时间内仅执行最后一次</strong>。一般用于 window 的 scroll、resize 事件、搜索框输入搜索内容后实时查询接口等。</p>\n<pre><code class=\"language-js\">function debounce(func, time) {\n  let timer = null // 定时任务计时器\n  // 返回一个经过防抖处理的 func\n  return (...args) =&gt; {\n    if (timer) {\n      // 如果上一次定时任务还在等待执行的过程中，取消定时任务\n      clearTimeout(timer)\n      console.log(&#39;取消上一次的计时任务&#39;)\n    }\n\n    console.log(`重新开启定时任务，${time} 毫秒后真正执行`)\n    timer = setTimeout(() =&gt; {\n      func.apply(this, args)\n    }, time);\n  }\n}</code></pre>\n<p>实例</p>\n<pre><code class=\"language-html\">&lt;button id=&quot;goBackBtn&quot;&gt;回城&lt;/button&gt;\n&lt;script&gt;\n  let goBackBtn = document.querySelector(&#39;#goBackBtn&#39;)\n  goBack = () =&gt; {\n    console.log(`成功回城, ${+new Date()}`)\n  }\n  // 3 秒之后回城\n  goBackBtn.onclick = debounce(goBack, 3000) \n&lt;/script&gt;</code></pre>\n<h2 id=\"代码下载\">代码下载</h2>\n<p>完整 demo 示例代码：<a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0\">节流和防抖实现 - fedemo | Github</a>，在线示例 <a href=\"https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0/#/\">节流与防抖简单实现 demo - 需要打开 console 看执行效果</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "用游戏中的场景理解节流与防抖，最简单的 js 实现",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "节流(throttle)"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "防抖(去抖动 debounce、de + bounce)"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "代码下载"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "用游戏中的场景理解节流与防抖，最简单的 js 实现.md",
+        "staticFileName": "easy_throttle_debounce.html",
+        "author": "guoqzuo",
+        "createDate": "2021/04/11",
+        "description": "节流和防抖，手写节流和防抖，节流(throttle) 对应技能冷却时间，如果冷却(cooldown/cd)是 5 秒，使用技能后，5秒内，无法再次执行。用于控制事件执行一次后，多长时间内不允许再次执行。一般用于防止按钮多次点击，重复触发事件。防抖(去抖动 debounce、de + bounce) 对应 **回城**，在推塔游戏中，回城等待时间是 8 秒。可以理解为回城时，会开启一个定时任务，8 秒后执行完成回城的函数。防抖/去抖动，就是在定时任务等待执行的时间内，如果再次触发发了函数，会取消上一次的定时任务，重新开始一个定时任务。这样可以**将一段时间内连续的多次触发转化为一次触发，单位时间内仅执行最后一次**。一般用于 window 的 scroll、resize 事件、搜索框输入搜索内容后实时查询接口等。",
+        "keywords": "节流和防抖,手写节流和防抖,节流和防抖,throttle debounce",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "4"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"make-sure-you-configure-your-username-and-useremail-in-git\">Make sure you configure your ‘user.name’ and ‘user.email’ in git</h1>\n<p>在 vscode 中，使用可视化工具，而非命令的方式提交代码时，如果没有配置 git 的 user.name 和 user.email，可能会弹出 Make sure you configure your ‘user.name’ and ‘user.email’ in git 的错误，代码无法提交。这就需要先配置好，再提交了。</p>\n<p>另外，在 github 或 gitlab 等页面中，可能会遇到提交没有绿点或者看不到头像的情况，可能是因为配置的 user.email 发生了变化，和平台的 email 不一致导致的。修改成一致的就正常了。</p>\n<p>下面来看看怎么设置 user.name 和 user.email。git 配置（configure）分两种，一种是全局的，一种是针对单个项目仓库的（项目目录下）。可以使用 git config 来管理管理配置（查看、设置）</p>\n<p><strong>查看配置</strong></p>\n<p>可以使用 git config --list 查看当前配置，如果没有 user.name，和 user.email，就说明还没有配置。</p>\n<pre><code class=\"language-bash\"># 查看当前目录下项目的配置\ngit config --list\n# credential.helper=osxkeychain\n# user.name=zuoxiaobai\n# user.email=guoqzuo@gmail.com\n# remote.origin.url=git@github.com:zuoxiaobai/fenote.git\n# remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\n# branch.master.remote=origin\n# branch.master.merge=refs/heads/master\n\n# 查看全局配置\ngit config --list --global\n# user.name=zuoxiaobai\n# user.email=guoqzuo@gmail.com\n# core.quotepath=false</code></pre>\n<p><strong>设置（修改配置）</strong> </p>\n<p>可以使用 git config 属性名 属性值，来设置 git 配置，默认是项目内的（局部的），如果需要设置全局的，需要加上 --global，设置完成后，再使用查看配置的命令 git config --list 就可以看到配置生效了。</p>\n<pre><code class=\"language-bash\"># 进入项目目录，单个仓库（项目），局部设置\ngit config user.name &quot;zuoxiaobai&quot; \ngit config user.email &quot;guoqzuo@gmail.com&quot;\n\n# 全局设置\ngit config --global user.name &quot;zuoxiaobai&quot; \ngit config --global user.email &quot;guoqzuo@gmail.com&quot;</code></pre>\n<blockquote>\n<p>注意 git config 属性名 属性值 时，如果属性值没有用双引号 &quot;&quot; 包裹，那么中间不能有空格，比如 git config user.name zuo xiaobai，相当于 git config user.name zuo，会丢弃空格后面的部分</p>\n</blockquote>\n<p>更多用法，可以使用 git config --help 查看帮助，或查看对应的官方文档 <a href=\"https://git-scm.com/docs/git-config\">Git - git-config Documentation</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Make sure you configure your ‘user.name’ and ‘user.email’ in git"
+        }
+      ],
+      "config": {
+        "source": "Make sure you configure your ‘user.name’ and ‘user.email’ in git.md",
+        "staticFileName": "git_user_email.html",
+        "author": "guoqzuo",
+        "createDate": "2021/04/11",
+        "description": "git 设置 user.name user.email，github 提交没有绿点，github提交没头像，在 vscode 中，使用可视化工具，而非命令的方式提交代码时，如果没有配置 git 的 user.name 和 user.email，可能会弹出 Make sure you configure your ‘user.name’ and ‘user.email’ in git 的错误，代码无法提交。这就需要先配置好，再提交了。另外，在 github 或 gitlab 等页面中，可能会遇到提交没有绿点或者看不到头像的情况，可能是因为配置的 user.email 发生了变化，和平台的 email 不一致导致的。修改成一致的就正常了。",
+        "keywords": "git config,git 设置 user.name user.email,github 提交没有绿点,github提交没头像",
+        "category": "运维部署与版本控制",
+        "year": "2021",
+        "month": "4"
+      }
     }
   ],
-  "count": 410,
+  "count": 415,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,

@@ -133,7 +133,53 @@
     "description": "在封装功能函数时，我们经常需要在 import 时使用解构 {} 来仅导出部分模块功能。在有些情况会发现是无法解构的，下面来看看 - 一般 export default 的内容，需要使用 `import xxx from 'xx'` 直接接收，不能在 import 时解构 - 通过 export xx 的内容，需要使用 `import { xx, xx } from 'xx'` 或 `import * as xx from 'xx'` 接收",
     "keywords": "import {} 与 export default,import {}",
     "category": "JavaScript"
+  },
+  {
+    "source": "提示 hints、tips、prompt 以及 message 的区别.md",
+    "staticFileName": "tips_hints.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/11",
+    "description": "在程序开发中，关于提示组件的命名，有 tips、hints、prompt、message 等，一般怎么使用呢？下面来看看  tips，n. 小贴士、温馨提示、小窍门。主要用于文字提示，比如 tooltip 组件。 hints，n. 暗示、提示，v. 暗示、示意。开发中用的较少，相比于 tips，它有间接含蓄, 暗示，不直接提示的意思。",
+    "keywords": "hints和tips区别,提示命名,提示 英文,提示 英语",
+    "category": "计算机基础与开发工具"
+  },
+  {
+    "source": "小程序代码找回，代码丢失后找回过程记录（反编译、云开发函数恢复）.md",
+    "staticFileName": "miniprogram_code_reverse.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/11",
+    "description": "小程序代码找回，小程序云开发代码找回，小程序云函数恢复，最近想把之前写的一个已上线的小程序开源，发现当时居然没有用 git 管理，换电脑、折腾 mac 双系统后，代码丢失了。尝试用数据恢复软件恢复都没有找回代码，尽管小程序的文件特征很好找，比如 .wxml、project.config.json 等。后面在网上找了反编译线上小程序的方法。这样可以拿到 uglify 混淆压缩后的代码，至少比没有强。另外，云函数的代码也是可以恢复的，因为之前开发时上传过，它是可以下载的。",
+    "keywords": "小程序代码找回,小程序云开发代码找回,小程序云函数恢复",
+    "category": "微信开发"
+  },
+  {
+    "source": "props Right-hand side of 'instanceof' is not an object.md",
+    "staticFileName": "vue_props_error.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/11",
+    "description": "在 Vue 中写 props 属性时，一般最简单的方式是使用数组的形式： props: ['属性名1', '属性名2']，但这样没有类型校验、默认值。在使用对象的写法时，发现出现 props Right-hand side of 'instanceof' is not an object，错误，写法如下",
+    "keywords": "vue props error",
+    "category": "Vue"
+  },
+  {
+    "source": "用游戏中的场景理解节流与防抖，最简单的 js 实现.md",
+    "staticFileName": "easy_throttle_debounce.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/11",
+    "description": "节流和防抖，手写节流和防抖，节流(throttle) 对应技能冷却时间，如果冷却(cooldown/cd)是 5 秒，使用技能后，5秒内，无法再次执行。用于控制事件执行一次后，多长时间内不允许再次执行。一般用于防止按钮多次点击，重复触发事件。防抖(去抖动 debounce、de + bounce) 对应 **回城**，在推塔游戏中，回城等待时间是 8 秒。可以理解为回城时，会开启一个定时任务，8 秒后执行完成回城的函数。防抖/去抖动，就是在定时任务等待执行的时间内，如果再次触发发了函数，会取消上一次的定时任务，重新开始一个定时任务。这样可以**将一段时间内连续的多次触发转化为一次触发，单位时间内仅执行最后一次**。一般用于 window 的 scroll、resize 事件、搜索框输入搜索内容后实时查询接口等。",
+    "keywords": "节流和防抖,手写节流和防抖,节流和防抖,throttle debounce",
+    "category": "JavaScript"
+  },
+  {
+    "source": "Make sure you configure your ‘user.name’ and ‘user.email’ in git.md",
+    "staticFileName": "git_user_email.html",
+    "author": "guoqzuo",
+    "createDate": "2021/04/11",
+    "description": "git 设置 user.name user.email，github 提交没有绿点，github提交没头像，在 vscode 中，使用可视化工具，而非命令的方式提交代码时，如果没有配置 git 的 user.name 和 user.email，可能会弹出 Make sure you configure your ‘user.name’ and ‘user.email’ in git 的错误，代码无法提交。这就需要先配置好，再提交了。另外，在 github 或 gitlab 等页面中，可能会遇到提交没有绿点或者看不到头像的情况，可能是因为配置的 user.email 发生了变化，和平台的 email 不一致导致的。修改成一致的就正常了。",
+    "keywords": "git config,git 设置 user.name user.email,github 提交没有绿点,github提交没头像",
+    "category": "运维部署与版本控制"
   }
 ]
+
 
 
