@@ -1,0 +1,124 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="v-if_v-show_hooks.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在 vue 中我们知道 v-if 和 v-show 都可以用来控制内容的显示与隐藏，他们的区别是 1. v-if 是惰性加载，只有为 true 时，才真正渲染，否则页面是不存在该元素的。为 false 时，直接从 dom 移除。2. v-show 是根据 css display 属性来显示和隐藏组件的。那么他们的生命周期钩子函数有什么区别呢？1. v-show 控制隐藏或显示的组件，一进入就立即加载，执行 beforeCreate、created、beforeMount、mounted，中间切换显示和隐藏不会触发钩子函数 2. v-if 只有为 true 时，才会正常执行加载的钩子函数，否则不会加载。当切换时，实时挂载(created/mounted)、卸载组件(destoryed)。">
+        <meta name="keywords" content="v-if 与 v-show 钩子函数区别,v-if 与 v-show 区别">
+
+        <title>v-if 和 v-show 生命周期钩子函数有什么不同 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="v-if-和-v-show-生命周期钩子函数有什么不同">v-if 和 v-show 生命周期钩子函数有什么不同</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2021/05/04，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>v-if 与 v-show 钩子函数区别</span>，<span>v-if 与 v-show 区别</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>在 vue 中我们知道 v-if 和 v-show 都可以用来控制内容的显示与隐藏，他们的区别是</p>
+<ol>
+<li>v-if 是惰性加载，只有为 true 时，才真正渲染，否则页面是不存在该元素的。为 false 时，直接从 dom 移除。</li>
+<li>v-show 是根据 css display 属性来显示和隐藏组件的</li>
+</ol>
+<p><img src="../../../images/blog/vue/v-show.gif" alt="v-show.gif"></p>
+<p>那么他们的生命周期钩子函数有什么区别呢？</p>
+<ol>
+<li>v-show 控制隐藏或显示的组件，一进入就立即加载，执行 beforeCreate、created、beforeMount、mounted，中间切换显示和隐藏不会触发钩子函数</li>
+<li>v-if 只有为 true 时，才会正常执行加载的钩子函数，否则不会加载。当切换时，实时挂载(created/mounted)、卸载组件(destoryed)。</li>
+</ol>
+<p>使用场景：v-if 适合在 true、false 切换不频繁的场景，当为 false 时，可以减少初次渲染时间。如果切换很频繁 v-if 会不断的挂载、卸载组件，会加大开销，这时使用 v-show 就比较好，尽管它的初始开销会大一点。</p>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="v-if-和-v-show-生命周期钩子函数有什么不同" style="padding-left:1em">v-if 和 v-show 生命周期钩子函数有什么不同<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2021 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  

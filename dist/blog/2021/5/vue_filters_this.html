@@ -1,0 +1,130 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="vue_filters_this.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在 i18n 国际化，将 code 转换为国际化文本的场景中，需要使用 this.$i18n 这个变量，但发现 fitlers 中的 this 是 undefined，无法使用，查了下。这个是 Vue 设计问题，以下是作者 尤雨溪 在 issue [this undefined in filters · Issue #5998 · vuejs/vue](https://github.com/vuejs/vue/issues/5998) 下的回复：">
+        <meta name="keywords" content="vue filters this,vue filter this 为空,vue filter 不能使用 this">
+
+        <title>Vue filters 中 this 为 undefined，建议使用传参或 method 处理 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="vue-filters-中-this-为-undefined，建议使用传参或-method-处理">Vue filters 中 this 为 undefined，建议使用传参或 method 处理</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2021/05/04，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>vue filters this</span>，<span>vue filter this 为空</span>，<span>vue filter 不能使用 this</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>在 i18n 国际化，将 code 转换为国际化文本的场景中，需要使用 this.$i18n 这个变量，但发现 fitlers 中的 this 是 undefined，无法使用，查了下。</p>
+<p>这个是 Vue 设计问题，以下是作者 尤雨溪 在 issue <a href="https://github.com/vuejs/vue/issues/5998">this undefined in filters · Issue #5998 · vuejs/vue</a> 下的回复：</p>
+<p><img src="../../../images/blog/vue/filter-this.png" alt="filter-this.png"></p>
+<p>This is intentional in 2.x. Filters should be pure functions and should not be dependent on this context. If you need this you should use a computed property or just a method e.g. $translate(foo)</p>
+<p>在 2.x 的版本中这个处理是有意的，Fitlers 应该是纯函数，不应该依赖 this 上下文。如果需要依赖 this，那就应该使用 computed 计算属性或 method 方法</p>
+<p><strong>解决方法：在 filters 中我们是可以传参数的，我们可以把需要的值，通过参数传入。如果涉及到多个变量的使用，传参比较冗余，那就使用计算属性或方法</strong>，使用示例：</p>
+<pre><code class="language-js">// {{ currencyCode | currencyText($i18n) }}
+filters: {
+  currencyText: function(code, i18n) {
+    // filter 中不能使用 this，需要传参数 this.$i18n
+    // console.log(this); // undefined
+    let { currencys, currencyCodes } = i18n.messages[i18n.locale].base;
+    // 根据 code 找到对应的 index
+    let index = currencyCodes.indexOf(code);
+    return currencys[index];
+  }
+},</code></pre>
+<p>参考: <a href="https://blog.csdn.net/weixin_40837048/article/details/100691625">vue中过滤器filters的this指向问题。</a></p>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="vue-filters-中-this-为-undefined，建议使用传参或-method-处理" style="padding-left:1em">Vue filters 中 this 为 undefined，建议使用传参或 method 处理<span></li></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2021 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  

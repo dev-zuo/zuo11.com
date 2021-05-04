@@ -1365,6 +1365,20 @@
         "time": "2021/04/11",
         "description": "节流和防抖，手写节流和防抖，节流(throttle) 对应技能冷却时间，如果冷却(cooldown/cd)是 5 秒，使用技能后，5秒内，无法再次执行。用于控制事件执行一次后，多长时间内不允许再次执行。一般用于防止按钮多次点击，重复触发事件。防抖(去抖动 debounce、de + bounce) 对应 **回城**，在推塔游戏中，回城等待时间是 8 秒。可以理解为回城时，会开启一个定时任务，8 秒后执行完成回城的函数。防抖/去抖动，就是在定时任务等待执行的时间内，如果再次触发发了函数，会取消上一次的定时任务，重新开始一个定时任务。这样可以**将一段时间内连续的多次触发转化为一次触发，单位时间内仅执行最后一次**。一般用于 window 的 scroll、resize 事件、搜索框输入搜索内容后实时查询接口等。",
         "keywords": "节流和防抖,手写节流和防抖,节流和防抖,throttle debounce"
+      },
+      {
+        "title": "正则表达式使用 () 和 match 或 replace 提取 url 路径参数",
+        "href": "2021/5/regExp_url.html",
+        "time": "2021/05/04",
+        "description": "正则提取 url 参数，来看一个问题，使用正则表达式从 url 中提取区域、城市id、模块、页数id。url 示例如下 1. `http://www.xx.com/region/gd/module` 2. `http://www.xx.com/region/gd-c222/module` 3. `http://www.xx.com/region/gd-c222/module/p2` 下面来看看怎么实现。首先，回顾下正则表达式（Regular Expression）基础。正则表表达式以 `/pattern/flags` 表示，是 RegExp 对象的实例",
+        "keywords": "正则提取 url 参数"
+      },
+      {
+        "title": "String.prototype.replace 多个匹配替换时注意要使用正则",
+        "href": "2021/5/replace_regExp.html",
+        "time": "2021/05/04",
+        "description": "在做字符串替换时可以使用 repalce，但这里要注意，当需要替换多个时，第一个参数不能是字符串，要使用正则表达式。来看一个例子，将字符串 '1,000,000' 中的 ',' 替换为空字符串 ''。注意：上面的例子中，如果单纯的字符串替换，只会替换第一个，全局匹配时，第一个参数就要用正则了",
+        "keywords": "replace多个匹配时需要使用正则"
       }
     ],
     "CSS": [
@@ -1654,6 +1668,13 @@
         "time": "2020/09/24",
         "description": "在最近的需求中，有个表格表头里有斜线，我特意翻了 HTML5权威指南 的笔记，发现并没有介绍怎么画表头的斜线。找了下网上的实现，一般都是通过 css 来实现，使用 after 或者特定 span 画一条直线，然后通过 rotate 来旋转成斜线效果。这里涉及到怎么计算斜线角度，会用到一点点数学的知识",
         "keywords": "css表格画斜线,css计算斜线角度,直角三角形给定直角边计算斜边角度"
+      },
+      {
+        "title": "footer 始终保持在最底部 css 实现与 js 实现优缺点对比",
+        "href": "2021/5/footer_bottom.html",
+        "time": "2021/05/04",
+        "description": "让 footer 一直保持在最底部是比较常见的需求，css 和 js 都可以实现，一般推荐使用 css 实现，下面来看看具体实现，以及他们的优缺点。需要考虑两种情况：1. 内容没占满视窗时，footer 在最底部，需要 body 有最小高度，才能撑起来 2. 内容较多时，滚动到底部才能看到 footer，且不遮挡内容区域",
+        "keywords": "footer一直保持到底部怎么实现,footer区域保持在底部,footer固定到底部"
       }
     ],
     "Vue": [
@@ -2251,6 +2272,48 @@
         "time": "2021/04/11",
         "description": "在 Vue 中写 props 属性时，一般最简单的方式是使用数组的形式： props: ['属性名1', '属性名2']，但这样没有类型校验、默认值。在使用对象的写法时，发现出现 props Right-hand side of 'instanceof' is not an object，错误，写法如下",
         "keywords": "vue props error"
+      },
+      {
+        "title": "Vue 组件封装，通过发布订阅模式和 Vue 实例方法实现 js 操作组件",
+        "href": "2021/5/vue_js_comp.html",
+        "time": "2021/05/04",
+        "description": "以消息组件为例，如果多个组件共用一个全局的消息组件，那怎么优雅的显示消息呢？普通的组件 props 传值的方式会受限，因为组件层级是不确定的。你可能会想到状态管理，将是否显示消息、消息内容存到状态管理 state 中，如果需要显示就修改 vuex 值即可。但这样调用起来会不够方便、简洁。这里我们可以使用发布订阅模式，结合 Vue 实例属性来优雅的实现该功能。下面来看看使用示例",
+        "keywords": "vue js 操作组件, vue 组件封装"
+      },
+      {
+        "title": "Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@",
+        "href": "2021/5/vue_css_src.html",
+        "time": "2021/05/04",
+        "description": "vue css src 路径，css @ 不生效，css src 简写@, webpack 解析 css 路径，在 vue-cli 创建的 vue 项目中，可以使用 @ 来表示 src 路径。但在 css 中，图片路径使用 @ 就会出错。那 css 中要怎么使用 src 相对路径呢？需要在前面加 ~，也就是 ~@，这样就不必使用相对路径了。",
+        "keywords": "vue css src 路径,css @ 不生效,css src 简写@,webpack 解析 css 路径"
+      },
+      {
+        "title": "Vue 国际化 vue-i18n 相关用法、实践总结",
+        "href": "2021/5/vue-i18n_use.html",
+        "time": "2021/05/04",
+        "description": "vue 国际化, Vue 国际化最佳实践, vue-i18n最佳实践, vue-i18n模块化方案, 在 'Vue 使用 vue-i18n 国际化' 中，我们简单介绍了 vue-i18n 的基本使用。如果想将它实际应用到项目中，我们还需要考虑怎么做到更加简洁、优雅、可维护，下面是一些实践总结。1. i18n 单独放一个目录，避免在 main.js 中写入太多内容 2. 方便实时测试：语言切换组件 3. 避免单文件过大、混乱：模块化 4. 列表渲染（code 值）处理：js 取值、过滤器 filter 设计",
+        "keywords": "vue 国际化,Vue 国际化最佳实践,vue-i18n最佳实践,vue-i18n模块化方案"
+      },
+      {
+        "title": "Vue filters 中 this 为 undefined，建议使用传参或 method 处理",
+        "href": "2021/5/vue_filters_this.html",
+        "time": "2021/05/04",
+        "description": "在 i18n 国际化，将 code 转换为国际化文本的场景中，需要使用 this.$i18n 这个变量，但发现 fitlers 中的 this 是 undefined，无法使用，查了下。这个是 Vue 设计问题，以下是作者 尤雨溪 在 issue [this undefined in filters · Issue #5998 · vuejs/vue](https://github.com/vuejs/vue/issues/5998) 下的回复：",
+        "keywords": "vue filters this,vue filter this 为空,vue filter 不能使用 this"
+      },
+      {
+        "title": "v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点",
+        "href": "2021/5/v-model_vuex.html",
+        "time": "2021/05/04",
+        "description": "在需要将 vuex 中的值，直接与表单 v-model 对应时，如果我们按照 vuex 强调的规范，只能通过 mutation 来改变 vuex state，那么会比较麻烦。假设我们脱离规范，关闭严格模式。那么 v-model 可以直接绑定 vuex state 值，会非常方便，但貌似又不合规范，不利于追踪。那到底要怎么做合适呢？个人建议是：怎么方便怎么来，只要项目可控即可。下面来看看几种方法对比 1. 官方推荐：使用 computed 的 get 和 set",
+        "keywords": "v-model 绑定 vuex 中的值"
+      },
+      {
+        "title": "v-if 和 v-show 生命周期钩子函数有什么不同",
+        "href": "2021/5/v-if_v-show_hooks.html",
+        "time": "2021/05/04",
+        "description": "在 vue 中我们知道 v-if 和 v-show 都可以用来控制内容的显示与隐藏，他们的区别是 1. v-if 是惰性加载，只有为 true 时，才真正渲染，否则页面是不存在该元素的。为 false 时，直接从 dom 移除。2. v-show 是根据 css display 属性来显示和隐藏组件的。那么他们的生命周期钩子函数有什么区别呢？1. v-show 控制隐藏或显示的组件，一进入就立即加载，执行 beforeCreate、created、beforeMount、mounted，中间切换显示和隐藏不会触发钩子函数 2. v-if 只有为 true 时，才会正常执行加载的钩子函数，否则不会加载。当切换时，实时挂载(created/mounted)、卸载组件(destoryed)。",
+        "keywords": "v-if 与 v-show 钩子函数区别,v-if 与 v-show 区别"
       }
     ],
     "计算机基础与开发工具": [
@@ -2589,6 +2652,13 @@
         "time": "2021/04/11",
         "description": "在程序开发中，关于提示组件的命名，有 tips、hints、prompt、message 等，一般怎么使用呢？下面来看看  tips，n. 小贴士、温馨提示、小窍门。主要用于文字提示，比如 tooltip 组件。 hints，n. 暗示、提示，v. 暗示、示意。开发中用的较少，相比于 tips，它有间接含蓄, 暗示，不直接提示的意思。",
         "keywords": "hints和tips区别,提示命名,提示 英文,提示 英语"
+      },
+      {
+        "title": "Vscode Live Server 插件 Open With Live Server 没反应，无法打开浏览器",
+        "href": "2021/5/live_server_file.html",
+        "time": "2021/05/04",
+        "description": "在调试单个 html 文件时，可以使用 Live Server 插件，快速开启 http 服务，并打开当前页面。但目前这个插件可能会出现没反应，打不开的情况，可以使用 **Preview on Web Server** 来代替。使用方法基本一致，右键可以选择浏览器打开，或者在 vscode 侧边栏预览",
+        "keywords": "live server 没反应,live server 无法打开浏览器"
       }
     ],
     "前端工程化": [
@@ -15488,7 +15558,7 @@
       }
     },
     {
-      "htmlStr": "<h1 id=\"用游戏中的场景理解节流与防抖，最简单的-js-实现\">用游戏中的场景理解节流与防抖，最简单的 js 实现</h1>\n<p>之前对节流(throttle) 和防抖（debounce）的理解有偏差，以为 <del>scroll 或 resize 时，为了减少执行事件函数频率，需要用节流，减少执行次数。而防抖在于点击某个按钮后，多长时间内不允许再次点击。防止多次重复提交表单，或执行下一步函数。</del></p>\n<p>这种理解是反的。我们可以用游戏的中的场景来理解节流和防抖</p>\n<h2 id=\"节流throttle\">节流(throttle)</h2>\n<p>对应 <strong>技能冷却时间</strong>，如果冷却(cooldown/cd)是 5 秒，使用技能后，5秒内，无法再次执行。用于控制事件执行一次后，多长时间内不允许再次执行。一般用于防止按钮多次点击，重复触发事件。</p>\n<p><img src=\"../../../images/blog/js/throttle.gif\" alt=\"throttle.gif\"></p>\n<p>来实现节流的功能，比较好的实现是，创建一个可复用的节流函数，它可以将普通函数转换为增加了节流功能的函数，基本结构如下</p>\n<pre><code class=\"language-js\">/**\n * throttle\n * @param { Function } func 执行函数\n * @param { Interger } time 多长时间内不能第二次执行\n * @returns function 返回经过节流处理的函数\n */\nfunction throttle(func, time) {\n  return (...args) =&gt; {\n    // 返回一个可以正常执行的函数\n    func.apply(this, args)\n  }\n}</code></pre>\n<p>在基本的机构中，增加节流控制处理</p>\n<pre><code class=\"language-js\">/**\n * throttle\n * @param { Function } func 执行函数\n * @param { Interger } time 多长时间内不能第二次执行\n * @returns function 返回经过节流处理的函数\n */\nfunction throttle(func, time) {\n  let isLock = false // 是否冷却(cooldown)中\n  // 返回一个经过节流处理的 func\n  return function (...args) {\n    if (isLock) { // 如果是冷却中，不执行函数\n      console.log(&#39;冷却(cd)中...&#39;)\n      return \n    }\n    // 非冷却中\n    func.apply(this, args) // 执行函数\n    isLock = true // 执行函数后设置为冷却中\n    setTimeout(() =&gt; {\n      isLock = false // 经过 time 微秒后，设置为非冷却中\n    }, time);\n  }\n}</code></pre>\n<p>使用示例</p>\n<pre><code class=\"language-html\">&lt;button id=&quot;skillsABtn&quot;&gt;释放技能A&lt;/button&gt;\n&lt;script&gt;\n  let skillsABtn = document.querySelector(&#39;#skillsABtn&#39;)\n  releaseASkills = () =&gt; {\n    console.log(`释放A技能, ${+new Date()}`)\n  }\n  // 技能冷却时间 3 秒\n  skillsABtn.onclick = throttle(releaseASkills, 3000)\n&lt;/script&gt;</code></pre>\n<h2 id=\"防抖去抖动-debounce、de--bounce\">防抖(去抖动 debounce、de + bounce)</h2>\n<p>对应 <strong>回城</strong>，在推塔游戏中，回城等待时间是 8 秒。可以理解为回城时，会开启一个定时任务，8 秒后执行完成回城的函数。</p>\n<p>防抖/去抖动，就是在定时任务等待执行的时间内，如果再次触发发了函数，会取消上一次的定时任务，重新开始一个定时任务。这样可以<strong>将一段时间内连续的多次触发转化为一次触发，单位时间内仅执行最后一次</strong>。一般用于 window 的 scroll、resize 事件、搜索框输入搜索内容后实时查询接口等。</p>\n<pre><code class=\"language-js\">function debounce(func, time) {\n  let timer = null // 定时任务计时器\n  // 返回一个经过防抖处理的 func\n  return function (...args) {\n    if (timer) {\n      // 如果上一次定时任务还在等待执行的过程中，取消定时任务\n      clearTimeout(timer)\n      console.log(&#39;取消上一次的计时任务&#39;)\n    }\n\n    console.log(`重新开启定时任务，${time} 毫秒后真正执行`)\n    timer = setTimeout(() =&gt; {\n      func.apply(this, args)\n    }, time);\n  }\n}</code></pre>\n<p>实例</p>\n<pre><code class=\"language-html\">&lt;button id=&quot;goBackBtn&quot;&gt;回城&lt;/button&gt;\n&lt;script&gt;\n  let goBackBtn = document.querySelector(&#39;#goBackBtn&#39;)\n  goBack = () =&gt; {\n    console.log(`成功回城, ${+new Date()}`)\n  }\n  // 3 秒之后回城\n  goBackBtn.onclick = debounce(goBack, 3000) \n&lt;/script&gt;</code></pre>\n<h2 id=\"代码下载\">代码下载</h2>\n<p>完整 demo 示例代码：<a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0\">节流和防抖实现 - fedemo | Github</a>，在线示例 <a href=\"https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0/#/\">节流与防抖简单实现 demo - 需要打开 console 看执行效果</a></p>\n",
+      "htmlStr": "<h1 id=\"用游戏中的场景理解节流与防抖，最简单的-js-实现\">用游戏中的场景理解节流与防抖，最简单的 js 实现</h1>\n<p>之前对节流(throttle) 和防抖（debounce）的理解有偏差，以为 <del>scroll 或 resize 时，为了减少执行事件函数频率，需要用节流，减少执行次数。而防抖在于点击某个按钮后，多长时间内不允许再次点击。防止多次重复提交表单，或执行下一步函数。</del></p>\n<p>这种理解是反的。我们可以用游戏的中的场景来理解节流和防抖</p>\n<h2 id=\"节流throttle\">节流(throttle)</h2>\n<p>对应 <strong>技能冷却时间</strong>，如果冷却(cooldown/cd)是 5 秒，使用技能后，5秒内，无法再次执行。用于控制事件执行一次后，多长时间内不允许再次执行。一般用于防止按钮多次点击，重复触发事件。</p>\n<p><img src=\"../../../images/blog/js/throttle.gif\" alt=\"throttle.gif\"></p>\n<p>来实现节流的功能，比较好的实现是，创建一个可复用的节流函数，它可以将普通函数转换为增加了节流功能的函数，基本结构如下</p>\n<pre><code class=\"language-js\">/**\n * throttle\n * @param { Function } func 执行函数\n * @param { Interger } time 多长时间内不能第二次执行\n * @returns function 返回经过节流处理的函数\n */\nfunction throttle(func, time) {\n  return function (...args) {\n    // 返回一个可以正常执行的函数\n    func.apply(this, args)\n  }\n}</code></pre>\n<p>在基本的机构中，增加节流控制处理</p>\n<pre><code class=\"language-js\">/**\n * throttle\n * @param { Function } func 执行函数\n * @param { Interger } time 多长时间内不能第二次执行\n * @returns function 返回经过节流处理的函数\n */\nfunction throttle(func, time) {\n  let isLock = false // 是否冷却(cooldown)中\n  // 返回一个经过节流处理的 func\n  return function (...args) {\n    if (isLock) { // 如果是冷却中，不执行函数\n      console.log(&#39;冷却(cd)中...&#39;)\n      return \n    }\n    // 非冷却中\n    func.apply(this, args) // 执行函数\n    isLock = true // 执行函数后设置为冷却中\n    setTimeout(() =&gt; {\n      isLock = false // 经过 time 微秒后，设置为非冷却中\n    }, time);\n  }\n}</code></pre>\n<p>使用示例</p>\n<pre><code class=\"language-html\">&lt;button id=&quot;skillsABtn&quot;&gt;释放技能A&lt;/button&gt;\n&lt;script&gt;\n  let skillsABtn = document.querySelector(&#39;#skillsABtn&#39;)\n  releaseASkills = () =&gt; {\n    console.log(`释放A技能, ${+new Date()}`)\n  }\n  // 技能冷却时间 3 秒\n  skillsABtn.onclick = throttle(releaseASkills, 3000)\n&lt;/script&gt;</code></pre>\n<h2 id=\"防抖去抖动-debounce、de--bounce\">防抖(去抖动 debounce、de + bounce)</h2>\n<p>对应 <strong>回城</strong>，在推塔游戏中，回城等待时间是 8 秒。可以理解为回城时，会开启一个定时任务，8 秒后执行完成回城的函数。</p>\n<p>防抖/去抖动，就是在定时任务等待执行的时间内，如果再次触发发了函数，会取消上一次的定时任务，重新开始一个定时任务。这样可以<strong>将一段时间内连续的多次触发转化为一次触发，单位时间内仅执行最后一次</strong>。一般用于 window 的 scroll、resize 事件、搜索框输入搜索内容后实时查询接口等。</p>\n<pre><code class=\"language-js\">function debounce(func, time) {\n  let timer = null // 定时任务计时器\n  // 返回一个经过防抖处理的 func\n  return function (...args) {\n    if (timer) {\n      // 如果上一次定时任务还在等待执行的过程中，取消定时任务\n      clearTimeout(timer)\n      console.log(&#39;取消上一次的计时任务&#39;)\n    }\n\n    console.log(`重新开启定时任务，${time} 毫秒后真正执行`)\n    timer = setTimeout(() =&gt; {\n      func.apply(this, args)\n    }, time);\n  }\n}</code></pre>\n<p>实例</p>\n<pre><code class=\"language-html\">&lt;button id=&quot;goBackBtn&quot;&gt;回城&lt;/button&gt;\n&lt;script&gt;\n  let goBackBtn = document.querySelector(&#39;#goBackBtn&#39;)\n  goBack = () =&gt; {\n    console.log(`成功回城, ${+new Date()}`)\n  }\n  // 3 秒之后回城\n  goBackBtn.onclick = debounce(goBack, 3000) \n&lt;/script&gt;</code></pre>\n<h2 id=\"代码下载\">代码下载</h2>\n<p>完整 demo 示例代码：<a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0\">节流和防抖实现 - fedemo | Github</a>，在线示例 <a href=\"https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0/#/\">节流与防抖简单实现 demo - 需要打开 console 看执行效果</a></p>\n",
       "outline": [
         {
           "type": "heading",
@@ -15545,9 +15615,280 @@
         "year": "2021",
         "month": "4"
       }
+    },
+    {
+      "htmlStr": "<h1 id=\"正则表达式使用--和-match-或-replace-提取-url-路径参数\">正则表达式使用 () 和 match 或 replace 提取 url 路径参数</h1>\n<p>来看一个问题，使用正则表达式从 url 中提取区域、城市id、模块、页数id。url 示例如下</p>\n<ol>\n<li><code>http://www.xx.com/region/gd/module</code></li>\n<li><code>http://www.xx.com/region/gd-c222/module</code></li>\n<li><code>http://www.xx.com/region/gd-c222/module/p2</code></li>\n</ol>\n<p>下面来看看怎么实现</p>\n<p>首先，回顾下正则表达式（Regular Expression）基础。正则表表达式以 <code>/pattern/flags</code> 表示，是 RegExp 对象的实例</p>\n<pre><code class=\"language-js\">/[a-z]*/g instanceof RegExp // true</code></pre>\n<p>pattern 模式由下面的字符组成</p>\n<ul>\n<li><p><code>边界符号(^、$)</code> ^ 以 xx 开头，$ 以 xx 结尾</p>\n<ul>\n<li><code>/^abc/</code> 表示以 abc 开头</li>\n<li><code>/abc$/</code> 表示以 abc 结尾</li>\n</ul>\n</li>\n<li><p><code>字符集合([]、^、-)</code> 一系列的字符集合</p>\n<ul>\n<li><code>[abc]</code> 表示 abc 里面的任意一个字符</li>\n<li><code>[^abc]</code> 表示任意一个非 abc 字符，注意 ^ 在 [] 里面表示非 xx 字符</li>\n<li><code>[a-z0-9]</code> 表示 a 到 z 的字符，0 到 9 字符</li>\n</ul>\n</li>\n<li><p><code>预定义模式字符(.、\\d、\\w、\\s、\\n)</code> 一些常见字符集合的简写</p>\n<ul>\n<li><code>.</code> 表示除 \\r\\n 之外的所有字符</li>\n<li><code>\\d</code> 是 <code>[0-9]</code> 的简写，表示数字</li>\n<li><code>\\D</code> 是 <code>[^0-9]</code> 的简写，表示非数字</li>\n<li><code>\\w</code> 是 <code>[0-9a-zA-Z_]</code> 的简写，表示数字、字母、下划线</li>\n<li><code>\\W</code> 是 <code>[^0-9a-zA-Z_]</code> 的简写，表示非数字、字母、下划线</li>\n<li><code>\\s</code> 是 <code>[ ]</code> 的简写，表示空白符(空格)，<code>&quot;  a  b c   &quot;.replace(/\\s/g, &#39;&#39;) === &quot;abc&quot;</code></li>\n<li><code>\\S</code> 是 <code>[^ ]</code> 的简写，表示非空白符</li>\n<li><code>\\n</code> 表示 换行符</li>\n</ul>\n</li>\n<li><p><code>匹配次数/数量(?、*、+、{})</code></p>\n<ul>\n<li><code>?</code> 匹配前面的模式 0 次或 1 次 {0, 1}</li>\n<li><code>*</code> 匹配前面的模式 0 次或多次 {0, }</li>\n<li><code>+</code> 匹配前面的模式 1 次或多次 {1, }</li>\n<li><code>{n}</code>    匹配前面的模式 n 次</li>\n<li><code>{n,m}</code> 匹配前面的模式 至少 n 次，至多 m 次</li>\n</ul>\n</li>\n<li><p><code>其他 ()、|</code></p>\n<ul>\n<li><code>()</code> 用于匹配字符串中的多个部分，比如 <code>(\\w+)\\s(\\w+)</code> 匹配 <code>aaa bbb</code>，第一部分 $1 为 &#39;aaa&#39;，第二部分 $2 为 &#39;bbb&#39;。可以使用 regExp.exec(str) 返回对象的 index 来获取对应的部分值。或者 replace 时，使用 $1 $2 等格式替代。</li>\n<li><code>|</code> 表示或 <code>/a|b/</code> 表示 a 或者 b </li>\n</ul>\n</li>\n<li><p><code>转义字符* + ? $ ^ . | \\ ( ) { } [ ]</code> 正则表达式保留字符都需要在前面加 <code>\\</code> 进行转义，比如字符 <code>/</code> 需要使用 <code>\\/</code> 表示</p>\n</li>\n</ul>\n<p>flags 标志位：g 不仅仅匹配第一个，全局匹配。i 忽略大小写</p>\n<p>正则表达式中，一个 () 表示一个部分，来看一个例子。</p>\n<pre><code class=\"language-js\">let str = &quot;zuo guoqing&quot;\nlet reg = /(\\w+)\\s(\\w+)/ // 匹配两个部分 &#39;第一部分 第二部分&#39;\nstr.replace(reg, &quot;$2 $1&quot;) // 将两个部分对调，&quot;guoqing zuo&quot;\nstr.match(reg) // { 0: &quot;zuo guoqing&quot;, 1: &quot;zuo&quot;, 2: &quot;guoqing&quot; }\nreg.exec(str) // { 0: &quot;zuo guoqing&quot;, 1: &quot;zuo&quot;, 2: &quot;guoqing&quot; }</code></pre>\n<p>现在我们可以使用 () 来分部分（块）提取 url 中的字符了，将 url 拆解 <code>.com之前的部分\\/区域部分\\/城市以及id部分\\/模块部分\\/页数部分</code></p>\n<pre><code class=\"language-js\">// .com 之前的部分 [\\S]+.com\\/  匹配一个或多个非空白符.com\\/\n// 区域部分 ([\\w]*)\\/ 匹配 0 个 或多个 数字字母下划线\n// 城市及id部分 ([\\w-]*)\\/ 匹配 0 个或多个 数字字母下划线 -\n// 模块部分 ([\\w]*)\\/?\n// 页数部分 ([\\w]*)$\nlet regExp = /[\\S]+.com\\/([\\w]*)\\/([\\w-]*)\\/([\\w]*)\\/?([\\w]*)$/\nlet a = `http://www.xx.com/region/gd/module`\nlet b = `http://www.xx.com/region/gd-c222/module`\nlet c = `http://www.xx.com/region/gd-c222/module/p2`\na.replace(regExp, &#39;$1 $2 $3 $4&#39;) // &quot;region gd module &quot;\nb.replace(regExp, &#39;$1 $2 $3 $4&#39;) // &quot;region gd-c222 module &quot;\nc.replace(regExp, &#39;$1 $2 $3 $4&#39;) // &quot;region gd-c222 module p2&quot;\na.match(regExp) // { 1: &quot;region&quot;, 2: &quot;gd&quot;, 3: &quot;module&quot;, 4: &quot;&quot; }\nc.match(regExp) // { 1: &quot;region&quot;, 2: &quot;gd-c222&quot;, 3: &quot;module&quot;, 4: &quot;p2&quot; }</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "正则表达式使用 () 和 match 或 replace 提取 url 路径参数"
+        }
+      ],
+      "config": {
+        "source": "正则表达式使用 () 和 match 或 replace 提取 url 路径参数.md",
+        "staticFileName": "regExp_url.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "正则提取 url 参数，来看一个问题，使用正则表达式从 url 中提取区域、城市id、模块、页数id。url 示例如下 1. `http://www.xx.com/region/gd/module` 2. `http://www.xx.com/region/gd-c222/module` 3. `http://www.xx.com/region/gd-c222/module/p2` 下面来看看怎么实现。首先，回顾下正则表达式（Regular Expression）基础。正则表表达式以 `/pattern/flags` 表示，是 RegExp 对象的实例",
+        "keywords": "正则提取 url 参数",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-组件封装，通过发布订阅模式和-vue-实例方法实现-js-操作组件\">Vue 组件封装，通过发布订阅模式和 Vue 实例方法实现 js 操作组件</h1>\n<p>以消息组件为例，如果多个组件共用一个全局的消息组件，那怎么优雅的显示消息呢？</p>\n<p>普通的组件 props 传值的方式会受限，因为组件层级是不确定的。</p>\n<p>你可能会想到状态管理，将是否显示消息、消息内容存到状态管理 state 中，如果需要显示就修改 vuex 值即可。</p>\n<p>但这样调用起来会不够方便、简洁。这里我们可以使用发布订阅模式，结合 Vue 实例属性来优雅的实现该功能。下面来看看使用示例</p>\n<pre><code class=\"language-html\">&lt;!-- 先在 main.js 里全局注册 --&gt;\n&lt;!-- \nimport MessageInfo from &quot;./components/message-info/index.js&quot;;\nVue.use(MessageInfo);\n--&gt;\n\n&lt;!-- msgTest 测试页面 --&gt;\n&lt;template&gt;\n  &lt;div&gt;\n    &lt;button @click=&quot;showMsg&quot;&gt;Show msg&lt;/button&gt;\n    &lt;!-- 消息组件 message-info --&gt;\n    &lt;message-info&gt;\n      &lt;!-- slot --&gt;\n      &lt;button @click=&quot;closeMsg&quot;&gt;手动关闭 message&lt;/button&gt;\n    &lt;/message-info&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nexport default {\n  methods: {\n    // 显示弹窗\n    showMsg() {\n      this.$showMsg([&quot;消息1&quot;, &quot;消息2&quot;]);\n    },\n\n    // 手动关闭弹窗\n    closeMsg() {\n      this.$closeMsg();\n    }\n  }\n};\n&lt;/script&gt;\n&lt;style&gt;&lt;/style&gt;</code></pre>\n<p>上面的例子中，我们使用 this.$showMsg() 和 this.$closeMsg() 来轻松实现了消息的显示与关闭。这样做的好处是，<strong>可以在任何子组件中来操作消息的显示和隐藏</strong>，简单方便。</p>\n<p>下面来看 message-info 组件的具体实现，组件目录如下，相比其他组件多了 EventBus.js，MessageInfo.js 主要用于发布订阅事件处理</p>\n<pre><code class=\"language-bash\">├── message-info\n│   ├── src \n│   │   ├── EventBus.js # 发布订阅 bus\n│   │   ├── index.vue # vue 组件\n│   │   └── MessageInfo.js # js 对象\n│   └── index.js # 组件入口文件，Vue.use 时注册全局组件，绑定实例属性</code></pre>\n<p>message-info/index.js 入口文件</p>\n<pre><code class=\"language-js\">import MessageInfo from &quot;./src/index.vue&quot;;\nimport MessageInfoCore from &quot;./src/MessageInfo.js&quot;;\n\nMessageInfo.install = function(Vue) {\n  // 注册全局组件 message-vue\n  Vue.component(MessageInfo.name, MessageInfo);\n\n  // 绑定实例属性\n  Vue.prototype.$showMsg = MessageInfoCore.showMsg;\n  Vue.prototype.$closeMsg = MessageInfoCore.closeMsg;\n};\n\nexport default MessageInfo;</code></pre>\n<p>message-info/src/index.vue 组件代码</p>\n<pre><code class=\"language-html\">&lt;template&gt;\n  &lt;!-- 父元素遮罩层--&gt;\n  &lt;div class=&quot;msg-info-wrap&quot; v-if=&quot;showMsg&quot; @click=&quot;closeMsg&quot;&gt;\n    &lt;!-- 消息弹窗 --&gt;\n    &lt;div class=&quot;msg-info&quot; @click.stop&gt;\n      &lt;!-- 消息列表 --&gt;\n      &lt;div v-for=&quot;msg in messages&quot; :key=&quot;msg&quot;&gt;{{ msg }}&lt;/div&gt;\n      &lt;slot&gt;&lt;/slot&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nimport Bus from &quot;./EventBus&quot;;\n\nexport default {\n  name: &quot;MessageInfo&quot;,\n  data() {\n    return {\n      showMsg: false,\n      messages: []\n    };\n  },\n\n  created() {\n    Bus.$on(&quot;showMsg&quot;, msgList =&gt; {\n      this.showMsg = true; // 显示消息\n      this.messages = msgList; // 显示对应的消息列表\n    });\n    Bus.$on(&quot;closeMsg&quot;, this.closeMsg);\n  },\n\n  destroyed() {\n    Bus.$off(&quot;showMsg&quot;);\n    Bus.$off(&quot;closeMsg&quot;);\n  },\n\n  methods: {\n    closeMsg() {\n      this.showMsg = false;\n      this.messages = [];\n    }\n  }\n};\n&lt;/script&gt;\n\n&lt;style lang=&quot;less&quot; scoped&gt;\n.msg-info-wrap {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  background: rgba(0, 0, 0, 0.1);\n  .msg-info {\n    position: absolute;\n    top: 30%;\n    left: 50%;\n    width: 50%;\n    padding: 20px;\n    border-radius: 5px;\n    transform: translate(-50%, -50%);\n    background: #fff;\n  }\n}\n&lt;/style&gt;</code></pre>\n<p>message-info/src/EventBus.js</p>\n<pre><code class=\"language-js\">import Vue from &quot;vue&quot;;\n\nlet Bus = new Vue();\n\nexport default Bus;</code></pre>\n<p>message-info/src/MessageInfo.js</p>\n<pre><code class=\"language-js\">import Bus from &quot;./EventBus&quot;;\n\nclass MessageInfo {\n  static showMsg(...args) {\n    Bus.$emit(&quot;showMsg&quot;, ...args);\n  }\n\n  static closeMsg(...args) {\n    Bus.$emit(&quot;closeMsg&quot;, ...args);\n  }\n}\n\nexport default MessageInfo;</code></pre>\n<p>完整 github 代码地址： <a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/components/message-info\">message 组件 代码 | github</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue 组件封装，通过发布订阅模式和 Vue 实例方法实现 js 操作组件"
+        }
+      ],
+      "config": {
+        "source": "Vue 组件封装，通过发布订阅模式和 Vue 实例方法实现 js 操作组件.md",
+        "staticFileName": "vue_js_comp.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "以消息组件为例，如果多个组件共用一个全局的消息组件，那怎么优雅的显示消息呢？普通的组件 props 传值的方式会受限，因为组件层级是不确定的。你可能会想到状态管理，将是否显示消息、消息内容存到状态管理 state 中，如果需要显示就修改 vuex 值即可。但这样调用起来会不够方便、简洁。这里我们可以使用发布订阅模式，结合 Vue 实例属性来优雅的实现该功能。下面来看看使用示例",
+        "keywords": "vue js 操作组件, vue 组件封装",
+        "category": "Vue",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"footer-始终保持在最底部-css-实现与-js-实现优缺点对比\">footer 始终保持在最底部 css 实现与 js 实现优缺点对比</h1>\n<p>让 footer 一直保持在最底部是比较常见的需求，css 和 js 都可以实现，一般推荐使用 css 实现，下面来看看具体实现，以及他们的优缺点</p>\n<p><img src=\"../../../images/blog/css/footer-bottom.gif\" alt=\"footer-bottom.gif\"></p>\n<p>以下面的结构为例</p>\n<pre><code class=\"language-html\">&lt;body&gt;\n &lt;article class=&quot;container&quot;&gt;\n    &lt;header&gt;顶部&lt;/header&gt;\n    &lt;section class=&quot;main&quot;&gt;中间内容部分&lt;/section&gt;\n    &lt;footer&gt;底部&lt;/footer&gt;\n  &lt;/article&gt;\n&lt;/body&gt;</code></pre>\n<p>需要考虑两种情况：</p>\n<ol>\n<li>内容没占满视窗时，footer 在最底部，需要 body 有最小高度，才能撑起来</li>\n<li>内容较多时，滚动到底部才能看到 footer，且不遮挡内容区域</li>\n</ol>\n<h2 id=\"方法-1：css-方式---position-absolute\">方法 1：css 方式 - position: absolute</h2>\n<ol>\n<li>footer 使用 position: absolute; bottom: 0; 保持在底部。</li>\n<li>对于可能遮挡中间内容区域的问题，将 body 设置为 relative，注意不是 container，这样可以让 footer 内容保持在body最底部</li>\n<li>内容较多时，footer position: absolute 会遮挡内容部分，需要将 container 加一个 padding-bottom: footer 高度，来防止遮挡</li>\n</ol>\n<p><a href=\"https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html\">方法 1 - 在线示例</a>、<a href=\"https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html\">方法 1 - 代码 | github</a></p>\n<p><strong>优点：css 即可实现</strong></p>\n<p><strong>缺点：需要知道 footer 具体高度。对于 footer 高度不确定的场景，就不合适了。</strong></p>\n<pre><code class=\"language-css\">* { margin: 0; }\nbody {\n  position: relative; /* 当 footer 为 position 为 absolute 时，放置到 body 底部 */\n  min-height: 100vh; /* 最小高度 100% 视窗高度 */\n}\n.container {\n  padding-bottom: 50px; /* 防止内容被 footer 遮挡 */\n}\nfooter { \n  position: absolute; /* 放到页面最底部 */\n  bottom: 0;\n  left: 0;\n  height: 50px;\n  width: 100%;\n  background: yellow;\n}</code></pre>\n<h2 id=\"方法-2：css-方式---中间部分-flex-1\">方法 2：css 方式 - 中间部分 flex: 1</h2>\n<p>使用 flex 纵向布局，中间部分使用 flex: 1，内容不足时自动撑开</p>\n<p><a href=\"https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html\">方法 2 - 在线示例</a>、<a href=\"https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html\">方法 2 - 代码 | github</a></p>\n<p><strong>优点：css 即可实现，不需要知道 footer 区域高度</strong></p>\n<p><strong>缺点：需要注意父容器高度，最小高度要占满屏幕，有嵌套时，需要使用 height: 100%；且整体需要使用 flex 布局</strong></p>\n<pre><code class=\"language-css\">* { margin: 0 }\n.container { \n  display: flex; /* 使用 flex 纵向布局 */\n  flex-direction: column;\n  min-height: 100vh;\n  box-sizing: border-box;\n}\n.main {\n  flex: 1; /* 中间内容部分 flex-grow: 1 内容不足时自动撑开 */\n}\nfooter {  /* 不需要知道底部高度 */\n  padding: 10px;\n  background: yellow;\n}</code></pre>\n<h2 id=\"方法-3：js-方式---监听页面整体滚动高度与视窗高度动态设置样式\">方法 3：js 方式 - 监听页面整体滚动高度与视窗高度动态设置样式</h2>\n<p>页面 mounted 后，判断视窗高度 和 整体滚动高度（包含 footer高度），如果小于视窗高度，则添加一个 固定底部的 class，否则去掉该 class</p>\n<p><a href=\"https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html\">方法 3 - 在线示例</a>、<a href=\"https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html\">方法 3 - 代码 | github</a></p>\n<p><strong>优点：无</strong></p>\n<p><strong>缺点：页面不刷新的情况下，动态增加内容，需要重新判断一次，不推荐</strong></p>\n<p>下面是 vue 的实现</p>\n<pre><code class=\"language-js\">// :class=&quot;fixed ? &#39;flexd-bottom&#39; : &#39;&#39;&quot;\n// data: { fixed: false }\n // 处理 footer \nmethods: {\n  handleFooter() {\n    let { clientHeight } = document.documentElement;\n    this.fixed = false \n    this.$nextTick(() =&gt; {\n      let { scrollHeight: pageScrollHeight } = document.querySelector(&#39;.container&#39;)\n      // 如果整体页面高度(包含默认加载的 bottom) &lt; 视窗高度 固定到底部\n      this.fixed = pageScrollHeight &lt; clientHeight\n    })\n  }\n},\nmounted() {\n  this.handleFooter()\n}\n// &amp;.fixed-bottom {\n//   position: absolute;\n//   bottom: 0;\n// }</code></pre>\n<h2 id=\"测试-demo\">测试 demo</h2>\n<pre><code class=\"language-html\">&lt;head&gt;\n  &lt;meta charset=&quot;UTF-8&quot;&gt;\n  &lt;title&gt;测试 footer&lt;/title&gt;\n  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;\n  &lt;style&gt;\n    * { margin: 0 }\n    footer { height: 50px; background: yellow; }\n  &lt;/style&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;article id=&quot;app&quot; class=&quot;container&quot;&gt;\n    &lt;header&gt;\n      &lt;h2&gt;foot 始终在顶部测试&lt;/h2&gt;\n    &lt;/header&gt;\n    &lt;section class=&quot;main&quot;&gt;\n      占位数：&lt;button v-for=&quot;item in list&quot; :key=&quot;`btn-${item}`&quot; @click=&quot;changeCount(item)&quot;&gt;{{item}}&lt;/button&gt;\n      &lt;div v-for=&quot;item in count&quot; :key=&quot;`gap-${item}`&quot;&gt;\n        占位 {{item}}\n      &lt;/div&gt;\n    &lt;/section&gt;\n    &lt;footer&gt;\n      Copyright © 2016-2021 zuo11.com. 鄂ICP备16014741号-1\n    &lt;/footer&gt;\n  &lt;/article&gt;\n  &lt;script&gt;\n    let app = new Vue({\n      el: &#39;#app&#39;,\n      data() {\n        return {\n          list: [5, 50, 100],\n          count: 5\n        }\n      },\n      methods: {\n        changeCount(value) {\n          this.count = value\n        }\n      }\n    })\n  &lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "footer 始终保持在最底部 css 实现与 js 实现优缺点对比",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "方法 1：css 方式 - position: absolute"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "方法 2：css 方式 - 中间部分 flex: 1"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "方法 3：js 方式 - 监听页面整体滚动高度与视窗高度动态设置样式"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "测试 demo"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "footer 始终保持在最底部 css 实现与 js 实现优缺点对比.md",
+        "staticFileName": "footer_bottom.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "让 footer 一直保持在最底部是比较常见的需求，css 和 js 都可以实现，一般推荐使用 css 实现，下面来看看具体实现，以及他们的优缺点。需要考虑两种情况：1. 内容没占满视窗时，footer 在最底部，需要 body 有最小高度，才能撑起来 2. 内容较多时，滚动到底部才能看到 footer，且不遮挡内容区域",
+        "keywords": "footer一直保持到底部怎么实现,footer区域保持在底部,footer固定到底部",
+        "category": "CSS",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-组件中-css-路径简写--不可用，需要使用-\">Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@</h1>\n<blockquote>\n<p>Vue css src 路径，css @ 不生效，css src 简写@, webpack 解析 css 路径</p>\n</blockquote>\n<p>在 vue-cli 创建的 vue 项目中，可以使用 @ 来表示 src 路径。但在 css 中，图片路径使用 @ 就会出错。那 css 中要怎么使用 src 相对路径呢？</p>\n<p>需要在前面加 ~，也就是 ~@，这样就不必使用相对路径了。</p>\n<pre><code class=\"language-css\">#img {\n  height: 100px;\n  width: 100px;\n  background: url(&quot;~@/assets/logo.png&quot;);\n  background-size: contain;\n}</code></pre>\n<p>为什么呢？可能的原因是 @ 是 css 的保留关键字，在 @import 的时候会用到，为了避免冲突，才使用 ~@ 以示区分。</p>\n<p>webpack 中使用 css-loader 来处理 css，具体逻辑可以看 <a href=\"https://github.com/webpack-contrib/css-loader\">css-loader 源码</a></p>\n<p>参考: </p>\n<ul>\n<li><a href=\"https://blog.csdn.net/qq_39148344/article/details/100771356\">webpack对CSS使用alias相对路径 | CSDN</a></li>\n<li><a href=\"https://blog.csdn.net/yusirxiaer/article/details/105661313\">vue项目，webpack中配置src路径别名及使用</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@"
+        }
+      ],
+      "config": {
+        "source": "Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@.md",
+        "staticFileName": "vue_css_src.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "vue css src 路径，css @ 不生效，css src 简写@, webpack 解析 css 路径，在 vue-cli 创建的 vue 项目中，可以使用 @ 来表示 src 路径。但在 css 中，图片路径使用 @ 就会出错。那 css 中要怎么使用 src 相对路径呢？需要在前面加 ~，也就是 ~@，这样就不必使用相对路径了。",
+        "keywords": "vue css src 路径,css @ 不生效,css src 简写@,webpack 解析 css 路径",
+        "category": "Vue",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-国际化-vue-i18n-相关用法、实践总结\">Vue 国际化 vue-i18n 相关用法、实践总结</h1>\n<p>在 <a href=\"http://www.zuo11.com/blog/2021/4/vue_international.html\">Vue 使用 vue-i18n 国际化 - 左小白的技术日常</a> 中，我们简单介绍了 vue-i18n 的基本使用。如果想将它实际应用到项目中，我们还需要考虑怎么做到更加简洁、优雅、可维护，下面是一些实践总结。</p>\n<h2 id=\"1-i18n-单独放一个目录，避免在-mainjs-中写入太多内容\">1. i18n 单独放一个目录，避免在 main.js 中写入太多内容</h2>\n<p>i18n 相关内容较多，如果都写在 main.js 里，内容会很多，不够优雅，这里可以进行简单封装。在 src 目录下新建一个 i18n 目录，专门用于存放国际化相关内容，使用 index.js 作为入口文件</p>\n<pre><code class=\"language-js\">// src/i18n/index.js\nimport Vue from &quot;vue&quot;;\nimport VueI18n from &quot;vue-i18n&quot;;\n\nVue.use(VueI18n);\n\nconst i18n = new VueI18n({\n  locale: &quot;zh-CN&quot;, // 设置默认语言环境\n  // 在 vue template 的 {{}} 中，使用 $t(&#39;un&#39;) 即可拿到 un 属性指定的值\n  // 不需要在 data() {} 中设置什么\n  messages: {\n    en: {\n      name: &quot;Zhang san&quot;,\n      hello: &quot;hello world&quot;\n    },\n    &quot;zh-CN&quot;: {\n      name: &quot;张三&quot;,\n      hello: &quot;你好，世界&quot;\n    }\n  }\n});\n\nexport default i18n; // 将 i18n 实例导出，用于在 new Vue 时引入</code></pre>\n<p>这样，我们在 main.js 就只需要修改两行就可以了</p>\n<pre><code class=\"language-js\">// main.js\n// ...\nimport i18n from &quot;./i18n/index&quot;; // 引入 src/i18n/index，得到 i18n 实例\n\nnew Vue({\n  i18n, // 在 new Vue() 时加入 i18n\n  router,\n  store,\n  render: h =&gt; h(App)\n}).$mount(&quot;#app&quot;);</code></pre>\n<h2 id=\"2-方便实时测试：语言切换组件\">2. 方便实时测试：语言切换组件</h2>\n<p>在测试国际化时，改代码的方式切国际化语言不够方便。我们可以做一个测试用的语言切换组件，在主页面引入后，会出现在页面右上角，方便调试。相关配置存到 lcoalStorage 中，防止调试时刷新页面后需要再次手动切换语言。</p>\n<p><img src=\"../../../images/blog/vue/i18n-lang-change.gif\" alt=\"i18n-lang-change.gif\"></p>\n<pre><code class=\"language-html\">&lt;!-- BaseLanguageSelect.vue --&gt;\n&lt;template&gt;\n  &lt;div class=&quot;demo-i18n&quot;&gt;\n    国际化测试：\n    &lt;el-select v-model=&quot;lang&quot; @change=&quot;langChange&quot;&gt;\n      &lt;el-option label=&quot;中文&quot; value=&quot;zh-CN&quot;&gt;&lt;/el-option&gt;\n      &lt;el-option label=&quot;英语&quot; value=&quot;en&quot;&gt;&lt;/el-option&gt;\n    &lt;/el-select&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\n// 将当前语言存到 localStorage 中的字段，要特殊，防止和其他项目冲突\nconst LANG_NAME = &quot;demo-lang&quot;;\nexport default {\n  data() {\n    return {\n      lang: &quot;en&quot;\n    };\n  },\n  created() {\n    // 从 localStorage 中读取默认语言，便于页面刷新后调试\n    this.lang = localStorage.getItem(LANG_NAME) || &quot;en&quot;;\n    // 设置到 i18n\n    this.$i18n.locale = this.lang;\n  },\n  methods: {\n    // 语言切换后，设置到 i18n、localStorage\n    langChange(value) {\n      this.$i18n.locale = value;\n      localStorage.setItem(LANG_NAME, value);\n    }\n  }\n};\n&lt;/script&gt;\n\n&lt;style lang=&quot;less&quot; scoped&gt;\n.demo-i18n {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n}\n&lt;/style&gt;</code></pre>\n<p>使用示例</p>\n<pre><code class=\"language-html\">&lt;!-- i18nTest.vue --&gt;\n&lt;template&gt;\n  &lt;div&gt;\n    &lt;BaseLanguageSelect /&gt;\n    {{ $t(&quot;name&quot;) }}, {{ $t(&quot;hello&quot;) }}\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nexport default {\n  components: {\n    BaseLanguageSelect: () =&gt; import(&quot;./BaseLanguageSelect&quot;)\n  }\n};\n&lt;/script&gt;</code></pre>\n<h2 id=\"3-避免单文件过大、混乱：模块化\">3. 避免单文件过大、混乱：模块化</h2>\n<p>当项目较大、国际化内容较多时，如果将全部内容都写在 i18n/index.js 主文件中，有两个缺点：</p>\n<ul>\n<li>i18n/index.js 内容太多，不好查找</li>\n<li>多人同时维护时，容易产生冲突，合并代码一不小心就会合出问题</li>\n</ul>\n<p>这就需要模块化了，怎么优雅的模块化呢？下面是我的一些思考，仅供参考</p>\n<ul>\n<li>按功能模块划分、不同的模块放到不同的目录、不同的语言使用不同的文件</li>\n<li>新增模块和语言时，最小化改动公共文件 i18n/index.js</li>\n</ul>\n<p>目录结构规划如下</p>\n<pre><code class=\"language-bash\">├── i18n\n│   ├── base # 通用模块，想用 common 但是使用时，模块名越短越方便，改为 base \n│   │   ├── en.js\n│   │   └── zh-CN.js \n│   ├── user # 用户模块\n│   │   ├── en.js\n│   │   └── zh-CN.js \n│   ├── xxx # 其他模块\n│   │   ├── en.js\n│   │   └── zh-CN.js \n│   └── index.js # 入口文件、导出 i18n 实例</code></pre>\n<p>这里就需要重构 i18n/index.js 了，利用 import() 动态导入，使用 modules 模块数组，languages 语言数组，自动去合并、整理 messages。后面新增模块或新增语言非常方便、快捷，代码如下</p>\n<pre><code class=\"language-js\">import Vue from &quot;vue&quot;;\nimport VueI18n from &quot;vue-i18n&quot;;\n\nVue.use(VueI18n);\n\n/**\n * @description 根据模块、语言提取 messages\n * @author zuoxiaobai &lt;i@zuoguoqing.com&gt;\n * @param { Array } modules [&quot;base&quot;, &quot;user&quot;]; // 模块数组\n * @param { Array } languages [&quot;en&quot;, &quot;zh-CN&quot;]; // 语言数组\n * @returns { Object} messages\n */\nfunction getMessages(modules, languages) {\n  // 初始化 messages { en: {}, zh-CN: {}}\n  let messages = {};\n  languages.forEach(lang =&gt; {\n    messages[lang] = {};\n  });\n\n  // 遍历模块，将内容添加到 messages.语言.上\n  modules.forEach(moduleName =&gt; {\n    languages.forEach(async lang =&gt; {\n      // 加 try ... catch 防止语言文件缺失 import 报 error，影响执行\n      try {\n        let { default: obj } = await import(&quot;./&quot; + `${moduleName}/${lang}.js`);\n        // { en: { base: { } }, zh-CN: { base: {} }}\n        !messages[lang][moduleName] &amp;&amp; (messages[lang][moduleName] = {});\n        Object.assign(messages[lang][moduleName], obj);\n      } catch (e) {\n        console.warn(e.message);\n      }\n    });\n  });\n  console.log(messages);\n  return messages;\n}\n\nconst modules = [&quot;base&quot;, &quot;user&quot;]; // 模块数组\nconst languages = [&quot;en&quot;, &quot;zh-CN&quot;, &quot;zh-TW&quot;]; // 语言数组\nlet messages = getMessages(modules, languages);\n\nconst i18n = new VueI18n({\n  locale: &quot;zh-CN&quot;, // 设置默认语言环境\n  messages\n  // messages: {\n  //   en: {\n  //     name: &quot;Zhang san&quot;,\n  //     hello: &quot;hello world&quot;\n  //   },\n  //   &quot;zh-CN&quot;: {\n  //     name: &quot;张三&quot;,\n  //     hello: &quot;你好，世界&quot;\n  //   }\n  // }\n});\n\nexport default i18n;</code></pre>\n<p>合并后的效果如下图，不同的模块放到不同的大对象上</p>\n<p><img src=\"../../../images/blog/vue/i18n-modlues.png\" alt=\"i18n-modlues.png\"></p>\n<p>在 vue 组件中使用时，加上模块前缀即可</p>\n<pre><code class=\"language-html\">&lt;template&gt;\n  &lt;div&gt;\n    &lt;BaseLanguageSelect /&gt;\n    &lt;!-- {{ $t(&quot;name&quot;) }}, {{ $t(&quot;hello&quot;) }} --&gt;\n    {{ $t(&quot;user.name&quot;) }}, {{ $t(&quot;user.hello&quot;) }}\n    {{ $t(&quot;base.year&quot;) }}, {{ $t(&quot;base.month&quot;) }}, {{ $t(&quot;base.time&quot;) }}\n  &lt;/div&gt;\n&lt;/template&gt;</code></pre>\n<h2 id=\"4-列表渲染（code-值）处理：js-取值、过滤器-filter-设计\">4. 列表渲染（code 值）处理：js 取值、过滤器 filter 设计</h2>\n<p>对于列表相关国际化，如果是前端纯展示还好，我们直接遍历即可，以 currency 币种为例，纯展示可以像下面这样写</p>\n<pre><code class=\"language-html\">&lt;!-- currencys: [&quot;RMB&quot;, &quot;USD&quot;, &quot;HKD&quot;] --&gt;\n&lt;!-- currencys: [&quot;人民币&quot;, &quot;美元&quot;, &quot;港币&quot;] --&gt;\n&lt;div v-for=&quot;item in $t(&#39;base.currencys&#39;)&quot; :key=&quot;item&quot;&gt;{{ item }}&lt;/div&gt;</code></pre>\n<p>但如果涉及到表单，就需要一些处理了。比如表单中需要选择币种，一般每个币种会对应不同的 code，我们需要处理两个问题：</p>\n<ol>\n<li>用户选择国际化币种后，表单 v-model 值自动变成 code</li>\n<li>当后端返回币种 code 时，前端可以渲染其国际化币种显示</li>\n</ol>\n<p>可以在国际化中新增一个字段比如 currencysCode，按照字段顺序一一对应，比如 currencyCodes: [&#39;10&#39;, &#39;12&#39;, &#39;15&#39;]，这样根据 index，可以将 code 设置到表单的 value 中，另外知道 code 计算国际化文本时，可以使用 filter，从 this.$i18n 这个变量中，通过 js 来取值，例子如下</p>\n<pre><code class=\"language-html\">&lt;template&gt;\n  &lt;div&gt;\n    &lt;BaseLanguageSelect /&gt;\n\n    当前币种：{{ currency | currencyText($i18n) }} {{ currency }}\n    &lt;el-select v-model=&quot;currency&quot;&gt;\n      &lt;el-option\n        v-for=&quot;(item, index) in $t(&#39;base.currencys&#39;)&quot;\n        :key=&quot;item&quot;\n        :label=&quot;item&quot;\n        :value=&quot;$t(&#39;base.currencyCodes&#39;)[index]&quot;\n      &gt;&lt;/el-option&gt;\n    &lt;/el-select&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nexport default {\n  components: {\n    BaseLanguageSelect: () =&gt; import(&quot;./BaseLanguageSelect&quot;)\n  },\n\n  filters: {\n    currencyText: function(code, i18n) {\n      // filter 中不能使用 this，需要传参数 this.$i18n\n      // console.log(this); // undefined\n      let { currencys, currencyCodes } = i18n.messages[i18n.locale].base;\n      // 根据 code 找到对应的 index\n      let index = currencyCodes.indexOf(code);\n      return currencys[index];\n    }\n  },\n  data() {\n    return {\n      currency: &quot;&quot;\n    };\n  }\n};\n&lt;/script&gt;</code></pre>\n<p>除了在国际化中，加入对应的 code 对应关系字段外，也可以单独用一个 const 文件来保存 code。当语言种类不多的情况下，感觉直接放到国际化字段中会简单一点，操作时不用额外引入文件。</p>\n<p>除了模板语法写法外，我们也可以通过 Vue 的实例属性 this.$i18n. 来操作国际化数据，这样基本就可以处理所有情况了。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue 国际化 vue-i18n 相关用法、实践总结",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "1. i18n 单独放一个目录，避免在 main.js 中写入太多内容"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "2. 方便实时测试：语言切换组件"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "3. 避免单文件过大、混乱：模块化"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "4. 列表渲染（code 值）处理：js 取值、过滤器 filter 设计"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "Vue 国际化 vue-i18n 相关用法、实践总结.md",
+        "staticFileName": "vue-i18n_use.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "vue 国际化, Vue 国际化最佳实践, vue-i18n最佳实践, vue-i18n模块化方案, 在 'Vue 使用 vue-i18n 国际化' 中，我们简单介绍了 vue-i18n 的基本使用。如果想将它实际应用到项目中，我们还需要考虑怎么做到更加简洁、优雅、可维护，下面是一些实践总结。1. i18n 单独放一个目录，避免在 main.js 中写入太多内容 2. 方便实时测试：语言切换组件 3. 避免单文件过大、混乱：模块化 4. 列表渲染（code 值）处理：js 取值、过滤器 filter 设计",
+        "keywords": "vue 国际化,Vue 国际化最佳实践,vue-i18n最佳实践,vue-i18n模块化方案",
+        "category": "Vue",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-filters-中-this-为-undefined，建议使用传参或-method-处理\">Vue filters 中 this 为 undefined，建议使用传参或 method 处理</h1>\n<p>在 i18n 国际化，将 code 转换为国际化文本的场景中，需要使用 this.$i18n 这个变量，但发现 fitlers 中的 this 是 undefined，无法使用，查了下。</p>\n<p>这个是 Vue 设计问题，以下是作者 尤雨溪 在 issue <a href=\"https://github.com/vuejs/vue/issues/5998\">this undefined in filters · Issue #5998 · vuejs/vue</a> 下的回复：</p>\n<p><img src=\"../../../images/blog/vue/filter-this.png\" alt=\"filter-this.png\"></p>\n<p>This is intentional in 2.x. Filters should be pure functions and should not be dependent on this context. If you need this you should use a computed property or just a method e.g. $translate(foo)</p>\n<p>在 2.x 的版本中这个处理是有意的，Fitlers 应该是纯函数，不应该依赖 this 上下文。如果需要依赖 this，那就应该使用 computed 计算属性或 method 方法</p>\n<p><strong>解决方法：在 filters 中我们是可以传参数的，我们可以把需要的值，通过参数传入。如果涉及到多个变量的使用，传参比较冗余，那就使用计算属性或方法</strong>，使用示例：</p>\n<pre><code class=\"language-js\">// {{ currencyCode | currencyText($i18n) }}\nfilters: {\n  currencyText: function(code, i18n) {\n    // filter 中不能使用 this，需要传参数 this.$i18n\n    // console.log(this); // undefined\n    let { currencys, currencyCodes } = i18n.messages[i18n.locale].base;\n    // 根据 code 找到对应的 index\n    let index = currencyCodes.indexOf(code);\n    return currencys[index];\n  }\n},</code></pre>\n<p>参考: <a href=\"https://blog.csdn.net/weixin_40837048/article/details/100691625\">vue中过滤器filters的this指向问题。</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vue filters 中 this 为 undefined，建议使用传参或 method 处理"
+        }
+      ],
+      "config": {
+        "source": "Vue filters 中 this 为 undefined，建议使用传参或 method 处理.md",
+        "staticFileName": "vue_filters_this.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "在 i18n 国际化，将 code 转换为国际化文本的场景中，需要使用 this.$i18n 这个变量，但发现 fitlers 中的 this 是 undefined，无法使用，查了下。这个是 Vue 设计问题，以下是作者 尤雨溪 在 issue [this undefined in filters · Issue #5998 · vuejs/vue](https://github.com/vuejs/vue/issues/5998) 下的回复：",
+        "keywords": "vue filters this,vue filter this 为空,vue filter 不能使用 this",
+        "category": "Vue",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"stringprototypereplace-多个匹配替换时注意要使用正则\">String.prototype.replace 多个匹配替换时注意要使用正则</h1>\n<p>在做字符串替换时可以使用 repalce，但这里要注意，当需要替换多个时，第一个参数不能是字符串，要使用正则表达式</p>\n<p>来看一个例子，将字符串 &quot;1,000,000&quot; 中的 &quot;,&quot; 替换为空字符串 &quot;&quot;</p>\n<pre><code class=\"language-js\">let str = &quot;1,000,000&quot;\nstr.replace(&quot;,&quot;, &quot;&quot;) // &quot;1000,000&quot;</code></pre>\n<p>注意：上面的例子中，如果单纯的字符串替换，只会替换第一个，全局匹配时，第一个参数就要用正则了</p>\n<pre><code class=\"language-js\">let str = &quot;1,000,000&quot;\nstr.replace(/,/g, &quot;&quot;) // &quot;1000000&quot;</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "String.prototype.replace 多个匹配替换时注意要使用正则"
+        }
+      ],
+      "config": {
+        "source": "String.prototype.replace 多个匹配替换时注意要使用正则.md",
+        "staticFileName": "replace_regExp.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "在做字符串替换时可以使用 repalce，但这里要注意，当需要替换多个时，第一个参数不能是字符串，要使用正则表达式。来看一个例子，将字符串 '1,000,000' 中的 ',' 替换为空字符串 ''。注意：上面的例子中，如果单纯的字符串替换，只会替换第一个，全局匹配时，第一个参数就要用正则了",
+        "keywords": "replace多个匹配时需要使用正则",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"v-model-怎么优雅的绑定-vuex-状态管理中的值，三种方法优缺点\">v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点</h1>\n<p>在需要将 vuex 中的值，直接与表单 v-model 对应时，如果我们按照 vuex 强调的规范，只能通过 mutation 来改变 vuex state，那么会比较麻烦。假设我们脱离规范，关闭严格模式。那么 v-model 可以直接绑定 vuex state 值，会非常方便，但貌似又不合规范，不利于追踪。</p>\n<p>那到底要怎么做合适呢？个人建议是：怎么方便怎么来，只要项目可控即可。下面来看看几种方法对比</p>\n<h2 id=\"1-官方推荐：使用-computed-的-get-和-set\">1. 官方推荐：使用 computed 的 get 和 set</h2>\n<ul>\n<li>优点：遵循 vuex 规范，通过 mutation 更改 state，有利于追踪</li>\n<li>缺点：需要将表单的每个字段都使用 computed 计算属性，对于字段较少的情况，还可以。但当字段较多，且包含逻辑处理时，会比较麻烦不好维护。<pre><code class=\"language-js\">// &lt;input v-model=&quot;message&quot;&gt;\ncomputed: {\nmessage: {\n  get () {\n    return this.$store.state.obj.message\n  },\n  set (value) {\n    // 通过 updateMessage mutation 方法更改值\n    this.$store.commit(&#39;updateMessage&#39;, value)\n  }\n}\n}</code></pre>\n参考：<a href=\"https://vuex.vuejs.org/zh/guide/forms.html\">表单处理 | Vuex</a></li>\n</ul>\n<h2 id=\"2-非严格模式：直接将-state-设置到-v-model\">2. 非严格模式：直接将 state 设置到 v-model</h2>\n<p>关闭严格模式后，直接将 vuex state 当全局变量用，可以任意修改操作</p>\n<pre><code class=\"language-js\">const store = new Vuex.Store({\n  // ...\n  strict: false // 关闭严格模式，或者直接不写这个属性\n  // strict: true // 开启严格模式 \n})</code></pre>\n<ul>\n<li>优点：可以将 obj.message 直接设置到 v-model，值实时更新，而且不用什么额外操作。</li>\n<li>缺点：破坏了 vuex 的规则约束，不利于追踪，可能会造成难以维护的情况。</li>\n</ul>\n<pre><code class=\"language-js\">&lt;input v-model=&quot;obj.message&quot;&gt;</code></pre>\n<h2 id=\"3-中间对象转换：watch-监听-state-改变，更新中间对象，v-model-中间对象\">3. 中间对象转换：watch 监听 state 改变，更新中间对象，v-model 中间对象</h2>\n<ul>\n<li>优点：折中方法，不破坏 vuex 规则约束，操作比一个一个加 computed 要简单</li>\n<li>缺点：需要使用 watch 来初始化或更改值，触发时机需要特别注意</li>\n</ul>\n<pre><code class=\"language-html\">&lt;template&gt;\n  &lt;div&gt;\n    &lt;div&gt;{{ obj }}&lt;/div&gt;\n    &lt;div&gt;{{ objCopy }}&lt;/div&gt;\n    &lt;el-form&gt;\n      &lt;el-input v-model=&quot;objCopy.message&quot; /&gt;\n      &lt;el-button @click=&quot;confirm&quot;&gt;提交&lt;/el-button&gt;\n    &lt;/el-form&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nimport { mapState } from &quot;vuex&quot;;\nexport default {\n  data() {\n    return {\n      objCopy: {\n        message: &quot;&quot;\n      }\n    };\n  },\n\n  computed: {\n    ...mapState([&quot;obj&quot;])\n  },\n\n  watch: {\n    obj: {\n      handler() {\n        this.initData();\n      },\n      deep: true\n    }\n  },\n\n  created() {\n    this.initData();\n  },\n\n  methods: {\n    initData() {\n      Object.assign(this.objCopy, this.obj);\n    },\n    confirm() {\n      this.$store.commit(&quot;updateObj&quot;, JSON.parse(JSON.stringify(this.objCopy)));\n    }\n  }\n};\n&lt;/script&gt;</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "1. 官方推荐：使用 computed 的 get 和 set"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "2. 非严格模式：直接将 state 设置到 v-model"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "3. 中间对象转换：watch 监听 state 改变，更新中间对象，v-model 中间对象"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点.md",
+        "staticFileName": "v-model_vuex.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "在需要将 vuex 中的值，直接与表单 v-model 对应时，如果我们按照 vuex 强调的规范，只能通过 mutation 来改变 vuex state，那么会比较麻烦。假设我们脱离规范，关闭严格模式。那么 v-model 可以直接绑定 vuex state 值，会非常方便，但貌似又不合规范，不利于追踪。那到底要怎么做合适呢？个人建议是：怎么方便怎么来，只要项目可控即可。下面来看看几种方法对比 1. 官方推荐：使用 computed 的 get 和 set",
+        "keywords": "v-model 绑定 vuex 中的值",
+        "category": "Vue",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"v-if-和-v-show-生命周期钩子函数有什么不同\">v-if 和 v-show 生命周期钩子函数有什么不同</h1>\n<p>在 vue 中我们知道 v-if 和 v-show 都可以用来控制内容的显示与隐藏，他们的区别是</p>\n<ol>\n<li>v-if 是惰性加载，只有为 true 时，才真正渲染，否则页面是不存在该元素的。为 false 时，直接从 dom 移除。</li>\n<li>v-show 是根据 css display 属性来显示和隐藏组件的</li>\n</ol>\n<p><img src=\"../../../images/blog/vue/v-show.gif\" alt=\"v-show.gif\"></p>\n<p>那么他们的生命周期钩子函数有什么区别呢？</p>\n<ol>\n<li>v-show 控制隐藏或显示的组件，一进入就立即加载，执行 beforeCreate、created、beforeMount、mounted，中间切换显示和隐藏不会触发钩子函数</li>\n<li>v-if 只有为 true 时，才会正常执行加载的钩子函数，否则不会加载。当切换时，实时挂载(created/mounted)、卸载组件(destoryed)。</li>\n</ol>\n<p>使用场景：v-if 适合在 true、false 切换不频繁的场景，当为 false 时，可以减少初次渲染时间。如果切换很频繁 v-if 会不断的挂载、卸载组件，会加大开销，这时使用 v-show 就比较好，尽管它的初始开销会大一点。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "v-if 和 v-show 生命周期钩子函数有什么不同"
+        }
+      ],
+      "config": {
+        "source": "v-if 和 v-show 生命周期钩子函数有什么不同.md",
+        "staticFileName": "v-if_v-show_hooks.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "在 vue 中我们知道 v-if 和 v-show 都可以用来控制内容的显示与隐藏，他们的区别是 1. v-if 是惰性加载，只有为 true 时，才真正渲染，否则页面是不存在该元素的。为 false 时，直接从 dom 移除。2. v-show 是根据 css display 属性来显示和隐藏组件的。那么他们的生命周期钩子函数有什么区别呢？1. v-show 控制隐藏或显示的组件，一进入就立即加载，执行 beforeCreate、created、beforeMount、mounted，中间切换显示和隐藏不会触发钩子函数 2. v-if 只有为 true 时，才会正常执行加载的钩子函数，否则不会加载。当切换时，实时挂载(created/mounted)、卸载组件(destoryed)。",
+        "keywords": "v-if 与 v-show 钩子函数区别,v-if 与 v-show 区别",
+        "category": "Vue",
+        "year": "2021",
+        "month": "5"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vscode-live-server-插件-open-with-live-server-没反应，无法打开浏览器\">Vscode Live Server 插件 Open With Live Server 没反应，无法打开浏览器</h1>\n<p>在调试单个 html 文件时，可以使用 Live Server 插件，快速开启 http 服务，并打开当前页面。</p>\n<p><img src=\"../../../images/blog/devtools/live-server.png\" alt=\"live-server.png\"></p>\n<p>但目前这个插件可能会出现没反应，打不开的情况，可以使用 <strong>Preview on Web Server</strong> 来代替</p>\n<p><img src=\"../../../images/blog/devtools/preview-on-server.png\" alt=\"preview-on-server.png\"></p>\n<p>使用方法基本一致，右键可以选择浏览器打开，或者在 vscode 侧边栏预览</p>\n<p><img src=\"../../../images/blog/devtools/launch-on-browser.png\" alt=\"launch-on-browser.png\"></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Vscode Live Server 插件 Open With Live Server 没反应，无法打开浏览器"
+        }
+      ],
+      "config": {
+        "source": "Vscode Live Server 插件 Open With Live Server 没反应，无法打开浏览器.md",
+        "staticFileName": "live_server_file.html",
+        "author": "guoqzuo",
+        "createDate": "2021/05/04",
+        "description": "在调试单个 html 文件时，可以使用 Live Server 插件，快速开启 http 服务，并打开当前页面。但目前这个插件可能会出现没反应，打不开的情况，可以使用 **Preview on Web Server** 来代替。使用方法基本一致，右键可以选择浏览器打开，或者在 vscode 侧边栏预览",
+        "keywords": "live server 没反应,live server 无法打开浏览器",
+        "category": "计算机基础与开发工具",
+        "year": "2021",
+        "month": "5"
+      }
     }
   ],
-  "count": 415,
+  "count": 425,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,

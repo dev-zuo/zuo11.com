@@ -1,0 +1,241 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="footer_bottom.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="让 footer 一直保持在最底部是比较常见的需求，css 和 js 都可以实现，一般推荐使用 css 实现，下面来看看具体实现，以及他们的优缺点。需要考虑两种情况：1. 内容没占满视窗时，footer 在最底部，需要 body 有最小高度，才能撑起来 2. 内容较多时，滚动到底部才能看到 footer，且不遮挡内容区域">
+        <meta name="keywords" content="footer一直保持到底部怎么实现,footer区域保持在底部,footer固定到底部">
+
+        <title>footer 始终保持在最底部 css 实现与 js 实现优缺点对比 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#css" class="hidden">CSS</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="footer-始终保持在最底部-css-实现与-js-实现优缺点对比">footer 始终保持在最底部 css 实现与 js 实现优缺点对比</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2021/05/04，归类于 <a href="/blog/category.html#css" class="hidden">CSS</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>footer一直保持到底部怎么实现</span>，<span>footer区域保持在底部</span>，<span>footer固定到底部</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>让 footer 一直保持在最底部是比较常见的需求，css 和 js 都可以实现，一般推荐使用 css 实现，下面来看看具体实现，以及他们的优缺点</p>
+<p><img src="../../../images/blog/css/footer-bottom.gif" alt="footer-bottom.gif"></p>
+<p>以下面的结构为例</p>
+<pre><code class="language-html">&lt;body&gt;
+ &lt;article class=&quot;container&quot;&gt;
+    &lt;header&gt;顶部&lt;/header&gt;
+    &lt;section class=&quot;main&quot;&gt;中间内容部分&lt;/section&gt;
+    &lt;footer&gt;底部&lt;/footer&gt;
+  &lt;/article&gt;
+&lt;/body&gt;</code></pre>
+<p>需要考虑两种情况：</p>
+<ol>
+<li>内容没占满视窗时，footer 在最底部，需要 body 有最小高度，才能撑起来</li>
+<li>内容较多时，滚动到底部才能看到 footer，且不遮挡内容区域</li>
+</ol>
+<h2 id="方法-1：css-方式---position-absolute">方法 1：css 方式 - position: absolute</h2>
+<ol>
+<li>footer 使用 position: absolute; bottom: 0; 保持在底部。</li>
+<li>对于可能遮挡中间内容区域的问题，将 body 设置为 relative，注意不是 container，这样可以让 footer 内容保持在body最底部</li>
+<li>内容较多时，footer position: absolute 会遮挡内容部分，需要将 container 加一个 padding-bottom: footer 高度，来防止遮挡</li>
+</ol>
+<p><a href="https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html">方法 1 - 在线示例</a>、<a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html">方法 1 - 代码 | github</a></p>
+<p><strong>优点：css 即可实现</strong></p>
+<p><strong>缺点：需要知道 footer 具体高度。对于 footer 高度不确定的场景，就不合适了。</strong></p>
+<pre><code class="language-css">* { margin: 0; }
+body {
+  position: relative; /* 当 footer 为 position 为 absolute 时，放置到 body 底部 */
+  min-height: 100vh; /* 最小高度 100% 视窗高度 */
+}
+.container {
+  padding-bottom: 50px; /* 防止内容被 footer 遮挡 */
+}
+footer { 
+  position: absolute; /* 放到页面最底部 */
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background: yellow;
+}</code></pre>
+<h2 id="方法-2：css-方式---中间部分-flex-1">方法 2：css 方式 - 中间部分 flex: 1</h2>
+<p>使用 flex 纵向布局，中间部分使用 flex: 1，内容不足时自动撑开</p>
+<p><a href="https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html">方法 2 - 在线示例</a>、<a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html">方法 2 - 代码 | github</a></p>
+<p><strong>优点：css 即可实现，不需要知道 footer 区域高度</strong></p>
+<p><strong>缺点：需要注意父容器高度，最小高度要占满屏幕，有嵌套时，需要使用 height: 100%；且整体需要使用 flex 布局</strong></p>
+<pre><code class="language-css">* { margin: 0 }
+.container { 
+  display: flex; /* 使用 flex 纵向布局 */
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.main {
+  flex: 1; /* 中间内容部分 flex-grow: 1 内容不足时自动撑开 */
+}
+footer {  /* 不需要知道底部高度 */
+  padding: 10px;
+  background: yellow;
+}</code></pre>
+<h2 id="方法-3：js-方式---监听页面整体滚动高度与视窗高度动态设置样式">方法 3：js 方式 - 监听页面整体滚动高度与视窗高度动态设置样式</h2>
+<p>页面 mounted 后，判断视窗高度 和 整体滚动高度（包含 footer高度），如果小于视窗高度，则添加一个 固定底部的 class，否则去掉该 class</p>
+<p><a href="https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html">方法 3 - 在线示例</a>、<a href="https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html">方法 3 - 代码 | github</a></p>
+<p><strong>优点：无</strong></p>
+<p><strong>缺点：页面不刷新的情况下，动态增加内容，需要重新判断一次，不推荐</strong></p>
+<p>下面是 vue 的实现</p>
+<pre><code class="language-js">// :class=&quot;fixed ? &#39;flexd-bottom&#39; : &#39;&#39;&quot;
+// data: { fixed: false }
+ // 处理 footer 
+methods: {
+  handleFooter() {
+    let { clientHeight } = document.documentElement;
+    this.fixed = false 
+    this.$nextTick(() =&gt; {
+      let { scrollHeight: pageScrollHeight } = document.querySelector(&#39;.container&#39;)
+      // 如果整体页面高度(包含默认加载的 bottom) &lt; 视窗高度 固定到底部
+      this.fixed = pageScrollHeight &lt; clientHeight
+    })
+  }
+},
+mounted() {
+  this.handleFooter()
+}
+// &amp;.fixed-bottom {
+//   position: absolute;
+//   bottom: 0;
+// }</code></pre>
+<h2 id="测试-demo">测试 demo</h2>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;测试 footer&lt;/title&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    * { margin: 0 }
+    footer { height: 50px; background: yellow; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;article id=&quot;app&quot; class=&quot;container&quot;&gt;
+    &lt;header&gt;
+      &lt;h2&gt;foot 始终在顶部测试&lt;/h2&gt;
+    &lt;/header&gt;
+    &lt;section class=&quot;main&quot;&gt;
+      占位数：&lt;button v-for=&quot;item in list&quot; :key=&quot;`btn-${item}`&quot; @click=&quot;changeCount(item)&quot;&gt;{{item}}&lt;/button&gt;
+      &lt;div v-for=&quot;item in count&quot; :key=&quot;`gap-${item}`&quot;&gt;
+        占位 {{item}}
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;footer&gt;
+      Copyright © 2016-2021 zuo11.com. 鄂ICP备16014741号-1
+    &lt;/footer&gt;
+  &lt;/article&gt;
+  &lt;script&gt;
+    let app = new Vue({
+      el: &#39;#app&#39;,
+      data() {
+        return {
+          list: [5, 50, 100],
+          count: 5
+        }
+      },
+      methods: {
+        changeCount(value) {
+          this.count = value
+        }
+      }
+    })
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="footer-始终保持在最底部-css-实现与-js-实现优缺点对比" style="padding-left:1em">footer 始终保持在最底部 css 实现与 js 实现优缺点对比<span></li><ul><li><span class="ul-span" data-id="方法-1：css-方式---position-absolute" style="padding-left:2em">方法 1：css 方式 - position: absolute<span></li></ul><ul><li><span class="ul-span" data-id="方法-2：css-方式---中间部分-flex-1" style="padding-left:2em">方法 2：css 方式 - 中间部分 flex: 1<span></li></ul><ul><li><span class="ul-span" data-id="方法-3：js-方式---监听页面整体滚动高度与视窗高度动态设置样式" style="padding-left:2em">方法 3：js 方式 - 监听页面整体滚动高度与视窗高度动态设置样式<span></li></ul><ul><li><span class="ul-span" data-id="测试-demo" style="padding-left:2em">测试 demo<span></li></ul></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2021 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  

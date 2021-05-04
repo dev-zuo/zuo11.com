@@ -1,0 +1,197 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="application name" content="v-model_vuex.html">
+        <meta name="author" content="guoqzuo">
+        <meta name="description" content="在需要将 vuex 中的值，直接与表单 v-model 对应时，如果我们按照 vuex 强调的规范，只能通过 mutation 来改变 vuex state，那么会比较麻烦。假设我们脱离规范，关闭严格模式。那么 v-model 可以直接绑定 vuex state 值，会非常方便，但貌似又不合规范，不利于追踪。那到底要怎么做合适呢？个人建议是：怎么方便怎么来，只要项目可控即可。下面来看看几种方法对比 1. 官方推荐：使用 computed 的 get 和 set">
+        <meta name="keywords" content="v-model 绑定 vuex 中的值">
+
+        <title>v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点 - 左小白的技术日常</title>
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+        <link href="/lib/notes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/lib/global.css">
+        
+      </head>
+      <body>
+        <header>
+          <div>
+            <img src="/images/logo.png" width="24" height="24" class="pointer" onclick="gotoIndex()" />
+            <span class="pointer" onclick="gotoIndex()">左小白的技术日常</span>
+            <span class="hidden"> | </span>
+            <a href="/blog/category.html#vue" class="hidden">Vue</a>
+          </div>
+          <div>
+            
+          <a href="http://fe.zuo11.com" target="_black" class="hidden">我的笔记</a>
+        
+          <a href="https://github.com/zuoxiaobai" target="_black" class="">Github</a>
+        
+          </div>
+        </header>
+        <section class="content">
+          <article>
+            <h1 id="v-model-怎么优雅的绑定-vuex-状态管理中的值，三种方法优缺点">v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点</h1>
+            
+    <div class="article-top">
+      <div class="flex">
+        这篇文章发布于 2021/05/04，归类于 <a href="/blog/category.html#vue" class="hidden">Vue</a>
+        <!-- ，阅读 11 次，今日 1 次 <div class="top-comment">4 条评论</div> -->
+        <div id="readAndComment" class="flex"></div>
+      </div> 
+      <div class="flex keywords" style="flex-wrap: nowrap;">
+        <div style="flex-shrink:0; align-self: flex-start;">标签：</div>
+        <div class="flex" style="flex-wrap: wrap;"><span>v-model 绑定 vuex 中的值</span></div>
+      </div>
+    </div>
+    
+  
+            
+<p>在需要将 vuex 中的值，直接与表单 v-model 对应时，如果我们按照 vuex 强调的规范，只能通过 mutation 来改变 vuex state，那么会比较麻烦。假设我们脱离规范，关闭严格模式。那么 v-model 可以直接绑定 vuex state 值，会非常方便，但貌似又不合规范，不利于追踪。</p>
+<p>那到底要怎么做合适呢？个人建议是：怎么方便怎么来，只要项目可控即可。下面来看看几种方法对比</p>
+<h2 id="1-官方推荐：使用-computed-的-get-和-set">1. 官方推荐：使用 computed 的 get 和 set</h2>
+<ul>
+<li>优点：遵循 vuex 规范，通过 mutation 更改 state，有利于追踪</li>
+<li>缺点：需要将表单的每个字段都使用 computed 计算属性，对于字段较少的情况，还可以。但当字段较多，且包含逻辑处理时，会比较麻烦不好维护。<pre><code class="language-js">// &lt;input v-model=&quot;message&quot;&gt;
+computed: {
+message: {
+  get () {
+    return this.$store.state.obj.message
+  },
+  set (value) {
+    // 通过 updateMessage mutation 方法更改值
+    this.$store.commit(&#39;updateMessage&#39;, value)
+  }
+}
+}</code></pre>
+参考：<a href="https://vuex.vuejs.org/zh/guide/forms.html">表单处理 | Vuex</a></li>
+</ul>
+<h2 id="2-非严格模式：直接将-state-设置到-v-model">2. 非严格模式：直接将 state 设置到 v-model</h2>
+<p>关闭严格模式后，直接将 vuex state 当全局变量用，可以任意修改操作</p>
+<pre><code class="language-js">const store = new Vuex.Store({
+  // ...
+  strict: false // 关闭严格模式，或者直接不写这个属性
+  // strict: true // 开启严格模式 
+})</code></pre>
+<ul>
+<li>优点：可以将 obj.message 直接设置到 v-model，值实时更新，而且不用什么额外操作。</li>
+<li>缺点：破坏了 vuex 的规则约束，不利于追踪，可能会造成难以维护的情况。</li>
+</ul>
+<pre><code class="language-js">&lt;input v-model=&quot;obj.message&quot;&gt;</code></pre>
+<h2 id="3-中间对象转换：watch-监听-state-改变，更新中间对象，v-model-中间对象">3. 中间对象转换：watch 监听 state 改变，更新中间对象，v-model 中间对象</h2>
+<ul>
+<li>优点：折中方法，不破坏 vuex 规则约束，操作比一个一个加 computed 要简单</li>
+<li>缺点：需要使用 watch 来初始化或更改值，触发时机需要特别注意</li>
+</ul>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;div&gt;{{ obj }}&lt;/div&gt;
+    &lt;div&gt;{{ objCopy }}&lt;/div&gt;
+    &lt;el-form&gt;
+      &lt;el-input v-model=&quot;objCopy.message&quot; /&gt;
+      &lt;el-button @click=&quot;confirm&quot;&gt;提交&lt;/el-button&gt;
+    &lt;/el-form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { mapState } from &quot;vuex&quot;;
+export default {
+  data() {
+    return {
+      objCopy: {
+        message: &quot;&quot;
+      }
+    };
+  },
+
+  computed: {
+    ...mapState([&quot;obj&quot;])
+  },
+
+  watch: {
+    obj: {
+      handler() {
+        this.initData();
+      },
+      deep: true
+    }
+  },
+
+  created() {
+    this.initData();
+  },
+
+  methods: {
+    initData() {
+      Object.assign(this.objCopy, this.obj);
+    },
+    confirm() {
+      this.$store.commit(&quot;updateObj&quot;, JSON.parse(JSON.stringify(this.objCopy)));
+    }
+  }
+};
+&lt;/script&gt;</code></pre>
+
+            
+            <ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <!-- 评论系统占位 -->
+            <div id="commentDiv"></div>
+          </article>
+
+          <aside>
+            <div class="aside-wrap">
+              <div class="top ">
+                <ul><li><span class="ul-span" data-id="v-model-怎么优雅的绑定-vuex-状态管理中的值，三种方法优缺点" style="padding-left:1em">v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点<span></li><ul><li><span class="ul-span" data-id="1-官方推荐：使用-computed-的-get-和-set" style="padding-left:2em">1. 官方推荐：使用 computed 的 get 和 set<span></li></ul><ul><li><span class="ul-span" data-id="2-非严格模式：直接将-state-设置到-v-model" style="padding-left:2em">2. 非严格模式：直接将 state 设置到 v-model<span></li></ul><ul><li><span class="ul-span" data-id="3-中间对象转换：watch-监听-state-改变，更新中间对象，v-model-中间对象" style="padding-left:2em">3. 中间对象转换：watch 监听 state 改变，更新中间对象，v-model 中间对象<span></li></ul></ul>
+              </div>
+              <ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+          </aside>
+        </section>
+        <footer>
+          <div class="footer_content">
+            <div class="footer_right">Copyright © 2016-2021 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
+          </div>
+        </footer>
+        <script src="/lib/prismjs/prism_default.js"></script>
+        <script src="/lib/notes.js"></script> 
+        <script src="/lib/global.js"></script>
+        <script>
+          
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+<script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'UA-178732583-1');
+
+  window.onload = function() {
+    setTimeout(function() {
+      let script = document.createElement("script");
+      script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+      script.setAttribute("async", "");
+      script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      document.body.appendChild(script);
+    }, 200);
+  }
+</script>
+
+      </body>
+    </html>
+  
