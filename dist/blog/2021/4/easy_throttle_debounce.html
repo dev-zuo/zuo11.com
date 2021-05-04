@@ -80,7 +80,7 @@ function throttle(func, time) {
 function throttle(func, time) {
   let isLock = false // 是否冷却(cooldown)中
   // 返回一个经过节流处理的 func
-  return (...args) =&gt; {
+  return function (...args) {
     if (isLock) { // 如果是冷却中，不执行函数
       console.log(&#39;冷却(cd)中...&#39;)
       return 
@@ -109,7 +109,7 @@ function throttle(func, time) {
 <pre><code class="language-js">function debounce(func, time) {
   let timer = null // 定时任务计时器
   // 返回一个经过防抖处理的 func
-  return (...args) =&gt; {
+  return function (...args) {
     if (timer) {
       // 如果上一次定时任务还在等待执行的过程中，取消定时任务
       clearTimeout(timer)
@@ -152,7 +152,7 @@ function throttle(func, time) {
         </section>
         <footer>
           <div class="footer_content">
-            <div class="footer_right">Copyright © 2016-2020 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
+            <div class="footer_right">Copyright © 2016-2021 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a></div>
             <div>Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a></div>
           </div>
         </footer>
