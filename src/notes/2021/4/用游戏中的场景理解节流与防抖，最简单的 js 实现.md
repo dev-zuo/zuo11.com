@@ -19,7 +19,7 @@
  * @returns function 返回经过节流处理的函数
  */
 function throttle(func, time) {
-  return (...args) => {
+  return function (...args) {
     // 返回一个可以正常执行的函数
     func.apply(this, args)
   }
