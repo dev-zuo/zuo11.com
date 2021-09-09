@@ -277,6 +277,13 @@
         "time": "2020/02/18",
         "description": "在看mysql账号相关内容时，发现在root用户下，更新、删除用户均报错。后面发现居然是localhost的字母拼错了，但新建user时居然没报错。下面来复盘整个记录:",
         "keywords": "Operation DROP USER failed for,ERROR 1396 (HY000): Operation DROP USER failed for"
+      },
+      {
+        "title": "Spring Boot 怎么解决跨域问题: 使用注解, 完整测试 demo 已传 github",
+        "href": "2021/9/spring_boot_allow_cross.html",
+        "time": "2021/09/09",
+        "description": "根据 Spring 官网 Building a RESTful Web Service (opens new window) 写了一个测试接口，在使用时，需要让该接口支持跨域，理论上只要设置好对应的响应头、处理好 Options 请求预检就可以，但发现貌似没有处理 OPTIONS 请求的注解。需要一些特殊设置处理。后面发现有一个非常简单的方法来允许跨域，就是使用 @CrossOrigin 注解，使用方法如下",
+        "keywords": "spring boot 解决跨域, spring boot 允许跨域, spring boot 通过注解允许跨域"
       }
     ],
     "iOS": [
@@ -803,6 +810,20 @@
         "time": "2021/04/11",
         "description": "git 设置 user.name user.email，github 提交没有绿点，github提交没头像，在 vscode 中，使用可视化工具，而非命令的方式提交代码时，如果没有配置 git 的 user.name 和 user.email，可能会弹出 Make sure you configure your ‘user.name’ and ‘user.email’ in git 的错误，代码无法提交。这就需要先配置好，再提交了。另外，在 github 或 gitlab 等页面中，可能会遇到提交没有绿点或者看不到头像的情况，可能是因为配置的 user.email 发生了变化，和平台的 email 不一致导致的。修改成一致的就正常了。",
         "keywords": "git config,git 设置 user.name user.email,github 提交没有绿点,github提交没头像"
+      },
+      {
+        "title": "nginx emerg bind to 0.0.0.0:80 failed <10013, 80 端口被占用",
+        "href": "2021/9/mginx_80_port.html",
+        "time": "2021/09/09",
+        "description": "重启服务器后发现开启 nginx 时，报错 nginx emerg bind to 0.0.0.0:80 failed <10013:，这个错误一般是 80 端口被占用的问题，访问 http://127.0.0.1 看看 80 端口的情况，发现是 Java 服务，检查后发现 tomcat 开了，它占用了 80 端口，关掉 tomcat，再次运行就可以了。",
+        "keywords": "nginx 80 端口被占用,emerg bind to 0.0.0.0:80 failed"
+      },
+      {
+        "title": "node 自动化部署、持续集成的核心原理: node 可以执行 shell 脚本 + 可以监听请求",
+        "href": "2021/9/node_ci_cd.html",
+        "time": "2021/09/09",
+        "description": "node 可以用来支撑实现自动化部署、持续集成，核心原理是：1. node 可以执行 shell 脚本，而部署流程一般都是写在 shell 脚本中的。2. node 可以作为服务器 server, 当接收到请求后，根据条件判断是否执行部署的 shell 脚本。我们这里结合 github webhooks 来实现持续集成，自动化部署",
+        "keywords": "node 自动化部署,node持续集成,node ci,node cd,node webhooks,github webhooks"
       }
     ],
     "JavaScript": [
@@ -1379,6 +1400,27 @@
         "time": "2021/05/04",
         "description": "在做字符串替换时可以使用 repalce，但这里要注意，当需要替换多个时，第一个参数不能是字符串，要使用正则表达式。来看一个例子，将字符串 '1,000,000' 中的 ',' 替换为空字符串 ''。注意：上面的例子中，如果单纯的字符串替换，只会替换第一个，全局匹配时，第一个参数就要用正则了",
         "keywords": "replace多个匹配时需要使用正则"
+      },
+      {
+        "title": "js 怎么减少 if else 嵌套, 使用函数封装、三元运算符等",
+        "href": "2021/9/reduce_if_else.html",
+        "time": "2021/09/09",
+        "description": "在 if else 或函数嵌套层级较多，代码会逐渐变的难看，不好理解及维护。一般可以通过改变代码组织方式，来减少代码嵌套层级，这里主要介绍下面 5 种方法：1.将代码块按功能块封装成函数，减少函数内代码的嵌套层级 2. if 优化，逻辑假时 true，减少 if 中包含大量代码的情况 3...",
+        "keywords": "js 怎么减少 if else 嵌套,js 怎么减少 if 嵌套,js 怎么减少函数嵌套,js 中 if else 替代写法"
+      },
+      {
+        "title": "js 点击按钮复制内容的实现, 使用 ele.select 加 document.execCommand('copy')",
+        "href": "2021/9/js_copy.html",
+        "time": "2021/09/09",
+        "description": "点击按钮复制链接、复制代码在前端是比较常见的需求，这里介绍一种比较简单的实现：1.先借用 input 等可以选中文本的元素，调用 element.select() 选中文本内容 2.再执行 document.execCommand('copy') 对选中内容进行复制 我们可以通过下面的例子来了解这个过程，点击按钮复制内容 - 在线演示",
+        "keywords": "js 点击按钮复制内容实现,js 向粘贴板写入内容,js copy text"
+      },
+      {
+        "title": "js if(true) 代码块中函数和变量同名时作用域提升问题，Chrome Devtools Snippets 断点调试",
+        "href": "2021/9/js_hoisting.html",
+        "time": "2021/09/09",
+        "description": "在 JS 代码块中变量和函数同名，作用域怎么提升的问题是比较难以理解的，对于不同的浏览器还有不同的结果，下面来看几个例子，我们可以通过 Chrome 浏览器中的 DevTools - Sources - Snippets 中利用断点调试的功能来看浏览器是如何一步步执行的。",
+        "keywords": "js hoisting,js 函数提升,js 变量提升,Chrome Devtools Snippets 断点调试"
       }
     ],
     "CSS": [
@@ -2314,6 +2356,20 @@
         "time": "2021/05/04",
         "description": "在 vue 中我们知道 v-if 和 v-show 都可以用来控制内容的显示与隐藏，他们的区别是 1. v-if 是惰性加载，只有为 true 时，才真正渲染，否则页面是不存在该元素的。为 false 时，直接从 dom 移除。2. v-show 是根据 css display 属性来显示和隐藏组件的。那么他们的生命周期钩子函数有什么区别呢？1. v-show 控制隐藏或显示的组件，一进入就立即加载，执行 beforeCreate、created、beforeMount、mounted，中间切换显示和隐藏不会触发钩子函数 2. v-if 只有为 true 时，才会正常执行加载的钩子函数，否则不会加载。当切换时，实时挂载(created/mounted)、卸载组件(destoryed)。",
         "keywords": "v-if 与 v-show 钩子函数区别,v-if 与 v-show 区别"
+      },
+      {
+        "title": "vue data 中以下划线开头的变量为 undefined, eslint 提示 Keys starting with '_' are reserved",
+        "href": "2021/9/vue_data_underline.html",
+        "time": "2021/09/09",
+        "description": "在 vue 中，如果 data 中定义了以下划线开头的变量名，是无法获取到值的，一直是 undefined，为什么会这样呢？如果你安装了 eslint，会自动提示 Keys starting with '_' are reserved in '_test' group(vue/no-reserved-keys). 在官方文档 API 中有搜索 data 可以查到: 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突",
+        "keywords": "vue data 中 _ 开头的变量为 undefined,data 下划线开头的变量,vue _ 开头的变量,vue  Keys starting with '_' are reserved"
+      },
+      {
+        "title": "什么是 mvc, 什么是 mvvm, 怎么理解 mvc 与 mvvm，mvc 和 mvvm 有什么区别？",
+        "href": "2021/9/mvc_vs_mvvm.html",
+        "time": "2021/09/09",
+        "description": "每个新技术的出现都有其历史原因，MVVM 也是如此。Vue 就是基于 MVVM 模式。那什么是 MVVM 构架模式，和 MVC 模式有什么区别呢？在介绍 MVVM 之前，我们先需要了解什么是 MVC 模式。在 ajax 技术没有出现之前，html 页面中发送 http 请求会刷新整个页面。页面内容强依赖后端接口响应的内容，于是催生了 jsp、php、asp 等前后端都耦合在一起的技术。下面来看一个实例",
+        "keywords": "什么是 mvc,什么是 mvvm,怎么理解 mvc, mvc 与 mvvm 的区别,mvc,mvvm"
       }
     ],
     "计算机基础与开发工具": [
@@ -2659,6 +2715,13 @@
         "time": "2021/05/04",
         "description": "在调试单个 html 文件时，可以使用 Live Server 插件，快速开启 http 服务，并打开当前页面。但目前这个插件可能会出现没反应，打不开的情况，可以使用 **Preview on Web Server** 来代替。使用方法基本一致，右键可以选择浏览器打开，或者在 vscode 侧边栏预览",
         "keywords": "live server 没反应,live server 无法打开浏览器"
+      },
+      {
+        "title": "mac 其他文件怎么清理，使用免费的腾讯柠檬清理代替 CleanMyMac",
+        "href": "2021/9/mac_clean.html",
+        "time": "2021/09/09",
+        "description": "mac 存储空间里面的其他文件占用较多，它主要是一些碎片文件、缓存等，一般不通过工具软件很难清理。如下图：mac 清理工具中，CleanMyMac 算是比较知名的一个，但它是收费的，这里介绍一款国产免费的清理工具 - 腾讯柠檬清理，关于柠檬清理与其他同类产品的对比，官方写了一遍总结，可以看看",
+        "keywords": "mac others clean,mac clean, mac 其他清理,mac 其他文件清理,mac 其他文件怎么清理,mac 垃圾清理软件"
       }
     ],
     "前端工程化": [
@@ -15886,9 +15949,261 @@
         "year": "2021",
         "month": "5"
       }
+    },
+    {
+      "htmlStr": "<h1 id=\"js-怎么减少-if-else-嵌套-使用函数封装、三元运算符等\">js 怎么减少 if else 嵌套, 使用函数封装、三元运算符等</h1>\n<p>在 if else 或函数嵌套层级较多，代码会逐渐变的难看，不好理解及维护。一般可以通过改变代码组织方式，来减少代码嵌套层级，这里主要介绍下面 5 种方法：</p>\n<ol>\n<li>将代码块按功能块封装成函数，减少函数内代码的嵌套层级</li>\n<li>if 优化，逻辑假时 true，减少 if 中包含大量代码的情况</li>\n<li>使用三元运算符减少 if 层级</li>\n<li>使用逻辑运算符减少 if 层级</li>\n<li>使用策略模式减少 if、else 层级</li>\n</ol>\n<p>来看一个简单的例子，在 vue 实例中，watch 深度监听 userInfo 对象，里面的处理函数中有 if，有数组遍历函数，层级会比较深</p>\n<pre><code class=\"language-html\">&lt;script&gt;\nexport default {\n  data() {\n    return {\n      userInfo: {}\n    };\n  },\n  watch: {\n    userInfo: {\n      handler(value) {\n        if (value.name) {\n          let indexMap = this.arrList.reduce(() =&gt; {\n            console.log(&quot;test1&quot;);\n            // 可能存在 if 或函数嵌套\n          });\n\n          this.list.forEach(item =&gt; {\n            if (indexMap[item.index]) {\n              console.log(&quot;test2&quot;);\n            }\n          });\n        }\n      },\n      deep: true\n    }\n  }\n};\n&lt;/script&gt;</code></pre>\n<p>下面来具体看减少代码嵌套层级的几种思路：</p>\n<h2 id=\"1将代码块按功能块封装成函数\">1.将代码块按功能块封装成函数</h2>\n<pre><code class=\"language-js\">if (condition) {\n  let indexMap = this.arrList.reduce(() =&gt; {\n    console.log(&quot;test1&quot;);\n    // 可能存在的 if 或函数嵌套\n  });\n}\n\n// 可以优化为下面这种，这样就避免了函数代码直接嵌套在 reduce 方法内部\nif (condition) {\n  const reduceFunc = () =&gt; {\n    console.log(&quot;test1&quot;);\n    // 可能存在的 if 或函数嵌套\n  }\n  let indexMap = this.arrList.reduce(reduceFunc);\n}</code></pre>\n<h2 id=\"2-if-优化，逻辑假时-true，减少-if-中包含大量代码的情况\">2. if 优化，逻辑假时 true，减少 if 中包含大量代码的情况</h2>\n<pre><code class=\"language-js\">function func() {\n  if (condition) {\n    // 一大段代码\n    // 可能存在 if 等嵌套层级的代码\n  }\n}\n// 可以优化为下面这种，这样可以将一大段代码从 if (condition) 嵌套中解放出来\nfunction func() {\n  if (!condition) {\n    return false // 条件不满足时结束函数\n  }\n  // 一大段代码\n  // 可能存在 if 等嵌套层级的代码\n}</code></pre>\n<h2 id=\"3-三元运算符\">3. 三元运算符</h2>\n<pre><code class=\"language-js\">function func() {\n  let a = &#39;1&#39;\n  if (b) {\n    a = &#39;2&#39;\n  }\n}\n// 可以优化为\nfunction func() {\n  let a = b ? &#39;2&#39; : &#39;1&#39;\n}</code></pre>\n<h2 id=\"4-逻辑运算符\">4. 逻辑运算符</h2>\n<pre><code class=\"language-js\">function func() {\n  if (callback) {\n    callback()\n  }\n}\n// 可以优化为\nfunction func() {\n  callback &amp;&amp; callback()\n}</code></pre>\n<h2 id=\"5-策略模式\">5. 策略模式</h2>\n<pre><code class=\"language-js\">function func() {\n  if (type === &#39;a&#39;) {\n    // 执行内容 1\n  } else if (type === &#39;b&#39;) {\n    // 执行内容 2\n  } else if (type === &#39;c&#39;) {\n    // 执行内容 3\n  }\n  // 后续代码\n}\n\n// 使用策略模式优化\nfunction func() {\n  let handlerA = () =&gt; { console.log(&#39;执行内容1&#39;) }\n  let handlerB = () =&gt; { console.log(&#39;执行内容2&#39;) }\n  let handlerC = () =&gt; { console.log(&#39;执行内容3&#39;) }\n  let handlerMap = {\n    a: handlerA,\n    b: handlerB,\n    c: handlerC\n  }\n  handlerMap[type] &amp;&amp; handlerMap[type]()\n  // 后续代码\n}</code></pre>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "js 怎么减少 if else 嵌套, 使用函数封装、三元运算符等",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "1.将代码块按功能块封装成函数"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "2. if 优化，逻辑假时 true，减少 if 中包含大量代码的情况"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "3. 三元运算符"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "4. 逻辑运算符"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "5. 策略模式"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "js 怎么减少 if else 嵌套, 使用函数封装、三元运算符等.md",
+        "staticFileName": "reduce_if_else.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "在 if else 或函数嵌套层级较多，代码会逐渐变的难看，不好理解及维护。一般可以通过改变代码组织方式，来减少代码嵌套层级，这里主要介绍下面 5 种方法：1.将代码块按功能块封装成函数，减少函数内代码的嵌套层级 2. if 优化，逻辑假时 true，减少 if 中包含大量代码的情况 3...",
+        "keywords": "js 怎么减少 if else 嵌套,js 怎么减少 if 嵌套,js 怎么减少函数嵌套,js 中 if else 替代写法",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"mac-其他文件怎么清理，使用免费的腾讯柠檬清理代替-cleanmymac\">mac 其他文件怎么清理，使用免费的腾讯柠檬清理代替 CleanMyMac</h1>\n<p>mac 存储空间里面的其他文件占用较多，它主要是一些碎片文件、缓存等，一般不通过工具软件很难清理。如下图：</p>\n<p><img src=\"../../../images/blog/others/macos_disk_other.png\" alt=\"macos_disk_other.png\"></p>\n<p>mac 清理工具中，CleanMyMac 算是比较知名的一个，但它是收费的，这里介绍一款国产免费的清理工具 - <a href=\"https://lemon.qq.com/\">腾讯柠檬清理</a></p>\n<p><img src=\"../../../images/blog/others/ningmeng_clear.png\" alt=\"ningmeng_clear.png.png\"></p>\n<p>关于柠檬清理与其他同类产品的对比，官方写了一遍总结，可以看看 <a href=\"https://lemon.qq.com/blog/articles/004-lemon-vs-cleanmymac.html\">腾讯柠檬清理，真的比CleanMyMac好用么？</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "mac 其他文件怎么清理，使用免费的腾讯柠檬清理代替 CleanMyMac"
+        }
+      ],
+      "config": {
+        "source": "mac 其他文件怎么清理，使用免费的腾讯柠檬清理代替 CleanMyMac.md",
+        "staticFileName": "mac_clean.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "mac 存储空间里面的其他文件占用较多，它主要是一些碎片文件、缓存等，一般不通过工具软件很难清理。如下图：mac 清理工具中，CleanMyMac 算是比较知名的一个，但它是收费的，这里介绍一款国产免费的清理工具 - 腾讯柠檬清理，关于柠檬清理与其他同类产品的对比，官方写了一遍总结，可以看看",
+        "keywords": "mac others clean,mac clean, mac 其他清理,mac 其他文件清理,mac 其他文件怎么清理,mac 垃圾清理软件",
+        "category": "计算机基础与开发工具",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"vue-data-中以下划线开头的变量为-undefined-eslint-提示-keys-starting-with-_-are-reserved\">vue data 中以下划线开头的变量为 undefined, eslint 提示 Keys starting with &#39;_&#39; are reserved</h1>\n<p>在 vue 中，如果 data 中定义了以下划线开头的变量名，是无法获取到值的，一直是 undefined，为什么会这样呢？如果你安装了 eslint，会自动提示 Keys starting with &#39;_&#39; are reserved in &#39;_test&#39; group(vue/no-reserved-keys). </p>\n<p>在官方文档 API 中有搜索 data 可以查到: <strong>以 _ 或 <code>$</code> 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突</strong></p>\n<p><img src=\"../../../images/blog/vue/vue_data_property.png\" alt=\"vue_data_property.png\"></p>\n<p>另外，如果项目中开启了 ESLint 会自动提示该错误 &quot;vue/no-reserved-keys&quot; 不能使用保留关键字，如下图：</p>\n<p><img src=\"../../../images/blog/vue/data_reserved_eslint.png\" alt=\"data_reserved_eslint.png\"></p>\n<p>因此 ESLint 比我们想象的更加实用，它不仅仅只是单纯的 JS 语法检查。</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "vue data 中以下划线开头的变量为 undefined, eslint 提示 Keys starting with '_' are reserved"
+        }
+      ],
+      "config": {
+        "source": "vue data 中以下划线开头的变量为 undefined, eslint 提示 Keys starting with '_' are reserved.md",
+        "staticFileName": "vue_data_underline.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "在 vue 中，如果 data 中定义了以下划线开头的变量名，是无法获取到值的，一直是 undefined，为什么会这样呢？如果你安装了 eslint，会自动提示 Keys starting with '_' are reserved in '_test' group(vue/no-reserved-keys). 在官方文档 API 中有搜索 data 可以查到: 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突",
+        "keywords": "vue data 中 _ 开头的变量为 undefined,data 下划线开头的变量,vue _ 开头的变量,vue  Keys starting with '_' are reserved",
+        "category": "Vue",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"spring-boot-怎么解决跨域问题-使用注解-完整测试-demo-已传-github\">Spring Boot 怎么解决跨域问题: 使用注解, 完整测试 demo 已传 github</h1>\n<p>根据 Spring 官网 <a href=\"https://spring.io/guides/gs/rest-service/\">Building a RESTful Web Service</a> 写了一个测试接口，在使用时，需要让该接口支持跨域，理论上只要设置好对应的响应头、处理好 Options 请求预检就可以，但发现貌似没有处理 OPTIONS 请求的注解。需要一些特殊设置处理。</p>\n<p>后面发现有一个非常简单的方法来允许跨域，就是使用  <code>@CrossOrigin</code> 注解，使用方法如下</p>\n<pre><code class=\"language-java\">package com.zuo11.demo;\n\nimport java.util.concurrent.atomic.AtomicLong;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PostMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RequestParam;\nimport org.springframework.web.bind.annotation.RequestBody;\nimport org.springframework.web.bind.annotation.RestController;\nimport org.springframework.web.bind.annotation.CrossOrigin;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.http.HttpHeaders;\nimport org.springframework.http.HttpStatus;\n\n@RestController\npublic class GreetingController {\n\n    private static final String template = &quot;Hello, %s!&quot;;\n  private static final String templatePost = &quot;Post, %s!&quot;;\n    private final AtomicLong counter = new AtomicLong();\n\n    @GetMapping(&quot;/greeting&quot;)\n    public Greeting greeting(@RequestParam(value = &quot;name&quot;, defaultValue = &quot;World&quot;) String name) {\n        return new Greeting(counter.incrementAndGet(), String.format(template, name));\n    } \n\n  // @PostMapping(&quot;/greeting&quot;) // @RequestBody \n    // public Greeting greetingPost(@RequestBody Greeting newGreeting) {\n    //     return new Greeting(counter.incrementAndGet(), String.format(templatePost, newGreeting.getContent()));\n    // }\n\n  @CrossOrigin(origins = &quot;*&quot;,maxAge = 3600) // 跨域注解\n  @PostMapping(&quot;/greeting&quot;) // @RequestBody \n    public ResponseEntity&lt;Greeting&gt; greetingPost(@RequestBody Greeting newGreeting) {\n        Greeting greeting = new Greeting(counter.incrementAndGet(), String.format(templatePost, newGreeting.getContent()));\n\n    HttpHeaders responseHeaders = new HttpHeaders();\n    // responseHeaders.set(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);\n    // responseHeaders.set(&quot;Access-Control-Allow-Methods&quot;, &quot;*&quot;);\n    // responseHeaders.set(&quot;Access-Control-Allow-Headers&quot;, &quot;*&quot;);\n\n    return new ResponseEntity&lt;&gt;(greeting, responseHeaders, HttpStatus.OK);\n    }\n}</code></pre>\n<h2 id=\"接口\">接口</h2>\n<ul>\n<li>GET <code>http://localhost:9900/greeting</code><ul>\n<li>query 参数: name=string</li>\n<li>response JSON: { id: 自增id,  &quot;content&quot;: &quot;Hello, ${name}!&quot; }</li>\n</ul>\n</li>\n<li>POST <code>http://localhost:9900/greeting</code><ul>\n<li>参数 application/json，{ id: &#39;&#39;,  &quot;content&quot;: &quot;kevin&quot; }</li>\n<li>response JSON: { id: 自增id,  &quot;content&quot;: &quot;Hello, ${content}!&quot; }</li>\n</ul>\n</li>\n</ul>\n<p>允许跨域、前端请求</p>\n<pre><code class=\"language-html\">&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;\n&lt;script&gt;\n  axios.post(&#39;http://localhost:9900/greeting&#39;, {\n    &quot;id&quot;: 1,\n    &quot;content&quot;: &quot;测试&quot;\n  }).then((res) =&gt; {\n    console.log(&#39;请求成功，&#39;, res)\n  }, (err) =&gt; {\n    console.log(&#39;请求发生了错误,&#39;, err)\n  })\n&lt;/script&gt;</code></pre>\n<p>完整 demo 参见：<a href=\"https://github.com/zuoxiaobai/springboot-demo\">springboot-demo | github</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "Spring Boot 怎么解决跨域问题: 使用注解, 完整测试 demo 已传 github",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "接口"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "Spring Boot 怎么解决跨域问题: 使用注解, 完整测试 demo 已传 github.md",
+        "staticFileName": "spring_boot_allow_cross.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "根据 Spring 官网 Building a RESTful Web Service (opens new window) 写了一个测试接口，在使用时，需要让该接口支持跨域，理论上只要设置好对应的响应头、处理好 Options 请求预检就可以，但发现貌似没有处理 OPTIONS 请求的注解。需要一些特殊设置处理。后面发现有一个非常简单的方法来允许跨域，就是使用 @CrossOrigin 注解，使用方法如下",
+        "keywords": "spring boot 解决跨域, spring boot 允许跨域, spring boot 通过注解允许跨域",
+        "category": "后端数据库等",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"什么是-mvc-什么是-mvvm-怎么理解-mvc-与-mvvm，mvc-和-mvvm-有什么区别？\">什么是 mvc, 什么是 mvvm, 怎么理解 mvc 与 mvvm，mvc 和 mvvm 有什么区别？</h1>\n<p>每个新技术的出现都有其历史原因，MVVM 也是如此。Vue 就是基于 MVVM 模式。那什么是 MVVM 构架模式，和 MVC 模式有什么区别呢？</p>\n<p>在介绍 MVVM 之前，我们先需要了解什么是 MVC 模式</p>\n<p>在 ajax 技术没有出现之前，<strong>html 页面中发送 http 请求会刷新整个页面</strong>。页面内容强依赖后端接口响应的内容，于是催生了 jsp、php、asp 等前后端都耦合在一起的技术。下面来看一个实例</p>\n<pre><code class=\"language-html\">&lt;!-- login 页面 --&gt;\n&lt;form action=&quot;/login&quot; method=&quot;post&quot;&gt;\n  &lt;input type=&quot;text&quot; name=&quot;um&quot; placeholder=&quot;请输入账号&quot;/&gt;\n  &lt;input type=&quot;password&quot; name=&quot;pw&quot; placeholder=&quot;请输入密码&quot;/&gt;\n  &lt;button type=&quot;submit&quot;&gt;登录&lt;/button&gt;\n&lt;/form&gt;</code></pre>\n<p>登录页面中，点击登录，页面会重定向到 /login 发送 post 请求给后端，后端处理好后，返回登录成功后的 html 文本，浏览器拿到 html 文本渲染页面，这就完成了登录功能。</p>\n<p>为了更好的组织代码、解耦各个部分，MVC 模式被引入到 web 开发，比如 Struts、Spring MVC</p>\n<p><img src=\"../../../images/blog/vue/mvc.png\" alt=\"mvc.png\"></p>\n<p>MVC 是一种经典的设计模式，是 Model-View-Controller 的缩写，即模型-视图-控制器。</p>\n<ul>\n<li>Model 模型 对应数据 Java 类</li>\n<li>View 视图 对应 JSP 页面显示（服务端渲染）</li>\n<li>Controller 控制器 Servlet，用于处理客户端 HTTP 请求、加工模型数据、再响应对应的视图(html)给客户端</li>\n</ul>\n<p><img src=\"../../../images/blog/vue/structs_mvc.png\" alt=\"structs_mvc.png\"></p>\n<p>MVC 在不同的平台有不同的实现，比如 iOS MVC、ASP.NET MVC、Spring MVC 等，细节参考：<a href=\"https://draveness.me/mvx/\">浅谈 MVC、MVP 和 MVVM 架构模式</a>，这种构架模式的出现主要是为了解耦模块，将不同的功能模块分散到合适的位置中，提高开发维护效率。</p>\n<p>假设前端有 MVC 模式，M 对应数据 js 对象、V 对应视图 html。如果遵循 MVC 模式，C 用来解耦 M、V。那 C (控制器)负责的事情就比较多，主要是处理事件流</p>\n<ul>\n<li>绑定 UI 表单交互事件</li>\n<li>接收到事件后处理业务逻辑</li>\n<li>业务逻辑可能会请求接口获取/操作 M 数据</li>\n<li>根据需要操作 dom 更新 V</li>\n</ul>\n<p>由于 JS DOM API 在使用复杂度、兼容性方面需要较多的处理，像 jQuery 这种易于绑定事件，操作 dom 的框架开始流行起来，使用 jQuery 你不需要考虑 DOM API 兼容性、且操作 dom 简单，ajax 请求简单，提升了开发效率。</p>\n<p>后面随着 ajax、移动端、小程序等多平台的兴起，前后端分离的概念出现了，写一套接口各个平台适用，而不是单纯的写接口渲染 web 页面。MVC 在后端 View 这一层不再是 UI，而是改为返回 JSON 模型数据，多端兼容。</p>\n<p>当然前后端分离也有缺点，不利于 SEO，这也催生了服务端渲染 SSR 框架的产生。</p>\n<p>MVVM 设计模式是 Model-View-ViewModel 的缩写，模型-视图-视图模型，是 MVC 的一种发展</p>\n<p><img src=\"../../../images/blog/vue/mvvm.png\" alt=\"mvvm.png\"></p>\n<p>viewModel 主要实现了双向绑定，一般在框架内部实现：</p>\n<ul>\n<li>数据模型 M 和视图 V 通过 viewModel 绑定，只要修改了 数据模型 M ，viewModel 会自动帮你操作 dom 更新 视图。</li>\n<li>视图 V 表单输入变化，viewModel 会自动将输入内容同步到 M 数据模型中</li>\n</ul>\n<p>Vue 是类似 MVVM 模式的一种实现，使用 Vue 后，无需再手动操作 dom，只需改变数据即可。这样极大提升了开发效率，可以抽出更多的时间来关注业务逻辑。</p>\n<p>参考：</p>\n<ul>\n<li><a href=\"http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html\">MVC，MVP 和 MVVM 的图示 - 阮一峰的网络日志</a></li>\n<li><a href=\"https://baijiahao.baidu.com/s?id=1596277899370862119&amp;wfr=spider&amp;for=pc\">什么是MVVM，MVC和MVVM的区别，MVVM框架VUE实现原理</a></li>\n<li><a href=\"https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller\">Model–view–controller - Wikipedia</a></li>\n<li><a href=\"https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel\">Model–view–viewmodel - Wikipedia</a></li>\n</ul>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "什么是 mvc, 什么是 mvvm, 怎么理解 mvc 与 mvvm，mvc 和 mvvm 有什么区别？"
+        }
+      ],
+      "config": {
+        "source": "什么是 mvc, 什么是 mvvm, 怎么理解 mvc 与 mvvm，mvc 和 mvvm 有什么区别？.md",
+        "staticFileName": "mvc_vs_mvvm.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "每个新技术的出现都有其历史原因，MVVM 也是如此。Vue 就是基于 MVVM 模式。那什么是 MVVM 构架模式，和 MVC 模式有什么区别呢？在介绍 MVVM 之前，我们先需要了解什么是 MVC 模式。在 ajax 技术没有出现之前，html 页面中发送 http 请求会刷新整个页面。页面内容强依赖后端接口响应的内容，于是催生了 jsp、php、asp 等前后端都耦合在一起的技术。下面来看一个实例",
+        "keywords": "什么是 mvc,什么是 mvvm,怎么理解 mvc, mvc 与 mvvm 的区别,mvc,mvvm",
+        "category": "Vue",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"nginx-emerg-bind-to-000080-failed-10013-80-端口被占用\">nginx emerg bind to 0.0.0.0:80 failed &lt;10013, 80 端口被占用</h1>\n<p>最近由于服务器非常卡顿，于是重启了服务器，重启后发现开启 nginx 时，报错 nginx emerg bind to 0.0.0.0:80 failed &lt;10013:，<strong>这个错误一般是 80 端口被占用的问题，访问 <a href=\"http://127.0.0.1\">http://127.0.0.1</a> 看看 80 端口的情况</strong>，发现是 Java 服务，检查后发现 tomcat 开了，它占用了 80 端口，关掉 tomcat，再次运行就可以了。</p>\n<p><img src=\"../../../images/blog/ops/80_port.png\" alt=\"80_port.png\"></p>\n<p>参考：<a href=\"https://blog.csdn.net/zero_295813128/article/details/50914233\">Nginx 错误处理方法: bind() to 0.0.0.0:80 failed</a></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "nginx emerg bind to 0.0.0.0:80 failed <10013, 80 端口被占用"
+        }
+      ],
+      "config": {
+        "source": "nginx emerg bind to 0.0.0.0:80 failed <10013, 80 端口被占用.md",
+        "staticFileName": "mginx_80_port.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "重启服务器后发现开启 nginx 时，报错 nginx emerg bind to 0.0.0.0:80 failed <10013:，这个错误一般是 80 端口被占用的问题，访问 http://127.0.0.1 看看 80 端口的情况，发现是 Java 服务，检查后发现 tomcat 开了，它占用了 80 端口，关掉 tomcat，再次运行就可以了。",
+        "keywords": "nginx 80 端口被占用,emerg bind to 0.0.0.0:80 failed",
+        "category": "运维部署与版本控制",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"js-点击按钮复制内容的实现-使用-eleselect-加-documentexeccommandcopy\">js 点击按钮复制内容的实现, 使用 ele.select 加 document.execCommand(&#39;copy&#39;)</h1>\n<p>点击按钮复制链接、复制代码在前端是比较常见的需求，这里介绍一种比较简单的实现：</p>\n<ol>\n<li>先借用 input 等可以选中文本的元素，调用 element.select() 选中文本内容</li>\n<li>再执行 document.execCommand(&quot;copy&quot;) 对选中内容进行复制</li>\n</ol>\n<p>我们可以通过下面的例子来了解这个过程，<a href=\"https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E5%A4%8D%E5%88%B6%E9%93%BE%E6%8E%A5/\">点击按钮复制内容 - 在线演示</a></p>\n<pre><code class=\"language-html\">&lt;body&gt;\n  &lt;input id=&quot;inputText&quot; value=&quot;abcde&quot;&gt;\n  &lt;button onclick=&quot;execCopy()&quot;&gt;点击按钮复制内容&lt;/button&gt;\n  &lt;script&gt;\n    function execCopy() {\n      let element = document.querySelector(&quot;#inputText&quot;);\n      element.select();\n      document.execCommand(&quot;copy&quot;);\n    }\n  &lt;/script&gt;\n&lt;/body&gt;</code></pre>\n<p>实际使用中，我们需要清楚两点：</p>\n<ol>\n<li>我们设置的内容是动态的，需要动态设置 input 内容</li>\n<li>我们不需要在页面上显示 input 内容，需要动态创建元素，并隐藏元素</li>\n</ol>\n<p>我们可以将该功能封装成一个可复用的函数，如下</p>\n<pre><code class=\"language-js\">// 复制内容\nfunction copyContent(text) {\n    // 动态创建 input 元素，设置内容\n    let element = document.createElement(&#39;input&#39;)\n    element.setAttribute(&#39;value&#39;, text)\n    // 隐藏 input\n    element.style.position = &#39;absolute&#39;\n    element.style.top = &#39;-1000px&#39;\n    element.style.display = &#39;block&#39;\n    // 挂载到 body\n    document.body.appendChild(element)\n    // 复制\n    element.select()\n    document.execCommand(&quot;Copy&quot;);\n    // 复制完成后从 body 移除\n    document.body.removeChild(element)\n}</code></pre>\n<p>实际使用示例</p>\n<pre><code class=\"language-html\">&lt;body&gt;\n  &lt;button onclick=&quot;execCopy()&quot;&gt;点击按钮复制内容&lt;/button&gt;\n  &lt;p id=&quot;randomText&quot;&gt;&lt;/p&gt;\n  &lt;textarea&gt;&lt;/textarea&gt;\n  &lt;script&gt;\n    // 复制内容\n    function copyContent(text) {\n      // 动态创建 input 元素，设置内容\n      let element = document.createElement(&#39;input&#39;)\n      element.setAttribute(&#39;value&#39;, text)\n      // 隐藏 input\n      element.style.position = &#39;absolute&#39;\n      element.style.top = &#39;-1000px&#39;\n      element.style.display = &#39;block&#39;\n      // 挂载到 body\n      document.body.appendChild(element)\n      // 复制\n      element.select()\n      document.execCommand(&quot;Copy&quot;);\n      // 复制完成后从 body 移除\n      document.body.removeChild(element)\n    }\n\n    // 生成 len 长度的随机字符串\n    function getRandomStr(len) {\n      // ascii 编码转 字符串，String.fromCharCode(65)  65 &quot;A&quot;, 97 &quot;a&quot;, 48 &quot;0&quot;\n      // 字符串转 ascii 编码, &quot;a&quot;.charCodeAt(0)\n      let result = &#39;&#39;\n      for (let i = 0; i &lt; len; i++) {\n        result += String.fromCharCode(97 + Math.random() * 25 + 1) // 0 ~ 25\n      }\n      return result\n    }\n\n    function execCopy() {\n      // 生成随机字符串\n      let text = getRandomStr(10)\n      document.querySelector(&#39;#randomText&#39;).innerHTML = text\n      copyContent(text) // 复制内容\n    }\n  &lt;/script&gt;\n&lt;/body&gt;</code></pre>\n<p>完整代码参见：<a href=\"https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E5%A4%8D%E5%88%B6%E9%93%BE%E6%8E%A5\">点击按钮复制内容 - demo</a>，如果觉得有用，可以帮忙 star、fork，谢谢啦！</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "js 点击按钮复制内容的实现, 使用 ele.select 加 document.execCommand('copy')"
+        }
+      ],
+      "config": {
+        "source": "js 点击按钮复制内容的实现, 使用 ele.select 加 document.execCommand('copy').md",
+        "staticFileName": "js_copy.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "点击按钮复制链接、复制代码在前端是比较常见的需求，这里介绍一种比较简单的实现：1.先借用 input 等可以选中文本的元素，调用 element.select() 选中文本内容 2.再执行 document.execCommand('copy') 对选中内容进行复制 我们可以通过下面的例子来了解这个过程，点击按钮复制内容 - 在线演示",
+        "keywords": "js 点击按钮复制内容实现,js 向粘贴板写入内容,js copy text",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"js-iftrue-代码块中函数和变量同名时作用域提升问题，chrome-devtools-snippets-断点调试\">js if(true) 代码块中函数和变量同名时作用域提升问题，Chrome Devtools Snippets 断点调试</h1>\n<p>在 JS 代码块中变量和函数同名，作用域怎么提升的问题是比较难以理解的，对于不同的浏览器还有不同的结果，下面来看几个例子：</p>\n<p>我们可以通过 Chrome 浏览器中的 DevTools - Sources - Snippets 中利用断点调试的功能来看浏览器是如何一步步执行的。</p>\n<p><img src=\"../../../images/blog/js/chrome_snippets_debug.png\" alt=\"chrome_snippets_debug.png\"></p>\n<h2 id=\"示例-1\">示例 1</h2>\n<p>下面的例子中，里面的 a 为 21 是没有争议的，主要是为什么外面的 a 值会为 1(chrome) 或 21(safari)，用上面的方法来进行 Chrome 断点调试</p>\n<pre><code class=\"language-js\">var a = 0;\nif (true) { // global 作用域  a 为 0，\n  // 执行到这里时，函数会被提升 block 块级作用域中 a 为 function () {}\n    a = 1;\n  // 上面的 a = 1 执行后，block 作用域中 a 为 1 可以理解，但奇怪的是 global 作用域 a 也被设置为了 1\n    function a() { }\n    a = 21; // 这一句执行后 block 作用域中 a 为 21，全局 global 为 1\n    console.log(`里面:${a}`)\n}\nconsole.log(`外面:${a}`)</code></pre>\n<p>Chrome 版本 91.0.4472.114 / Firefox 89.0 (64 位) 结果</p>\n<pre><code class=\"language-js\">里面:21 \n外面:1</code></pre>\n<p>Safari 14.0.3 (16610.4.3.1.7) 结果</p>\n<pre><code class=\"language-js\">里面:21\n外面:21</code></pre>\n<h2 id=\"示例-2\">示例 2</h2>\n<pre><code class=\"language-js\">{\n    function a() {};\n    a = 50;\n}\nconsole.log(a); // ƒ a() {}\n{\n    b = 50;\n    function b() {};\n}\nconsole.log(b); // 50</code></pre>\n<p>总结：这种问题，我们一般会陷入一个误区，就是通过 chrome 的结果来倒推，可能是怎么执行的。</p>\n<p>但你会发现可能还是比较难理解。<strong>这种问题基本是没有意义的，正常情况下，不会有变量和函数同名，也不会这样使用</strong>，除非去研究 Chrome v8 引擎的源码，看看是怎么执行的，不然对于非专家级别的开发者来说，是没必要深入到这一步的。</p>\n<p><strong>如果不是从内核源码来剖析，瞎猜没有任何说服力。</strong></p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "js if(true) 代码块中函数和变量同名时作用域提升问题，Chrome Devtools Snippets 断点调试",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "示例 1"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "示例 2"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "js if(true) 代码块中函数和变量同名时作用域提升问题，Chrome Devtools Snippets 断点调试.md",
+        "staticFileName": "js_hoisting.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "在 JS 代码块中变量和函数同名，作用域怎么提升的问题是比较难以理解的，对于不同的浏览器还有不同的结果，下面来看几个例子，我们可以通过 Chrome 浏览器中的 DevTools - Sources - Snippets 中利用断点调试的功能来看浏览器是如何一步步执行的。",
+        "keywords": "js hoisting,js 函数提升,js 变量提升,Chrome Devtools Snippets 断点调试",
+        "category": "JavaScript",
+        "year": "2021",
+        "month": "9"
+      }
+    },
+    {
+      "htmlStr": "<h1 id=\"node-自动化部署、持续集成的核心原理-node-可以执行-shell-脚本--可以监听请求\">node 自动化部署、持续集成的核心原理: node 可以执行 shell 脚本 + 可以监听请求</h1>\n<p>node 可以用来支撑实现自动化部署、持续集成，核心原理是：</p>\n<ol>\n<li>node 可以执行 shell 脚本，而部署流程一般都是写在 shell 脚本中的。</li>\n<li>node 可以作为服务器 server, 当接收到请求后，根据条件判断是否执行部署的 shell 脚本。</li>\n</ol>\n<p>我们这里结合 github webhooks 来实现持续集成，自动化部署，关键细节在于：</p>\n<ol>\n<li>github 对应仓库 Settings - Webhooks，配置当仓库发生变化时（比如 push 操作）请求一个自定义接口地址</li>\n<li>github 请求这个接口地址时，我们需要做一些校验，github-webhook-handler npm 包帮我们做好了，直接使用即可，当接收到 main 分支 push 请求时，使用 node 的 child_process.spawn 可以执行 shell 脚本进行部署。</li>\n</ol>\n<p>整个过程概要</p>\n<ol>\n<li>提交新的内容到 github 仓库，github 仓库接收到 push 事件，触发对应的 webhooks 事件，向设置的一个 URL 发送 POST 请求。</li>\n<li>我们专门用一个 node 接口来接收该请求。接收到请求后，如果是 main 分支的 push 事件，用 node 执行 shell 脚本（.sh 文件）</li>\n<li>本地 shell 脚本用于 git pull 最新代码，并重启服务运行最新代码（比如使用 docker-compose up 部署最新代码）</li>\n</ol>\n<p>下面来看具体怎么操作</p>\n<h2 id=\"配置github-webhooks\">配置github webhooks</h2>\n<p>将项目文件放到 github 仓库，然后在对应的仓库，setting、选择 webhooks，添加 webhooks，如下图</p>\n<p><img src=\"../../../images/blog/node/github_webhooks_1.png\" alt=\"github_webhooks_1.png\"></p>\n<p>新建一个 webhooks，有下面几个字段</p>\n<ul>\n<li>Payload URL: <code>http://www.xxx.com:8800/docker_deploy</code> ，发送post请求的地址，你自己的服务器要处理该请求。测试时可以用 IP 地址</li>\n<li>Content type: application/json，发送数据类型，一般选json，方便处理</li>\n<li>secret: xxx  秘钥，做验证用，接口处理是需要使用</li>\n<li>which events would you like to trigger this webhook? 触发该接口的时机我们选择仅 push 时触发 </li>\n</ul>\n<p><img src=\"../../../images/blog/node/github_webhooks_2.png\" alt=\"github_webhooks_2.png\"></p>\n<p>新增 webhooks 后，可以发测试请求，点击 redeliver 弹窗提示后再点击确认，这样就可以调试接口了。如下图</p>\n<p><img src=\"../../../images/blog/node/github_webhooks_3.png\" alt=\"github_webhooks_3.png\"></p>\n<h2 id=\"写-node-接口来处理-webhooks-请求\">写 node 接口来处理 webhooks 请求</h2>\n<p>我们用一个简单的 nodejs 文件，在 8800 端口新建一个接口来处理 github webhooks 的请求，先写一个简单的测试 js</p>\n<pre><code class=\"language-js\">// webhook.js\nconst http = require(&#39;http&#39;)\nconst createHandler = require(&#39;github-webhook-handler&#39;)\nconst handler = createHandler({\n  path:&#39;/docker_deploy&#39;,\n  secret:&#39;xxx&#39; // 之间设置的秘钥\n})\n\nhttp.createServer((req,res) =&gt; {\n  handler(req,res,err =&gt; {\n    res.statusCode = 404\n    res.end(&#39;no such location&#39;)\n  })\n}).listen(8800, () =&gt; {\n  console.log(&#39;Webhook listen at 8800&#39;)\n})\n\nhandler.on(&#39;error&#39;,err =&gt; {\n  console.error(&#39;Error&#39;,err.message)\n})\n\n// 接收所有事件(包括push事件)打印日志\nhandler.on(&#39;*&#39;,event =&gt; {\n  console.log(&#39;Received * &#39;,event.payload)\n})</code></pre>\n<p>我们要在服务器跑起这个服务需要先在 ubuntu 系统上安装 node/npm</p>\n<pre><code class=\"language-bash\"># 默认安装方法\nsudo apt-get install -y nodejs\nsudo apt install npm\n\n# ubuntu 安装node版本过低，怎么解决\nnode -v # v8.10.0\nnpm -v # 3.5.2\n\n# 将node升级到最新稳定版\nsudo npm cache clean -f\nsudo npm install -g n\nsudo n stable\nPATH=&quot;$PATH&quot; # 立即在终端生效\n\n# 再查看版本就是最新稳定版了\nnode -v # v12.18.4\nnpm -v # 6.14.6</code></pre>\n<p>参考：<a href=\"https://blog.csdn.net/skylark0924/article/details/79306999\">使用apt-get install安装node.js导致安装成低版本的解决方案 | CSDN</a></p>\n<p>注意 npm init 一个 package.json，并安装 github-webhook-handler 模块，再 <code>nodemon webhook.js</code> 开启服务，也可以把 nodemon webhook.js 使用 pm2 来管理。然后再在 github webhooks 里触发测试请求，当看到 Received * log，即表示接收成功，如下图：</p>\n<p><img src=\"../../../images/blog/node/github_webhooks_4.png\" alt=\"github_webhooks_4.png\"></p>\n<h2 id=\"sh脚本：拉取最新代码，重新部署\">sh脚本：拉取最新代码，重新部署</h2>\n<p>这里已经知道如何接收事件了，我们再在 webhook.js 里加入执行 shell 脚本的代码</p>\n<pre><code class=\"language-js\">// 使用子进程执行命令\nfunction run_cmd(cmd, args, callback) {\n  var spawn = require(&#39;child_process&#39;).spawn;\n  var child = spawn(cmd, args);\n  var resp = &quot;&quot;;\n  child.stdout.on(&#39;data&#39;, function (buffer) { resp += buffer.toString(); });\n  child.stdout.on(&#39;end&#39;, function () { callback(resp) });\n}\n\n// 接收到 push 事件时，执行 sh ./deploy-master.sh\nhandler.on(&#39;push&#39;, function (event) {\n  console.log(&#39;Received a push event for %s to %s&#39;, event.payload.repository.name, event.payload.ref);\n  // 分支判断，如果是master，已改名 main\n  if(event.payload.ref === &#39;refs/heads/main&#39;){\n    console.log(&#39;deploy main..&#39;)\n    run_cmd(&#39;sh&#39;, [&#39;./deploy-master.sh&#39;], function(text){ console.log(text) });\n  }\n})</code></pre>\n<p>在当前目录新建一个 deploy-master.sh 文件，内容先只有 <code>ls</code>，用于测试，修改代码后，再次测试，如下图，ls执行成功过即表示代码正常。</p>\n<p><strong>注意，1. 模拟请求可能会拿不到 event.payload.ref 的值，需要出发真实的 push 请求才有 2.如果 deploy-master.sh 没有可执行权限，那么就需要执行 chmod +x 文件名，来给他加可执行权限</strong></p>\n<p><img src=\"../../../images/blog/node/github_webhooks_5.png\" alt=\"github_webhooks_5.png\"></p>\n<p>修改部署脚本</p>\n<pre><code class=\"language-bash\"># 测试\n# ls\n\n# deploy-master.sh\necho &quot;Start Deploy&quot;\n\n# 获取最新版代码\ngit pull\n\n# 停止原先的镜像实例(容器)\ndocker-compose down\n# 重新build，创建实例化镜像(容器)\ndocker-compose up -d --force-recreate --build</code></pre>\n<p>这里要注意 git pull 的问题。我们这里要放弃之间 vscode 插件部署的方法，要使用 git pull 的方式来更新部署代码，这样才不会有冲突。</p>\n<p>这里我们要先在 ubuntu 系统里 git clone github的仓库，建议使用 ssh 的方法， 使用 <code>ssh-keygen -t rsa -C &quot;xxx@qq.com&quot;</code> 生成公钥私钥，然后再把公钥配置到 github 个人账号 setting 里的 ssh keys里面。就可以使用 ssh 地址正常拉取了。</p>\n<p>这样就可以实现提交代码到 main 分支就自动部署最新代码了</p>\n",
+      "outline": [
+        {
+          "type": "heading",
+          "depth": 1,
+          "text": "node 自动化部署、持续集成的核心原理: node 可以执行 shell 脚本 + 可以监听请求",
+          "children": [
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "配置github webhooks"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "写 node 接口来处理 webhooks 请求"
+            },
+            {
+              "type": "heading",
+              "depth": 2,
+              "text": "sh脚本：拉取最新代码，重新部署"
+            }
+          ]
+        }
+      ],
+      "config": {
+        "source": "node 自动化部署、持续集成的核心原理: node 可以执行 shell 脚本 + 可以监听请求.md",
+        "staticFileName": "node_ci_cd.html",
+        "author": "guoqzuo",
+        "createDate": "2021/09/09",
+        "description": "node 可以用来支撑实现自动化部署、持续集成，核心原理是：1. node 可以执行 shell 脚本，而部署流程一般都是写在 shell 脚本中的。2. node 可以作为服务器 server, 当接收到请求后，根据条件判断是否执行部署的 shell 脚本。我们这里结合 github webhooks 来实现持续集成，自动化部署",
+        "keywords": "node 自动化部署,node持续集成,node ci,node cd,node webhooks,github webhooks",
+        "category": "运维部署与版本控制",
+        "year": "2021",
+        "month": "9"
+      }
     }
   ],
-  "count": 425,
+  "count": 434,
   "config": {
     "title": "左小白的技术日常",
     "isAddBaiduTongji": true,
