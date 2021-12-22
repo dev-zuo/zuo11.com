@@ -95,7 +95,7 @@
     ],
     "网站建设与SEO": [
       {
-        "title": "从web零基础到完成这个博客系统",
+        "title": "从Web零基础到完成这个博客系统",
         "href": "2016/10/viewpoint_zero.html",
         "time": "2016/10/14",
         "description": "最开始接触Web是在15年的11月份，到现在快1年了。现在一般需求的小网站应该可以独立完成，其间遇到了很多问题，也学了很多东西。但我这个人很健忘，东西学的快也忘的快，于是就想用博客来记录所学。以方便查找，也为后来的人提供一些经验。",
@@ -1045,7 +1045,7 @@
         "keywords": "code消除魔术字符串,code判断逻辑使用常量"
       },
       {
-        "title": "js生成二维码怎么实现",
+        "title": "JS生成二维码怎么实现",
         "href": "2020/11/js_qrcode.html",
         "time": "2020/11/08",
         "description": "QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式。QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM. QRCode.js has no dependencies. QRCode.js 使用很简单，下面来写一个自动生成二维码的工具",
@@ -2323,7 +2323,7 @@
         "keywords": "vue js 操作组件, vue 组件封装"
       },
       {
-        "title": "Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@",
+        "title": "vue 组件中 css 路径简写 @ 不可用，需要使用 ~@",
         "href": "2021/5/vue_css_src.html",
         "time": "2021/05/04",
         "description": "vue css src 路径，css @ 不生效，css src 简写@, webpack 解析 css 路径，在 vue-cli 创建的 vue 项目中，可以使用 @ 来表示 src 路径。但在 css 中，图片路径使用 @ 就会出错。那 css 中要怎么使用 src 相对路径呢？需要在前面加 ~，也就是 ~@，这样就不必使用相对路径了。",
@@ -3130,7 +3130,7 @@
         }
       ],
       "config": {
-        "source": "从web零基础到完成这个博客系统.md",
+        "source": "从Web零基础到完成这个博客系统.md",
         "staticFileName": "viewpoint_zero.html",
         "author": "guoqzuo",
         "createDate": "2016/10/14",
@@ -9686,7 +9686,7 @@
         }
       ],
       "config": {
-        "source": "js生成二维码怎么实现.md",
+        "source": "JS生成二维码怎么实现.md",
         "staticFileName": "js_qrcode.html",
         "author": "guoqzuo",
         "createDate": "2020/11/08",
@@ -15774,7 +15774,7 @@
         }
       ],
       "config": {
-        "source": "Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@.md",
+        "source": "vue 组件中 css 路径简写 @ 不可用，需要使用 ~@.md",
         "staticFileName": "vue_css_src.html",
         "author": "guoqzuo",
         "createDate": "2021/05/04",

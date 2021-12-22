@@ -27,7 +27,7 @@
     "category": "CSS"
   },
   {
-    "source": "Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@.md",
+    "source": "vue 组件中 css 路径简写 @ 不可用，需要使用 ~@.md",
     "staticFileName": "vue_css_src.html",
     "author": "guoqzuo",
     "createDate": "2021/05/04",
