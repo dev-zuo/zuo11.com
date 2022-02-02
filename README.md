@@ -1,5 +1,5 @@
 # zuo11.com
-zuo11.com/blog 源码
+zuo11.com 源码，欢迎 star、fork、提改进 pr
 
 ## 目录结构
 
