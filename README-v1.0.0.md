@@ -1,17 +1,12 @@
 # zuo11.com
-zuo11.com 源码，欢迎 star、fork、提改进 pr
+zuo11.com blog部分源码
+
+> docker run -p 80:80 -v $PWD/dist:/usr/share/nginx/html -d nginx 
 
 ## 目录结构
-
-v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的配置、seo参数等）
-将相关参数设置到 md 文件，通过 front-matter 解析，主要为了可以有 edit on github 功能
-
 ```bash
-├── src # extraRootFiles 额外的根目录文件，比如站点地图、广告说明文件等
-├── server # server 本地服务测试
-├── tools # nginx SSL 证书更换脚本 
 ├── src # 写博客文章的目录
-│   ├── config.json # 全局配置文件
+│   ├── _config.json # 全局配置文件
 │   ├── global.js # 全局js
 │   ├── global.css # 全局css 
 │   ├── images # 图片目录
@@ -20,6 +15,7 @@ v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的�
 │   └── notes # 博客文章，按年月分目录
 │       ├── 2016
 │       │   ├── 10 # 每个月份目录下放当月写的文章及当前月的配置文件
+│       │   │   ├── _info.json # 配置文件记录了当前目录下每篇文章的配置、seo参数等
 │       │   │   ├── xxx1.md # 博客文章
 │       │   │   └── xxx2.md
 │       │   ├── 11
@@ -27,6 +23,7 @@ v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的�
 │       ├── ...
 │       └── 2020 # 2020年目录
 │           ├── 1 # 2020年1月目录
+│           │   ├──  _info.json
 │           │   └──  xx45.md
 │           └── 2 
 ├── LICENSE # 开源协议 Apache 2.0
@@ -71,11 +68,8 @@ v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的�
 ```
 
 ## _info.json配置文件说明
-> 移动到每个文件
-
 为了方便做seo，每篇文章有创建时间、生成静态html的文件名、作者、关键字、描述等。每个月份下面都需要有一个_info.json文件用来描述当前目录下文章的信息，如果当前目录没文章，就不用创建这个配置文件，下面是一个例子:
 ```json
-
 [
   {
     "source": "web站点优化 关于最近的改版.md",

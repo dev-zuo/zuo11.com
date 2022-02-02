@@ -1,0 +1,64 @@
+{
+  "title": "左小白的技术日常",
+  "isAddBaiduTongji": true,
+  "baiduTongjiId": "183281668cc3440449274d1f93c04de6",
+  "editOnGithubPrePath": "https://github.com/zuoxiaobai/zuo11.com/edit/v2.0.2",
+  "indexConfig": {
+    "author": "guoqzuo",
+    "description": "左小白的技术日常，主要记录和分享web前端领域相关的理解、总结、观点。偶尔会进行一些扩展：比如网站建设、服务器运维、后台数据库等",
+    "keywords": "左小白,左小白的技术日常,zuo11.com",
+    "linkList": [
+      {
+        "name": "博客",
+        "href": "/blog/category.html"
+      },
+      {
+        "name": "我的笔记",
+        "href": "http://fe.zuo11.com",
+        "target": "_black"
+      },
+      {
+        "name": "Github",
+        "href": "https://github.com/zuoxiaobai",
+        "target": "_black"
+      }
+    ]
+  },
+  "topRightLink": [
+    {
+      "name": "我的笔记",
+      "href": "http://fe.zuo11.com",
+      "target": "_black"
+    },
+    {
+      "name": "Github",
+      "href": "https://github.com/zuoxiaobai",
+      "target": "_black"
+    }
+  ],
+  "footer": {
+    "left": "Copyright © 2016-2021 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a>",
+    "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
+  },
+  "categorySequence": [
+    "Vue",
+    "JavaScript",
+    "CSS",
+    "http与https",
+    "前端工程化",
+    "React",
+    "运维部署与版本控制",
+    "计算机基础与开发工具",
+    "图表可视化",
+    "网站建设与SEO",
+    "TypeScript",
+    "微信开发",
+    "移动端混合开发",
+    "后端数据库等",
+    "iOS",
+    "C与APUE"
+  ],
+  "asideTopHtml": "<ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>",
+  "commentTopHtml": "<ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>",
+  "articleTopHtml": "<ins class='adsbygoogle' style='display:block; text-align:center;' data-ad-layout='in-article' data-ad-format='fluid' data-ad-client='ca-pub-9527676606416641' data-ad-slot='5125924359'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>"
+}

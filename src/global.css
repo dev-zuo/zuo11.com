@@ -1,0 +1,72 @@
+
+/* html {
+  filter: grayscale(100%);
+} */
+
+/* fix 火狐首页异常的问题 */
+body { 
+  min-height: 100vh;
+}
+
+/* dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: #aaa;
+  }
+  
+  body .content article, header, aside > div, footer  {
+    border-color: #333;
+    color: #aaa;
+    background-color: black;
+    box-shadow: 0 0 10px #333;
+  }
+  
+  aside ul li span, body .title {
+    color: #aaa;
+  }
+  
+  article h1 {
+    background: none;
+  }
+  
+  hr {
+    border-color: #333;
+  }
+  
+  /* 代码区域 */
+  body pre {
+    /* box-shadow: 0 0 3px #333; */
+    border: 1px solid #333;
+    border-radius: 4px;
+  }
+  body code[class*="language-"], pre[class*="language-"] {
+    color: #aaa;
+    text-shadow: none;
+  }
+  body :not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: #111;
+  }
+  body .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+    background: none;
+  }
+}
+
+/* 不足补充 */
+body, aside ul li span {
+  word-break: break-all;
+}
+
+table {
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+/* AD */
+ins {
+  margin: 10px 0;
+}
