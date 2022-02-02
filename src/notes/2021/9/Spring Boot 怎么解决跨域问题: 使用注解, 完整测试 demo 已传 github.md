@@ -1,3 +1,14 @@
+---
+{
+  "title": "Spring Boot 怎么解决跨域问题: 使用注解, 完整测试 demo 已传 github",
+  "staticFileName": "spring_boot_allow_cross.html",
+  "author": "guoqzuo",
+  "createDate": "2021/09/09",
+  "description": "根据 Spring 官网 Building a RESTful Web Service (opens new window) 写了一个测试接口，在使用时，需要让该接口支持跨域，理论上只要设置好对应的响应头、处理好 Options 请求预检就可以，但发现貌似没有处理 OPTIONS 请求的注解。需要一些特殊设置处理。后面发现有一个非常简单的方法来允许跨域，就是使用 @CrossOrigin 注解，使用方法如下",
+  "keywords": "spring boot 解决跨域, spring boot 允许跨域, spring boot 通过注解允许跨域",
+  "category": "后端数据库等"
+}
+---
 # Spring Boot 怎么解决跨域问题: 使用注解, 完整测试 demo 已传 github
 
 根据 Spring 官网 [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) 写了一个测试接口，在使用时，需要让该接口支持跨域，理论上只要设置好对应的响应头、处理好 Options 请求预检就可以，但发现貌似没有处理 OPTIONS 请求的注解。需要一些特殊设置处理。

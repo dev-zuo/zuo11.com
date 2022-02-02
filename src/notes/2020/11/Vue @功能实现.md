@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue @功能实现",
+  "staticFileName": "vue_mentions.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/30",
+  "description": "如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库 Tribute - ES6 Native @mentions，它是 ES 原生的实现，社区有各种框架的实现。这里我们使用它的 Vue 实现 vue-tribute。下图是实现效果",
+  "keywords": "@实现,@功能实现,@下拉选择实现,Vue @功能实现",
+  "category": "Vue"
+}
+---
 # Vue @功能实现
 如果自己写一个 @ 功能会比较麻烦，在 github 上找了一个现成的开源库：[Tribute](https://github.com/zurb/tribute) - ES6 Native @mentions，它是ES 原生的实现，社区有各种框架的实现。这里我们使用它的 vue 实现 [vue-tribute](https://github.com/syropian/vue-tribute)。下图是实现效果
 

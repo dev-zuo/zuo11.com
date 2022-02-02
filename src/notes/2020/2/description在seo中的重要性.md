@@ -1,3 +1,14 @@
+---
+{
+  "title": "description在seo中的重要性",
+  "staticFileName": "seo_description.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/16",
+  "description": "网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。",
+  "keywords": "description seo,网站页面描述(description),description在seo中的重要性,seo中Google和百度的一些区别",
+  "category": "网站建设与SEO"
+}
+---
 # description在seo中的重要性
 
 网站页面描述(description)可能会直接显示在百度搜索的结果里，所以尽量不要写太少，不然看起来内容就比较少，description 最好能对当前页面的内容有一个大概的描述，下面我们来看看为什么会有这个结论。

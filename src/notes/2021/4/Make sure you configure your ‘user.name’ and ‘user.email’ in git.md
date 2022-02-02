@@ -1,3 +1,14 @@
+---
+{
+  "title": "Make sure you configure your ‘user.name’ and ‘user.email’ in git",
+  "staticFileName": "git_user_email.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/11",
+  "description": "git 设置 user.name user.email，github 提交没有绿点，github提交没头像，在 vscode 中，使用可视化工具，而非命令的方式提交代码时，如果没有配置 git 的 user.name 和 user.email，可能会弹出 Make sure you configure your ‘user.name’ and ‘user.email’ in git 的错误，代码无法提交。这就需要先配置好，再提交了。另外，在 github 或 gitlab 等页面中，可能会遇到提交没有绿点或者看不到头像的情况，可能是因为配置的 user.email 发生了变化，和平台的 email 不一致导致的。修改成一致的就正常了。",
+  "keywords": "git config,git 设置 user.name user.email,github 提交没有绿点,github提交没头像",
+  "category": "运维部署与版本控制"
+}
+---
 # Make sure you configure your ‘user.name’ and ‘user.email’ in git
 在 vscode 中，使用可视化工具，而非命令的方式提交代码时，如果没有配置 git 的 user.name 和 user.email，可能会弹出 Make sure you configure your ‘user.name’ and ‘user.email’ in git 的错误，代码无法提交。这就需要先配置好，再提交了。
 

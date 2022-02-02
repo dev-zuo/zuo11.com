@@ -1,3 +1,14 @@
+---
+{
+  "title": "nginx访问不带www的域名，自动切到www",
+  "staticFileName": "www_redirect.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/08",
+  "description": "在seo时，搜索引擎可能会将xx.com和www.xx.com一起收录。这里需要进行处理，当使用一级域名直接访问时(xx.com)，自动切到www.xx.com，下面来看看怎么配置nginx",
+  "keywords": "不带www跳转到www二域名,xx.com重定向到www.xx.com",
+  "category": "网站建设与SEO"
+}
+---
 
 # nginx访问不带www的域名，自动切到www
 

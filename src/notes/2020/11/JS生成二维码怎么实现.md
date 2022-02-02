@@ -1,3 +1,14 @@
+---
+{
+  "title": "JS生成二维码怎么实现",
+  "staticFileName": "js_qrcode.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/08",
+  "description": "QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式。QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM. QRCode.js has no dependencies. QRCode.js 使用很简单，下面来写一个自动生成二维码的工具",
+  "keywords": "js生成二维码,前端生成二维码,js生成二维码链接",
+  "category": "JavaScript"
+}
+---
 # js生成二维码怎么实现
 QRCode.js 是一个生成二维码的 js 库，使用 HTML5 Canvas 将二维码绘制到 dom 上，不依赖任何库。支持 svg 绘制方式
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS UITabBarController",
+  "staticFileName": "ios_tabbar.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/10",
+  "description": "现在手机里常用的app绝大部分都用到了UITabBarController，也就是最下面的一排按钮，通过点击按钮可以切换页面。它可以轻松管理多个控制器，类似于UINavigationController，一个是在屏幕顶部，一个是在屏幕底部。这里通过一个小例子，来了解UITabBarController。",
+  "keywords": "ios tabbar,iOS主流app框架,UITabBarController,UITabBarController与UINavigationController,UITabBarController与导航控制器结合使用",
+  "category": "iOS"
+}
+---
 
 # iOS UITabBarController
 

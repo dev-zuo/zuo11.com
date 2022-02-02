@@ -1,3 +1,14 @@
+---
+{
+  "title": "javaweb判断是否为移动端访问",
+  "staticFileName": "web_ismobile.html",
+  "author": "guoqzuo",
+  "createDate": "2016/12/25",
+  "description": "一般java后台，会先用servlet获取数据，再跳转到前端页面。在servlet里获取数据时，我们可以根据request.getheader(User-Agent&quot)的内容，判断是否为移动端访问，再转发到相应的页面。可以在保持url不变的情况下，生成两种页面。",
+  "keywords": "javaweb判断是否为移动端访问,java判断是否为移动端访问,判断是否为移动端访问",
+  "category": "后端数据库等"
+}
+---
 
 # javaweb判断是否为移动端访问
 

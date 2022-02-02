@@ -1,3 +1,14 @@
+---
+{
+  "title": "#ffffff与#fff的区别",
+  "staticFileName": "css_hex_color.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/12",
+  "description": "css的颜色可以使用rgb和十六进制表示法。有时十六进制色彩是6位，而有时是3位，比如白色可以是#ffffff，也可以写成#fff。有什么区别呢？",
+  "keywords": "#ffffff与#fff的区别,css颜色简写,十六进制颜色简写",
+  "category": "CSS"
+}
+---
 # #fffff与#fff的区别
 
 css的颜色可以使用rgb和十六进制表示法。有时十六进制色彩是6位，而有时是3位，比如白色可以是#ffffff，也可以写成#fff。有什么区别呢？

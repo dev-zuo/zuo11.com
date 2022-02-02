@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS微博个人详情页面",
+  "staticFileName": "ios_weibo.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/09",
+  "description": "用storyboard拖线来做个微博个人详情页面的UI。导航栏刚开始透明，滚动tableView的时候，上面的两个视图会向上，导航条也会从完全透明到不透明。这里会图解UITableView显示滚动区域的相关细节。",
+  "keywords": "UITableView滚动,导航条随着滚动从透明到不透明,iOS微博个人详情页面,图解UITableView显示滚动区域",
+  "category": "iOS"
+}
+---
 # iOS微博个人详情页面
 
 > 用storyboard拖线来做个微博个人详情页面的UI。导航栏刚开始透明，滚动tableView的时候，上面的两个视图会向上，导航条也会从完全透明到不透明。这里会图解UITableView显示滚动区域的相关细节。

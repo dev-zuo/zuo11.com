@@ -1,3 +1,14 @@
+---
+{
+  "title": "ESLint 与 Prettier 冲突的问题怎么处理？",
+  "staticFileName": "eslint_prettier_conflict.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "在安装 @vue/cli 后，使用 vue create xx 创建项目，如果选择了 eslint + prettier，可能会出现冲突。比如 在 .eslintrc.js 的 rules 中设置了强制单引号，而默认情况下 prettier 是双引号。`如果有双引号，eslint 会提示 error。如果有单引号 prettier 会警告提示`，保存自动 fix 会在单双引号之间来回切换，总是会有异常提示。",
+  "keywords": "eslint prettier conflict,ESLint 与 Prettier 冲突",
+  "category": "前端工程化"
+}
+---
 # ESLint 与 Prettier 冲突的问题怎么处理？
 
 在安装 @vue/cli 后，使用 vue create xx 创建项目，如果选择了 eslint + prettier，可能会出现冲突。比如

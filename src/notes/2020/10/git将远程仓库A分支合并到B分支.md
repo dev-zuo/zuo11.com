@@ -1,3 +1,14 @@
+---
+{
+  "title": "git将远程仓库A分支合并到B分支",
+  "staticFileName": "git_merge_branch.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/01",
+  "description": "假设要将远程分支的 A 分支合并到 B 分支，一般我会先在A分支将B分支merge，再切到B分支，merge A分支。以将远程仓库的 dev1.3.4 分支合并到远程的 test1.3.4 分支为例，下面是我一般的合并过程",
+  "keywords": "git远程分支合并,git合并分支",
+  "category": "运维部署与版本控制"
+}
+---
 # git将远程仓库A分支合并到B分支
 
 假设要将远程分支的 A 分支合并到 B 分支，一般我会先在A分支将B分支merge，再切到B分支，merge A分支。

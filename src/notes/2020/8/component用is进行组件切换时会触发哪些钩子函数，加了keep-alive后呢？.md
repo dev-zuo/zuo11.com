@@ -1,3 +1,14 @@
+---
+{
+  "title": "component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？",
+  "staticFileName": "component_is_hooks.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/30",
+  "description": "component is hooks,component is 钩子函数,假设动态组件component使用is控制组件显示，默认显示为A组件，可以切换到B组件。问：首次进入页面以及用is切换组件时，会触发A/B组件的哪些钩子函数，加了keep-alive后呢？先给出结论 1. 如果不加keep-alive，和正常的进入页面和离开页面触发的钩子函数一致。2. 如果加了keep-alive，组件首次加载才会触发 created,mounted等钩子函数，切换时就不会触发created,mounted,beforedestroyed等，所以额外加一个activated和deactivated钩子来提示页面已切换，离开当前页面，才会销毁A/B两个组件触发beforeDestroyed和destroyed两个钩子",
+  "keywords": "component is hooks,component is 钩子函数",
+  "category": "Vue"
+}
+---
 # component用is进行组件切换时会触发哪些钩子函数，加了keep-alive后呢？
 
 假设动态组件component使用is控制组件显示，默认显示为A组件，可以切换到B组件。问：

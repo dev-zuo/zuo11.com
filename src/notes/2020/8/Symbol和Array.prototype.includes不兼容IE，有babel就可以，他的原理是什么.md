@@ -1,3 +1,14 @@
+---
+{
+  "title": "Symbol和Array.prototype.includes不兼容IE，有babel就可以，他的原理是什么",
+  "staticFileName": "includes_babel.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/30",
+  "description": "vue项目里使用includes，IE11支持吗？在mdn上可以查相关API的兼容性,可以看到Symbol和Array.prototype.includes是不支持IE的，但我们在vue-cli的项目中，发现使用了这些api，在IE下也可以运行，这是为什么呢？主要是安装了babel，babel有进行转换，当IE不支持某个方法时，会使用替代的pollyfill，那它是怎么打包进项目的？",
+  "keywords": "vue项目里使用includes，IE11支持吗？",
+  "category": "JavaScript"
+}
+---
 # Symbol和Array.prototype.includes不兼容IE，有babel就可以，他的原理是什么
 
 在mdn上可以查相关API的兼容性,可以看到Symbol和Array.prototype.includes是不支持IE的，但我们在vue-cli的项目中，发现使用了这些api，在IE下也可以运行，这是为什么呢？

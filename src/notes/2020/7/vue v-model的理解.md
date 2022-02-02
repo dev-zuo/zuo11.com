@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue v-model的理解",
+  "staticFileName": "vue-v-model.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "在前面讨论过，使用v-model的场景，来看一个实例，假如我们需要封装一个弹窗组件需要引入el-dialog组件。首先，我们来看看我们写好这个组件后应该怎么调用，通过show这个参数来控制dialog显示或隐藏",
+  "keywords": "v-model的理解,v-model与,.sync",
+  "category": "Vue"
+}
+---
 # vue v-model的理解
 在前面讨论过，使用v-model的场景，来看一个实例，假如我们需要封装一个弹窗组件需要引入el-dialog组件
 

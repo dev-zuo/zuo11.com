@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue里简单的总线(bus)发布订阅模式实现",
+  "staticFileName": "vue_on_emit.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/15",
+  "description": "vue publish/subscription,vue发布订阅模式实现,vue bus发布订阅实现, 在vue组件内部有实现发布订阅模式，类似于bus，在兄弟组件或任意两组件之间传值可以使用这种方法，那内部是怎么实现的呢？我们先写一个调用demo",
+  "keywords": "vue publish/subscription,vue发布订阅模式实现,vue bus发布订阅实现",
+  "category": "Vue"
+}
+---
 
 # vue里简单的总线(bus)发布订阅模式实现
 

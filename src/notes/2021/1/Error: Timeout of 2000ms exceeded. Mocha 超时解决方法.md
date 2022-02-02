@@ -1,3 +1,14 @@
+---
+{
+  "title": "Error: Timeout of 2000ms exceeded. Mocha 超时解决方法",
+  "staticFileName": "mocha-timeout.html",
+  "author": "guoqzuo",
+  "createDate": "2021/01/12",
+  "description": "在 mocha 中，默认每个测试时间限制为 2s，如果超过两秒就会抛出异常。对于大于 2s 的异步任务可以使用 mocha 上下文的 timeout() 方法手动指定超时时间。注意不要使用箭头函数，否则无法调用 this.timeout() 方法。 - `this.timeout(5000)` 将超时时间设置为 5s，这样就不会有 2s 的限制了 - `this.timeout(1000)` 对于性能要求较高的场景，可以限制超时时间为 1s",
+  "keywords": "mocha tiemout,mocha 超时",
+  "category": "JavaScript"
+}
+---
 # Error: Timeout of 2000ms exceeded. Mocha 超时解决方法
 在 mocha 中，默认每个测试时间限制为 2s，如果超过两秒就会抛出异常。对于大于 2s 的异步任务可以使用 mocha 上下文的 timeout() 方法手动指定超时时间。注意不要使用箭头函数，否则无法调用 this.timeout() 方法。
 - `this.timeout(5000)` 将超时时间设置为 5s，这样就不会有 2s 的限制了

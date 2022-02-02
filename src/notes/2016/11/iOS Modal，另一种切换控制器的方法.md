@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS Modal，另一种切换控制器的方法",
+  "staticFileName": "ios_modal.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/14",
+  "description": "之前页面的切换用的一般是push，这里介绍另一种控制器切换的方法: Modal。任何控制器都能通过Modal的形式展示出来。Modal的默认效果:新控制器从屏幕最底部往上钻，直到盖住之前的控制器为止(push的效果为从右至左)",
+  "keywords": "iOS Modal,Modal跳转,UIAlertController与Modal,presentViewController跳转,ios modal",
+  "category": "iOS"
+}
+---
 
 # iOS Modal，另一种切换控制器的方法
 

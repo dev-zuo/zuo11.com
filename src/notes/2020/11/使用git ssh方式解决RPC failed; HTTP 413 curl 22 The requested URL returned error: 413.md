@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用git ssh方式解决RPC failed; HTTP 413 curl 22 The requested URL returned error: 413",
+  "staticFileName": "git_http_413.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/16",
+  "description": "由于改了博客生成系统的生成方式，每个html都改了，导致文件相对较多，也不算大，才 4.57 M, 但 git push 一直push不了，提示如下 error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 fatal: the remote end hung up unexpectedly，网上查了下，可以改用 ssh 的方式 push 代码，结合之前的经验，大文件 git clone 不下来，可以换 ssh 方式 git clone。",
+  "keywords": "RPC failed; HTTP 413 curl 22,The requested URL returned error: 413,fatal: the remote end hung up unexpectedly",
+  "category": "运维部署与版本控制"
+}
+---
 # 使用git ssh方式解决RPC failed; HTTP 413 curl 22 The requested URL returned error: 413
 由于改了博客生成系统的生成方式，每个html都改了，导致文件相对较多，也不算大，才 4.57 M, 但 git push 一直push不了，提示如下
 

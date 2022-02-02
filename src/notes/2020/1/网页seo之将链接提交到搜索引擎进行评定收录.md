@@ -1,3 +1,14 @@
+---
+{
+  "title": "网页seo之将链接提交到搜索引擎进行评定收录",
+  "staticFileName": "seo_commit.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/30",
+  "description": "最近对zuo11.com进行了改版，完成了博客的静态化并完成了上线，nginx + 静态文件代替了原来的 tomcat + jsp + mysql的模式。针对百度收录与索引，google收录，做了一些处理。",
+  "keywords": "提交站点链接到百度,提交链接到google",
+  "category": "网站建设与SEO"
+}
+---
 
 # 网页seo之将链接提交到搜索引擎进行评定收录
 

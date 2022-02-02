@@ -1,3 +1,14 @@
+---
+{
+  "title": "canvas怎么绘制环形进度条",
+  "staticFileName": "canvas_progress.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/12",
+  "description": "使用canvas绘制渐变的环形进度条，主要是使用arc函数，下面来看看。4个重点：1. 怎么画圆弧, ctx.arc函数里开始角度、结束角度以PI为基准，取值范围时：0 ~ 2PI，PI就是π值约等于3.14，圆心正上方位置为1.5PI，圆心右侧为 0 或 2*PI，圆心正下方为0.5PI，选定义额开始位置和结束位置就可以绘制任意一个弧形",
+  "keywords": "canvas绘制环形进度条,js画环形渐变进度条,canvas画进度条",
+  "category": "JavaScript"
+}
+---
 
 # canvas怎么绘制环形进度条
 

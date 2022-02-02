@@ -1,3 +1,14 @@
+---
+{
+  "title": "DOMContentLoaded 与白屏, performance timing",
+  "staticFileName": "white-screen.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/30",
+  "description": "白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素，首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成。一般页面白屏结束的时间节点在 head 结束，body 开始执行时。可以通过 `window.performance.timing` 这个对象来看具体时间。",
+  "keywords": "白屏时间计算,DOMContentLoaded与白屏",
+  "category": "JavaScript"
+}
+---
 # DOMContentLoaded 与白屏, performance timing
 白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素
 

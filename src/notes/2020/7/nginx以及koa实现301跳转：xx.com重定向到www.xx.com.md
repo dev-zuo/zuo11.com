@@ -1,3 +1,14 @@
+---
+{
+  "title": "nginx以及koa实现301跳转：xx.com重定向到www.xx.com",
+  "staticFileName": "nginx_koa_301.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/12",
+  "description": "今天帮一个同学测试网络，使用curl来请求百度，发现baidu.com到 www.baidu.com 的重定向使用的是 html 的meta元素。我们可以做一个测试，当接收到一个请求后，修改状态码为301，然后设置Location响应头为 http://www.zuo11.com 看是否可以重定向页面，来写个koa例子",
+  "keywords": "nginx重定向使用301,koa实现301,xx.com重定向到www.xx.com",
+  "category": "http与https"
+}
+---
 
 # nginx以及koa实现301跳转：xx.com重定向到`www.xx.com`
 

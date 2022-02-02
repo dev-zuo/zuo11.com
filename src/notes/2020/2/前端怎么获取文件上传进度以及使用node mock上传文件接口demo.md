@@ -1,3 +1,14 @@
+---
+{
+  "title": "前端怎么获取文件上传进度以及使用node mock上传文件接口demo",
+  "staticFileName": "upload_progress_monitor.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/26",
+  "description": "现在接口请求一般用的是axios，对于上传文件的进度监听，我们需要了解在axios的config参数里，可以传入onUploadProgress参数来接收upload进度事件，里面会有上传进度信息。我们前端怎么mock上传文件的接口呢？在koa处理时使用 `post-bodyparser` 可以很好的解析 `multipart/form-data` 数据，下面来具体看看",
+  "keywords": "前端获取文件上传进度,文件上传进度demo,怎么获取文件上传进度,axios文件上传进度监听,前端怎么mock上传文件接口",
+  "category": "http与https"
+}
+---
 
 # 前端怎么获取文件上传进度以及使用node mock上传文件接口demo
 

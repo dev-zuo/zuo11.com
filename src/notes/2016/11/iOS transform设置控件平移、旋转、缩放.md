@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS transform设置控件平移、旋转、缩放",
+  "staticFileName": "ios_transform.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/10",
+  "description": "一般情况下，我们可以通过修改UI控件的x，y轴以及长宽来控制控件的形变，iOS提供了transform属性用来专门来处理控件的形变(平移，旋转，缩放等)。所有的UIView控件都有transform这个属性。",
+  "keywords": "transform,iOS 形变,控件的移动/缩放/旋转",
+  "category": "iOS"
+}
+---
 
 # iOS transform设置控件平移、旋转、缩放
 

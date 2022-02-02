@@ -1,3 +1,14 @@
+---
+{
+  "title": "vscode中npm run dev提示端口被占用的问题",
+  "staticFileName": "devtools_vscode_bash.html",
+  "author": "guoqzuo",
+  "createDate": "2019/09/30",
+  "description": "vscode 提示端口被占用，vscode中npm run dev时提示端口被占用的问题, mac查看端口占用情况。vscode编辑器中npm run dev退出后依旧占用端口，vscode的console，有时候可能没关闭就开了新的terminal。",
+  "keywords": "vscode中npm run dev时提示端口被占用,mac查看端口占用情况",
+  "category": "计算机基础与开发工具"
+}
+---
 # vscode中npm run dev提示端口被占用的问题
 
 vscode 提示端口被占用，vscode编辑器中npm run dev退出后依旧占用端口，vscode的console，有时候可能没关闭就开了新的terminal。

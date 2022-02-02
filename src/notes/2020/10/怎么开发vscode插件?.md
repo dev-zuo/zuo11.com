@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么开发vscode插件?",
+  "staticFileName": "vscode_plugin.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/08",
+  "description": "在vue-cli项目中，每次修改vue.config.js都需要手动停止在运行，怎么一键就搞定呢？能不能开发个vscode插件，带着这个问题，来看看vscode插件的开发。直接找vscode官方教程。按照文档先来跑一个hello word",
+  "keywords": "vscode插件",
+  "category": "计算机基础与开发工具"
+}
+---
 # 怎么开发vscode插件
 在vue-cli项目中，每次修改vue.config.js都需要手动停止在运行，怎么一键就搞定呢？能不能开发个vscode插件
 

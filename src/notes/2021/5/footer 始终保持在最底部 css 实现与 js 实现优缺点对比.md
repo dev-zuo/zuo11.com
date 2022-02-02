@@ -1,3 +1,14 @@
+---
+{
+  "title": "footer 始终保持在最底部 css 实现与 js 实现优缺点对比",
+  "staticFileName": "footer_bottom.html",
+  "author": "guoqzuo",
+  "createDate": "2021/05/04",
+  "description": "让 footer 一直保持在最底部是比较常见的需求，css 和 js 都可以实现，一般推荐使用 css 实现，下面来看看具体实现，以及他们的优缺点。需要考虑两种情况：1. 内容没占满视窗时，footer 在最底部，需要 body 有最小高度，才能撑起来 2. 内容较多时，滚动到底部才能看到 footer，且不遮挡内容区域",
+  "keywords": "footer一直保持到底部怎么实现,footer区域保持在底部,footer固定到底部",
+  "category": "CSS"
+}
+---
 # footer 始终保持在最底部 css 实现与 js 实现优缺点对比
 让 footer 一直保持在最底部是比较常见的需求，css 和 js 都可以实现，一般推荐使用 css 实现，下面来看看具体实现，以及他们的优缺点
 

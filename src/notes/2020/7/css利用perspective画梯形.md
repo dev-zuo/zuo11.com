@@ -1,3 +1,14 @@
+---
+{
+  "title": "css利用perspective画梯形",
+  "staticFileName": "css_perspective.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "今天看小伙伴的代码，发现有一个梯形的实现居然是css写的，我以为需要UI提供icon。这里用到了 perspective 远景这个参数",
+  "keywords": "css画梯形,css perspective",
+  "category": "CSS"
+}
+---
 # css利用perspective画梯形
 
 今天看小伙伴的代码，发现有一个梯形的实现居然是css写的，我以为需要UI提供icon。这里用到了 perspective 远景这个参数

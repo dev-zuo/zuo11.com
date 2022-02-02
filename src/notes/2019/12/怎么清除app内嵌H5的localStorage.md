@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么清除app内嵌H5的localStorage",
+  "staticFileName": "clear_app_h5.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/27",
+  "description": "当你在app内容H5中使用了localStorage又担心可能会超出5M的限制时，就要注意localStorage的清除了。那怎么才能清除app内嵌H5的localStorage呢？我做了一些测试",
+  "keywords": "怎么清除app内嵌H5的localStorage",
+  "category": "JavaScript"
+}
+---
 
 # 怎么清除app内嵌H5的localStorage
 

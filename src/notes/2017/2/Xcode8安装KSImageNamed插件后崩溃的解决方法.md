@@ -1,3 +1,14 @@
+---
+{
+  "title": "Xcode8安装KSImageNamed插件后崩溃的解决方法",
+  "staticFileName": "ios_image.html",
+  "author": "guoqzuo",
+  "createDate": "2017/02/04",
+  "description": "苹果在Xcode8中取消了对第三方插件的支持，安装了KSImageNamed插件后，Xcode8会不停的崩溃。这里总结了网上找到了一种重新签名Xcode(re-codesign Xcode)的方法，可以解决这个问题。对于是否影响上架还有待考证。",
+  "keywords": "Xcode安装KSImageNamed方法,Xcode8 安装KSImageNamed崩溃的解决方法",
+  "category": "iOS"
+}
+---
 
 # Xcode8安装KSImageNamed插件后崩溃的解决方法
 

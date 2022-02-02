@@ -1,3 +1,14 @@
+---
+{
+  "title": "JS sort对数组进行默认排序时如果有数字为什么会不准确？",
+  "staticFileName": "js_sort_num.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/21",
+  "description": "正常情况使用 sort 是好用的，但如果有数字时，会有问题，因为如果sort不传参，默认情况下会将所有元素转换为字符串后，再根据unicode值来进行排序，下面我们来看看对应的实例",
+  "keywords": "js sort数组不准确,js sort负数不准确, js sort对数组排序时的坑",
+  "category": "JavaScript"
+}
+---
 
 # JS sort对数组进行默认排序时如果有数字为什么会不准确？
 

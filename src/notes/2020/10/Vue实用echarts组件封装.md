@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue实用echarts组件封装",
+  "staticFileName": "vue_echarts.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/31",
+  "description": "vue中使用echarts可以自己封装一个简单的组件。实现每次更新数据只需要修改options的值即可，并自带loading、暂无数据slot。先来看看使用demo",
+  "keywords": "Vue echarts组件封装,echarts组件",
+  "category": "Vue"
+}
+---
 # Vue实用echarts组件封装
 
 vue中使用echarts可以自己封装一个简单的组件。实现每次更新数据只需要修改options的值即可，并自带loading、暂无数据slot。先来看看使用demo

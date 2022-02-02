@@ -1,3 +1,14 @@
+---
+{
+  "title": "正则表达式使用 () 和 match 或 replace 提取 url 路径参数",
+  "staticFileName": "regExp_url.html",
+  "author": "guoqzuo",
+  "createDate": "2021/05/04",
+  "description": "正则提取 url 参数，来看一个问题，使用正则表达式从 url 中提取区域、城市id、模块、页数id。url 示例如下 1. `http://www.xx.com/region/gd/module` 2. `http://www.xx.com/region/gd-c222/module` 3. `http://www.xx.com/region/gd-c222/module/p2` 下面来看看怎么实现。首先，回顾下正则表达式（Regular Expression）基础。正则表表达式以 `/pattern/flags` 表示，是 RegExp 对象的实例",
+  "keywords": "正则提取 url 参数",
+  "category": "JavaScript"
+}
+---
 # 正则表达式使用 () 和 match 或 replace 提取 url 路径参数
 
 来看一个问题，使用正则表达式从 url 中提取区域、城市id、模块、页数id。url 示例如下

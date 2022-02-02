@@ -1,3 +1,14 @@
+---
+{
+  "title": "npx create-react-app my-app 是什么意思？npx 有什么作用？",
+  "staticFileName": "npx_use.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "在 react 官网，介绍 create-react-app 构建工具时，直接使用 npx create-react-app my-app 就可以直接创建一个 react 项目的脚手架，那 npx 命令执行和普通的 create-react-app my-app 有什么区别呢？下面来看看",
+  "keywords": "npx 用法,npx 有什么用,npx create-react-app",
+  "category": "前端工程化"
+}
+---
 # npx create-react-app my-app 是什么意思？npx 有什么作用？
 
 在 react 官网，介绍 create-react-app 构建工具时，直接使用 npx create-react-app my-app 就可以直接创建一个 react 项目的脚手架，那 npx 命令执行和普通的 create-react-app my-app 有什么区别呢？下面来看看

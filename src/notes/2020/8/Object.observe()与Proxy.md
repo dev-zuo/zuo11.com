@@ -1,3 +1,14 @@
+---
+{
+  "title": "Object.observe()与Proxy",
+  "staticFileName": "observe_proxy.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/02",
+  "description": "Object.observe()是js实现观察者设计模式的一个API，现在已废弃，由Proxy取代，但Proxy不支持IE。它用于异步地监视一个对象的修改。当对象属性被修改时，方法的回调函数会提供一个有序的修改流。在vue2.0的双向绑定的实现里，会遍历data对象，通过建立对应的getter/setter访问器属性来追踪属性变化。Vue 3.0里已使用Proxy来追踪属性变化",
+  "keywords": "observe与proxy",
+  "category": "JavaScript"
+}
+---
 # Object.observe()与Proxy
 Object.observe()是js实现观察者设计模式的一个API，现在已废弃，由Proxy取代，但Proxy不支持IE。
 

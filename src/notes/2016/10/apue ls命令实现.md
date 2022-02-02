@@ -1,3 +1,14 @@
+---
+{
+  "title": "apue ls命令实现",
+  "staticFileName": "apue_ls.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/18",
+  "description": "C语言操作目录需要使用opendir()和readdir()。此外文件接口函数还有很多，如stat，umask，chmod，chown，link，rename等。这些函数和shell命令有些是一样的，我们可以通过调用这些系统调用来实现一些命令。这里以ls -l的写法为例介绍一些常用的系统调用文件I/O。",
+  "keywords": "stat,文件和目录操作,ls实现",
+  "category": "C与APUE"
+}
+---
 
 # apue ls命令实现
 

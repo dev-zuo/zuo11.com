@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS 手势UIGestureRecognizer",
+  "staticFileName": "ios_gesture.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/14",
+  "description": "监听一个view的触摸事件可以先自定义view，再实现它的touches方法来处理事件。通过touches方法监听view触摸事件必须得自定义view，外界对象无法监听view的触摸对象，且不易区分用户的具体手势行为。这里将介绍手势识别类UIGestureRecognizer，它可以更好的识别触摸事件。",
+  "keywords": "iOS UIGestureRecognizer手势识别,iOS手势,UIGesture,ios 手势,ios 手势事件",
+  "category": "iOS"
+}
+---
 
 # iOS 手势UIGestureRecognizer
 

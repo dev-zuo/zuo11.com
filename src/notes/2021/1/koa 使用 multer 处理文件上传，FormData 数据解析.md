@@ -1,3 +1,14 @@
+---
+{
+  "title": "koa 使用 multer 处理文件上传，FormData 数据解析",
+  "staticFileName": "koa-formdata.html",
+  "author": "guoqzuo",
+  "createDate": "2021/01/12",
+  "description": "一般在 koa 中，post 请求的数据是需要中间件来处理的，koa-bodyparser 可以很好的处理 json、serializer 数据，但 `multipart/form-data` 的类型无法处理，一般需要引入另外的中间件来处理，一般建议使用 multer 中间件来处理。先来看看前端上传文件代码，这里使用的是 fetch，当然也可以使用 xhr",
+  "keywords": "multipart/form-data,FormData,文件上传",
+  "category": "前端工程化"
+}
+---
 # koa 使用 multer 处理文件上传，FormData 数据解析
 一般在 koa 中，post 请求的数据是需要中间件来处理的，koa-bodyparser 可以很好的处理 json、serializer 数据，但 `multipart/form-data` 的类型无法处理，一般需要引入另外的中间件来处理，一般建议使用 multer 中间件来处理。先来看看前端上传文件代码，这里使用的是 fetch，当然也可以使用 xhr
 ```html

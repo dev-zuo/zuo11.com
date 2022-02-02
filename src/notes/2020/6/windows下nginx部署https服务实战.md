@@ -1,3 +1,14 @@
+---
+{
+  "title": "windows下nginx部署https服务实战",
+  "staticFileName": "nginx_https.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/21",
+  "description": "这里复盘下将koa写的接口服务部署到`https://api.zuo11.com`上，相关nginx配置的全流程",
+  "keywords": "nginx部署https服务,nginx https",
+  "category": "运维部署与版本控制"
+}
+---
 
 
 # windows下nginx部署https服务实战

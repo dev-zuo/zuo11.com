@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用 hash 滚动页面时，被顶部 fixed 区域遮挡怎么解决",
+  "staticFileName": "hash_scroll_fixed.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/30",
+  "description": "一般页面 URL 的 hash 值变化后，如果当前页面中存在 id 为该 hash 值的元素，页面会滚动到该区域。下面的例子中，点击跳转到h1，页面会滚动到 h1 元素，元素对齐到顶部。**这里有一个问题，如果顶部导航栏是 fixed 固定的，那使用这种方法滚动时，h1 标题会被导航栏遮挡。**后来使用 VuePress 时，发现跳转的时候没有遮挡，于是审查元素，看了下样式。发现使用一个 css 就可以解决这个问题。 **给需要定位到该 id 的元素加一个超过导航栏高度的 padding-top，再加一个保持元素位置的 margin-top，这样使用 hash 滚动到该 id 元素时，就不会有遮挡，会与顶部保持 padding 的距离**",
+  "keywords": "hash滚动被fixed区域遮挡,fixed遮挡a标签滚动怎么解决",
+  "category": "CSS"
+}
+---
 # 使用 hash 滚动页面时，被顶部 fixed 区域遮挡怎么解决
 一般页面 URL 的 hash 值变化后，如果当前页面中存在 id 为该 hash 值的元素，页面会滚动到该区域。下面的例子中，点击跳转到h1，页面会滚动到 h1 元素，元素对齐到顶部。**这里有一个问题，如果顶部导航栏是 fixed 固定的，那使用这种方法滚动时，h1 标题会被导航栏遮挡。**
 ```js

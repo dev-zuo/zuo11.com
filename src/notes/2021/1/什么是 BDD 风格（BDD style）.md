@@ -1,3 +1,14 @@
+---
+{
+  "title": "什么是 BDD 风格（BDD style）",
+  "staticFileName": "bdd-style.html",
+  "author": "guoqzuo",
+  "createDate": "2021/01/12",
+  "description": "在 Mocha 官网的中，介绍 should.js 时，说它是一种 BDD 风格的断言库。而且在 mocha 的源码中，有很多都是以 bdd 命名的。那什么是 BDD 呢？BDD 是 Behavior Driven Development 的简写，行为驱动开发，是在测试驱动开发（Test-Driven Development，TDD）基础上发展而来的一种软件开发方法。",
+  "keywords": "BDD,TDD,BDD Style",
+  "category": "计算机基础与开发工具"
+}
+---
 # 什么是 BDD 风格（BDD style）
 > should.js - BDD style shown throughout these docs
 

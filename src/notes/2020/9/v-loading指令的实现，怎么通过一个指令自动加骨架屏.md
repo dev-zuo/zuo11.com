@@ -1,3 +1,14 @@
+---
+{
+  "title": "v-loading指令的实现，怎么通过一个指令自动加骨架屏",
+  "staticFileName": "z_loading.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/07",
+  "description": "v-loading的实现,怎么通过一个指令自动加载骨架屏,element v-loading在IE下可能会溢出到全屏的问题,element v-loading在IE下可能会关不掉的问题，这里需要用到vue自定义指令，我们先写个v-zloading来实现loading，在loading过程中加骨架屏，由于是全局自定义指令，所以在main.js里写",
+  "keywords": "v-loading的实现,怎么通过一个指令自动加载骨架屏,element v-loading在IE下可能会溢出到全屏的问题,element v-loading在IE下可能会关不掉的问题",
+  "category": "Vue"
+}
+---
 # v-loading指令的实现，怎么通过一个指令自动加骨架屏
 这里需要用到vue自定义指令，我们先写个v-zloading来实现loading，在loading过程中加骨架屏
 

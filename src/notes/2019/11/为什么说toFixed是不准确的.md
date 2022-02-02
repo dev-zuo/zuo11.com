@@ -1,3 +1,14 @@
+---
+{
+  "title": "为什么说toFixed是不准确的",
+  "staticFileName": "toFixed.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/12",
+  "description": "Number.prototype.toFixed() 对number取整或保留指定小数位，但它是不准确的，就类似 0.1 + 0.2 ≠ 0.3 一样，下面来看看怎么处理",
+  "keywords": "toFixed不精确的问题,toFixed保留小数点不准确的问题",
+  "category": "JavaScript"
+}
+---
 
 # 为什么说toFixed是不准确的
 Number.prototype.toFixed() 对number取整或保留指定小数位，但它是不准确的，就类似 0.1 + 0.2 ≠ 0.3 一样，下面来看看怎么处理

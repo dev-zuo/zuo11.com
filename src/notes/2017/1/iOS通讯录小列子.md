@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS通讯录小列子",
+  "staticFileName": "web_address_list.html",
+  "author": "guoqzuo",
+  "createDate": "2017/01/22",
+  "description": "小马哥视频里讲的通讯录小例子登录界面用了动画，用的是storyboard拖线跳转，顺便讲了segue，页面传值及发送通知。这里简单的实现通讯录的基本功能，动画就不做了，主要练习页面的跳转以及tableView相关使用，只是了解基本的使用，可以根据实际情况进行优化。",
+  "keywords": "UITableView的使用,通讯录小例子,UITableView左滑删除功能",
+  "category": "iOS"
+}
+---
 
 # iOS通讯录小列子
 

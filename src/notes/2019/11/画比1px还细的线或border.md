@@ -1,3 +1,14 @@
+---
+{
+  "title": "画比1px还细的线或border",
+  "staticFileName": "border_thin.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/21",
+  "description": "画比1px还细的线或border",
+  "keywords": "一般使用transform缩小0.5倍来实现，如果是border先将元素放大2倍，再缩小0.5倍，放大缩小后还是以放大的空间来占位，使用positon:absolute脱离标准文档流，就不会有两倍的占位了。",
+  "category": "CSS"
+}
+---
 
 # 画比1px还细的线或border
 

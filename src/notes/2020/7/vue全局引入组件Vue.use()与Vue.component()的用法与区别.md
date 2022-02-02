@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue全局引入组件Vue.use()与Vue.component()的用法与区别",
+  "staticFileName": "vue_global_comps.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "vue全局组件，Vue.use与Vue.component区别，之前的笔记里有将Vue.use()全局引入组件的方法，其实用 Vue.compoennt()也可以全局引入组件。下面来看具体用法，以及他们的区别",
+  "keywords": "vue全局组件,Vue.use()与Vue.component()的区别,Vue.use与Vue.component区别",
+  "category": "Vue"
+}
+---
 # vue全局引入组件Vue.use()与Vue.component()的用法与区别
 之前的笔记里有将Vue.use()全局引入组件的方法，其实用 Vue.compoennt()也可以全局引入组件。下面来看具体用法，以及他们的区别
 ```bash

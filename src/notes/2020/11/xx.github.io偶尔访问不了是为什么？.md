@@ -1,3 +1,14 @@
+---
+{
+  "title": "xx.github.io偶尔访问不了是为什么？",
+  "staticFileName": "github_io_failure.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/16",
+  "description": "在 Github 上开启 Pages 服务后，可以通过 xx.github.io 访问对应的网页。但偶尔会出现打不开的问题，之前都是可以打开的，试了其他人的 github.io，发现也打不开，这就不是自己网络的问题了。网上查原因是电信运营商 DNS 污染（域名解析不到正确的 IP 地址）。我们在本地手动设置 host 指定对应域名的解析 IP 即可正常访问。下面来看具体怎么操作",
+  "keywords": "xx.github.io打不开,github.io打不开,githu.io访问不了",
+  "category": "运维部署与版本控制"
+}
+---
 # xx.github.io偶尔访问不了是为什么？
 在 Github 上开启 Pages 服务后，可以通过 xx.github.io 访问对应的网页。但偶尔会出现打不开的问题，之前都是可以打开的，试了其他人的 github.io，发现也打不开，这就不是自己网络的问题了。
 

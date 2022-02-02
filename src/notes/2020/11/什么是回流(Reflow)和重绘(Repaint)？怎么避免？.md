@@ -1,3 +1,14 @@
+---
+{
+  "title": "什么是回流(Reflow)和重绘(Repaint)？怎么避免？",
+  "staticFileName": "css_reflow_repaint.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/23",
+  "description": "什么是回流和重绘？ 浏览器使用流式布局模型 (Flow Based Layout)，浏览器把 HTML 解析成 DOM，把 CSS 解析为 CSDOM，DOM 和 CSDOM 合并就产生了 Render Tree(渲染树)，根据Render Tree，计算各个元素在页面中的大小和位置，绘制到页面上。",
+  "keywords": "回流和重绘,reflow,repaint,css回流,css重绘",
+  "category": "CSS"
+}
+---
 # 什么是回流(Reflow)和重绘(Repaint)？怎么避免？
 **1. 什么是回流和重绘**
 

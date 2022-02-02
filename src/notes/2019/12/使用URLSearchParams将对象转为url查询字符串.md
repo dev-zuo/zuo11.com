@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用URLSearchParams将对象转为url查询字符串",
+  "staticFileName": "url_query.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/05",
+  "description": "在做get请求时，我们需要传一些参数，单纯的字符串拼接的方法不够优雅，下面来看怎么用URLSearchParams将对象直接转为查询字符串，另外查看axios源码，看看axios内部是怎么将params对象拼接到url上的",
+  "keywords": "对象转url查询字符串,axios是怎么将params对象转查询字符串的",
+  "category": "JavaScript"
+}
+---
 
 # 使用URLSearchParams将对象转为url查询字符串
 

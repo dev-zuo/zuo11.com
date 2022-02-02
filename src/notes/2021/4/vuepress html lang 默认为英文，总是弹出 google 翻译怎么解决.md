@@ -1,3 +1,14 @@
+---
+{
+  "title": "vuepress html lang 默认为英文，总是弹出 google 翻译怎么解决",
+  "staticFileName": "vuepress_lang.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "默认情况下，vuepress 生成的网页 html lang 属性为 'en-US'，当在 Chrome 浏览器打开时，总是会弹出翻译的窗口。如下图，解决这个问题的方法就是将默认的 lang 设置为中文 'zh-CN' 即可。vuepress 支持国际化功能，我们只需要修改下对应的配置即可。",
+  "keywords": "总是弹出 google 翻译怎么解决,vuepress 默认 lang 设置",
+  "category": "Vue"
+}
+---
 # vuepress html lang 默认为英文，总是弹出 google 翻译怎么解决
 
 默认情况下，vuepress 生成的网页 html lang 属性为 "en-US"，当在 Chrome 浏览器打开时，总是会弹出翻译的窗口。如下图

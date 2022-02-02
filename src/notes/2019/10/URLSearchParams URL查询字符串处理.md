@@ -1,3 +1,14 @@
+---
+{
+  "title": "URLSearchParams URL查询字符串处理",
+  "staticFileName": "web_url_searchparams.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/10",
+  "description": "一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams",
+  "keywords": "URLSearchParams URL查询字符串处理,url查询字符串处理,URLSearchParams,处理查询字符串优雅的方法",
+  "category": "JavaScript"
+}
+---
 # URLSearchParams URL查询字符串处理
 
 一般在通过url传参时会使用查询字符串，一般使用字符串相加的方法，当参数比较多时，就显得不够优雅了，这时就可以使用专门用于处理 URL 查询字符串API: URLSearchParams

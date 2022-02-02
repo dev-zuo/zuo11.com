@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue中$attrs 和 $listeners 的使用场景",
+  "staticFileName": "vue_attrs_listeners.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/15",
+  "description": "$attrs与$listeners,vue $attrs,vue $listeners,vue $attrs使用场景,vue $listeners使用场景,在vue中，$attrs，$listeners 分别记录了当前组件上绑定的属性以及事件，一般可能用的比较少，下面来看看。`v-bind=$attrs` 他类似属性展开运算符，将父组件调用子组件时传入的属性展开(不包含props已接收的)、v-bind到当前的元素上。listeners除了跨层级向下传递事件外，还可以用于将原生事件绑定到组件",
+  "keywords": "$attrs与$listeners,vue $attrs,vue $listeners,vue $attrs使用场景,vue $listeners使用场景",
+  "category": "Vue"
+}
+---
 # vue中`$attrs` 和 `$listeners` 的使用场景
 
 在vue中，$attrs，$listeners 分别记录了当前组件上绑定的属性以及事件，一般可能用的比较少，下面来看看

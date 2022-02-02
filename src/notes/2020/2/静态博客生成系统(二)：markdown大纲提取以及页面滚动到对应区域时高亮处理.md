@@ -1,3 +1,14 @@
+---
+{
+  "title": "静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理",
+  "staticFileName": "zuoblog_2_outline.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/02",
+  "description": "在考虑把个人博客站点静态化时，其中一个原因是markdown的大纲显示比较好，文章结构层次分明，可以更好的阅读。那怎么提取markdown文件的大纲数据，并呈现在网页上呢？下面来看看zuo-blog是怎么处理的。",
+  "keywords": "提取markdown文件的大纲结构数据,markdown大纲提取,mardown目录提取,根据大纲数据生成html,页面滚动时，自动切换大纲focus,怎么监听页面滚动到了某个标题区域",
+  "category": "前端工程化"
+}
+---
 
 # 静态博客生成系统(二)：markdown大纲提取以及页面滚动到对应区域时高亮处理
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "富文本编辑器使用execCommand插入图片不生效的问题",
+  "staticFileName": "web_richtext.html",
+  "author": "guoqzuo",
+  "createDate": "2018/10/02",
+  "description": "execcommand插入图片光标消失，最近打算实现一个评论系统，评论如果只能回复文字就太low了，于是就打算自己做一个简单的富文本编辑器。一般回复内容，我第一个想到的是textarea，做完回复文字的功能后，想着如果插入图片貌似不可行。",
+  "keywords": "execcommand插入图片光标消失,富文本编辑器使用execCommand插入图片不生效的问题,execCommand插入图片不生效",
+  "category": "JavaScript"
+}
+---
 
 # 富文本编辑器使用execCommand插入图片不生效的问题
 

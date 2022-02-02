@@ -1,3 +1,14 @@
+---
+{
+  "title": "CocoaPods安装及使用",
+  "staticFileName": "ios_cocoapods.html",
+  "author": "guoqzuo",
+  "createDate": "2017/02/06",
+  "description": "在导入某个框架时，你可能还需要导入这个框架依赖的其他框架，这样就比较麻烦。如果用CocoaPods导入一个框架，它会自动导入这个框架所依赖的所有框架。在导入AFNetworking时用到了它，这里总结了安装方法及一些需要注意的细节。",
+  "keywords": "CocoaPods 2020,cocoapods 2020, CocoaPods安装2020,CocoaPods,2020 CocoPods安装,最新CocoaPods安装方法",
+  "category": "iOS"
+}
+---
 
 # CocoaPods安装及使用
 

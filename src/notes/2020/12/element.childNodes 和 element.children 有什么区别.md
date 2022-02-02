@@ -1,3 +1,14 @@
+---
+{
+  "title": "element.childNodes 和 element.children 有什么区别",
+  "staticFileName": "childNodes-children.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/30",
+  "description": "元素的 childNodes 和 children 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：1. childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。2. childNodes 类型是 NodeList，HTMLCollection 类型是 HTMLCollection",
+  "keywords": "childNodes与children,childNodes children区别",
+  "category": "JavaScript"
+}
+---
 # element.childNodes 和 element.children 有什么区别
 元素的 **childNodes** 和 **children** 属性都是用于获取元素子节点，他们返回值都是类数组对象，且都是活动对象（当节点变更后，值也会动态变更）。但有以下区别：
 1. childNodes 获取的子节点包含所有节点类型，比如注释节点、文本节点、换行空白符文本节点，而 children 仅包含元素类型的子节点。

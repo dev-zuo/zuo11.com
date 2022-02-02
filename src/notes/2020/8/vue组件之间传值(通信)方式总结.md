@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue组件之间传值(通信)方式总结",
+  "staticFileName": "vue_comp_transmit.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/15",
+  "description": "vue组件之间传值,vue传值方式,vue传值方式总结,vue通信方式总结,在vue中一般组件之间传值是必须要理解的，下面来总结下组件间传值的方法，分为以下几种情况 1. 父组件 => 子组件 2. 子组件 => 父组件 3. 兄弟组件 4. 父组件 => 子组件 5. 祖先和后代之间 6. 任意两个组件之间",
+  "keywords": "vue组件之间传值,vue传值方式,vue传值方式总结,vue通信方式总结",
+  "category": "Vue"
+}
+---
 
 # vue组件之间传值(通信)方式总结
 

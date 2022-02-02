@@ -1,3 +1,14 @@
+---
+{
+  "title": "npm包前面加@是什么意思(vue-cli与@vue-cli的区别)",
+  "staticFileName": "npm_scope.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/06",
+  "description": "今天看vue-cli文档，发现了下面的这段话 vue-cli 改为了 @vue/cli，这两个npm有什么区别呢？npm包前面加@是什么意思呢？查了下官网，npm包前面加@，代表scopes相关的包，可以理解为作用域(范围)包，作用域使我们可以创建与其他用户或组织创建的包同名，而不会发生冲突。A scope allows you to create a package with the same name as a package created by another user or Org without conflict.",
+  "keywords": "npm包前面加@是什么意思,vue-cli与@vue/cli的区别",
+  "category": "前端工程化"
+}
+---
 # npm包前面加@是什么意思(vue-cli与@vue/cli的区别)
 
 今天看vue-cli文档，发现了下面的这段话 vue-cli 改为了 @vue/cli，这两个npm有什么区别呢？npm包前面加@是什么意思呢？

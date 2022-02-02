@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue递归组件，实现一个树形菜单",
+  "staticFileName": "vue_tree.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/20",
+  "description": "vue递归组件,vue树形组件,vue tree组件,vue怎么使用递归组件,vue支持递归组件，也就是组件自己调用自己，一般用于树形组件，来写个简单tree组件实例，先写好调用demo，假设我们实现了一个 z-tree 组件，我们只需要传入data就可以渲染树形组件",
+  "keywords": "vue递归组件,vue树形组件,vue tree组件,vue怎么使用递归组件",
+  "category": "Vue"
+}
+---
 # vue递归组件，实现一个树形菜单
 vue支持递归组件，也就是组件自己调用自己，一般用于树形组件，来写个简单tree组件实例
 

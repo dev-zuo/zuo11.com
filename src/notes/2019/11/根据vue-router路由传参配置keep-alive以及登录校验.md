@@ -1,3 +1,14 @@
+---
+{
+  "title": "根据vue-router路由传参配置keep-alive以及登录校验",
+  "staticFileName": "vue_router_params.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/04",
+  "description": "在vue开发中，路由配置的时候，给每个路由添加一个自定义的meta对象，在meta对象中可以设置一些状态，来进行一些操作。可以用来设置是否使用keep-alive，以及登录校验，先来看看配置",
+  "keywords": "vue 中路由meta,根据路由配置做登录验证,根据vue-router路由传参配置keep-alive",
+  "category": "Vue"
+}
+---
 
 # 根据vue-router路由传参配置keep-alive以及登录校验
 

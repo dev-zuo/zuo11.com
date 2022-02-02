@@ -1,3 +1,14 @@
+---
+{
+  "title": "text-align: justify两端对齐不生效的问题",
+  "staticFileName": "text-align.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "一般直接设置text-align: justify是不会生效的。但你改为text又会立即居中对齐。我们需要注意的是我们需要将子元素设置一个after的属性或者后面放置一个空的占位标签，设置 display: inline-block; width: 100%，当出现高度占位间隙时，设置占位元素的height没用，需要设置元素的height。css 确实有点毫无逻辑的感觉....",
+  "keywords": "text-align:justify,text-align:justify不生效的问题",
+  "category": "CSS"
+}
+---
 # text-align: justify 两端对齐不生效的问题
 一般直接设置text-align: justify是不会生效的。但你改为text又会立即居中对齐。我们需要注意的是我们需要将子元素设置一个after的属性或者后面放置一个空的占位标签，设置 display: inline-block; width: 100%，当出现高度占位间隙时，设置占位元素的height没用，需要设置元素的height。css 确实有点毫无逻辑的感觉....
 

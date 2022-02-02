@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用Hexo搭建个人博客",
+  "staticFileName": "web_hexo.html",
+  "author": "guoqzuo",
+  "createDate": "2018/02/26",
+  "description": "用Github Pages弄了一个简单的页面后，琢磨着用Hexo来搭一个博客。把大致的过程梳理了一下。首先百度了Hexo，找到了[Hexo的中文文档](https://hexo.io/zh-cn/docs/)，由于之前没接触过，就按着流程一步步来了。",
+  "keywords": "使用hexo搭建个人博客,hexo 个人博客",
+  "category": "网站建设与SEO"
+}
+---
 
 # 使用Hexo搭建个人博客
 

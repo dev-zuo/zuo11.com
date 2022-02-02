@@ -1,3 +1,14 @@
+---
+{
+  "title": "echarts画高自定义仪表盘，echart本质是图的堆叠",
+  "staticFileName": "echart_dashboard.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/07",
+  "description": "echart自定义仪表盘,echarts复杂图,echart堆叠图,最近有个UI需求，画一个自定义的仪表盘，看起来很不好实现，后面在看了echarts社区的一些例子，经过写demo测试后，找到了规律，核心是化繁为简，对于复杂的UI，可以拆分为多个小的模块，一个个实现",
+  "keywords": "echart自定义仪表盘,echarts复杂图,echart堆叠图",
+  "category": "图表可视化"
+}
+---
 # echarts画高自定义仪表盘，echart本质是图的堆叠
 最近有个UI需求，画一个自定义的仪表盘，看起来很不好实现，后面在看了echarts社区的一些例子，经过写demo测试后，找到了规律，**核心是化繁为简，对于复杂的UI，可以拆分为多个小的模块，一个个实现**
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "Array.prototype.fill()填充引用类型值的问题",
+  "staticFileName": "araay_fill.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "js 数组fill填充的对象都指向同一个地址，array fill填充引用类型问题，在mock表格list数据时，我一般为了简洁会先创建一个对象info，然后new Array(10).fill(info) 来生成10条数据的数。但这次发现一个问题，由于表格有一个字段是状态值0 - 5，我想随机设置下值，发现修改后的值都一样，来看看例子",
+  "keywords": "js 数组fill填充的对象都指向同一个地址,array fill填充引用类型问题",
+  "category": "JavaScript"
+}
+---
 # Array.prototype.fill()填充引用类型值的问题
 
 在mock表格list数据时，我一般为了简洁会先创建一个对象info，然后new Array(10).fill(info) 来生成10条数据的数组

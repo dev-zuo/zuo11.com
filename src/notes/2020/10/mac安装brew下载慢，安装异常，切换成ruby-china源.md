@@ -1,3 +1,14 @@
+---
+{
+  "title": "mac安装brew下载慢，安装异常，切换成ruby-china源",
+  "staticFileName": "brew_slow.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/31",
+  "description": "mac下使用brew可以很方便的安装svn、nginx等常用的工具。什么是brew [bruː]，它的全称是 [Homebrew](https://brew.sh/)，The Missing Package Manager for macOS (or Linux)。它可以安装macOS或linux下没有的包(Package)。一般使用ruby来安装",
+  "keywords": "brew下载慢,brew切换ruby源,brew安装异常",
+  "category": "计算机基础与开发工具"
+}
+---
 # mac安装brew下载慢，安装异常，切换成ruby-china源
 mac下使用brew可以很方便的安装svn、nginx等常用的工具。
 

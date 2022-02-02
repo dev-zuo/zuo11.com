@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用 Service Worker 接收服务器推送消息并显示通知",
+  "staticFileName": "sw-notification.html",
+  "author": "guoqzuo",
+  "createDate": "2021/01/12",
+  "description": "推送通知一般需要支持服务器推送，在常规网页中是不可能的。service worker 可以实现该行为 - service worker 可以显示通知 - service worker 可以处理这些通知的交互 - service worker 能够订阅服务器发送的推送通知 - service worker 能够处理推送消息，即使应用没有在前台运行或者根本没打开",
+  "keywords": "service worker接收服务器推送消息",
+  "category": "JavaScript"
+}
+---
 # 使用 Service Worker 接收服务器推送消息并显示通知
 推送通知一般需要支持服务器推送，在常规网页中是不可能的。service worker 可以实现该行为
 - service worker 可以显示通知

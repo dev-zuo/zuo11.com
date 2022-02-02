@@ -1,3 +1,14 @@
+---
+{
+  "title": "mysql中char与varchar的区别",
+  "staticFileName": "char_varchar.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/12",
+  "description": "在创建表，指定字段数据类型时，如果是字符串数据类型可以是varchar(50)，也可以是char(50)。这两种有什么区别呢？",
+  "keywords": "char和varchar的区别,char varchar区别",
+  "category": "后端数据库等"
+}
+---
 
 # mysql中char与varchar的区别
 

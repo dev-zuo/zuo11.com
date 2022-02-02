@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS 页面的切换跳转UINavigationController",
+  "staticFileName": "ios_navigation.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/08",
+  "description": "app一般有很多个页面，一个页面会对应一个UIViewController。那怎么控制页面的切换呢？拖线就不讲了！这里介绍一种可以控制页面切换的控制器：导航控制器UINavigationController，就像一个view下面有很多个子view一样，导航控制器会通过添加(push)或删除(pop)其子控制器view，来实现页面的切换，类似于栈。",
+  "keywords": "iOS导航控制器,UINavigationController,iOS页面的跳转,控制器View的生命周期,导航控制器",
+  "category": "iOS"
+}
+---
 
 # iOS 页面的切换跳转UINavigationController
 

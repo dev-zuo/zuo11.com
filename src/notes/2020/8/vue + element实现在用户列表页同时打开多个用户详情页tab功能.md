@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue + element实现在用户列表页同时打开多个用户详情页tab功能",
+  "staticFileName": "sameCompSwtich.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/30",
+  "description": "在使用el-tabs时，如果涉及到同组件会打开多个tab的情况，同组件切换需要使用watch来监听数据改变，再进行数据的初始化。下面结合一个实例来看看，使用 vue + elementUI 实现在用户列表页同时打开多个用户详情页tab功能",
+  "keywords": "vue element el-tabs标签页功能demo",
+  "category": "Vue"
+}
+---
 # vue + element实现在用户列表页同时打开多个用户详情页tab功能
 
 在使用el-tabs时，如果涉及到同组件会打开多个tab的情况，同组件切换需要使用watch来监听数据改变，再进行数据的初始化

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue封装组件时预留install函数便于Vue.use全局引入",
+  "staticFileName": "vue_use_install.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/29",
+  "description": "在element组件中，我们使用el-input等element元素时，不需要在components里引入。为什么呢？在引入element时，我们有在mian.js里我们使用了Vue.use(elemnt组件)，这样进行了全局注入组件，相当于组件做成了一个vue插件，如果我们自己封装组件如何能够在Vue.use后直接可以全局调用呢？",
+  "keywords": "vue封装组件时预留install函数,element组件为什么use后可以直接使用",
+  "category": "Vue"
+}
+---
 
 # vue封装组件时预留install函数便于Vue.use全局引入
 

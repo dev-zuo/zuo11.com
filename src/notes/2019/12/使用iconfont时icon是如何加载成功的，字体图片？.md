@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用iconfont时icon是如何加载成功的，字体图片？",
+  "staticFileName": "iconfont.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/06",
+  "description": "iconfont icon是如何加载成功的 字体图片？在前端开发中，经常会使用图标，而iconfont是很好的一种管理图标的方式。这里总结下iconfont的几种使用方式，以及iconfont通过设置class来显示图标内部做了哪些操作",
+  "keywords": "iconfont使用,iconfont为什么可以加载图标,iconfont详细介绍",
+  "category": "CSS"
+}
+---
 # 使用iconfont时icon是如何加载成功的，字体图片？
 
 在前端开发中，经常会使用图标，而iconfont是很好的一种管理图标的方式。这里总结下iconfont的几种使用方式，以及iconfont通过设置class来显示图标内部做了哪些操作

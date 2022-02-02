@@ -1,3 +1,14 @@
+---
+{
+  "title": "v-if里使用filters无效的问题",
+  "staticFileName": "v-if_filters.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/22",
+  "description": "v-if 不能用filters,在项目中，想在v-if里使用filters发现不生效，于是查了下vue的文档，发现v-if里是不支持使用filters的。一般filters只能在两种情况下使用：双花括号插值和 v-bind 表达式 (后者从 2.1.0+ 开始支持)。过滤器应该被添加在 JavaScript 表达式的尾部，由'管道'符号指示。",
+  "keywords": "v-if里使用filters无效的问题,v-if里使用filters无效,v-if中使用filter无效,v-if中使用过滤器无效",
+  "category": "Vue"
+}
+---
 
 # v-if里使用filters无效的问题
 

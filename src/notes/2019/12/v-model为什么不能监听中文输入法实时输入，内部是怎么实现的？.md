@@ -1,3 +1,14 @@
+---
+{
+  "title": "v-model为什么不能监听中文输入法实时输入，内部是怎么实现的？",
+  "staticFileName": "v_model_text.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/20",
+  "description": "在看vue文档时，有备注说 v-model 不会在输入法组合文字的过程中得到更新，这是为什么呢？内部是怎么实现的，我们来看看",
+  "keywords": "v-model为什么不能监听中文输入法实时输入,输入法组合文字过程监听",
+  "category": "Vue"
+}
+---
 
 # v-model为什么不能监听中文输入法实时输入，内部是怎么实现的？
 

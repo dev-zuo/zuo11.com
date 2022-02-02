@@ -1,3 +1,14 @@
+---
+{
+  "title": "ssh生成rsa key时Enter passphrase加和不加有什么区别",
+  "staticFileName": "ssh_passphrase.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/16",
+  "description": "在使用 ssh 拉取 git 仓库前，需要先生成公共/私有 rsa 密钥对。(Generating public/private rsa key pair.)，一般使用 `ssh-keygen -t rsa -C '邮箱@xx.com'` 命令，这个时候，会有下面的提示：Enter passphrase (empty for no passphrase): 输入通行码(密码、口令短语)，如果不输入，那么就是不使用密码。如果输入了密码，这个有什么用呢？",
+  "keywords": "ssh passphrase,ssh passphrase有什么用",
+  "category": "运维部署与版本控制"
+}
+---
 # ssh生成rsa key时Enter passphrase加和不加有什么区别？
 
 在使用 ssh 拉取 git 仓库前，需要先生成公共/私有 rsa 密钥对。(Generating public/private rsa key pair.)，一般使用 `ssh-keygen -t rsa -C '邮箱@xx.com'` 命令，这个时候，会有下面的提示

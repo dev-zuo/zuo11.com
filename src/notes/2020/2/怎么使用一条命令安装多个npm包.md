@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么使用一条命令安装多个npm包",
+  "staticFileName": "npm_install_multiple.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/26",
+  "description": "在安装npm包时，我们一般使用 npm install xx --save，但对于一次需要安装多个包的情况，怎么用一条命令来安装呢？下面来看看",
+  "keywords": "怎么使用一条命令安装多个npm包,一条命令安装多个npm包",
+  "category": "前端工程化"
+}
+---
 
 # 怎么使用一条命令安装多个npm包
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么写出类似element官网那样可以实时看运行效果的文档",
+  "staticFileName": "ui_doc.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/25",
+  "description": "对于UI组件、echarts图表相关文档来说，能够实时看具体显示效果是必须的。它是将文档和demo合并在一起，这样更有说服力。那怎么写出类似的文档呢？这里来介绍三种方法：1.dosify 2.vuepress 3.element官网源码",
+  "keywords": "UI组件官网,组件展示官网,dosify实例",
+  "category": "Vue"
+}
+---
 # 怎么写出类似element官网那样可以看代码运行效果的文档
 
 对于UI组件、echarts 图表相关文档来说，能够实时看具体显示效果是必须的。它是将文档和 demo 合并在一起，这样更有说服力。那怎么写出类似的文档呢？这里来介绍三种方法：

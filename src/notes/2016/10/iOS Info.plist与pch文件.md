@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS Info.plist与pch文件",
+  "staticFileName": "ios_plist.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/24",
+  "description": "plist的全称为property list，是apple的一种属性列表文件，一般用来存储数组或字典类型数据。是iOS中数据持久化的一种方式。info.plist是app的配置文件，里面包含了app名称、版本、启动入口等基本信息。",
+  "keywords": "info.plist文件,ios pch文件, pch文件,plist文件,iOS plist文件",
+  "category": "iOS"
+}
+---
 # iOS Info.plist与pch文件
 
 > plist的全称为property list，是apple的一种属性列表文件，一般用来存储数组或字典类型数据。是iOS中数据持久化的一种方式。info.plist是app的配置文件，里面包含了app名称、版本、启动入口等基本信息。

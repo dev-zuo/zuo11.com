@@ -1,3 +1,14 @@
+---
+{
+  "title": "AMD、UMD、CommonJS、ES Modules的理解",
+  "staticFileName": "amd_umd_commonjs.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/23",
+  "description": "在 ES6 之前，JS 本身没有模块功能，社区出现了 CommonJS 和 AMD 等模块方案。从 ES6 开始, JS 开始原生支持模块，一般称之为 ES Modules。- CommonJS: 主要用于服务端，是 node 中使用的 require、module.exports。从 Node.js v13.2 版本开始，Node.js 已经默认打开了 ES6 模块支持。但需要采用 .mjs 后缀文件名。如果不希望将后缀名改成.mjs，可以在项目的package.json文件中，指定type字段为module。- AMD: Asynchronous Module Definition，异步模块定义，主要用于客户端(浏览器)，以 RequireJS 为代表 define、require -  UMD: Universal Module Definition，通用模块定义模式，主要用来解决 CommonJS 模式和 AMD 模式代码不能通用的问题，并同时还支持老式的全局变量规范。",
+  "keywords": "AMD,UMD,CommonJS,ES Modules",
+  "category": "前端工程化"
+}
+---
 # AMD、UMD、CommonJS、ES Modules的理解
 在 ES6 之前，JS 本身没有模块功能，社区出现了 CommonJS 和 AMD 等模块方案。从 ES6 开始, JS 开始原生支持模块，一般称之为 ES Modules。
 

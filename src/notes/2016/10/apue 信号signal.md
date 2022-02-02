@@ -1,3 +1,14 @@
+---
+{
+  "title": "apue 信号signal",
+  "staticFileName": "apue_signal.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/21",
+  "description": "这里所说的信号也叫软中断信号，当进程接收到一个来自内核的信号，如ctrl+c时，进程就会中断。系统定义了一些宏来表示这些中断。一般以SIG开头，对于这些信号，系统会有默认的处理方式，也可以通过signal函数，自定义处理方式(系统默认处理/ignore/执行某个函数)。",
+  "keywords": "信号signal,signal函数,alarm函数,sleep函数功能实现,unix signal",
+  "category": "C与APUE"
+}
+---
 # apue 信号signal
 
 > 这里所说的信号也叫软中断信号，当进程接收到一个来自内核的信号，如ctrl+c时，进程就会中断。系统定义了一些宏来表示这些中断。一般以SIG开头，对于这些信号，系统会有默认的处理方式，也可以通过signal函数，自定义处理方式(系统默认处理/ignore/执行某个函数)。

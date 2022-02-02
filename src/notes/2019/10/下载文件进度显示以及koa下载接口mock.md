@@ -1,3 +1,14 @@
+---
+{
+  "title": "下载文件进度显示以及koa下载接口mock",
+  "staticFileName": "http_download_progress.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/18",
+  "description": "blob拒绝访问文件，下载进度，通用下载函数，IE下blob拒绝访问文件兼容处理了，在前端做导出功能的时候，需要请求一个接口去导出数据，一般是execl，然后接口会返回execl的文件数据。对于比较大的文件，我们怎么获取文件的下载进度呢？前端怎么用koa来mock导出的接口呢？下面来看看",
+  "keywords": "blob拒绝访问文件,下载文件进度,axios下载文件进度,下载接口mock,koa导出文件接口,前端下载进度,进度信息total为0，只有loaded的情况",
+  "category": "http与https"
+}
+---
 
 # 下载文件进度显示以及koa下载接口mock
 

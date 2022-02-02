@@ -1,3 +1,14 @@
+---
+{
+  "title": "element cascader显示异常问题",
+  "staticFileName": "el_cascader.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/24",
+  "description": "当cascader里选项比较多时，组件高度会异常，主要是 .el-cascader-menu__wrap 这个样式高度为100%，将cascader里其任意一父元素手动指定高度即可，但el-cascader-menu__wrap设置的效果最好",
+  "keywords": "element cascader显示异常问题,element cascader高度问题",
+  "category": "Vue"
+}
+---
 # element cascader显示异常问题
 
 当cascader里选项比较多时，组件高度会异常，主要是 `.el-cascader-menu__wrap` 这个样式高度为100%，将cascader里其任意一父元素手动指定高度即可，但el-cascader-menu__wrap设置的效果最好

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题",
+  "staticFileName": "vue_comps_complex.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/31",
+  "description": "一般在封装vue组件时，怎么把组件封装的更好，更容易维护理解是值得思考的问题。来看一个实际场景：一个组件里有高级查询和列表，他们东西都比较多，需要拆分成两个子组件",
+  "keywords": "vue组件封装,props ref vuex封装组件时对比",
+  "category": "Vue"
+}
+---
 # vue组件的封装性与可操作性：ref拿不到子组件实例以及vuex增加代码复杂度问题
 一般在封装vue组件时，怎么把组件封装的更好，更容易维护理解是值得思考的问题
 

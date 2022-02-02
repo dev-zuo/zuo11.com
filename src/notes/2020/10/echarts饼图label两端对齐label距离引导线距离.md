@@ -1,3 +1,14 @@
+---
+{
+  "title": "echarts饼图label两端对齐label距离引导线距离",
+  "staticFileName": "echarts_label.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/08",
+  "description": "在对 echarts 饼图label做自定义时，可以通过label选项的 distanceToLabelLine 设置 label 距离引导线距离、alignTo 设置两端对齐。注意echarts版本要是 v4.6 + ，下面来看示例",
+  "keywords": "echarts label两端对齐,引导线距离",
+  "category": "图表可视化"
+}
+---
 
 # echarts饼图label两端对齐label距离引导线距离
 

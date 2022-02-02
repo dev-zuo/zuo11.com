@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么看chrome浏览器更新记录及内容",
+  "staticFileName": "chrome_update_log.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/10",
+  "description": "最近发现办公电脑的chrome浏览器console里不支持 ?? 运算符，而我自己的电脑就可以，对比了下版本，我的是最新的81版本，而办公电脑还是71的版本，于是我就想看看chrome每次版本的更新记录，这个貌似要翻墙，我用了一个开源的chrome访问助手，找到了对应的位置",
+  "keywords": "怎么看chrome浏览器更新记录及内容,怎么看chrome浏览器每个版本更新了什么",
+  "category": "计算机基础与开发工具"
+}
+---
 # 怎么看chrome浏览器更新记录及内容
 最近发现办公电脑的chrome浏览器console里不支持 ?? 运算符，而我自己的电脑就可以，对比了下版本，我的是最新的81版本，而办公电脑还是71的版本，于是我就想看看chrome每次版本的更新记录，这个貌似要翻墙，我用了一个开源的chrome访问助手，找到了对应的位置
 

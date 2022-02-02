@@ -1,3 +1,14 @@
+---
+{
+  "title": "git创建新分支并提交到远程仓库origin",
+  "staticFileName": "git_push_branch.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/26",
+  "description": "git如何建立新的origin，这里主要介绍下自己平常在工作中创建分支，将分支推送到远程的方法以及将分支合并到版本分支的方法。当我们加入到一个项目组开发项目，一般最开始的一件事情就是从远程仓库clone代码，然后新创建一个分支进行开发。显然你需要把每天写的代码上传到服务器，那怎么将本地创建的分支推送到远程并与之关联呢，下面来看一下对应的流程",
+  "keywords": "git如何建立新的origin,git创建新分支并提交到远程仓库origin",
+  "category": "运维部署与版本控制"
+}
+---
 
 # git创建新分支并提交到远程仓库origin
 

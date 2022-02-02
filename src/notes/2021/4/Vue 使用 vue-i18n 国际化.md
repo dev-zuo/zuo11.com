@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue 使用 vue-i18n 国际化",
+  "staticFileName": "vue_international.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "在 vue 项目中，可以使用 vue-i18n 来做国际化。下面来看具体是怎么使用的 1. 安装 npm install vue-i18n --save 2. 在 main.js 引入，并做初始化配置，使用 locale 设置默认语言，使用 messages 对象属性，指定不同语言对应的内容。3. 在 vue template 中直接使用。如果想动态切换语言，使用 `this.$root.$i18n.locale = 'en'` 即可修改语言",
+  "keywords": "vue 国际化,vue international, vue i18n",
+  "category": "Vue"
+}
+---
 # Vue 使用 vue-i18n 国际化
 
 在 vue 项目中，可以使用 [vue-i18n](https://kazupon.github.io/vue-i18n/zh/started.html#html) 来做国际化。下面来看具体是怎么使用的

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue封装组件方式的思考",
+  "staticFileName": "vue_component_think.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/29",
+  "description": "在封装组件时，一般我们使用的方法是：把组件单独放到一个xx.vue，然后需要引入时在components使用懒加载引入再使用，我就在想，每次引入组件都需要三步：1. 把组件通过 components 引入 2. 在template中写对应的代码 3. 在data中写对应的数据，methods里写绑定的事件。会不会太麻烦了，我希望像element的组件那样，通过 this.$message.error(e.message) 这样直接调用一个组件",
+  "keywords": "vue封装组件思考,vue封装组件总结",
+  "category": "Vue"
+}
+---
 
 # vue封装组件方式的思考
 

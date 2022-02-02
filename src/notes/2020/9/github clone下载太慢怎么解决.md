@@ -1,3 +1,14 @@
+---
+{
+  "title": "github clone下载太慢怎么解决",
+  "staticFileName": "github_clone_slow.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/24",
+  "description": "以clone vue源码为例，默认git clone下载非常慢，我们可以把github.com链接改为镜像github.com.cnpmjs.org，这样下载速度就很快了，修改后效果对比图如下",
+  "keywords": "github clone慢,github clone超时,github clone不下来",
+  "category": "运维部署与版本控制"
+}
+---
 # github clone下载太慢怎么解决
 以clone vue源码为例，默认git clone下载非常慢，我们可以把github.com链接改为镜像github.com.cnpmjs.org，这样下载速度就很快了，修改后效果对比图如下
 

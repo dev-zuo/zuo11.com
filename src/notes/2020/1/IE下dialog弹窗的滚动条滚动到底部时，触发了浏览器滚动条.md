@@ -1,3 +1,14 @@
+---
+{
+  "title": "IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条",
+  "staticFileName": "ie_dialog_scroll.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/07",
+  "description": "Element dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条同样都是有遮罩层，chrome都是OK的，但IE下会有问题。经过定位后发现，对于dialog使用了append-to-body属性的，都没问题。发现dialog显示时body上添加了一个 el-popup-parent--hidden的class, 设置了overflow为hidden，关了滚动条。对于没有append-to-body属性的dialog如果想修复有两种办法",
+  "keywords": "IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条",
+  "category": "Vue"
+}
+---
 
 # IE下dialog弹窗的滚动条滚动到底部时，触发了浏览器滚动条
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "css hover后改变其他元素样式",
+  "staticFileName": "css_hover.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/29",
+  "description": "css中某个元素hover后，可以对其他元素设置样式，但注意：只限定于改变他的子元素, 以及其后面的元素，下面我们写demo来看看",
+  "keywords": "css hover后改变其他元素样式,css 元素hover后设置其他元素样式",
+  "category": "CSS"
+}
+---
 
 # css hover后改变其他元素样式
 

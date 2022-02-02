@@ -1,3 +1,14 @@
+---
+{
+  "title": "web前端BFC，什么是BFC",
+  "staticFileName": "web_bfc.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/12",
+  "description": "虽然做前端好几年了，但只是听说个这个名词，一直不清楚具体是什么意思，今天来研究下。BFC是 Block Formatting Context 的缩写，字面意思是 块格式化上下文。 字面意思很难理解，我们先来看几个例子",
+  "keywords": "web BFC,前端BFC,css BFC,什么是BFC",
+  "category": "CSS"
+}
+---
 
 # web前端BFC，什么是BFC
 

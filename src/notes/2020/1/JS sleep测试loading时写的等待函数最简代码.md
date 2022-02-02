@@ -1,3 +1,14 @@
+---
+{
+  "title": "JS sleep测试loading时写的等待函数最简代码",
+  "staticFileName": "js_sleep.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/19",
+  "description": "一般想模拟延时，测试loading效果时，会写一个等待函数，怎么最简单方便呢？下面来研究下",
+  "keywords": "js sleep测试loading时写的等待函数最简代码",
+  "category": "JavaScript"
+}
+---
 
 # JS sleep 测试loading时写的等待函数最简代码
 

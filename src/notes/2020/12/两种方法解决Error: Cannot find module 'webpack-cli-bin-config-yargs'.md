@@ -1,3 +1,14 @@
+---
+{
+  "title": "两种方法解决Error: Cannot find module 'webpack-cli-bin-config-yargs'",
+  "staticFileName": "webpack_dev_server_err.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/07",
+  "description": "两种方法解决Error: Cannot find module 'webpack-cli/bin/config-yargs', 在运行 webpack-dev-server 这个命令时，如果出现了 Error: Cannot find module 'webpack-cli/bin/config-yargs' 这个错误，是因为默认情况下 webpack-dev-server 执行依赖 webpack-cli 包目录下的 bin/config-yargs，但 webpack-cli 4.1.0 的版本，做了一些调整，删除了这个文件，导致了这个错误。",
+  "keywords": "Error: Cannot find module 'webpack-cli/bin/config-yargs'",
+  "category": "前端工程化"
+}
+---
 # 两种方法解决Error: Cannot find module 'webpack-cli/bin/config-yargs'
 在运行 webpack-dev-server 这个命令时，如果出现了 Error: Cannot find module 'webpack-cli/bin/config-yargs' 这个错误，是因为默认情况下 webpack-dev-server 执行依赖 webpack-cli 包目录下的 bin/config-yargs，但 webpack-cli 4.1.0 的版本，做了一些调整，删除了这个文件，导致了这个错误。
 

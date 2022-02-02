@@ -1,3 +1,14 @@
+---
+{
+  "title": "markdown里怎么加引用注释或脚注",
+  "staticFileName": "md_ref.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/06",
+  "description": "一般我们只是在markdown添加链接，但怎么在markdown里加脚注呢？下面来看看",
+  "keywords": "md添加脚注,markdown里怎么加引用注释或脚注,markdown脚注,md脚注",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # markdown里怎么加引用注释或脚注
 

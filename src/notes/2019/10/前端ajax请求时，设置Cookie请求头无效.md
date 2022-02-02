@@ -1,3 +1,14 @@
+---
+{
+  "title": "前端ajax请求时，设置Cookie请求头无效",
+  "staticFileName": "http_request_header.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/10",
+  "description": "前端设置请求头无效，header 设置cookie 无效，ajax 强制设置cookie无效，在前端mock接口时，对于需要设置请求头校验的情况，可能会想着在前端发送请求时设置对应的请求头，但发现前端设置了Cookie请求头，会出错。这是什么原因呢？",
+  "keywords": "ajax中请求头的cookie,是否可以手动更改,前端设置请求头无效,Refused to set unsafe header Cookie,前端设置cookie请求头无效,axios添加请求头不生效,",
+  "category": "http与https"
+}
+---
 # 前端ajax请求时，设置Cookie请求头无效
 
 前端设置请求头无效，header 设置cookie 无效，ajax 强制设置cookie无效，在前端mock接口时，对于需要设置请求头校验的情况，可能会想着在前端发送请求时设置对应的请求头，但发现前端设置了Cookie请求头，会出错。这是什么原因呢？

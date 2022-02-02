@@ -1,3 +1,14 @@
+---
+{
+  "title": "element时间选择器限制选中：不能选择今天之后的日期，时间间隔不能超过一个月",
+  "staticFileName": "el-date-picker-limit.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "elmement el-date-picker限制选中,elmement el-date-picker disabled某些选中,element时间限制选中,一般使用 picker-options 这个属性来disable某些时间段，注意 如果设置了default-time 00:00:00 - 23:59:59 会影响对应的日期判断，必要时可以去掉，逻辑可以由后端处理",
+  "keywords": "elmement el-date-picker限制选中,elmement el-date-picker disabled某些选中",
+  "category": "Vue"
+}
+---
 # element时间选择器限制选中：不能选择今天之后的日期，时间间隔不能超过一个月
 
 一般使用 picker-options 这个属性来disable某些时间段，注意 如果设置了default-time 00:00:00 - 23:59:59 会影响对应的日期判断，必要时可以去掉，逻辑可以由后端处理

@@ -1,3 +1,14 @@
+---
+{
+  "title": "外部链接 a 标签为什么要加 noreferer 与 noopener ？",
+  "staticFileName": "a_noreferrer.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/15",
+  "description": "一般页面的外部链接 a 标签都会加上 ref='noreferrer noopener'，这样可以避免一些安全问题，下面通过几个问题来具体看看 1. a 标签加上 noreferrer 和 noopener 后会有什么效果？2. Referer 是什么？有什么应用场景? 3. window.opener 可以做什么？",
+  "keywords": "noreferrer和noopener,noreferrer,noopener",
+  "category": "http与https"
+}
+---
 # 外部链接 a 标签为什么要加 noreferrer 与 noopener ？
 一般页面的外部链接 a 标签都会加上 `ref="noreferrer noopener"`，这样可以避免一些安全问题，下面通过几个问题来具体看看
 1. a 标签加上 noreferrer 和 noopener 后会有什么效果？

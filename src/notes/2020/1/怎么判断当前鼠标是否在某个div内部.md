@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么判断当前鼠标是否在某个div内部",
+  "staticFileName": "contains.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/07",
+  "description": "当监听到事件，事件的 eveent.target 怎么判断是否在某个div内部呢？可以使用DOM专有扩展的contains方法",
+  "keywords": "怎么判断当前鼠标是否在某个div内部,怎么判断当前event.target在某个div内部",
+  "category": "JavaScript"
+}
+---
 
 # 怎么判断当前鼠标是否在某个div内部
 

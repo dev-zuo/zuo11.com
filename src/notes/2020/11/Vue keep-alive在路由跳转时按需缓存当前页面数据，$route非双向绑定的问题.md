@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue keep-alive在路由跳转时按需缓存当前页面数据，$route非双向绑定的问题",
+  "staticFileName": "keep-alive-include.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/08",
+  "description": "有这么一个需求，页面 B 跳转到页面 C 时需要保存页面交互数据，跳到其他页面不缓存数据。在 Vue 中这种功能一般会使用 keep-alive 的 include 或 exclude 有条件的缓存来实现。起初我想省事，直接使用 $route.meta 来动态修改 include 值，但后面发现不生效，原来 $router.meta 不是双向绑定的，需要使用其他变量才行，下面来看看具体逻辑。",
+  "keywords": "vue keep-alive按需缓存页面,vue按需缓存,$route是否是双向绑定的",
+  "category": "Vue"
+}
+---
 # Vue keep-alive在路由跳转时按需缓存当前页面数据，$route非双向绑定的问题
 
 有这么一个需求，页面 B 跳转到页面 C 时需要保存页面交互数据，跳到其他页面不缓存数据。在 Vue 中这种功能一般会使用 keep-alive 的 include 或 exclude 有条件的缓存来实现。起初我想省事，直接使用 $route.meta 来动态修改 include 值，但后面发现不生效，原来 $router.meta 不是双向绑定的，需要使用其他变量才行，下面来看看具体逻辑。 

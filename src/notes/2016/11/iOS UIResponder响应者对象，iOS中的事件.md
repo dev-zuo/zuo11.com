@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS UIResponder响应者对象，iOS中的事件",
+  "staticFileName": "ios_responder.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/14",
+  "description": "在使用app的过程中，会产生各种各样的事件，iOS中的事件可以分为3大类型:触摸事件、加速计事件、远程控制事件。不是任何对象都能处理事件，只有继承了UIResponder的对象，才能接收并处理事件。这些对象被称为响应者对象",
+  "keywords": "UIResponder响应者对象,UITouch对象,触摸事件,iOS中的事件,hitTest应用",
+  "category": "iOS"
+}
+---
 
 # iOS UIResponder响应者对象，iOS中的事件
 

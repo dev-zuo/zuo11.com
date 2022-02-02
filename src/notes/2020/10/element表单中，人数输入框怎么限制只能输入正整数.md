@@ -1,3 +1,14 @@
+---
+{
+  "title": "element表单中，人数输入框怎么限制只能输入正整数",
+  "staticFileName": "people_num.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/08",
+  "description": "在人数这一栏，输入时，前端需要确保输入的只能是正整数，且不能是负数，且自动校正，来看看怎么实现",
+  "keywords": "element只能输入正整数",
+  "category": "Vue"
+}
+---
 # element表单中，人数输入框怎么限制只能输入正整数
 
 在人数这一栏，输入时，前端需要确保输入的只能是正整数，且不能是负数，且自动校正，来看看怎么实现

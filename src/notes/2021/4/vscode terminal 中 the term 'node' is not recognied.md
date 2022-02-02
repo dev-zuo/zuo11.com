@@ -1,3 +1,14 @@
+---
+{
+  "title": "vscode terminal 中 the term 'node' is not recognied",
+  "staticFileName": "not_recognied_terminal.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "windows 系统下，在 vscode 的 Terminal 中，运行 npm install 或 node 命令时都会提示 the term node/npm is not recognied... 但是如果打开系统的 terminal 运行命令就是正常的。仔细看会发现 vscode 中使用的是 Powershell，而一般默认的 bash。Powershell 中无法执行 node 命令，需要运行下面的命令更新环境变量中的 Path",
+  "keywords": "the term 'node' is not recognied,the term 'npm' is not recognied",
+  "category": "计算机基础与开发工具"
+}
+---
 # vscode terminal 中 the term 'node' is not recognied
 
 windows 系统下，在 vscode 的 Terminal 中，运行 npm install 或 node 命令时都会提示 the term node/npm is not recognied... 但是如果打开系统的 terminal 运行命令就是正常的。

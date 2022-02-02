@@ -1,3 +1,14 @@
+---
+{
+  "title": "JS怎么监听当前页面滚动比例，完整UI实现demo",
+  "staticFileName": "js_scorll_percent.html",
+  "author": "guoqzuo",
+  "createDate": "2020/03/02",
+  "description": "在阮一峰的es6入门教程里，顶部有一个计算页面百分比的UI，于是就想尝试实现这个功能，恰好在js高程3里有对应的描述，来看看",
+  "keywords": "页面滚动比例监听",
+  "category": "JavaScript"
+}
+---
 
 # JS怎么监听当前页面滚动比例，完整UI实现demo
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue tabs标签页组件的坑，能不使用就不要使用",
+  "staticFileName": "vue_tabs_pit.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/22",
+  "description": "vue tabs标签页,vue 标签页,vue便签页的坑，最近项目中需要在一个页面中打开多个tab标签页，刚才是觉得element有现成的组件，觉得没啥问题，后面发现迭代维护新功能时真的是大坑。个人建议**能不使用tab标签页的情况，就不要使用**，下面来看看需要注意的地方",
+  "keywords": "vue tabs标签页,vue 标签页,vue便签页的坑",
+  "category": "Vue"
+}
+---
 # vue tabs标签页组件的坑，能不使用就不要使用
 
 最近项目中需要在一个页面中打开多个tab标签页，刚才是觉得element有现成的组件，觉得没啥问题，后面发现迭代维护新功能时真的是大坑。

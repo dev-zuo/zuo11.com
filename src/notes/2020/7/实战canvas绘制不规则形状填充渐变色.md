@@ -1,3 +1,14 @@
+---
+{
+  "title": "实战canvas绘制不规则形状填充渐变色",
+  "staticFileName": "cavas_unnormal_shape.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/06",
+  "description": "在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色",
+  "keywords": "实战canvas绘制不规则形状填充渐变色,canvas画不规则形状,canvas渐变",
+  "category": "JavaScript"
+}
+---
 # 实战canvas绘制不规则形状填充渐变色
 
 在JS高程3中，有一章专门将使用canvas绘图，今天终于用上了，效果还不错，来看效果，原生js，70行不到，用canvas画不规则形状，且添加渐变色

@@ -1,3 +1,14 @@
+---
+{
+  "title": "Promise.all、race 实现，函数作为参数时的简写",
+  "staticFileName": "promise_all_abbr.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/15",
+  "description": "一般函数当参数时，有一种情况可以直接简写，例子如下 func(data => { console.log(data) })，可以简写为 func(console.log) 下面来看看在 Promise.all 和 Promise.race 实现中的应用",
+  "keywords": "Promise.all实现,Promise.race实现,函数参数简写",
+  "category": "JavaScript"
+}
+---
 # Promise.all、race 实现，函数作为参数时的简写
 一般函数当参数时，有一种情况可以直接简写，例子如下
 ```js

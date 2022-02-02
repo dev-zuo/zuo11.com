@@ -1,3 +1,14 @@
+---
+{
+  "title": "函数命名validate和verify的区别",
+  "staticFileName": "validate_verify.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/09",
+  "description": "verify validate区别，一般我们在命名校验的函数时，发现validate和verify都有校验的意思，具体用那个呢？其实区别只是在于证实的强度：confirm < verify < validate，我们来看看",
+  "keywords": "函数命名validate和verify的区别,verify validate区别,verify和validate,",
+  "category": "计算机基础与开发工具"
+}
+---
 
 
 # 函数命名validate和verify的区别

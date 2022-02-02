@@ -1,3 +1,14 @@
+---
+{
+  "title": "github tag标签图片以及npm badge图片生成",
+  "staticFileName": "github_badge_img.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/21",
+  "description": "在github写readme时，最开始一般会贴一些tab标签(徽章图片)，比如 build passing，license MIT 等，注意这些都是引入的图片，npm badge也是类似的情况下面来看看",
+  "keywords": "github tag标签图片,readme badge,npm badge",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # github tag标签图片以及npm badge图片生成
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "FileReader.readAsDataURL与URL.createObjectURL的区别",
+  "staticFileName": "file_preview_download.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/25",
+  "description": "在前端开发中，这两个函数都是可以用于处理文件二进制数据的，一般用于上传文件时预览图片，或者在下载、导出文件时使用。下面来以上传图片、前端预览图片的功能为例，比较两个函数的的区别。下面的代码中，我们使用一个 radio 来切换使用两种方法。当检测到上传文件的 input 内容 change 后，根据当前 radio 的值，调用不同的方法来预览图片。运行效果如上图",
+  "keywords": "文件预览,文件下载函数,createObjectURL,readAsDataURL",
+  "category": "JavaScript"
+}
+---
 
 # FileReader.readAsDataURL与URL.createObjectURL的区别
 

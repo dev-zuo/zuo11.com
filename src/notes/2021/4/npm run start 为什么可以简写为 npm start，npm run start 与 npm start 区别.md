@@ -1,3 +1,14 @@
+---
+{
+  "title": "npm run start 为什么可以简写为 npm start，npm run start 与 npm start 区别",
+  "staticFileName": "npm_start.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "在一些项目中发现项目启动命令是 npm start，但一般启动都是 npm run xxx，而 npm start 有点像 npm run start 的简写，于是就想着他们之间有什么关系，其它的命令是否也可以简写。下面来具体看看 npm start 与 npm run start.",
+  "keywords": "npm start 与 npm run start 区别,npm start,npm run start",
+  "category": "前端工程化"
+}
+---
 # npm run start 为什么可以简写为 npm start，npm run start 与 npm start 区别
 
 在一些项目中发现项目启动命令是 npm start，但一般启动都是 npm run xxx，而 npm start 有点像 npm run start 的简写，于是就想着他们之间有什么关系，其它的命令是否也可以简写。下面来具体看看 npm start 与 npm run start.

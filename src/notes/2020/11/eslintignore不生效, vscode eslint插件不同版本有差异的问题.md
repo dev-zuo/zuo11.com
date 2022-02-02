@@ -1,3 +1,14 @@
+---
+{
+  "title": "eslintignore不生效, vscode eslint插件不同版本有差异的问题",
+  "staticFileName": "eslintignore_vscode.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/08",
+  "description": ".eslintignore 文件的作用是，当不想对项目的某个目录进行 eslint 检查时，可以在这个文件中声明，类似 .gitignore 文件的效果。但有一个问题，vscode eslint插件不同版本的行为可能有差异，有可能把目录加入到了.eslintignore 后，保存时还是会 fix 这个目录下的 eslint 错误。这种情况建议升级到最新版本。",
+  "keywords": ".eslintignore不生效,vscode eslint插件不同版本差异",
+  "category": "计算机基础与开发工具"
+}
+---
 # .eslintignore不生效, vscode eslint插件不同版本有差异的问题
 .eslintignore 文件的作用是，当不想对项目的某个目录进行 eslint 检查时，可以在这个文件中声明，类似 .gitignore 文件的效果。
 

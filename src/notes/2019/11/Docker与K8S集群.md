@@ -1,3 +1,14 @@
+---
+{
+  "title": "Docker与K8S集群",
+  "staticFileName": "docker_k8s.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/11",
+  "description": "现在前端项目很多部署在docker容器上，相比之前的实体服务器、虚拟机来讲，docker不需要自己安装软件，可以直接配置使用，比较方便。下面来简单了解下",
+  "keywords": "Docker与K8S集群",
+  "category": "运维部署与版本控制"
+}
+---
 
 # Docker与K8S集群
 

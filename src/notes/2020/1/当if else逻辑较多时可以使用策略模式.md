@@ -1,3 +1,14 @@
+---
+{
+  "title": "当if else逻辑较多时可以使用策略模式",
+  "staticFileName": "if_else_handle.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/08",
+  "description": "当项目中，if else较多时，我们可以考虑使用策略模式，来更优雅的处理，来看看demo",
+  "keywords": "js策略模式的使用场景",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # 当if else逻辑较多时可以使用策略模式
 

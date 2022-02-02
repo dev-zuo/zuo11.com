@@ -1,3 +1,14 @@
+---
+{
+  "title": "npm run 运行多条命令 && 不生效的问题",
+  "staticFileName": "npm_run_multi.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/25",
+  "description": "在项目中除了默认的 webpack-dev-server 外，我们还想同时运行 mock 接口的 node 服务，，会使用 && 同时执行两条命令。在有些使用实际运行 npm run server 时，只运行了第一条命令，我的是mac，不知道是不是node版本的问题。网上找了下， && 存在兼容性问题。建议使用 concurrently 来代替，concurrently 跨平台兼容",
+  "keywords": "npm run &&多条命令不生效",
+  "category": "前端工程化"
+}
+---
 # npm run 运行多条命令 && 不生效的问题
 在项目中除了默认的 webpack-dev-server 外，我们还想同时运行 mock 接口的 node 服务，会使用 && 同时执行两条命令
 ```js

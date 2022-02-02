@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么给三角形加border，添加到我的小程序UI实现以及需要注意的问题",
+  "staticFileName": "border_border.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/29",
+  "description": "在给小程序添加 '添加到我的小程序' 引导时，里面有个带边框的三角形，一般用css画三角形使用的是border，但三角形边的边框怎么画呢？一般用两个三角形叠加来实现",
+  "keywords": "css 三角形加border,css 用border画的三角形怎么加border,小程序添加到我的小程序引导UI实现",
+  "category": "CSS"
+}
+---
 
 # 怎么给三角形加border，添加到我的小程序UI实现以及需要注意的问题
 

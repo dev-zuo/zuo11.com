@@ -1,3 +1,14 @@
+---
+{
+  "title": "mac 安装 brew 异常: fatal: unable to access 'https:--github.com-Homebrew-brew-'",
+  "staticFileName": "mac_brew_new.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "为了快速安装 svn, git, nginx 等，我想着先在 macbook 上安装 brew，按照常规的方法修改了 ruby 源，但还是出现安装错误 `fatal: unable to access 'https://github.com/Homebrew/brew/' LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 Failed during: git fetch --force origin` ",
+  "keywords": "mac安装brew fail,mac 安装 brew,mac homebrew 安装失败",
+  "category": "计算机基础与开发工具"
+}
+---
 # mac 安装 brew 异常: fatal: unable to access 'https://github.com/Homebrew/brew/'
 
 为了快速安装 svn, git, nginx 等，我想着先在 macbook 上安装 brew，按照常规的方法修改了 ruby 源，但还是出现安装错误 `fatal: unable to access 'https://github.com/Homebrew/brew/' LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 Failed during: git fetch --force origin` 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "为什么vconsole直接new一下就能引入，实现原理是什么？",
+  "staticFileName": "vconsole.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/12",
+  "description": "在移动端真机调试时，一般会用到vconsole，那你会发现在vue中vconsole的引入非常简单，只需要在main.js里面引入，并new一下。相比其他组件需要Vue.use引入来说，会很迷惑，这个是怎么引入到项目的？页面底部时怎么显示vconsole的按钮的？先来看结论，vconsole大致实现思路 1. 通过window监听页面加载，加载ok后向页面append vconsle相关的dom（右下角按钮） 2. 像log、network等相关的渲染显示，都是通过重写window下对应的系统方法来加入一些自定义操作",
+  "keywords": "vconsole实现原理,vconsole实现,vconsole为什么只需要new就能引入,为什么vconsole在vue中不用Vue.use就能使用",
+  "category": "Vue"
+}
+---
 
 # 为什么vconsole直接new一下就能引入，实现原理是什么？
 

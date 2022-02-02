@@ -1,3 +1,14 @@
+---
+{
+  "title": "前端通过document.cookie设置cookie，相关改动会传到后台吗？",
+  "staticFileName": "document_cookie_edit.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/01",
+  "description": "首先我们来捋一捋，什么是cookie？与cookie相关的知识点有两个：1. 前端获取/设置cookie，使用 document.cookie 2. HTTP请求与响应相关cookie，我们先下个结论：他们之间是相互关联的，接口响应头设置cookie，会对document.cookie的值产生影响；前端设置docuemnt.cookie也会对请求头cookie值产生影响，但如果后端写到前端的cookie如果使用了HttpOnly属性，前端是无法通过document.cookie做修改的",
+  "keywords": "document.cookie设置cookie对接口影响",
+  "category": "http与https"
+}
+---
 # 前端通过document.cookie设置cookie，相关改动会传到后台吗？
 
 首先我们来捋一捋，什么是cookie？与cookie相关的知识点有两个：

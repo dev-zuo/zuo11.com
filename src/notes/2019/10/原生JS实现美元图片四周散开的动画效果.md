@@ -1,3 +1,14 @@
+---
+{
+  "title": "原生JS实现美元图片四周散开的动画效果",
+  "staticFileName": "css_mask_animation.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/26",
+  "description": "之前一朋友在微信群里问，是否能做一个动画，在每次进入页面的时候，实现美元钞票向四周扩散的效果，也就是一个遮罩动画。当时刚看完js高程3不久，就用原生js写了个动画，如果页面需要这个动画，只需要引入一个js就可以。",
+  "keywords": "原生JS实现遮罩动画,js实现美元图片四周散开动画效果,js实现美元各方向散开的动画效果",
+  "category": "JavaScript"
+}
+---
 
 # 原生JS实现美元图片四周散开的动画效果
 

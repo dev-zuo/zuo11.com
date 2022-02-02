@@ -1,3 +1,14 @@
+---
+{
+  "title": "点击外部关闭div - js阻止事件冒泡实例",
+  "staticFileName": "click_external_close.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/09",
+  "description": "点击外部关闭div，一般在做弹窗div时，需要做点击div外部关闭div的功能，怎么做到的呢？一句话总结：用一个父元素(铺满屏幕，绝对布局)包裹该div(绝对布局，水平垂直居中，固定宽高)，**父元素监听点击事件后移除div，子元素div监听点击后阻止事件冒泡**。这样就实现了，点击外部关闭div，点击内部区域不关不div。",
+  "keywords": "点击div外部关闭div,js点击外部关闭div,点击外部关闭div,js阻止事件冒泡实例",
+  "category": "JavaScript"
+}
+---
 
 # 点击外部关闭div - js阻止事件冒泡实例
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "apue 进程间通信IPC",
+  "staticFileName": "apue_ipc.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/23",
+  "description": "由于进程所处的空间都是独立的，如果多个子进程需要交互数据，那就需要了解进程间通信(InterProcess Communication, IPC)了。这里先介绍前三种通信方式：1. 管道(无名) 只能用于父子进程通信，半双工，单向；2. 命名管道，同一台主机的任意两个进程；3. 共享内存。",
+  "keywords": "IPC,ipc,进程间通信,apue,C语言实现聊天小程序,管道,共享内存,pipe,fifo",
+  "category": "C与APUE"
+}
+---
 
 # apue 进程间通信IPC
 

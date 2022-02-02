@@ -1,3 +1,14 @@
+---
+{
+  "title": "webpack与parcel区别",
+  "staticFileName": "webpack_parcel_difference.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/29",
+  "description": "webpack与parcel都是打包工具, webpack功能强大，但比较重，配置项比较多, 有点繁琐。而parcel就是为了解决配置项太多这个问题的，它默认集成了通用的常规功能，零配置，如果自定义较多，还是推荐webpack",
+  "keywords": "webpack与parcel区别,parcel与webpack区别,webpack parcel difference",
+  "category": "前端工程化"
+}
+---
 
 # webpack与parcel区别
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue组件里click事件监听可能会产生的性能问题",
+  "staticFileName": "vue_click.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/13",
+  "description": "vue click会不会影响性能？之前在看JS高程3里面有一个知识点，就是当多个子元素需要绑定click事件时，大量添加处理程序，会影响性能，尽量少添加处理事件。但写vue习惯后，突然忘了这一点，其实vue监听事件我们也可以遵循这个原则：把事件放到其父元素上监听，然后通过 data-key属性来指定每个子元素对应的值。e.target.getAttribute('data-key')有值就表示子元素点击了",
+  "keywords": "vue click会不会影响性能？vue组件里click事件监听可能导致的性能问题,vue监听click事件注意事项",
+  "category": "Vue"
+}
+---
 
 # vue组件里click事件监听可能会产生的性能问题
 

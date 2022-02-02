@@ -1,3 +1,14 @@
+---
+{
+  "title": "什么是DevOps",
+  "staticFileName": "devops.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/11",
+  "description": "DevOps 是 Development（开发）和 Operations（运维） 的组合词，DevOps可以做什么？为什么会出现DevOps？企业为什么需要DevOps？DevOps有什么依赖？目前学术界和从业人员还没有为 'DevOps' 建立唯一的定义",
+  "keywords": "DevOps",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # 什么是DevOps
 DevOps 是 Development（开发）和 Operations（运维） 的组合词，目前学术界和从业人员还没有为 "DevOps" 建立唯一的定义

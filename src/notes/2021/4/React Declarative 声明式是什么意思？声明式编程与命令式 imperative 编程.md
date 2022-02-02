@@ -1,3 +1,14 @@
+---
+{
+  "title": "React Declarative 声明式是什么意思？声明式编程与命令式 imperative 编程",
+  "staticFileName": "react_declarative.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "React 的 Declarative 特性是什么意思？在 React github 的 README.md 中，介绍 react 的特点时，第一个是 Declarative，翻译成中文是声明式，具体要怎么理解呢？下面来看看",
+  "keywords": "declarative与imperative,声明式编程,React Declarative; react declarative",
+  "category": "React"
+}
+---
 # React Declarative 声明式是什么意思？声明式编程与命令式 imperative 编程
 
 React 的 Declarative 特性是什么意思？在 React github 的 README.md 中，介绍 react 的特点时，第一个是 Declarative，翻译成中文是声明式，具体要怎么理解呢？下面来看看

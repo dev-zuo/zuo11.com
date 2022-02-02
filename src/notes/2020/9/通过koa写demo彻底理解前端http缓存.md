@@ -1,3 +1,14 @@
+---
+{
+  "title": "通过koa写demo彻底理解前端http缓存",
+  "staticFileName": "web_cache.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/07",
+  "description": "http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth,在前端性能优化中，有一个方法是使用缓存。前端缓存可以减少网络请求次数，减少流量消耗，提升用户体验，降低服务器负载。前端缓存分为两种：http缓存、浏览器缓存。相关文档可以搜索对应请求头的MDN文档、另外可以参考《http权威指南》第7章 缓存",
+  "keywords": "http缓存,web缓存,前端缓存,强缓存,Expires,Cache-Control,弱缓存,协商缓存,sever revalidataion,Last-Modified/If-Modified-Since,ETag/if-None-Macth",
+  "category": "http与https"
+}
+---
 # 通过koa写demo彻底理解前端http缓存
 在前端性能优化中，有一个方法是使用缓存。前端缓存可以减少网络请求次数，减少流量消耗，提升用户体验，降低服务器负载。
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "CI、CD、CO是什么意思",
+  "staticFileName": "ci_cd_co.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/11",
+  "description": "CI CD CO 是什么意思呢？在开发中他们分别代表 CI持续集成 => CD持续交付/持续部署 => CO持续运营，下面来看看",
+  "keywords": "CI CD CO,CI、CD、CO是什么意思,CI,CD,CO,CI持续集成,CD持续交付,CO持续运营",
+  "category": "运维部署与版本控制"
+}
+---
 
 # CI、CD、CO是什么意思
 

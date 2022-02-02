@@ -1,3 +1,14 @@
+---
+{
+  "title": "iconfont通过设置class来显示图标内部做了那些操作",
+  "staticFileName": "iconfont_class.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "iconfont是怎么通过class来加载图标的，内部做了哪些操作，注意我们在用class使用iconfont图标时，为什么可以使用，主要是iconfont.css里面做了三步操作: 1. 定义iconfont的 font-familay 2. 为.iconfont设置默认样式，指定为font-family字体 3. 为每个图标的class设置before的content",
+  "keywords": "iconfont是怎么通过class来加载图标的,内部做了哪些操作,iconfont class字体图标",
+  "category": "CSS"
+}
+---
 # iconfont通过设置class来显示图标内部做了那些操作
 
 注意我们在用class使用iconfont图标时，为什么可以使用，主要是iconfont.css里面做了三步操作:

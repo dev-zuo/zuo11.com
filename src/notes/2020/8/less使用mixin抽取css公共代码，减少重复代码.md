@@ -1,3 +1,14 @@
+---
+{
+  "title": "less使用mixin抽取css公共代码，减少重复代码",
+  "staticFileName": "less_mixin.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/22",
+  "description": "less函数,less mixin实例,less mixin,less封装css,less怎么抽取公共样式,less抽取公共样式，由于没有系统的学习less，之前只用到less的嵌套写法，很少用变量，基本没用mixin模块化封装，这次尝试了下，发现还是不错的，下面来用封装一个基础的布局组件，主要涉及三个知识点 1. 把css单独提成文件使用 @import (reference) url('') 引入 2. 封装mixin函数，在需要引入的地方执行函数 3. 使用 @headerHeight: 100px 这种方法定义变量",
+  "keywords": "less函数,less mixin实例,less mixin,less封装css,less怎么抽取公共样式,less抽取公共样式",
+  "category": "CSS"
+}
+---
 
 # less使用mixin抽取css公共代码，减少重复代码
 

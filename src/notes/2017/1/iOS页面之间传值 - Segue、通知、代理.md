@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS页面之间传值 - Segue、通知、代理",
+  "staticFileName": "web_pass_data.html",
+  "author": "guoqzuo",
+  "createDate": "2017/01/26",
+  "description": "之前做通讯录的时候用的是navigation以代码的方式push跳转，tableView的传值只是用了控制器.h文件的一个变量。这里用拖线的方式跳转，通过添加和修改联系人练习segue、通知及代理传值。",
+  "keywords": "页面之间传值 iOS,iOS页面之间传值,iOS用通知传值,Segue传值,iOS代理传值",
+  "category": "iOS"
+}
+---
 
 # iOS页面之间传值 - Segue、通知、代理
 

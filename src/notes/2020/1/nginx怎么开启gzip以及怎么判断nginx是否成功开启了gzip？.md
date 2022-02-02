@@ -1,3 +1,14 @@
+---
+{
+  "title": "nginx怎么开启gzip以及怎么判断nginx是否成功开启了gzip？",
+  "staticFileName": "nginx_gzip.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/29",
+  "description": "nginx是比较好的一个运行静态http服务的容器。当我们把静态网站部署到nginx上后，我们怎么设置开启zip，让网页资源体积更小，传输更快呢？下面来看看",
+  "keywords": "nginx怎么开启gzip,怎么判断nginx是否成功开启了gzip,怎么判断nginx开启gzip生效",
+  "category": "运维部署与版本控制"
+}
+---
 
 # nginx怎么开启gzip以及怎么判断nginx是否成功开启了gzip？
 

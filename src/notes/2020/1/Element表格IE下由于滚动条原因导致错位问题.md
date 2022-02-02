@@ -1,3 +1,14 @@
+---
+{
+  "title": "Element表格IE下由于滚动条原因导致错位问题",
+  "staticFileName": "element_dolayout.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/07",
+  "description": "Element 表头固定，表内容可滑动，在IE下滚动条会显示，有一定的宽度占位，导致表头与表内容由点错位，解决方法是：由于表单内容是从接口加载的，从接口加载完数据后，对el-talbe进行从新布局dolayout",
+  "keywords": "Element表格IE下由于滚动条原因导致错位问题",
+  "category": "Vue"
+}
+---
 
 # Element表格IE下由于滚动条原因导致错位问题
 

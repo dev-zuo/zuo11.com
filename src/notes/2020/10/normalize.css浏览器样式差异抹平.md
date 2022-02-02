@@ -1,3 +1,14 @@
+---
+{
+  "title": "normalize.css浏览器样式差异抹平",
+  "staticFileName": "normalize.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/31",
+  "description": "normalize.css, A modern alternative to CSS resets 一个用于CSS重置的现代替代方法。主要用于解决不同浏览器默认样式之间的差异。What does it do? - Preserves useful defaults, unlike many CSS resets. 保留有用的默认样式，重置许多不一样的CSS - Normalizes styles for a wide range of elements. 为许多各种各样的元素标准化样式",
+  "keywords": "浏览器样式差异抹平,normalize.css",
+  "category": "CSS"
+}
+---
 # normalize.css浏览器样式差异抹平
 
 [normalize.css](https://github.com/necolas/normalize.css), A modern alternative to CSS resets 一个用于CSS重置的现代替代方法

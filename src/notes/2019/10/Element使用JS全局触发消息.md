@@ -1,3 +1,14 @@
+---
+{
+  "title": "Element使用JS全局触发消息",
+  "staticFileName": "vue_element_globalmsg.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/10",
+  "description": "在Vue中，单文件组件xx.vue里如果想触发ElementUI的提示消息（如错误信息、警告信息），怎么通过一行js就能触发呢？下面来看看调用方法",
+  "keywords": "elementUI 全局触发消息,element使用js全局触发消息,element提示错误信息,element message,element 提示信息",
+  "category": "Vue"
+}
+---
 # Element使用JS全局触发消息
 
 在Vue中，单文件组件xx.vue里如果想触发ElementUI的提示消息（如错误信息、警告信息），怎么通过一行js就能触发呢？下面来看看调用方法

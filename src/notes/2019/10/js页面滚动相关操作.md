@@ -1,3 +1,14 @@
+---
+{
+  "title": "js页面滚动相关操作",
+  "staticFileName": "web_js_scroll.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/09",
+  "description": "通过一个URL进入一个页面，需要滚动到对应的锚点位置，可以用什么方法呢，下面我们来总结下页面滚动相关的一些方法，例如：Element.scrollIntoView、window.scroll、window.scrollTo、window.scrollBy、Element.scrollTop等",
+  "keywords": "js页面滚动,页面滚动,scroll,scrollTo,scrollBy,scrollTop,scrollLeft,scrollIntoView,使用hash滚动,vue中vue-router滚动",
+  "category": "JavaScript"
+}
+---
 
 # js页面滚动相关操作
 

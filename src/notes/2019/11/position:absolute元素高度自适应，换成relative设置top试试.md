@@ -1,3 +1,14 @@
+---
+{
+  "title": "position:absolute元素高度自适应，换成relative设置top试试",
+  "staticFileName": "absolute_auto_height.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/08",
+  "description": "一般元素设置position:absolute后，就已经脱离了文档流，用css是无法计算其高度的，只能用js获取dom来计算。另外不要把自己限制死了，对于自适应高度的，为什么一定要使用position:absolute呢？**换position:relative也可以设置top、left等css属性**，如果自己真的想不到好的方法，问问其他同事或社群里的人试试？下面来看看我之前由于知识盲点踩的一个坑",
+  "keywords": "position:absolute元素高度自适应,怎么用js计算元素高度",
+  "category": "CSS"
+}
+---
 
 # position:absolute元素高度自适应，换成relative设置top试试
 

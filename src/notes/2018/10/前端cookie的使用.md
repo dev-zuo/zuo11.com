@@ -1,3 +1,14 @@
+---
+{
+  "title": "前端cookie的使用",
+  "staticFileName": "web_cookie.html",
+  "author": "guoqzuo",
+  "createDate": "2018/10/26",
+  "description": "http是基于请求和响应的无状态协议，无法保存状态，如果有数据需要在浏览器关闭后，下次进入还保存，就可以用cookie来解决这个问题。前端cookie可以用document.cookie来读取，格式为key=value;key=value键值对的形式",
+  "keywords": "前端cookie的使用,cookie",
+  "category": "JavaScript"
+}
+---
 
 # 前端cookie的使用
 

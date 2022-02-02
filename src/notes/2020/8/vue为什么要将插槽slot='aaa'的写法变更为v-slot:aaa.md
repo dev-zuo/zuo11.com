@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue为什么要将插槽slot='aaa'的写法变更为v-slot:aaa",
+  "staticFileName": "slot_vs_v-slot.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/15",
+  "description": "vue slot v-slot区别,v-slot是slot的语法糖，在 2.6.0 中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令)。它取代了 slot 和 slot-scope 这两个目前已被废弃但未被移除。具名插槽 主要用于当有多个插槽时，通过名字对不同的插槽进行区分，先来看看聚名插槽使用时的一个特殊场景，由于在父组件里调用用子组件，会写上对应的插槽，这时插槽的作用域为当前的父组件，插槽内部使用的变量名默认都是从父组件取的。下面的例子中 slotA插槽内部调用的 user，它默认是当前组件的变量（父组件）",
+  "keywords": "vue slot v-slot区别,v-slot是slot的语法糖",
+  "category": "Vue"
+}
+---
 # vue为什么要将插槽slot="aaa"的写法变更为v-slot:aaa
 
 > 在 2.6.0 中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令)。它取代了 slot 和 slot-scope 这两个目前已被废弃但未被移除

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log",
+  "staticFileName": "vscode_eslint_log.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/07",
+  "description": "你是否会遇到下面的问题：在 vscode 里面安装了 eslint 插件后，正确设置了保存后自动 fix 参数，但没有生效。或者之前是生效的。忽然就不生效了。只要你的配置是没有问题的，那就是插件以来的包加载异常了，一般都重启几次就Ok了。那怎么看 eslint 对应的log呢？可以分下面两步 1. 点击 vscode 右下角的错误信息、警告信息图标，看是信息里是否有 eslint 相关报 2. 点击 输出 - 选择 ESLint 就可以看 ESLint 相关 log 了。",
+  "keywords": "vscode eslit log",
+  "category": "计算机基础与开发工具"
+}
+---
 # vscode配置了自动fix突然失效了，或者一直生效不了，怎么看对应的log
 你是否会遇到下面的问题：在 vscode 里面安装了 eslint 插件后，正确设置了保存后自动 fix 参数，但没有生效。或者之前是生效的，忽然就不生效了。
 

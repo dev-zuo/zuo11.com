@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS数据持久化(存储数据)",
+  "staticFileName": "ios_data_save.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/10",
+  "description": "iOS里有一个专有名词叫数据持久化，可以理解为数据存储。iOS数据持久化有5种方式：1. XML属性列表 (plist文件) 2. Preference (偏好设置) 3. NSKeyedArchiver归档 (NSCoding) 4. SQLite3 5. Core Data 这里先讲前三种。",
+  "keywords": "iOS数据存储,iOS数据持久化,iOS应用沙盒,ios 数据持久化,ios 数据存储,ios 应用沙盒",
+  "category": "iOS"
+}
+---
 
 # iOS数据持久化(存储数据)
 

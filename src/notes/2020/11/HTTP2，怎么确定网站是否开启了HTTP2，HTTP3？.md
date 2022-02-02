@@ -1,3 +1,14 @@
+---
+{
+  "title": "HTTP2，怎么确定网站是否开启了HTTP2，HTTP3？",
+  "staticFileName": "http2_http3.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/23",
+  "description": "HTTP/2 是新一代的 HTTP 协议，于 2015 正式发布。相对 HTTP/1 来说，大幅提升了网页性能，绝大多数浏览器都支持了 HTTP/2。http 怎么开启 http2 呢？HTTP/2 现阶段必须使用 https，80端口就不要想了。HTTP/1.1 不足的地方 - 连接无法复用，每次请求都经历三次握手和慢启动 - HTTP/1.0 传输数据时，每次都需要重新建立连接，增加延迟。- HTTP/1.1 虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。",
+  "keywords": "HTTP2,HTTP3,怎么开启HTTP/2",
+  "category": "http与https"
+}
+---
 # HTTP/2，怎么确定网站是否开启了HTTP/2，HTTP/3？
 
 HTTP/2 是新一代的 HTTP 协议，于 2015 正式发布。相对 HTTP/1 来说，大幅提升了网页性能，绝大多数浏览器都支持了 HTTP/2。

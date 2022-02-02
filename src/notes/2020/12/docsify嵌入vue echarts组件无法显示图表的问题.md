@@ -1,3 +1,14 @@
+---
+{
+  "title": "docsify嵌入vue echarts组件无法显示图表的问题",
+  "staticFileName": "dosify_vue_echarts.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/07",
+  "description": "在使用 docsify 自带的 vue 功能加载 echarts 相关的 vue 组件时，图表都无法正常显示。后来打印 log 发现，最终渲染到页面的 echarts div并不是 vue 初始化之后，进行绘制的 div，而是一个拷贝后的副本，所以图片显示不出来。 需要使用 vuep 插件才行。实例参考 https://vuechart.zuo11.com，效果如下图:",
+  "keywords": "docsify echarts vue组件无法正常显示",
+  "category": "Vue"
+}
+---
 # docsify嵌入vue echarts组件无法显示图表的问题
 在使用 docsify 自带的 vue 功能加载 echarts 相关的 vue 组件时，图表都无法正常显示。后来打印 log 发现，**最终渲染到页面的 echarts div并不是 vue 初始化之后，进行绘制的 div，而是一个拷贝后的副本，所以图片显示不出来。** 需要使用 vuep 插件才行。实例参考 https://vuechart.zuo11.com ，效果如下图:
 

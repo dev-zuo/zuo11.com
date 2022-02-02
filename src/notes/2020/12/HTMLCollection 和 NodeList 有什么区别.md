@@ -1,3 +1,14 @@
+---
+{
+  "title": "HTMLCollection 和 NodeList 有什么区别",
+  "staticFileName": "HTMLCollection-NodeList.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/30",
+  "description": "在获取 dom 节点结集合时，有的 API 返回的是 HTMLCollection 类型，有的是 NodeList 类型。他们有什么区别呢？下来看看具体的 API。HTMLCollection 和 NodeList 的相同点：1. 它们都是表示节点集合的类数组对象，都可以是活动对象（实时监听 dom 变化并修改值） 2. 它们都有 length 属性，都可以通过 item() 和数组下标的方式访问内部元素。都实现了 Symbol.iterator 迭代器方法（可以被 for...of 遍历）",
+  "keywords": "HTMLCollection,NodeList,HTMLCollection与NodeList区别",
+  "category": "JavaScript"
+}
+---
 # HTMLCollection 和 NodeList 有什么区别
 在获取 dom 节点结集合时，有的 API 返回的是 HTMLCollection 类型，有的是 NodeList 类型。他们有什么区别呢？下来看看具体的 API
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue-router编程方式跳转路由以及其传参问题",
+  "staticFileName": "vue-router-jump.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "vue-router有以下几种编程方式跳转路由的方法。一般push和repalce用的比较多，下面来看看",
+  "keywords": "vue-router,vue-router编程式跳转方法,vue-router跳转路由方法",
+  "category": "Vue"
+}
+---
 # vue-router编程方式跳转路由以及其传参问题
 
 vue-router有以下几种编程方式跳转路由的方法。一般push和repalce用的比较多，下面来看看

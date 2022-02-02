@@ -1,3 +1,14 @@
+---
+{
+  "title": "eslint禁止在return语句中使用赋值",
+  "staticFileName": "devtools_eslint.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/17",
+  "description": "在项目中，有一次为了少写一行，将设置值和return语句写成了一行，发现eslint报错，为什么会有这个错误呢？下面我们来看看。",
+  "keywords": "eslintno-return-assign,eslint禁止在return中使用赋值,no-return-assign, eslint no-return-assign",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # eslint禁止在return语句中使用赋值
 

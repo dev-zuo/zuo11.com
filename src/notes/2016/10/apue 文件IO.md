@@ -1,3 +1,14 @@
+---
+{
+  "title": "apue 文件IO",
+  "staticFileName": "apue_file_io.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/18",
+  "description": " UNIX系统中，文件I/O常用的5个函数: open,read,write,lseek,close。与标准I/O相比文件I/O通常称为不带缓冲的I/O(unbuffered)。一般所有I/O都要经过内核的块缓冲。read，write的数据也要被内核缓冲，这里不带缓冲的I/O指的是在用户进程用不会自动缓冲，每次都是系统调用。",
+  "keywords": "文件IO,标准IO,C语言文件处理,APUE文件IO,apue 文件io",
+  "category": "C与APUE"
+}
+---
 
 # apue 文件IO
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "js 怎么减少 if else 嵌套, 使用函数封装、三元运算符等",
+  "staticFileName": "reduce_if_else.html",
+  "author": "guoqzuo",
+  "createDate": "2021/09/09",
+  "description": "在 if else 或函数嵌套层级较多，代码会逐渐变的难看，不好理解及维护。一般可以通过改变代码组织方式，来减少代码嵌套层级，这里主要介绍下面 5 种方法：1.将代码块按功能块封装成函数，减少函数内代码的嵌套层级 2. if 优化，逻辑假时 true，减少 if 中包含大量代码的情况 3...",
+  "keywords": "js 怎么减少 if else 嵌套,js 怎么减少 if 嵌套,js 怎么减少函数嵌套,js 中 if else 替代写法",
+  "category": "JavaScript"
+}
+---
 # js 怎么减少 if else 嵌套, 使用函数封装、三元运算符等
 
 在 if else 或函数嵌套层级较多，代码会逐渐变的难看，不好理解及维护。一般可以通过改变代码组织方式，来减少代码嵌套层级，这里主要介绍下面 5 种方法：

@@ -1,3 +1,14 @@
+---
+{
+  "title": "客户端修改host后js获取location.href不真实的问题",
+  "staticFileName": "host_href_issue.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/24",
+  "description": "macOS 修改host文件 /etc/hosts 后，本地访问某个域名会按照host指定的ip去解析，就会造成前端location.href不准确的问题，下面来看看",
+  "keywords": "location.href不准确的问题,修改host后location.href也会变",
+  "category": "JavaScript"
+}
+---
 # 客户端修改host后js获取location.href不真实的问题
 macOS 修改host文件 /etc/hosts 后，本地访问某个域名会按照host指定的ip去解析，就会造成前端location.href不准确的问题，下面来看看
 

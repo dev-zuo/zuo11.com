@@ -1,3 +1,14 @@
+---
+{
+  "title": "防盗链时需要注意搜索引擎 Referer，百度和 Google 搜索内容跳转链接之间的区别",
+  "staticFileName": "search_referer.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/15",
+  "description": "一般搜索引擎为了方便网页做来源分析，不会使用 noreferer，因此从搜索引擎进入页面时，会携带对应的 Referer。当首页 index.html 也放在 CDN 的情况时，做防盗链 Referer 白名单时，要记得放开搜索引擎的相关 Referer。下面分两个部分介绍搜索引擎跳转链接的处理 1. 百度搜索结果链接的跳转方式 2. Google搜索结构链接的跳转方式",
+  "keywords": "防盗链需要注意搜索引擎,百度和Google搜索跳转链接区别",
+  "category": "http与https"
+}
+---
 # 防盗链时需要注意搜索引擎 Referer，百度和 Google 搜索内容跳转链接之间的区别
 一般搜索引擎为了方便网页做来源分析，不会使用 noreferer，因此从搜索引擎进入页面时，会携带对应的 Referer。当首页 index.html 也放在 CDN 的情况时，做防盗链 Referer 白名单时，要记得放开搜索引擎的相关 Referer。下面分两个部分介绍搜索引擎跳转链接的处理
 1. 百度搜索结果链接的跳转方式

@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue CLI build --target lib 时如何避免打包成多个umd.js文件",
+  "staticFileName": "vue_umd_multiple.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/30",
+  "description": "Vue CLI 项目中，一般我们使用的是 npm run build 来构建项目，并发布到线上。当我们写组件/工具库的时候，就需要使用 `--target lib` 参数了。打包成库（Library）与普通的构建应用不一样，它会在 dist 目录下生成对应的 umd.js 文件，也就是通用模块定义的 js 文件。一般用于组件/工具库的入口文件，我们可以在静态 html 以及 Vue CLI 等项目中直接引入并使用。如果不进行构建，只能在 Vue CLI 项目中使用，无法引入一个 js 直接使用。",
+  "keywords": "怎么避免生成多个umd.js,如何避免打包成多个umd.js",
+  "category": "前端工程化"
+}
+---
 # Vue CLI build --target lib 时如何避免打包成多个umd.js文件
 Vue CLI 项目中，一般我们使用的是 npm run build 来构建项目，并发布到线上。当我们写组件/工具库的时候，就需要使用 `--target lib` 参数了。
 

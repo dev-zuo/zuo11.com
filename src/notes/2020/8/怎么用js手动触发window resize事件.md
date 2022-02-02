@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么用js手动触发window resize事件",
+  "staticFileName": "manual_dispatch_resize.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/30",
+  "description": "js手动触发resize事件,手动触发resize事件,自定义resize事件,这里手动触发window.resize事件的目的，主要用于fix改变窗口大小后其他tab页echarts图表显示异常的问题，在echarts图表组件里，有时候需要图表大小自适应浏览器窗口大小。这种情况echart宽高都会设定为100%，依赖父元素的宽高。然后再监听window的resize事件，当窗口大小改变后，重绘图表。那么问题来了",
+  "keywords": "js手动触发resize事件,手动触发resize事件,自定义resize事件,改变窗口大小后其他tab页echarts图表显示异常的问题",
+  "category": "JavaScript"
+}
+---
 
 # 怎么用js手动触发window resize事件
 

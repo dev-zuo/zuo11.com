@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS选择器UIPickerView和UIDatePicker",
+  "staticFileName": "ios_picker.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/01",
+  "description": "Apple提供了两个选择器对象：UIPickerView和UIDatePicker，就像网页里的select。UIDatePicker是时间方面的选择器，用法和UIPickerView差不多，这里先介绍UIPickerView，它可以自定义选择的行和列，每行显示的内容可以是自定义的视图。",
+  "keywords": "iOS选择器,iOS UIPickerView,iOS UIDatePicker,UIPickerView,UIDatePicker",
+  "category": "iOS"
+}
+---
 
 # iOS选择器UIPickerView和UIDatePicker
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "Google AdSense被拒理由网站已下线或无法访问怎么解决",
+  "staticFileName": "adsense_cannot_found.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/16",
+  "description": "在自己网站的 head 部分加入 AdSense 的校验代码后，会有一段审核的时间。在这个过程中，网站可能会有来自福建龙岩的 203.208.60.* IP段蜘蛛来爬取你的网页。蜘蛛会爬取JS渲染后的效果，可以触发百度统计等js代码。不用屏蔽，这属于 Google 蜘蛛正常爬取，Google Analytics 在计算访客时会忽略这一部分访客信息。蜘蛛爬完的第二天，就收到了邮件，说审核不通过，看了下原因：'网站已下线或无法访问怎么解决' ，如下图所示。但我的网站是确定可以正常访问的。",
+  "keywords": "AdSense网站已下线或无法访问",
+  "category": "网站建设与SEO"
+}
+---
 # Google AdSense被拒理由网站已下线或无法访问怎么解决？
 在自己网站的 head 部分加入 AdSense 的校验代码后，会有一段审核的时间。在这个过程中，网站可能会有来自福建龙岩的 203.208.60.* IP段蜘蛛来爬取你的网页。蜘蛛会爬取JS渲染后的效果，可以触发百度统计等js代码。不用屏蔽，这属于 Google 蜘蛛正常爬取，Google Analytics 在计算访客时会忽略这一部分访客信息。
 

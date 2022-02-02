@@ -1,3 +1,14 @@
+---
+{
+  "title": "Invalid character in header content ['Content-Disposition']",
+  "staticFileName": "content-dispositon.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/21",
+  "description": "在koa中，如果Content-Disposition里设置文件名有中文会提示错误，需要用类似 encodeURIComponent 转码的函数转码后才行，这里顺便介绍下encodeURIComponent和encodeURI的区别",
+  "keywords": "Invalid character in header content ['Content-Disposition'],URI和URL的区别,encodeURIComponent和encodeURI的区别,encodeURI和encodeURIComponent区别",
+  "category": "http与https"
+}
+---
 
 # Invalid character in header content ["Content-Disposition"]
 

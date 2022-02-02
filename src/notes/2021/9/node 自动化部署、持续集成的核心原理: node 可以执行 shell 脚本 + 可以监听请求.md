@@ -1,3 +1,14 @@
+---
+{
+  "title": "node 自动化部署、持续集成的核心原理: node 可以执行 shell 脚本 + 可以监听请求",
+  "staticFileName": "node_ci_cd.html",
+  "author": "guoqzuo",
+  "createDate": "2021/09/09",
+  "description": "node 可以用来支撑实现自动化部署、持续集成，核心原理是：1. node 可以执行 shell 脚本，而部署流程一般都是写在 shell 脚本中的。2. node 可以作为服务器 server, 当接收到请求后，根据条件判断是否执行部署的 shell 脚本。我们这里结合 github webhooks 来实现持续集成，自动化部署",
+  "keywords": "node 自动化部署,node持续集成,node ci,node cd,node webhooks,github webhooks",
+  "category": "运维部署与版本控制"
+}
+---
 # node 自动化部署、持续集成的核心原理: node 可以执行 shell 脚本 + 可以监听请求
 
 node 可以用来支撑实现自动化部署、持续集成，核心原理是：

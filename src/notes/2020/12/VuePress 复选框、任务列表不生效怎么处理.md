@@ -1,3 +1,14 @@
+---
+{
+  "title": "VuePress 复选框、任务列表不生效怎么处理",
+  "staticFileName": "vuepress_tasklist.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/15",
+  "description": "在写 markdown 笔记时，复选框、任务列表（task list）功能在本地 Typora 是生效的，但在 VuePress 中无法正常显示。于是在 Github 对应的 issue 里面搜索 Task lists，找到了解决方法：需要安装一个 markdown 插件 `markdown-it-task-lists`",
+  "keywords": "VuePress复选框显示不正常,VuePress任务列表,VuePress Task list",
+  "category": "Vue"
+}
+---
 # VuePress 复选框、任务列表不生效怎么处理
 在写 markdown 笔记时，复选框、任务列表（task list）功能在本地 Typora 是生效的，但在 VuePress 中无法正常显示。于是在 Github 对应的 issue 里面搜索 Task lists，找到了解决方法：需要安装一个 markdown 插件 `markdown-it-task-lists`
 ```markdown

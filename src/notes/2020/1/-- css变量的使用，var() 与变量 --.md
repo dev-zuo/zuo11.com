@@ -1,3 +1,14 @@
+---
+{
+  "title": "-- css变量的使用，var() 与变量 --",
+  "staticFileName": "css_var.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/10",
+  "description": "在less或sass中，有直接的变量定义方法，而css原生其实也是可以定义变量的，使用--和var即可",
+  "keywords": "css变量,-- css变量的使用，var() 与变量 --",
+  "category": "CSS"
+}
+---
 
 # -- css变量的使用，var() 与变量 --
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS程序启动过程，视图加载UIWindow与ViewController",
+  "staticFileName": "ios_startup_viewload.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/01",
+  "description": "初步了解了iOS程序的启动过程、UIApplication和AppDelegate后，就要开始步入正题了，界面的显示问题。开启主运行循环后，会看Info.plist文件是否指定了main storyboard，有则加载。加载storyboard会创建UIWindow对象，再将默认的ViewController设置为该window的根控制器，然后将ViewController的view可视化",
+  "keywords": "UIWindow,ViewController,代码手动加载storyboard,代码加载xib,iOS启动过程",
+  "category": "iOS"
+}
+---
 # iOS程序启动过程，视图加载UIWindow与ViewController
 
 > 初步了解了iOS程序的启动过程、UIApplication和AppDelegate后，就要开始步入正题了，界面的显示问题。开启主运行循环后，会看Info.plist文件是否指定了main storyboard，有则加载。加载storyboard会创建UIWindow对象，再将默认的ViewController设置为该window的根控制器，然后将ViewController的view可视化。

@@ -1,3 +1,14 @@
+---
+{
+  "title": "Chrome DevTools Network Waterfall 瀑布图各阶段详解",
+  "staticFileName": "chrome_waterfall.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/23",
+  "description": "在Chrom调试工具Network tab下，每个请求都有一个Waterfal diagrams(瀑布图)，点击具体接口，Timming(时序)位置会有具体描述。它记录了网络请求各个阶段的耗时，可以用于分析页面加载性能。Timing breakdown phases explained（时序分解阶段明细）。Here's more information about each of the phases you may see in the Timing tab:（下面是在Timing标签页中能看到的各个阶段的更多信息）",
+  "keywords": "chrome瀑布图,Timming时序图",
+  "category": "计算机基础与开发工具"
+}
+---
 # Chrome DevTools Network Waterfall 瀑布图各阶段详解
 在 Chrome 调试工具 Network tab 下，每个请求都有一个 Waterfal diagrams(瀑布图)，点击具体接口，Timming(时序)位置会有具体描述。它记录了网络请求各个阶段的耗时，可以用于分析页面加载性能。
 

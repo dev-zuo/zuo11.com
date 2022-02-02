@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue动态组件怎么动态绑定一个或多个v-bind属性",
+  "staticFileName": "component_vbind.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/10",
+  "description": "最近有封装一个tabs标签页组件，引入组件，可以将页面进行tab化。原先的页面作为子组件放到tabs组件里，由于标签页跳转页面时有需要打开新的标签页。所以tabs组件里会包含多个页面组件，为了避免像el-tabs那样，每次引入tabs组件都需要自己写v-if的逻辑来切换tab显示。我把这一步封装到了自定义tabs组件内部，内部使用动态组件component、is来切换组件显示。",
+  "keywords": "动态组件怎么动态绑定一个或多个v-bind属性",
+  "category": "Vue"
+}
+---
 # vue动态组件怎么动态绑定一个或多个v-bind属性
 
 最近有封装一个tabs标签页组件，引入组件，可以将页面进行tab化。

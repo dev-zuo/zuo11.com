@@ -1,3 +1,14 @@
+---
+{
+  "title": "js if(true) 代码块中函数和变量同名时作用域提升问题，Chrome Devtools Snippets 断点调试",
+  "staticFileName": "js_hoisting.html",
+  "author": "guoqzuo",
+  "createDate": "2021/09/09",
+  "description": "在 JS 代码块中变量和函数同名，作用域怎么提升的问题是比较难以理解的，对于不同的浏览器还有不同的结果，下面来看几个例子，我们可以通过 Chrome 浏览器中的 DevTools - Sources - Snippets 中利用断点调试的功能来看浏览器是如何一步步执行的。",
+  "keywords": "js hoisting,js 函数提升,js 变量提升,Chrome Devtools Snippets 断点调试",
+  "category": "JavaScript"
+}
+---
 # js if(true) 代码块中函数和变量同名时作用域提升问题，Chrome Devtools Snippets 断点调试
 
 在 JS 代码块中变量和函数同名，作用域怎么提升的问题是比较难以理解的，对于不同的浏览器还有不同的结果，下面来看几个例子：

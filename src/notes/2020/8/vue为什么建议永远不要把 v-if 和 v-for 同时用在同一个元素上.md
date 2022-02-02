@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue为什么建议永远不要把 v-if 和 v-for 同时用在同一个元素上",
+  "staticFileName": "v-if_v-for.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/15",
+  "description": "vue v-if为什么不能和v-for一起用,vue v-if v-for一起用,vue v-if和v-for一起时优先级,在vue风格指南中，将'避免 v-if 和 v-for 用在一起'列为必要优先级，建议永远不要把 v-if 和 v-for 同时用在同一个元素上。官网文档如下: 一般我们在两种常见的情况下会倾向于这样做： 1. 为了过滤一个列表中的项目 (比如 v-for='user in users' v-if='user.isActive')。在这种情形下，请将 users 替换为一个计算属性 (比如 activeUsers)，让其返回过滤后的列表。2. 为了避免渲染本应该被隐藏的列表 (比如 v-for='user in users' v-if='shouldShowUsers')。这种情形下，请将 v-if 移动至容器元素上 (比如 ul、ol)。",
+  "keywords": "vue v-if为什么不能和v-for一起用,vue v-if v-for一起用,vue v-if和v-for一起时优先级",
+  "category": "Vue"
+}
+---
 
 # vue为什么建议永远不要把 v-if 和 v-for 同时用在同一个元素上
 

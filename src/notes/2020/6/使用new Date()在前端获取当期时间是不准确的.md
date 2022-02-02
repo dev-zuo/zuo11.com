@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用new Date()在前端获取当期时间是不准确的",
+  "staticFileName": "new_date_fe.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/21",
+  "description": "一般我们在前端开发中，经常会用到new Date()来获取当前时间，但我们要知道：new Date()是获取的当前操作系统的时间，它是不准确的？",
+  "keywords": "前端获取当前时间是不准确的,new Date()获取当前时间不准确,new Date()获取当前时间是当前操作系统的时间",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # 使用new Date()在前端获取当期时间是不准确的
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用Github的Pages功能创建静态个人网站",
+  "staticFileName": "web_github_pages.html",
+  "author": "guoqzuo",
+  "createDate": "2018/02/25",
+  "description": "使用Github的Pages功能创建静态个人网站，通过Github Pages这个功能，我们可以创建一个开源的静态个人网站，通过xxx.github.io 可以访问. 示例页面 https://zuoxiaobai.github.io",
+  "keywords": "github pages个人博客,使用github创建个人博客",
+  "category": "网站建设与SEO"
+}
+---
 
 # 使用Github的Pages功能创建静态个人网站
 本文根据官方文档  [Github Pages](https://pages.github.com) 整理

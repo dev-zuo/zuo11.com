@@ -1,3 +1,14 @@
+---
+{
+  "title": "node koa 怎么获取 POST 请求 Content-Type 为 'text-plain' 的数据",
+  "staticFileName": "text-plain-post.html",
+  "author": "guoqzuo",
+  "createDate": "2021/01/12",
+  "description": "在 Beacon API 中，使用 `navigator.sendBeacon(url, dataString)` 发送的是 POST 请求，Content-Type 是比较少见的 'text/plain;charset=UTF-8' 。它既不是 xhr，也不是 fetch，是一种独立的请求类型。在 koa 中，一般使用 koa-bodyparser 来处理 post 请求数据。但这次发现使用 ctx.request.body 无法接收到数据。之前接收 'application/x-www-form-urlencoded' 和 'application/json' 类型的数据都是正常的。",
+  "keywords": "text/plain post,post text/plain数据解析",
+  "category": "前端工程化"
+}
+---
 # node koa 怎么获取 POST 请求 Content-Type 为 "text/plain" 的数据
 在 Beacon API 中，使用 `navigator.sendBeacon(url, dataString)` 发送的是 POST 请求，Content-Type 是比较少见的 "text/plain;charset=UTF-8" 。它既不是 xhr，也不是 fetch，是一种独立的请求类型。在 koa 中，一般使用 koa-bodyparser 来处理 post 请求数据。但这次发现使用 ctx.request.body 无法接收到数据。之前接收 "application/x-www-form-urlencoded" 和 "application/json" 类型的数据都是正常的。
 

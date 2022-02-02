@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue多层级组件，父组件怎么将事件传递给孙组件?",
+  "staticFileName": "vue_listeners.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/10",
+  "description": "来看一个例子，假设A组件包含组件B，B组件又包含组件C，我们知道，在B组件里 this.$emit('open-tab') 会执行其父组件A里面对应的方法，但如果B的子组件C，也想触发A组件的事件，那要怎么做呢？",
+  "keywords": "vue多层级组件，父组件怎么将事件传递给孙组件",
+  "category": "Vue"
+}
+---
 # vue多层级组件，父组件怎么将事件传递给孙组件?
 来看一个例子，假设A组件包含组件B，B组件又包含组件C，我们知道，在B组件里 this.$emit('open-tab') 会执行其父组件A里面对应的方法，但如果B的子组件C，也想触发A组件的事件，那要怎么做呢？
 

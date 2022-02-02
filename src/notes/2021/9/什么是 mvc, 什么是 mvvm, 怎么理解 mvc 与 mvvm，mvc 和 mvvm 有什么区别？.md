@@ -1,3 +1,14 @@
+---
+{
+  "title": "什么是 mvc, 什么是 mvvm, 怎么理解 mvc 与 mvvm，mvc 和 mvvm 有什么区别？",
+  "staticFileName": "mvc_vs_mvvm.html",
+  "author": "guoqzuo",
+  "createDate": "2021/09/09",
+  "description": "每个新技术的出现都有其历史原因，MVVM 也是如此。Vue 就是基于 MVVM 模式。那什么是 MVVM 构架模式，和 MVC 模式有什么区别呢？在介绍 MVVM 之前，我们先需要了解什么是 MVC 模式。在 ajax 技术没有出现之前，html 页面中发送 http 请求会刷新整个页面。页面内容强依赖后端接口响应的内容，于是催生了 jsp、php、asp 等前后端都耦合在一起的技术。下面来看一个实例",
+  "keywords": "什么是 mvc,什么是 mvvm,怎么理解 mvc, mvc 与 mvvm 的区别,mvc,mvvm",
+  "category": "Vue"
+}
+---
 # 什么是 mvc, 什么是 mvvm, 怎么理解 mvc 与 mvvm，mvc 和 mvvm 有什么区别？
 
 每个新技术的出现都有其历史原因，MVVM 也是如此。Vue 就是基于 MVVM 模式。那什么是 MVVM 构架模式，和 MVC 模式有什么区别呢？

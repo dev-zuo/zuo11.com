@@ -1,3 +1,14 @@
+---
+{
+  "title": "macOS安装nginx",
+  "staticFileName": "mac_nginx_install.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/08",
+  "description": "mac下直接使brew install用命令安装，注意：mac自带的xcode不要随意卸载，不然会出各种奇怪的问题: 包括svn安装问题、nginx安装问题等",
+  "keywords": "mac nginx,mac 安装nginx,macos安装nginx,macos nginx,nginx安装",
+  "category": "运维部署与版本控制"
+}
+---
 
 # macOS安装nginx
 

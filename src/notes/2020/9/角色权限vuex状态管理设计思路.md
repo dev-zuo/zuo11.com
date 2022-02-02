@@ -1,3 +1,14 @@
+---
+{
+  "title": "角色权限vuex状态管理设计思路",
+  "staticFileName": "vuex_role.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/24",
+  "description": "在vue项目中做角色权限控制时，如果角色较多、权限较复杂，或者很多地方需要使用，就需要使用vuex状态管理了，我们可以在vuex里提供一个getter方法，用于获取对应的角色权限，假设getter名为roleMuster，在需要用到的vue组件里，通过mapGetters导入，就可以使用了",
+  "keywords": "vue角色权限,vuex权限",
+  "category": "Vue"
+}
+---
 
 # 角色权限vuex状态管理设计思路
 

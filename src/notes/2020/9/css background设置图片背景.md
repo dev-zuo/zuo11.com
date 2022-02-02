@@ -1,3 +1,14 @@
+---
+{
+  "title": "css background设置图片背景",
+  "staticFileName": "background.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/24",
+  "description": "HTML5权威指南这本书对background的简写貌似有点不正确，使用起来会有问题，这次让图片在某个区域完全显示，是分开写的，如下：div { background: #fff url('/images/xxx.png') no-repeat; background-size: cover;}",
+  "keywords": "background背景图片,background-size",
+  "category": "CSS"
+}
+---
 
 # css background设置图片背景
 HTML5权威指南这本书对background的简写貌似有点不正确，使用起来会有问题，这次让图片在某个区域完全显示，是分开写的，如下：

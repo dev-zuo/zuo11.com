@@ -1,3 +1,14 @@
+---
+{
+  "title": "JSON.stringify的非常规用法以及内部执行顺序",
+  "staticFileName": "stringify_use.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "JSON.stringify，JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法，我们一般用于将JSON对象转为字符串，但他不仅仅只有一个参数，而是三个，除最常用的用法外，还可以用来做三种实用功能: 1.利用第三参数在console里更好的展示对象; 2.有选择性的过滤字段; 3.详细处理没有字段序列化的值",
+  "keywords": "JSON.stringify,JSON.stringify用法总结,JSON.stringify内部执行顺序,JSON.stringify非常规用法",
+  "category": "JavaScript"
+}
+---
 # JSON.stringify的非常规用法以及内部执行顺序
 JSON.stringify我们一般用于将JSON对象转为字符串，但他不仅仅只有一个参数，而是三个，除最常用的用法外，还可以用来做三种实用功能: 1.利用第三参数在console里更好的展示对象; 2.有选择性的过滤字段; 3.详细处理没有字段序列化的值
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "mip改造",
+  "staticFileName": "web_mip.html",
+  "author": "guoqzuo",
+  "createDate": "2016/12/28",
+  "description": "最近对网站进行了改版，移动端为了对搜索引擎更友好，用MIP改造了移动端，还有很多问题待完善。PC端也小改了下，本来找了个很好的背景图片，但由于文件大了，影响加载速度。还是放弃了，就加了个magnet图片，写了个js来控制背景图片的切换。",
+  "keywords": "zuo11.com站点优化记录,mip改造,百度mip,pc端改移动端,mip改造实例",
+  "category": "网站建设与SEO"
+}
+---
 
 # mip改造
 

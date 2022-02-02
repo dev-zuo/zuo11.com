@@ -1,3 +1,14 @@
+---
+{
+  "title": "原生JS封装prompt组件",
+  "staticFileName": "custom_prompt.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/09",
+  "description": "自定义prompt组件，原生JS封装prompt，就项目中要用到prompt功能，但需要优化下UI，整体导入elementUI不合适，就自己用原生JS写了个。样式、div结构，直接从elementUI message-box审查元素里面抽离，相关点击事件，校验，自己封装。",
+  "keywords": "自定义prompt,原生js自定义prompt组件",
+  "category": "JavaScript"
+}
+---
 
 # 原生JS封装prompt组件
 

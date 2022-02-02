@@ -1,3 +1,14 @@
+---
+{
+  "title": "http转https",
+  "staticFileName": "web_https.html",
+  "author": "guoqzuo",
+  "createDate": "2017/01/10",
+  "description": "在玩微信小程序的时候发现网络请求必须是https开头的，但我的数据都在我的web服务器上，只是简单的http，于是就在网上找ssl证书，发现居然有免费1年的SSL，还是阿里云的，果断申请使用。顺便将web的数据打包为json做了一个接口。",
+  "keywords": "免费SSL,阿里云DV SSL使用实例,http转https,80端口转443端口,tomcat配置https",
+  "category": "http与https"
+}
+---
 
 # http转https
 

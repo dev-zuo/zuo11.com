@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue 国际化 vue-i18n 相关用法、实践总结",
+  "staticFileName": "vue-i18n_use.html",
+  "author": "guoqzuo",
+  "createDate": "2021/05/04",
+  "description": "vue 国际化, Vue 国际化最佳实践, vue-i18n最佳实践, vue-i18n模块化方案, 在 'Vue 使用 vue-i18n 国际化' 中，我们简单介绍了 vue-i18n 的基本使用。如果想将它实际应用到项目中，我们还需要考虑怎么做到更加简洁、优雅、可维护，下面是一些实践总结。1. i18n 单独放一个目录，避免在 main.js 中写入太多内容 2. 方便实时测试：语言切换组件 3. 避免单文件过大、混乱：模块化 4. 列表渲染（code 值）处理：js 取值、过滤器 filter 设计",
+  "keywords": "vue 国际化,Vue 国际化最佳实践,vue-i18n最佳实践,vue-i18n模块化方案",
+  "category": "Vue"
+}
+---
 # Vue 国际化 vue-i18n 相关用法、实践总结
 
 在 [Vue 使用 vue-i18n 国际化 - 左小白的技术日常](http://www.zuo11.com/blog/2021/4/vue_international.html) 中，我们简单介绍了 vue-i18n 的基本使用。如果想将它实际应用到项目中，我们还需要考虑怎么做到更加简洁、优雅、可维护，下面是一些实践总结。

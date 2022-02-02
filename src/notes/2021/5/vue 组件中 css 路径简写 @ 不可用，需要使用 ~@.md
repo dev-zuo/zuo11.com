@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue 组件中 css 路径简写 @ 不可用，需要使用 ~@",
+  "staticFileName": "vue_css_src.html",
+  "author": "guoqzuo",
+  "createDate": "2021/05/04",
+  "description": "vue css src 路径，css @ 不生效，css src 简写@, webpack 解析 css 路径，在 vue-cli 创建的 vue 项目中，可以使用 @ 来表示 src 路径。但在 css 中，图片路径使用 @ 就会出错。那 css 中要怎么使用 src 相对路径呢？需要在前面加 ~，也就是 ~@，这样就不必使用相对路径了。",
+  "keywords": "vue css src 路径,css @ 不生效,css src 简写@,webpack 解析 css 路径",
+  "category": "Vue"
+}
+---
 # Vue 组件中 css 路径简写 @ 不可用，需要使用 ~@
 > Vue css src 路径，css @ 不生效，css src 简写@, webpack 解析 css 路径
 

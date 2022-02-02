@@ -1,3 +1,14 @@
+---
+{
+  "title": "不全局安装npm包，怎么在项目目录下局部执行对应的命令",
+  "staticFileName": "npm_cmd_part.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/08",
+  "description": "一般在 Vue 开发中，vue 命令可以执行，是因为全局安装了 `@vue/cli` npm包。假设你无法使用 npm install -g 全局安装，那怎么在当前项目所在的目录运行对应的命令呢？这里我们使用 zuo-util 这么 npm 包来介绍 3 种在项目种运行 npm 包命令的方法：1. npm run xxx 2. npx 命令 3. ./node_modules/.bin/命令",
+  "keywords": "局部执行npm包命令,不全局安装npm包，怎么在项目中运行命令,局部执行命令",
+  "category": "前端工程化"
+}
+---
 # 不全局安装npm包，怎么在项目目录下局部执行对应的命令
 一般在 Vue 开发中，vue 命令可以执行，是因为全局安装了 `@vue/cli` npm包。假设你无法使用 npm install -g 全局安装，那怎么在当前项目所在的目录运行对应的命令呢？这里我们使用 zuo-util 这么 npm 包来介绍 3 种在项目种运行 npm 包命令的方法：
 1. npm run xxx

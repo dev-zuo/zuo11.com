@@ -1,3 +1,14 @@
+---
+{
+  "title": "js 点击按钮复制内容的实现, 使用 ele.select 加 document.execCommand('copy')",
+  "staticFileName": "js_copy.html",
+  "author": "guoqzuo",
+  "createDate": "2021/09/09",
+  "description": "点击按钮复制链接、复制代码在前端是比较常见的需求，这里介绍一种比较简单的实现：1.先借用 input 等可以选中文本的元素，调用 element.select() 选中文本内容 2.再执行 document.execCommand('copy') 对选中内容进行复制 我们可以通过下面的例子来了解这个过程，点击按钮复制内容 - 在线演示",
+  "keywords": "js 点击按钮复制内容实现,js 向粘贴板写入内容,js copy text",
+  "category": "JavaScript"
+}
+---
 # js 点击按钮复制内容的实现, 使用 ele.select 加 document.execCommand('copy')
 
 点击按钮复制链接、复制代码在前端是比较常见的需求，这里介绍一种比较简单的实现：

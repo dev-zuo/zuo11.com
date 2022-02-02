@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用curl向百度站长主动推送站点url",
+  "staticFileName": "push_url_baidu.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "之前提交链接都是手动将url粘贴到输入框提交。这次试了下curl方式提交还是很方便的，来看看步骤",
+  "keywords": "向百度站长主动推送站点url,推送url到百度",
+  "category": "网站建设与SEO"
+}
+---
 # 使用curl向百度站长主动推送站点url
 之前提交链接都是手动将url粘贴到输入框提交。这次试了下curl方式提交还是很方便的，来看看步骤
 ```bash

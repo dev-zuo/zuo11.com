@@ -1,3 +1,14 @@
+---
+{
+  "title": "vi 生成c语言模板",
+  "staticFileName": "c_vim.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/13",
+  "description": "vi 生成c语言模板，vim在终端下编辑文件，每次vi一个新文件时都要敲一些重复的内容，于是就用C写了个程序，用来自动生成自定义模板。",
+  "keywords": "vi 生成c语言模板,vim c模板程序,c语言模板",
+  "category": "C与APUE"
+}
+---
 
 # vi 生成c语言模板
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "为什么会有Node.js，其衍生框架Express、Koa、Egg.js的演进过程",
+  "staticFileName": "why_node.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/02",
+  "description": "为什么会有Node.js，在前端开发中，经常会用到node.js，那大家有没有想过 为什么会出现node.js这个技术？它解决了前端开发中的哪些问题？假设在前端面试中问你这个问题？你会怎么回答，下面是我自己的一个理解",
+  "keywords": "为什么会有Node.js,node.js的不足",
+  "category": "前端工程化"
+}
+---
 
 # 为什么会有Node.js，其衍生框架Express、Koa、Egg.js的演进过程
 

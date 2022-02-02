@@ -1,3 +1,14 @@
+---
+{
+  "title": "axios请求拦截与响应拦截",
+  "staticFileName": "http_axios_interceptors.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/12",
+  "description": "axios提供了请求拦截与响应拦截的函数axios.interceptors，请求拦截器有什么用呢？具体怎么使用？下面来看看",
+  "keywords": "axios请求拦截,axios响应拦截,axios.interceptors,axios拦截器",
+  "category": "http与https"
+}
+---
 
 # axios请求拦截与响应拦截
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "提示 hints、tips、prompt 以及 message 的区别",
+  "staticFileName": "tips_hints.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/11",
+  "description": "在程序开发中，关于提示组件的命名，有 tips、hints、prompt、message 等，一般怎么使用呢？下面来看看  tips，n. 小贴士、温馨提示、小窍门。主要用于文字提示，比如 tooltip 组件。 hints，n. 暗示、提示，v. 暗示、示意。开发中用的较少，相比于 tips，它有间接含蓄, 暗示，不直接提示的意思。",
+  "keywords": "hints和tips区别,提示命名,提示 英文,提示 英语",
+  "category": "计算机基础与开发工具"
+}
+---
 # 提示 hints、tips、prompt 以及 message 的区别
 
 在程序开发中，关于提示组件的命名，有 tips、hints、prompt、message 等，一般怎么使用呢？下面来看看

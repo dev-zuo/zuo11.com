@@ -1,3 +1,14 @@
+---
+{
+  "title": "git修改上上次的commit信息",
+  "staticFileName": "git_edit_commit_info.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/01",
+  "description": "由于提交代码时有钩子函数，信息里面没有包含前置的 code 会无法提交。所以如果 commit 信息写的有问题需要修改后才能提交。对于修改上一次 commit 备注信息，我们可以使用 `git commit --amend -m 'xxx'` 来修改。但它无法修改上上次提交信息，这种情况我们可以使用 rebase 来做处理，下面来做一个测试，本地做两次提交，第一次提交信息为'测试第一次提交'， 第二次提交信息为 '第二次提交'，先不push，我们需要修改上上次的提交信息，也就是修改'测试第一次提交'的内容",
+  "keywords": "git修改commit信息",
+  "category": "运维部署与版本控制"
+}
+---
 # git修改上上次的commit信息
 由于提交代码时有钩子函数，信息里面没有包含前置的 code 会无法提交。所以如果 commit 信息写的有问题需要修改后才能提交
 

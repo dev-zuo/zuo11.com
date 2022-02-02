@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么解决sessionStorage新打开一个tab页就失效的问题",
+  "staticFileName": "sessionStorage_loss.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/22",
+  "description": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失,首页我们要知道3点：1. sessionStorage在浏览器的两个tab页之前是无法共享的，一个tab页中sessionStorage修改后，不能触发其他tab页的storage事件 2. 当前tab页的localStorage修改是无法触发当前页的storage事件的，他会触发其他tab页的storage事件 3. localStorage的共享，只发生在同源的地址里。非同源无法共享localStorage 怎么将就页面的sessionStorage传递到新开的tab页呢？",
+  "keywords": "sessionStorage新打开一个tab页就失效,sessionStorage打开新tab丢失",
+  "category": "JavaScript"
+}
+---
 
 # 怎么解决sessionStorage新打开一个tab页就失效的问题
 

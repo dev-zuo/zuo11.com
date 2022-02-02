@@ -1,3 +1,14 @@
+---
+{
+  "title": "H5原生拖放(Drag and Drop)demo以及浏览器兼容性处理",
+  "staticFileName": "js_drag_drop.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/22",
+  "description": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop,一般在网页中，如果需要实现拖放，首先要有两个元素：1. 可拖动的元素，元素draggable='true' 属性就是可拖放，如果设置为false就是不可拖放 2. 可以放置的区域，注意chrome如果不将放置区域的onenter和onover事件阻止默认行为，无法触发drop函数。拖放的过程中的钩子 1. 拖动元素时，会触发元素的 dragstart 钩子函数，在函数里可以设置数据、以及拖动到放置区域的鼠标样式 2. 当拖动元素进入放置区域时，放置区域元素会触发一次dragenter钩子(拖动进入)，触发多次dragover(拖动元素在放置区域移动中)，放下时再触发放置元素的drop钩子，这里可以用来接收拖拽元素dragstart设置的data，处理拖动的行为",
+  "keywords": "js拖拽,原生js拖放,js拖放,js拖放浏览器兼容性,HTML5 拖放,dragstart,drop",
+  "category": "JavaScript"
+}
+---
 
 # H5原生拖放(Drag and Drop)demo以及浏览器兼容性处理
 

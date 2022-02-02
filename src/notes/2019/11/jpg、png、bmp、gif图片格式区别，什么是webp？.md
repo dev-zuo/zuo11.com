@@ -1,3 +1,14 @@
+---
+{
+  "title": "jpg、png、bmp、gif图片格式区别，什么是webp？",
+  "staticFileName": "image_type.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/05",
+  "description": "在网页开发中一般用的都是png，现在比较流行或者说以后的趋势应该是webp，现有的一些图片格式都些有什么区别的？一般图片主要从两个方面来看：是否能无损压缩，图片大小、是否放大后不失真，下面来具体看看",
+  "keywords": "jpg、png、bmp、gif图片格式区别,什么是webp",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # jpg、png、bmp、gif图片格式区别，什么是webp？
 

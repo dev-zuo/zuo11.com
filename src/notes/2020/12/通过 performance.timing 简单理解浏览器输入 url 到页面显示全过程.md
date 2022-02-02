@@ -1,3 +1,14 @@
+---
+{
+  "title": "通过 performance.timing 简单理解浏览器输入 url 到页面显示全过程",
+  "staticFileName": "performance-timing.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/30",
+  "description": "performance.timing 记录了在浏览器中输入 url 到页面显示整个过程中各个关键节点的时间。包括：网页重定向的耗时、检查本地缓存的耗时、DNS查询的耗时、TCP连接的耗时、dom 加载完成的时间、页面 load 的总耗时等。performance.timing 是 PerformanceTiming 对象的实例。下面我们通过了解 performance.timing 各个字段的意思来实现下面图片的功能。",
+  "keywords": "浏览器输入 url 到页面显示全过程,performance.timing各字段详解",
+  "category": "JavaScript"
+}
+---
 # 通过 performance.timing 简单理解浏览器输入 url 到页面显示全过程
 
 performance.timing 记录了在浏览器中输入 url 到页面显示整个过程中各个关键节点的时间。包括：网页重定向的耗时、检查本地缓存的耗时、DNS查询的耗时、TCP连接的耗时、dom 加载完成的时间、页面 load 的总耗时等。performance.timing 是 PerformanceTiming 对象的实例。下面我们通过了解 performance.timing 各个字段的意思来实现下面图片的功能。

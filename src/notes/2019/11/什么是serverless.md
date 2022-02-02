@@ -1,3 +1,14 @@
+---
+{
+  "title": "什么是serverless",
+  "staticFileName": "serverless.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/11",
+  "description": "什么是serverless，最近在前端开发领域是一个比较火的概念，字面意思是无服务器，小程序云开发就是一种，主要是弱化服务器概念，把原来需要后端开发的内容搬到前端，让前端可以不用管数据库建表、部署方面的事情，写好代码一提交就可以自动生成对应的接口服务。",
+  "keywords": "什么是serverless,serverless,severless是什么,serverless优点,serverless发展过程",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # 什么是serverless
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue element表单组件简单实现",
+  "staticFileName": "mock_element_form.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/22",
+  "description": "element form实现,element 表单模拟实现,element form模拟实现，在写表单时，一般我们会用到el-form相关组件，那它内部是怎么实现的呢？下面我们来写个demo，尝试实现下。先来写一个调用示例，把el-前缀换成z-，然后我们需要实现z-form, z-form-item, z-input组件",
+  "keywords": "element form实现,element 表单模拟实现,element form模拟实现",
+  "category": "Vue"
+}
+---
 # vue element表单组件简单实现
 在写表单时，一般我们会用到el-form相关组件，那它内部是怎么实现的呢？下面我们来写个demo，尝试实现下。
 

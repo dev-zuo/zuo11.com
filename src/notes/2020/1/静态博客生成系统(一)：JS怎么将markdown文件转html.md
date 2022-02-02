@@ -1,3 +1,14 @@
+---
+{
+  "title": "静态博客生成系统(一)：JS怎么将markdown文件转html",
+  "staticFileName": "zuoblog_1_md.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/29",
+  "description": "其实早在18年12月，我就已经写好了最简的demo，使用的是marked这个工具。本来准备将博客静态化的，但后来就没继续了，这里来说下方法",
+  "keywords": "怎么用js将markdown转html,markdown转html文件",
+  "category": "前端工程化"
+}
+---
 
 # 静态博客生成系统(一)：JS怎么将markdown文件转html
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "getElementsByTagName 结果为什么不可以 forEach ？和 querySelectorAll 有什么区别",
+  "staticFileName": "dom_arr_forEach.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/15",
+  "description": "在 JS DOM 编程艺术的例子中，看到 `document.getElementsByTagName` 后使用了 `Array.from(xx)` 将其结果转为标准数组后再使用 `forEach`。下面写个例子来验证为什么？从上面的例子中，我们可以看到 `getElementsByTagName` 函数返回的数据类型是 `HTMLCollection`，类数组对象，并没有实现 forEach 方法，但它内部实现了迭代 for...of（Symbol.iterator）方法，因此可以使用 for、for...of 来遍历",
+  "keywords": "getElementsByTagName,querySelectorAll",
+  "category": "JavaScript"
+}
+---
 # getElementsByTagName 的结果为什么不可以 forEach ？和 querySelectorAll 有什么区别
 在 JS DOM 编程艺术的例子中，看到 `document.getElementsByTagName` 后使用了 `Array.from(xx)` 将其结果转为标准数组后再使用 `forEach`。下面写个例子来验证为什么？
 

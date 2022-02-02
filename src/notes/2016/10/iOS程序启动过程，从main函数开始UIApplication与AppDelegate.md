@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS程序启动过程，从main函数开始UIApplication与AppDelegate",
+  "staticFileName": "ios_startup.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/25",
+  "description": "想弄清楚一段程序，就需要了解程序的执行过程。一般程序都是从main函数开始执行，iOS app也不例外。iOS程序main函数里执行了UIApplicationMain()函数，这个函数会创建UIApplication对象及代理AppDelegate，并开启事件循环，显示UI.",
+  "keywords": "iOS程序启动过程,UIApplication,AppDelegate,iOS main函数执行过程",
+  "category": "iOS"
+}
+---
 # iOS程序启动过程，从main函数开始UIApplication与AppDelegate
 
 > 想弄清楚一段程序，就需要了解程序的执行过程。一般程序都是从main函数开始执行，iOS app也不例外。iOS程序main函数里执行了UIApplicationMain()函数，这个函数会创建UIApplication对象及代理AppDelegate，并开启事件循环，显示UI.

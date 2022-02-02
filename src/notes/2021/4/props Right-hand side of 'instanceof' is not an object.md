@@ -1,3 +1,14 @@
+---
+{
+  "title": "props Right-hand side of 'instanceof' is not an object",
+  "staticFileName": "vue_props_error.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/11",
+  "description": "在 Vue 中写 props 属性时，一般最简单的方式是使用数组的形式： props: ['属性名1', '属性名2']，但这样没有类型校验、默认值。在使用对象的写法时，发现出现 props Right-hand side of 'instanceof' is not an object，错误，写法如下",
+  "keywords": "vue props error",
+  "category": "Vue"
+}
+---
 # props Right-hand side of 'instanceof' is not an object
 在 Vue 中写 props 属性时，一般最简单的方式是使用数组的形式： props: ['属性名1', '属性名2']，但这样没有类型校验、默认值。在使用对象的写法时，发现出现 props Right-hand side of 'instanceof' is not an object，错误，写法如下
 

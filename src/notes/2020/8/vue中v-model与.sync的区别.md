@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue中v-model与.sync的区别",
+  "staticFileName": "v-model_vs_sync.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/15",
+  "description": "v-model与.sync的区别,v-model vs .sync, vue v-model与 .sync的区别,一般父组件给子组件传值是单向的，对于非引用类型，子组件怎么修改父组件传给子组件prop对应的值呢？除了通过 $parent、$root、Bus(发布，订阅)、状态管理(vuex)、额外定义一个方法外，还有两种方法：使用 v-model，或者为加.sync，来看下对比",
+  "keywords": "v-model与.sync的区别,v-model vs .sync, vue v-model与 .sync的区别",
+  "category": "Vue"
+}
+---
 
 # vue中v-model与.sync的区别
 

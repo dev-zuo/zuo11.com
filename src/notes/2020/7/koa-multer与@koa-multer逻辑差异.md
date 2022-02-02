@@ -1,3 +1,14 @@
+---
+{
+  "title": "koa-multer与@koa-multer逻辑差异",
+  "staticFileName": "koa-multer.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/06",
+  "description": "之前有了解过以@开头的作用域包，这次在使用koa-multer这个模块时，发现@koa/multer与koa-multer的逻辑居然不一样。源码有些差异，下面来具体看看。koa-multer这个包是从express的multer包上面加了一层封装，而koa-multer并没有把fileds字段挂载到ctx.request.body上，只维持原来express那样挂载到node的request对象上，也就是ctx.req.body，来看看koa-multer的源码部分",
+  "keywords": "koa-multer与@koa/multer逻辑差异",
+  "category": "前端工程化"
+}
+---
 
 # koa-multer与@koa/multer逻辑差异
 

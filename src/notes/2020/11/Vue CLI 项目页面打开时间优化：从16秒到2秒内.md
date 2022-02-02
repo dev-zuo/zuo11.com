@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue CLI 项目页面打开时间优化：从16秒到2秒内",
+  "staticFileName": "vue_cli_slow.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/30",
+  "description": "在日常开发中，经常要写一些 demo 来测试一些功能，于是专门新建了一个 github 仓库来管理，方便积累。这次想着把 vue demo 部署到服务器，方便 PC/手机 实时看效果。于是把 vue-cli 项目 npm run build 后，将 dist 部署到服务器 nginx 下，但发现打开很慢，下面来看看怎么优化。如下图，DOM 加载完 15 秒，完全加载 16 秒",
+  "keywords": "vue-cli项目页面加载时间太长,npm run build 打包很大,vue vendor.js文件太大,vue项目包体积优化",
+  "category": "Vue"
+}
+---
 # Vue CLI 项目页面打开时间优化：从16秒到2秒内
 
 在日常开发中，经常要写一些 demo 来测试一些功能，于是专门新建了一个 github 仓库来管理，方便积累。这次想着把 vue demo 部署到服务器，方便 PC/手机 实时看效果。于是把 vue-cli 项目 npm run build 后，将 dist 部署到服务器 nginx 下，但发现打开很慢，下面来看看怎么优化。

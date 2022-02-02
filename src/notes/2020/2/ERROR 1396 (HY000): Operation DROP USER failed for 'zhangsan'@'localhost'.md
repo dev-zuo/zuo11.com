@@ -1,3 +1,14 @@
+---
+{
+  "title": "ERROR 1396 (HY000): Operation DROP USER failed for 'zhangsan'@'localhost'",
+  "staticFileName": "sql_localhost.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/18",
+  "description": "在看mysql账号相关内容时，发现在root用户下，更新、删除用户均报错。后面发现居然是localhost的字母拼错了，但新建user时居然没报错。下面来复盘整个记录:",
+  "keywords": "Operation DROP USER failed for,ERROR 1396 (HY000): Operation DROP USER failed for",
+  "category": "后端数据库等"
+}
+---
 
 # ERROR 1396 (HY000): Operation DROP USER failed for 'zhangsan'@'localhost'
 

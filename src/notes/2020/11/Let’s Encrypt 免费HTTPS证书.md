@@ -1,3 +1,14 @@
+---
+{
+  "title": "Let’s Encrypt 免费HTTPS证书",
+  "staticFileName": "free_https.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/23",
+  "description": "Let’s Encrypt 是一个非盈利TLS（Transport Layer Security) 证书颁发机构（CA），免费提供 https 证书。 由于 Let’s Encrypt 证书的有效期为 3 个月，所以一般使用程序来自动续期更换证书。官方推荐使用 Certbot 来管理，它可以一站式申请、续期证书。在 Certbot 官网选择部署服务器使用的软件及系统，会自动列出需要操作的步骤，如下图",
+  "keywords": "免费https,https",
+  "category": "http与https"
+}
+---
 # Let’s Encrypt 免费HTTPS证书
 [Let’s Encrypt](https://letsencrypt.org/) 是一个非盈利TLS（Transport Layer Security) 证书颁发机构（CA），免费提供 https 证书。 
 

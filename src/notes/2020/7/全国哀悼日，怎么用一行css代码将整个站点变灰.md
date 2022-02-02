@@ -1,3 +1,14 @@
+---
+{
+  "title": "全国哀悼日，怎么用一行css代码将整个站点变灰",
+  "staticFileName": "css_filter_gray.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/12",
+  "description": "前天4月4号全国哀悼日，各大网公司网站的风格都变灰了，是怎么实现的呢？其实很简单，一行代码就搞定。filter: grayscale(100%); css filter是什么属性？用css filter mdn关键字查了下，这里filter翻译为 滤镜，他可以将模糊或色相等图形效果应用于元素，来看一些例子",
+  "keywords": "css滤镜,css filter,怎么用一行css代码将整个站点变灰,怎么将站点置灰",
+  "category": "CSS"
+}
+---
 
 # 全国哀悼日，怎么用一行css代码将整个站点变灰
 

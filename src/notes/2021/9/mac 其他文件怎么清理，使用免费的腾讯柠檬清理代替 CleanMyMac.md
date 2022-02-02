@@ -1,3 +1,14 @@
+---
+{
+  "title": "mac 其他文件怎么清理，使用免费的腾讯柠檬清理代替 CleanMyMac",
+  "staticFileName": "mac_clean.html",
+  "author": "guoqzuo",
+  "createDate": "2021/09/09",
+  "description": "mac 存储空间里面的其他文件占用较多，它主要是一些碎片文件、缓存等，一般不通过工具软件很难清理。如下图：mac 清理工具中，CleanMyMac 算是比较知名的一个，但它是收费的，这里介绍一款国产免费的清理工具 - 腾讯柠檬清理，关于柠檬清理与其他同类产品的对比，官方写了一遍总结，可以看看",
+  "keywords": "mac others clean,mac clean, mac 其他清理,mac 其他文件清理,mac 其他文件怎么清理,mac 垃圾清理软件",
+  "category": "计算机基础与开发工具"
+}
+---
 # mac 其他文件怎么清理，使用免费的腾讯柠檬清理代替 CleanMyMac
 
 mac 存储空间里面的其他文件占用较多，它主要是一些碎片文件、缓存等，一般不通过工具软件很难清理。如下图：

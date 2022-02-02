@@ -1,3 +1,14 @@
+---
+{
+  "title": "版本号中的rc是什么意思",
+  "staticFileName": "version_rc.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/05",
+  "description": "在看html2canvas的历史版本信息时，发现有rc版本，不知道是什么意思，于是查了下，rc版本代表比较成熟的版本，是release之前版本，除此之外还有aplpha、beta等版本，下面来看看",
+  "keywords": "版本号中的rc是什么意思",
+  "category": "运维部署与版本控制"
+}
+---
 
 # 版本号中的rc是什么意思
 

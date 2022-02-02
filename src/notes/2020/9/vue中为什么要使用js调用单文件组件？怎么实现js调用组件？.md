@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue中为什么要使用js调用单文件组件？怎么实现js调用组件？",
+  "staticFileName": "vue_why_js_comp.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/12",
+  "description": "vue js直接调用组件,js调用vue组件,js加载vue组件,js vue组件，如果自己写一个组件。一般情况下，vue项目中在某个组件里调用另一个组件，至少需要修改三个位置 1. 在 template 里写引入组件，加上传参等 2. 在 components 里声明组件（如果全局引入了，可以省去这一步） 3. data 里面写对应的传参数 代码对应如下，这种组件对于使用地方比较多时候，我们就需要想办法直接使用js来调用组件，而不是每次都要在 template 里面声明对应的组件，这样会有很多重复代码，可维护性较差。",
+  "keywords": "vue js直接调用组件,js调用vue组件,js加载vue组件,js vue组件",
+  "category": "Vue"
+}
+---
 
 # vue中为什么要使用js调用单文件组件？怎么实现js调用组件？
 

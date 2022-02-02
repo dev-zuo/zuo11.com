@@ -1,3 +1,14 @@
+---
+{
+  "title": "IE下dialog弹窗全屏后列表横向滚动卡顿的问题",
+  "staticFileName": "ie_scorll_slow.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/08",
+  "description": "全屏后添加了一个名为 is-fullscreen 的class，发现把对应的overflow:auto去掉后，就不会卡顿。去掉其实就是将overflow设置为默认值visible，如果子组件高度超出范围，将is-fullscreen设置的height 100% 改为 auto。另一种方法是将table的z-index改为3000(相对dialog比较高的一个层级)，这样IE下就不会卡顿了。",
+  "keywords": "Element表格IE下由于滚动条原因导致错位问题",
+  "category": "Vue"
+}
+---
 
 # IE下dialog弹窗全屏后列表横向滚动卡顿的问题
 

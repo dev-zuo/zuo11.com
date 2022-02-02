@@ -1,3 +1,14 @@
+---
+{
+  "title": "站点优化 新增访客记录、新UI及mip等",
+  "staticFileName": "web_optimize_2.html",
+  "author": "guoqzuo",
+  "createDate": "2017/02/01",
+  "description": "认真去做内容建设后，百度收录和索引量有了明显的提升。把之前笔记修改完后，发现mip限制的_blank属性用户体验非常差，加上之前没有做访客记录功能。就打算再改改移动端，顺便新增访客记录功能。花了4天时间勉强改完了，把页面效果提升了一个level，mip页面也新增了4个。",
+  "keywords": "站点优化,mip改造,Servlet获取访问信息,web新增访客记录功解决方法能,prism代码高亮使用,UEditor过滤code便签的解决方法",
+  "category": "网站建设与SEO"
+}
+---
 
 # 站点优化 新增访客记录、新UI及mip等
 

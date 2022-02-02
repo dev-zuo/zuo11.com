@@ -1,3 +1,14 @@
+---
+{
+  "title": "canvas绘制模糊的问题",
+  "staticFileName": "canvas_dim.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/06",
+  "description": "今天发现同样的代码在两台电脑上绘制的一个清晰，一个模糊，后来查资料发现确实有这个问题: 因为canvas不是矢量图，高dpi屏幕每平方英寸有更多的像素，也就是两倍屏，浏览器会以两个像素点的宽度来渲染一个像素，所以在Retina屏上会导致图片、文字都会模糊，怎么解决呢？",
+  "keywords": "canvas绘制模糊的问题,retina屏canvas绘制模糊的问题",
+  "category": "JavaScript"
+}
+---
 # canvas绘制模糊的问题
 
 今天发现同样的代码在两台电脑上绘制的一个清晰，一个模糊，后来查资料发现确实有这个问题

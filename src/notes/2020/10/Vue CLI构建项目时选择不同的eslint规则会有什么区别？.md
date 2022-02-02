@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue CLI构建项目时选择不同的eslint规则会有什么区别？",
+  "staticFileName": "vue_cli_eslint.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/25",
+  "description": "当我们使用 vue create xxx 时，会让选择是否需要某个模块，如果有使用空格选择 Linter / Formatter，那么后面的流程会让你选择一种eslint规则。总共有 5 种情况，我们都逐一试试，看生成的package.json有什么不同",
+  "keywords": "vue-cli eslint,Vue CLI eslint",
+  "category": "Vue"
+}
+---
 # Vue CLI构建项目时选择不同的eslint规则会有什么区别？
 
 当我们使用 vue create xxx 时，会让选择是否需要某个模块，如下图

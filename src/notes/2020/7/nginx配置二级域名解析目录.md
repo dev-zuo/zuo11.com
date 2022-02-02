@@ -1,3 +1,14 @@
+---
+{
+  "title": "nginx配置二级域名解析目录",
+  "staticFileName": "nginx_sencod_domain.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "nginx二级域名解析,nginx二级域名解析到不同的目录,最近看百度统计，有100多个河南的新ip访问，有些异常，而且都是访问的api.zuo11.com，最近两周明细里看到的ip段很有规律。其实就是多写一个server，把二级域名指向其他目录。中间有个坑的地方就是windows使用nginx时，关闭nginx运行的terminal后，进程不一定关闭，需要打开任务管理器，找nginx相关进程删掉，这样才彻底。",
+  "keywords": "nginx二级域名解析,nginx二级域名解析,nginx二级域名解析到不同的目录",
+  "category": "运维部署与版本控制"
+}
+---
 # nginx配置二级域名解析目录
 最近看百度统计，有100多个河南的新ip访问，有些异常，而且都是访问的api.zuo11.com，最近两周明细里看到的ip段很有规律
 ```js

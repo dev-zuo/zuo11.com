@@ -1,3 +1,14 @@
+---
+{
+  "title": "npm查询包信息以及安装指定版本",
+  "staticFileName": "npm_package_info.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/17",
+  "description": "当我们需要安装某个npm包的指定版本时，我们可以使用 npm view 先查看某个包的一些版本信息，npm install时，可以通过在包名后面加@版本号来指定安装对应的版本",
+  "keywords": "npm查询包信息,npm安装指定版本,npm install以及加参数后的一些区别",
+  "category": "前端工程化"
+}
+---
 
 # npm查询包信息以及安装指定版本
 

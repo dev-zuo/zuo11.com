@@ -1,3 +1,14 @@
+---
+{
+  "title": "ES2020 bigint数据类型，为什么要新增这个数据类型?",
+  "staticFileName": "bigint.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/26",
+  "description": "ES5之前，基本数据类型有五个 boolean, string, number, null, undefined, ES6(ES2015)新增了一个symbol，ES2019 新增了 bigint，它用于表示大于 2的53次方 - 1的数据，即 > 9007199254740991",
+  "keywords": "a + 1 === a + 2为true的场景,es2019 bigint数据类型",
+  "category": "JavaScript"
+}
+---
 
 # ES2020 bigint数据类型，为什么要新增这个数据类型?
 

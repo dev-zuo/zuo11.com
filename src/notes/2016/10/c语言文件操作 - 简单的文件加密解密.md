@@ -1,3 +1,14 @@
+---
+{
+  "title": "c语言文件操作 - 简单的文件加密解密",
+  "staticFileName": "c_file_encrypt.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/16",
+  "description": "文件加密对小白来说是一个很高大上的技术，但也不是那么遥不可及。只要学了C语言的文件操作，就可以用简单的文件操作方法，对文件进行简单的加密。",
+  "keywords": "c语言文件加密,文件加密,文件取反加密,c 文件加密",
+  "category": "C与APUE"
+}
+---
 
 # c语言文件操作 - 简单的文件加密解密
 

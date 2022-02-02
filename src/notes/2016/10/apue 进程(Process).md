@@ -1,3 +1,14 @@
+---
+{
+  "title": "apue 进程(Process)",
+  "staticFileName": "apue_process.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/22",
+  "description": "进程就是正在运行的程序。不管是进程还是线程，主要作用就是可以在同一时间内同时处理多个事情，提升用户体验。像shell终端，如果是单个进程，那每次执行完命令，都需要重新打开终端，非常不利于操作。拿扫雷来说，如果一边开个while(1)来处理输入输出，那如果你需要实时显示时间呢? 学了进程相关的操作后就可以fork一个子程序专门用来显示实时时钟。",
+  "keywords": "unix进程,fork,进程,process,apue fork",
+  "category": "C与APUE"
+}
+---
 
 # apue 进程(Process)
 

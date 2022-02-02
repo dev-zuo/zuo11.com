@@ -1,3 +1,14 @@
+---
+{
+  "title": "v-infinite-scroll放到slot里或者用v-if控制时首次无法触发loadMore的问题",
+  "staticFileName": "v-infinite-scroll.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "v-infinite-scroll不触发loadMore，element v-infinite-scroll指令, 最新项目结构调整，发现一个问题，把 v-infinite-scroll 对应的元素放到 slot 里，首次无法触发loadMore, 不放到slot里面又是正常的，来看代码",
+  "keywords": "v-infinite-scroll不触发loadMore,element v-infinite-scroll指令",
+  "category": "Vue"
+}
+---
 
 # v-infinite-scroll 放到slot里或者用v-if控制时首次无法触发loadMore的问题
 最新项目结构调整，发现一个问题，把 v-infinite-scroll 对应的元素放到 slot 里，首次无法触发loadMore, 不放到slot里面又是正常的，来看代码

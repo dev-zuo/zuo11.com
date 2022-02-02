@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue性能优化 - webpack包体积优化",
+  "staticFileName": "vue_webpack_optimization.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/25",
+  "description": "安装 webpack-bundle-analyzer npm包， 在package.json的scripts加入对应的命令，运行npm run report 即可build，并在dist目录生成report.html，打开就可以各个模块包对应的大小，这样就可以开始优化了",
+  "keywords": "webpack-bundle-analyzer,webpack包体积优化",
+  "category": "Vue"
+}
+---
 
 # vue性能优化 - webpack包体积优化
 

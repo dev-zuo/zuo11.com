@@ -1,3 +1,14 @@
+---
+{
+  "title": "el-form-item里非elment输入组件时，校验回调函数不触发的问题",
+  "staticFileName": "not_element_input_validate.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/27",
+  "description": "今天写表单校验规则，有个 el-form-item 里使用了富文本编辑器，发现校验规则校验这个值会有异常: 1. 当 change 或 blur 时，根本没有触发校验(提示错误) 2. 提交表单时，当该字段校验失败会提示错误，但该字段符合要求时，validate的回调一直没触发，导致无法进行校验成功之后的下一步操作，将富文本编辑器换成 el-input 正常，换成普通的 input 也会异常，感觉一头雾水。",
+  "keywords": "element表单校验时如果非element组件会触发布料校验,富文本编辑器在element form中校验回调函数不触发的问题",
+  "category": "Vue"
+}
+---
 # el-form-item里非elment输入组件时，校验回调函数不触发的问题
 
 今天写表单校验规则，有个 el-form-item 里使用了富文本编辑器，发现校验规则校验这个值会有异常：

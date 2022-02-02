@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么用vue写一个组件库，类似element",
+  "staticFileName": "vue_ui_lib.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/25",
+  "description": "下面通过一个简单的示例来看怎么写一个vue组件库，分为 6 步：1. 目录规划 2. 组件库入口文件 3. 本地测试组件 4. 打包构建 UMD 5. 上传 npm 包 6. dosify搭建官网",
+  "keywords": "vue组件库,vue组件库编写流程",
+  "category": "Vue"
+}
+---
 # 怎么用vue写一个组件库，类似element
 
 下面通过一个简单的示例来看怎么写一个vue组件库，分为 6 步

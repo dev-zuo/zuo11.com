@@ -1,3 +1,14 @@
+---
+{
+  "title": "静态博客生成系统(三)：node复制或删除文件夹以及npm包命令执行时所在路径获取",
+  "staticFileName": "zuoblog_3_file.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/02",
+  "description": "静态博客生成系统，需要把src目录下的源文件生成dist目录下的可部署的文件，对于资源文件需要从src下直接拷贝过去。这就涉及怎么用node复制或删除文件夹了，另外我们在使用zuoblog init执行构建生成时，需要知道命令执行时所在的路径，下面来看看",
+  "keywords": "node复制或删除文件夹,npm包命令执行时所在路径获取",
+  "category": "前端工程化"
+}
+---
 
 # 静态博客生成系统(三)：node复制或删除文件夹以及npm包命令执行时所在路径获取
 

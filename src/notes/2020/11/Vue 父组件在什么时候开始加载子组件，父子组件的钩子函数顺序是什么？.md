@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue 父组件在什么时候开始加载子组件，父子组件的钩子函数顺序是什么？",
+  "staticFileName": "vue_son_hooks.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/08",
+  "description": "一般父组件会在自身组件 mounted 后，开始加载子组件，下面来通过一个例子来看完整的父子组件钩子函数。下面的例子中在 index.vue 以及 compA.vue 父子组件中都加了对应的钩子函数 console。父组件 beforeCreate => 父组件 created => 父组件 beforeMount => 父组件 mounted => 父组件 beforeUpdate => 子组件 beforeCreate => 子组件 created => 子组件 beforeMount => 子组件 mounted => 父组件 index updated",
+  "keywords": "vue父组件在什么时候开始加载子组件,vue父子组件钩子函数顺序",
+  "category": "Vue"
+}
+---
 
 # Vue 父组件在什么时候开始加载子组件，父子组件的钩子函数顺序是什么？
 一般父组件会在自身组件 mounted 后，开始加载子组件，下面来通过一个例子来看完整的父子组件钩子函数。下面的例子中在 index.vue 以及 compA.vue 父子组件中都加了对应的钩子函数 console

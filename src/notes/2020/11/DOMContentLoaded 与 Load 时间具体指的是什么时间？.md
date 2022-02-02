@@ -1,3 +1,14 @@
+---
+{
+  "title": "DOMContentLoaded 与 Load 时间具体指的是什么时间？",
+  "staticFileName": "page_load_time.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/30",
+  "description": "在 Chrome DevTools 官网 Network Reference 里是这样介绍的：View load events：DevTools displays the timing of the DOMContentLoaded and load events in multiple places on the Network panel. The DOMContentLoaded event is colored blue, and the load event is red. 这两个时间是从页面开始到 DOMContentLoaded 与 load 事件触发的时间",
+  "keywords": "DOMContentLoaded,load",
+  "category": "JavaScript"
+}
+---
 # DOMContentLoaded 与 Load 时间具体指的是什么时间？
 在 [Chrome DevTools 官网 Network Reference](https://developers.google.com/web/tools/chrome-devtools/network/reference#load) 里是这样介绍的：
 

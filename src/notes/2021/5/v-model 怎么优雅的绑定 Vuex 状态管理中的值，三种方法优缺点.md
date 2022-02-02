@@ -1,3 +1,14 @@
+---
+{
+  "title": "v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点",
+  "staticFileName": "v-model_vuex.html",
+  "author": "guoqzuo",
+  "createDate": "2021/05/04",
+  "description": "在需要将 vuex 中的值，直接与表单 v-model 对应时，如果我们按照 vuex 强调的规范，只能通过 mutation 来改变 vuex state，那么会比较麻烦。假设我们脱离规范，关闭严格模式。那么 v-model 可以直接绑定 vuex state 值，会非常方便，但貌似又不合规范，不利于追踪。那到底要怎么做合适呢？个人建议是：怎么方便怎么来，只要项目可控即可。下面来看看几种方法对比 1. 官方推荐：使用 computed 的 get 和 set",
+  "keywords": "v-model 绑定 vuex 中的值",
+  "category": "Vue"
+}
+---
 # v-model 怎么优雅的绑定 Vuex 状态管理中的值，三种方法优缺点
 在需要将 vuex 中的值，直接与表单 v-model 对应时，如果我们按照 vuex 强调的规范，只能通过 mutation 来改变 vuex state，那么会比较麻烦。假设我们脱离规范，关闭严格模式。那么 v-model 可以直接绑定 vuex state 值，会非常方便，但貌似又不合规范，不利于追踪。
 

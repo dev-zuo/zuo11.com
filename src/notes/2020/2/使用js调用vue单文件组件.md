@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用js调用vue单文件组件",
+  "staticFileName": "js_vue_comp.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/20",
+  "description": "在封装组件时，如果是dialog组件，一般封装好后，通过component引入，然后把标签放到html里，通过true或false来隐藏和显示，每次都要写一些重复代码。怎么能够像ElementUI的message函数一样直接调用呢，首先需要搞懂怎么用js来调用vue单文件组件，下面来看方法",
+  "keywords": "使用js调用vue单文件组件",
+  "category": "Vue"
+}
+---
 
 # 使用js调用vue单文件组件
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "npm install简写为npm i安装包时项目文件名与包名冲突不报异常的问题",
+  "staticFileName": "npm_i.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/14",
+  "description": "最近在安装 npm install 时喜欢简写 npm i mysql2 -s 但发现执行后，并没有安装成功，在package.json里也没有任何记录。还没有报任何错误。",
+  "keywords": "npm install简写为npm i注意事项,npm init -y注意事项",
+  "category": "前端工程化"
+}
+---
 
 # npm install简写为npm i安装包时项目文件名与包名冲突不报异常的问题
 

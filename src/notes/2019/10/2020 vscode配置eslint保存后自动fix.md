@@ -1,3 +1,14 @@
+---
+{
+  "title": "2020 vscode配置eslint保存后自动fix",
+  "staticFileName": "devtools_autofix.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/12",
+  "description": "2020/06/17更新，vscode最新eslint插件保存自动fix配置，vscode 保存执行fix, eslint 保存自动fix, vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？",
+  "keywords": "vscode 保存自动fix,vscode 保存执行fix,eslint 保存自动fix,vscode 配置eslint保存后自动fix.md,vscode ctrl+s后自动fix,eslint 自动fix,vscode 自动fix,react vscode 自动保存,vscode *.ts 自动fix,eslint 保存的时候自动执行 --fix",
+  "category": "计算机基础与开发工具"
+}
+---
 # 2020 vscode配置eslint保存后自动fix
 
 vscode默认的autofix只能fix js格式文件(.js)，无法fix vue格式文件(.js)，怎么设置ctrl+s保存后自动fix呢？

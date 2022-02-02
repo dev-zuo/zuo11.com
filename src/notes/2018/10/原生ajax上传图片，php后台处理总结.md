@@ -1,3 +1,14 @@
+---
+{
+  "title": "原生ajax上传图片，php后台处理总结",
+  "staticFileName": "web_upload_php.html",
+  "author": "guoqzuo",
+  "createDate": "2018/10/03",
+  "description": "开始做图片上传，发现之前的处理方式基本忘光了。看了下原来的源码才有了解，还是要总结经验，不然忘的太快。之前是用jQuery来处理的，也是ajax方式。现在改为用原生的ajax来处理，不依赖jQuery，整体还算是比较简单的。",
+  "keywords": "原生ajax上传图片，php后台处理图片上传",
+  "category": "后端数据库等"
+}
+---
 
 # 原生ajax上传图片，php后台处理总结
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "import { } 解构与 export 和 export default",
+  "staticFileName": "import_export.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "在封装功能函数时，我们经常需要在 import 时使用解构 {} 来仅导出部分模块功能。在有些情况会发现是无法解构的，下面来看看 - 一般 export default 的内容，需要使用 `import xxx from 'xx'` 直接接收，不能在 import 时解构 - 通过 export xx 的内容，需要使用 `import { xx, xx } from 'xx'` 或 `import * as xx from 'xx'` 接收",
+  "keywords": "import {} 与 export default,import {}",
+  "category": "JavaScript"
+}
+---
 # import { } 解构与 export 和 export default.md
 
 在封装功能函数时，我们经常需要在 import 时使用解构 {} 来仅导出部分模块功能。在有些情况会发现是无法解构的，下面来看看

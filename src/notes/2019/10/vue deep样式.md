@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue deep样式",
+  "staticFileName": "vue_css_deep.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/16",
+  "description": "vue /deep/什么意思呢？/deep/ 样式为深度选择器，Vue单文件组件中如果style标签有scope属性，当前页面定义的样式对子组件会不生效。如果想让某些样式在子组件里面生效，可以使用/deep/",
+  "keywords": "vue /deep/什么意思,/deep/,/deep/深度选择器,vue /deep/",
+  "category": "Vue"
+}
+---
 
 # vue /deep/ 样式
 

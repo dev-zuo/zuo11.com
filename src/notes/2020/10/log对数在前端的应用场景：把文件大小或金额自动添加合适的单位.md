@@ -1,3 +1,14 @@
+---
+{
+  "title": "log对数在前端的应用场景：把文件大小或金额自动添加合适的单位",
+  "staticFileName": "log_web.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/08",
+  "description": "在写下载/导出文件接口时，由于接口文件数据是流的形式而非buffer，导致total为0，无法获取进度。只能通过loaded知道当前下载了多少字节。前端显示时，怎么给出合适的单位，是KB、MB，还是G？",
+  "keywords": "文件大小转换合适单位,单位元数据加合适的单位",
+  "category": "JavaScript"
+}
+---
 # log对数在前端的应用场景：把文件大小或金额自动添加合适的单位
 
 在写下载/导出文件接口时，由于接口文件数据是流的形式而非buffer，导致total为0，无法获取进度。只能通过loaded知道当前下载了多少字节。前端显示时，怎么给出合适的单位，是KB、MB，还是G？

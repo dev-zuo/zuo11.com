@@ -1,3 +1,14 @@
+---
+{
+  "title": "mysql连接操作命令",
+  "staticFileName": "db_mysql_basecmd.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/23",
+  "description": "最开始接触数据库是在学校，有一门课就是讲数据库的，但只是拿着ppt讲了将书上的东西，没有实际操作。回想起来觉得很失败，一点动手操作的意识都没。现在学东西，我更喜欢从实际的问题出发，多查资料，多实践。这里总结了mac下mysql的安装与一些基本的应用。",
+  "keywords": "mysql连接操作命令,mysql基础命令,mac下mysql安装,mysql mac,jsp连接mysql,jsp操作mysql",
+  "category": "后端数据库等"
+}
+---
 # mysql连接操作命令
 
 > 最开始接触数据库是在学校，有一门课就是讲数据库的，但只是拿着ppt讲了将书上的东西，没有实际操作。回想起来觉得很失败，一点动手操作的意识都没。现在学东西，我更喜欢从实际的问题出发，多查资料，多实践。这里总结了mac下mysql的安装与一些基本的应用。

@@ -1,3 +1,14 @@
+---
+{
+  "title": "uni-app开发需要了解的事情，uni-app开发体验怎么样",
+  "staticFileName": "uni_app_use.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/12",
+  "description": "uni-app 读法为 u ni ai po，uni-app开发需要了解的事情：1. uni-app开发需要下载HBuilderX开发工具 2. 需要注册ucloud账号，打包安卓、iOS时需要有证书。安卓的证书免费，iOS证书需要花钱 3. uni开发和通常vue-cli搭的脚手架开发方式还是有一定区别的，更像是vue + 小程序开发的结合",
+  "keywords": "uni-app,uni-app体验怎么样",
+  "category": "移动端混合开发"
+}
+---
 
 # uni-app开发需要了解的事情，uni-app开发体验怎么样
 

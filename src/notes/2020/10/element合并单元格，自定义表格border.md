@@ -1,3 +1,14 @@
+---
+{
+  "title": "element合并单元格，自定义表格border",
+  "staticFileName": "element_merge_cells.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/01",
+  "description": "有个较为特殊的表格，需要合并单元格，且改变表格border，下面来看看element el-table怎么实现这种表格。先来分析下怎么做，1. 第一列中第二行以后的行是需要合并的，el-table 提供了一个 span-method 属性，用于传入合并单元格方法，在里面可以根据 rowspan、colspan 合并行或列 2. 第 2、3、4 列需要改变表格 border，需要使用 `/deep/` 修改 element 默认的颜色，使用 nth-child、first-child 等找到对应的行或列，修改border",
+  "keywords": "element合并单元格,element表格合并单元格",
+  "category": "Vue"
+}
+---
 # element合并单元格，自定义表格border
 有个较为特殊的表格，需要合并单元格，且改变表格border，下面来看看element el-table怎么实现这种表格
 

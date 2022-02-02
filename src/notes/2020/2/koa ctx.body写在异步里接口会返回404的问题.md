@@ -1,3 +1,14 @@
+---
+{
+  "title": "koa ctx.body写在异步里接口会返回404的问题",
+  "staticFileName": "koa_async_404.html",
+  "author": "guoqzuo",
+  "createDate": "2020/02/26",
+  "description": "在前端mock上传的接口时，发现总是404，刚开始以为是代理的问题，后来单独写了个demo，发现如果ctx.body放在异步的回调，后端接收到请求了，但还是会返回404，下面来具体研究下",
+  "keywords": "koa接口404,ctx.body写在异步操作里404",
+  "category": "前端工程化"
+}
+---
 
 # koa ctx.body写在异步里接口会返回404的问题
 

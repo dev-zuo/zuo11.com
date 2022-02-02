@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用 VuePress 生成静态网站并部署到 Github Pages",
+  "staticFileName": "vuepress.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/15",
+  "description": "VuePress 是一个静态网站生成器，诞生初衷是为了支持 Vue 及其子项目的文档需求。目前 Vue 相关文档都是由 vuepress 搭建。相比其他静态站点生成工具，Docsify 是运行时驱动，通过 JS 加载内容，对 SEO 不够友好。VuePress 类似于 Hexo，主要区别是 VuePress 是由 Vue 驱动。",
+  "keywords": "VuePress,VuePress 创建网站,vuepress 使用",
+  "category": "Vue"
+}
+---
 # 使用VuePress生成静态网站并部署到Github Pages
 [VuePress](https://www.vuepress.cn/guide/#%E5%AE%83%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84) 是一个静态网站生成器，诞生初衷是为了支持 Vue 及其子项目的文档需求。目前 Vue 相关文档都是由 vuepress 搭建。相比其他静态站点生成工具，Docsify 是运行时驱动，通过 JS 加载内容，对 SEO 不够友好。VuePress 类似于 Hexo，主要区别是 VuePress 是由 Vue 驱动的。
 

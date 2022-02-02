@@ -1,3 +1,14 @@
+---
+{
+  "title": "用mac做前端开发遇到的问题总结",
+  "staticFileName": "mac_dev.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/04",
+  "description": "在用mac开发的过程中，会遇到过一些问题，比如怎么显示文件的扩展名；mac隐藏文件 .DS_Store 对node遍历文件产生的影响；mac怎么修改环境变量；mac安装yarn的方法；mac加密zip文件；mac使用触控板来进行复制和拖动窗口等，下面来逐一介绍下。",
+  "keywords": "小白用mac做前端,mac 隐藏文件 .DS_Store 对node遍历文件产生的影响,mac export PATH 后关闭termial就失效了,mac修改环境变量,macos安装Yarn方法,mac安装yarn方法,mac zip文件加密,mac显示文件扩展名,mac使用触控板拖动复制、移动窗口,mac三指拖动",
+  "category": "计算机基础与开发工具"
+}
+---
 # 用mac做前端开发遇到的问题总结
 
 在用mac开发的过程中，会遇到过一些问题，比如怎么显示文件的扩展名；mac隐藏文件 .DS_Store 对node遍历文件产生的影响；mac怎么修改环境变量；mac安装yarn的方法；mac加密zip文件；mac使用触控板来进行复制和拖动窗口等，下面来逐一介绍下。

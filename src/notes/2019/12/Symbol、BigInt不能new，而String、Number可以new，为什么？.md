@@ -1,3 +1,14 @@
+---
+{
+  "title": "Symbol、BigInt不能new，而String、Number可以new，为什么？",
+  "staticFileName": "new_check.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/27",
+  "description": "在基本数据类型中，我们发现像String, Number是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用new创建，这是为什么呢？ BigInt内部是怎么检测用户使用了new来调用的？下面来看看",
+  "keywords": "Symbol、BigInt不能new，而Stirng、Number可以new，为什么,BigInt内部是怎么检测用户使用了new来调用的",
+  "category": "JavaScript"
+}
+---
 # Symbol、BigInt不能new，而String、Number可以new，为什么？
 
 在基本数据类型中，我们发现像 String, Number 是可以通过 new 来创建的，而 Symbol，BigInt 却不能使用 new 创建，这是为什么呢？ BigInt 内部是怎么检测用户使用了new来调用的？下面来看看

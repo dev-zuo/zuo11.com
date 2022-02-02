@@ -1,3 +1,14 @@
+---
+{
+  "title": "node package.json中版本前的 ~ 与 ^ 分别代表什么",
+  "staticFileName": "node_package_symbol.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/22",
+  "description": "node版本~与^,npm 包~与^是什么意思,npm包版本前的~是什么意思npm包版本前^是什么意思, 在element ui的package.json，其中async-validator是 ~ 开头，而其他都是 ^ 开头，有什么区别呢？版本格式 1.8.1 对应 major.minor.patch。- major：表示版本有了一个大更改。 - minor：表示增加了新的功能，并且可以向后兼容。- patch：表示修复了bug，并且可以向后兼容。",
+  "keywords": "node版本~与^,npm 包~与^是什么意思,npm包版本前的~是什么意思npm包版本前^是什么意思",
+  "category": "前端工程化"
+}
+---
 # node package.json中版本前的 ~ 与 ^ 分别代表什么
 
 来看看element ui的package.json，其中async-validator是 ~ 开头，而其他都是 ^ 开头，有什么区别呢？

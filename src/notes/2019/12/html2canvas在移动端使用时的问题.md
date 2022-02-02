@@ -1,3 +1,14 @@
+---
+{
+  "title": "html2canvas在移动端使用时的问题",
+  "staticFileName": "html2canvas_notice.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/23",
+  "description": "html2canvas 生成图片时，background-image模糊的问题,html2canvas 移动端生成图片文字重叠的问题，在需要生成海报、图片的需求里，一般 html2canvas 是一种比较好的解决方案，pc端的问题还是比较少的，移动端兼容性问题就比较坑了，要特别注意多测试一些机型，下面总结下我之前遇到的两个移动端的问题",
+  "keywords": "html2canvas在移动端使用时的问题,html2canvas 生成图片时，background-image模糊的问题,html2canvas 移动端生成图片文字重叠的问题",
+  "category": "CSS"
+}
+---
 
 
 # html2canvas在移动端使用时的问题

@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue v-cloak指定防止页面内容显示抖动的问题",
+  "staticFileName": "vue_v_clock.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/11",
+  "description": "v-clock主要用于防止由于网络原因vue.js未渲染时，页面显示类似 {{username}} 的问题，下面来看看实现",
+  "keywords": "v-clock,vue v-clock,页面显示前vue未渲染内容一闪而过的问题,vue页面显示抖动",
+  "category": "Vue"
+}
+---
 
 # vue v-cloak指定防止页面内容显示抖动的问题
 

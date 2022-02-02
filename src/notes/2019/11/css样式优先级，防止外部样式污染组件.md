@@ -1,3 +1,14 @@
+---
+{
+  "title": "css样式优先级，防止外部样式污染组件",
+  "staticFileName": "css_style_priority.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/09",
+  "description": "一般在写全局的样式时，总担心污染其他位置的样式，但我们怎么防止别人的样式来污染我们的样式了。一句话总结：对于很重要，不要被污染的用!import，如果不想用!important，那最前面加id，或者多加一个或多个优先级高的选择器，来提高整体优先级",
+  "keywords": "css样式优先级,css样式优先级计算,css选择器样式优先级,css防止外部样式污染组件",
+  "category": "CSS"
+}
+---
 
 # css样式优先级，防止外部样式污染组件
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "ElementUI el-tabs组件切换tab时会触发组件的哪些钩子函数",
+  "staticFileName": "el_tabs_hooks.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/30",
+  "description": "element el-tabs钩子,el-tabs钩子函数,这里主要是要弄清楚el-tabs是怎么实现组件切换的，使用el-tab-pane slot和不用这个插槽触发的钩子函数会相同吗？如果不使用el-tab-pane的slot，只使用tab的导航，下面的内容自己控制，就看是使用component还是v-if来控制了，这种情况el-tabs组件不会干扰切换的逻辑。问题来了，如果内容放到了el-tab-pane的slot呢？他有一个lazy属性，用来设置某个tab标签页是否延迟渲染，这个会对钩子函数有什么影响呢？我们改写上面的例子，通过demo来看看",
+  "keywords": "element el-tabs钩子,el-tabs钩子函数",
+  "category": "Vue"
+}
+---
 # ElementUI el-tabs组件切换tab时会触发组件的哪些钩子函数
 
 这里主要是要弄清楚el-tabs是怎么实现组件切换的，使用el-tab-pane slot和不用这个插槽触发的钩子函数会相同吗？

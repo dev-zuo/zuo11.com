@@ -1,3 +1,14 @@
+---
+{
+  "title": "JS到底是解释型语言还是编译型语言",
+  "staticFileName": "js_language.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/28",
+  "description": "JS到底是解释型语言还是编译型语言呢？一般的书里都写的是js是一种解释型语言，但令人令人困惑的地方是：—般解释型语言是逐行解释执行的，为什么JS会有変曩提升(hoisting)的能力？执行JS时会用到JIT, JIT(just in time compilers 及时编译）会做代码优化(同时也会创建代码的编译版本),解释型语言无法做到这些变量提升问题",
+  "keywords": "JS到底是解释型语言还是编译型语言",
+  "category": "JavaScript"
+}
+---
 
 # JS到底是解释型语言还是编译型语言
 

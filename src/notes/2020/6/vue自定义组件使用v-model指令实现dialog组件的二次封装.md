@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue自定义组件使用v-model指令实现dialog组件的二次封装",
+  "staticFileName": "v_model_dialog.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/29",
+  "description": "当某个组件是对element的dialog组件进行二次封装时，我们需要对dialog进行隐藏显示，当子组件里的dialog关闭时，需要修改父组件传入的值，尽管不是表单组件也可以使用v-model来解决，先来看看怎么调用",
+  "keywords": "v-model属性实现dialog组件的二次封装,element dialog组件的二次封装",
+  "category": "Vue"
+}
+---
 
 # vue自定义组件使用v-model指令实现dialog组件的二次封装
 

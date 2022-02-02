@@ -1,3 +1,14 @@
+---
+{
+  "title": "apue pwd命令实现",
+  "staticFileName": "apue_pwd.html",
+  "author": "guoqzuo",
+  "createDate": "2016/10/20",
+  "description": "了解了文件目录相关的系统调用后，就可以尝试模拟实现各种shell命令了。这里给出了ls -l的完成代码，加上pwd及mkdir -p的实现。里面用到了递归，也涉及到一些细节问题，如根目录的上一级目录还是根目录，chdir需要用户有目录的执行权限。",
+  "keywords": "apue笔记,pwd实现,ls -l实现,mkdir -p实现",
+  "category": "C与APUE"
+}
+---
 
 # apue pwd命令实现
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "Failed to resolve directive: infinite-scroll",
+  "staticFileName": "infinite-scroll.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "在element InfiniteScroll无限滚动功能里，使用了v-infinite-scroll指令，但直接使用会发现提示 Failed to resolve directive: infinite-scroll，后面查了下，发现要使用该指令需要安装一个vue-infinite-scroll npm包，并且在main.js里引入才行",
+  "keywords": "Failed to resolve directive: infinite-scroll,element v-infinite-scroll指令",
+  "category": "Vue"
+}
+---
 
 # Failed to resolve directive: infinite-scroll
 

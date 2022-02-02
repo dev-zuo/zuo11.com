@@ -1,3 +1,14 @@
+---
+{
+  "title": "Node.js的核心用处及应用场景",
+  "staticFileName": "nodejs_uses.html",
+  "author": "guoqzuo",
+  "createDate": "2020/06/29",
+  "description": "Node.js是一个基于chrome v8引擎的js运行时，那他一般有什么用处呢，下面来看看。node三个核心应用场景：1.打包构建、工程化 2.写后台接口 3.综合应用：获取数据+渲染页面(高并发、高性能)",
+  "keywords": "Node.js的核心用处及应用场景,node使用场景,node应用场景,node应用",
+  "category": "前端工程化"
+}
+---
 
 # Node.js的核心用处及应用场景
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "sessionStorage和localstorage的区别",
+  "staticFileName": "web_storage.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/04",
+  "description": "sessionStorage和localstorage都属于Web Storage，在JS高程3中有讲，这里来回顾下，一般sessionStorage关闭浏览器后会消失，localstorage不会。",
+  "keywords": "sessionStorage和localstorage的区别",
+  "category": "JavaScript"
+}
+---
 
 # sessionStorage和localstorage的区别
 

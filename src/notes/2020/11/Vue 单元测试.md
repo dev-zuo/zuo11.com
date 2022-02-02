@@ -1,3 +1,14 @@
+---
+{
+  "title": "Vue 单元测试",
+  "staticFileName": "vue_unit_test.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/16",
+  "description": "在 Vue.js 官网，学习 => CookBook 下有一个 Vue 组件的单元测试 文档。为什么要测试？组件的单元测试的好处: 节省手动测试的时间，减少研发新特性时产生的 bug，自动化测试使得大团队中的开发者可以维护复杂的基础代码。Vue Test Utils 是 Vue 组件单元测试的官方库。他的作者写了一本书 《Testing Vue.js Applications》，对应的中文版本是《Vue.js应用测试》，如果想系统的学习 Vue 应用测试，建议看这本书。",
+  "keywords": "vue单元测试,vue测试,vue应用测试",
+  "category": "Vue"
+}
+---
 # Vue 单元测试
 在 Vue.js 官网，学习 => CookBook 下有一个 **Vue 组件的单元测试** 文档。
 

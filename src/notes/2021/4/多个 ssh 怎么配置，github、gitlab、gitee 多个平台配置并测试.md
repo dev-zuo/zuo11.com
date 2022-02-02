@@ -1,3 +1,14 @@
+---
+{
+  "title": "多个 ssh 怎么配置，github、gitlab、gitee 多个平台配置并测试",
+  "staticFileName": "multiple_ssh.html",
+  "author": "guoqzuo",
+  "createDate": "2021/04/03",
+  "description": "在之前我们有介绍过使用 ssh 方式拉取代码的步骤，仅一个平台时（比如 github）还可以。如果多个 git 平台（比如 github、gitlab、gitee）都需要配置 ssh 时，那怎么配置呢？首先我们要在 ~/.ssh/ 目录下新建一个 config 文件，内容如下",
+  "keywords": "ssh多git平台,多个ssh配置,multiple ssh",
+  "category": "运维部署与版本控制"
+}
+---
 # 多个 ssh 怎么配置，github、gitlab、gitee 多个平台配置并测试
 
 在之前我们有介绍过 [使用ssh方式拉取代码的步骤](http://www.zuo11.com/blog/2020/8/git_ssh.html)，仅一个平台时（比如 github）还可以。如果多个 git 平台（比如 github、gitlab、gitee）都需要配置 ssh 时，那怎么配置呢？

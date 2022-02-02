@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么使用Chrome断点调试功能，断点调试使用场景",
+  "staticFileName": "breakpoint.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/07",
+  "description": "在前端开发中，我们调试时一般都会使用console.log在控制台打log看程序执行情况，断点调试的功能好像用的比较少，那什么情况下就需要使用断点调试功能了呢？下面来讨论下",
+  "keywords": "怎么使用Chrome断点调试功能,断点调试使用场景",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # 怎么使用Chrome断点调试功能，断点调试使用场景
 

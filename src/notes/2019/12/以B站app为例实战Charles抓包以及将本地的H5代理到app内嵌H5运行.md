@@ -1,3 +1,14 @@
+---
+{
+  "title": "以B站app为例实战Charles抓包以及将本地的H5代理到app内嵌H5运行",
+  "staticFileName": "b_charles.html",
+  "author": "guoqzuo",
+  "createDate": "2019/12/18",
+  "description": "当我们在开发app内嵌的H5页面时，怎么调试是一个问题。看内嵌H5运行时，接口的返回情况，可以使用Charles进行抓包查看，另外charles也可以将我们本地的H5页面直接代理到app内嵌H5里运行。这里以B站app为例，来进行相应的测试",
+  "keywords": "Charles抓包,将本地的H5代理到app内嵌H5运行,charles,抓包,app内嵌H5调试技巧",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # 以B站app为例实战Charles抓包以及将本地的H5代理到app内嵌H5运行
 

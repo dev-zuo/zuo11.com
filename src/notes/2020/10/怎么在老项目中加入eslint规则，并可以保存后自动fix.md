@@ -1,3 +1,14 @@
+---
+{
+  "title": "怎么在老项目中加入eslint规则，并可以保存后自动fix",
+  "staticFileName": "old_project_eslint.html",
+  "author": "guoqzuo",
+  "createDate": "2020/10/25",
+  "description": "在 'Vue CLI 构建项目时选择不同的 eslint 规则会有什么区别？' 中，我们有了解到，不同的 eslint 配置项，会对应不同的 npm 包，eslintConfig 中对应的 extends 也不一样。我们只要找出某个配置特有的 npm 包，以及配置，就可以在旧项目中，引入对应的 eslint 配置，结合 vscode eslint 插件就可以做到保存后自动 fix",
+  "keywords": "老项目加eslint,旧项目引入eslint,vue eslint",
+  "category": "Vue"
+}
+---
 # 怎么在老项目中加入eslint规则，并可以保存后自动fix
 
 在 "Vue CLI 构建项目时选择不同的 eslint 规则会有什么区别？" 中，我们有了解到，不同的 eslint 配置项，会对应不同的 npm 包，eslintConfig 中对应的 extends 也不一样。我们只要找出某个配置特有的 npm 包，以及配置，就可以在旧项目中，引入对应的 eslint 配置，结合 vscode eslint 插件就可以做到保存后自动 fix

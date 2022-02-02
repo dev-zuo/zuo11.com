@@ -1,3 +1,14 @@
+---
+{
+  "title": "iOS 自定义ViewController中的view",
+  "staticFileName": "ios_view_controller.html",
+  "author": "guoqzuo",
+  "createDate": "2016/11/01",
+  "description": "手动加载storyboard时，我们用storyboard创建了ViewController，它会自动创建一个空的view，这个view就是UIView类型。我们拖拽的按钮、label等就是拖拽在这个视图上面。如果需要自定义该view可以在该ViewController的loadView方法里设置。",
+  "keywords": "ViewController里的view,iOS 控制器view,ViewController里View的创建",
+  "category": "iOS"
+}
+---
 
 # iOS 自定义ViewController中的view
 

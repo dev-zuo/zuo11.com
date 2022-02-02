@@ -1,3 +1,14 @@
+---
+{
+  "title": "小程序web-view组件内嵌网页调用微信JS-SDK",
+  "staticFileName": "mp_jssdk.html",
+  "author": "guoqzuo",
+  "createDate": "2018/02/24",
+  "description": "小程序web-view内置H5可以像公众号H5一样使用JS-SDK，但会有一定的限制，另外对于没有公众号H5调用JS-SDK经验的同学，可能会以为wx.config使用的参数是小程序的信息，下面以调用扫一扫为例子，介绍具体细节",
+  "keywords": "web-view jssdk,小程序内嵌H5调用jssdk,微信JS-SDK使用",
+  "category": "微信开发"
+}
+---
 
 # 小程序web-view组件内嵌网页调用微信JS-SDK
 

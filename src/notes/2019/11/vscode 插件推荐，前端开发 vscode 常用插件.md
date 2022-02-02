@@ -1,3 +1,14 @@
+---
+{
+  "title": "vscode 插件推荐，前端开发 vscode 常用插件",
+  "staticFileName": "vscode_plugin.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/12",
+  "description": "vscode 好用的插件推荐，在前端开发中，一般使用 vscode 来做开发，下面是一些开发中用的较多的插件推荐：Vetur、Vue VSCode snippets、GitLens、Preview on Web Server、ESLint 等",
+  "keywords": "vscode好用的插件,vscode实用插件",
+  "category": "计算机基础与开发工具"
+}
+---
 
 # vscode 插件推荐，前端开发 vscode 常用插件
 

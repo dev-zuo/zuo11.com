@@ -1,3 +1,14 @@
+---
+{
+  "title": "Script error产生原因与解决方法、调试技巧",
+  "staticFileName": "script_error.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/23",
+  "description": "一般为了安全起见，如果当前页面引入了跨域的 js 文件，当这个 js 文件出现错误，监听错误会无法获取对应的行号、真实的错误message。这种情况错误信息就是 Script error。本地来做一个试验，重现该问题，用 koa 写两个服务，分别监听 5001/5002端口，同时开启服务",
+  "keywords": "script error,script error是什么错误",
+  "category": "JavaScript"
+}
+---
 # Script error产生原因与解决方法、调试技巧
 一般为了安全起见，如果当前页面引入了跨域的 js 文件，当这个 js 文件出现错误，监听错误会无法获取对应的行号、真实的错误message。这种情况错误信息就是 Script error.
 

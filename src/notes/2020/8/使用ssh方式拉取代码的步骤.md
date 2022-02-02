@@ -1,3 +1,14 @@
+---
+{
+  "title": "使用ssh方式拉取代码的步骤",
+  "staticFileName": "git_ssh.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/02",
+  "description": "在使用git拉取远程分支代码时，有两种方式，一种是git clone，另一种是 ssh。在文件太大git clone超时时，我们可以试试ssh这种方法，下面来看看具体步骤",
+  "keywords": "git ssh",
+  "category": "运维部署与版本控制"
+}
+---
 # 使用ssh方式拉取代码的步骤
 
 在使用git拉取远程分支代码时，有两种方式，一种是git clone，另一种是 ssh。在文件太大git clone超时时，我们可以试试ssh这种方法，下面来看看具体步骤

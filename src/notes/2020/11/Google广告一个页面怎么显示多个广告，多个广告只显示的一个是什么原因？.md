@@ -1,3 +1,14 @@
+---
+{
+  "title": "Google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？",
+  "staticFileName": "google_ad_multiple.html",
+  "author": "guoqzuo",
+  "createDate": "2020/11/30",
+  "description": "在 Google Adsense 中，理论上配置好广告形式后，获取代码，把对应的代码放到页面中就可以显示广告了。但发现，如果放多个广告，只有一个可以显示出来，下面来看看是为什么？一般在验证开通 Google Adsense 时，就会引入第一行 script 代码。那么只需要把下面的 ins 元素 和 script 里的代码拷贝进页面里就行。当有多个广告时，我只拷贝了 多个 ins 到指定位置。",
+  "keywords": "Google 广告同页面多个广告不显示,Google 配置了多个广告只显示一个",
+  "category": "网站建设与SEO"
+}
+---
 # Google广告一个页面怎么显示多个广告，多个广告只显示的一个是什么原因？
 在 Google Adsense 中，理论上配置好广告形式后，获取代码，把对应的代码放到页面中就可以显示广告了。但发现，如果放多个广告，只有一个可以显示出来，下面来看看是为什么？
 

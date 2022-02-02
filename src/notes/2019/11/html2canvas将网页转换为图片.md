@@ -1,3 +1,14 @@
+---
+{
+  "title": "html2canvas将网页转换为图片",
+  "staticFileName": "html2vanvas.html",
+  "author": "guoqzuo",
+  "createDate": "2019/11/05",
+  "description": "在web开发中，我们需要生成图片时，可以使用html2canvas，他可以将html转为png，pc端还好，移动端css的坑比较多，这里只是简单的介绍下怎么使用。先引入 html2canvas.js，根据其api调用，来看看具体示例",
+  "keywords": "html2canvas将网页转换为图片,html2canvas使用示例",
+  "category": "JavaScript"
+}
+---
 
 # html2canvas将网页转换为图片
 

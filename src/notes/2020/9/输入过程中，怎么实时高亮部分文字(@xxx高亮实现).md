@@ -1,3 +1,14 @@
+---
+{
+  "title": "输入过程中，怎么实时高亮部分文字(@xxx高亮实现)",
+  "staticFileName": "highlight_when_input.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/07",
+  "description": "输入过程中高亮部分文字,输入过程中高亮关键字,前端@高亮实现,输入过程中，怎么实时高亮部分文字(@xxx高亮实现)，实现思路是，使用富文本编辑器，当监听到输入的文件包含关键字时，使用replace对当前的输入内容进行替换，给关键字加上span给个highlight的class，代码如下",
+  "keywords": "输入过程中高亮部分文字,输入过程中高亮关键字,前端@高亮实现",
+  "category": "Vue"
+}
+---
 # 输入过程中，怎么实时高亮部分文字(@xxx高亮实现)
 
 ![input_highlight_key.gif](../../../images/blog/vue/input_highlight_key.gif)

@@ -1,3 +1,14 @@
+---
+{
+  "title": "JS遍历数组方法总结，forEach的缺点以及与for..of和for...in的区别",
+  "staticFileName": "js_array.html",
+  "author": "guoqzuo",
+  "createDate": "2020/01/09",
+  "description": "在ES5中新增了很多方便操作数组的方法，包括新5种数组的迭代方法：forEach, map, filter, some, every；缩小方法：reduce()；检测数组方法Array.isArray()等，这些方法让操作数组更加优雅，趋近于函数式编程. 在ES6中又增加了for..of以及values,entres,keys等，下面来详细看看",
+  "keywords": "js遍历数组方法总结,es5 es6遍历数组方法,forEach的缺点以及与for..of和for...in的区别",
+  "category": "JavaScript"
+}
+---
 
 # JS遍历数组方法总结，forEach的缺点以及与for..of和for...in的区别
 

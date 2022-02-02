@@ -1,3 +1,14 @@
+---
+{
+  "title": "移动端rem自适应与pc端rem自适应",
+  "staticFileName": "rem.html",
+  "author": "guoqzuo",
+  "createDate": "2020/09/24",
+  "description": "在还原设计稿稿时，对于展示型的页面，设计稿间距都是固定的px，那我们实现时，如果全部都用pixel(px)写死就会存在某些分辨率下显示比较差的问题。用百分比也可以，但你需要自己手动计算，现在一般比较好的方法是在合适的地方使用rem，他可以自动转换。先来复习下css rem的概念。在css中有以下几种相对长度单位，em表示相对当前父元素字体大小的倍数, rem表示相对根元素(html)字体的倍数。",
+  "keywords": "pc rem,h5 rem,em与rem的区别",
+  "category": "CSS"
+}
+---
 
 # 移动端rem自适应与pc端rem自适应
 

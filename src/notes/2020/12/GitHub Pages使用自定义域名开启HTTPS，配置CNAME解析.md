@@ -1,3 +1,14 @@
+---
+{
+  "title": "GitHub Pages使用自定义域名开启HTTPS，配置CNAME解析",
+  "staticFileName": "github_pages_https.html",
+  "author": "guoqzuo",
+  "createDate": "2020/12/07",
+  "description": "一般在仓库的 Setting 中，开启 Github Pages 会生成一个 `xxx.github.io/xx/` 的地址，地址有点长，我们可以使用自定义域名，这里我将 vue-chart 这个仓库设置成了自定义域名 vuechart.zuo11.com。然后，我们需要把自定义的域名解析到 github.com 地址。可以使用 ping github.com 来获取它的服务器 IP。",
+  "keywords": "github pages https",
+  "category": "运维部署与版本控制"
+}
+---
 # GitHub Pages使用自定义域名开启HTTPS，配置CNAME解析
 一般在仓库的 Setting 中，开启 Github Pages 会生成一个 `xxx.github.io/xx/` 的地址，地址有点长，我们可以使用自定义域名，这里我将 vue-chart 这个仓库设置成了自定义域名 vuechart.zuo11.com。然后，我们需要把自定义的域名解析到 github.com 地址。可以使用 ping github.com 来获取它的服务器 IP。
 

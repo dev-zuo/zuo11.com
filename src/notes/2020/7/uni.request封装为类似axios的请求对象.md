@@ -1,3 +1,14 @@
+---
+{
+  "title": "uni.request封装为类似axios的请求对象",
+  "staticFileName": "uni_request.html",
+  "author": "guoqzuo",
+  "createDate": "2020/07/26",
+  "description": "uni.request封装,uni axios分装,在uni-app中为了抹平各平台的差异，官方提供了uni.request方法，和微信小程序的请求方法类似，一般这类请求是比较通用的，如果直接使用会有大量的重复代码，于是做了简单的封装，来看看代码",
+  "keywords": "uni.request封装,uni axios分装",
+  "category": "移动端混合开发"
+}
+---
 # uni.request封装为类似axios的请求对象
 在uni-app中为了抹平各平台的差异，官方提供了uni.request方法，和微信小程序的请求方法类似，一般这类请求是比较通用的，如果直接使用会有大量的重复代码，于是做了简单的封装，来看看代码
 

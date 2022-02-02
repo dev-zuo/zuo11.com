@@ -1,3 +1,14 @@
+---
+{
+  "title": "java web获取访客信息(ip,归属地等)",
+  "staticFileName": "web_access_log.html",
+  "author": "guoqzuo",
+  "createDate": "2017/02/01",
+  "description": "之前写过一篇servlet判断是否为移动端访问的文章，是为了代码适配移动端或PC。这次需要记录访客信息。写了个类方法来获取访问者的ip、归属地、UA、访问URL以及是否为PC端访问。",
+  "keywords": "servlet 获取ip,servlet获取访问信息,java获取访客信息,servlet获取访客ip,web获取用户访问信息,百度谷歌蜘蛛UA,java web获取访客信息",
+  "category": "后端数据库等"
+}
+---
 
 # java web获取访客信息(ip,归属地等)
 

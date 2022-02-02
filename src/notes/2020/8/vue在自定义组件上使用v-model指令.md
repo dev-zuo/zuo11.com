@@ -1,3 +1,14 @@
+---
+{
+  "title": "vue在自定义组件上使用v-model指令",
+  "staticFileName": "custom_comp_v_model.html",
+  "author": "guoqzuo",
+  "createDate": "2020/08/15",
+  "description": "vue自定义组件使用使用v-model,vue v-model,vue v-model原理,vue v-model内部实现,在自定义组件上，使用v-model指令，默认会向子组件传递一个字段名为 value 的 prop 属性，以及绑定一个名为 input 的事件。在子组件里，可以用props来接收value字段，可以用 this.$emit('input') 来对父组件里value的值进行修改。它主要的应用在子组件需要修改父组件属性值的情况，你不需要额外再调用子组件时，传递一个修改值的事件，节省了一个事件监听。来看看示例",
+  "keywords": "vue自定义组件使用使用v-model,vue v-model,vue v-model原理,vue v-model内部实现",
+  "category": "Vue"
+}
+---
 
 # vue在自定义组件上使用v-model指令
 

@@ -1,3 +1,14 @@
+---
+{
+  "title": "mac没安装xcode怎么安装svn以及怎么用命令操作svn",
+  "staticFileName": "mac_svn.html",
+  "author": "guoqzuo",
+  "createDate": "2019/10/30",
+  "description": "一般在mac下，如果安装了xcode貌似有自动安装svn，如果卸载了xcode，那怎么安装svn呢？还有svn怎么使用命令来拉取更新，一般的git命令对应svn的命令是什么呢？下面我们来看看。",
+  "keywords": "mac没安装xcode怎么安装svn,怎么用命令操作svn,svn拉取代码命令",
+  "category": "运维部署与版本控制"
+}
+---
 
 # mac没安装xcode怎么安装svn以及怎么用命令操作svn
 
