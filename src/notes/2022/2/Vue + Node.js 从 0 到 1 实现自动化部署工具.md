@@ -621,8 +621,14 @@ program.parse();
 在 start.js 中，我么可以将 server/index.js 的代码全部拷贝过去即可完成 zuodeploy start 开启服务，点击部署的功能
 
 ### 4.稳定性提高-pm2改造
+为了提升稳定性，我们可以在 start.js 中以代码的方式执行 pm2 src/index.js 这样服务更稳定可靠，另外可以再加入 log4js 输出带时间戳的 log，这样有利于排查问题。
 
-## 一些问题
+- 具体代码参考：[zuo-deploy -github](https://github.com/zuoxiaobai/zuo-deploy)
+- 所有测试 demo 地址: [zuo-deploy 实现 demo - fedemo -github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/zuo-deploy%20%E5%AE%9E%E7%8E%B0demo) 
+
+## 最后
+将上面零碎的知识点汇聚到一起就是 zuo-deploy 的实现，代码写的比较随意，欢迎 star、fork、提改进 PR！
+## 其他问题
 ### 前端/客户端为什么只有一个 html 没有使用工程化
 1. 前端工程化方式组织代码比较重，没必要
 2. 这里功能比较简单、只有部署按钮、部署 log 查看区域、鉴权（输入密码）区域
