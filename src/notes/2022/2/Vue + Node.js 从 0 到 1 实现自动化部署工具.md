@@ -633,6 +633,7 @@ program.parse();
 1. 前端工程化方式组织代码比较重，没必要
 2. 这里功能比较简单、只有部署按钮、部署 log 查看区域、鉴权（输入密码）区域
 3. 便于部署，直接 koa-static 开启静态服务即可访问，无需打包构建
+
 ### 为什么从 type: module 改为普通的 CommonJS
 package.json 里面配置 type: module 后默认使用 ES Modules，有些 node 方法会有一些问题
 
