@@ -304,30 +304,329 @@ router.post("/deploy", async (ctx) => {
 
 ## 功能优化
 ### 1.使用 socket 实时输出 log
-上面的例子中，普通接口登台部署 shell 执行完成后再响应给前端，如果 git pull、npm run build 时间较长就会导致前端页面一直没log信息，如下图
+上面的例子中，普通接口需要等部署脚本执行完成后再响应给前端，如果脚本中包含 git pull、npm run build 等耗时较长的命令，就会导致前端页面一直没log信息，如下图
 
 ![node执行shell脚本](../../../images/blog/zuoDeploy/deploy-pending.png)
 
-这里我们改造下，使用 socket.io 来实时将部署 log 发送给前端。
-### 2.部署接口添加鉴权
-### 3.封装成一个npm包cli工具
-### 4.稳定性提高-pm2改造
-## 一些问题
-### 前端/客户端为什么只有一个 html 没有使用工程化
-1. 前端工程化方式组织代码比较重，没必要
-2. 这里功能比较简单、只有部署按钮、部署 log 查看区域、鉴权（输入密码）区域
-3. 便于部署，直接 koa-static 开启静态服务即可访问，无需打包构建
+测试 shell
+```bash
+echo '执行 pwd'
+pwd
+echo '执行 git pull'
+git pull
+git clone git@github.com:zuoxiaobai/zuo11.com.git # 耗时较长的命令
+echo '部署完成'
+```
 
-### 为什么封装成 npm 包，使用命令行工具开启服务
-主要是简单易用，如果不使用命令行工具形式，需要三步：
+![非常耗时的部署shell](../../../images/blog/zuoDeploy/longtime-res.png)
+
+这里我们改造下，使用 [socket.io](https://socket.io/) 来实时将部署 log 发送给前端
+
+socket.io 分为客户端、服务端两个部分
+
+客户端代码
+```html
+<!-- frontend/indexSocket.html -->
+<script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+<script>
+  // vue mounted 钩子里面链接 socket 服务端
+  mounted() {
+    this.socket = io() // 链接到 socket 服务器，发一个 http 请求，成功后转 101 ws 协议
+    // 订阅部署日志，拿到日志，就一点点 push 到数组，显示到前端
+    this.socket.on('deploy-log', (msg) => {
+      console.log(msg)
+      this.msgList.push(msg)
+    })
+  },  
+</script>
+```
+后端 koa 中引入 socket.io 代码
+```js
+// server/indexSoket.js
+// npm install socket.io --save
+const app = new Koa();
+const router = new KoaRouter();
+
+// 开启 socket 服务
+let socketList = [];
+const server = require("http").Server(app.callback());
+const socketIo = require("socket.io")(server);
+socketIo.on("connection", (socket) => {
+  socketList.push(socket);
+  console.log("a user connected"); // 前端调用 io()，即可连接成功
+});
+// 返回的 socketIo 对象可以用来给前端广播消息
+
+runCmd() {
+  // 部分核心代码
+  let msg = ''
+  child.stdout.on('data', (data) => {
+    // shell 执行的 log 在这里搜集，可以通过接口返回给前端
+    console.log(`stdout: ${data}`);
+    socketIo.emit('deploy-log', `${data}`) //socket 实时发送给前端
+    // 普通接口仅能返回一次，需要把 log 都搜集到一次，在 end 时 返回给前端
+    msg += `${data}`
+  });
+  // ...
+  child.stderr.on('data', (data) => {
+    // 如果发生错误，错误从这里输出
+    console.error(`stderr: ${data}`);
+    socketIo.emit('deploy-log', `${data}`) // socket 实时发送给前端
+    msg += `${data}`
+  });
+}
+// app.listen 需要改为上面加入了 socket 服务的 server 对象
+server.listen(7777, () => console.log(`服务监听 ${7777} 端口`));
+```
+我们在之前的 demo 中加入上面的代码，即可完成 socket 改造，node server/indexSocket.js，打开 127.0.0.1:7777/indexSocket.html，点击部署，即可看到如下效果。完成 demo [访问地址](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/zuo-deploy%20%E5%AE%9E%E7%8E%B0demo)
+
+![socket 前端接收](../../../images/blog/zuoDeploy/socket-pending.png)
+![socket network信息](../../../images/blog/zuoDeploy/socket-ws-msg.png)
+
+相关问题
+1. 关于 http 转 ws 协议，我们可以通过打开 F12 NetWork 面板看前端的 socket 相关连接步骤
+- GET `http://127.0.0.1:7777/socket.io/?EIO=4&transport=polling&t=Nz5mBZk` 获取 sid
+- POST `http://127.0.0.1:7777/socket.io/?EIO=4&transport=polling&t=Nz5mBaY&sid=DKQAS0fxzXUutg0wAAAG` 
+- GET `http://127.0.0.1:7777/socket.io/?EIO=4&transport=polling&t=Nz5mBav&sid=DKQAS0fxzXUutg0wAAAG `
+- `ws://127.0.0.1:7777/socket.io/?EIO=4&transport=websocket&sid=DKQAS0fxzXUutg0wAAAG`
+
+ws 这个里面可以看到 socket 传的数据
+
+![socket upgrade](../../../images/blog/zuoDeploy/socket-upgrade.png)
+
+2. http 请求成功状态码一般是 200, ws Status Code 为 101 Switching Protocols
+
+### 2.部署接口添加鉴权
+上面只是用接口实现的功能，并没有加权限控制，任何人知道接口地址后，可以通过 postman 请求该接口，触发部署。如下图
+
+![postman deploy](../../../images/blog/zuoDeploy/postman-deploy.png)
+
+为了安全起见，我们这里为接口添加鉴权，前端增加一个输入密码登录的功能。这里使用 koa-session 来鉴权，只有登录态才能请求成功
+
+```js
+// server/indexAuth.js
+// npm install koa-session koa-bodyparser --save
+// ..
+const session = require("koa-session");
+const bodyParser = require("koa-bodyparser"); // post 请求参数解析
+const app = new Koa();
+const router = new KoaRouter();
+
+app.use(bodyParser()); // 处理 post 请求参数
+
+// 集成 session
+app.keys = [`自定义安全字符串`]; // 'some secret hurr'
+const CONFIG = {
+  key: "koa:sess" /** (string) cookie key (default is koa:sess) */,
+  /** (number || 'session') maxAge in ms (default is 1 days) */
+  /** 'session' will result in a cookie that expires when session/browser is closed */
+  /** Warning: If a session cookie is stolen, this cookie will never expire */
+  maxAge: 0.5 * 3600 * 1000, // 0.5h
+  overwrite: true /** (boolean) can overwrite or not (default true) */,
+  httpOnly: true /** (boolean) httpOnly or not (default true) */,
+  signed: true /** (boolean) signed or not (default true) */,
+  rolling: false /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */,
+  renew: false /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/,
+};
+app.use(session(CONFIG, app));
+
+router.post("/login", async (ctx) => {
+  let code = 0;
+  let msg = "登录成功";
+  let { password } = ctx.request.body;
+  if (password === `888888`) { // 888888 为设置的密码
+    ctx.session.isLogin = true;
+  } else {
+    code = -1;
+    msg = "密码错误";
+  }
+  ctx.body = {
+    code,
+    msg,
+  };
+});
+
+router.post("/deploy", async (ctx) => {
+  if (!ctx.session.isLogin) {
+    ctx.body = {
+      code: -2,
+      msg: "未登录",
+    };
+    return;
+  }
+  // 有登录态，执行部署
+})
+```
+前端相关改动，加一个密码输入框、一个登录按钮
+```html
+<!-- frontend/indexAuth.html 注意id="app"包裹 -->
+<div class="login-area">
+  <div v-if="!isLogin">
+    <el-input v-model="password" type="password" style="width: 200px;"></el-input>
+    &nbsp;
+    <el-button type="primary" @click="login">登录</el-button>
+  </div>
+  <div v-else>已登录</div>
+</div>
+<script>
+data() {
+  return {
+    isLogin: false,
+    password: ''
+  }
+},
+methods: {
+  login() {
+    if (!this.password) {
+      this.$message.warning('请输入密码')
+      return
+    }
+    axios.post('/login', { password: this.password })
+      .then((response) => {
+        console.log(response.data);
+        let { code, msg } = response.data
+        if (code === 0) {
+          this.isLogin = true
+        } else {
+          this.$message.error(msg)
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+        this.$message.error(err.message)
+      })
+  }
+}
+</script>
+```
+node server/indexAuth.js，打开 127.0.0.1:7777/indexAuth.html，登录成功之后才能部署
+
+![fe-login](../../../images/blog/zuoDeploy/fe-login.png)
+
+![postman-login](../../../images/blog/zuoDeploy/postman-login.png)
+
+### 3.封装成一个npm包cli工具
+为什么封装成 npm 包，使用命令行工具开启服务。主要是简单易用，如果不使用命令行工具形式，需要三步：
 1. 先下载代码到服务器
 2. npm install
 3. node index.js 或者 pm2 start index.js -n xxx 开启服务
 
 改成 npm 包命令行工具形式只需要下面两步，而且更节省时间
 1. npm install zuo-deploy pm2 -g
-2. zuodeploy start 会自动使用 pm2 开启服务
+2. 运行 zuodeploy start 会自动使用 pm2 开启服务
 
+下面先来看一个简单的例子，创建一个 npm 包并上传到 npm 官方库步骤
+- 需要有 npm 账号，如果没有可以到 https://www.npmjs.com/ 注册一个，我的用户名是 'guoqzuo'
+- 创建一个文件夹，用于存放 npm 包内容，比如 npmPackage
+- 在该目录下，运行 npm init 初始化一个 package.json，输入的 name 就是 npm 包名，这里我设置 name 为 'zuoxiaobai-test'
+  - 包名有两种形式，普通包 vue-cli，作用域包 @vue/cli，区别参见 [npm包前面加@是什么意思(vue-cli与@vue/cli的区别)](http://www.zuo11.com/blog/2020/7/npm_scope.html)
+- 一般默认入口为 index.js，暴露出一个变量、一个方法
+```js
+// index.js
+module.exports = {
+  name: '写一个npm包',
+  doSomething() {
+    console.log('这个npm暴露一个方法')
+  }
+}
+```
+- 这样就可以直接发布了，创建一个 publish 脚本，并执行（linux 下 chmod +x publish.sh;./publish.sh;）
+```bash
+# publish.sh
+npm config set registry=https://registry.npmjs.org
+npm login # 登陆 ，如果有 OTP, 邮箱会接收到验证码，输入即可
+# 登录成功后，短时间内会保存状态，可以直接 npm pubish
+npm publish # 可能会提示名称已存在，换个名字，获取使用作用域包（@xxx/xxx）
+npm config set registry=https://registry.npm.taobao.org # 还原淘宝镜像
+```
+![npm-publish](../../../images/blog/zuoDeploy/npm-publish.png)
+
+到 npmjs.org 搜索对应包就可以看到了
+
+![npm-official](../../../images/blog/zuoDeploy/npm-official.png)
+
+使用该 npm 包，创建 testNpm/index.js
+```js
+const packageInfo = require('zuoxiaobai-test')
+
+console.log(packageInfo) 
+packageInfo.doSomething()
+```
+在 testNpm 目录下 npm init 初始化 package.json，再 npm install zuoxiaobai-test --save; 再 node index.js，执行情况如下图，调用 npm 包正常
+
+![test-npm.png](../../../images/blog/zuoDeploy/test-npm.png)
+
+这样我们就知道怎么写一个 npm 包，并上传到 npm 官方库了。
+
+下面，我们来看怎么在 npm 包中集成 cli 命令。举个例子：在 `npm install @vue/cli -g` 后，会在环境变量中添加一个 vue 命令。使用 vue create xx 可初始化一个项目。一般这种形式就是 cli 工具。
+
+一般在 package.json 中有一个 bin 属性，用于创建该 npm 包的自定义命令
+```js
+// package.json
+"bin": {
+    "zuodeploy": "./bin/zuodeploy.js"
+  },
+```
+上的配置意思是：全局安装 npm install xx -g 后，生成 zuodeploy 命令，运行该命令时，会执行 bin/zuodeploy.js
+
+本地开发时，配置好后，在当前目录下运行 sudo npm link 即可将 zuodeploy 命令链接到本地的环境变量里。任何 terminal 里面运行 zuodeploy 都会执行当前项目下的这个文件。解除可以使用 npm unlink
+
+一般 cli 都会使用 commander 来生成帮助文档，管理指令逻辑，代码如下
+
+```js
+// bin/zuodeploy.js
+#!/usr/bin/env node
+
+const { program } = require("commander");
+const prompts = require("prompts");
+
+program.version(require("../package.json").version);
+
+program
+  .command("start")
+  .description("开启部署监听服务") // description + action 可防止查找 command拼接文件
+  .action(async () => {
+    const args = await prompts([
+      {
+        type: "number",
+        name: "port",
+        initial: 7777,
+        message: "请指定部署服务监听端口：",
+        validate: (value) =>
+          value !== "" && (value < 3000 || value > 10000)
+            ? `端口号必须在 3000 - 10000 之间`
+            : true,
+      },
+      {
+        type: "password",
+        name: "password",
+        initial: "888888",
+        message: "请设置登录密码（默认：888888）",
+        validate: (value) => (value.length < 6 ? `密码需要 6 位以上` : true),
+      },
+    ]);
+    require("./start")(args); // args 为 { port: 7777, password: '888888' }
+  });
+
+program.parse();
+```
+使用 commander 可以快速管理、生成帮助文档，分配具体指令的执行逻辑
+
+![zuodeploy.png](../../../images/blog/zuoDeploy/zuodeploy.png)
+
+上面的代码中，指定了 start  指令，zuodeploy start 执行时会先通过 prompts 以询问的方式搜集参数，再执行 bin/start.js
+
+![zuodeploy-start.png](../../../images/blog/zuoDeploy/zuodeploy-start.png)
+
+在 start.js 中，我么可以将 server/index.js 的代码全部拷贝过去即可完成 zuodeploy start 开启服务，点击部署的功能
+
+### 4.稳定性提高-pm2改造
+
+## 一些问题
+### 前端/客户端为什么只有一个 html 没有使用工程化
+1. 前端工程化方式组织代码比较重，没必要
+2. 这里功能比较简单、只有部署按钮、部署 log 查看区域、鉴权（输入密码）区域
+3. 便于部署，直接 koa-static 开启静态服务即可访问，无需打包构建
 ### 为什么从 type: module 改为普通的 CommonJS
 package.json 里面配置 type: module 后默认使用 ES Modules，有些 node 方法会有一些问题
 
