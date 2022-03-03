@@ -10,7 +10,7 @@
 }
 ---
 # Vue + Node.js 从 0 到 1 实现自动化部署工具
-最近写了一个自动化部署的 npm 包 zuo-deploy。客户端 Vue + ElementUI，服务 koa + socket + koa-session 等。已开源在 github。zuoxiaobai/zuo-deploy 欢迎 Star、Fork。这里介绍下具体实现细节、思路。
+最近写了一个自动化部署的 npm 包 [zuo-deploy](https://github.com/zuoxiaobai/zuo-deploy)，只需点击一个按钮，就可以执行服务器部署脚本，完成功能更新迭代。客户端使用 Vue + ElementUI，服务 koa + socket + koa-session 等。基础功能代码 300 行不到，已开源在 github。zuoxiaobai/zuo-deploy 欢迎 Star、Fork。这里介绍下具体实现细节、思路。
 ## 目录结构
 ```bash
 ├── bin # 命令行工具命令
@@ -36,7 +36,7 @@
 
 ## 前后端技术栈、相关依赖
 - 前端/客户端
-  - 静态 html + css，非前端工程化，库都以 cdn 形式引入，通过库暴露的 CommonJS 全局变量使用
+  - 静态 html + css，非前端工程化，库都以 cdn 形式引入，通过库以 UMD 打包方式暴露的全局变量使用
   - vue3，MVVM 框架，不用操作 dom
   - element-plus，基础表单样式统一、美化
   - axios，请求接口
