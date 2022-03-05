@@ -5,7 +5,7 @@
   "author": "guoqzuo",
   "createDate": "2022/02/28",
   "description": "最近写了一个自动化部署的 npm 包 zuo-deploy。客户端 Vue + ElementUI，服务 koa + socket + koa-session 等。已开源在 github。zuoxiaobai/zuo-deploy 欢迎 Star、Fork。这里介绍下具体实现细节、思路。",
-  "keywords": "自动化部署,js实现CICD,CI,CD,部署工具,zuo-deploy,实现自动化部署,node执行shell脚本",
+  "keywords": "自动化部署,js实现CICD,CI,CD,部署工具,zuo-deploy,实现自动化部署,node执行shell脚本,auto deploy",
   "category": "运维部署与版本控制"
 }
 ---
