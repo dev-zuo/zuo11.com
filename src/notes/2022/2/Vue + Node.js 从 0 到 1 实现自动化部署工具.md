@@ -298,7 +298,7 @@ router.post("/deploy", async (ctx) => {
 
 执行的是当前目录的 deploy.sh，没有对应的文件。将上面 testExeclShell/deploy.sh 放到当前目录再点击部署
 
-![node执行shell脚本](../../../images/blog/zuoDeploy/deploy-sh-log.png)
+![deploy-sh-log](../../../images/blog/zuoDeploy/deploy-sh-log.png)
 
 这样自动化部署基础功能基本就完成了。
 
@@ -306,7 +306,7 @@ router.post("/deploy", async (ctx) => {
 ### 1.使用 socket 实时输出 log
 上面的例子中，普通接口需要等部署脚本执行完成后再响应给前端，如果脚本中包含 git pull、npm run build 等耗时较长的命令，就会导致前端页面一直没log信息，如下图
 
-![node执行shell脚本](../../../images/blog/zuoDeploy/deploy-pending.png)
+![deploy-pending](../../../images/blog/zuoDeploy/deploy-pending.png)
 
 测试 shell
 ```bash
