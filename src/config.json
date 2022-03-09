@@ -4,7 +4,7 @@
   "baiduTongjiId": "183281668cc3440449274d1f93c04de6",
   "editOnGithubPrePath": "https://github.com/zuoxiaobai/zuo11.com/edit",
   "indexConfig": {
-    "author": "guoqzuo",
+    "author": "左小白",
     "description": "左小白的技术日常，主要记录和分享web前端领域相关的理解、总结、观点。偶尔会进行一些扩展：比如网站建设、服务器运维、后台数据库等",
     "keywords": "左小白,左小白的技术日常,zuo11.com",
     "linkList": [
@@ -13,8 +13,13 @@
         "href": "/blog/category.html"
       },
       {
-        "name": "我的笔记",
+        "name": "系统化前端笔记",
         "href": "http://fe.zuo11.com",
+        "target": "_black"
+      },
+      {
+        "name": "Bilibili",
+        "href": "https://space.bilibili.com/486840111",
         "target": "_black"
       },
       {
@@ -26,8 +31,13 @@
   },
   "topRightLink": [
     {
-      "name": "我的笔记",
+      "name": "系统化前端笔记",
       "href": "http://fe.zuo11.com",
+      "target": "_black"
+    },
+    {
+      "name": "Bilibili",
+      "href": "https://space.bilibili.com/486840111",
       "target": "_black"
     },
     {

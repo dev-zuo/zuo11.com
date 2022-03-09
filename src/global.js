@@ -69,13 +69,17 @@ function message(type, msg, sec) {
 // JS高程3 - UI事件 scroll事件
 // https://www.yuque.com/guoqzuo/js_es6/elgng1#e38771e5
 let htmlStr = `
-  <div id="posTop" style="position: fixed;top:0;height:2px;background: #25b864;z-index:999999;"></div>
-  <div id="pos" style="display:none;position:fixed;bottom: 100px;right:20px;padding:10px;background: #25b864;color:white;width:40px;text-align: center;border-radius:5px;"></div>
+  <div id="posTop" style="position: fixed;top:0;height:2px;background: var(--primary-bg);z-index:999999;"></div>
+  <div id="posBack" style="cursor: pointer;display:none;position:fixed;bottom: 150px;right:20px;padding:10px;background: var(--primary-bg);color:white;width:40px;text-align: center;border-radius:5px;">回到顶部</div>
+  <div id="pos" style="display:none;position:fixed;bottom: 100px;right:20px;padding:10px;background: var(--primary-bg);color:white;width:40px;text-align: center;border-radius:5px;"></div>
 `
 let eleNode = document.createElement('div')
 eleNode.innerHTML = htmlStr
 document.body.appendChild(eleNode)
 
+eleNode.querySelector('#posBack').addEventListener('click', function(e) {
+  document.documentElement.scrollTop = 0;
+})
 window.addEventListener('scroll', function(e) {
   let scrollTop = document.documentElement.scrollTop;
   let total = document.documentElement.scrollHeight - window.innerHeight;
@@ -84,9 +88,11 @@ window.addEventListener('scroll', function(e) {
 
   document.getElementById('pos').style.display = scrollTop === 0 ? 'none' : 'block';
   document.getElementById('pos').innerHTML = `${persentage}%`;
+  // console.log(scrollTop)
+  document.getElementById('posBack').style.display = scrollTop < 1200 ? 'none' : 'block';
+  document.getElementById('posBack').innerHTML = `回到顶部`;
   document.getElementById('posTop').style.width = `${persentage}%`;
 }, false)
-
 
 // 操作粘贴板
 // JS高程3 表单脚本 操作粘贴板
@@ -98,6 +104,11 @@ document.body.oncopy = function(event) {
   // 事件不在article容器内，或者在article内但它是标题内容或时间区域的内容，不操作粘贴板
   if (!articleDom.contains(target) || articleTopDom.contains(target) || target.tagName === 'H1') {
     return 
+  }
+
+  let isConfirm = confirm('是否在复制信息中追加来源信息')
+  if (!isConfirm) {
+    return
   }
   // 获取copy的内容
   // console.log(document.getSelection().toString());
@@ -135,3 +146,25 @@ document.body.oncopy = function(event) {
 // }
 
 // showQrcode() // 执行
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const rightTags = document.querySelectorAll(".aside-wrap .category ul")
+  console.log(rightTags)
+  
+  function getRandomColor() {
+      return Math.random() * 200;
+  }
+  rightTags.forEach(item => {
+      item.style.borderWidth = 0;
+      item.style.background = '#fff' 
+      item.style.color = `rgba(${getRandomColor()},${getRandomColor()},${getRandomColor()}, 1)`;
+  })
+
+  const outline = document.querySelector('.top')
+  console.log(outline, outline.scrollHeight, outline.clientHeight, outline.scrollHeight > outline.clientHeight)
+  if (outline.scrollHeight <= outline.clientHeight) {
+    outline.style.overflowY = "auto"
+  }
+})

@@ -6,6 +6,55 @@
 /* fix 火狐首页异常的问题 */
 body { 
   min-height: 100vh;
+  --primary-color: rgb(12, 109, 235);
+  --primary-bg: rgba(12, 109, 235, 1);
+}
+
+.img-div img {
+  display: none;
+}
+.title {
+  font-size: 24px!important;
+  font-weight: normal !important;
+}
+span.hidden {
+  display: none;
+}
+
+header img.pointer {
+  display: none;
+}
+header span.pointer {
+  font-size: 18px;
+}
+article h1 {
+  color: var(--primary-color);
+}
+.content article {
+  border-width: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #eee;
+}
+.aside-wrap .top {
+  border-width: 0;
+  border-radius: 8px;
+  box-shadow: none;
+}
+aside ul li span:hover,
+aside ul li span.active {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+aside ul li span {
+  color: inherit;
+}
+
+a {
+  color: var(--primary-color) !important;
+}
+a:hover {
+  text-decoration: underline !important;
 }
 
 /* dark mode support */
