@@ -27,7 +27,7 @@ git push origin pc-v2-zuo:pc-v2-zuo # 将分支推送到远程分支
 git branch --set-upstream-to=origin/pc-v2-zuo pc-v2-zuo
 ```
 
-** 2022/03/09 更新：**
+**2022/03/09 更新：**
 
 更好的方法，一般都是从 master 分支拉取代码
 ```bash
