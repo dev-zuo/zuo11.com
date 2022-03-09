@@ -27,6 +27,22 @@ git push origin pc-v2-zuo:pc-v2-zuo # 将分支推送到远程分支
 git branch --set-upstream-to=origin/pc-v2-zuo pc-v2-zuo
 ```
 
+** 2022/03/09 更新：**
+
+更好的方法，一般都是从 master 分支拉取代码
+```bash
+# 切换到主分支
+git checkout master
+# 基于主分支创建新的分支 v3.2.0，并切换到该分支
+git checkout -b v3.2.0 
+# 推送到远程
+git push
+# 会提示你使用git push --set-upstream origin v2.1.0 
+# 复制该命令执行即可
+git push --set-upstream origin v2.1.0
+```
+
+
 记得每次git commit、git push前都要git pull更新
 
 如果在pc-v2-zuo这个分支开发完成后，怎么将更新合并到某个特定的分支呢(加上为v1.2.0)？一般我的方法是
