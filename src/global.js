@@ -94,34 +94,30 @@ window.addEventListener('scroll', function(e) {
   document.getElementById('posTop').style.width = `${persentage}%`;
 }, false)
 
-// 操作粘贴板
-// JS高程3 表单脚本 操作粘贴板
-// https://www.yuque.com/guoqzuo/js_es6/ubpn7k#8482e7c5
-document.body.oncopy = function(event) {
-  let articleDom = document.querySelector('article')
-  let articleTopDom = document.querySelector('.article-top')
-  let { target } = event 
-  // 事件不在article容器内，或者在article内但它是标题内容或时间区域的内容，不操作粘贴板
-  if (!articleDom.contains(target) || articleTopDom.contains(target) || target.tagName === 'H1') {
-    return 
-  }
+// // 操作粘贴板
+// // JS高程3 表单脚本 操作粘贴板
+// // https://www.yuque.com/guoqzuo/js_es6/ubpn7k#8482e7c5
+// document.body.oncopy = function(event) {
+//   let articleDom = document.querySelector('article')
+//   let articleTopDom = document.querySelector('.article-top')
+//   let { target } = event 
+//   // 事件不在article容器内，或者在article内但它是标题内容或时间区域的内容，不操作粘贴板
+//   if (!articleDom.contains(target) || articleTopDom.contains(target) || target.tagName === 'H1') {
+//     return 
+//   }
 
-  let isConfirm = confirm('是否在复制信息中追加来源信息')
-  if (!isConfirm) {
-    return
-  }
-  // 获取copy的内容
-  // console.log(document.getSelection().toString());
-  // 在copy内容里加入信息
-  var msg = `
------------------------------
-标题：${document.title}
-链接：${location.href}
-作者：guoqzuo (http://github/zuoxiaobai)
-  `
-  event.clipboardData.setData('text/plain', `${document.getSelection().toString()} ${msg}`);
-  event.preventDefault();
-};
+//   // 获取copy的内容
+//   // console.log(document.getSelection().toString());
+//   // 在copy内容里加入信息
+//   var msg = `
+// -----------------------------
+// 标题：${document.title}
+// 链接：${location.href}
+// 作者：guoqzuo (http://github/zuoxiaobai)
+//   `
+//   event.clipboardData.setData('text/plain', `${document.getSelection().toString()} ${msg}`);
+//   event.preventDefault();
+// };
 
 
 // 公众号二维码显示在文章最底部

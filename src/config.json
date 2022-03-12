@@ -2,7 +2,7 @@
   "title": "左小白的技术日常",
   "isAddBaiduTongji": true,
   "baiduTongjiId": "183281668cc3440449274d1f93c04de6",
-  "editOnGithubPrePath": "https://github.com/zuoxiaobai/zuo11.com/edit",
+  "editOnGithubPrePath": "https://github.com/zuoxiaobai/zuo11.com/blob",
   "indexConfig": {
     "author": "左小白",
     "description": "左小白的技术日常，主要记录和分享web前端领域相关的理解、总结、观点。偶尔会进行一些扩展：比如网站建设、服务器运维、后台数据库等",
@@ -47,7 +47,7 @@
     }
   ],
   "footer": {
-    "left": "Copyright © 2016-2021 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a>",
+    "left": "Copyright © 2016-2022 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a>",
     "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
   },
   "categorySequence": [

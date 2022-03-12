@@ -9,7 +9,12 @@ body {
   --primary-color: rgb(12, 109, 235);
   --primary-bg: rgba(12, 109, 235, 1);
 }
-
+header div:last-child {
+  margin-right: 50px;
+}
+.edit-github {
+  margin-bottom: 20px;
+}
 .img-div img {
   display: none;
 }
