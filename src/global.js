@@ -164,3 +164,13 @@ window.addEventListener('DOMContentLoaded', () => {
     outline.style.overflowY = "auto"
   }
 })
+
+// zuo-statistic 统计
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'http://zuo11.com:3000/zs.js?183281668cc3440449274d1f93c04de6';
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
