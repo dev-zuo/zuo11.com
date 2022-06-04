@@ -1,6 +1,6 @@
 ---
 {
-  "title": "微信小程序Failed to load resource: net::ERR_NAME_NOT_RESOLVED",
+  "title": "微信小程序Failed-to-load-resource-net-ERR_NAME_NOT_RESOLVED.md",
   "staticFileName": "web_mp_vpn.html",
   "author": "guoqzuo",
   "createDate": "2017/01/09",
