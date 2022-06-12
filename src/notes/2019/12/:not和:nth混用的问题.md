@@ -1,6 +1,6 @@
 ---
 {
-  "title": ":not和:nth混用的问题",
+  "title": "not和nth混用的问题",
   "staticFileName": "not_nth.html",
   "author": "guoqzuo",
   "createDate": "2019/12/09",
