@@ -1,6 +1,6 @@
 ---
 {
-  "title": "怎么开发vscode插件?",
+  "title": "怎么开发vscode插件",
   "staticFileName": "vscode_plugin.html",
   "author": "guoqzuo",
   "createDate": "2020/10/08",
