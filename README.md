@@ -1,4 +1,5 @@
 # zuo11.com
+
 zuo11.com 源码，欢迎 star、fork、提改进 pr
 
 ## 目录结构
@@ -34,7 +35,9 @@ v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的�
 ```
 
 ## _config.json 全局配置说明
+
 里面包含了站点名称、百度统计id、链接名称、底部文案等
+
 ```json
 {
   "title": "左小白的技术日常",
@@ -71,9 +74,11 @@ v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的�
 ```
 
 ## _info.json配置文件说明
+
 > 移动到每个文件 front-matter
 
 为了方便做seo，每篇文章有创建时间、生成静态html的文件名、作者、关键字、描述等。每个月份下面都需要有一个_info.json文件用来描述当前目录下文章的信息，如果当前目录没文章，就不用创建这个配置文件，下面是一个例子:
+
 ```json
 
 [
@@ -97,9 +102,11 @@ v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的�
   }
 ]
 ```
+
 category用来给文章分类，注意按时间先后顺序来写配置文件
 
 ## 使用zuo-blog成静态博客系统
+
 ```bash
 # 全局安装 zuo-blog
 npm install -g zuo-blog
@@ -109,8 +116,8 @@ cd zuo11.com  # 进入zuo11.com目录，确保该目录下包含src，src下面�
 zuoblog init # 开始生成，在当前目录(zuo11.com)生成dist目录，可直接部署到nginx
 ```
 
-
 ## google
+
 ```js
 ,
   "asideTopHtml": "<ins class='adsbygoogle' style='display:inline-block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>",
