@@ -36,7 +36,7 @@
 
   function showTipsAllTime() {
     timingInterval = setInterval(() => {
-      showMessage('我那么可爱，帮我在 GitHub 上点个 Star 呗 ~~', 5000);
+      showMessage('在忙吗? 帮我在 GitHub 上点个 Star 吧 ~~', 5000);
     }, 5000)
   }
 

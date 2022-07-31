@@ -27,7 +27,7 @@ vue create vue2-implement
 
 在 github/gitlab/gitee... 上创建一个同名仓库，将该项目同步到远程仓库，防止电脑更换，代码丢失
 
-![code_router_1_prepare.png](../../../../src/images/blog/vue-source/code_router_1_prepare.png)
+![code_router_1_prepare.png](../../../images/blog/vue-source/code_router_1_prepare.png)
 
 ## vue-router基础使用与运行原理
 
@@ -43,7 +43,7 @@ http://localhost:8080/#/about # 关于
 
 - 当监听到页面 url 变化时，根据 url - 组件对应关系更新 router-view 占位处显示的组件
 
-![code_router_3_router_replace.png](../../../../src/images/blog/vue-source/code_router_3_router_replace.png)
+![code_router_3_router_replace.png](../../../images/blog/vue-source/code_router_3_router_replace.png)
 
 更多细节
 
@@ -56,7 +56,7 @@ http://localhost:8080/#/about # 关于
 
 如下图，通过 Vue 插件规范，使用 Vue.use(VueRouter) ，实现 install 方法，注入逻辑
 
-![code_router_2_silu.png](../../../../src/images/blog/vue-source/code_router_2_silu.png)
+![code_router_2_silu.png](../../../images/blog/vue-source/code_router_2_silu.png)
 
 ## 开始实现
 
@@ -335,7 +335,7 @@ App.vue 中增加 `<p>{{ $router.app.curRoute }}</p>` 查看效果
 
 运行效果良好
 
-![vue-router.gif](../../../../src/images/blog/vue-source/vue-router.gif)
+![vue-router.gif](../../../images/blog/vue-source/vue-router.gif)
 
 ## 更深层级探索
 
