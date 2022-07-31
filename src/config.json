@@ -51,6 +51,7 @@
     "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
   },
   "categorySequence": [
+    "实现原理与源码",
     "Vue",
     "JavaScript",
     "CSS",
