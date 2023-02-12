@@ -13,13 +13,13 @@
         "href": "/blog/category.html"
       },
       {
-        "name": "系统化前端笔记",
+        "name": "笔记",
         "href": "http://fe.zuo11.com",
         "target": "_black"
       },
       {
-        "name": "Bilibili",
-        "href": "https://space.bilibili.com/486840111",
+        "name": "Food",
+        "href": "http://food.zuo11.com",
         "target": "_black"
       },
       {
@@ -31,13 +31,13 @@
   },
   "topRightLink": [
     {
-      "name": "系统化前端笔记",
+      "name": "笔记",
       "href": "http://fe.zuo11.com",
       "target": "_black"
     },
     {
-      "name": "Bilibili",
-      "href": "https://space.bilibili.com/486840111",
+      "name": "Food",
+      "href": "http://food.zuo11.com",
       "target": "_black"
     },
     {
@@ -72,6 +72,5 @@
   ],
   "asideTopHtml": "<ins class='adsbygoogle' style='display:block;width:300px;height:250px;' data-ad-client='ca-pub-9527676606416641' data-ad-slot='9476232907'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>",
   "commentTopHtml": "<ins class='adsbygoogle' style='display:block;margin-top:1em;margin-bottom:0' data-ad-format='fluid' data-ad-layout-key='-gw-3+1f-3d+2z' data-ad-client='ca-pub-9527676606416641' data-ad-slot='8870245163'></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>",
-  "articleTopHtml": "",
-  "headFragment": "<script src='http://zuo11.com:3000/zs.js?183281668cc3440449274d1f93c04de6'></script>"
+  "articleTopHtml": ""
 }
