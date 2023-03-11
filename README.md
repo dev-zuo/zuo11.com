@@ -1,6 +1,6 @@
 # zuo11.com
 
-zuo11.com 源码，欢迎 star、fork、提改进 pr
+碎片化笔记，记录遇到的问题以及解决方法 http://zuo11.com
 
 ## 目录结构
 
