@@ -148,4 +148,4 @@ editdiv.onkeyup = (e) => {
 </script>
 ```
 
-以上，我们基本实现了输入过程中实时高亮关键字的功能，替换的细节还需要优化，这里只是一个实现思路。完整demo参见: [输入内容过程中高亮关键字 | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/%E8%BE%93%E5%85%A5%E5%86%85%E5%AE%B9%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%AB%98%E4%BA%AE%E5%85%B3%E9%94%AE%E5%AD%97/index.html)
+以上，我们基本实现了输入过程中实时高亮关键字的功能，替换的细节还需要优化，这里只是一个实现思路。完整demo参见: [输入内容过程中高亮关键字 | github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/%E8%BE%93%E5%85%A5%E5%86%85%E5%AE%B9%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%AB%98%E4%BA%AE%E5%85%B3%E9%94%AE%E5%AD%97/index.html)

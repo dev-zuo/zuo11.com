@@ -78,7 +78,7 @@ app.listen('5002', () => {
   console.log('server listen on 5002 port')
 })
 ```
-设置好后，我们再测试就会发现可以正常显示跨域的信息了。如下图，完整demo参见 [跨域Script_error测试demo | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E8%B7%A8%E5%9F%9FScript_error%E6%B5%8B%E8%AF%95)
+设置好后，我们再测试就会发现可以正常显示跨域的信息了。如下图，完整demo参见 [跨域Script_error测试demo | github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/%E8%B7%A8%E5%9F%9FScript_error%E6%B5%8B%E8%AF%95)
 
 ![cross_origin_script_error_fix.png](../../../images/blog/js/cross_origin_script_error_fix.png)
 

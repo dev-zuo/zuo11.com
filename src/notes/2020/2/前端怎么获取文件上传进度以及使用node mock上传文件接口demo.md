@@ -105,4 +105,4 @@ app.listen(3000)
 ```
 
 ## 完整demo github地址
-完整demo，参见: [upload文件上传demo - github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/upload%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6)
+完整demo，参见: [upload文件上传demo - github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/upload%E4%B8%8A%E4%BC%A0%E8%BF%9B%E5%BA%A6)

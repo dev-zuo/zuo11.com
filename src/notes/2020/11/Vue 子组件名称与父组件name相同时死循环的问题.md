@@ -36,4 +36,4 @@ export default {
 
 ![subcomp_samename.png](../../../images/blog/vue/subcomp_samename.png)
 
-完成demo地址，参考 [subcomp_samename demo| github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/subcomp_samename)
+完成demo地址，参考 [subcomp_samename demo| github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/subcomp_samename)

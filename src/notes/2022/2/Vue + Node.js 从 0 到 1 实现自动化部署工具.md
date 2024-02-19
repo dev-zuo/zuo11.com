@@ -10,7 +10,7 @@
 }
 ---
 # Vue + Node.js 从 0 到 1 实现自动化部署工具
-最近写了一个自动化部署的 npm 包 [zuo-deploy](https://github.com/zuoxiaobai/zuo-deploy)，只需点击一个按钮，就可以执行服务器部署脚本，完成功能更新迭代。客户端使用 Vue + ElementUI，服务 koa + socket + koa-session 等。基础功能代码 300 行不到，已开源在 github。zuoxiaobai/zuo-deploy 欢迎 Star、Fork。这里介绍下具体实现细节、思路。
+最近写了一个自动化部署的 npm 包 [zuo-deploy](https://github.com/dev-zuo/zuo-deploy)，只需点击一个按钮，就可以执行服务器部署脚本，完成功能更新迭代。客户端使用 Vue + ElementUI，服务 koa + socket + koa-session 等。基础功能代码 300 行不到，已开源在 github。zuoxiaobai/zuo-deploy 欢迎 Star、Fork。这里介绍下具体实现细节、思路。
 ## 目录结构
 ```bash
 ├── bin # 命令行工具命令
@@ -378,7 +378,7 @@ runCmd() {
 // app.listen 需要改为上面加入了 socket 服务的 server 对象
 server.listen(7777, () => console.log(`服务监听 ${7777} 端口`));
 ```
-我们在之前的 demo 中加入上面的代码，即可完成 socket 改造，node server/indexSocket.js，打开 127.0.0.1:7777/indexSocket.html，点击部署，即可看到如下效果。完成 demo [访问地址](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/zuo-deploy%20%E5%AE%9E%E7%8E%B0demo)
+我们在之前的 demo 中加入上面的代码，即可完成 socket 改造，node server/indexSocket.js，打开 127.0.0.1:7777/indexSocket.html，点击部署，即可看到如下效果。完成 demo [访问地址](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/zuo-deploy%20%E5%AE%9E%E7%8E%B0demo)
 
 ![socket 前端接收](../../../images/blog/zuoDeploy/socket-pending.png)
 ![socket network信息](../../../images/blog/zuoDeploy/socket-ws-msg.png)
@@ -623,8 +623,8 @@ program.parse();
 ### 4.稳定性提高-pm2改造
 为了提升稳定性，我们可以在 start.js 中以代码的方式执行 pm2 src/index.js 这样服务更稳定可靠，另外可以再加入 log4js 输出带时间戳的 log，这样有利于排查问题。
 
-- 具体代码参考：[zuo-deploy -github](https://github.com/zuoxiaobai/zuo-deploy)
-- 所有测试 demo 地址: [zuo-deploy 实现 demo - fedemo -github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/zuo-deploy%20%E5%AE%9E%E7%8E%B0demo) 
+- 具体代码参考：[zuo-deploy -github](https://github.com/dev-zuo/zuo-deploy)
+- 所有测试 demo 地址: [zuo-deploy 实现 demo - fedemo -github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/zuo-deploy%20%E5%AE%9E%E7%8E%B0demo) 
 
 ## 最后
 将上面零碎的知识点汇聚到一起就是 zuo-deploy 的实现，代码写的比较随意，欢迎 star、fork、提改进 PR！

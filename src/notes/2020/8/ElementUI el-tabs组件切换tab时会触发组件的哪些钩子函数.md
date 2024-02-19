@@ -66,5 +66,5 @@
 6. 如果lazy默认为false或true，给组件加上v-if（或者component)来控制组件显示，再加上keep-alive
 和不使用slot，单独在外部用v-if时的钩子并加上keep-avlie保持一致
 
-**综上，el-tabs组件el-tab-pane的slot有好多种情况，会比较混乱，对于需要精准控制tabs组件切换逻辑的场景，个人建议不要使用他的slot，除非你能很明确的知道其钩子函数的执行顺序与逻辑，最好还是仅使用其顶部tab，下面的主内容写在外部，不要写在el-tab-pane内部**。其实主要区别是，如果slot里不用v-if控制，首次加载后，A/B来回切换不会触发A/B的任何钩子函数。完整demo参见 [el-tabs 切换逻辑demo| github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/elementTabs/)
+**综上，el-tabs组件el-tab-pane的slot有好多种情况，会比较混乱，对于需要精准控制tabs组件切换逻辑的场景，个人建议不要使用他的slot，除非你能很明确的知道其钩子函数的执行顺序与逻辑，最好还是仅使用其顶部tab，下面的主内容写在外部，不要写在el-tab-pane内部**。其实主要区别是，如果slot里不用v-if控制，首次加载后，A/B来回切换不会触发A/B的任何钩子函数。完整demo参见 [el-tabs 切换逻辑demo| github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/elementTabs/)
 

@@ -113,7 +113,7 @@ window.addEventListener('scroll', function(e) {
 // -----------------------------
 // 标题：${document.title}
 // 链接：${location.href}
-// 作者：guoqzuo (http://github/zuoxiaobai)
+// 作者：guoqzuo (http://github.com/dev-zuo)
 //   `
 //   event.clipboardData.setData('text/plain', `${document.getSelection().toString()} ${msg}`);
 //   event.preventDefault();

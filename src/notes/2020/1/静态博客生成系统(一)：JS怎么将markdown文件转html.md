@@ -56,7 +56,7 @@ fs.readFile('iOS程序启动过程，从main函数开始UIApplication与AppDeleg
 ```
 
 ## 在zuo-blog里的实际应用
-截取至 zuo-blog [部分源码 | github](https://github.com/zuoxiaobai/zuo-blog/blob/master/vendor/ZUOBlog.js)
+截取至 zuo-blog [部分源码 | github](https://github.com/dev-zuo/zuo-blog/blob/master/vendor/ZUOBlog.js)
 ```js
 // 处理md文件
 _handlerMdFile(article, articlePath, year, month) {

@@ -54,7 +54,7 @@ document.querySelector(".mq-value").innerText = mql.matches;
   }
 }
 ```
-深色模式下，一般将背景调暗，字体设置为偏白色即可。zuo11.com 已用上面的方法适配了深色模式，可以体验下。网站是开源的，[zuo11.com深色模式支持代码 - github](https://github.com/zuoxiaobai/zuo11.com/blob/master/src/global.css)
+深色模式下，一般将背景调暗，字体设置为偏白色即可。zuo11.com 已用上面的方法适配了深色模式，可以体验下。网站是开源的，[zuo11.com深色模式支持代码 - github](https://github.com/dev-zuo/zuo11.com/blob/master/src/global.css)
 
 ## 参考
 - [How do I detect dark mode using JavaScript? - Stack Overflow](https://stackoverflow.com/questions/56393880/how-do-i-detect-dark-mode-using-javascript)

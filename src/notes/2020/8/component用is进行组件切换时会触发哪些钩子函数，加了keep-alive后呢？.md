@@ -152,4 +152,4 @@ keep-alive和非keep-alive钩子函数执行对比图
 再切回B组件 | index beforeUpdate<br>B beforeCreate<br>B created<br>B beforeMount<br>A beforeDestroy<br>A destroyed<br>B mounted<br>index updated | index beforeUpdate<br>A deactivated<br>B activated<br>index updated
 点击离开当前页面 | index beforeDestroy<br>B beforeDestroy<br>B destroyed<br>index destroyed | index beforeDestroy<br>B deactivated<br>A beforeDestroy<br>A destroyed<br>B beforeDestroy<br>B destroyed<br>index destroyed
 
-完整demo地址，参见 [vue hooks demo | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/vuehooks/)
+完整demo地址，参见 [vue hooks demo | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/vuehooks/)

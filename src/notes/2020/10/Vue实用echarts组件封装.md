@@ -150,6 +150,6 @@ export default {
 </style>
 ```
 
-- [完整测试demo地址 | github](https://github.com/zuoxiaobai/vue-chart/tree/master/examples/src/views/zchart)
-- [z-chart组件源码 | github](https://github.com/zuoxiaobai/vue-chart/packages/z-chart/)
+- [完整测试demo地址 | github](https://github.com/dev-zuo/vue-chart/tree/master/examples/src/views/zchart)
+- [z-chart组件源码 | github](https://github.com/dev-zuo/vue-chart/packages/z-chart/)
 - 更加高级的封装，可以查看 [ve-charts源码](https://github.com/vueblocks/ve-charts)

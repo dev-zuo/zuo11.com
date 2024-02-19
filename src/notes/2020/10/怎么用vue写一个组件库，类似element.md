@@ -246,7 +246,7 @@ Vue.use(VueChart);
 ## 6. dosify官网搭建
 使用 dosify 写一个组件库官网，参考 [怎么写出类似element官网那样可以实时看运行效果的文档](http://www.zuo11.com/blog/2020/10/ui_doc.html)
 
-完整代码已上传github，参见 [zuoxiaobai/vue-chart](https://github.com/zuoxiaobai/vue-chart)
+完整代码已上传github，参见 [zuoxiaobai/vue-chart](https://github.com/dev-zuo/vue-chart)
 
 使用 dosify 写的对应的官网 [@guoqzuo/vue-chart官网](https://vuechart.zuo11.com)
 

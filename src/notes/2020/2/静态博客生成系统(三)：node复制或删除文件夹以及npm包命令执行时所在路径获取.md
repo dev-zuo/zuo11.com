@@ -15,7 +15,7 @@
 静态博客生成系统，需要把src目录下的源文件生成dist目录下的可部署的文件，对于资源文件需要从src下直接拷贝过去。这就涉及怎么用node复制或删除文件夹了，另外我们在使用zuoblog init执行构建生成时，需要知道命令执行时所在的路径，下面来看看
 
 ## node复制或删除文件夹
-node只提供了复制文件、删除空文件夹的方法，如果需要复制文件夹或删除文件夹，就需要自己写方法了，在网上找了个不错的实现，稍微再次封装了下，来看[源码 | github](https://github.com/zuoxiaobai/zuo-blog/blob/master/vendor/utils/FSExtend.js)
+node只提供了复制文件、删除空文件夹的方法，如果需要复制文件夹或删除文件夹，就需要自己写方法了，在网上找了个不错的实现，稍微再次封装了下，来看[源码 | github](https://github.com/dev-zuo/zuo-blog/blob/master/vendor/utils/FSExtend.js)
 ```js
 const path = require('path')
 const fs = require('fs')

@@ -65,5 +65,5 @@
 
 ![eslint-fix-3.png](../../../images/blog/vue/eslint-fix-3.png)
 
-综上，只要你知道某个 eslint 配置所需的npm包及 eslintConfig.extends 配置，那么就可以在项目中任意使用eslint了，完整测试 demo 可以从 github 下载 [eslint-fix-test | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/eslint-fix-test)
+综上，只要你知道某个 eslint 配置所需的npm包及 eslintConfig.extends 配置，那么就可以在项目中任意使用eslint了，完整测试 demo 可以从 github 下载 [eslint-fix-test | github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/eslint-fix-test)
 

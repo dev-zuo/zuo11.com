@@ -97,7 +97,7 @@ Vue.directive("zloading", {
 .w30 { width: 30% }
 ```
 
-这样就模拟实现了一个v-loading, 完整demo参见[v-zloading 实现 | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/vuecli-demo/src/views/vloading/index.vue)  注意，指令的实现是放在main.js里面的
+这样就模拟实现了一个v-loading, 完整demo参见[v-zloading 实现 | github](https://github.com/dev-zuo/fedemo/blob/master/src/vuecli-demo/src/views/vloading/index.vue)  注意，指令的实现是放在main.js里面的
 
 
 ## v-loading源码

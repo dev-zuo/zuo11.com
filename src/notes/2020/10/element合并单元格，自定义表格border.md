@@ -111,4 +111,4 @@ export default {
 </style>
 ```
 
-完整demo参见：[element合并单元格demo | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/vuecli-demo/src/views/table/index.vue)
+完整demo参见：[element合并单元格demo | github](https://github.com/dev-zuo/fedemo/blob/master/src/vuecli-demo/src/views/table/index.vue)

@@ -227,7 +227,7 @@ initComponent() {
 
 ## 完整代码
 
-下面时 MyVueRouter.js 完整代码，可以运行的完整代码，参见 <https://github.com/zuoxiaobai/vue2-implement>   vue-router 分支
+下面时 MyVueRouter.js 完整代码，可以运行的完整代码，参见 <https://github.com/dev-zuo/vue2-implement>   vue-router 分支
 
 ```js
 // src/router/MyVueRouter.js

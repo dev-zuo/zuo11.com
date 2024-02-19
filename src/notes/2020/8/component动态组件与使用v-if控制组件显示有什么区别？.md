@@ -23,4 +23,4 @@ component动态组件可以理解为它就是v-if控制组件显示的语法糖�
   </keep-alive>
 </div>
 ```
-测试后发现，component和v-if的页面显示效果，钩子函数执行情况一模一样，不管是否加keep-alive，完整demo参见 [component vs v-if | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/componentAndIs/)
+测试后发现，component和v-if的页面显示效果，钩子函数执行情况一模一样，不管是否加keep-alive，完整demo参见 [component vs v-if | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/componentAndIs/)

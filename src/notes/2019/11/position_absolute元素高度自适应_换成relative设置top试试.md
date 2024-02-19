@@ -53,6 +53,6 @@ document.getElementById('autoMarginTop').style.marginTop = height
 标题使用 position:relative; top:-10px 就可以了，之前一直不知道position:relative也可以设置top等属性，看来基础还是欠缺
 
 
-完整demo源码: [css将部分内容放到其他区域 - github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/css%E5%B0%86%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%8C%BA%E5%9F%9F/index.html)
+完整demo源码: [css将部分内容放到其他区域 - github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/css%E5%B0%86%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%8C%BA%E5%9F%9F/index.html)
 
 demo地址：[css将部分内容放到其他区域 - 在线演示](https://zuoxiaobai.github.io/fedemo//src/DebugDemo/css%E5%B0%86%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%8C%BA%E5%9F%9F/index.html)

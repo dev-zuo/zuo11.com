@@ -118,7 +118,7 @@ export default {
 </script>
 ```
 
-以上就可以实现我们的目的了，完整demo参见 [keepalive测试demo｜ github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/keepAlive)
+以上就可以实现我们的目的了，完整demo参见 [keepalive测试demo｜ github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/keepAlive)
 
 
 ## 参考

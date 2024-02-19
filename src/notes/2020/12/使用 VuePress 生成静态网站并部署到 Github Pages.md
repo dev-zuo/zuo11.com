@@ -76,7 +76,7 @@ module.exports = {
     nav: [
       { text: '指南', link: '/' },
       { text: '配置', link: '/config.md' },
-      { text: 'Github', link: 'https://www.github.com/zuoxiaobai/fenote' }
+      { text: 'Github', link: 'https://www.github.com/dev-zuo' }
     ]
   }
 }

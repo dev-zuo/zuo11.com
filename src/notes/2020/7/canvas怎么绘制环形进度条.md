@@ -28,7 +28,7 @@
 ![canvas_progress.png](../../../images/blog/js/canvas_progress.png)
 
 ## 简单代码实现
-完整demo可以参见github：[渐变环形进度条 | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/%E6%B8%90%E5%8F%98%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/index.html)
+完整demo可以参见github：[渐变环形进度条 | github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/%E6%B8%90%E5%8F%98%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1/index.html)
 ```html
 <canvas id="drawing" width="180" height="180" >A draw of something.</canvas>
 <script>

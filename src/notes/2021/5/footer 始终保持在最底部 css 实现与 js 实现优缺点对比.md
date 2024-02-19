@@ -36,7 +36,7 @@
 2. 对于可能遮挡中间内容区域的问题，将 body 设置为 relative，注意不是 container，这样可以让 footer 内容保持在body最底部
 3. 内容较多时，footer position: absolute 会遮挡内容部分，需要将 container 加一个 padding-bottom: footer 高度，来防止遮挡
 
-[方法 1 - 在线示例](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html)、[方法 1 - 代码 | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html)
+[方法 1 - 在线示例](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html)、[方法 1 - 代码 | github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-absolute.html)
 
 **优点：css 即可实现**
 
@@ -62,7 +62,7 @@ footer {
 ## 方法 2：css 方式 - 中间部分 flex: 1
 使用 flex 纵向布局，中间部分使用 flex: 1，内容不足时自动撑开
 
-[方法 2 - 在线示例](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html)、[方法 2 - 代码 | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html)
+[方法 2 - 在线示例](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html)、[方法 2 - 代码 | github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-css-flex1.html)
 
 **优点：css 即可实现，不需要知道 footer 区域高度**
 
@@ -87,7 +87,7 @@ footer {  /* 不需要知道底部高度 */
 ## 方法 3：js 方式 - 监听页面整体滚动高度与视窗高度动态设置样式
 页面 mounted 后，判断视窗高度 和 整体滚动高度（包含 footer高度），如果小于视窗高度，则添加一个 固定底部的 class，否则去掉该 class
 
-[方法 3 - 在线示例](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html)、[方法 3 - 代码 | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html)
+[方法 3 - 在线示例](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html)、[方法 3 - 代码 | github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/footer%E5%A7%8B%E7%BB%88%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%9C%80%E5%BA%95%E9%83%A8/index-js.html)
 
 **优点：无**
 

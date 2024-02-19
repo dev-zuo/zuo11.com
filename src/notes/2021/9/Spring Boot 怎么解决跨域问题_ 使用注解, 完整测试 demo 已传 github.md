@@ -86,4 +86,4 @@ public class GreetingController {
 </script>
 ```
 
-完整 demo 参见：[springboot-demo | github](https://github.com/zuoxiaobai/springboot-demo)
+完整 demo 参见：[springboot-demo | github](https://github.com/dev-zuo/springboot-demo)

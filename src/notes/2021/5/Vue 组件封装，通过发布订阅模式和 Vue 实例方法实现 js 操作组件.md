@@ -176,4 +176,4 @@ class MessageInfo {
 export default MessageInfo;
 ```
 
-完整 github 代码地址： [message 组件 代码 | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/components/message-info)
+完整 github 代码地址： [message 组件 代码 | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/components/message-info)

@@ -49,7 +49,7 @@
 </body>
 ```
 
-完整demo地址: [html2canvas demo - github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/html2canvas/index.html)
+完整demo地址: [html2canvas demo - github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/html2canvas/index.html)
 
 上面的例子是原生开发的例子，还可以使用node模块的方式引用
 

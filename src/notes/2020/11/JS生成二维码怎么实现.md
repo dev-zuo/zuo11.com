@@ -53,6 +53,6 @@ QRCode.js 使用很简单，下面来写一个自动生成二维码的工具，�
 
 注意：如果输入的是纯文本，那扫描后打开的就是纯文本，如果是 `http://` 开头的网址，会直接跳转到对应的 URL
 
-完整 demo，参见: [前端生成二维码 | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81)
+完整 demo，参见: [前端生成二维码 | github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81)
 
 参考：[QRCode.js | github](https://github.com/davidshimjs/qrcodejs)

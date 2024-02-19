@@ -14,7 +14,7 @@
 
 之前一朋友在微信群里问，是否能做一个动画，在每次进入页面的时候，实现美元钞票向四周扩散的效果，也就是一个遮罩动画。当时刚看完js高程3不久，就用原生js写了个动画，如果页面需要这个动画，只需要引入一个js就可以。
 
-- demo github地址：[原生JS实现遮罩动画demo - github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E9%81%AE%E7%BD%A9%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C)
+- demo github地址：[原生JS实现遮罩动画demo - github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/%E9%81%AE%E7%BD%A9%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C)
 
 - 在线演示：[演示效果](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E9%81%AE%E7%BD%A9%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/index.html)
 

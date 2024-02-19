@@ -106,4 +106,4 @@ export default {
 ```
 
 ## 完整代码地址
-完整demo地址参见: [tree组件demo | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/tree)
+完整demo地址参见: [tree组件demo | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/tree)

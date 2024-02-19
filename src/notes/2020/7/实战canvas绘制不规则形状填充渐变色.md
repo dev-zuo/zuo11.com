@@ -89,4 +89,4 @@
 
 参考之前的笔记：[使用canvas绘图 - JS高程3笔记](https://www.yuque.com/guoqzuo/js_es6/sbx6vi#a59e2f96)
 
-完整demo: [canvas画不规则形状填充渐变背景 - github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/canvas画不规则形状填充渐变背景/index.html)
+完整demo: [canvas画不规则形状填充渐变背景 - github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/canvas画不规则形状填充渐变背景/index.html)

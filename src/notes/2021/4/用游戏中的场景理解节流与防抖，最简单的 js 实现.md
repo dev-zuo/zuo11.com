@@ -113,4 +113,4 @@ function debounce(func, time) {
 ```
 
 ## 代码下载
-完整 demo 示例代码：[节流和防抖实现 - fedemo | Github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0)，在线示例 [节流与防抖简单实现 demo - 需要打开 console 看执行效果](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0/#/)
+完整 demo 示例代码：[节流和防抖实现 - fedemo | Github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0)，在线示例 [节流与防抖简单实现 demo - 需要打开 console 看执行效果](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E8%8A%82%E6%B5%81%E5%92%8C%E9%98%B2%E6%8A%96%E5%AE%9E%E7%8E%B0/#/)

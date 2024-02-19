@@ -31,7 +31,7 @@ h1,h2,h3,h4,h5,h6 {
   margin-bottom: 0;
 }
 ```
-我写了一个测试 demo，可以看对应的效果，完整 demo 参见 [顶部 fix 遮挡 hash demo | Github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/顶部fix遮挡hash/index.html)
+我写了一个测试 demo，可以看对应的效果，完整 demo 参见 [顶部 fix 遮挡 hash demo | Github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/顶部fix遮挡hash/index.html)
 ```html
 <style>
   body {

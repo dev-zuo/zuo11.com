@@ -14,7 +14,7 @@
 
 ![echarts_round.png](../../../images/blog/vue/echarts_round.png)
 
-下面是一个很粗糙的测试demo，option如下，完整demo参见: [自定义仪表盘 | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/echarts)
+下面是一个很粗糙的测试demo，option如下，完整demo参见: [自定义仪表盘 | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/echarts)
 
 ```js
 var placeHolderStyle = {

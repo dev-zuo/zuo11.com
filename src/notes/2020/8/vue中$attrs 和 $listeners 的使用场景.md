@@ -54,7 +54,7 @@
 ```
 
 ## 实战应用
-为了实践上面的`$attrs`和`$listeners`我们可以自己尝试封装一个element form表单组件，参考示例 [elementForm表单组件模仿实现 | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/elementForm)
+为了实践上面的`$attrs`和`$listeners`我们可以自己尝试封装一个element form表单组件，参考示例 [elementForm表单组件模仿实现 | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/elementForm)
 
 ## 参考
 - [深入了解组件 - 自定义事件 - 将原生事件绑定到组件 | Vue.js](https://cn.vuejs.org/v2/guide/components-custom-events.html#%E5%B0%86%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%88%B0%E7%BB%84%E4%BB%B6)

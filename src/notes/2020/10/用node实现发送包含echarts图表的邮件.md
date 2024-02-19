@@ -210,4 +210,4 @@ module.exports = getEchartsPng
 ![node_echarts_img.png](../../../images/blog/node/node_email_4_img.png)
 
 
-完成demo，参见github: [用邮件发送echarts图表](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E7%94%A8%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81echarts%E5%9B%BE%E8%A1%A8)
+完成demo，参见github: [用邮件发送echarts图表](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/%E7%94%A8%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81echarts%E5%9B%BE%E8%A1%A8)

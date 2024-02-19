@@ -93,4 +93,4 @@ export default {
 </style>
 ```
 
-完整代码参见：[vue @功能实现demo | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/vuecli-demo/src/views/at/index.vue)
+完整代码参见：[vue @功能实现demo | github](https://github.com/dev-zuo/fedemo/blob/master/src/vuecli-demo/src/views/at/index.vue)

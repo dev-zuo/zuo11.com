@@ -98,7 +98,7 @@ axios.interceptors.response.use(function (response) {
 4. 最后才会执行axios请求then后面的内容
 
 ## 完整demo
-代码以放到github: [axios拦截器demo - github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/axios%E6%8B%A6%E6%88%AA%E5%99%A8/index.html)
+代码以放到github: [axios拦截器demo - github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/axios%E6%8B%A6%E6%88%AA%E5%99%A8/index.html)
 
 ```html
 <!-- demo -->

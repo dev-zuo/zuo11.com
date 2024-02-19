@@ -214,7 +214,7 @@ module.exports = (filePath) => {
 3. **在F12 chrome调试面板，勾选disable cache，请求头会自动携带Pragma: no-cache，等价于请求头里设置cache-control： no-cache**
 4. **在chrome浏览器下，请求头里使用Cache-Control': 'no-store'，没有任何用处**
 
-关于以上完整的HTTP缓存测试demo，参见 [http缓存测试 | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98)
+关于以上完整的HTTP缓存测试demo，参见 [http缓存测试 | github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98)
 
 参考:
 - [Pragma - HTTP | MDN](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Pragma)

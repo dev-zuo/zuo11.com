@@ -189,5 +189,5 @@ function showMsg() {
 
 ### github完整代码
 
-上面是没有element样式的，完整demo参见 [自定义prompt | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/prompt/index.html)
+上面是没有element样式的，完整demo参见 [自定义prompt | github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/prompt/index.html)
 

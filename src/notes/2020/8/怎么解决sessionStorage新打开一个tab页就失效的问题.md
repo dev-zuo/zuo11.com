@@ -21,7 +21,7 @@
 
 由于sessionStorage打开新tab页默认会丢失。那新开tab页的sessionStorage就是空的。我们可以判断，如果sessionStorage.length值为0，那么就是新开的页面。这时我们通过设置一个localStorage字段的值，触发之前打开页面的Storage事件，在这个事件里我们将当前页面的sessionStorage通过localStorage设置值，来触发新页面的Storage事件，把sessionStorage传递到新的页面
 
-下面是部分核心代码，详细demo参见 [github demo地址](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/sessionFailureNewTabTest)
+下面是部分核心代码，详细demo参见 [github demo地址](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/sessionFailureNewTabTest)
 
 ```html
 <script>

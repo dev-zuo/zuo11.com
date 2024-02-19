@@ -45,4 +45,4 @@ css中某个元素hover后，可以对其他元素设置样式，但注意：只
 </div>
 ```
 
-完整demo参见: [css hover后改变其他样式demo | github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/hover%E6%94%B9%E5%8F%98%E5%85%B6%E4%BB%96%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F/index.html)
+完整demo参见: [css hover后改变其他样式demo | github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/hover%E6%94%B9%E5%8F%98%E5%85%B6%E4%BB%96%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F/index.html)

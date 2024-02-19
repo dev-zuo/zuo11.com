@@ -24,7 +24,7 @@
 
 另外需要写两个接口，用户观察请求响应头里cookie的信息，这里我们用koa来写两个简单的接口。
 
-下面是demo目录层级，完整demo参见 [前端改变cookie后之后的请求会携带上吗demo | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/DebugDemo/%E5%89%8D%E7%AB%AF%E6%94%B9%E5%8F%98cookie%E5%90%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E8%AF%B7%E6%B1%82%E4%BC%9A%E6%90%BA%E5%B8%A6%E4%B8%8A%E5%90%97)
+下面是demo目录层级，完整demo参见 [前端改变cookie后之后的请求会携带上吗demo | github](https://github.com/dev-zuo/fedemo/tree/master/src/DebugDemo/%E5%89%8D%E7%AB%AF%E6%94%B9%E5%8F%98cookie%E5%90%8E%E4%B9%8B%E5%90%8E%E7%9A%84%E8%AF%B7%E6%B1%82%E4%BC%9A%E6%90%BA%E5%B8%A6%E4%B8%8A%E5%90%97)
 
 ```bash
 # demo 目录层级

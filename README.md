@@ -50,16 +50,16 @@ v2.0.0 去除 _info.json（配置文件记录了当前目录下每篇文章的�
     "linkList": [
       { "name": "博客", "href": "/blog/category.html" },
       { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
-      { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+      { "name": "Github", "href": "https://github.com/dev-zuo", "target": "_black"}
     ]
   },
   "topRightLink": [
     { "name": "语雀", "href": "https://www.yuque.com/guoqzuo", "target": "_black" },
-    { "name": "Github", "href": "https://github.com/zuoxiaobai", "target": "_black"}
+    { "name": "Github", "href": "https://github.com/dev-zuo", "target": "_black"}
   ],
   "footer": {
     "left": "Copyright © 2016-2020 zuo11.com. 鄂ICP备16014741号-1",
-    "right": "Powered by <a href='https://github.com/zuoxiaobai/zuo-blog' target='_black'>zuo-blog</a>"
+    "right": "Powered by <a href='https://github.com/dev-zuo/zuo-blog' target='_black'>zuo-blog</a>"
   },
   "categorySequence": [
     "web",

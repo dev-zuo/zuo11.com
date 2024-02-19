@@ -55,4 +55,4 @@ var InfiniteScroll = {
 
 怎么解决这个问题呢？**记住 v-infinite-scroll 必须放在一个单独的单文件组件里，不要放到某个组件的slot里。且不要用v-if控制，使用v-show，这样就不会有问题了。**
 
-测试demo，参见: [v-infinite-scroll 测试demo](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/infiniteScrollTest)
+测试demo，参见: [v-infinite-scroll 测试demo](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/infiniteScrollTest)

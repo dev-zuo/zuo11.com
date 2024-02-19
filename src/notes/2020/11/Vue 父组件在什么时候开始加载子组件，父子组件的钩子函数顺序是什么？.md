@@ -36,6 +36,6 @@
 
 父组件 beforeCreate => 父组件 created => 父组件 beforeMount => 父组件 mounted => 父组件 beforeUpdate => 子组件 beforeCreate => 子组件 created => 子组件 beforeMount => 子组件 mounted => 父组件 index updated
 
-如下图，完整demo参见 [父子组件钩子函数demo ｜ github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/vuehooks)
+如下图，完整demo参见 [父子组件钩子函数demo ｜ github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/vuehooks)
 
 ![sub_comp_hooks.png](../../../images/blog/vue/sub_comp_hooks.png)

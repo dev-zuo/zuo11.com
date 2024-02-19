@@ -38,7 +38,7 @@ ev.target.appendChild(document.querySelector(`#${reciveData}`).cloneNode(true))
 3. 在Firefox（火狐）浏览器里drop图片后，会新在新的tab也打开图片，不仅要在drop里阻止默认行为，还要阻止事件冒泡
 
 ## demo实例
-demo如下，demo [在线体验地址](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E6%8B%96%E5%8A%A8%E5%9B%BE%E7%89%87demo/)，demo [github源码](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/%E6%8B%96%E5%8A%A8%E5%9B%BE%E7%89%87demo/index.html)
+demo如下，demo [在线体验地址](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/%E6%8B%96%E5%8A%A8%E5%9B%BE%E7%89%87demo/)，demo [github源码](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/%E6%8B%96%E5%8A%A8%E5%9B%BE%E7%89%87demo/index.html)
 
 ![js_drag_2.png](../../../images/blog/js/js_drag_2.png)
 

@@ -18,7 +18,7 @@
 2. 封装mixin函数，在需要引入的地方执行函数
 3. 使用 @headerHeight: 100px 这种方法定义变量
 
-示例如下，完成代码：[less mixin封装测试 | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/lessMixinTest)
+示例如下，完成代码：[less mixin封装测试 | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/lessMixinTest)
 ```html
 <!-- pageA -->
 <template>

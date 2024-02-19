@@ -64,6 +64,6 @@
 </body>
 ```
 
-完整demo地址：[点击外部关闭div - github](https://github.com/zuoxiaobai/fedemo/blob/master/src/DebugDemo/%E7%82%B9%E5%87%BB%E5%A4%96%E9%83%A8%E5%85%B3%E9%97%ADdiv/index.html)
+完整demo地址：[点击外部关闭div - github](https://github.com/dev-zuo/fedemo/blob/master/src/DebugDemo/%E7%82%B9%E5%87%BB%E5%A4%96%E9%83%A8%E5%85%B3%E9%97%ADdiv/index.html)
 
 在线演示地址: [点击外部关闭div - 在线演示](https://zuoxiaobai.github.io/fedemo/src/DebugDemo/点击外部关闭div/index.html)

@@ -91,7 +91,7 @@ router.post('/upload', fileConfig ,async ctx => {
   ctx.body = ctx.request.body 
 })
 ```
-完整测试代码，参见 [fetch 上传文件 前端后代码 | Github](https://github.com/zuoxiaobai/fedemo/tree/master/src/JS_ES6/JS%E9%AB%98%E7%A8%8B3/fetch)
+完整测试代码，参见 [fetch 上传文件 前端后代码 | Github](https://github.com/dev-zuo/fedemo/tree/master/src/JS_ES6/JS%E9%AB%98%E7%A8%8B3/fetch)
 
 
 参考：

@@ -232,5 +232,5 @@ export default {
 
 ```
 
-完整demo地址：[用户列表打开多个用户详情demo | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/sameCompTabs)
+完整demo地址：[用户列表打开多个用户详情demo | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/sameCompTabs)
 

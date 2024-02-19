@@ -264,4 +264,4 @@ export default {
 3. 事件的监听和触发，这里使用的是$parent来处理，element里面通过 this.dispatch事件来触发
 4. element form支持很多参数，这里只是简单的模拟，element里面会复杂很多。
 
-完整demo参见 [element form实现 - fedemo | github](https://github.com/zuoxiaobai/fedemo/tree/master/src/vuecli-demo/src/views/elementForm)
+完整demo参见 [element form实现 - fedemo | github](https://github.com/dev-zuo/fedemo/tree/master/src/vuecli-demo/src/views/elementForm)
