@@ -1,0 +1,474 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <meta name="application name" content="category.html" />
+    <meta name="author" content="dev-zuo" />
+    <meta name="description" content="友情链接 - dev-zuo 技术日常" />
+    <meta name="keywords" content="dev-zuo 技术日常 友情链接" />
+
+    <title>友情链接 - dev-zuo 技术日常</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link href="/lib/prismjs/prism_default.css" rel="stylesheet" />
+    <link href="/lib/notes.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/lib/global.css" />
+
+    <meta
+      http-equiv="origin-trial"
+      content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="
+    />
+    <meta
+      http-equiv="origin-trial"
+      content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="
+    />
+    <meta
+      http-equiv="origin-trial"
+      content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"
+    />
+    <meta
+      http-equiv="origin-trial"
+      content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"
+    />
+    <meta
+      http-equiv="origin-trial"
+      content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"
+    />
+    <style>
+                /* 极简容器，最大宽度 + 居中留白 */
+        .container {
+            max-width: 1280px;
+            margin: 0 55px;
+            background: transparent;
+        }
+         /* 头部区域：干净留白，无多余装饰 */
+        .header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .header .sub {
+            font-size: 1rem;
+            color: #475569;
+            border-top: 1px solid #e2e8f0;
+            display: inline-block;
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        /* 极简分割线概念：只有必要的轻量元素 */
+        .intro-text {
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 2rem auto;
+            color: #334155;
+            font-size: 0.95rem;
+            background: transparent;
+            padding: 0 0.5rem;
+        }
+
+        /* 网格布局，干净卡片风格 */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.75rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        /* 卡片：极简白底，微阴影，圆润干净 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.03);
+            border: 1px solid #edf2f7;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+            border-color: #e2edff;
+            transform: translateY(-2px);
+        }
+
+        /* 网站名称 + 链接 */
+        .site-name {
+            margin-bottom: 0.65rem;
+        }
+
+        .site-name a {
+            font-size: 1.35rem;
+            font-weight: 550;
+            color: #0f172a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            letter-spacing: -0.2px;
+        }
+
+        .site-name a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        /* 网站描述 - 极简轻量 */
+        .desc {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0.75rem 0 1rem 0;
+            line-height: 1.45;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 网址显示区域：小字号，低调 */
+        .site-url {
+            font-size: 0.75rem;
+            font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+            color: #5b6e8c;
+            background-color: #f1f5f9;
+            padding: 0.3rem 0.65rem;
+            border-radius: 40px;
+            display: inline-block;
+            max-width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            word-break: keep-all;
+            transition: background 0.2s;
+        }
+
+        /* 手机端友好：允许长网址换行或滚动 */
+        @media (max-width: 640px) {
+            .container {
+              margin: 0 auto;
+            }
+            .site-url {
+                white-space: normal;
+                word-break: break-all;
+                font-size: 0.7rem;
+            }
+            .links-grid {
+                gap: 1.25rem;
+            }
+            .card {
+                padding: 1.25rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            body {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* 辅助文本与页脚 */
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9eef3;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+        }
+
+        .footer-note a {
+            color: #3b6eae;
+            text-decoration: none;
+            border-bottom: 1px dotted #cbd5e1;
+        }
+
+        .footer-note a:hover {
+            color: #1e40af;
+        }
+
+        /* 空状态极简提示 */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: #fff;
+            border-radius: 28px;
+            border: 1px solid #f0f2f5;
+            color: #64748b;
+        }
+
+        /* 极简装饰细节 — 保持克制 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img
+          src="/images/logo.png"
+          width="24"
+          height="24"
+          class="pointer"
+          onclick="gotoIndex()"
+        />
+        <span class="pointer" onclick="gotoIndex()">dev-zuo 技术日常</span>
+        <span class="hidden"> | </span>
+        <a href="" class="hidden">分类</a>
+      </div>
+      <div>
+        <a href="http://fe.zuo11.com" target="_black" class="hidden">笔记</a>
+
+        <a href="http://food.zuo11.com" target="_black" class="hidden">Food</a>
+
+        <a href="/friend.html" target="_black" class="hidden">友链</a>
+
+        <a href="https://github.com/dev-zuo" target="_black" class="">Github</a>
+      </div>
+    </header>
+    <section class="content" style="display: flex; flex-direction: column;margin-top: 46px;">
+        <div class="container">
+            <div class="header">
+        <h3>友情链接</h3>
+      </div>
+      <div class="intro-text">
+        简单，真诚，连接优质站点。以下为精选推荐，点击站名即可访问。
+      </div>
+
+      <!-- 动态渲染友情链接的网格容器 -->
+      <div id="friends-list" class="links-grid">
+        <div class="card">
+          <div class="site-name">
+            <a
+              href="https://tianmiao.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="访问 天渺studio的小站，新窗口打开"
+              >天渺studio的小站</a
+            >
+          </div>
+          <p class="desc">
+            独立开发与生活记录，分享技术、设计与灵感碎片，保持好奇。
+          </p>
+          <span class="site-url" title="点击站名访问: 天渺studio的小站">https://tianmiao.site/</span>
+        </div>
+
+
+         <div class="card">
+          <div class="site-name">
+            <a
+              href="http://fe.zuo11.com/nav.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="访问 前端网址导航，新窗口打开"
+              >前端网址导航</a
+            >
+          </div>
+          <p class="desc">
+            前端网址导航 | dev-zuo 笔记
+          </p>
+          <span class="site-url" title="点击站名访问: 前端网址导航">http://fe.zuo11.com/nav.html</span>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer_content">
+        <div class="footer_right">
+          Copyright © 2016-2026 zuo11.com.
+          <a href="http://beian.miit.gov.cn/">鄂ICP备16014741号-1</a>
+        </div>
+        <div>
+          Powered by
+          <a href="https://github.com/dev-zuo/zuo-blog" target="_black"
+            >zuo-blog</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="/lib/prismjs/prism_default.js"></script>
+    <script src="/lib/notes.js"></script>
+    <script src="/lib/global.js"></script>
+    <div>
+      <div
+        id="posTop"
+        style="
+          position: fixed;
+          top: 0;
+          height: 2px;
+          background: var(--primary-bg);
+          z-index: 999999;
+        "
+      ></div>
+      <div
+        id="posBack"
+        style="
+          cursor: pointer;
+          display: none;
+          position: fixed;
+          bottom: 150px;
+          right: 20px;
+          padding: 10px;
+          background: var(--primary-bg);
+          color: white;
+          width: 40px;
+          text-align: center;
+          border-radius: 5px;
+        "
+      >
+        回到顶部
+      </div>
+      <div
+        id="pos"
+        style="
+          display: none;
+          position: fixed;
+          bottom: 100px;
+          right: 20px;
+          padding: 10px;
+          background: var(--primary-bg);
+          color: white;
+          width: 40px;
+          text-align: center;
+          border-radius: 5px;
+        "
+      ></div>
+    </div>
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?183281668cc3440449274d1f93c04de6";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178732583-1"></script> -->
+    <script>
+      // window.dataLayer = window.dataLayer || [];
+      // function gtag(){dataLayer.push(arguments);}
+      // gtag('js', new Date());
+      // gtag('config', 'UA-178732583-1');
+
+      window.onload = function () {
+        setTimeout(function () {
+          let script = document.createElement("script");
+          script.setAttribute("data-ad-client", "ca-pub-9527676606416641");
+          script.setAttribute("async", "");
+          script.src =
+            "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+          document.body.appendChild(script);
+        }, 200);
+      };
+    </script>
+
+    <!-- 
+  @fork me on github
+  https://github.com/tholman/github-corners 
+-->
+    <a
+      href="https://github.com/dev-zuo/zuo11.com"
+      target="_blank"
+      class="github-corner"
+      aria-label="View source on GitHub"
+      title="在github上查看源码"
+      ><svg
+        width="80"
+        height="80"
+        viewBox="0 0 250 250"
+        style="
+          fill: rgb(12, 109, 235);
+          color: #fff;
+          position: fixed;
+          top: 0;
+          border: 0;
+          right: 0;
+          z-index: 99999999;
+        "
+        aria-hidden="true"
+      >
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor"
+          style="transform-origin: 130px 106px"
+          class="octo-arm"
+        ></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor"
+          class="octo-body"
+        ></path>
+      </svg>
+    </a>
+    <style>
+      .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
+
+      @keyframes octocat-wave {
+        0%,
+        100% {
+          transform: rotate(0);
+        }
+
+        20%,
+        60% {
+          transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+          transform: rotate(10deg);
+        }
+      }
+
+      @media (max-width: 500px) {
+        .github-corner:hover .octo-arm {
+          animation: none;
+        }
+
+        .github-corner .octo-arm {
+          animation: octocat-wave 560ms ease-in-out;
+        }
+      }
+    </style>
+
+    <!-- 
+  live2d 
+  张鑫旭：https://www.zhangxinxu.com/wordpress/2018/05/live2d-web-webgl-js/
+  大帅老袁：https://juejin.cn/post/7026180392755888142#heading-4
+  live2d模型：https://github.com/ezshine/live2d-model-collections/
+  较完整的live2d：https://github.com/galnetwen/Live2D
+-->
+    <!-- <div style="position:fixed;bottom:0;left:20px;">
+  <div id="live2dMessage" style="position:absolute;bottom:130px;left:-10px;width:100px;background:#fff;border-radius: 5px;;color:rgb(12, 109, 235);margin-bottom: 5px;text-align:center;"></div>
+  <canvas id="live2d" width="280" height="250" style="width:125px;"></canvas>
+</div>
+<style>
+  #live2dMessage.msg {
+    padding: 5px;
+  }
+</style>
+<script src="/live2d/live2d.js"></script>
+<script src="/live2d/message.js"></script>
+<script>
+  loadlive2d("live2d", "/live2d/whitecat/model.json");
+</script> -->
+  </body>
+</html>

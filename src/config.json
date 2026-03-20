@@ -23,6 +23,11 @@
         "target": "_black"
       },
       {
+        "name": "友链",
+        "href": "/friend.html",
+        "target": "_black"
+      },
+      {
         "name": "Github",
         "href": "https://github.com/dev-zuo",
         "target": "_black"
@@ -41,13 +46,18 @@
       "target": "_black"
     },
     {
+      "name": "友链",
+      "href": "/friend.html",
+      "target": "_black"
+    },
+    {
       "name": "Github",
       "href": "https://github.com/dev-zuo",
       "target": "_black"
     }
   ],
   "footer": {
-    "left": "Copyright © 2016-2022 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a>",
+    "left": "Copyright © 2016-2026 zuo11.com. <a href='http://beian.miit.gov.cn/'>鄂ICP备16014741号-1</a>",
     "right": "Powered by <a href='https://github.com/dev-zuo/zuo-blog' target='_black'>zuo-blog</a>"
   },
   "categorySequence": [

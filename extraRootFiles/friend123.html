@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>友情链接 | dev-zuo技术日常</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8fafc;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        /* 极简容器，最大宽度 + 居中留白 */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: transparent;
+        }
+
+        /* 头部区域：干净留白，无多余装饰 */
+        .header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .header .sub {
+            font-size: 1rem;
+            color: #475569;
+            border-top: 1px solid #e2e8f0;
+            display: inline-block;
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        /* 极简分割线概念：只有必要的轻量元素 */
+        .intro-text {
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 2rem auto;
+            color: #334155;
+            font-size: 0.95rem;
+            background: transparent;
+            padding: 0 0.5rem;
+        }
+
+        /* 网格布局，干净卡片风格 */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.75rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        /* 卡片：极简白底，微阴影，圆润干净 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.03);
+            border: 1px solid #edf2f7;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+            border-color: #e2edff;
+            transform: translateY(-2px);
+        }
+
+        /* 网站名称 + 链接 */
+        .site-name {
+            margin-bottom: 0.65rem;
+        }
+
+        .site-name a {
+            font-size: 1.35rem;
+            font-weight: 550;
+            color: #0f172a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            letter-spacing: -0.2px;
+        }
+
+        .site-name a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        /* 网站描述 - 极简轻量 */
+        .desc {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0.75rem 0 1rem 0;
+            line-height: 1.45;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 网址显示区域：小字号，低调 */
+        .site-url {
+            font-size: 0.75rem;
+            font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+            color: #5b6e8c;
+            background-color: #f1f5f9;
+            padding: 0.3rem 0.65rem;
+            border-radius: 40px;
+            display: inline-block;
+            max-width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            word-break: keep-all;
+            transition: background 0.2s;
+        }
+
+        /* 手机端友好：允许长网址换行或滚动 */
+        @media (max-width: 640px) {
+            .site-url {
+                white-space: normal;
+                word-break: break-all;
+                font-size: 0.7rem;
+            }
+            .links-grid {
+                gap: 1.25rem;
+            }
+            .card {
+                padding: 1.25rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            body {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* 辅助文本与页脚 */
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9eef3;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+        }
+
+        .footer-note a {
+            color: #3b6eae;
+            text-decoration: none;
+            border-bottom: 1px dotted #cbd5e1;
+        }
+
+        .footer-note a:hover {
+            color: #1e40af;
+        }
+
+        /* 空状态极简提示 */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: #fff;
+            border-radius: 28px;
+            border: 1px solid #f0f2f5;
+            color: #64748b;
+        }
+
+        /* 极简装饰细节 — 保持克制 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h3>友情链接</h3>
+    </div>
+    <div class="intro-text">
+        简单，真诚，连接优质站点。以下为精选推荐，点击站名即可访问。
+    </div>
+
+    <!-- 动态渲染友情链接的网格容器 -->
+    <div id="friends-list" class="links-grid">
+        <article class="card"><div class="site-name"><a href="https://tianmiao.site/" target="_blank" rel="noopener noreferrer" aria-label="访问 天渺studio的小站，新窗口打开">天渺studio的小站</a></div><p class="desc">独立开发与生活记录，分享技术、设计与灵感碎片，保持好奇。</p><span class="site-url" title="点击站名访问: 天渺studio的小站">https://tianmiao.site/</span></article>
+    </div>
+</div>
