@@ -94,6 +94,7 @@
             transition: all 0.2s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.03);
             border: 1px solid #edf2f7;
+            cursor: pointer;
         }
 
         .card:hover {
@@ -229,7 +230,7 @@
         />
         <span class="pointer" onclick="gotoIndex()">dev-zuo 技术日常</span>
         <span class="hidden"> | </span>
-        <a href="" class="hidden">分类</a>
+        <a href="/blog/category.html" class="hidden">分类</a>
       </div>
       <div>
         <a href="http://fe.zuo11.com" target="_black" class="hidden">笔记</a>
@@ -252,7 +253,7 @@
 
       <!-- 动态渲染友情链接的网格容器 -->
       <div id="friends-list" class="links-grid">
-        <div class="card">
+        <div class="card" onclick="gotoLink(0)">
           <div class="site-name">
             <a
               href="https://tianmiao.site/"
@@ -268,8 +269,7 @@
           <span class="site-url" title="点击站名访问: 天渺studio的小站">https://tianmiao.site/</span>
         </div>
 
-
-         <div class="card">
+         <div class="card" onclick="gotoLink(1)">
           <div class="site-name">
             <a
               href="http://fe.zuo11.com/nav.html"
@@ -470,5 +470,13 @@
 <script>
   loadlive2d("live2d", "/live2d/whitecat/model.json");
 </script> -->
+  <script>
+    function gotoLink(index) {
+      console.log('gotoLink', index)
+        let arr = ['https://tianmiao.site/', 'http://fe.zuo11.com/nav.html']
+        window.open(arr[index - 0], '_blank')
+    }
+
+  </script>
   </body>
 </html>
